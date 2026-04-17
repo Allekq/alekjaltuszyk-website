@@ -1,0 +1,20 @@
+---
+import { siteConfig } from "../../../config/site";
+
+interface Props {
+  brand?: string;
+  brandHref?: string;
+}
+
+const {
+  brand = siteConfig.name,
+  brandHref = siteConfig.homeHref,
+} = Astro.props as Props;
+---
+
+<header class="simple-site-header">
+  <div class="simple-site-header__bar landing-surface">
+    <a class="simple-site-header__brand" href={brandHref}>{brand}</a>
+    <button class="theme-toggle" type="button" data-theme-toggle>Theme</button>
+  </div>
+</header>

@@ -1,0 +1,36 @@
+---
+import { siteConfig } from "../../../config/site";
+import { appDirectory } from "../../../config/routes";
+import ActionButton from "../ui/ActionButton.astro";
+import AppCard from "../ui/AppCard.astro";
+---
+
+<section id="apps" class="landing-section">
+  <div class="landing-section__inner">
+    <div class="section-heading" data-reveal>
+      <p class="section-kicker">Apps</p>
+      <h2 class="section-title">Two panels now, more later.</h2>
+      <p class="section-body">
+        The app directory is the chooser. Some apps can live under this domain, and some can jump
+        out to their own standalone site without cluttering the root.
+      </p>
+    </div>
+
+    <div class="app-card-grid">
+      {appDirectory.map((item, index) => (
+        <AppCard item={item} revealDelay={index} />
+      ))}
+    </div>
+
+    <div class="apps-preview__footer landing-surface" data-reveal>
+      <div>
+        <p class="section-kicker">Future-proof setup</p>
+        <h3 class="launch-actions__title">This can scale by adding more cards instead of rewriting the site map.</h3>
+      </div>
+
+      <ActionButton href={siteConfig.appsHref} variant="secondary">
+        Open the apps directory
+      </ActionButton>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+const features = [
+  {
+    title: "A plan that stays on stage",
+    body: "PlanKept is being framed around the moment after intention, when a plan usually vanishes into tabs, notes, and memory.",
+  },
+  {
+    title: "Gentle pressure instead of clutter",
+    body: "The direction is not enterprise project management. It is personal follow-through with a calmer, more alive feel.",
+  },
+  {
+    title: "A public site that is already useful",
+    body: "Even before the product page is fully fleshed out, the website now has support, legal pages, and a wish-list route ready to go.",
+  },
+];
+---
+
+<section id="overview" class="landing-section">
+  <div class="landing-section__inner">
+    <div class="section-heading" data-reveal>
+      <p class="section-kicker">Overview</p>
+      <h2 class="section-title">A first pass that already feels like a living product.</h2>
+      <p class="section-body">
+        This version is intentionally foundational. It gives PlanKept a launch surface now, while
+        leaving space for the full product story, screenshots, and deeper interactions later.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      {features.map((feature, index) => (
+        <article class="feature-card landing-surface" data-reveal style={`--feature-delay:${index};`}>
+          <p class="feature-card__count">0{index + 1}</p>
+          <h3>{feature.title}</h3>
+          <p>{feature.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,8 @@
+---
+import { planKeptConfig } from "../../../config/site";
+import PlanKeptLegalScaffold from "../sections/PlanKeptLegalScaffold.astro";
+import SimpleSiteHeader from "../sections/SimpleSiteHeader.astro";
+---
+
+<SimpleSiteHeader brand={planKeptConfig.name} brandHref={planKeptConfig.homeHref} />
+<PlanKeptLegalScaffold />

@@ -1,0 +1,50 @@
+---
+import "../../../styles/landing.css";
+import PlanKeptPageOrchestrator from "../../../components/landing/orchestrator/PlanKeptPageOrchestrator.astro";
+import { planKeptConfig, siteConfig } from "../../../config/site";
+import { siteRoutes } from "../../../config/routes";
+import { toAbsoluteSiteUrl } from "../../../lib/discovery";
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+
+const organizationId = `${siteConfig.origin}#organization`;
+const planKeptPageStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    name: planKeptConfig.name,
+    operatingSystem: "iOS",
+    applicationCategory: "ProductivityApplication",
+    url: toAbsoluteSiteUrl(siteRoutes.apps.planKept.path),
+    image: siteConfig.defaultSocialImageUrl,
+    description: planKeptConfig.aiDiscovery.summary,
+    publisher: {
+      "@id": organizationId,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: planKeptConfig.homeTitle,
+    url: toAbsoluteSiteUrl(siteRoutes.apps.planKept.path),
+    description: planKeptConfig.defaultDescription,
+    about: {
+      "@type": "Thing",
+      name: planKeptConfig.name,
+      description: planKeptConfig.aiDiscovery.summary,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${siteConfig.origin}#website`,
+    },
+  },
+];
+---
+
+<SiteLayout
+  title={planKeptConfig.homeTitle}
+  description={planKeptConfig.defaultDescription}
+  pageType="landing"
+  structuredData={planKeptPageStructuredData}
+>
+  <PlanKeptPageOrchestrator />
+</SiteLayout>

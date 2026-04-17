@@ -1,0 +1,43 @@
+---
+import { siteConfig } from "../../../config/site";
+import ActionButton from "../ui/ActionButton.astro";
+
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  brand?: string;
+  brandHref?: string;
+  navigation?: readonly NavItem[];
+  ctaHref?: string;
+  ctaLabel?: string;
+  ctaVariant?: "primary" | "secondary" | "ghost";
+}
+
+const {
+  brand = siteConfig.name,
+  brandHref = "#home",
+  navigation = siteConfig.navigation,
+  ctaHref = siteConfig.appsHref,
+  ctaLabel = siteConfig.ctas.primary,
+  ctaVariant = "primary",
+} = Astro.props as Props;
+---
+
+<header class="landing-header" data-reveal data-reveal-early>
+  <div class="landing-header__bar landing-surface">
+    <a class="landing-brand" href={brandHref}>{brand}</a>
+
+    <nav class="landing-nav" aria-label="Primary">
+      {navigation.map((item) => (
+        <a class="landing-nav__link" href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <ActionButton className="landing-header__cta" href={ctaHref} variant={ctaVariant}>
+      {ctaLabel}
+    </ActionButton>
+  </div>
+</header>

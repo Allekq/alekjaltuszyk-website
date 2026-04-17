@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Alek Jałtuszyk">
+  <defs>
+    <linearGradient id="aj-fill" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff8c66" />
+      <stop offset="100%" stop-color="#2db9a3" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#102228" />
+  <path
+    d="M30 95 54 31h18l26 64H84l-5.2-14H49.4L44 95H30Zm23.6-25h21.2L64.1 42.3 53.6 70Z"
+    fill="url(#aj-fill)"
+  />
+  <path
+    d="M94 35h12v35.5c0 18.5-9.6 28.5-28.6 28.5-4.9 0-9.7-.7-14.4-2.2l3-10.8c3.4 1.2 6.8 1.8 10.1 1.8 11.9 0 17.9-5.8 17.9-17.4V35Z"
+    fill="#f4c97a"
+    opacity="0.94"
+  />
+</svg>

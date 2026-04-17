@@ -1,0 +1,28 @@
+---
+import "../../styles/landing.css";
+import SharedAppScaffold from "../../components/landing/sections/SharedAppScaffold.astro";
+import SimpleSiteHeader from "../../components/landing/sections/SimpleSiteHeader.astro";
+import { siteRoutes } from "../../config/routes";
+import { toAbsoluteSiteUrl } from "../../lib/discovery";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const appsPageStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Apps",
+    url: toAbsoluteSiteUrl(siteRoutes.apps.index.path),
+    description: "Directory of apps and product sites by Alek Jałtuszyk.",
+  },
+];
+---
+
+<SiteLayout
+  title="Apps"
+  description="Shared app chooser for the products linked from alekjaltuszyk.xyz."
+  pageType="landing"
+  structuredData={appsPageStructuredData}
+>
+  <SimpleSiteHeader />
+  <SharedAppScaffold title="Apps" variant="apps" />
+</SiteLayout>

@@ -1,0 +1,60 @@
+---
+import { siteRoutes } from "../../../config/routes";
+
+const routeRows = [
+  {
+    label: siteRoutes.home.path,
+    title: "Alek Jałtuszyk",
+    body: "Placeholder personal homepage that will grow into the broader site about me.",
+  },
+  {
+    label: siteRoutes.apps.index.path,
+    title: "Apps",
+    body: "Directory of products with room for more panels and more routes over time.",
+  },
+  {
+    label: siteRoutes.apps.planKept.path,
+    title: "PlanKept",
+    body: "Internal product page on this domain, separate from the root identity.",
+  },
+  {
+    label: siteRoutes.apps.voiceOfSelf.href,
+    title: "Voice of Self",
+    body: "External destination that stays in its own repo and on its own website.",
+  },
+];
+---
+
+<section id="split" class="landing-section landing-section--tinted">
+  <div class="landing-section__inner split-section__inner landing-surface">
+    <div class="split-section__copy" data-reveal>
+      <p class="section-kicker">Clean hierarchy</p>
+      <h2 class="section-title">The split is deliberate so the structure stays obvious.</h2>
+      <p class="section-body">
+        The homepage can become a real personal site without dragging every app into the same page.
+        The app directory stays the chooser, internal app pages stay nested, and products that want
+        their own domain can keep it.
+      </p>
+
+      <ul class="mobile-beats">
+        <li>One constant file owns the routes and app destinations.</li>
+        <li>Human-facing pages use folder-based routes where Astro supports that shape cleanly.</li>
+        <li>Adding the next app is mostly another entry in the shared app directory data.</li>
+      </ul>
+    </div>
+
+    <div class="route-tree" data-reveal>
+      {routeRows.map((row, index) => (
+        <article class="route-tree__row">
+          <div class="route-tree__line" aria-hidden="true"></div>
+          <div class="route-tree__card">
+            <p class="route-tree__label">{row.label}</p>
+            <h3>{row.title}</h3>
+            <p>{row.body}</p>
+          </div>
+          <span class="route-tree__count">0{index + 1}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

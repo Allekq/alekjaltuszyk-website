@@ -1,0 +1,43 @@
+---
+import type { AppDirectoryItem } from "../../../config/routes";
+import ActionButton from "./ActionButton.astro";
+
+interface Props {
+  item: AppDirectoryItem;
+  revealDelay?: number;
+  compact?: boolean;
+}
+
+const { item, revealDelay = 0, compact = false } = Astro.props as Props;
+---
+
+<article
+  class:list={["app-card", "landing-surface", `app-card--${item.theme}`, compact && "app-card--compact"]}
+  data-reveal
+  style={`transition-delay:${revealDelay * 90}ms;`}
+>
+  <div class="app-card__glow" aria-hidden="true"></div>
+
+  <div class="app-card__meta">
+    <p class="app-card__eyebrow">{item.eyebrow}</p>
+    <p class="app-card__status">{item.status}</p>
+  </div>
+
+  <h3 class="app-card__title">{item.name}</h3>
+  <p class="app-card__description">{item.description}</p>
+  <p class="app-card__route">{item.routeLabel}</p>
+
+  <div class="app-card__chips">
+    {item.chips.map((chip) => (
+      <span>{chip}</span>
+    ))}
+  </div>
+
+  <ActionButton
+    href={item.href}
+    variant={item.external ? "secondary" : "primary"}
+    target={item.external ? "_blank" : undefined}
+  >
+    {item.ctaLabel}
+  </ActionButton>
+</article>

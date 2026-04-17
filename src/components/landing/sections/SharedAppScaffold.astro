@@ -1,0 +1,30 @@
+---
+import { appDirectory } from "../../../config/routes";
+import ActionButton from "../ui/ActionButton.astro";
+
+interface Props {
+  title: string;
+  variant?: "home" | "apps";
+}
+
+const { title, variant = "home" } = Astro.props as Props;
+---
+
+<section class:list={["shared-app-scaffold", `shared-app-scaffold--${variant}`]}>
+  <div class="shared-app-scaffold__panel landing-surface">
+    <h1 class="shared-app-scaffold__title">{title}</h1>
+
+    <div class="shared-app-scaffold__actions" aria-label="Apps">
+      {appDirectory.map((item) => (
+        <ActionButton
+          href={item.href}
+          variant={item.external ? "ghost" : "primary"}
+          className="shared-app-scaffold__button"
+          target={item.external ? "_blank" : undefined}
+        >
+          {item.name}
+        </ActionButton>
+      ))}
+    </div>
+  </div>
+</section>

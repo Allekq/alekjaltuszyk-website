@@ -1,0 +1,105 @@
+---
+import "../../styles/landing.css";
+import "../../styles/waitlist-guide.css";
+import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
+import ActionButton from "../../components/landing/ui/ActionButton.astro";
+import { planKeptConfig } from "../../config/site";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Wish List"
+  description="Join the PlanKept wish list or use the email fallback."
+  pageType="content"
+>
+  <div class="waitlist-guide">
+    <section class="waitlist-guide__hero landing-surface">
+      <p class="waitlist-guide__eyebrow">Wish list</p>
+      <h1 class="waitlist-guide__title">The path is ready even before the real form exists.</h1>
+      <p class="waitlist-guide__lead">
+        For now, the button below goes to a placeholder external page. The supportable part is
+        already here: a clear route, an email fallback, and copy you can swap later when the real
+        form is ready.
+      </p>
+
+      <div class="waitlist-guide__actions">
+        <ActionButton href={planKeptConfig.wishListFormHref}>Open placeholder form</ActionButton>
+        <ActionButton href={planKeptConfig.wishListMailtoHref} variant="secondary">
+          Open your email app
+        </ActionButton>
+        <ActionButton href={planKeptConfig.wishListGmailHref} variant="ghost">
+          Open Gmail in browser
+        </ActionButton>
+      </div>
+
+      <p class="waitlist-guide__note">
+        Email fallback goes to <strong>{planKeptConfig.wishListEmail}</strong>.
+      </p>
+    </section>
+
+    <div class="waitlist-guide__grid">
+      <section class="waitlist-guide__card landing-surface">
+        <div class="waitlist-guide__card-head">
+          <div class="waitlist-guide__detail waitlist-guide__detail--email">
+            <p class="waitlist-guide__detail-label">Send it to</p>
+            <p class="waitlist-guide__detail-value waitlist-guide__detail-value--email">
+              {planKeptConfig.wishListEmail}
+            </p>
+          </div>
+          <button
+            class="waitlist-guide__copy"
+            type="button"
+            data-copy-value={planKeptConfig.wishListEmail}
+          >
+            Copy email
+          </button>
+        </div>
+
+        <div class="waitlist-guide__detail">
+          <p class="waitlist-guide__detail-label">Suggested subject</p>
+          <p class="waitlist-guide__pill">{planKeptConfig.wishListDraft.subject}</p>
+        </div>
+
+        <p class="waitlist-guide__body">
+          This page is intentionally simple. It gives you a working wish-list surface now and keeps
+          the real form easy to swap in later.
+        </p>
+      </section>
+
+      <section class="waitlist-guide__card landing-surface">
+        <p class="waitlist-guide__kicker">What to send</p>
+        <h2 class="waitlist-guide__card-title">A short note is enough.</h2>
+
+        <ul class="waitlist-guide__list">
+          <li>Your email address.</li>
+          <li>Why PlanKept interests you.</li>
+          <li>Any feature you especially want to see.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="waitlist-guide__card landing-surface">
+      <div class="waitlist-guide__card-head">
+        <div>
+          <p class="waitlist-guide__kicker">Ready-made draft</p>
+          <h2 class="waitlist-guide__card-title">Send this as-is or edit it first.</h2>
+        </div>
+        <button
+          class="waitlist-guide__copy"
+          type="button"
+          data-copy-value={planKeptConfig.wishListDraft.body}
+        >
+          Copy draft
+        </button>
+      </div>
+
+      <pre class="waitlist-guide__template">{planKeptConfig.wishListDraft.body}</pre>
+    </section>
+  </div>
+
+  <SiteFooter />
+
+  <script>
+    import "../../scripts/waitlist-guide/copy-buttons";
+  </script>
+</SiteLayout>

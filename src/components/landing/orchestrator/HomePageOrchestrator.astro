@@ -1,0 +1,8 @@
+---
+import SharedAppScaffold from "../sections/SharedAppScaffold.astro";
+import SimpleSiteHeader from "../sections/SimpleSiteHeader.astro";
+import { siteConfig } from "../../../config/site";
+---
+
+<SimpleSiteHeader />
+<SharedAppScaffold title={siteConfig.name} variant="home" />

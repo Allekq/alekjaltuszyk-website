@@ -1,0 +1,39 @@
+---
+const principles = [
+  {
+    title: "A personal front door",
+    body: "The root of the domain is now free to become a proper personal site instead of pretending one app is the whole story.",
+  },
+  {
+    title: "Apps with their own space",
+    body: "Each product can either live under /apps/ on this domain or route outward if it deserves its own separate website.",
+  },
+  {
+    title: "Motion that feels intentional",
+    body: "Astro, CSS, and small progressive scripts are plenty for beautiful animation, layered visuals, and responsive effects without turning the site into a mess.",
+  },
+];
+---
+
+<section id="about" class="landing-section">
+  <div class="landing-section__inner">
+    <div class="section-heading" data-reveal>
+      <p class="section-kicker">About</p>
+      <h2 class="section-title">The site can stay clean now and still grow into something richer later.</h2>
+      <p class="section-body">
+        This setup keeps the architecture simple without making the design feel flat. The root can
+        become a proper personal site, while app pages keep a more product-shaped voice.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      {principles.map((principle, index) => (
+        <article class="feature-card landing-surface" data-reveal style={`transition-delay:${index * 90}ms;`}>
+          <p class="feature-card__count">0{index + 1}</p>
+          <h3>{principle.title}</h3>
+          <p>{principle.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

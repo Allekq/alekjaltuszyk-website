@@ -1,0 +1,60 @@
+---
+import { planKeptConfig } from "../../../config/site";
+import ActionButton from "../ui/ActionButton.astro";
+
+const foundationCards = [
+  {
+    title: "Deploys on main",
+    body: "A GitHub Pages workflow is in place so the site can publish automatically once the repo is connected and `main` is the release branch.",
+  },
+  {
+    title: "Support is reachable",
+    body: "There is already a support page with email drafts and fallback copy, so the site is useful before a full app launch.",
+  },
+  {
+    title: "Legal surface exists",
+    body: "Privacy policy, terms of service, App Store terms link, and a legal manifest are now part of the repo structure.",
+  },
+];
+---
+
+<section id="launch" class="landing-section">
+  <div class="landing-section__inner">
+    <div class="section-heading" data-reveal>
+      <p class="section-kicker">Launch foundation</p>
+      <h2 class="section-title">The boring but necessary pieces are already wired.</h2>
+      <p class="section-body">
+        This is the part that makes the site practical right away: legal pages, support, a
+        placeholder wish-list path, and deployment plumbing.
+      </p>
+    </div>
+
+    <div class="foundation-grid">
+      {foundationCards.map((card, index) => (
+        <article class="foundation-card landing-surface" data-reveal style={`--card-index:${index};`}>
+          <h3>{card.title}</h3>
+          <p>{card.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="launch-actions landing-surface" data-reveal>
+      <div>
+        <p class="section-kicker">Public pages</p>
+        <h3 class="launch-actions__title">Everything essential is linked from one place.</h3>
+      </div>
+
+      <div class="launch-actions__buttons">
+        <ActionButton href={planKeptConfig.wishListGuideHref}>
+          {planKeptConfig.ctas.primary}
+        </ActionButton>
+        <ActionButton href={planKeptConfig.supportHref} variant="secondary">
+          Support
+        </ActionButton>
+        <ActionButton href={planKeptConfig.directoryHref} variant="ghost">
+          {planKeptConfig.ctas.directory}
+        </ActionButton>
+      </div>
+    </div>
+  </div>
+</section>

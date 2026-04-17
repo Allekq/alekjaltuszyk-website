@@ -1,0 +1,47 @@
+---
+const beats = [
+  "Large tap targets and stacked layouts come first, not as a fallback.",
+  "Motion is restrained on touch devices and disabled cleanly for reduced-motion users.",
+  "The hero visual stays readable on a phone instead of collapsing into decorative clutter.",
+];
+---
+
+<section id="mobile" class="landing-section landing-section--tinted">
+  <div class="landing-section__inner mobile-section__inner landing-surface">
+    <div class="mobile-section__copy" data-reveal>
+      <p class="section-kicker">Phone-first</p>
+      <h2 class="section-title">The site is designed to work on a phone first, then stretch upward.</h2>
+      <p class="section-body">
+        That matches the product direction. The brand motion, CTA layout, and legal/support flows
+        stay usable on a small screen instead of depending on desktop hover behavior.
+      </p>
+
+      <ul class="mobile-beats">
+        {beats.map((beat) => <li>{beat}</li>)}
+      </ul>
+    </div>
+
+    <div class="mobile-section__showcase" data-reveal>
+      <div class="mobile-showcase">
+        <div class="mobile-showcase__card mobile-showcase__card--primary">
+          <p class="mobile-showcase__label">Tap once</p>
+          <strong>Join the wish list</strong>
+          <span>No form system wired in yet, but the path is ready.</span>
+        </div>
+
+        <div class="mobile-showcase__flow">
+          <span>Plan</span>
+          <span>Keep</span>
+          <span>Follow through</span>
+        </div>
+
+        <div class="mobile-showcase__card mobile-showcase__card--secondary">
+          <p class="mobile-showcase__label">Scroll gently</p>
+          <strong>Motion stays calm</strong>
+          <span>Small reveals, layered gradients, and movement that does not fight readability.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

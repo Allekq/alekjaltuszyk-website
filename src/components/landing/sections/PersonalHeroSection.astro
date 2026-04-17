@@ -1,0 +1,70 @@
+---
+import { siteConfig } from "../../../config/site";
+import ActionButton from "../ui/ActionButton.astro";
+
+const orbitPanels = [
+  {
+    eyebrow: "Root",
+    title: "About me",
+    body: "This homepage becomes the front door for who I am, what I am building, and what is still taking shape.",
+  },
+  {
+    eyebrow: "Directory",
+    title: "/apps/",
+    body: "A clean chooser for the products I am working on now, with room to grow when more apps arrive.",
+  },
+  {
+    eyebrow: "Live now",
+    title: "PlanKept",
+    body: "An internal app page on this domain, nested under the app directory instead of owning the whole site.",
+  },
+];
+---
+
+<section id="home" class="landing-section hero-section personal-hero">
+  <div class="landing-section__inner hero-section__inner">
+    <div class="hero-section__copy" data-reveal>
+      <p class="section-kicker">Personal site, in progress</p>
+      <h1 class="hero-section__title personal-hero__title">Alek Jałtuszyk</h1>
+      <p class="hero-section__body">
+        This domain is becoming my home on the web: a place for apps, experiments, and the ideas
+        behind them. For now the split is intentionally simple. The root is about me,
+        <strong> /apps/ </strong>
+        is the chooser, and PlanKept now lives under its own route here.
+      </p>
+
+      <div class="hero-section__actions">
+        <ActionButton href={siteConfig.appsHref}>{siteConfig.ctas.primary}</ActionButton>
+        <ActionButton href={siteConfig.planKeptHref} variant="secondary">
+          {siteConfig.ctas.secondary}
+        </ActionButton>
+        <ActionButton href={`mailto:${siteConfig.contactEmail}`} variant="ghost">
+          {siteConfig.ctas.contact}
+        </ActionButton>
+      </div>
+
+      <div class="hero-section__chips">
+        <span>Root site for Alek</span>
+        <span>Apps live under /apps/</span>
+        <span>Voice of Self stays separate</span>
+      </div>
+    </div>
+
+    <div class="hero-section__visual" data-reveal data-reveal-early>
+      <div class="identity-orbit" aria-hidden="true">
+        <div class="identity-orbit__core">
+          <span>AJ</span>
+          <small>alive software</small>
+        </div>
+
+        {orbitPanels.map((panel, index) => (
+          <article class={`identity-orbit__panel identity-orbit__panel--${index + 1} landing-surface`}>
+            <p>{panel.eyebrow}</p>
+            <h2>{panel.title}</h2>
+            <span>{panel.body}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

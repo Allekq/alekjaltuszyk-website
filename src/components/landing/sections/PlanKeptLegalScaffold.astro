@@ -1,0 +1,31 @@
+---
+import { planKeptConfig } from "../../../config/site";
+import ActionButton from "../ui/ActionButton.astro";
+---
+
+<section class="plan-kept-legal-scaffold">
+  <div class="plan-kept-legal-scaffold__panel landing-surface">
+    <h1 class="plan-kept-legal-scaffold__title">{planKeptConfig.name}</h1>
+
+    <div class="plan-kept-legal-scaffold__actions" aria-label="PlanKept legal links">
+      <ActionButton href={planKeptConfig.privacyHref} className="plan-kept-legal-scaffold__button">
+        Privacy Policy
+      </ActionButton>
+      <ActionButton
+        href={planKeptConfig.termsHref}
+        variant="secondary"
+        className="plan-kept-legal-scaffold__button"
+      >
+        Terms of Service
+      </ActionButton>
+      <ActionButton
+        href={planKeptConfig.appleTermsHref}
+        variant="ghost"
+        className="plan-kept-legal-scaffold__button"
+        target="_blank"
+      >
+        Apple Terms of Use
+      </ActionButton>
+    </div>
+  </div>
+</section>

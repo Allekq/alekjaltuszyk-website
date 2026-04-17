@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { isExternalHref } from "../../../lib/paths";
+
+interface Props extends HTMLAttributes<"a"> {
+  href: string;
+  variant?: "primary" | "secondary" | "ghost";
+  className?: string;
+  label?: string;
+}
+
+const { href, variant = "primary", className, label, rel: relProp, ...attributes } =
+  Astro.props as Props;
+const rel =
+  relProp ??
+  (isExternalHref(href) &&
+  !href.startsWith("mailto:") &&
+  !href.startsWith("tel:") &&
+  !href.startsWith("#")
+    ? "noreferrer"
+    : undefined);
+---
+
+<a
+  {...attributes}
+  class:list={["action-button", `action-button--${variant}`, className]}
+  href={href}
+  rel={rel}
+>
+  <slot>{label}</slot>
+</a>
+
