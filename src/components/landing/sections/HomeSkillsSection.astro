@@ -1,0 +1,42 @@
+---
+import { homeSkills } from "./home-profile-content";
+---
+
+<section class="home-skills" aria-labelledby="home-skills-title" data-reveal>
+  <div class="home-skills__inner">
+    <p class="home-skills__eyebrow">Core skills</p>
+    <h2 class="home-skills__title" id="home-skills-title">
+      Unity, C#, and AI are the three threads underneath almost everything I build.
+    </h2>
+
+    <div class="home-skills__grid">
+      {homeSkills.map((skill) => (
+        <details class="home-skills__item">
+          <summary class="home-skills__summary">
+            <span class="home-skills__summary-copy">
+              <span class="home-skills__name">{skill.title}</span>
+              <span class="home-skills__strap">{skill.strap}</span>
+            </span>
+            <span class="home-skills__summary-icon" aria-hidden="true"></span>
+          </summary>
+
+          <div class="home-skills__body">
+            <p class="home-skills__summary-text">{skill.summary}</p>
+
+            <ul class="home-skills__highlights">
+              {skill.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+
+            <div class="home-skills__related" aria-label="Related history">
+              {skill.related.map((relatedItem) => (
+                <span>{relatedItem}</span>
+              ))}
+            </div>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

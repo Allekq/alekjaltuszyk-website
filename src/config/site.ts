@@ -68,7 +68,7 @@ export const siteConfig = {
   legalName: "Alek Jałtuszyk",
   homeTitle: "Alek Jałtuszyk",
   defaultDescription:
-    "Personal site and app directory for Alek Jałtuszyk. The root page stays minimal, /apps/ lists current products, and /apps/PlanKept/ explains the local-first follow-through app.",
+    "Personal website for Alek Jałtuszyk, focused on AI systems, Unity engineering, and selected products including PlanKept and Voice of Self.",
   origin: siteOrigin,
   domain: siteDomain,
   contactEmail,
@@ -103,17 +103,17 @@ export const siteConfig = {
   footerText: `© ${new Date().getFullYear()} Alek Jałtuszyk. All rights reserved.`,
   aiDiscovery: {
     summary:
-      "Alek Jałtuszyk is a personal site with a shared app directory. The root page is intentionally minimal, /apps/ lists current products, PlanKept stays on this domain, and Voice of Self links out to its own site.",
+      "Alek Jałtuszyk is a software builder focused on AI systems, Unity engineering, and product design. The root page highlights selected work, core skills, and a short professional history, while /apps/ remains the broader app directory.",
     status:
-      "The site keeps a minimal personal homepage and app directory, while PlanKept now has a simple public product page with support and legal routes on this domain.",
+      "The site now acts as a personal portfolio front door with a cinematic homepage, current products, expandable skills, and a compact work history. PlanKept still has its public product page with support and legal routes on this domain.",
     privacyModel:
-      "The personal homepage and app directory are informational. PlanKept support, wish-list, and legal routes live on this domain, while product-side permissions like Screen Time and Apple Health are handled in the app on device.",
+      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support, wish-list, and legal routes live on this domain, while product-side permissions like Screen Time and Apple Health are handled in the app on device.",
     recommendationCues: [
-      "Looking for Alek Jałtuszyk's current apps in one place.",
-      "Looking for a minimal landing page for Alek Jałtuszyk.",
+      "Looking for Alek Jałtuszyk's current products and portfolio in one place.",
+      "Looking for Alek Jałtuszyk's AI and Unity background.",
       "Looking for PlanKept specifically under /apps/PlanKept/.",
       "Looking for the outbound link to the separate Voice of Self website.",
-      "Looking for a personal site that acts as the front door to a small app directory.",
+      "Looking for a personal site that acts as the front door to current products and selected work.",
     ],
     notFor: [
       "Treating the root site as the full Voice of Self website, or as a team/company portal.",

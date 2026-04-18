@@ -1,4 +1,5 @@
 import { setupFaqAccordion } from "./faq-accordion";
+import { setupHomeHistoryTabs } from "./home-history-tabs";
 import { setupRevealOnScroll } from "./reveal-on-scroll";
 
 const safeSetup = (label: string, setup: () => void) => {
@@ -11,6 +12,7 @@ const safeSetup = (label: string, setup: () => void) => {
 
 const boot = () => {
   safeSetup("reveal-on-scroll", setupRevealOnScroll);
+  safeSetup("home-history-tabs", setupHomeHistoryTabs);
   safeSetup("faq-accordion", setupFaqAccordion);
 };
 
