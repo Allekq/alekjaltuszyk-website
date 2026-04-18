@@ -1,9 +1,62 @@
 const getPanelRoots = () =>
   Array.from(document.querySelectorAll<HTMLElement>("[data-panel-root]"));
 
+const panelTimers = new WeakMap<HTMLElement, number>();
+const PANEL_ANIMATION_MS = 320;
+
+const updatePanelState = (root: HTMLElement, targetId: string) => {
+  const panels = Array.from(root.querySelectorAll<HTMLElement>("[data-panel-panel]"));
+  const shouldAnimate = "panelAnimate" in root.dataset;
+  const activePanel = panels.find(
+    (panel) => panel.classList.contains("is-active") && !panel.classList.contains("is-leaving"),
+  );
+  const nextPanel = panels.find((panel) => panel.dataset.panelPanel === targetId);
+
+  if (!shouldAnimate || !targetId || !nextPanel || !activePanel || activePanel === nextPanel) {
+    panels.forEach((panel) => {
+      const isActive = Boolean(targetId) && panel.dataset.panelPanel === targetId;
+      panel.classList.remove("is-entering", "is-leaving");
+      panel.classList.toggle("is-active", isActive);
+      panel.toggleAttribute("hidden", !isActive);
+    });
+
+    return;
+  }
+
+  const existingTimer = panelTimers.get(root);
+
+  if (existingTimer) {
+    window.clearTimeout(existingTimer);
+    panelTimers.delete(root);
+  }
+
+  panels.forEach((panel) => {
+    if (panel !== activePanel && panel !== nextPanel) {
+      panel.classList.remove("is-active", "is-entering", "is-leaving");
+      panel.toggleAttribute("hidden", true);
+    }
+  });
+
+  activePanel.classList.remove("is-active", "is-entering");
+  activePanel.classList.add("is-leaving");
+  activePanel.toggleAttribute("hidden", false);
+
+  nextPanel.classList.add("is-active", "is-entering");
+  nextPanel.classList.remove("is-leaving");
+  nextPanel.toggleAttribute("hidden", false);
+
+  const timer = window.setTimeout(() => {
+    activePanel.classList.remove("is-leaving");
+    activePanel.toggleAttribute("hidden", true);
+    nextPanel.classList.remove("is-entering");
+    panelTimers.delete(root);
+  }, PANEL_ANIMATION_MS);
+
+  panelTimers.set(root, timer);
+};
+
 const updateSelection = (root: HTMLElement, targetId: string) => {
   const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-panel-tab]"));
-  const panels = Array.from(root.querySelectorAll<HTMLElement>("[data-panel-panel]"));
   const hasActivePanel = Boolean(targetId);
 
   root.classList.toggle("has-active-panel", hasActivePanel);
@@ -30,11 +83,7 @@ const updateSelection = (root: HTMLElement, targetId: string) => {
     root.style.removeProperty("--panel-anchor");
   }
 
-  panels.forEach((panel) => {
-    const isActive = hasActivePanel && panel.dataset.panelPanel === targetId;
-    panel.classList.toggle("is-active", isActive);
-    panel.toggleAttribute("hidden", !isActive);
-  });
+  updatePanelState(root, targetId);
 };
 
 export const setupPanelTabs = () => {
