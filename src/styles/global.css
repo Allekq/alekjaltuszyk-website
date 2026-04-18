@@ -29,6 +29,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.is-root-home {
+  background: #020406;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -115,7 +119,7 @@ svg {
   align-items: center;
   display: flex;
   gap: var(--space-md);
-  justify-content: space-between;
+  justify-content: flex-start;
   max-width: var(--container-content);
   width: 100%;
 }
@@ -181,6 +185,15 @@ svg {
   position: relative;
   width: 100%;
   z-index: 1;
+}
+
+.is-root-home .site-frame {
+  max-width: none;
+  padding: 0 0 3rem;
+}
+
+.is-root-home .site-backdrop {
+  display: none;
 }
 
 .is-legal .site-frame {

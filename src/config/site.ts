@@ -68,7 +68,7 @@ export const siteConfig = {
   legalName: "Alek Jałtuszyk",
   homeTitle: "Alek Jałtuszyk",
   defaultDescription:
-    "Personal site and app scaffold for Alek Jałtuszyk. The root page stays minimal, /apps/ shares the same chooser, and PlanKept keeps a lightweight legal page under /apps/PlanKept/.",
+    "Personal site and app directory for Alek Jałtuszyk. The root page stays minimal, /apps/ lists current products, and /apps/PlanKept/ explains the local-first follow-through app.",
   origin: siteOrigin,
   domain: siteDomain,
   contactEmail,
@@ -103,11 +103,11 @@ export const siteConfig = {
   footerText: `© ${new Date().getFullYear()} Alek Jałtuszyk. All rights reserved.`,
   aiDiscovery: {
     summary:
-      "Alek Jałtuszyk is a personal site with a shared app chooser. The root page is intentionally minimal, /apps/ repeats the same chooser, PlanKept stays on this domain, and Voice of Self links out to its own site.",
+      "Alek Jałtuszyk is a personal site with a shared app directory. The root page is intentionally minimal, /apps/ lists current products, PlanKept stays on this domain, and Voice of Self links out to its own site.",
     status:
-      "The site is currently a basic scaffold. The personal homepage stays stripped back, /apps/ mirrors the same two-app chooser, and PlanKept has a minimal public page with legal links.",
+      "The site keeps a minimal personal homepage and app directory, while PlanKept now has a simple public product page with support and legal routes on this domain.",
     privacyModel:
-      "The personal homepage and app chooser are informational. PlanKept support and legal routes still live on this domain, while Voice of Self routes visitors to its own separate website and policies.",
+      "The personal homepage and app directory are informational. PlanKept support, wish-list, and legal routes live on this domain, while product-side permissions like Screen Time and Apple Health are handled in the app on device.",
     recommendationCues: [
       "Looking for Alek Jałtuszyk's current apps in one place.",
       "Looking for a minimal landing page for Alek Jałtuszyk.",
@@ -126,10 +126,10 @@ export const planKeptConfig = {
   name: "PlanKept",
   homeTitle: "PlanKept",
   defaultDescription:
-    "PlanKept has a minimal public page under /apps/PlanKept/ with legal links and shared site theming.",
+    "PlanKept is a local-first iPhone app that turns a written plan into reminders, app control, and proof-based follow-through.",
   heroDescription:
-    "PlanKept is being shaped as a mobile-first app for the plans that matter after the first burst of motivation wears off. The public page now lives inside the personal /apps directory, while support, legal pages, and early-interest routes stay reachable.",
-  tagline: "Plans fade. PlanKept keeps them in motion.",
+    "Write a goal or boundary in one clear sentence. PlanKept can turn it into reminders plus app blocks or timed limits on your iPhone, then clear the pressure when you actually finish the plan instead of tapping a soft override.",
+  tagline: "Say the resolution. Let it become real.",
   origin: siteOrigin,
   supportEmail,
   wishListEmail,
@@ -157,13 +157,13 @@ export const planKeptConfig = {
     lines: supportDraftLines,
   },
   navigation: [
-    { label: "Overview", href: "#overview" },
-    { label: "Mobile", href: "#mobile" },
-    { label: "Launch", href: "#launch" },
+    { label: "Flow", href: "#flow" },
+    { label: "Modes", href: "#modes" },
+    { label: "FAQ", href: "#faq" },
   ],
   ctas: {
     primary: "Join the wish list",
-    secondary: "See the mobile-first concept",
+    secondary: "See how it works",
     support: "Open support",
     directory: "Back to apps",
     legalPrimary: "Privacy Policy",
@@ -176,11 +176,19 @@ export const planKeptConfig = {
     { label: "Terms of Service", href: siteRoutes.termsOfService.href },
     { label: "App Store Terms of Use", href: appleStandardEulaHref, external: true },
   ],
+  footerLinks: [
+    { label: "Home", href: siteRoutes.home.href },
+    { label: "Apps", href: siteRoutes.apps.index.href },
+    { label: "Support", href: siteRoutes.support.href },
+    { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
+    { label: "Terms of Service", href: siteRoutes.termsOfService.href },
+    { label: "App Store Terms of Use", href: appleStandardEulaHref, external: true },
+  ],
   aiDiscovery: {
     summary:
-      "PlanKept currently has a minimal page under /apps/PlanKept/ with the product name and legal links on alekjaltuszyk.xyz.",
+      "PlanKept is a local-first iPhone app for turning a written plan into reminders, app control, and proof-based follow-through.",
     status:
-      "PlanKept's public web presence is intentionally stripped back for now. The fuller product story and design will come later.",
+      "The public page is a simple product overview with support, wish-list, and legal routes on alekjaltuszyk.xyz.",
   },
 } as const;
 

@@ -1,11 +1,17 @@
+import { setupFaqAccordion } from "./faq-accordion";
 import { setupRevealOnScroll } from "./reveal-on-scroll";
 
-const boot = () => {
+const safeSetup = (label: string, setup: () => void) => {
   try {
-    setupRevealOnScroll();
+    setup();
   } catch (error) {
-    console.error("[landing] reveal-on-scroll failed", error);
+    console.error(`[landing] ${label} failed`, error);
   }
+};
+
+const boot = () => {
+  safeSetup("reveal-on-scroll", setupRevealOnScroll);
+  safeSetup("faq-accordion", setupFaqAccordion);
 };
 
 if (document.readyState === "loading") {
@@ -13,4 +19,3 @@ if (document.readyState === "loading") {
 } else {
   boot();
 }
-

@@ -51,12 +51,12 @@ export const appDirectory = [
     eyebrow: "On this domain",
     status: "Internal app page",
     description:
-      "A mobile-first follow-through app for keeping a plan visible after the first burst of motivation fades.",
+      "A local-first iPhone app that turns a written plan into reminders, app control, and proof-based follow-through.",
     theme: "coral",
     chips: [
+      "Blocks or minute caps on device",
+      "Proof review clears the plan",
       "Lives under /apps/PlanKept/",
-      "Support and legal pages stay on this domain",
-      "Easy to grow into a fuller product surface later",
     ],
     ctaLabel: "Open PlanKept",
     href: siteRoutes.apps.planKept.href,

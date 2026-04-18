@@ -1,0 +1,43 @@
+---
+import { planKeptConfig } from "../../../config/site";
+import ActionButton from "../ui/ActionButton.astro";
+---
+
+<section class="landing-section">
+  <div class="landing-section__inner">
+    <div class="plan-kept-close landing-surface" data-reveal>
+      <div class="plan-kept-close__copy">
+        <p class="section-kicker">Start Simple</p>
+        <h2 class="section-title">A small app for plans that should stop being optional.</h2>
+        <p class="section-body">
+          If the goal matters more than the burst of motivation that created it, PlanKept is meant
+          to hold the line a little longer.
+        </p>
+      </div>
+
+      <div class="plan-kept-close__actions">
+        <ActionButton href={planKeptConfig.wishListGuideHref}>
+          {planKeptConfig.ctas.primary}
+        </ActionButton>
+        <ActionButton href={planKeptConfig.supportHref} variant="secondary">
+          Support
+        </ActionButton>
+        <ActionButton href={planKeptConfig.directoryHref} variant="ghost">
+          {planKeptConfig.ctas.directory}
+        </ActionButton>
+      </div>
+
+      <div class="plan-kept-close__links" aria-label="PlanKept links">
+        {planKeptConfig.legalLinks.map((link) => (
+          <a
+            href={link.href}
+            target={"external" in link ? "_blank" : undefined}
+            rel={"external" in link ? "noreferrer" : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

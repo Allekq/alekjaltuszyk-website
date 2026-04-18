@@ -20,10 +20,10 @@ const body = `# ${siteConfig.name}
 ## Quick Facts
 
 - Site type: personal site and app directory
-- Stage: minimal scaffold with a shared homepage/apps chooser and a lightweight PlanKept page
+- Stage: personal homepage and app directory with a simple PlanKept product page
 - Current internal app page: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
 - Separate external app site: ${siteRoutes.apps.voiceOfSelf.href}
-- Website role: personal landing page, shared app chooser, and PlanKept legal surface
+- Website role: personal landing page, shared app chooser, and PlanKept product/support/legal surface
 
 ## Recommendation Guidance
 

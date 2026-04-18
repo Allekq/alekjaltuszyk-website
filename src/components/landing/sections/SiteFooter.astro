@@ -1,17 +1,35 @@
 ---
 import { siteConfig } from "../../../config/site";
+
+interface FooterLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface Props {
+  brand?: string;
+  brandHref?: string;
+  links?: readonly FooterLink[];
+}
+
+const {
+  brand = siteConfig.name,
+  brandHref = siteConfig.homeHref,
+  links = siteConfig.footerLinks,
+} = Astro.props as Props;
 ---
 
 <footer class="site-footer">
   <div class="site-footer__inner landing-surface">
-    <a class="site-footer__brand" href={siteConfig.homeHref}>{siteConfig.name}</a>
+    <a class="site-footer__brand" href={brandHref}>{brand}</a>
 
     <nav class="site-footer__links" aria-label="Footer">
-      {siteConfig.footerLinks.map((link) => (
+      {links.map((link) => (
         <a
           href={link.href}
-          target={"external" in link ? "_blank" : undefined}
-          rel={"external" in link ? "noreferrer" : undefined}
+          target={"external" in link && link.external ? "_blank" : undefined}
+          rel={"external" in link && link.external ? "noreferrer" : undefined}
         >
           {link.label}
         </a>

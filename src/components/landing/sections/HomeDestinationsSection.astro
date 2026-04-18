@@ -1,0 +1,29 @@
+---
+import { appDirectory } from "../../../config/routes";
+import { isExternalHref } from "../../../lib/paths";
+---
+
+<section class="home-destinations" aria-labelledby="home-destinations-title">
+  <div class="home-destinations__inner">
+    <p class="home-destinations__eyebrow">Go deeper</p>
+    <h2 class="home-destinations__title" id="home-destinations-title">Selected work</h2>
+
+    <div class="home-destinations__grid">
+      {appDirectory.map((item) => {
+        const rel =
+          item.external && isExternalHref(item.href) ? "noreferrer" : undefined;
+
+        return (
+          <a
+            class="home-destinations__link"
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={rel}
+          >
+            <span class="home-destinations__link-name">{item.name}</span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>

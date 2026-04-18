@@ -1,0 +1,67 @@
+---
+const faqEntries = [
+  {
+    question: "Is this just an app blocker?",
+    answer:
+      "No. App control is one tool inside the flow. The point is follow-through: a written plan, pressure that matches the plan, and a proof-based way to clear it.",
+  },
+  {
+    question: "Can I just tap complete or ignore the limit for today?",
+    answer:
+      "Not in the normal flow. Active plans clear through proof review or accepted justification, so the app is not built around a soft \"done\" button.",
+  },
+  {
+    question: "What stays local?",
+    answer:
+      "PlanKept is designed as a local-first iPhone flow. Your selected app-control targets and permission prompts live on your device, and the app can request on-device access to sources like Apple Health or Screen Time.",
+  },
+  {
+    question: "Can it use real signals from my life?",
+    answer:
+      "Yes, when the plan calls for it and you allow it. Proof review can inspect signals like Apple Health step counts or current Screen Time state to help decide whether the plan was actually completed.",
+  },
+];
+---
+
+<section id="faq" class="landing-section">
+  <div class="landing-section__inner">
+    <div class="section-heading" data-reveal>
+      <p class="section-kicker">FAQ</p>
+      <h2 class="section-title">The important questions are practical ones.</h2>
+      <p class="section-body">
+        This page should make the product feel clear, not mysterious. Here are the parts that
+        usually matter most.
+      </p>
+    </div>
+
+    <div class="plan-kept-faq-list">
+      {faqEntries.map((entry, index) => (
+        <details
+          class="plan-kept-faq landing-surface"
+          open={index === 0}
+          data-faq-item
+          data-reveal
+        >
+          <summary
+            class="plan-kept-faq__button"
+            id={`plan-kept-faq-${index + 1}-button`}
+            data-faq-trigger
+          >
+            <span class="plan-kept-faq__question">{entry.question}</span>
+            <span class="plan-kept-faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="plan-kept-faq__content" data-faq-content>
+            <div
+              class="plan-kept-faq__panel"
+              id={`plan-kept-faq-${index + 1}-panel`}
+              role="region"
+              aria-labelledby={`plan-kept-faq-${index + 1}-button`}
+            >
+              <p class="plan-kept-faq__answer">{entry.answer}</p>
+            </div>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

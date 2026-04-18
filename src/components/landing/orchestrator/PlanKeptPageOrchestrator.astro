@@ -1,8 +1,24 @@
 ---
 import { planKeptConfig } from "../../../config/site";
-import PlanKeptLegalScaffold from "../sections/PlanKeptLegalScaffold.astro";
-import SimpleSiteHeader from "../sections/SimpleSiteHeader.astro";
+import LandingHeader from "../sections/LandingHeader.astro";
+import PlanKeptCloseSection from "../sections/PlanKeptCloseSection.astro";
+import PlanKeptFaqSection from "../sections/PlanKeptFaqSection.astro";
+import PlanKeptFlowSection from "../sections/PlanKeptFlowSection.astro";
+import PlanKeptHeroSection from "../sections/PlanKeptHeroSection.astro";
+import PlanKeptModesSection from "../sections/PlanKeptModesSection.astro";
+import SiteFooter from "../sections/SiteFooter.astro";
 ---
 
-<SimpleSiteHeader brand={planKeptConfig.name} brandHref={planKeptConfig.homeHref} />
-<PlanKeptLegalScaffold />
+<LandingHeader
+  brand={planKeptConfig.name}
+  brandHref={planKeptConfig.homeHref}
+  navigation={planKeptConfig.navigation}
+  ctaHref={planKeptConfig.wishListGuideHref}
+  ctaLabel={planKeptConfig.ctas.primary}
+/>
+<PlanKeptHeroSection />
+<PlanKeptFlowSection />
+<PlanKeptModesSection />
+<PlanKeptFaqSection />
+<PlanKeptCloseSection />
+<SiteFooter links={planKeptConfig.footerLinks} />

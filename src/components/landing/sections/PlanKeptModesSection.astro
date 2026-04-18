@@ -1,0 +1,64 @@
+---
+const modes = [
+  {
+    tone: "boundary",
+    eyebrow: "Boundary mode",
+    title: "Use blocks when the escape hatch is the problem.",
+    body:
+      "If an app keeps dissolving the plan, PlanKept can make that app unavailable during the relevant window instead of relying on willpower.",
+    points: [
+      "Full blocks when a target should be off-limits.",
+      "Minute caps when a lighter rule is enough.",
+      "Useful for boundaries like \"No Instagram before breakfast.\"",
+    ],
+  },
+  {
+    tone: "reward",
+    eyebrow: "Reward mode",
+    title: "Use the same controls as something you earn back.",
+    body:
+      "The point is not just less screen time. The same setup can act like a reward loop, where the time comes back when the plan is actually done.",
+    points: [
+      "Good for walks, chores, study blocks, or resets.",
+      "Proof review can use Apple Health step counts for walking and step-based plans.",
+      "The limit lifts when the plan clears, not when you get bored of the rule.",
+    ],
+  },
+];
+
+const examples = [
+  "No Instagram before breakfast",
+  "Finish the walk before social apps",
+  "Study first, then YouTube time",
+];
+---
+
+<section id="modes" class="landing-section landing-section--tinted">
+  <div class="landing-section__inner landing-surface plan-kept-modes">
+    <div class="section-heading" data-reveal>
+      <p class="section-kicker">Not Just Blocking</p>
+      <h2 class="section-title">PlanKept supports both pressure and reward.</h2>
+      <p class="section-body">
+        Some plans need a hard boundary. Some feel better when the phone becomes the reward you
+        earn back. The app is built to support both.
+      </p>
+    </div>
+
+    <div class="plan-kept-mode-grid">
+      {modes.map((mode) => (
+        <article class:list={["plan-kept-mode-card", `plan-kept-mode-card--${mode.tone}`]} data-reveal>
+          <p class="plan-kept-mode-card__eyebrow">{mode.eyebrow}</p>
+          <h3>{mode.title}</h3>
+          <p>{mode.body}</p>
+          <ul class="plan-kept-mode-card__list">
+            {mode.points.map((point) => <li>{point}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <div class="plan-kept-mode-examples" data-reveal aria-label="Plan examples">
+      {examples.map((example) => <span>{example}</span>)}
+    </div>
+  </div>
+</section>

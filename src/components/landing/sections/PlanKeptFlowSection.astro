@@ -1,0 +1,48 @@
+---
+const steps = [
+  {
+    title: "Write the resolution",
+    body:
+      "A plan can be as simple as \"No Instagram before breakfast\" or \"Fix the bike before Instagram unlocks.\"",
+  },
+  {
+    title: "Choose the pressure",
+    body:
+      "PlanKept can schedule reminders and use either a full block or a lighter minute cap for the apps you pick on your iPhone.",
+  },
+  {
+    title: "Do the real thing",
+    body:
+      "The plan stays active while the action is still undone, so the goal has to move in real life instead of just living in notes.",
+  },
+  {
+    title: "Clear it with proof",
+    body:
+      "You do not finish by tapping an \"ignore for today\" button. Active plans clear through proof review or accepted justification.",
+  },
+];
+---
+
+<section id="flow" class="landing-section">
+  <div class="landing-section__inner">
+    <div class="section-heading" data-reveal>
+      <p class="section-kicker">How it works</p>
+      <h2 class="section-title">A simple flow from intention to follow-through.</h2>
+      <p class="section-body">
+        PlanKept is not trying to become project management. It takes one plan seriously, applies
+        pressure where it matters, and keeps that pressure in place until the plan is actually
+        resolved.
+      </p>
+    </div>
+
+    <div class="plan-kept-step-grid">
+      {steps.map((step, index) => (
+        <article class="plan-kept-step landing-surface" data-reveal>
+          <p class="plan-kept-step__count">0{index + 1}</p>
+          <h3>{step.title}</h3>
+          <p>{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

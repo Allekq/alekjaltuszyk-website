@@ -79,12 +79,12 @@ const resolvedStructuredData = [
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#eefbfd" />
+    <meta name="theme-color" content="#020406" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
     <meta property="og:site_name" content={siteConfig.name} />
@@ -108,98 +108,12 @@ const resolvedStructuredData = [
     <script is:inline>
       document.documentElement.classList.add("js");
     </script>
-    <script is:inline>
-      (() => {
-        const storageKey = "alekjaltuszyk-theme";
-        const root = document.documentElement;
-
-        const readStoredTheme = () => {
-          try {
-            const value = window.localStorage.getItem(storageKey);
-            return value === "light" || value === "dark" ? value : null;
-          } catch {
-            return null;
-          }
-        };
-
-        const writeStoredTheme = (value) => {
-          try {
-            window.localStorage.setItem(storageKey, value);
-          } catch {
-            // Ignore storage failures and keep the current session theme.
-          }
-        };
-
-        const getSystemTheme = () =>
-          window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-
-        const getCurrentTheme = () => {
-          const theme = root.dataset.theme;
-          return theme === "light" || theme === "dark" ? theme : getSystemTheme();
-        };
-
-        const syncThemeButtons = () => {
-          const currentTheme = getCurrentTheme();
-          const nextTheme = currentTheme === "dark" ? "light" : "dark";
-          const themeColor = document.querySelector('meta[name="theme-color"]');
-
-          if (themeColor) {
-            themeColor.setAttribute("content", currentTheme === "dark" ? "#071016" : "#eefbfd");
-          }
-
-          document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
-            button.textContent = nextTheme === "dark" ? "Dark" : "Light";
-            button.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
-            button.setAttribute("title", `Switch to ${nextTheme} mode`);
-            button.setAttribute("data-next-theme", nextTheme);
-            button.setAttribute("aria-pressed", String(currentTheme === "dark"));
-          });
-        };
-
-        const applyTheme = (theme, persist = true) => {
-          root.dataset.theme = theme;
-          if (persist) {
-            writeStoredTheme(theme);
-          }
-          syncThemeButtons();
-        };
-
-        const storedTheme = readStoredTheme();
-        if (storedTheme) {
-          root.dataset.theme = storedTheme;
-        }
-
-        document.addEventListener(
-          "DOMContentLoaded",
-          () => {
-            syncThemeButtons();
-
-            document.addEventListener("click", (event) => {
-              const target = event.target instanceof Element ? event.target.closest("[data-theme-toggle]") : null;
-              if (!(target instanceof HTMLElement)) {
-                return;
-              }
-
-              const nextTheme = target.dataset.nextTheme === "dark" ? "dark" : "light";
-              applyTheme(nextTheme);
-            });
-
-            const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-            mediaQuery.addEventListener("change", () => {
-              if (!readStoredTheme()) {
-                syncThemeButtons();
-              }
-            });
-          },
-          { once: true },
-        );
-      })();
-    </script>
     <title>{title}</title>
   </head>
   <body
     class:list={[
-      resolvedPageType === "landing" && "is-home",
+      resolvedPageType === "landing" && "is-landing",
+      isHomePage && "is-root-home",
       resolvedPageType === "legal" && "is-legal",
       resolvedPageType === "content" && "is-content",
     ]}
@@ -215,7 +129,6 @@ const resolvedStructuredData = [
       <header class="site-header">
         <div class="site-header__bar">
           <a class="site-header__home-link" href={homeHref}>{siteConfig.name}</a>
-          <button class="theme-toggle" type="button" data-theme-toggle>Theme</button>
         </div>
       </header>
     )}
@@ -234,5 +147,11 @@ const resolvedStructuredData = [
         </article>
       )}
     </main>
+
+    {resolvedPageType === "landing" && (
+      <script>
+        import "../scripts/landing/init";
+      </script>
+    )}
   </body>
 </html>

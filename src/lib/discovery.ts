@@ -29,7 +29,7 @@ export const discoveryPages = {
       title: "PlanKept",
       path: siteRoutes.apps.planKept.path,
       description:
-        "Minimal PlanKept page under /apps/PlanKept/ with legal links.",
+        "Simple PlanKept product page covering local-first plan enforcement, proof review, and legal/support links.",
     },
     {
       title: "Wish List",
