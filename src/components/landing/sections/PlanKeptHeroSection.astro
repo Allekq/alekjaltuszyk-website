@@ -1,6 +1,7 @@
 ---
 import { planKeptConfig } from "../../../config/site";
 import ActionButton from "../ui/ActionButton.astro";
+import PillRail from "../ui/PillRail.astro";
 
 const promiseChips = [
   "Local-first on iPhone",
@@ -12,66 +13,68 @@ const controlBadges = ["Instagram blocked", "YouTube 15m", "Unlock after proof"]
 ---
 
 <section id="home" class="landing-section plan-kept-hero">
-  <div class="landing-section__inner plan-kept-hero__inner">
-    <div class="plan-kept-hero__copy" data-reveal>
-      <p class="section-kicker">Local-first goal enforcement</p>
-      <h1 class="plan-kept-hero__title">{planKeptConfig.tagline}</h1>
-      <p class="plan-kept-hero__body">{planKeptConfig.heroDescription}</p>
+  <div class="landing-section__inner plan-kept-hero__shell">
+    <div class="plan-kept-hero__inner">
+      <div class="plan-kept-hero__copy" data-reveal>
+        <p class="section-kicker">Local-first goal enforcement</p>
+        <h1 class="plan-kept-hero__title">{planKeptConfig.tagline}</h1>
+        <p class="plan-kept-hero__body">{planKeptConfig.heroDescription}</p>
 
-      <div class="plan-kept-hero__actions">
-        <ActionButton href={planKeptConfig.wishListGuideHref}>
-          {planKeptConfig.ctas.primary}
-        </ActionButton>
-        <ActionButton href="#flow" variant="secondary">
-          {planKeptConfig.ctas.secondary}
-        </ActionButton>
-        <ActionButton href={planKeptConfig.supportHref} variant="ghost">
-          {planKeptConfig.ctas.support}
-        </ActionButton>
+        <div class="plan-kept-hero__actions">
+          <ActionButton href={planKeptConfig.wishListGuideHref}>
+            {planKeptConfig.ctas.primary}
+          </ActionButton>
+          <ActionButton href="#flow" variant="secondary">
+            {planKeptConfig.ctas.secondary}
+          </ActionButton>
+          <ActionButton href={planKeptConfig.supportHref} variant="ghost">
+            {planKeptConfig.ctas.support}
+          </ActionButton>
+        </div>
       </div>
 
-      <div class="plan-kept-hero__chips">
-        {promiseChips.map((chip) => <span>{chip}</span>)}
+      <div class="plan-kept-hero__visual" data-reveal data-reveal-early>
+        <div class="plan-kept-stage landing-surface">
+          <article class="plan-kept-stage__card plan-kept-stage__card--idea">
+            <span class="plan-kept-stage__count">1</span>
+            <div>
+              <p class="plan-kept-stage__eyebrow">Resolution</p>
+              <h2>Fix the bike before Instagram unlocks.</h2>
+              <p>
+                Start with one clear line. It can be a boundary, a goal, or a reward loop.
+              </p>
+            </div>
+          </article>
+
+          <article class="plan-kept-stage__card plan-kept-stage__card--control">
+            <span class="plan-kept-stage__count">2</span>
+            <div>
+              <p class="plan-kept-stage__eyebrow">Device rule</p>
+              <h3>PlanKept applies the pressure on your iPhone.</h3>
+              <div class="plan-kept-stage__badges">
+                {controlBadges.map((badge) => <span>{badge}</span>)}
+              </div>
+              <p>Use a full block when needed, or a lighter time cap when that is enough.</p>
+            </div>
+          </article>
+
+          <article class="plan-kept-stage__card plan-kept-stage__card--proof">
+            <span class="plan-kept-stage__count">3</span>
+            <div>
+              <p class="plan-kept-stage__eyebrow">Proof review</p>
+              <h3>Explain what you finished. If the proof is enough, the plan clears.</h3>
+              <p>
+                For activity goals, proof review can also use signals like Apple Health step counts
+                after you allow them.
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
 
-    <div class="plan-kept-hero__visual" data-reveal data-reveal-early>
-      <div class="plan-kept-stage landing-surface">
-        <article class="plan-kept-stage__card plan-kept-stage__card--idea">
-          <span class="plan-kept-stage__count">1</span>
-          <div>
-            <p class="plan-kept-stage__eyebrow">Resolution</p>
-            <h2>Fix the bike before Instagram unlocks.</h2>
-            <p>
-              Start with one clear line. It can be a boundary, a goal, or a reward loop.
-            </p>
-          </div>
-        </article>
-
-        <article class="plan-kept-stage__card plan-kept-stage__card--control">
-          <span class="plan-kept-stage__count">2</span>
-          <div>
-            <p class="plan-kept-stage__eyebrow">Device rule</p>
-            <h3>PlanKept applies the pressure on your iPhone.</h3>
-            <div class="plan-kept-stage__badges">
-              {controlBadges.map((badge) => <span>{badge}</span>)}
-            </div>
-            <p>Use a full block when needed, or a lighter time cap when that is enough.</p>
-          </div>
-        </article>
-
-        <article class="plan-kept-stage__card plan-kept-stage__card--proof">
-          <span class="plan-kept-stage__count">3</span>
-          <div>
-            <p class="plan-kept-stage__eyebrow">Proof review</p>
-            <h3>Explain what you finished. If the proof is enough, the plan clears.</h3>
-            <p>
-              For activity goals, proof review can also use signals like Apple Health step counts
-              after you allow them.
-            </p>
-          </div>
-        </article>
-      </div>
+    <div class="plan-kept-hero__chips" data-reveal>
+      <PillRail items={promiseChips} label="PlanKept promises" />
     </div>
   </div>
 </section>

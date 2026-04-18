@@ -11,18 +11,22 @@ interface Props {
   brand?: string;
   brandHref?: string;
   links?: readonly FooterLink[];
+  showBrand?: boolean;
 }
 
 const {
   brand = siteConfig.name,
   brandHref = siteConfig.homeHref,
   links = siteConfig.footerLinks,
+  showBrand = true,
 } = Astro.props as Props;
 ---
 
 <footer class="site-footer">
   <div class="site-footer__inner landing-surface">
-    <a class="site-footer__brand" href={brandHref}>{brand}</a>
+    {showBrand ? (
+      <a class="site-footer__brand" href={brandHref}>{brand}</a>
+    ) : null}
 
     <nav class="site-footer__links" aria-label="Footer">
       {links.map((link) => (

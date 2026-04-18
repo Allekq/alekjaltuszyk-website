@@ -1,4 +1,6 @@
 ---
+import PillRail from "../ui/PillRail.astro";
+
 const modes = [
   {
     tone: "boundary",
@@ -57,8 +59,8 @@ const examples = [
       ))}
     </div>
 
-    <div class="plan-kept-mode-examples" data-reveal aria-label="Plan examples">
-      {examples.map((example) => <span>{example}</span>)}
+    <div class="plan-kept-mode-examples" data-reveal>
+      <PillRail items={examples} label="Plan examples" />
     </div>
   </div>
 </section>
