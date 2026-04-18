@@ -1,10 +1,16 @@
 export interface HomeSkill {
   id: string;
+  offset: string;
   title: string;
   strap: string;
   summary: string;
   highlights: readonly string[];
-  related: readonly string[];
+  related: readonly HomeSkillRelatedLink[];
+}
+
+export interface HomeSkillRelatedLink {
+  label: string;
+  historyId: string;
 }
 
 export interface HomeTimelineEntry {
@@ -20,6 +26,7 @@ export interface HomeTimelineEntry {
 export const homeSkills = [
   {
     id: "unity",
+    offset: "2.2rem",
     title: "Unity Programmer",
     strap: "Gameplay, tools, physics, and systems built to ship.",
     summary:
@@ -29,10 +36,14 @@ export const homeSkills = [
       "Worked across player mechanics, enemy AI, networking, physics, shaders, and world-building on a text-to-game startup.",
       "Care deeply about making complex systems feel intuitive, reusable, and pleasant to work with.",
     ],
-    related: ["Alek Games", "Roam AI"],
+    related: [
+      { label: "Alek Games", historyId: "alek-games" },
+      { label: "Roam AI", historyId: "roam-ai" },
+    ],
   },
   {
     id: "csharp",
+    offset: "5rem",
     title: "C# Systems",
     strap: "Modular architecture with performance and clarity in mind.",
     summary:
@@ -42,10 +53,14 @@ export const homeSkills = [
       "Integrated third-party systems into internal frameworks without breaking performance or workflow.",
       "Prefer structural, modular designs that stay understandable as projects become more ambitious.",
     ],
-    related: ["Alek Games", "Roam AI", "Current products"],
+    related: [
+      { label: "Alek Games", historyId: "alek-games" },
+      { label: "Roam AI", historyId: "roam-ai" },
+    ],
   },
   {
     id: "ai",
+    offset: "1.15rem",
     title: "AI Specialist",
     strap: "Agentic workflows, fast iteration, and behavior-aware product thinking.",
     summary:
@@ -55,39 +70,14 @@ export const homeSkills = [
       "Designed multi-agent workflows across Python and C# to handle advanced autonomous logic and implementation tasks.",
       "Current work in products like PlanKept and Voice of Self is where AI, behavior design, and product craft come together.",
     ],
-    related: ["Current products", "Roam AI"],
+    related: [
+      { label: "Current products", historyId: "current-products" },
+      { label: "Roam AI", historyId: "roam-ai" },
+    ],
   },
 ] as const satisfies readonly HomeSkill[];
 
 export const homeTimeline = [
-  {
-    id: "current-products",
-    label: "Now",
-    period: "2025-now",
-    title: "Independent AI products",
-    role: "Builder, systems designer, and product developer",
-    summary:
-      "My current work is centered on personal products where AI systems, product thinking, and behavior design meet.",
-    highlights: [
-      "Developing products like PlanKept and Voice of Self with an emphasis on AI-assisted systems and human follow-through.",
-      "Using agentic workflows as part of the way I build, research, and iterate on software.",
-      "Treating software less like static pages and more like living systems that shape behavior and experience.",
-    ],
-  },
-  {
-    id: "roam-ai",
-    label: "Roam AI",
-    period: "2025",
-    title: "Text-to-game startup in San Francisco",
-    role: "Gameplay and AI systems developer",
-    summary:
-      "I joined Roam to help build a text-to-game experience at the level where gameplay engineering and AI systems start overlapping.",
-    highlights: [
-      "Built player mechanics, enemy AI, networking, physics interactions, and world-building systems.",
-      "Relocated to San Francisco for direct collaboration with the core engineering team.",
-      "Moved fluidly between gameplay development, internal tooling, and urgent AI-driven problem solving.",
-    ],
-  },
   {
     id: "alek-games",
     label: "Alek Games",
@@ -100,6 +90,34 @@ export const homeTimeline = [
       "Created 5-star Unity assets, including tools for procedural level design and physics-reactive VR NPCs.",
       "Learned how to package advanced systems so they are understandable, documented, and genuinely useful.",
       "Turned the Asset Store from a learning platform into a profitable technical business with strong user feedback.",
+    ],
+  },
+  {
+    id: "roam-ai",
+    label: "Roam AI",
+    period: "2025-2026",
+    title: "Text-to-game startup in San Francisco",
+    role: "Gameplay and AI systems developer",
+    summary:
+      "I joined Roam to help build a text-to-game experience at the level where gameplay engineering and AI systems start overlapping.",
+    highlights: [
+      "Built player mechanics, enemy AI, networking, physics interactions, and world-building systems.",
+      "Relocated to San Francisco for direct collaboration with the core engineering team.",
+      "Moved fluidly between gameplay development, internal tooling, and urgent AI-driven problem solving.",
+    ],
+  },
+  {
+    id: "current-products",
+    label: "Current",
+    period: "2026-now",
+    title: "Independent AI products",
+    role: "Product builder and AI systems designer",
+    summary:
+      "My current work is centered on personal products where AI systems, product thinking, and behavior design meet.",
+    highlights: [
+      "Developing products like PlanKept and Voice of Self with an emphasis on AI-assisted systems and human follow-through.",
+      "Using agentic workflows as part of the way I build, research, and iterate on software.",
+      "Treating software less like static pages and more like living systems that shape behavior and experience.",
     ],
   },
 ] as const satisfies readonly HomeTimelineEntry[];

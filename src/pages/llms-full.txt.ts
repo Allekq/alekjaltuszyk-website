@@ -39,7 +39,7 @@ ${siteConfig.aiDiscovery.notFor.map((item) => `- ${item}`).join("\n")}
 
 ## Site Overview
 
-The root homepage is about Alek Jałtuszyk. The ${appsDirectoryPath} directory is
+The root homepage is about Aleksander Jałtuszyk. The ${appsDirectoryPath} directory is
 the chooser for products. Some app pages can live under this domain, and some
 can route out to their own separate websites.
 

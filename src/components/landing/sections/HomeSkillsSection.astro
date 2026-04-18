@@ -6,21 +6,40 @@ import { homeSkills } from "./home-profile-content";
   <div class="home-skills__inner">
     <p class="home-skills__eyebrow">Core skills</p>
     <h2 class="home-skills__title" id="home-skills-title">
-      Unity, C#, and AI are the three threads underneath almost everything I build.
+      The core stack behind my work right now, with Unity still carrying real weight.
     </h2>
 
-    <div class="home-skills__grid">
+    <div class="home-skills__root" data-skill-cards-root>
       {homeSkills.map((skill) => (
-        <details class="home-skills__item">
-          <summary class="home-skills__summary">
-            <span class="home-skills__summary-copy">
+        <article
+          class="home-skills__card"
+          data-skill-card
+          data-skill-id={skill.id}
+          style={`--skill-offset: ${skill.offset};`}
+        >
+          <button
+            class="home-skills__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls={`skill-details-${skill.id}`}
+            id={`skill-trigger-${skill.id}`}
+            data-skill-trigger
+            data-skill-target={skill.id}
+          >
+            <span class="home-skills__trigger-copy">
               <span class="home-skills__name">{skill.title}</span>
               <span class="home-skills__strap">{skill.strap}</span>
             </span>
-            <span class="home-skills__summary-icon" aria-hidden="true"></span>
-          </summary>
+          </button>
 
-          <div class="home-skills__body">
+          <div
+            class="home-skills__details"
+            id={`skill-details-${skill.id}`}
+            role="region"
+            aria-labelledby={`skill-trigger-${skill.id}`}
+            aria-hidden="true"
+            data-skill-details
+          >
             <p class="home-skills__summary-text">{skill.summary}</p>
 
             <ul class="home-skills__highlights">
@@ -31,11 +50,18 @@ import { homeSkills } from "./home-profile-content";
 
             <div class="home-skills__related" aria-label="Related history">
               {skill.related.map((relatedItem) => (
-                <span>{relatedItem}</span>
+                <a
+                  class="home-skills__related-link"
+                  href="#history"
+                  data-history-jump
+                  data-history-target={relatedItem.historyId}
+                >
+                  {relatedItem.label}
+                </a>
               ))}
             </div>
           </div>
-        </details>
+        </article>
       ))}
     </div>
   </div>

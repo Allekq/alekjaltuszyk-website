@@ -1,26 +1,33 @@
 ---
 import { homeTimeline } from "./home-profile-content";
+
+const newestEntry = homeTimeline[homeTimeline.length - 1];
 ---
 
-<section class="home-history" aria-labelledby="home-history-title" data-reveal>
+<section class="home-history" id="history" aria-labelledby="home-history-title" data-reveal>
   <div class="home-history__inner">
     <p class="home-history__eyebrow">Selected history</p>
     <h2 class="home-history__title" id="home-history-title">
-      A shorter version of the path so far, newest to oldest.
+      A few milestones that explain how I build today.
     </h2>
 
-    <div class="home-history__root" data-history-root>
+    <div
+      class="home-history__root"
+      data-panel-root
+      data-default-target={newestEntry.id}
+    >
       <div class="home-history__track" role="tablist" aria-label="Career history">
         {homeTimeline.map((entry, index) => (
           <button
-            class:list={["home-history__tab", index === 0 && "is-active"]}
+            class:list={["home-history__tab", entry.id === newestEntry.id && "is-active"]}
             type="button"
             role="tab"
-            aria-selected={index === 0 ? "true" : "false"}
+            aria-selected={entry.id === newestEntry.id ? "true" : "false"}
             aria-controls={`history-panel-${entry.id}`}
             id={`history-tab-${entry.id}`}
-            data-history-tab
-            data-history-target={entry.id}
+            data-panel-tab
+            data-panel-target={entry.id}
+            data-panel-anchor={`${((index + 0.5) / homeTimeline.length) * 100}%`}
           >
             <span class="home-history__tab-period">{entry.period}</span>
             <span class="home-history__tab-label">{entry.label}</span>
@@ -29,13 +36,13 @@ import { homeTimeline } from "./home-profile-content";
       </div>
 
       <div class="home-history__panels">
-        {homeTimeline.map((entry, index) => (
+        {homeTimeline.map((entry) => (
           <article
-            class:list={["home-history__panel", index === 0 && "is-active"]}
+            class:list={["home-history__panel", entry.id === newestEntry.id && "is-active"]}
             id={`history-panel-${entry.id}`}
             role="tabpanel"
             aria-labelledby={`history-tab-${entry.id}`}
-            data-history-panel={entry.id}
+            data-panel-panel={entry.id}
           >
             <div class="home-history__panel-header">
               <p class="home-history__panel-period">{entry.period}</p>

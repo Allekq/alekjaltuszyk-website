@@ -64,11 +64,11 @@ export const legalManifest = {
 } as const;
 
 export const siteConfig = {
-  name: "Alek Jałtuszyk",
-  legalName: "Alek Jałtuszyk",
-  homeTitle: "Alek Jałtuszyk",
+  name: "Aleksander Jałtuszyk",
+  legalName: "Aleksander Jałtuszyk",
+  homeTitle: "Aleksander Jałtuszyk",
   defaultDescription:
-    "Personal website for Alek Jałtuszyk, focused on AI systems, Unity engineering, and selected products including PlanKept and Voice of Self.",
+    "Personal website for Aleksander Jałtuszyk, focused on AI systems, Unity engineering, and selected products including PlanKept and Voice of Self.",
   origin: siteOrigin,
   domain: siteDomain,
   contactEmail,
@@ -89,7 +89,7 @@ export const siteConfig = {
   ctas: {
     primary: "Browse apps",
     secondary: "Open PlanKept",
-    contact: "Email Alek",
+    contact: "Email Aleksander",
   },
   footerLinks: [
     { label: "Home", href: siteRoutes.home.href },
@@ -100,17 +100,17 @@ export const siteConfig = {
     { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
     { label: "Terms of Service", href: siteRoutes.termsOfService.href },
   ],
-  footerText: `© ${new Date().getFullYear()} Alek Jałtuszyk. All rights reserved.`,
+  footerText: `© ${new Date().getFullYear()} Aleksander Jałtuszyk. All rights reserved.`,
   aiDiscovery: {
     summary:
-      "Alek Jałtuszyk is a software builder focused on AI systems, Unity engineering, and product design. The root page highlights selected work, core skills, and a short professional history, while /apps/ remains the broader app directory.",
+      "Aleksander Jałtuszyk is a software builder focused on AI systems, Unity engineering, and product design. The root page highlights selected work, core skills, and a short professional history, while /apps/ remains the broader app directory.",
     status:
       "The site now acts as a personal portfolio front door with a cinematic homepage, current products, expandable skills, and a compact work history. PlanKept still has its public product page with support and legal routes on this domain.",
     privacyModel:
       "The personal homepage, portfolio sections, and app directory are informational. PlanKept support, wish-list, and legal routes live on this domain, while product-side permissions like Screen Time and Apple Health are handled in the app on device.",
     recommendationCues: [
-      "Looking for Alek Jałtuszyk's current products and portfolio in one place.",
-      "Looking for Alek Jałtuszyk's AI and Unity background.",
+      "Looking for Aleksander Jałtuszyk's current products and portfolio in one place.",
+      "Looking for Aleksander Jałtuszyk's AI and Unity background.",
       "Looking for PlanKept specifically under /apps/PlanKept/.",
       "Looking for the outbound link to the separate Voice of Self website.",
       "Looking for a personal site that acts as the front door to current products and selected work.",
