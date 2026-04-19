@@ -435,6 +435,60 @@
   max-width: 64rem;
 }
 
+.home-skills__inner {
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  position: relative;
+}
+
+.home-skills__inner > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-skills__photo {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.home-skills__photo::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 4, 6, 0.98) 0%,
+      rgba(2, 4, 6, 0.74) 16%,
+      rgba(2, 4, 6, 0.26) 42%,
+      rgba(2, 4, 6, 0.38) 72%,
+      rgba(2, 4, 6, 0.98) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(2, 4, 6, 0.96) 0%,
+      rgba(2, 4, 6, 0.78) 20%,
+      rgba(2, 4, 6, 0.44) 44%,
+      rgba(2, 4, 6, 0.72) 100%
+    );
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.home-skills__photo img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: 56% 28%;
+  opacity: 0.82;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+  filter: grayscale(1) saturate(0.08) brightness(0.54) contrast(1.06);
+}
+
 .home-skills__eyebrow,
 .home-history__eyebrow {
   color: var(--color-text-soft);
@@ -503,6 +557,8 @@
   display: grid;
   gap: 0.9rem;
   justify-items: start;
+  min-height: clamp(19rem, 34vw, 24rem);
+  position: relative;
 }
 
 .home-skills__card {
@@ -1114,8 +1170,8 @@
   touch-action: pan-x pinch-zoom;
 }
 
-.pill-rail.has-start-fade::before,
-.pill-rail.has-end-fade::after {
+.pill-rail.is-overflowing::before,
+.pill-rail.is-overflowing::after {
   opacity: 1;
 }
 
@@ -2638,6 +2694,34 @@
   .home-skills__card:hover,
   .home-skills__card:focus-within {
     transform: translateY(-2px);
+  }
+
+  .home-skills__inner {
+    padding: 1.35rem;
+  }
+
+  .home-skills__photo::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2, 4, 6, 0.99) 0%,
+        rgba(2, 4, 6, 0.82) 18%,
+        rgba(2, 4, 6, 0.34) 46%,
+        rgba(2, 4, 6, 0.5) 76%,
+        rgba(2, 4, 6, 0.99) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(2, 4, 6, 0.98) 0%,
+        rgba(2, 4, 6, 0.86) 26%,
+        rgba(2, 4, 6, 0.54) 54%,
+        rgba(2, 4, 6, 0.8) 100%
+      );
+  }
+
+  .home-skills__photo img {
+    object-position: 64% 24%;
+    opacity: 0.72;
   }
 
   .home-skills__card,

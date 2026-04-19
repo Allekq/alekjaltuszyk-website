@@ -3,12 +3,8 @@ const OVERFLOW_EPSILON = 6;
 const updateRailState = (rail: HTMLElement) => {
   const maxScroll = Math.max(rail.scrollWidth - rail.clientWidth, 0);
   const isOverflowing = maxScroll > OVERFLOW_EPSILON;
-  const hasStartFade = isOverflowing && rail.scrollLeft > OVERFLOW_EPSILON;
-  const hasEndFade = isOverflowing && rail.scrollLeft < maxScroll - OVERFLOW_EPSILON;
 
   rail.classList.toggle("is-overflowing", isOverflowing);
-  rail.classList.toggle("has-start-fade", hasStartFade);
-  rail.classList.toggle("has-end-fade", hasEndFade);
 
   if (!isOverflowing && Math.abs(rail.scrollLeft) > OVERFLOW_EPSILON) {
     rail.scrollTo({ left: 0, behavior: "smooth" });

@@ -75,6 +75,21 @@ export const homeSkills = [
       { label: "Roam AI", historyId: "roam-ai" },
     ],
   },
+  {
+    id: "climber",
+    offset: "6.4rem",
+    title: "Climber",
+    strap: "I stay motivated by pushing my body as hard as I push my mind.",
+    summary:
+      "Climbing is a big part of how I stay sharp outside of software. My max boulder grade is 7c, I like slopers, and I have won two regional competitions alongside many more podium finishes.",
+    highlights: [
+      "Max boulder grade: 7c.",
+      "Preferred climbing style: slopers.",
+      "Won two regional competitions and placed on the podium in many others.",
+      "Strength achievements include a one-arm pull-up, a front lever, and 42 pull-ups in a row.",
+    ],
+    related: [],
+  },
 ] as const satisfies readonly HomeSkill[];
 
 export const homeTimeline = [

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder climbing portrait background</title>
+  <desc id="desc">A dark placeholder illustration suggesting a climber on a wall for the home skills section.</desc>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="40" x2="1450" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05090d"/>
+      <stop offset="0.45" stop-color="#0a1219"/>
+      <stop offset="1" stop-color="#081017"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1040 428) rotate(122.6) scale(490 382)">
+      <stop stop-color="#7ac7ff" stop-opacity="0.34"/>
+      <stop offset="0.45" stop-color="#569bd3" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#569bd3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="chalk" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1156 420) rotate(90) scale(232 188)">
+      <stop stop-color="#f8fbff" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#f8fbff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wall" x1="935" y1="92" x2="1496" y2="1010" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101a22"/>
+      <stop offset="1" stop-color="#05090d"/>
+    </linearGradient>
+    <filter id="blur-xl" x="-120" y="-120" width="1840" height="1340" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <g filter="url(#blur-xl)">
+    <ellipse cx="1028" cy="404" rx="308" ry="244" fill="url(#glow)"/>
+    <ellipse cx="1208" cy="270" rx="148" ry="108" fill="#91d4ff" fill-opacity="0.14"/>
+    <ellipse cx="916" cy="748" rx="268" ry="168" fill="#0f1d26" fill-opacity="0.82"/>
+  </g>
+
+  <path d="M1062 36C1005 234 966 409 958 579C951 735 973 890 1040 1100H1600V0H1113C1095 0 1077 13 1062 36Z" fill="url(#wall)"/>
+  <path d="M986 154C1126 230 1221 361 1268 548C1308 707 1318 891 1302 1100" stroke="#d9ebff" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round" stroke-dasharray="4 14"/>
+  <path d="M1194 75C1181 130 1160 186 1131 241C1107 286 1084 331 1075 380" stroke="#d6ebff" stroke-opacity="0.34" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="1066" cy="386" r="14" fill="#0a0f14"/>
+  <path d="M1070 398C1081 430 1081 459 1076 487" stroke="#090e13" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1078 428C1114 435 1138 419 1158 396" stroke="#090e13" stroke-width="15" stroke-linecap="round"/>
+  <path d="M1067 436C1039 458 1018 490 1000 525" stroke="#090e13" stroke-width="15" stroke-linecap="round"/>
+  <path d="M1072 486C1101 534 1117 579 1120 623" stroke="#090e13" stroke-width="16" stroke-linecap="round"/>
+  <path d="M1065 486C1042 530 1017 563 982 586" stroke="#090e13" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="1155" cy="396" r="11" fill="#0e1820"/>
+  <circle cx="1002" cy="526" r="10" fill="#0e1820"/>
+  <circle cx="1118" cy="624" r="10" fill="#0e1820"/>
+  <circle cx="982" cy="586" r="10" fill="#0e1820"/>
+  <path d="M1098 343C1168 286 1228 213 1279 124" stroke="#edf7ff" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="1128" cy="420" rx="150" ry="118" fill="url(#chalk)"/>
+  <path d="M808 934C950 852 1092 805 1232 792" stroke="#66b6ff" stroke-opacity="0.1" stroke-width="2"/>
+  <path d="M748 872C888 784 1019 724 1148 693" stroke="#66b6ff" stroke-opacity="0.07" stroke-width="2"/>
+</svg>

@@ -1,9 +1,22 @@
 ---
 import { homeSkills } from "./home-profile-content";
+import { withBase } from "../../../lib/paths";
+
+const skillsPhotoSrc = withBase("/media/home/skills-climbing-photo.png");
 ---
 
 <section class="home-skills" aria-labelledby="home-skills-title" data-reveal>
   <div class="home-skills__inner">
+    <div class="home-skills__photo" aria-hidden="true">
+      <img
+        src={skillsPhotoSrc}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        draggable="false"
+      />
+    </div>
+
     <p class="home-skills__eyebrow">Core skills</p>
     <h2 class="home-skills__title" id="home-skills-title">
       The core stack behind my work right now, with Unity still carrying real weight.
@@ -52,18 +65,20 @@ import { homeSkills } from "./home-profile-content";
               ))}
             </ul>
 
-            <div class="home-skills__related" aria-label="Related history">
-              {skill.related.map((relatedItem) => (
-                <a
-                  class="home-skills__related-link"
-                  href="#history"
-                  data-history-jump
-                  data-history-target={relatedItem.historyId}
-                >
-                  {relatedItem.label}
-                </a>
-              ))}
-            </div>
+            {skill.related.length > 0 && (
+              <div class="home-skills__related" aria-label="Related history">
+                {skill.related.map((relatedItem) => (
+                  <a
+                    class="home-skills__related-link"
+                    href="#history"
+                    data-history-jump
+                    data-history-target={relatedItem.historyId}
+                  >
+                    {relatedItem.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </article>
       ))}
