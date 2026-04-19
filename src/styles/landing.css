@@ -10,6 +10,7 @@
 .landing-section__inner {
   margin: 0 auto;
   max-width: var(--container-content);
+  min-width: 0;
   position: relative;
   width: 100%;
 }
@@ -1055,25 +1056,80 @@
 }
 
 .pill-rail {
+  contain: inline-size;
+  display: block;
   -ms-overflow-style: none;
+  inline-size: 100%;
   max-width: 100%;
+  min-inline-size: 0;
   overflow-x: auto;
+  overflow-y: hidden;
   overscroll-behavior-x: contain;
   padding-bottom: 0.25rem;
+  position: relative;
   scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  touch-action: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pill-rail::-webkit-scrollbar {
   display: none;
 }
 
+.pill-rail::before,
+.pill-rail::after {
+  backdrop-filter: blur(8px);
+  bottom: 0;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: opacity var(--motion-standard);
+  width: 2.1rem;
+  z-index: 1;
+}
+
+.pill-rail::before {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-bg-strong) 92%, transparent),
+    transparent
+  );
+  left: 0;
+}
+
+.pill-rail::after {
+  background: linear-gradient(
+    270deg,
+    color-mix(in srgb, var(--color-bg-strong) 92%, transparent),
+    transparent
+  );
+  right: 0;
+}
+
+.pill-rail.is-overflowing {
+  touch-action: pan-x pinch-zoom;
+}
+
+.pill-rail.has-start-fade::before,
+.pill-rail.has-end-fade::after {
+  opacity: 1;
+}
+
 .pill-rail__track {
   align-items: center;
   display: flex;
   gap: var(--space-sm);
-  justify-content: center;
-  min-width: 100%;
-  width: max-content;
+  margin-inline: auto;
+  min-width: fit-content;
+  width: fit-content;
+}
+
+.pill-rail.is-overflowing .pill-rail__track {
+  margin-inline: 0;
 }
 
 .pill-rail__item {
@@ -1091,6 +1147,8 @@
 
 .plan-kept-hero__chips,
 .plan-kept-mode-examples {
+  min-width: 0;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -1251,6 +1309,7 @@
 .plan-kept-modes {
   display: grid;
   gap: var(--space-xl);
+  min-width: 0;
 }
 
 .plan-kept-mode-examples {
@@ -1261,6 +1320,8 @@
   display: grid;
   gap: var(--space-lg);
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+  width: 100%;
 }
 
 .plan-kept-mode-card {
@@ -1274,12 +1335,30 @@
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, var(--color-bg-card) 32%, white 68%),
     0 18px 36px color-mix(in srgb, var(--color-bg) 26%, transparent);
+  display: grid;
+  gap: 0.95rem;
+  grid-template-columns: minmax(0, 1fr);
+  inline-size: 100%;
   min-width: 0;
+  overflow: hidden;
+  width: 100%;
   padding: 1.35rem;
   transition:
     transform var(--motion-standard),
     border-color var(--motion-standard),
     box-shadow var(--motion-standard);
+}
+
+.plan-kept-mode-card > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.plan-kept-mode-card h3,
+.plan-kept-mode-card p,
+.plan-kept-mode-card li {
+  overflow-wrap: anywhere;
+  width: 100%;
 }
 
 .plan-kept-mode-card--boundary {
@@ -1313,6 +1392,8 @@
   gap: 0.8rem;
   line-height: 1.7;
   margin: 1rem 0 0;
+  max-width: 100%;
+  min-width: 0;
   padding-left: 1.15rem;
 }
 
@@ -2302,6 +2383,21 @@
   .plan-kept-mode-grid {
     grid-template-columns: 1fr;
   }
+
+  .plan-kept-hero__copy {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .plan-kept-hero__title,
+  .plan-kept-hero__body {
+    margin-inline: auto;
+  }
+
+  .plan-kept-hero__actions {
+    justify-content: center;
+    margin-inline: auto;
+  }
 }
 
 @media (max-width: 52rem) {
@@ -2318,9 +2414,15 @@
     padding: 0.82rem;
   }
 
+  .landing-brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
   .landing-nav {
     gap: 0.25rem;
     grid-column: 1 / -1;
+    grid-row: 2;
     justify-content: center;
     justify-self: stretch;
     min-width: 0;
@@ -2329,8 +2431,11 @@
 
   .landing-header__cta {
     grid-column: 2;
+    grid-row: 1;
     justify-self: end;
+    min-height: 2.7rem;
     min-width: 0;
+    padding-inline: 1.05rem;
     width: auto;
   }
 
@@ -2341,6 +2446,11 @@
     flex-direction: column;
   }
 
+  .plan-kept-hero__actions {
+    align-items: stretch;
+    max-width: min(100%, 22rem);
+  }
+
   .apps-preview__footer .action-button {
     width: 100%;
   }
@@ -2349,6 +2459,10 @@
   .launch-actions__buttons .action-button,
   .plan-kept-hero__actions .action-button,
   .plan-kept-close__actions .action-button {
+    width: 100%;
+  }
+
+  .plan-kept-hero__actions .action-button {
     width: 100%;
   }
 
@@ -2382,10 +2496,6 @@
   .plan-kept-stage__card h2,
   .plan-kept-stage__card h3 {
     font-size: clamp(1.2rem, 4.8vw, 1.55rem);
-  }
-
-  .pill-rail__track {
-    justify-content: flex-start;
   }
 
   .brand-ripple__ring--6 {
@@ -2424,23 +2534,35 @@
 
   .landing-section--tinted .landing-section__inner {
     padding: 1rem;
+    overflow: hidden;
   }
 
-  .section-heading {
+  #flow .section-heading,
+  #modes .section-heading,
+  #faq .section-heading {
     gap: 0.8rem;
+    justify-items: center;
     margin-bottom: 1.5rem;
+    margin-inline: auto;
+    text-align: center;
   }
 
-  .section-title {
+  #flow .section-title,
+  #modes .section-title,
+  #faq .section-title {
     font-size: clamp(1.75rem, 10vw, 2.45rem);
     line-height: 1.02;
-    max-width: 10ch;
-    text-wrap: pretty;
+    max-width: none;
+    text-wrap: balance;
   }
 
-  .section-body {
+  #flow .section-body,
+  #modes .section-body,
+  #faq .section-body {
     font-size: 0.98rem;
     line-height: 1.72;
+    margin-inline: auto;
+    max-width: 32rem;
   }
 
   .landing-header {
@@ -2470,6 +2592,11 @@
   .landing-header__cta {
     min-height: 2.75rem;
     padding-inline: 1rem;
+  }
+
+  .plan-kept-hero__actions {
+    max-width: none;
+    width: 100%;
   }
 
   .simple-site-header__bar {
@@ -2607,8 +2734,8 @@
   }
 
   .plan-kept-hero__title {
-    font-size: clamp(2.35rem, 16vw, 4rem);
-    max-width: 6ch;
+    font-size: clamp(2.1rem, 14vw, 3.7rem);
+    max-width: 10.5ch;
   }
 
   .plan-kept-hero__body {
@@ -2617,11 +2744,20 @@
     margin-bottom: 1.25rem;
   }
 
+  .plan-kept-hero__actions .action-button {
+    width: 100%;
+  }
+
   .plan-kept-step,
   .plan-kept-mode-card,
   .plan-kept-close {
     border-radius: 1.3rem;
     padding: 1.1rem;
+  }
+
+  .plan-kept-close__copy {
+    margin-inline: auto;
+    text-align: center;
   }
 
   .plan-kept-mode-card__list {

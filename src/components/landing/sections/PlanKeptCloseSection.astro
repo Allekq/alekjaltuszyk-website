@@ -26,18 +26,6 @@ import ActionButton from "../ui/ActionButton.astro";
           {planKeptConfig.ctas.directory}
         </ActionButton>
       </div>
-
-      <div class="plan-kept-close__links" aria-label="PlanKept links">
-        {planKeptConfig.legalLinks.map((link) => (
-          <a
-            href={link.href}
-            target={"external" in link ? "_blank" : undefined}
-            rel={"external" in link ? "noreferrer" : undefined}
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
     </div>
   </div>
 </section>

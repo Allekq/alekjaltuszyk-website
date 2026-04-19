@@ -36,12 +36,7 @@ const faqEntries = [
 
     <div class="plan-kept-faq-list">
       {faqEntries.map((entry, index) => (
-        <details
-          class="plan-kept-faq landing-surface"
-          open={index === 0}
-          data-faq-item
-          data-reveal
-        >
+        <details class="plan-kept-faq landing-surface" data-faq-item data-reveal>
           <summary
             class="plan-kept-faq__button"
             id={`plan-kept-faq-${index + 1}-button`}

@@ -15,7 +15,13 @@ export const setupRevealOnScroll = () => {
     return;
   }
 
-  const isPhoneViewport = window.matchMedia("(max-width: 47.99rem)").matches;
+  const isCompactViewport = window.matchMedia("(max-width: 64rem)").matches;
+
+  if (isCompactViewport) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -25,17 +31,11 @@ export const setupRevealOnScroll = () => {
         }
       });
     },
-    isPhoneViewport
-      ? {
-          threshold: 0.03,
-          rootMargin: "0px 0px -6% 0px",
-        }
-      : {
-          threshold: 0.16,
-          rootMargin: "0px 0px -40px 0px",
-        },
+    {
+      threshold: 0.16,
+      rootMargin: "0px 0px -40px 0px",
+    },
   );
 
   items.forEach((item) => observer.observe(item));
 };
-
