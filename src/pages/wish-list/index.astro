@@ -15,15 +15,14 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
   <div class="waitlist-guide">
     <section class="waitlist-guide__hero landing-surface">
       <p class="waitlist-guide__eyebrow">Wish list</p>
-      <h1 class="waitlist-guide__title">The path is ready even before the real form exists.</h1>
+      <h1 class="waitlist-guide__title">Join the PlanKept wish list.</h1>
       <p class="waitlist-guide__lead">
-        For now, the button below goes to a placeholder external page. The supportable part is
-        already here: a clear route, an email fallback, and copy you can swap later when the real
-        form is ready.
+        The primary path now goes to the live external wish-list form. Email is still available as
+        a fallback if you would rather send a note directly.
       </p>
 
       <div class="waitlist-guide__actions">
-        <ActionButton href={planKeptConfig.wishListFormHref}>Open placeholder form</ActionButton>
+        <ActionButton href={planKeptConfig.wishListFormHref}>Open wish-list form</ActionButton>
         <ActionButton href={planKeptConfig.wishListMailtoHref} variant="secondary">
           Open your email app
         </ActionButton>
@@ -61,8 +60,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
         </div>
 
         <p class="waitlist-guide__body">
-          This page is intentionally simple. It gives you a working wish-list surface now and keeps
-          the real form easy to swap in later.
+          This page stays intentionally simple: one real form, plus a direct email fallback.
         </p>
       </section>
 
