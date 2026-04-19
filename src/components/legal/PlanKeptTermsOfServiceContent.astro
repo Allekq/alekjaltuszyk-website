@@ -1,4 +1,6 @@
 ---
+import { legalDocuments } from "../../../site.config.mjs";
+
 interface Props {
   supportHref: string;
 }
@@ -9,14 +11,15 @@ const { supportHref } = Astro.props as Props;
 <h1>PlanKept Terms Of Service</h1>
 
 <p>
-  <strong>Effective Date:</strong> 2026-04-19<br />
-  <strong>Version:</strong> 1.1.1
+  <strong>Effective Date:</strong> {legalDocuments.terms.effectiveDate}<br />
+  <strong>Version:</strong> {legalDocuments.terms.version}
 </p>
 
 <p>
   These Terms of Service govern your use of the PlanKept pages on this site, including the public
-  app page under <code>/apps/PlanKept/</code>, support channels, wish-list flow, and any future
-  app or service that links to these terms.
+  app page under <code>/apps/PlanKept/</code>, the support and legal pages under
+  <code>/PlanKept/</code>, support channels, wish-list flow, and any future app or service that
+  links to these terms.
 </p>
 
 <p>

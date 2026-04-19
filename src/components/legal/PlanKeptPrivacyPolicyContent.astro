@@ -1,4 +1,6 @@
 ---
+import { legalDocuments } from "../../../site.config.mjs";
+
 interface Props {
   supportHref: string;
 }
@@ -9,14 +11,15 @@ const { supportHref } = Astro.props as Props;
 <h1>PlanKept Privacy Policy</h1>
 
 <p>
-  <strong>Effective Date:</strong> 2026-04-19<br />
-  <strong>Version:</strong> 1.1.1
+  <strong>Effective Date:</strong> {legalDocuments.privacy.effectiveDate}<br />
+  <strong>Version:</strong> {legalDocuments.privacy.version}
 </p>
 
 <p>
   This Privacy Policy explains how PlanKept processes personal information when you use the
   PlanKept pages on this site, including the public app page under <code>/apps/PlanKept/</code>,
-  support channels, wish-list flow, and any future app experience that links to this policy.
+  the support and legal pages under <code>/PlanKept/</code>, the wish-list flow, and any future
+  app experience that links to this policy.
 </p>
 
 <p>

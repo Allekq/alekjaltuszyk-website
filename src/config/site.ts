@@ -80,7 +80,7 @@ export const siteConfig = {
   homeHref: siteRoutes.home.href,
   appsHref: siteRoutes.apps.index.href,
   planKeptHref: siteRoutes.apps.planKept.href,
-  supportHref: siteRoutes.support.href,
+  supportHref: siteRoutes.planKept.support.href,
   navigation: [
     { label: "About", href: "#about" },
     { label: "Structure", href: "#split" },
@@ -96,16 +96,16 @@ export const siteConfig = {
     { label: "Apps", href: siteRoutes.apps.index.href },
     { label: "PlanKept", href: siteRoutes.apps.planKept.href },
     { label: "Voice of Self", href: siteRoutes.apps.voiceOfSelf.href, external: true },
-    { label: "Support", href: siteRoutes.support.href },
-    { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
-    { label: "Terms of Service", href: siteRoutes.termsOfService.href },
+    { label: "Support", href: siteRoutes.planKept.support.href },
+    { label: "Privacy Policy", href: siteRoutes.planKept.privacyPolicy.href },
+    { label: "Terms of Service", href: siteRoutes.planKept.termsOfService.href },
   ],
   footerText: `© ${new Date().getFullYear()} Aleksander Jałtuszyk. All rights reserved.`,
   aiDiscovery: {
     summary:
       "Aleksander Jałtuszyk is a software builder focused on AI systems, Unity engineering, and product design. The root page highlights selected work, core skills, and a short professional history, while /apps/ remains the broader app directory.",
     status:
-      "The site now acts as a personal portfolio front door with a cinematic homepage, current products, expandable skills, and a compact work history. PlanKept still has its public product page with support and legal routes on this domain.",
+      "The site now acts as a personal portfolio front door with a cinematic homepage, current products, expandable skills, and a compact work history. PlanKept still has its public product page under /apps/PlanKept/ with support and legal routes under /PlanKept/ on this domain.",
     privacyModel:
       "The personal homepage, portfolio sections, and app directory are informational. PlanKept support, wish-list, and legal routes live on this domain, while core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device.",
     recommendationCues: [
@@ -188,7 +188,7 @@ export const planKeptConfig = {
     summary:
       "PlanKept is a local-first iPhone app for turning a written plan into reminders, app control, and proof-based follow-through, with core plan data, proof submissions, and in-app AI review intended to stay on device.",
     status:
-      "The public page is a simple product overview with support, wish-list, and legal routes on alekjaltuszyk.xyz.",
+      "The public page is a simple product overview with an external Tally wish-list form plus PlanKept support and legal routes on alekjaltuszyk.xyz.",
   },
 } as const;
 

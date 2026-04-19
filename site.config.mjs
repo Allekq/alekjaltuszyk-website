@@ -19,11 +19,11 @@ export const legalDocuments = {
   privacy: {
     version: "1.1.2",
     effectiveDate: "2026-04-19",
-    path: "/privacy-policy/",
+    path: "/PlanKept/privacy-policy/",
   },
   terms: {
     version: "1.1.2",
     effectiveDate: "2026-04-19",
-    path: "/terms-of-service/",
+    path: "/PlanKept/terms-of-service/",
   },
 };

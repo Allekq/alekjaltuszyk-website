@@ -34,23 +34,23 @@ export const discoveryPages = {
     {
       title: "Wish List",
       path: siteRoutes.wishList.path,
-      description: "Current placeholder sign-up route and email fallback for product interest.",
+      description: "PlanKept wish-list guide with a live external form and email fallback.",
     },
     {
       title: "Support",
-      path: siteRoutes.support.path,
+      path: siteRoutes.planKept.support.path,
       description: "Email-based support instructions for PlanKept.",
     },
   ],
   legal: [
     {
       title: "Privacy Policy",
-      path: siteRoutes.privacyPolicy.path,
+      path: siteRoutes.planKept.privacyPolicy.path,
       description: "How PlanKept handles website, support, and future app-related data.",
     },
     {
       title: "Terms of Service",
-      path: siteRoutes.termsOfService.path,
+      path: siteRoutes.planKept.termsOfService.path,
       description: "Usage terms for the website, support flows, and future app access.",
     },
     {
@@ -74,7 +74,7 @@ export const sitemapPagePaths = [
   siteRoutes.apps.index.path,
   siteRoutes.apps.planKept.path,
   siteRoutes.wishList.path,
-  siteRoutes.support.path,
-  siteRoutes.privacyPolicy.path,
-  siteRoutes.termsOfService.path,
+  siteRoutes.planKept.support.path,
+  siteRoutes.planKept.privacyPolicy.path,
+  siteRoutes.planKept.termsOfService.path,
 ] as const;
