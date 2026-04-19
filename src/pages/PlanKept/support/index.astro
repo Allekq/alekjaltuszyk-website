@@ -1,0 +1,22 @@
+---
+import PlanKeptSupportGuide from "../../../components/support/PlanKeptSupportGuide.astro";
+import SiteFooter from "../../../components/landing/sections/SiteFooter.astro";
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { siteRoutes } from "../../../config/routes";
+---
+
+<SiteLayout
+  title="Support | PlanKept"
+  description="Email-based support for PlanKept."
+  pageType="content"
+  canonicalHref={siteRoutes.support.href}
+  robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+>
+  <PlanKeptSupportGuide />
+
+  <SiteFooter />
+
+  <script>
+    import "../../../scripts/waitlist-guide/copy-buttons";
+  </script>
+</SiteLayout>

@@ -1,0 +1,15 @@
+---
+import PlanKeptPrivacyPolicyContent from "../../../components/legal/PlanKeptPrivacyPolicyContent.astro";
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { siteRoutes } from "../../../config/routes";
+---
+
+<SiteLayout
+  title="Privacy Policy | PlanKept"
+  description="PlanKept privacy policy."
+  pageType="legal"
+  canonicalHref={siteRoutes.privacyPolicy.href}
+  robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+>
+  <PlanKeptPrivacyPolicyContent supportHref={siteRoutes.planKept.support.path} />
+</SiteLayout>

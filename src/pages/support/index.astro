@@ -1,9 +1,8 @@
 ---
 import "../../styles/landing.css";
 import "../../styles/waitlist-guide.css";
+import PlanKeptSupportGuide from "../../components/support/PlanKeptSupportGuide.astro";
 import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
-import ActionButton from "../../components/landing/ui/ActionButton.astro";
-import { planKeptConfig } from "../../config/site";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 ---
 
@@ -12,85 +11,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
   description="Email-based support for PlanKept."
   pageType="content"
 >
-  <div class="waitlist-guide">
-    <section class="waitlist-guide__hero landing-surface">
-      <p class="waitlist-guide__eyebrow">Support</p>
-      <h1 class="waitlist-guide__title">Need help? Email support directly.</h1>
-      <p class="waitlist-guide__lead">
-        Support is intentionally straightforward for now. Send an email, describe what went wrong,
-        and include a little context if you can.
-      </p>
-
-      <div class="waitlist-guide__actions">
-        <ActionButton href={planKeptConfig.supportGmailHref}>Open Gmail in browser</ActionButton>
-        <ActionButton href={planKeptConfig.supportMailtoHref} variant="secondary">
-          Open your email app
-        </ActionButton>
-      </div>
-
-      <p class="waitlist-guide__note">
-        If those options do not open cleanly, copy the support email and draft below.
-      </p>
-    </section>
-
-    <div class="waitlist-guide__grid">
-      <section class="waitlist-guide__card landing-surface">
-        <div class="waitlist-guide__card-head">
-          <div class="waitlist-guide__detail waitlist-guide__detail--email">
-            <p class="waitlist-guide__detail-label">Send it to</p>
-            <p class="waitlist-guide__detail-value waitlist-guide__detail-value--email">
-              {planKeptConfig.supportEmail}
-            </p>
-          </div>
-          <button
-            class="waitlist-guide__copy"
-            type="button"
-            data-copy-value={planKeptConfig.supportEmail}
-          >
-            Copy email
-          </button>
-        </div>
-
-        <div class="waitlist-guide__detail">
-          <p class="waitlist-guide__detail-label">Suggested subject</p>
-          <p class="waitlist-guide__pill">{planKeptConfig.supportDraft.subject}</p>
-        </div>
-
-        <p class="waitlist-guide__body">
-          A short description is enough to start. Device and OS details help if you have them.
-        </p>
-      </section>
-
-      <section class="waitlist-guide__card landing-surface">
-        <p class="waitlist-guide__kicker">What to include</p>
-        <h2 class="waitlist-guide__card-title">A quick note gets the conversation moving.</h2>
-
-        <ul class="waitlist-guide__list">
-          <li>What you were trying to do.</li>
-          <li>What happened instead.</li>
-          <li>Your device and OS version, if you know them.</li>
-        </ul>
-      </section>
-    </div>
-
-    <section class="waitlist-guide__card landing-surface">
-      <div class="waitlist-guide__card-head">
-        <div>
-          <p class="waitlist-guide__kicker">Ready-made draft</p>
-          <h2 class="waitlist-guide__card-title">Send this as-is or edit it first.</h2>
-        </div>
-        <button
-          class="waitlist-guide__copy"
-          type="button"
-          data-copy-value={planKeptConfig.supportDraft.body}
-        >
-          Copy draft
-        </button>
-      </div>
-
-      <pre class="waitlist-guide__template">{planKeptConfig.supportDraft.body}</pre>
-    </section>
-  </div>
+  <PlanKeptSupportGuide />
 
   <SiteFooter />
 

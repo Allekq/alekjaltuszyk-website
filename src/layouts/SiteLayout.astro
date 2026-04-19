@@ -15,6 +15,8 @@ interface Props {
   pageType?: "auto" | "content" | "legal" | "landing";
   articleClassName?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  canonicalHref?: string;
+  robotsContent?: string;
 }
 
 const {
@@ -22,6 +24,8 @@ const {
   pageType = "auto",
   articleClassName,
   structuredData,
+  canonicalHref,
+  robotsContent,
 } = Astro.props as Props;
 const pageTitle = Astro.props.title ?? frontmatter?.title ?? siteConfig.homeTitle;
 const description =
@@ -32,7 +36,9 @@ const description =
 const normalizedPathname = Astro.url.pathname.endsWith("/")
   ? Astro.url.pathname
   : `${Astro.url.pathname}/`;
-const canonicalUrl = new URL(normalizedPathname, Astro.site ?? Astro.url).toString();
+const canonicalUrl = canonicalHref
+  ? new URL(canonicalHref, Astro.site ?? Astro.url).toString()
+  : new URL(normalizedPathname, Astro.site ?? Astro.url).toString();
 const homeHref = withBase("/");
 const isHomePage = normalizedPathname === basePath;
 const isLandingPage = isHomePage || pageType === "landing";
@@ -99,7 +105,9 @@ const resolvedStructuredData = [
     <meta name="twitter:image" content={imageUrl} />
     <meta
       name="robots"
-      content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+      content={
+        robotsContent ?? "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+      }
     />
     <link rel="alternate" type="text/plain" title="LLM context" href={withBase("/llms.txt")} />
     {resolvedStructuredData.map((entry) => (

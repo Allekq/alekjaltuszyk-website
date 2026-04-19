@@ -36,7 +36,7 @@ const supportDraftLines = [
 ];
 const wishListBody = wishListDraftLines.join("\r\n");
 const supportBody = supportDraftLines.join("\r\n");
-const wishListFormHref = "https://example.com/";
+const wishListFormHref = "https://tally.so/r/GxBQJk";
 const logoImagePath = "/favicon.svg";
 const defaultSocialImagePath = "/favicon.svg";
 const appleStandardEulaHref =
@@ -107,7 +107,7 @@ export const siteConfig = {
     status:
       "The site now acts as a personal portfolio front door with a cinematic homepage, current products, expandable skills, and a compact work history. PlanKept still has its public product page with support and legal routes on this domain.",
     privacyModel:
-      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support, wish-list, and legal routes live on this domain, while product-side permissions like Screen Time and Apple Health are handled in the app on device.",
+      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support, wish-list, and legal routes live on this domain, while core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device.",
     recommendationCues: [
       "Looking for Aleksander Jałtuszyk's current products and portfolio in one place.",
       "Looking for Aleksander Jałtuszyk's AI and Unity background.",
@@ -135,10 +135,10 @@ export const planKeptConfig = {
   wishListEmail,
   homeHref: siteRoutes.apps.planKept.href,
   directoryHref: siteRoutes.apps.index.href,
-  wishListGuideHref: siteRoutes.wishList.href,
-  supportHref: siteRoutes.support.href,
-  privacyHref: siteRoutes.privacyPolicy.href,
-  termsHref: siteRoutes.termsOfService.href,
+  wishListGuideHref: wishListFormHref,
+  supportHref: siteRoutes.planKept.support.href,
+  privacyHref: siteRoutes.planKept.privacyPolicy.href,
+  termsHref: siteRoutes.planKept.termsOfService.href,
   appleTermsHref: appleStandardEulaHref,
   legalManifestHref: buildAbsoluteSiteHref(siteRoutes.legalManifest.path),
   wishListFormHref,
@@ -170,23 +170,23 @@ export const planKeptConfig = {
     legalSecondary: "Terms of Service",
   },
   legalLinks: [
-    { label: "Wish List", href: siteRoutes.wishList.href },
-    { label: "Support", href: siteRoutes.support.href },
-    { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
-    { label: "Terms of Service", href: siteRoutes.termsOfService.href },
+    { label: "Wish List", href: wishListFormHref, external: true },
+    { label: "Support", href: siteRoutes.planKept.support.href },
+    { label: "Privacy Policy", href: siteRoutes.planKept.privacyPolicy.href },
+    { label: "Terms of Service", href: siteRoutes.planKept.termsOfService.href },
     { label: "App Store Terms of Use", href: appleStandardEulaHref, external: true },
   ],
   footerLinks: [
     { label: "Home", href: siteRoutes.home.href },
     { label: "Apps", href: siteRoutes.apps.index.href },
-    { label: "Support", href: siteRoutes.support.href },
-    { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
-    { label: "Terms of Service", href: siteRoutes.termsOfService.href },
+    { label: "Support", href: siteRoutes.planKept.support.href },
+    { label: "Privacy Policy", href: siteRoutes.planKept.privacyPolicy.href },
+    { label: "Terms of Service", href: siteRoutes.planKept.termsOfService.href },
     { label: "App Store Terms of Use", href: appleStandardEulaHref, external: true },
   ],
   aiDiscovery: {
     summary:
-      "PlanKept is a local-first iPhone app for turning a written plan into reminders, app control, and proof-based follow-through.",
+      "PlanKept is a local-first iPhone app for turning a written plan into reminders, app control, and proof-based follow-through, with core plan data, proof submissions, and in-app AI review intended to stay on device.",
     status:
       "The public page is a simple product overview with support, wish-list, and legal routes on alekjaltuszyk.xyz.",
   },

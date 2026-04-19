@@ -1,0 +1,15 @@
+---
+import PlanKeptTermsOfServiceContent from "../../../components/legal/PlanKeptTermsOfServiceContent.astro";
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { siteRoutes } from "../../../config/routes";
+---
+
+<SiteLayout
+  title="Terms of Service | PlanKept"
+  description="PlanKept terms of service."
+  pageType="legal"
+  canonicalHref={siteRoutes.termsOfService.href}
+  robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+>
+  <PlanKeptTermsOfServiceContent supportHref={siteRoutes.planKept.support.path} />
+</SiteLayout>

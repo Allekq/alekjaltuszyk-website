@@ -12,6 +12,11 @@ const createExternalRoute = (href: string) => ({
 
 export const siteRoutes = {
   home: createInternalRoute("/"),
+  planKept: {
+    privacyPolicy: createInternalRoute("/PlanKept/privacy-policy/"),
+    support: createInternalRoute("/PlanKept/support/"),
+    termsOfService: createInternalRoute("/PlanKept/terms-of-service/"),
+  },
   apps: {
     index: createInternalRoute("/apps/"),
     planKept: createInternalRoute("/apps/PlanKept/"),
