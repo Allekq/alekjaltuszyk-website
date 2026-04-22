@@ -9,23 +9,13 @@ const personId = `${siteConfig.origin}#person`;
 const homePageStructuredData = [
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": personId,
-    name: siteConfig.name,
-    url: siteConfig.origin,
-    image: siteConfig.defaultSocialImageUrl,
-    description: siteConfig.aiDiscovery.summary,
-    email: siteConfig.contactEmail,
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "ProfilePage",
+    "@id": `${siteConfig.origin}#homepage`,
     name: siteConfig.homeTitle,
     url: toAbsoluteSiteUrl("/"),
     description: siteConfig.defaultDescription,
-    about: {
-      "@id": personId,
-    },
+    mainEntity: { "@id": personId },
+    about: { "@id": personId },
     isPartOf: {
       "@type": "WebSite",
       "@id": `${siteConfig.origin}#website`,

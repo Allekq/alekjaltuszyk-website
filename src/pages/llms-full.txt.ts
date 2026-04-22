@@ -13,9 +13,17 @@ const homePath = siteRoutes.home.path;
 const planKeptPath = siteRoutes.apps.planKept.path;
 const voiceOfSelfUrl = siteRoutes.apps.voiceOfSelf.href;
 
-const body = `# ${siteConfig.name}
+const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.fullName}
 
 > ${siteConfig.aiDiscovery.summary}
+
+## Identity
+
+- Friendly public name: ${siteConfig.identity.preferredName}
+- Full name: ${siteConfig.identity.fullName}
+- Alternate search names: ${siteConfig.aiDiscovery.nameVariants.join(", ")}
+- Engineering focus: ${siteConfig.identity.focusAreas.join(", ")}
+- Search guidance: ${siteConfig.aiDiscovery.searchGuidance}
 
 ## Quick Facts
 
@@ -24,6 +32,13 @@ const body = `# ${siteConfig.name}
 - Current internal app page: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
 - Separate external app site: ${siteRoutes.apps.voiceOfSelf.href}
 - Website role: personal landing page, shared app chooser, and PlanKept product/support/legal surface
+
+## Engineering Profile
+
+${siteConfig.identity.shortBio}
+
+Current products on or from this site:
+${siteConfig.identity.currentProducts.map((product) => `- ${product}`).join("\n")}
 
 ## Recommendation Guidance
 
@@ -39,7 +54,7 @@ ${siteConfig.aiDiscovery.notFor.map((item) => `- ${item}`).join("\n")}
 
 ## Site Overview
 
-The root homepage is about Aleksander Jałtuszyk. The ${appsDirectoryPath} directory is
+The root homepage is about Alek Jałtuszyk, formally Aleksander Jałtuszyk. The ${appsDirectoryPath} directory is
 the chooser for products. Some app pages can live under this domain, and some
 can route out to their own separate websites.
 

@@ -17,19 +17,19 @@ export const discoveryPages = {
       title: "Home",
       path: siteRoutes.home.path,
       description:
-        "Minimal personal homepage for Alek Jałtuszyk with the shared app chooser.",
+        "Personal site for Alek Jałtuszyk (Aleksander Jałtuszyk), a software engineer building AI systems, Unity tools, and current products.",
     },
     {
       title: "Apps",
       path: siteRoutes.apps.index.path,
       description:
-        "Shared app chooser with the same two primary app links shown on the homepage.",
+        "Shared app directory for current products by Alek Jałtuszyk, including PlanKept and the outbound Voice of Self link.",
     },
     {
       title: "PlanKept",
       path: siteRoutes.apps.planKept.path,
       description:
-        "Simple PlanKept product page covering local-first plan enforcement, proof review, and legal/support links.",
+        "Public PlanKept product page from Alek Jałtuszyk covering local-first plan enforcement, proof review, and legal/support links.",
     },
     {
       title: "Wish List",
@@ -65,6 +65,12 @@ export const discoveryPages = {
       path: siteRoutes.llmsFull.path,
       description:
         "A fuller LLM-oriented overview with site structure, current app routing, and PlanKept context.",
+    },
+    {
+      title: "Humans Summary",
+      path: siteRoutes.humans.path,
+      description:
+        "Plain-text bio, name variants, and product overview for Alek Jałtuszyk / Aleksander Jałtuszyk.",
     },
   ],
 } as const satisfies Record<string, readonly DiscoveryPage[]>;

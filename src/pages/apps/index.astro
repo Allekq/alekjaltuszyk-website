@@ -3,23 +3,30 @@ import "../../styles/landing.css";
 import SharedAppScaffold from "../../components/landing/sections/SharedAppScaffold.astro";
 import SimpleSiteHeader from "../../components/landing/sections/SimpleSiteHeader.astro";
 import { siteRoutes } from "../../config/routes";
+import { siteConfig } from "../../config/site";
 import { toAbsoluteSiteUrl } from "../../lib/discovery";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
+const personId = `${siteConfig.origin}#person`;
 const appsPageStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Apps",
     url: toAbsoluteSiteUrl(siteRoutes.apps.index.path),
-    description: "Directory of apps and product sites by Aleksander Jałtuszyk.",
+    description: "Directory of current products by Alek Jałtuszyk (Aleksander Jałtuszyk).",
+    about: { "@id": personId },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${siteConfig.origin}#website`,
+    },
   },
 ];
 ---
 
 <SiteLayout
   title="Apps"
-  description="Shared app chooser for the products linked from alekjaltuszyk.xyz."
+  description="Shared app directory for products by Alek Jałtuszyk (Aleksander Jałtuszyk)."
   pageType="landing"
   structuredData={appsPageStructuredData}
 >

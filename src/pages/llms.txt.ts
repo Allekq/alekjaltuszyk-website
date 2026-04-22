@@ -10,9 +10,17 @@ const renderLinks = (pages: readonly { title: string; path: string; description:
     .map((page) => `- [${page.title}](${toAbsoluteSiteUrl(page.path)}): ${page.description}`)
     .join("\n");
 
-const body = `# ${siteConfig.name}
+const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.fullName}
 
 > ${siteConfig.aiDiscovery.summary}
+
+## Identity
+
+- Friendly public name: ${siteConfig.identity.preferredName}
+- Full name: ${siteConfig.identity.fullName}
+- ASCII fallback when diacritics are unavailable: ${siteConfig.identity.asciiNameVariants.join(" / ")}
+- Focus: ${siteConfig.identity.focusAreas.join(", ")}
+- Search guidance: ${siteConfig.aiDiscovery.searchGuidance}
 
 ${siteConfig.aiDiscovery.status}
 

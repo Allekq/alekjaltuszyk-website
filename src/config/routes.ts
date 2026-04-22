@@ -31,6 +31,7 @@ export const siteRoutes = {
   robots: createInternalRoute("/robots.txt"),
   llms: createInternalRoute("/llms.txt"),
   llmsFull: createInternalRoute("/llms-full.txt"),
+  humans: createInternalRoute("/humans.txt"),
 } as const;
 
 export type AppCardTheme = "coral" | "mint";

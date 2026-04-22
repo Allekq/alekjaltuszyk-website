@@ -47,38 +47,37 @@ const title =
   isHomePage || pageTitle.includes(siteConfig.name)
     ? pageTitle
     : `${pageTitle} | ${siteConfig.name}`;
-const organizationId = `${siteConfig.origin}#organization`;
+const personId = `${siteConfig.origin}#person`;
 const websiteId = `${siteConfig.origin}#website`;
 const imageUrl = siteConfig.defaultSocialImageUrl;
 const resolvedStructuredData = [
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": organizationId,
-    name: siteConfig.name,
-    legalName: siteConfig.legalName,
+    "@type": "Person",
+    "@id": personId,
+    name: siteConfig.identity.fullName,
+    alternateName: [siteConfig.identity.preferredName, ...siteConfig.identity.asciiNameVariants],
+    givenName: "Aleksander",
+    familyName: "Jałtuszyk",
     url: siteConfig.origin,
-    logo: siteConfig.logoImageUrl,
+    image: imageUrl,
+    description: siteConfig.aiDiscovery.summary,
+    jobTitle: "Software Engineer",
+    knowsAbout: siteConfig.identity.focusAreas,
     email: siteConfig.contactEmail,
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        email: siteConfig.supportEmail,
-        url: new URL(siteConfig.supportHref, siteConfig.origin).toString(),
-      },
-    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": websiteId,
-    name: siteConfig.name,
+    name: siteConfig.identity.preferredName,
+    alternateName: [siteConfig.identity.fullName, ...siteConfig.identity.asciiNameVariants],
     url: siteConfig.origin,
     description: siteConfig.defaultDescription,
-    publisher: {
-      "@id": organizationId,
-    },
+    about: { "@id": personId },
+    author: { "@id": personId },
+    creator: { "@id": personId },
+    publisher: { "@id": personId },
   },
   ...(structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : []),
 ];
@@ -90,8 +89,11 @@ const resolvedStructuredData = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.legalName} />
+    <meta name="creator" content={siteConfig.identity.preferredName} />
     <meta name="theme-color" content="#020406" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="author" href={homeHref} />
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:title" content={title} />
@@ -110,6 +112,13 @@ const resolvedStructuredData = [
       }
     />
     <link rel="alternate" type="text/plain" title="LLM context" href={withBase("/llms.txt")} />
+    <link
+      rel="alternate"
+      type="text/plain"
+      title="Expanded LLM context"
+      href={withBase("/llms-full.txt")}
+    />
+    <link rel="alternate" type="text/plain" title="Humans summary" href={withBase("/humans.txt")} />
     {resolvedStructuredData.map((entry) => (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
     ))}

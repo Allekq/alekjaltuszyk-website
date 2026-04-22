@@ -6,7 +6,7 @@ import { siteRoutes } from "../../../config/routes";
 import { toAbsoluteSiteUrl } from "../../../lib/discovery";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
 
-const organizationId = `${siteConfig.origin}#organization`;
+const personId = `${siteConfig.origin}#person`;
 const planKeptPageStructuredData = [
   {
     "@context": "https://schema.org",
@@ -17,9 +17,8 @@ const planKeptPageStructuredData = [
     url: toAbsoluteSiteUrl(siteRoutes.apps.planKept.path),
     image: siteConfig.defaultSocialImageUrl,
     description: planKeptConfig.aiDiscovery.summary,
-    publisher: {
-      "@id": organizationId,
-    },
+    publisher: { "@id": personId },
+    creator: { "@id": personId },
   },
   {
     "@context": "https://schema.org",
