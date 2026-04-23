@@ -10,9 +10,11 @@ const { items, label, className, itemClassName } = Astro.props as Props;
 ---
 
 <div class:list={["pill-rail", className]} aria-label={label} data-pill-rail>
-  <div class="pill-rail__track">
-    {items.map((item) => (
-      <span class:list={["pill-rail__item", itemClassName]}>{item}</span>
-    ))}
+  <div class="pill-rail__viewport">
+    <div class="pill-rail__track">
+      {items.map((item) => (
+        <span class:list={["pill-rail__item", itemClassName]}>{item}</span>
+      ))}
+    </div>
   </div>
 </div>

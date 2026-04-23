@@ -155,10 +155,12 @@ export const planKeptConfig = {
   name: "PlanKept",
   homeTitle: "PlanKept",
   defaultDescription:
-    "PlanKept is a local-first iPhone app by Alek Jałtuszyk that turns a written plan into reminders, app control, and proof-based follow-through.",
+    "PlanKept is a local-first iPhone app by Alek Jałtuszyk that turns one written plan into reminders, app limits, and proof-based follow-through.",
+  identitySentence:
+    "PlanKept is an iPhone app that turns one written plan into reminders, app limits, and proof-based follow-through.",
   heroDescription:
-    "Write a goal or boundary in one clear sentence. PlanKept can turn it into reminders plus app blocks or timed limits on your iPhone, then clear the pressure when you actually finish the plan instead of tapping a soft override.",
-  tagline: "Say the resolution. Let it become real.",
+    "Use it for the small promises that usually dissolve: no Instagram before breakfast, walk before social apps, study before YouTube. The plan stays active until proof or a real justification clears it.",
+  tagline: "Keep the plan you made.",
   origin: siteOrigin,
   supportEmail,
   wishListEmail,
@@ -186,6 +188,7 @@ export const planKeptConfig = {
     lines: supportDraftLines,
   },
   navigation: [
+    { label: "Identity", href: "#identity" },
     { label: "Flow", href: "#flow" },
     { label: "Modes", href: "#modes" },
     { label: "FAQ", href: "#faq" },
@@ -215,7 +218,7 @@ export const planKeptConfig = {
   ],
   aiDiscovery: {
     summary:
-      "PlanKept is a local-first iPhone app by Alek Jałtuszyk for turning a written plan into reminders, app control, and proof-based follow-through, with core plan data, proof submissions, and in-app AI review intended to stay on device.",
+      "PlanKept is a local-first iPhone app by Alek Jałtuszyk for turning one written plan into reminders, app limits, and proof-based follow-through, with core plan data, proof submissions, and in-app AI review intended to stay on device.",
     status:
       "The public page is a simple product overview with an external Tally wish-list form plus PlanKept support and legal routes on alekjaltuszyk.xyz.",
   },

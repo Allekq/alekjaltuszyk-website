@@ -3,7 +3,7 @@ import { siteConfig } from "../../../config/site";
 import { withBase } from "../../../lib/paths";
 
 const heroVideoPath = withBase("/media/home/hero-energy-loop.mp4");
-const heroNameLines = siteConfig.name.split(" ");
+const heroNameLines = siteConfig.preferredName.split(" ");
 ---
 
 <section class="home-video-hero" id="home">
@@ -14,10 +14,17 @@ const heroNameLines = siteConfig.name.split(" ");
   </div>
 
   <div class="home-video-hero__inner">
-    <h1 class="home-video-hero__title">
-      {heroNameLines.map((line) => (
-        <span>{line}</span>
-      ))}
-    </h1>
+    <div class="home-video-hero__copy">
+      <p class="home-video-hero__kicker">Software engineer / AI systems / Unity craft</p>
+      <h1 class="home-video-hero__title">
+        {heroNameLines.map((line) => (
+          <span>{line}</span>
+        ))}
+      </h1>
+      <p class="home-video-hero__summary">
+        Building products where intelligence, behavior, and a little useful pressure meet.
+      </p>
+      <a class="home-video-hero__cue" href="#current-products">Current work</a>
+    </div>
   </div>
 </section>

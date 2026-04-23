@@ -3,10 +3,19 @@ import { appDirectory } from "../../../config/routes";
 import { isExternalHref } from "../../../lib/paths";
 ---
 
-<section class="home-destinations" aria-labelledby="home-destinations-title">
+<section class="home-destinations" id="current-products" aria-labelledby="home-destinations-title">
   <div class="home-destinations__inner" data-reveal>
-    <p class="home-destinations__eyebrow">Go deeper</p>
-    <h2 class="home-destinations__title" id="home-destinations-title">Current products</h2>
+    <div class="home-destinations__heading">
+      <p class="home-destinations__eyebrow">Now building</p>
+      <h2 class="home-destinations__title" id="home-destinations-title">
+        AI products with a human edge.
+      </h2>
+      <p class="home-destinations__body">
+        The current work lives where software becomes personal: PlanKept helps intentions survive
+        contact with real life, while Voice of Self helps people hear their own progress more
+        clearly.
+      </p>
+    </div>
 
     <div class="home-destinations__grid">
       {appDirectory.map((item) => {
@@ -15,12 +24,21 @@ import { isExternalHref } from "../../../lib/paths";
 
         return (
           <a
-            class="home-destinations__link"
+            class:list={["home-destinations__link", `home-destinations__link--${item.theme}`]}
             href={item.href}
             target={item.external ? "_blank" : undefined}
             rel={rel}
           >
+            <span class="home-destinations__link-meta">
+              <span>{item.eyebrow}</span>
+              <span>{item.status}</span>
+            </span>
             <span class="home-destinations__link-name">{item.name}</span>
+            <span class="home-destinations__link-description">{item.description}</span>
+            <span class="home-destinations__link-chips" aria-hidden="true">
+              {item.chips.slice(0, 2).map((chip) => <span>{chip}</span>)}
+            </span>
+            <span class="home-destinations__link-cta">{item.ctaLabel}</span>
           </a>
         );
       })}

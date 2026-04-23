@@ -1,13 +1,13 @@
 const OVERFLOW_EPSILON = 6;
 
-const updateRailState = (rail: HTMLElement) => {
-  const maxScroll = Math.max(rail.scrollWidth - rail.clientWidth, 0);
+const updateRailState = (root: HTMLElement, viewport: HTMLElement) => {
+  const maxScroll = Math.max(viewport.scrollWidth - viewport.clientWidth, 0);
   const isOverflowing = maxScroll > OVERFLOW_EPSILON;
 
-  rail.classList.toggle("is-overflowing", isOverflowing);
+  root.classList.toggle("is-overflowing", isOverflowing);
 
-  if (!isOverflowing && Math.abs(rail.scrollLeft) > OVERFLOW_EPSILON) {
-    rail.scrollTo({ left: 0, behavior: "smooth" });
+  if (!isOverflowing && Math.abs(viewport.scrollLeft) > OVERFLOW_EPSILON) {
+    viewport.scrollTo({ left: 0, behavior: "smooth" });
   }
 };
 
@@ -24,17 +24,31 @@ export const setupPillRails = () => {
       : new ResizeObserver((entries) => {
           for (const entry of entries) {
             if (entry.target instanceof HTMLElement) {
-              updateRailState(entry.target);
+              const root = entry.target.matches("[data-pill-rail]")
+                ? entry.target
+                : entry.target.closest<HTMLElement>("[data-pill-rail]");
+              const viewport = root?.querySelector<HTMLElement>(".pill-rail__viewport");
+
+              if (root && viewport) {
+                updateRailState(root, viewport);
+              }
             }
           }
         });
 
-  for (const rail of rails) {
-    const refresh = () => updateRailState(rail);
+  for (const root of rails) {
+    const viewport = root.querySelector<HTMLElement>(".pill-rail__viewport");
 
-    rail.addEventListener("scroll", refresh, { passive: true });
+    if (!viewport) {
+      continue;
+    }
+
+    const refresh = () => updateRailState(root, viewport);
+
+    viewport.addEventListener("scroll", refresh, { passive: true });
     window.addEventListener("resize", refresh, { passive: true });
-    resizeObserver?.observe(rail);
+    resizeObserver?.observe(root);
+    resizeObserver?.observe(viewport);
     requestAnimationFrame(refresh);
   }
 };

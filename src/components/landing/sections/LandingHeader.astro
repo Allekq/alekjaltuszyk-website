@@ -24,15 +24,26 @@ const {
   ctaLabel = siteConfig.ctas.primary,
   ctaVariant = "primary",
 } = Astro.props as Props;
+
+const getSectionId = (href: string) => (href.startsWith("#") ? href.slice(1) : undefined);
 ---
 
-<header class="landing-header" data-reveal data-reveal-early>
+<header class="landing-header" data-landing-header data-reveal data-reveal-early>
   <div class="landing-header__bar landing-surface">
     <a class="landing-brand" href={brandHref}>{brand}</a>
 
-    <nav class="landing-nav" aria-label="Primary">
-      {navigation.map((item) => (
-        <a class="landing-nav__link" href={item.href}>{item.label}</a>
+    <nav class="landing-nav" aria-label="Primary" data-nav-root>
+      <span class="landing-nav__highlight" aria-hidden="true" data-nav-highlight></span>
+      {navigation.map((item, index) => (
+        <a
+          class:list={["landing-nav__link", index === 0 && "is-active"]}
+          href={item.href}
+          data-nav-pill
+          data-section-id={getSectionId(item.href)}
+          aria-current={index === 0 ? "page" : undefined}
+        >
+          {item.label}
+        </a>
       ))}
     </nav>
 

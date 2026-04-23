@@ -1,0 +1,60 @@
+---
+const whatItIs = [
+  "A follow-through system for one plan at a time.",
+  "A local-first iPhone app that can use Screen Time controls.",
+  "A proof loop that clears pressure when the real action happens.",
+  "A bridge between intention, reminders, and device limits.",
+];
+
+const whatItIsNot = [
+  "A todo list or calendar.",
+  "A passive habit tracker.",
+  "A productivity dashboard full of charts.",
+  "A soft app blocker with an easy ignore button.",
+];
+---
+
+<section
+  class="landing-section plan-kept-positioning"
+  id="identity"
+  aria-labelledby="plan-kept-positioning-title"
+>
+  <div class="landing-section__inner">
+    <div class="section-heading plan-kept-positioning__heading" data-reveal>
+      <p class="section-kicker">Product identity</p>
+      <h2 class="section-title" id="plan-kept-positioning-title">
+        The app has one job: keep a real-world promise from evaporating.
+      </h2>
+      <p class="section-body">
+        PlanKept should feel clear in a sentence. It is the small layer of structure between
+        deciding something matters and actually doing the thing.
+      </p>
+    </div>
+
+    <div class="plan-kept-positioning__grid">
+      <article class="plan-kept-positioning-card landing-surface" data-reveal>
+        <p class="plan-kept-positioning-card__eyebrow">What it is</p>
+        <ul class="plan-kept-positioning-card__list">
+          {whatItIs.map((item) => (
+            <li>
+              <span aria-hidden="true">+</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="plan-kept-positioning-card plan-kept-positioning-card--muted landing-surface" data-reveal>
+        <p class="plan-kept-positioning-card__eyebrow">What it is not</p>
+        <ul class="plan-kept-positioning-card__list">
+          {whatItIsNot.map((item) => (
+            <li>
+              <span aria-hidden="true">-</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
