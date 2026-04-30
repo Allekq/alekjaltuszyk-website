@@ -4,9 +4,11 @@ Use this checklist before finishing any task that touches:
 
 - `src/pages/privacy-policy/index.md`
 - `src/pages/terms-of-service/index.md`
+- `src/components/legal/PlanKeptPrivacyPolicyContent.astro`
+- `src/components/legal/PlanKeptTermsOfServiceContent.astro`
 - support/contact routes
 - wish-list routes
-- product claims about privacy, retention, reminders, accounts, or AI
+- product claims about privacy, retention, reminders, accounts, model terms, or AI
 
 ## Required steps
 

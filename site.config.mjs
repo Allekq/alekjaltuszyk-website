@@ -17,13 +17,13 @@ export const siteBasePath = normalizeBasePath(
 
 export const legalDocuments = {
   privacy: {
-    version: "1.1.2",
-    effectiveDate: "2026-04-19",
+    version: "1.1.3",
+    effectiveDate: "2026-04-24",
     path: "/PlanKept/privacy-policy/",
   },
   terms: {
-    version: "1.1.2",
-    effectiveDate: "2026-04-19",
+    version: "1.1.3",
+    effectiveDate: "2026-04-24",
     path: "/PlanKept/terms-of-service/",
   },
 };
