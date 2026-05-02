@@ -37,6 +37,10 @@ const supportDraftLines = [
 const wishListBody = wishListDraftLines.join("\r\n");
 const supportBody = supportDraftLines.join("\r\n");
 const wishListFormHref = "https://tally.so/r/GxBQJk";
+const personalInstagramHref =
+  "https://www.instagram.com/alek_jaltuszyk?igsh=bW1udjlqeHEwb3V5&utm_source=qr";
+const planKeptInstagramHref =
+  "https://www.instagram.com/plankeptapp?igsh=cWV3azJ4bXNwZXF1&utm_source=qr";
 const logoImagePath = "/favicon.svg";
 const defaultSocialImagePath = "/favicon.svg";
 const preferredName = "Alek Jałtuszyk";
@@ -110,6 +114,7 @@ export const siteConfig = {
     { label: "Apps", href: siteRoutes.apps.index.href },
     { label: "PlanKept", href: siteRoutes.apps.planKept.href },
     { label: "Voice of Self", href: siteRoutes.apps.voiceOfSelf.href, external: true },
+    { label: "Instagram", href: personalInstagramHref, external: true },
     { label: "Support", href: siteRoutes.planKept.support.href },
     { label: "Privacy Policy", href: siteRoutes.planKept.privacyPolicy.href },
     { label: "Terms of Service", href: siteRoutes.planKept.termsOfService.href },
@@ -162,6 +167,7 @@ export const planKeptConfig = {
     "Use it for the small promises that usually dissolve: no Instagram before breakfast, walk before social apps, study before YouTube. The plan stays active until proof or a real justification clears it.",
   tagline: "Keep the plan you made.",
   origin: siteOrigin,
+  instagramHref: planKeptInstagramHref,
   supportEmail,
   wishListEmail,
   homeHref: siteRoutes.apps.planKept.href,
@@ -211,6 +217,7 @@ export const planKeptConfig = {
   footerLinks: [
     { label: "Home", href: siteRoutes.home.href },
     { label: "Apps", href: siteRoutes.apps.index.href },
+    { label: "Instagram", href: planKeptInstagramHref, external: true },
     { label: "Support", href: siteRoutes.planKept.support.href },
     { label: "Privacy Policy", href: siteRoutes.planKept.privacyPolicy.href },
     { label: "Terms of Service", href: siteRoutes.planKept.termsOfService.href },

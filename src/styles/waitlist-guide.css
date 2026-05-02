@@ -80,6 +80,7 @@
   display: flex;
   gap: var(--space-md);
   justify-content: space-between;
+  min-width: 0;
 }
 
 .waitlist-guide__card-title {
@@ -117,6 +118,7 @@
 .waitlist-guide__detail {
   display: grid;
   gap: var(--space-xs);
+  min-width: 0;
 }
 
 .waitlist-guide__detail--email {
@@ -126,11 +128,14 @@
 }
 
 .waitlist-guide__detail-label {
-  color: var(--color-text-soft);
+  color: color-mix(in srgb, var(--color-text-muted) 82%, var(--color-text-strong) 18%);
   font-size: var(--text-caption);
+  font-weight: 800;
   letter-spacing: 0.08em;
+  line-height: 1.25;
   margin: 0;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .waitlist-guide__detail-value {
@@ -140,10 +145,14 @@
 }
 
 .waitlist-guide__detail-value--email {
-  font-size: clamp(1.05rem, 6cqi, 2rem);
-  overflow: hidden;
-  text-overflow: clip;
-  white-space: nowrap;
+  color: var(--color-text-strong);
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 5cqi, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  white-space: normal;
   word-break: normal;
 }
 
@@ -206,10 +215,13 @@
   }
 
   .waitlist-guide__card-head {
+    align-items: stretch;
     flex-direction: column;
+    gap: var(--space-sm);
   }
 
   .waitlist-guide__copy {
+    color: var(--color-text-strong);
     width: 100%;
   }
 }
@@ -219,4 +231,3 @@
     transition: none;
   }
 }
-

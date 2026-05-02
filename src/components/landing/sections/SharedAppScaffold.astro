@@ -1,5 +1,6 @@
 ---
 import { appDirectory } from "../../../config/routes";
+import { isExternalHref } from "../../../lib/paths";
 import ActionButton from "../ui/ActionButton.astro";
 
 interface Props {
@@ -11,20 +12,60 @@ const { title, variant = "home" } = Astro.props as Props;
 ---
 
 <section class:list={["shared-app-scaffold", `shared-app-scaffold--${variant}`]}>
-  <div class="shared-app-scaffold__panel landing-surface">
-    <h1 class="shared-app-scaffold__title">{title}</h1>
+  {variant === "apps" ? (
+    <div class="shared-app-scaffold__directory">
+      <div class="shared-app-scaffold__intro">
+        <p class="shared-app-scaffold__eyebrow">Current products</p>
+        <h1 class="shared-app-scaffold__title">{title}</h1>
+        <p class="shared-app-scaffold__lead">
+          A small directory for the products I am building now, with PlanKept living on this domain
+          and Voice of Self opening on its own site.
+        </p>
+      </div>
 
-    <div class="shared-app-scaffold__actions" aria-label="Apps">
-      {appDirectory.map((item) => (
-        <ActionButton
-          href={item.href}
-          variant={item.external ? "ghost" : "primary"}
-          className="shared-app-scaffold__button"
-          target={item.external ? "_blank" : undefined}
-        >
-          {item.name}
-        </ActionButton>
-      ))}
+      <div class="home-destinations__grid shared-app-scaffold__grid" aria-label="Apps">
+        {appDirectory.map((item) => {
+          const rel =
+            item.external && isExternalHref(item.href) ? "noreferrer" : undefined;
+
+          return (
+            <a
+              class:list={["home-destinations__link", `home-destinations__link--${item.theme}`]}
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={rel}
+            >
+              <span class="home-destinations__link-meta">
+                <span>{item.eyebrow}</span>
+                <span>{item.status}</span>
+              </span>
+              <span class="home-destinations__link-name">{item.name}</span>
+              <span class="home-destinations__link-description">{item.description}</span>
+              <span class="home-destinations__link-chips" aria-hidden="true">
+                {item.chips.slice(0, 2).map((chip) => <span>{chip}</span>)}
+              </span>
+              <span class="home-destinations__link-cta">{item.ctaLabel}</span>
+            </a>
+          );
+        })}
+      </div>
     </div>
-  </div>
+  ) : (
+    <div class="shared-app-scaffold__panel landing-surface">
+      <h1 class="shared-app-scaffold__title">{title}</h1>
+
+      <div class="shared-app-scaffold__actions" aria-label="Apps">
+        {appDirectory.map((item) => (
+          <ActionButton
+            href={item.href}
+            variant={item.external ? "ghost" : "primary"}
+            className="shared-app-scaffold__button"
+            target={item.external ? "_blank" : undefined}
+          >
+            {item.name}
+          </ActionButton>
+        ))}
+      </div>
+    </div>
+  )}
 </section>

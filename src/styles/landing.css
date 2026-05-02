@@ -288,11 +288,50 @@
   padding-inline: var(--space-sm);
 }
 
+.shared-app-scaffold--apps {
+  min-height: calc(100svh - 6rem);
+  padding-inline: var(--section-pad-x);
+}
+
 .shared-app-scaffold,
 .plan-kept-legal-scaffold {
   display: grid;
   padding: clamp(4.5rem, 12vw, 9rem) 0 clamp(3rem, 10vw, 7rem);
   position: relative;
+}
+
+.shared-app-scaffold__directory {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 1.8rem);
+  margin: 0 auto;
+  max-width: 64rem;
+  width: 100%;
+}
+
+.shared-app-scaffold__intro {
+  display: grid;
+  gap: var(--space-md);
+  max-width: 46rem;
+}
+
+.shared-app-scaffold__eyebrow {
+  color: var(--color-text-soft);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.shared-app-scaffold__lead {
+  color: var(--color-text-muted);
+  font-size: var(--text-body-lg);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.shared-app-scaffold__grid {
+  width: 100%;
 }
 
 .shared-app-scaffold__panel,
@@ -952,6 +991,7 @@
 }
 
 .home-history__root {
+  --history-anchor-motion: 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
   --panel-anchor: 50%;
   display: grid;
   gap: 0.95rem;
@@ -1052,6 +1092,7 @@
 .home-history__panels {
   align-items: start;
   display: grid;
+  isolation: isolate;
   padding-top: 1.45rem;
   position: relative;
 }
@@ -1063,10 +1104,11 @@
   left: var(--panel-anchor);
   position: absolute;
   top: 0;
-  transition: left 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: left var(--history-anchor-motion);
   transform: translateX(-50%);
+  will-change: left;
   width: 1px;
-  z-index: 1;
+  z-index: 4;
 }
 
 .home-history__panels::after {
@@ -1084,10 +1126,11 @@
   left: var(--panel-anchor);
   position: absolute;
   top: 0.65rem;
-  transition: left 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: left var(--history-anchor-motion);
   transform: translateX(-50%);
+  will-change: left;
   width: 3rem;
-  z-index: 1;
+  z-index: 5;
 }
 
 .home-history__panel {
@@ -2963,6 +3006,11 @@
   .shared-app-scaffold,
   .plan-kept-legal-scaffold {
     padding: 3rem 0 2rem;
+  }
+
+  .shared-app-scaffold--apps {
+    min-height: auto;
+    padding: 2.5rem var(--section-pad-x) 3rem;
   }
 
   .shared-app-scaffold__actions,

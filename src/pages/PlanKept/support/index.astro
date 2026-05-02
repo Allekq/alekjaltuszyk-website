@@ -1,6 +1,7 @@
 ---
 import PlanKeptSupportGuide from "../../../components/support/PlanKeptSupportGuide.astro";
 import SiteFooter from "../../../components/landing/sections/SiteFooter.astro";
+import { planKeptConfig } from "../../../config/site";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
 ---
 
@@ -11,7 +12,7 @@ import SiteLayout from "../../../layouts/SiteLayout.astro";
 >
   <PlanKeptSupportGuide />
 
-  <SiteFooter />
+  <SiteFooter links={planKeptConfig.footerLinks} showBrand={false} />
 
   <script>
     import "../../../scripts/waitlist-guide/copy-buttons";
