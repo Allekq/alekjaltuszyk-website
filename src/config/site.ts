@@ -6,8 +6,8 @@ import {
 } from "../../site.config.mjs";
 
 const contactEmail = "alekgameshelp2@gmail.com";
-const supportEmail = contactEmail;
-const wishListEmail = contactEmail;
+const supportEmail = "plankeptapp@gmail.com";
+const wishListEmail = supportEmail;
 const wishListSubject = "PlanKept wish list";
 const wishListDraftLines = [
   "Hi,",
