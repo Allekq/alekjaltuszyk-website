@@ -21,6 +21,9 @@ Key pages:
 - Home: ${toAbsoluteSiteUrl(siteRoutes.home.path)}
 - Apps: ${toAbsoluteSiteUrl(siteRoutes.apps.index.path)}
 - PlanKept: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
+- PlanKept answers: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptAnswers.path)}
+- PlanKept comparisons: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptComparisons.path)}
+- PlanKept updates: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptUpdates.path)}
 - LLM context: ${toAbsoluteSiteUrl(siteRoutes.llms.path)}
 - Expanded LLM context: ${toAbsoluteSiteUrl(siteRoutes.llmsFull.path)}
 `;

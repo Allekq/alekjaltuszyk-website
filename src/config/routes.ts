@@ -10,6 +10,18 @@ const createExternalRoute = (href: string) => ({
   external: true as const,
 });
 
+const planKeptBasePath = "/apps/PlanKept/";
+
+export const planKeptContentPaths = {
+  answersIndex: `${planKeptBasePath}answers/`,
+  answer: (slug: string) => `${planKeptBasePath}answers/${slug}/`,
+  comparisonsIndex: `${planKeptBasePath}compare/`,
+  comparison: (slug: string) => `${planKeptBasePath}compare/${slug}/`,
+  updatesIndex: `${planKeptBasePath}updates/`,
+  update: (slug: string) => `${planKeptBasePath}updates/${slug}/`,
+  updatesFeed: `${planKeptBasePath}updates/feed.xml`,
+} as const;
+
 export const siteRoutes = {
   home: createInternalRoute("/"),
   planKept: {
@@ -19,7 +31,11 @@ export const siteRoutes = {
   },
   apps: {
     index: createInternalRoute("/apps/"),
-    planKept: createInternalRoute("/apps/PlanKept/"),
+    planKept: createInternalRoute(planKeptBasePath),
+    planKeptAnswers: createInternalRoute(planKeptContentPaths.answersIndex),
+    planKeptComparisons: createInternalRoute(planKeptContentPaths.comparisonsIndex),
+    planKeptUpdates: createInternalRoute(planKeptContentPaths.updatesIndex),
+    planKeptUpdatesFeed: createInternalRoute(planKeptContentPaths.updatesFeed),
     voiceOfSelf: createExternalRoute("https://voiceofself.life"),
   },
   wishList: createInternalRoute("/wish-list/"),
@@ -57,12 +73,12 @@ export const appDirectory = [
     eyebrow: "On this domain",
     status: "Product page here",
     description:
-      "A local-first iPhone app that turns one written plan into reminders, app limits, and proof-based follow-through.",
+      "An achievement-gated iPhone app blocker that keeps distracting apps blocked until real-world goals are completed.",
     theme: "coral",
     chips: [
-      "Blocks or minute caps on iPhone",
-      "Proof review clears the plan",
-      "Local-first follow-through",
+      "Unlock after steps or workouts",
+      "Recurring habit quotas",
+      "Proof-based follow-through",
     ],
     ctaLabel: "Open PlanKept",
     href: siteRoutes.apps.planKept.href,
@@ -73,13 +89,13 @@ export const appDirectory = [
     id: "voice-of-self",
     name: "Voice of Self",
     eyebrow: "Separate website",
-    status: "Lives on its own site",
+    status: "Live on the App Store",
     description:
-      "A voice-first reflection app for noticing personal growth and resolved worries over time.",
+      "A launched voice-first reflection app for noticing personal growth and resolved worries over time.",
     theme: "mint",
     chips: [
       "Voice-first reflection",
-      "Progress you can hear over time",
+      "Live iOS app",
       "Opens voiceofself.life",
     ],
     ctaLabel: "Visit Voice of Self",

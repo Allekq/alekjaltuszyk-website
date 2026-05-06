@@ -1375,8 +1375,29 @@
   color: var(--color-text-muted);
   font-size: var(--text-body-lg);
   line-height: 1.85;
-  margin: 0 0 var(--space-xl);
+  margin: 0 0 var(--space-md);
   max-width: 34rem;
+}
+
+.plan-kept-hero__examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  list-style: none;
+  margin: 0 0 var(--space-xl);
+  max-width: 36rem;
+  padding: 0;
+}
+
+.plan-kept-hero__examples li {
+  background: color-mix(in srgb, var(--color-bg-shell) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-line-strong) 84%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  font-weight: 750;
+  line-height: 1.35;
+  padding: 0.58rem 0.78rem;
 }
 
 .plan-kept-hero__actions {
@@ -1956,6 +1977,327 @@
 .plan-kept-close__links a:focus-visible {
   color: var(--color-text);
   outline: none;
+}
+
+.plan-kept-discovery__heading {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.plan-kept-discovery__query-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin: 0 auto clamp(1.25rem, 3vw, 2rem);
+  max-width: 56rem;
+}
+
+.plan-kept-discovery__query-list span,
+.plan-kept-content-hero__examples li {
+  background: color-mix(in srgb, var(--color-bg-shell) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-line-strong) 84%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  font-weight: 750;
+  line-height: 1.35;
+  padding: 0.58rem 0.78rem;
+}
+
+.plan-kept-discovery__layout {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.plan-kept-discovery-panel {
+  align-content: start;
+  display: grid;
+  gap: 0.95rem;
+  min-width: 0;
+  padding: 1.25rem;
+}
+
+.plan-kept-discovery-panel h3,
+.plan-kept-content-hero h1,
+.plan-kept-content-section h2,
+.plan-kept-hub-card h2,
+.plan-kept-comparison h2,
+.plan-kept-comparison h3,
+.plan-kept-related-card span {
+  color: var(--color-text-strong);
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+.plan-kept-discovery-panel h3 {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  line-height: 1.08;
+}
+
+.plan-kept-discovery-panel p,
+.plan-kept-content-hero__lead,
+.plan-kept-content-hero__meta,
+.plan-kept-content-section p,
+.plan-kept-content-section li,
+.plan-kept-hub-card p,
+.plan-kept-comparison p,
+.plan-kept-comparison li,
+.plan-kept-source-note p,
+.plan-kept-related-card p {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.plan-kept-discovery-panel__eyebrow,
+.plan-kept-hub-card span {
+  color: var(--color-coral-strong);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.plan-kept-discovery-panel__links {
+  display: grid;
+  gap: 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plan-kept-discovery-panel__links a,
+.plan-kept-source-note a {
+  color: var(--color-text);
+  font-weight: 800;
+  transition: color var(--motion-standard);
+}
+
+.plan-kept-discovery-panel__links a:hover,
+.plan-kept-discovery-panel__links a:focus-visible,
+.plan-kept-source-note a:hover,
+.plan-kept-source-note a:focus-visible {
+  color: var(--color-coral-strong);
+  outline: none;
+}
+
+.plan-kept-discovery-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.plan-kept-content-shell {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin: 0 auto;
+  max-width: 64rem;
+  width: 100%;
+}
+
+.plan-kept-breadcrumbs {
+  align-items: center;
+  color: var(--color-text-soft);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  font-weight: 800;
+  gap: 0.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.plan-kept-breadcrumbs a {
+  transition: color var(--motion-standard);
+}
+
+.plan-kept-breadcrumbs a:hover,
+.plan-kept-breadcrumbs a:focus-visible {
+  color: var(--color-text);
+  outline: none;
+}
+
+.plan-kept-content-hero {
+  display: grid;
+  gap: var(--space-md);
+  overflow: hidden;
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  position: relative;
+}
+
+.plan-kept-content-hero::before {
+  background:
+    radial-gradient(
+      circle at 12% 0%,
+      color-mix(in srgb, var(--color-coral) 18%, transparent),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 92% 8%,
+      color-mix(in srgb, var(--color-mint) 16%, transparent),
+      transparent 38%
+    );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.plan-kept-content-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.plan-kept-content-hero h1 {
+  font-size: clamp(2.3rem, 6vw, 4.8rem);
+  line-height: 0.96;
+  max-width: 12ch;
+  text-wrap: balance;
+}
+
+.plan-kept-content-hero__lead {
+  color: var(--color-text);
+  font-size: clamp(1.02rem, 2vw, 1.18rem);
+  font-weight: 650;
+  max-width: 48rem;
+}
+
+.plan-kept-content-hero__meta {
+  color: var(--color-text-soft);
+  max-width: 46rem;
+}
+
+.plan-kept-content-hero__examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plan-kept-content-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.plan-kept-hub-grid,
+.plan-kept-related__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plan-kept-hub-card,
+.plan-kept-related-card {
+  display: grid;
+  gap: 0.8rem;
+  min-width: 0;
+  padding: 1.2rem;
+  transition:
+    transform var(--motion-standard),
+    border-color var(--motion-standard),
+    box-shadow var(--motion-standard);
+}
+
+.plan-kept-hub-card:hover,
+.plan-kept-hub-card:focus-visible,
+.plan-kept-related-card:hover,
+.plan-kept-related-card:focus-visible {
+  border-color: color-mix(in srgb, var(--color-coral) 34%, var(--color-line-strong) 66%);
+  box-shadow: 0 24px 50px color-mix(in srgb, var(--color-bg) 32%, transparent);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.plan-kept-hub-card h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  line-height: 1.08;
+}
+
+.plan-kept-content-sections,
+.plan-kept-content-block,
+.plan-kept-related {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.plan-kept-content-section {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.15rem, 3vw, 1.45rem);
+}
+
+.plan-kept-content-section h2 {
+  font-size: clamp(1.45rem, 3vw, 2.1rem);
+  line-height: 1.08;
+}
+
+.plan-kept-content-section ul,
+.plan-kept-comparison ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.plan-kept-comparison {
+  display: grid;
+  gap: var(--space-lg);
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+.plan-kept-comparison__intro {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 48rem;
+}
+
+.plan-kept-comparison h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.06;
+}
+
+.plan-kept-comparison__columns {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plan-kept-comparison__columns article {
+  background: color-mix(in srgb, var(--color-bg-shell) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-line) 88%, transparent);
+  border-radius: var(--radius-md);
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.plan-kept-comparison h3,
+.plan-kept-related-card span {
+  font-size: clamp(1.18rem, 2vw, 1.45rem);
+  line-height: 1.12;
+}
+
+.plan-kept-source-note {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1rem;
+  justify-content: space-between;
+  padding: 1rem 1.1rem;
+}
+
+.plan-kept-source-note div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .personal-hero__title {
@@ -2651,6 +2993,38 @@
   outline: none;
 }
 
+.site-footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.site-footer__social-link {
+  align-items: center;
+  background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-strong);
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-height: 2.55rem;
+  padding: 0.72rem 1rem;
+  transition:
+    border-color var(--motion-standard),
+    color var(--motion-standard),
+    transform var(--motion-standard);
+}
+
+.site-footer__social-link:hover,
+.site-footer__social-link:focus-visible {
+  border-color: color-mix(in srgb, var(--color-accent) 42%, transparent);
+  color: var(--color-accent-strong);
+  outline: none;
+  transform: translateY(-1px);
+}
+
 .site-footer__copy {
   color: var(--color-text-soft);
   font-size: 0.9rem;
@@ -2765,8 +3139,10 @@
   .foundation-grid,
   .app-card-grid,
   .apps-directory__grid,
+  .plan-kept-discovery__layout,
   .plan-kept-positioning__grid,
-  .plan-kept-step-grid {
+  .plan-kept-step-grid,
+  .plan-kept-comparison__columns {
     grid-template-columns: 1fr;
   }
 
@@ -2800,6 +3176,11 @@
   }
 
   .plan-kept-hero__actions {
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  .plan-kept-hero__examples {
     justify-content: center;
     margin-inline: auto;
   }
@@ -2992,6 +3373,17 @@
     align-items: stretch;
     flex-direction: column;
     max-width: none;
+    width: 100%;
+  }
+
+  .plan-kept-content-hero__actions,
+  .plan-kept-discovery-panel__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .plan-kept-content-hero__actions .action-button,
+  .plan-kept-discovery-panel__actions .action-button {
     width: 100%;
   }
 
@@ -3201,10 +3593,35 @@
     width: 100%;
   }
 
+  .plan-kept-content-hero {
+    border-radius: 1.3rem;
+    padding: 1.15rem;
+  }
+
+  .plan-kept-content-hero h1 {
+    font-size: clamp(2rem, 11vw, 3.4rem);
+    max-width: 11.5ch;
+  }
+
+  .plan-kept-hub-grid,
+  .plan-kept-related__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-kept-source-note {
+    align-items: start;
+    flex-direction: column;
+  }
+
   .plan-kept-step,
   .plan-kept-positioning-card,
   .plan-kept-mode-card,
-  .plan-kept-close {
+  .plan-kept-close,
+  .plan-kept-discovery-panel,
+  .plan-kept-content-section,
+  .plan-kept-hub-card,
+  .plan-kept-comparison,
+  .plan-kept-related-card {
     border-radius: 1.3rem;
     padding: 1.1rem;
   }
@@ -3295,6 +3712,7 @@
   .landing-nav__link,
   .home-video-hero__cue,
   .site-footer__links a,
+  .site-footer__social-link,
   .site-header__home-link {
     transition: none;
   }

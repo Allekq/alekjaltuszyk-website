@@ -1,0 +1,80 @@
+---
+import "../../../../styles/landing.css";
+import PlanKeptContentShell from "../../../../components/landing/sections/PlanKeptContentShell.astro";
+import {
+  getPlanKeptAnswerPage,
+  planKeptContentHubs,
+  planKeptUpdatePosts,
+  type PlanKeptAnswerPage,
+  type PlanKeptUpdatePost,
+} from "../../../../config/planKeptContent";
+import { siteRoutes } from "../../../../config/routes";
+import {
+  buildPlanKeptArticleData,
+  buildPlanKeptBreadcrumbData,
+  planKeptApplicationStructuredData,
+} from "../../../../lib/structuredData";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+
+export const getStaticPaths = () =>
+  planKeptUpdatePosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+
+interface Props {
+  post: PlanKeptUpdatePost;
+}
+
+const { post } = Astro.props as Props;
+const publishedDate = new Date(`${post.date}T00:00:00`);
+const relatedLinks = post.relatedAnswerSlugs
+  .map(getPlanKeptAnswerPage)
+  .filter((related): related is PlanKeptAnswerPage => Boolean(related))
+  .map((related) => ({
+    label: related.title,
+    href: related.href,
+    description: related.description,
+  }));
+const structuredData = [
+  planKeptApplicationStructuredData,
+  buildPlanKeptArticleData({
+    title: post.title,
+    path: post.path,
+    description: post.description,
+    date: post.date,
+  }),
+  buildPlanKeptBreadcrumbData([
+    { name: "PlanKept", path: siteRoutes.apps.planKept.path },
+    { name: "Updates", path: planKeptContentHubs.updates.path },
+    { name: post.title, path: post.path },
+  ]),
+];
+---
+
+<SiteLayout
+  title={post.title}
+  description={post.description}
+  pageType="content"
+  structuredData={structuredData}
+  alternateLinks={[{
+    type: "application/rss+xml",
+    title: "PlanKept Updates RSS",
+    href: planKeptContentHubs.updates.feedHref,
+  }]}
+>
+  <PlanKeptContentShell
+    sectionLabel="Updates"
+    sectionHref={planKeptContentHubs.updates.href}
+    kicker="PlanKept Update"
+    title={post.title}
+    lead={post.description}
+    meta={`${publishedDate.toLocaleDateString("en", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })} by ${post.author}`}
+    sections={post.sections}
+    relatedLinks={relatedLinks}
+  />
+</SiteLayout>

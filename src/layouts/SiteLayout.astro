@@ -17,6 +17,7 @@ interface Props {
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
   canonicalHref?: string;
   robotsContent?: string;
+  alternateLinks?: readonly { type: string; title: string; href: string }[];
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   structuredData,
   canonicalHref,
   robotsContent,
+  alternateLinks = [],
 } = Astro.props as Props;
 const pageTitle = Astro.props.title ?? frontmatter?.title ?? siteConfig.homeTitle;
 const description =
@@ -119,6 +121,9 @@ const resolvedStructuredData = [
       href={withBase("/llms-full.txt")}
     />
     <link rel="alternate" type="text/plain" title="Humans summary" href={withBase("/humans.txt")} />
+    {alternateLinks.map((link) => (
+      <link rel="alternate" type={link.type} title={link.title} href={link.href} />
+    ))}
     {resolvedStructuredData.map((entry) => (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
     ))}

@@ -130,9 +130,9 @@ export const homeTimeline = [
     summary:
       "My current work is centered on personal products where AI systems, product thinking, and behavior design meet.",
     highlights: [
-      "Developing products like PlanKept and Voice of Self with an emphasis on AI-assisted systems and human follow-through.",
+      "Launched Voice of Self, a voice-first reflection app for noticing recurring worries, resolved worries, and personal growth.",
+      "Building PlanKept, a local-first iPhone plan-enforcement app that turns written goals into reminders, app limits, and proof review.",
       "Using agentic workflows as part of the way I build, research, and iterate on software.",
-      "Treating software less like static pages and more like living systems that shape behavior and experience.",
     ],
   },
 ] as const satisfies readonly HomeTimelineEntry[];

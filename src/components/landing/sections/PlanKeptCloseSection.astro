@@ -8,19 +8,22 @@ import ActionButton from "../ui/ActionButton.astro";
     <div class="plan-kept-close landing-surface" data-reveal>
       <div class="plan-kept-close__copy">
         <p class="section-kicker">Start Simple</p>
-        <h2 class="section-title">A small app for plans that should stop being optional.</h2>
+        <h2 class="section-title">A small app for plans that should unlock the phone.</h2>
         <p class="section-body">
-          If the goal matters more than the burst of motivation that created it, PlanKept is meant
-          to hold the line a little longer.
+          If the goal matters more than the scroll that keeps interrupting it, PlanKept is meant
+          to hold the line until the real-world action happens.
         </p>
       </div>
 
       <div class="plan-kept-close__actions">
-        <ActionButton href={planKeptConfig.wishListGuideHref}>
+        <ActionButton href={planKeptConfig.primaryCtaHref}>
           {planKeptConfig.ctas.primary}
         </ActionButton>
         <ActionButton href={planKeptConfig.supportHref} variant="secondary">
           Support
+        </ActionButton>
+        <ActionButton href={planKeptConfig.answersHref} variant="ghost">
+          Answers
         </ActionButton>
         <ActionButton href={planKeptConfig.directoryHref} variant="ghost">
           {planKeptConfig.ctas.directory}

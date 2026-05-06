@@ -34,6 +34,15 @@ Important notes:
 ## Main Pages
 ${renderLinks(discoveryPages.main)}
 
+## PlanKept Answer Pages
+${renderLinks(discoveryPages.planKeptAnswers)}
+
+## PlanKept Comparisons
+${renderLinks(discoveryPages.planKeptComparisons)}
+
+## PlanKept Updates
+${renderLinks(discoveryPages.planKeptUpdates)}
+
 ## Legal
 ${renderLinks(discoveryPages.legal)}
 

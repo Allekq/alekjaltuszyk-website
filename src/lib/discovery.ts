@@ -1,3 +1,9 @@
+import {
+  planKeptAnswerPages,
+  planKeptComparisonPages,
+  planKeptContentHubs,
+  planKeptUpdatePosts,
+} from "../config/planKeptContent";
 import { siteConfig } from "../config/site";
 import { siteRoutes } from "../config/routes";
 import { withBase } from "./paths";
@@ -29,7 +35,22 @@ export const discoveryPages = {
       title: "PlanKept",
       path: siteRoutes.apps.planKept.path,
       description:
-        "Public PlanKept product page from Alek Jałtuszyk covering local-first plan enforcement, proof review, and legal/support links.",
+        "Public PlanKept product page from Alek Jałtuszyk covering achievement-gated app blocking, local-first plan enforcement, proof review, and legal/support links.",
+    },
+    {
+      title: planKeptContentHubs.answers.title,
+      path: planKeptContentHubs.answers.path,
+      description: planKeptContentHubs.answers.description,
+    },
+    {
+      title: planKeptContentHubs.comparisons.title,
+      path: planKeptContentHubs.comparisons.path,
+      description: planKeptContentHubs.comparisons.description,
+    },
+    {
+      title: planKeptContentHubs.updates.title,
+      path: planKeptContentHubs.updates.path,
+      description: planKeptContentHubs.updates.description,
     },
     {
       title: "Wish List",
@@ -42,6 +63,21 @@ export const discoveryPages = {
       description: "Email-based support instructions for PlanKept.",
     },
   ],
+  planKeptAnswers: planKeptAnswerPages.map((page) => ({
+    title: page.title,
+    path: page.path,
+    description: page.description,
+  })),
+  planKeptComparisons: planKeptComparisonPages.map((page) => ({
+    title: page.title,
+    path: page.path,
+    description: page.description,
+  })),
+  planKeptUpdates: planKeptUpdatePosts.map((post) => ({
+    title: post.title,
+    path: post.path,
+    description: post.description,
+  })),
   legal: [
     {
       title: "Privacy Policy",
@@ -79,6 +115,12 @@ export const sitemapPagePaths = [
   siteRoutes.home.path,
   siteRoutes.apps.index.path,
   siteRoutes.apps.planKept.path,
+  siteRoutes.apps.planKeptAnswers.path,
+  ...planKeptAnswerPages.map((page) => page.path),
+  siteRoutes.apps.planKeptComparisons.path,
+  ...planKeptComparisonPages.map((page) => page.path),
+  siteRoutes.apps.planKeptUpdates.path,
+  ...planKeptUpdatePosts.map((post) => post.path),
   siteRoutes.wishList.path,
   siteRoutes.planKept.support.path,
   siteRoutes.planKept.privacyPolicy.path,

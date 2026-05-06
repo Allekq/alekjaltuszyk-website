@@ -1,25 +1,19 @@
 ---
 import "../../../styles/landing.css";
 import PlanKeptPageOrchestrator from "../../../components/landing/orchestrator/PlanKeptPageOrchestrator.astro";
-import { planKeptConfig, siteConfig } from "../../../config/site";
+import { planKeptHomeFaqEntries } from "../../../config/planKeptContent";
+import { planKeptConfig } from "../../../config/site";
 import { siteRoutes } from "../../../config/routes";
 import { toAbsoluteSiteUrl } from "../../../lib/discovery";
+import {
+  buildPlanKeptFaqData,
+  planKeptApplicationStructuredData,
+  websiteId,
+} from "../../../lib/structuredData";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
 
-const personId = `${siteConfig.origin}#person`;
 const planKeptPageStructuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    name: planKeptConfig.name,
-    operatingSystem: "iOS",
-    applicationCategory: "ProductivityApplication",
-    url: toAbsoluteSiteUrl(siteRoutes.apps.planKept.path),
-    image: siteConfig.defaultSocialImageUrl,
-    description: planKeptConfig.aiDiscovery.summary,
-    publisher: { "@id": personId },
-    creator: { "@id": personId },
-  },
+  planKeptApplicationStructuredData,
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -33,9 +27,10 @@ const planKeptPageStructuredData = [
     },
     isPartOf: {
       "@type": "WebSite",
-      "@id": `${siteConfig.origin}#website`,
+      "@id": websiteId,
     },
   },
+  buildPlanKeptFaqData(planKeptHomeFaqEntries),
 ];
 ---
 

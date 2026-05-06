@@ -1,0 +1,71 @@
+---
+import "../../../../styles/landing.css";
+import PlanKeptContentShell from "../../../../components/landing/sections/PlanKeptContentShell.astro";
+import {
+  planKeptAnswerPages,
+  planKeptCategorySentence,
+  planKeptContentHubs,
+} from "../../../../config/planKeptContent";
+import { siteRoutes } from "../../../../config/routes";
+import { toAbsoluteSiteUrl } from "../../../../lib/discovery";
+import {
+  buildPlanKeptBreadcrumbData,
+  planKeptApplicationStructuredData,
+  websiteId,
+} from "../../../../lib/structuredData";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+
+const hub = planKeptContentHubs.answers;
+const structuredData = [
+  planKeptApplicationStructuredData,
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: hub.title,
+    url: toAbsoluteSiteUrl(hub.path),
+    description: hub.description,
+    about: planKeptApplicationStructuredData,
+    isPartOf: { "@type": "WebSite", "@id": websiteId },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "PlanKept answer pages",
+    itemListElement: planKeptAnswerPages.map((page, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: page.title,
+      url: toAbsoluteSiteUrl(page.path),
+    })),
+  },
+  buildPlanKeptBreadcrumbData([
+    { name: "PlanKept", path: siteRoutes.apps.planKept.path },
+    { name: "Answers", path: hub.path },
+  ]),
+];
+---
+
+<SiteLayout title={hub.title} description={hub.description} pageType="content" structuredData={structuredData}>
+  <PlanKeptContentShell
+    sectionLabel="Answers"
+    sectionHref={hub.href}
+    kicker="Answer Hub"
+    title="Specific answers for goal-based app blocking."
+    lead={planKeptCategorySentence}
+    examples={[
+      "app blocker that unlocks after steps",
+      "block Instagram until workout",
+      "recurring app blocker for habit goals",
+    ]}
+  >
+    <section class="plan-kept-hub-grid" aria-label="PlanKept answer pages">
+      {planKeptAnswerPages.map((page) => (
+        <a class="plan-kept-hub-card landing-surface" href={page.href}>
+          <span>{page.kicker}</span>
+          <h2>{page.title}</h2>
+          <p>{page.shortAnswer}</p>
+        </a>
+      ))}
+    </section>
+  </PlanKeptContentShell>
+</SiteLayout>

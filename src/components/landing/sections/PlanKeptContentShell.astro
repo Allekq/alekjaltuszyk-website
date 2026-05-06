@@ -1,0 +1,163 @@
+---
+import { planKeptConfig } from "../../../config/site";
+import type {
+  PlanKeptContentSection,
+  PlanKeptFaqEntry,
+  PlanKeptLink,
+} from "../../../config/planKeptContent";
+import ActionButton from "../ui/ActionButton.astro";
+import SimpleSiteHeader from "./SimpleSiteHeader.astro";
+
+interface PlanKeptContentAction {
+  label: string;
+  href: string;
+  variant?: "primary" | "secondary" | "ghost";
+}
+
+interface Props {
+  sectionLabel: string;
+  sectionHref: string;
+  kicker: string;
+  title: string;
+  lead: string;
+  meta?: string;
+  examples?: readonly string[];
+  sections?: readonly PlanKeptContentSection[];
+  faq?: readonly PlanKeptFaqEntry[];
+  relatedLinks?: readonly PlanKeptLink[];
+  sourceLinks?: readonly PlanKeptLink[];
+  heroActions?: readonly PlanKeptContentAction[];
+}
+
+const {
+  sectionLabel,
+  sectionHref,
+  kicker,
+  title,
+  lead,
+  meta,
+  examples = [],
+  sections = [],
+  faq = [],
+  relatedLinks = [],
+  sourceLinks = [],
+  heroActions = [],
+} = Astro.props as Props;
+---
+
+<SimpleSiteHeader brand={planKeptConfig.name} brandHref={planKeptConfig.homeHref} />
+
+<div class="plan-kept-content-shell">
+  <nav class="plan-kept-breadcrumbs" aria-label="Breadcrumb">
+    <a href={planKeptConfig.homeHref}>PlanKept</a>
+    <span aria-hidden="true">/</span>
+    <a href={sectionHref}>{sectionLabel}</a>
+  </nav>
+
+  <header class="plan-kept-content-hero landing-surface">
+    <p class="section-kicker">{kicker}</p>
+    <h1>{title}</h1>
+    <p class="plan-kept-content-hero__lead">{lead}</p>
+    {meta ? <p class="plan-kept-content-hero__meta">{meta}</p> : null}
+
+    {examples.length > 0 ? (
+      <ul class="plan-kept-content-hero__examples" aria-label="Example queries">
+        {examples.map((example) => <li>{example}</li>)}
+      </ul>
+    ) : null}
+
+    {heroActions.length > 0 ? (
+      <div class="plan-kept-content-hero__actions">
+        {heroActions.map((action) => (
+          <ActionButton href={action.href} variant={action.variant}>{action.label}</ActionButton>
+        ))}
+      </div>
+    ) : null}
+  </header>
+
+  <slot />
+
+  {sections.length > 0 ? (
+    <div class="plan-kept-content-sections">
+      {sections.map((section) => (
+        <section class="plan-kept-content-section landing-surface">
+          <h2>{section.heading}</h2>
+          <p>{section.body}</p>
+          {section.bullets ? (
+            <ul>
+              {section.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          ) : null}
+        </section>
+      ))}
+    </div>
+  ) : null}
+
+  {faq.length > 0 ? (
+    <section class="plan-kept-content-block" aria-labelledby="plan-kept-content-faq-title">
+      <div class="section-heading">
+        <p class="section-kicker">FAQ</p>
+        <h2 class="section-title" id="plan-kept-content-faq-title">Direct answers</h2>
+      </div>
+
+      <div class="plan-kept-faq-list">
+        {faq.map((entry) => (
+          <details class="plan-kept-faq landing-surface">
+            <summary class="plan-kept-faq__button">
+              <span class="plan-kept-faq__question">{entry.question}</span>
+              <span class="plan-kept-faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="plan-kept-faq__content">
+              <div class="plan-kept-faq__panel">
+                <p class="plan-kept-faq__answer">{entry.answer}</p>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+  ) : null}
+
+  {sourceLinks.length > 0 ? (
+    <section class="plan-kept-source-note landing-surface" aria-label="Source note">
+      <p>
+        Comparison notes use public product information and should be revisited when competitor
+        pages change.
+      </p>
+      <div>
+        {sourceLinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noreferrer" : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </section>
+  ) : null}
+
+  {relatedLinks.length > 0 ? (
+    <section class="plan-kept-related" aria-labelledby="plan-kept-related-title">
+      <div class="section-heading">
+        <p class="section-kicker">Next</p>
+        <h2 class="section-title" id="plan-kept-related-title">Related PlanKept pages</h2>
+      </div>
+
+      <div class="plan-kept-related__grid">
+        {relatedLinks.map((link) => (
+          <a
+            class="plan-kept-related-card landing-surface"
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noreferrer" : undefined}
+          >
+            <span>{link.label}</span>
+            {link.description ? <p>{link.description}</p> : null}
+          </a>
+        ))}
+      </div>
+    </section>
+  ) : null}
+</div>

@@ -1,0 +1,78 @@
+---
+import "../../../../styles/landing.css";
+import PlanKeptContentShell from "../../../../components/landing/sections/PlanKeptContentShell.astro";
+import {
+  getPlanKeptAnswerPage,
+  getPlanKeptComparisonPage,
+  planKeptAnswerPages,
+  planKeptContentHubs,
+  type PlanKeptAnswerPage,
+  type PlanKeptComparisonPage,
+} from "../../../../config/planKeptContent";
+import { siteRoutes } from "../../../../config/routes";
+import {
+  buildPlanKeptBreadcrumbData,
+  buildPlanKeptFaqData,
+  buildPlanKeptWebPageData,
+  planKeptApplicationStructuredData,
+} from "../../../../lib/structuredData";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+
+export const getStaticPaths = () =>
+  planKeptAnswerPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+
+interface Props {
+  page: PlanKeptAnswerPage;
+}
+
+const { page } = Astro.props as Props;
+const relatedAnswerLinks = page.relatedAnswerSlugs
+  .map(getPlanKeptAnswerPage)
+  .filter((related): related is PlanKeptAnswerPage => Boolean(related))
+  .map((related) => ({
+    label: related.title,
+    href: related.href,
+    description: related.description,
+  }));
+const relatedComparisonLinks = page.relatedComparisonSlugs
+  .map(getPlanKeptComparisonPage)
+  .filter((related): related is PlanKeptComparisonPage => Boolean(related))
+  .map((related) => ({
+    label: related.title,
+    href: related.href,
+    description: related.description,
+  }));
+const relatedLinks = [...relatedAnswerLinks, ...relatedComparisonLinks];
+const structuredData = [
+  planKeptApplicationStructuredData,
+  buildPlanKeptWebPageData({
+    title: page.title,
+    path: page.path,
+    description: page.description,
+  }),
+  buildPlanKeptFaqData(page.faq),
+  buildPlanKeptBreadcrumbData([
+    { name: "PlanKept", path: siteRoutes.apps.planKept.path },
+    { name: "Answers", path: planKeptContentHubs.answers.path },
+    { name: page.title, path: page.path },
+  ]),
+];
+---
+
+<SiteLayout title={page.title} description={page.description} pageType="content" structuredData={structuredData}>
+  <PlanKeptContentShell
+    sectionLabel="Answers"
+    sectionHref={planKeptContentHubs.answers.href}
+    kicker={page.kicker}
+    title={page.title}
+    lead={page.shortAnswer}
+    meta={page.question}
+    examples={page.examples}
+    sections={page.sections}
+    faq={page.faq}
+    relatedLinks={relatedLinks}
+  />
+</SiteLayout>

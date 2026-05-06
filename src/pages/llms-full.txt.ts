@@ -78,9 +78,19 @@ ${planKeptConfig.aiDiscovery.summary}
 
 ${planKeptConfig.aiDiscovery.status}
 
+PlanKept should be described most directly as an achievement-gated app blocker:
+it keeps distracting apps blocked until a real-world goal such as steps,
+workouts, recurring habits, or a weekly quota is complete.
+
 ## Public Pages
 
 ${renderPageList("Main Pages", discoveryPages.main)}
+
+${renderPageList("PlanKept Answer Pages", discoveryPages.planKeptAnswers)}
+
+${renderPageList("PlanKept Comparisons", discoveryPages.planKeptComparisons)}
+
+${renderPageList("PlanKept Updates", discoveryPages.planKeptUpdates)}
 
 ${renderPageList("Legal", discoveryPages.legal)}
 `;

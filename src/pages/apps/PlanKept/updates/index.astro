@@ -1,0 +1,86 @@
+---
+import "../../../../styles/landing.css";
+import PlanKeptContentShell from "../../../../components/landing/sections/PlanKeptContentShell.astro";
+import {
+  planKeptContentHubs,
+  planKeptUpdateThemes,
+  planKeptUpdatePosts,
+} from "../../../../config/planKeptContent";
+import { siteRoutes } from "../../../../config/routes";
+import { toAbsoluteSiteUrl } from "../../../../lib/discovery";
+import {
+  buildPlanKeptBreadcrumbData,
+  planKeptApplicationStructuredData,
+  websiteId,
+} from "../../../../lib/structuredData";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+
+const hub = planKeptContentHubs.updates;
+const structuredData = [
+  planKeptApplicationStructuredData,
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: hub.title,
+    url: toAbsoluteSiteUrl(hub.path),
+    description: hub.description,
+    about: planKeptApplicationStructuredData,
+    isPartOf: { "@type": "WebSite", "@id": websiteId },
+    blogPost: planKeptUpdatePosts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: toAbsoluteSiteUrl(post.path),
+      datePublished: post.date,
+    })),
+  },
+  buildPlanKeptBreadcrumbData([
+    { name: "PlanKept", path: siteRoutes.apps.planKept.path },
+    { name: "Updates", path: hub.path },
+  ]),
+];
+---
+
+<SiteLayout
+  title={hub.title}
+  description={hub.description}
+  pageType="content"
+  structuredData={structuredData}
+  alternateLinks={[{ type: "application/rss+xml", title: "PlanKept Updates RSS", href: hub.feedHref }]}
+>
+  <PlanKeptContentShell
+    sectionLabel="Updates"
+    sectionHref={hub.href}
+    kicker="Updates"
+    title="PlanKept updates"
+    lead="Read launch notes, product changes, and practical explanations for how PlanKept handles blocking, recurrence, proof, privacy, and App Store availability."
+    meta="These notes are written for people deciding whether PlanKept fits the way they actually use their phone."
+    examples={["launch notes", "proof examples", "privacy explanations", "small changelogs"]}
+  >
+    <section class="plan-kept-hub-grid" aria-label="PlanKept update posts">
+      {planKeptUpdatePosts.map((post) => (
+        <a class="plan-kept-hub-card landing-surface" href={post.href}>
+          <span>{new Date(`${post.date}T00:00:00`).toLocaleDateString("en", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}</span>
+          <h2>{post.title}</h2>
+          <p>{post.description}</p>
+        </a>
+      ))}
+    </section>
+
+    <section class="plan-kept-content-section landing-surface">
+      <h2>What you'll find here</h2>
+      <p>
+        The PlanKept site is the original home for product notes. Posts can also be shared on other
+        platforms, but this page keeps the clearest version close to the app, support, privacy, and
+        comparison pages.
+      </p>
+      <ul>
+        {planKeptUpdateThemes.map((theme) => <li>{theme}</li>)}
+      </ul>
+      <p><a href={planKeptContentHubs.updates.feedHref}>Subscribe with RSS</a></p>
+    </section>
+  </PlanKeptContentShell>
+</SiteLayout>

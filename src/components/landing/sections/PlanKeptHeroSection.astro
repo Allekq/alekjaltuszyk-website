@@ -1,15 +1,16 @@
 ---
+import { planKeptHeroExamples } from "../../../config/planKeptContent";
 import { planKeptConfig } from "../../../config/site";
 import ActionButton from "../ui/ActionButton.astro";
 import PillRail from "../ui/PillRail.astro";
 
 const promiseChips = [
-  "Local-first on iPhone",
-  "Blocks or minute caps",
-  "Proof clears active limits",
+  "Achievement-gated blocking",
+  "Phone data and photo proof",
+  "Blocks, caps, and recurring quotas",
 ];
 
-const controlBadges = ["Instagram blocked", "YouTube 15m", "Unlock after proof"];
+const controlBadges = ["Apps limited", "Proof required", "Goal complete"];
 ---
 
 <section id="home" class="landing-section plan-kept-hero">
@@ -21,8 +22,12 @@ const controlBadges = ["Instagram blocked", "YouTube 15m", "Unlock after proof"]
         <p class="plan-kept-hero__definition">{planKeptConfig.identitySentence}</p>
         <p class="plan-kept-hero__body">{planKeptConfig.heroDescription}</p>
 
+        <ul class="plan-kept-hero__examples" aria-label="PlanKept examples">
+          {planKeptHeroExamples.map((example) => <li>{example}</li>)}
+        </ul>
+
         <div class="plan-kept-hero__actions">
-          <ActionButton href={planKeptConfig.wishListGuideHref}>
+          <ActionButton href={planKeptConfig.primaryCtaHref}>
             {planKeptConfig.ctas.primary}
           </ActionButton>
           <ActionButton href="#flow" variant="secondary">
@@ -40,9 +45,10 @@ const controlBadges = ["Instagram blocked", "YouTube 15m", "Unlock after proof"]
             <span class="plan-kept-stage__count">1</span>
             <div>
               <p class="plan-kept-stage__eyebrow">Resolution</p>
-              <h2>Fix the bike before Instagram unlocks.</h2>
+              <h2>Choose the real-life plan before apps reopen.</h2>
               <p>
-                Start with one clear line. It can be a boundary, a goal, or a reward loop.
+                Start with one clear line. The goal can be movement, study, chores, a reset routine,
+                or a recurring quota.
               </p>
             </div>
           </article>
@@ -51,7 +57,7 @@ const controlBadges = ["Instagram blocked", "YouTube 15m", "Unlock after proof"]
             <span class="plan-kept-stage__count">2</span>
             <div>
               <p class="plan-kept-stage__eyebrow">Device rule</p>
-              <h3>PlanKept applies the pressure on your iPhone.</h3>
+              <h3>PlanKept applies a block or minute limit during the active plan.</h3>
               <div class="plan-kept-stage__badges">
                 {controlBadges.map((badge) => <span>{badge}</span>)}
               </div>
@@ -63,10 +69,10 @@ const controlBadges = ["Instagram blocked", "YouTube 15m", "Unlock after proof"]
             <span class="plan-kept-stage__count">3</span>
             <div>
               <p class="plan-kept-stage__eyebrow">Proof review</p>
-              <h3>Prove what you finished. If the proof passes, the plan clears.</h3>
+              <h3>Complete the real-life goal. If proof passes, apps unlock.</h3>
               <p>
-                Proof review can validate submitted photos, and for activity goals it can also use
-                signals like Apple Health step counts after you allow them.
+                Photos and screenshots can support review. Activity goals can also use allowed
+                phone signals like Apple Health steps or workouts.
               </p>
             </div>
           </article>

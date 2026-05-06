@@ -1,0 +1,71 @@
+---
+import "../../../../styles/landing.css";
+import PlanKeptContentShell from "../../../../components/landing/sections/PlanKeptContentShell.astro";
+import {
+  planKeptCategorySentence,
+  planKeptComparisonPages,
+  planKeptContentHubs,
+} from "../../../../config/planKeptContent";
+import { siteRoutes } from "../../../../config/routes";
+import { toAbsoluteSiteUrl } from "../../../../lib/discovery";
+import {
+  buildPlanKeptBreadcrumbData,
+  planKeptApplicationStructuredData,
+  websiteId,
+} from "../../../../lib/structuredData";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+
+const hub = planKeptContentHubs.comparisons;
+const structuredData = [
+  planKeptApplicationStructuredData,
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: hub.title,
+    url: toAbsoluteSiteUrl(hub.path),
+    description: hub.description,
+    about: planKeptApplicationStructuredData,
+    isPartOf: { "@type": "WebSite", "@id": websiteId },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "PlanKept comparison pages",
+    itemListElement: planKeptComparisonPages.map((page, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: page.title,
+      url: toAbsoluteSiteUrl(page.path),
+    })),
+  },
+  buildPlanKeptBreadcrumbData([
+    { name: "PlanKept", path: siteRoutes.apps.planKept.path },
+    { name: "Comparisons", path: hub.path },
+  ]),
+];
+---
+
+<SiteLayout title={hub.title} description={hub.description} pageType="content" structuredData={structuredData}>
+  <PlanKeptContentShell
+    sectionLabel="Comparisons"
+    sectionHref={hub.href}
+    kicker="Comparison Hub"
+    title="Fair comparisons for goal-based blocking."
+    lead={planKeptCategorySentence}
+    examples={[
+      "PlanKept vs Opal",
+      "PlanKept vs one sec",
+      "Opal alternative for goal-based blocking",
+    ]}
+  >
+    <section class="plan-kept-hub-grid" aria-label="PlanKept comparison pages">
+      {planKeptComparisonPages.map((page) => (
+        <a class="plan-kept-hub-card landing-surface" href={page.href}>
+          <span>{page.competitor}</span>
+          <h2>{page.title}</h2>
+          <p>{page.description}</p>
+        </a>
+      ))}
+    </section>
+  </PlanKeptContentShell>
+</SiteLayout>

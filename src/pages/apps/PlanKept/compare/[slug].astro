@@ -1,0 +1,92 @@
+---
+import "../../../../styles/landing.css";
+import PlanKeptContentShell from "../../../../components/landing/sections/PlanKeptContentShell.astro";
+import {
+  getPlanKeptAnswerPage,
+  planKeptComparisonPages,
+  planKeptContentHubs,
+  type PlanKeptAnswerPage,
+  type PlanKeptComparisonPage,
+} from "../../../../config/planKeptContent";
+import { siteRoutes } from "../../../../config/routes";
+import {
+  buildPlanKeptBreadcrumbData,
+  buildPlanKeptFaqData,
+  buildPlanKeptWebPageData,
+  planKeptApplicationStructuredData,
+} from "../../../../lib/structuredData";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+
+export const getStaticPaths = () =>
+  planKeptComparisonPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+
+interface Props {
+  page: PlanKeptComparisonPage;
+}
+
+const { page } = Astro.props as Props;
+const relatedLinks = page.relatedAnswerSlugs
+  .map(getPlanKeptAnswerPage)
+  .filter((related): related is PlanKeptAnswerPage => Boolean(related))
+  .map((related) => ({
+    label: related.title,
+    href: related.href,
+    description: related.description,
+  }));
+const structuredData = [
+  planKeptApplicationStructuredData,
+  buildPlanKeptWebPageData({
+    title: page.title,
+    path: page.path,
+    description: page.description,
+  }),
+  buildPlanKeptFaqData(page.faq),
+  buildPlanKeptBreadcrumbData([
+    { name: "PlanKept", path: siteRoutes.apps.planKept.path },
+    { name: "Comparisons", path: planKeptContentHubs.comparisons.path },
+    { name: page.title, path: page.path },
+  ]),
+];
+---
+
+<SiteLayout title={page.title} description={page.description} pageType="content" structuredData={structuredData}>
+  <PlanKeptContentShell
+    sectionLabel="Comparisons"
+    sectionHref={planKeptContentHubs.comparisons.href}
+    kicker="Fair comparison"
+    title={page.title}
+    lead={page.description}
+    meta={`Compared with ${page.competitor}. Product details can change, so this page should stay honest and source-linked.`}
+    sections={page.sections}
+    faq={page.faq}
+    relatedLinks={relatedLinks}
+    sourceLinks={[page.source]}
+  >
+    <section class="plan-kept-comparison landing-surface" aria-label={`${page.title} choice guide`}>
+      <div class="plan-kept-comparison__intro">
+        <p class="section-kicker">{page.competitor}</p>
+        <h2>Where {page.competitor} fits</h2>
+        <p>{page.competitorSummary}</p>
+      </div>
+
+      <div class="plan-kept-comparison__columns">
+        <article>
+          <h3>Choose PlanKept if</h3>
+          <ul>
+            {page.choosePlanKept.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+
+        <article>
+          <h3>Choose {page.competitor} if</h3>
+          <ul>
+            {page.chooseCompetitor.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      </div>
+    </section>
+  </PlanKeptContentShell>
+</SiteLayout>

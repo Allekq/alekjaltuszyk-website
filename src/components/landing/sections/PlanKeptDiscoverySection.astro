@@ -1,0 +1,87 @@
+---
+import {
+  planKeptAnswerPages,
+  planKeptCategorySentence,
+  planKeptComparisonPages,
+  planKeptContentHubs,
+  planKeptDiscoveryQueries,
+} from "../../../config/planKeptContent";
+import { planKeptConfig } from "../../../config/site";
+import ActionButton from "../ui/ActionButton.astro";
+
+const featuredAnswers = planKeptAnswerPages.slice(0, 4);
+const featuredComparisons = planKeptComparisonPages.slice(0, 4);
+---
+
+<section
+  id="answers"
+  class="landing-section plan-kept-discovery"
+  aria-labelledby="plan-kept-discovery-title"
+>
+  <div class="landing-section__inner">
+    <div class="section-heading plan-kept-discovery__heading" data-reveal>
+      <p class="section-kicker">Find The Use Case</p>
+      <h2 class="section-title" id="plan-kept-discovery-title">
+        Find the exact PlanKept answer for your plan.
+      </h2>
+      <p class="section-body">{planKeptCategorySentence}</p>
+    </div>
+
+    <div class="plan-kept-discovery__query-list" aria-label="Search-style PlanKept queries" data-reveal>
+      {planKeptDiscoveryQueries.map((query) => <span>{query}</span>)}
+    </div>
+
+    <div class="plan-kept-discovery__layout">
+      <article class="plan-kept-discovery-panel landing-surface" data-reveal>
+        <p class="plan-kept-discovery-panel__eyebrow">Answer pages</p>
+        <h3>Direct answers for real use cases.</h3>
+        <p>
+          Start here when you know the kind of promise you want PlanKept to enforce: steps,
+          workouts, recurring habit quotas, or app access that clears after proof.
+        </p>
+        <ul class="plan-kept-discovery-panel__links">
+          {featuredAnswers.map((page) => (
+            <li><a href={page.href}>{page.title}</a></li>
+          ))}
+        </ul>
+        <ActionButton href={planKeptContentHubs.answers.href} variant="secondary">
+          Browse answers
+        </ActionButton>
+      </article>
+
+      <article class="plan-kept-discovery-panel landing-surface" data-reveal>
+        <p class="plan-kept-discovery-panel__eyebrow">Comparisons</p>
+        <h3>Fair pages for people comparing known blockers.</h3>
+        <p>
+          These pages explain when a mature blocker fits better and when PlanKept's plan,
+          recurrence, proof, full-block, or minute-cap model is the reason to choose it.
+        </p>
+        <ul class="plan-kept-discovery-panel__links">
+          {featuredComparisons.map((page) => (
+            <li><a href={page.href}>{page.title}</a></li>
+          ))}
+        </ul>
+        <ActionButton href={planKeptContentHubs.comparisons.href} variant="secondary">
+          Compare options
+        </ActionButton>
+      </article>
+
+      <article class="plan-kept-discovery-panel plan-kept-discovery-panel--updates landing-surface" data-reveal>
+        <p class="plan-kept-discovery-panel__eyebrow">Updates</p>
+        <h3>Follow PlanKept as it gets ready for launch.</h3>
+        <p>
+          Read product updates, launch notes, practical examples, privacy notes, and honest
+          explanations of how proof-gated blocking works in real life.
+        </p>
+        <div class="plan-kept-discovery-panel__actions">
+          <ActionButton href={planKeptContentHubs.updates.href} variant="secondary">
+            Read updates
+          </ActionButton>
+          <ActionButton href={planKeptConfig.primaryCtaHref} variant="ghost">
+            {planKeptConfig.primaryCtaLabel}
+          </ActionButton>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

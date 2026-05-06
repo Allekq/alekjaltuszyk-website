@@ -2,6 +2,7 @@
 import { planKeptConfig } from "../../../config/site";
 import LandingHeader from "../sections/LandingHeader.astro";
 import PlanKeptCloseSection from "../sections/PlanKeptCloseSection.astro";
+import PlanKeptDiscoverySection from "../sections/PlanKeptDiscoverySection.astro";
 import PlanKeptFaqSection from "../sections/PlanKeptFaqSection.astro";
 import PlanKeptFlowSection from "../sections/PlanKeptFlowSection.astro";
 import PlanKeptHeroSection from "../sections/PlanKeptHeroSection.astro";
@@ -14,13 +15,14 @@ import SiteFooter from "../sections/SiteFooter.astro";
   brand={planKeptConfig.name}
   brandHref={planKeptConfig.homeHref}
   navigation={planKeptConfig.navigation}
-  ctaHref={planKeptConfig.wishListGuideHref}
+  ctaHref={planKeptConfig.primaryCtaHref}
   ctaLabel={planKeptConfig.ctas.primary}
 />
 <PlanKeptHeroSection />
 <PlanKeptPositioningSection />
 <PlanKeptFlowSection />
 <PlanKeptModesSection />
+<PlanKeptDiscoverySection />
 <PlanKeptFaqSection />
 <PlanKeptCloseSection />
-<SiteFooter links={planKeptConfig.footerLinks} showBrand={false} />
+<SiteFooter links={planKeptConfig.footerLinks} showBrand={false} showSocials={false} />

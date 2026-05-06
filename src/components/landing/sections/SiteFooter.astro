@@ -11,14 +11,18 @@ interface Props {
   brand?: string;
   brandHref?: string;
   links?: readonly FooterLink[];
+  socialLinks?: readonly FooterLink[];
   showBrand?: boolean;
+  showSocials?: boolean;
 }
 
 const {
   brand = siteConfig.name,
   brandHref = siteConfig.homeHref,
   links = siteConfig.footerLinks,
+  socialLinks = siteConfig.socialLinks,
   showBrand = true,
+  showSocials = true,
 } = Astro.props as Props;
 ---
 
@@ -39,6 +43,21 @@ const {
         </a>
       ))}
     </nav>
+
+    {showSocials && socialLinks.length > 0 ? (
+      <nav class="site-footer__socials" aria-label="Social links">
+        {socialLinks.map((link) => (
+          <a
+            class="site-footer__social-link"
+            href={link.href}
+            target={"external" in link && link.external ? "_blank" : undefined}
+            rel={"external" in link && link.external ? "noreferrer" : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    ) : null}
 
     <p class="site-footer__copy">{siteConfig.footerText}</p>
   </div>
