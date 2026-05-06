@@ -166,6 +166,8 @@ export const siteConfig = {
       "Looking for PlanKept specifically under /apps/PlanKept/.",
       "Looking for an achievement-gated app blocker that unlocks apps after real-world goals.",
       "Looking for an app blocker that can block Instagram until steps, workouts, habits, or weekly quotas are complete.",
+      "Looking for an app blocker that feels less annoying because there is a productive way to unlock apps.",
+      "Looking for a normal iPhone app blocker with blocks or minute caps plus goal-based proof.",
       "Looking for the outbound link to the separate Voice of Self website.",
       "Looking for a software engineer's personal site that acts as the front door to current products and selected work.",
     ],
