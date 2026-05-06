@@ -906,6 +906,106 @@ const updatePosts = [
       "recurring-app-blocker-for-habit-goals",
     ],
   },
+  {
+    slug: "why-normal-app-blockers-get-deleted",
+    title: "Why Normal App Blockers Get Deleted",
+    description:
+      "Why people remove app blockers that only feel annoying, and how PlanKept tries to make the way out of a block productive.",
+    date: "2026-05-06",
+    author: "Alek Jaltuszyk",
+    sections: [
+      {
+        heading: "The real problem is not only access",
+        body:
+          "A normal app blocker can stop the app for a while. The harder problem is making the rule feel worth keeping. If the blocker only says no, the user eventually starts negotiating with the blocker instead of with the habit.",
+      },
+      {
+        heading: "A blocker needs a good exit",
+        body:
+          "PlanKept is built around the idea that the way out should be useful. Instead of blocking apps forever, or making the user wait for a timer, the app can keep distracting apps blocked or limited until a real-life plan clears.",
+        bullets: [
+          "A walk can become the reason social apps reopen.",
+          "A workout can become the reason entertainment apps come back.",
+          "A recurring habit quota can become the reason the rule returns without rebuilding it each time.",
+        ],
+      },
+      {
+        heading: "Less resentment, more direction",
+        body:
+          "The goal is not to make blocking feel cute or harmless. The goal is to make it feel purposeful. If the user knows exactly what opens the apps again, the block becomes pressure toward something chosen instead of random punishment.",
+      },
+    ],
+    relatedAnswerSlugs: [
+      "app-blocker-that-is-not-annoying",
+      "achievement-gated-app-blocker",
+      "screen-time-limits-with-real-world-goals",
+    ],
+  },
+  {
+    slug: "app-blocker-that-unlocks-after-you-do-something-good",
+    title: "An App Blocker That Unlocks After You Do Something Good",
+    description:
+      "The PlanKept idea in plain language: block distracting apps until the user completes a useful real-world action.",
+    date: "2026-05-06",
+    author: "Alek Jaltuszyk",
+    sections: [
+      {
+        heading: "The phone can be a reward",
+        body:
+          "Many screen-time tools treat the phone as a thing to suppress. PlanKept treats distracting app access as something that can be earned back. That is a small shift, but it changes the emotional shape of the rule.",
+      },
+      {
+        heading: "The unlock condition matters",
+        body:
+          "The important question is not only which apps are blocked. It is what has to happen before they return. PlanKept is designed for unlock conditions such as steps, workouts, routines, chores, study blocks, or recurring habit quotas.",
+      },
+      {
+        heading: "Proof makes the rule harder to fake",
+        body:
+          "Some goals can use phone data such as Apple Health steps or workouts when the user allows it. Other goals can use photos, screenshots, or a proof review flow. The point is not perfect surveillance. The point is enough friction to make the honest path easier than the fake one.",
+      },
+    ],
+    relatedAnswerSlugs: [
+      "app-blocker-that-unlocks-after-steps",
+      "block-instagram-until-workout",
+      "app-blocker-that-is-not-annoying",
+    ],
+  },
+  {
+    slug: "what-to-try-when-screen-time-limits-do-not-work",
+    title: "What To Try When Screen Time Limits Do Not Work",
+    description:
+      "A practical framing for people who bypass timers, ignore limits, or delete blockers when the rule feels pointless.",
+    date: "2026-05-06",
+    author: "Alek Jaltuszyk",
+    sections: [
+      {
+        heading: "Timers are easy to wait out",
+        body:
+          "Screen-time limits can help, but they often answer the wrong question. A timer says when an app becomes available again. It does not ask whether the user did the thing they were avoiding.",
+      },
+      {
+        heading: "Try connecting the app to the avoided action",
+        body:
+          "If the problem is opening TikTok before studying, the better rule may be simple: TikTok waits until the study block is done. If the problem is Instagram before a walk, Instagram waits until the step goal clears.",
+        bullets: [
+          "Use blocks for apps that reliably break the plan.",
+          "Use minute caps when lighter pressure is enough.",
+          "Use recurrence when the same rule should come back again.",
+        ],
+      },
+      {
+        heading: "PlanKept's fit",
+        body:
+          "PlanKept is for people who want normal app-blocking functions, but also want a reason to keep the blocker installed. The rule has a path out: complete the real-life plan and provide enough proof for the active rule to clear.",
+      },
+    ],
+    relatedAnswerSlugs: [
+      "screen-time-limits-with-real-world-goals",
+      "app-blocker-that-is-not-annoying",
+      "recurring-app-blocker-for-habit-goals",
+    ],
+  },
 ] as const;
 
 export const planKeptUpdatePosts: readonly PlanKeptUpdatePost[] = updatePosts.map((post) => {
