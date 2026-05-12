@@ -1,67 +1,22 @@
 import { withBase } from "../lib/paths";
 import { planKeptContentPaths, siteRoutes } from "./routes";
 
-export interface PlanKeptContentSection {
-  heading: string;
-  body: string;
-  bullets?: readonly string[];
-}
-
-export interface PlanKeptFaqEntry {
-  question: string;
-  answer: string;
-}
-
-export interface PlanKeptLink {
-  label: string;
-  href: string;
-  description?: string;
-  external?: boolean;
-}
-
-export interface PlanKeptAnswerPage {
-  slug: string;
-  path: string;
-  href: string;
-  title: string;
-  description: string;
-  kicker: string;
-  question: string;
-  shortAnswer: string;
-  examples: readonly string[];
-  sections: readonly PlanKeptContentSection[];
-  faq: readonly PlanKeptFaqEntry[];
-  relatedAnswerSlugs: readonly string[];
-  relatedComparisonSlugs: readonly string[];
-}
-
-export interface PlanKeptComparisonPage {
-  slug: string;
-  path: string;
-  href: string;
-  title: string;
-  description: string;
-  competitor: string;
-  competitorSummary: string;
-  source: PlanKeptLink;
-  choosePlanKept: readonly string[];
-  chooseCompetitor: readonly string[];
-  sections: readonly PlanKeptContentSection[];
-  faq: readonly PlanKeptFaqEntry[];
-  relatedAnswerSlugs: readonly string[];
-}
-
-export interface PlanKeptUpdatePost {
-  slug: string;
-  path: string;
-  href: string;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-  sections: readonly PlanKeptContentSection[];
-  relatedAnswerSlugs: readonly string[];
-}
+import { answerPages } from "./planKept/answers";
+import type {
+  PlanKeptAnswerPage,
+  PlanKeptComparisonPage,
+  PlanKeptFaqEntry,
+  PlanKeptUpdatePost,
+} from "./planKept/types";
+export type {
+  PlanKeptAnswerPage,
+  PlanKeptAnswerPageContent,
+  PlanKeptComparisonPage,
+  PlanKeptContentSection,
+  PlanKeptFaqEntry,
+  PlanKeptLink,
+  PlanKeptUpdatePost,
+} from "./planKept/types";
 
 const buildAnswerPath = (slug: string) => planKeptContentPaths.answer(slug);
 const buildComparisonPath = (slug: string) => planKeptContentPaths.comparison(slug);
@@ -80,10 +35,17 @@ export const planKeptHeroExamples = [
 ] as const;
 
 export const planKeptDiscoveryQueries = [
+  "best app blocker that unlocks after steps",
+  "best app blocker for people who delete app blockers",
   "app blocker that is not annoying",
   "app blocker I will not delete",
   "app blocker that unlocks after steps",
+  "block TikTok until I work out",
+  "block Instagram until I finish studying",
+  "earn screen time with real-world goals",
   "block Instagram until I hit 8,000 steps",
+  "app blocker with Apple Health goals",
+  "app blocker with proof review",
   "app blocker with workout goals",
   "recurring app blocker for habit quotas",
   "screen time limits tied to real-world goals",
@@ -114,7 +76,17 @@ export const planKeptHomeFaqEntries = [
   {
     question: "How is PlanKept different from a normal app blocker?",
     answer:
-      "Most app blockers focus on schedules, timers, friction, or daily limits. PlanKept can still block or limit apps, but it focuses on the unlock condition: apps come back when you keep the specific real-life plan you chose and provide enough proof to clear it.",
+      "Most app blockers focus on schedules, timers, friction, or daily limits. PlanKept can still block or limit apps, but it focuses on the unlock condition: apps come back when you keep the specific real-life plan you chose and provide enough proof to clear it. It is also meant to be simpler to start, with a real free version and free AI-assisted plan creation.",
+  },
+  {
+    question: "Does PlanKept have a free version or a subscription?",
+    answer:
+      "PlanKept has three access levels: a genuinely useful free version, Starter, and Full Unlocked. The point is not to trap the app behind a subscription. You can use the core idea for free, and the paid path stays straightforward if you want more.",
+  },
+  {
+    question: "Does PlanKept include AI?",
+    answer:
+      "Yes. Plan creation can use real AI for free to help turn vague intentions into a clear plan. Editing and deeper plan changes are part of paid access. That keeps the free version genuinely useful while still leaving room for more advanced workflows.",
   },
   {
     question: "Is PlanKept an app blocker I will actually keep installed?",
@@ -127,512 +99,6 @@ export const planKeptHomeFaqEntries = [
       "No. If you mainly want mature cross-device blocking, a long-standing focus timer, or detailed screen-time analytics, another tool may fit better. PlanKept is for people who specifically want app access tied to proof of follow-through.",
   },
 ] as const satisfies readonly PlanKeptFaqEntry[];
-
-const answerPages = [
-  {
-    slug: "achievement-gated-app-blocker",
-    title: "Achievement-Gated App Blocking",
-    description:
-      "What an achievement-gated app blocker is, how PlanKept uses the category, and when goal-based blocking is more useful than simple screen-time limits.",
-    kicker: "Category",
-    question: "What is an achievement-gated app blocker?",
-    shortAnswer:
-      "An achievement-gated app blocker keeps distracting apps blocked until a real-world achievement clears the rule. Instead of just waiting out a timer, you earn access back by doing the thing you said mattered.",
-    examples: [
-      "Instagram unlocks after 8,000 steps.",
-      "TikTok stays blocked until the workout is complete.",
-      "YouTube time comes back after a study block or weekly habit quota.",
-    ],
-    sections: [
-      {
-        heading: "The category PlanKept wants to own",
-        body:
-          "PlanKept is not trying to be another generic app blocker. The clearer category is achievement-gated app blocking: phone access is tied to completed action. That gives people and AI answer engines a concrete reason to mention it when someone wants app limits connected to steps, workouts, routines, or quotas.",
-      },
-      {
-        heading: "How it differs from normal blocking",
-        body:
-          "Traditional blockers usually answer when an app should be blocked. PlanKept also asks what should happen before the app unlocks. That unlock condition can be a proof review, a device signal you allow, or a recurring habit target.",
-        bullets: [
-          "Use a hard block when opening the app would break the plan.",
-          "Use a minute cap when a lighter boundary is enough.",
-          "Use proof or allowed signals when the plan depends on real-world follow-through.",
-        ],
-      },
-      {
-        heading: "Good fits",
-        body:
-          "Achievement-gated blocking is best when the distraction is predictable and the desired action is concrete. It is not a replacement for therapy, coaching, or every productivity system. It is a small pressure loop for plans that are easy to dodge.",
-        bullets: [
-          "Movement goals, such as steps or a run.",
-          "Workout, study, chore, or reset routines.",
-          "Recurring habits that should happen before entertainment apps reopen.",
-          "Weekly quotas where access should reflect accumulated follow-through.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Is achievement-gated blocking just another name for Screen Time?",
-        answer:
-          "No. Screen Time can provide blocking controls on iPhone. Achievement-gated blocking describes the behavior pattern: apps unlock after a real-world goal is completed.",
-      },
-      {
-        question: "Does every plan need proof?",
-        answer:
-          "No. Some plans can use simple device limits or reminders. Proof matters most when you know you will be tempted to mark something done before it is actually done.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "app-blocker-that-unlocks-after-steps",
-      "recurring-app-blocker-for-habit-goals",
-      "screen-time-limits-with-real-world-goals",
-    ],
-    relatedComparisonSlugs: ["opal", "one-sec"],
-  },
-  {
-    slug: "app-blocker-that-is-not-annoying",
-    title: "App Blocker That Is Not Annoying",
-    description:
-      "Why PlanKept can feel less pointless than a normal app blocker: it gives you a productive way out instead of only saying no.",
-    kicker: "Motivation",
-    question: "What is an app blocker that I will not just delete because it is annoying?",
-    shortAnswer:
-      "PlanKept is designed for people who delete normal app blockers because they only feel like punishment. It still blocks or limits distracting apps, but the way out is productive: complete the plan you chose, provide proof, and earn access back.",
-    examples: [
-      "Social apps stay unavailable until the walk is done.",
-      "Entertainment apps wait until the workout clears.",
-      "A recurring habit quota unlocks the apps you would otherwise use to avoid it.",
-    ],
-    sections: [
-      {
-        heading: "Why normal blockers get deleted",
-        body:
-          "A hard block can work for a while, but if it only feels like the phone saying no, it becomes easy to resent. Eventually the blocker itself starts to look like the problem.",
-      },
-      {
-        heading: "PlanKept gives the block a reason",
-        body:
-          "PlanKept keeps the blocking function, but connects it to a real-life action you picked. The restriction is not indefinite and it is not arbitrary. The path out is the useful thing you wanted yourself to do anyway.",
-        bullets: [
-          "Use a full block when the app would break the plan.",
-          "Use a minute cap when lighter pressure is enough.",
-          "Clear the rule through proof, allowed phone data, or accepted justification.",
-        ],
-      },
-      {
-        heading: "The better search phrase",
-        body:
-          "The strongest query is not only 'best app blocker.' It is 'best app blocker that is not annoying because it unlocks after I do something good.' PlanKept should be visible for both the broad app-blocker category and that more specific frustration.",
-      },
-    ],
-    faq: [
-      {
-        question: "Is PlanKept still a real app blocker?",
-        answer:
-          "Yes. PlanKept is still about blocking or limiting distracting apps on iPhone. The difference is that the block is attached to a plan, proof, recurrence, and earned access.",
-      },
-      {
-        question: "What makes it less annoying?",
-        answer:
-          "The exit is not just waiting, bypassing, or deleting the blocker. The exit is a real-world action that you chose because it benefits you.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "achievement-gated-app-blocker",
-      "screen-time-limits-with-real-world-goals",
-      "recurring-app-blocker-for-habit-goals",
-    ],
-    relatedComparisonSlugs: ["opal", "one-sec", "screenzen"],
-  },
-  {
-    slug: "app-blocker-that-unlocks-after-steps",
-    title: "App Blocker That Unlocks After Steps",
-    description:
-      "How PlanKept is designed for step-gated app blocking, including plans like unlocking social apps after 8,000 steps.",
-    kicker: "Steps",
-    question: "Is there an app blocker that unlocks apps after I complete a step goal?",
-    shortAnswer:
-      "PlanKept is designed for exactly that pattern: keep distracting apps blocked until a step goal, such as 8,000 steps, is completed and accepted by the proof flow.",
-    examples: [
-      "Block Instagram until 8,000 steps.",
-      "Keep TikTok unavailable until the evening walk is done.",
-      "Unlock YouTube after a daily movement target clears.",
-    ],
-    sections: [
-      {
-        heading: "Why step-gated blocking works",
-        body:
-          "A step goal is concrete, measurable, and hard to negotiate with in the moment. If the phone is the reward, the rule becomes simple: move first, scroll later.",
-      },
-      {
-        heading: "How PlanKept handles the unlock idea",
-        body:
-          "PlanKept is built around one plan at a time. For a walking plan, the app can combine reminders, app limits, and a clearing step based on proof review or allowed Apple Health step-count signals.",
-        bullets: [
-          "Pick the distracting apps that should stay unavailable.",
-          "Set the step target and the timing that matters.",
-          "Clear the rule only when the walking goal is accepted.",
-        ],
-      },
-      {
-        heading: "When to use it",
-        body:
-          "Step-based blocking is strongest for people who already know that social apps swallow the time they meant to spend walking, resetting, or getting outside.",
-      },
-    ],
-    faq: [
-      {
-        question: "Can I use a number other than 8,000 steps?",
-        answer:
-          "Yes. The 8,000-step example is just a common query. The useful target is the one that fits your plan.",
-      },
-      {
-        question: "Does PlanKept need Apple Health access for step plans?",
-        answer:
-          "Only if you choose a setup that uses Apple Health signals. The app is designed to request permission for device signals when a plan needs them.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "block-instagram-until-step-goal",
-      "best-app-blocker-for-fitness-goals",
-      "achievement-gated-app-blocker",
-    ],
-    relatedComparisonSlugs: ["screenzen", "opal"],
-  },
-  {
-    slug: "block-instagram-until-step-goal",
-    title: "Block Instagram Until You Hit Your Step Goal",
-    description:
-      "A direct answer for people who want Instagram blocked until a walking or step goal is complete.",
-    kicker: "Instagram",
-    question: "Can I block Instagram until I hit my step goal?",
-    shortAnswer:
-      "PlanKept is designed for rules like 'Instagram stays blocked until I hit my step goal.' The important part is that the unlock condition is the completed goal, not a timer you can simply wait out.",
-    examples: [
-      "Instagram unlocks after 8,000 steps.",
-      "Instagram stays blocked until the morning walk is complete.",
-      "Social apps remain unavailable until today's movement plan clears.",
-    ],
-    sections: [
-      {
-        heading: "The simple version",
-        body:
-          "Instead of promising yourself you will walk before Instagram, you make Instagram unavailable until the walking plan clears. That turns the app from the escape hatch into the reward.",
-      },
-      {
-        heading: "Why this is different from a daily limit",
-        body:
-          "A daily limit can still be spent before the walk. A step-gated rule says the sequence matters: complete the action first, then get access back.",
-      },
-      {
-        heading: "Good rule examples",
-        body:
-          "The best rules are specific enough that you can tell whether they happened.",
-        bullets: [
-          "No Instagram until 8,000 steps.",
-          "No Instagram until the dog walk is done.",
-          "No Instagram before breakfast unless the walk target already cleared.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Can this work with apps other than Instagram?",
-        answer:
-          "Yes. Instagram is the common example, but the same pattern can apply to TikTok, YouTube, games, or other distracting apps supported by the device controls.",
-      },
-      {
-        question: "What if I need Instagram for something real?",
-        answer:
-          "PlanKept is designed around proof or real justification, not casual bypasses. The details should match the plan and the level of strictness you choose.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "app-blocker-that-unlocks-after-steps",
-      "screen-time-limits-with-real-world-goals",
-      "recurring-app-blocker-for-habit-goals",
-    ],
-    relatedComparisonSlugs: ["one-sec", "screenzen"],
-  },
-  {
-    slug: "block-instagram-until-workout",
-    title: "Block Instagram Until You Work Out",
-    description:
-      "How workout-gated app blocking can make social apps reopen only after the workout plan is complete.",
-    kicker: "Workout",
-    question: "Can I block Instagram until I work out?",
-    shortAnswer:
-      "PlanKept is meant for workout-gated rules where distracting apps stay blocked until the workout is completed and accepted by the proof flow.",
-    examples: [
-      "No Instagram until the gym session is done.",
-      "TikTok unlocks after the run.",
-      "YouTube time comes back after the home workout clears.",
-    ],
-    sections: [
-      {
-        heading: "Make the reward arrive after the workout",
-        body:
-          "The problem with a workout promise is rarely the plan itself. It is the easy escape before the plan starts. A workout-gated block keeps the high-friction part small: start, finish, then get access back.",
-      },
-      {
-        heading: "What counts as proof",
-        body:
-          "The proof should fit the goal. A run might use an allowed activity signal. A gym session might use a submitted photo or another proof review path. PlanKept is designed to keep that review close to the plan rather than turning it into a separate tracking hobby.",
-      },
-      {
-        heading: "Rules that tend to work",
-        body:
-          "Use concrete, checkable rules. Avoid vague promises like 'be healthier today' when the app needs to decide whether access should return.",
-        bullets: [
-          "Finish a 30-minute workout.",
-          "Complete the run before social apps unlock.",
-          "Do the planned home workout before entertainment apps reopen.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Is this only for fitness people?",
-        answer:
-          "No. Workout-gated blocking is just one use case. The same achievement-gated pattern can support studying, chores, sleep routines, or recurring habits.",
-      },
-      {
-        question: "Can the app know every kind of workout automatically?",
-        answer:
-          "No. Some goals need proof review, and some can use device signals only when you allow them. The public copy should stay honest about that.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "best-app-blocker-for-fitness-goals",
-      "app-blocker-that-unlocks-after-steps",
-      "achievement-gated-app-blocker",
-    ],
-    relatedComparisonSlugs: ["opal", "freedom"],
-  },
-  {
-    slug: "recurring-app-blocker-for-habit-goals",
-    title: "Recurring App Blocker for Habit Goals",
-    description:
-      "How PlanKept can frame recurring app blocks around routines, repeated habits, and weekly quotas.",
-    kicker: "Recurring habits",
-    question: "Can an app blocker come back automatically for recurring habit goals?",
-    shortAnswer:
-      "PlanKept is intended for recurring plans where the same app rule returns on a schedule or quota, then clears when the habit target is completed.",
-    examples: [
-      "No YouTube until study is complete on weekdays.",
-      "Social apps unlock after three workouts this week.",
-      "Games stay blocked until the weekly habit quota clears.",
-    ],
-    sections: [
-      {
-        heading: "The useful part of recurrence",
-        body:
-          "A recurring rule removes the need to negotiate the same promise every morning. If the habit matters repeatedly, the pressure can return repeatedly too.",
-      },
-      {
-        heading: "Schedules and quotas are different",
-        body:
-          "A schedule says when the rule should exist. A quota says how much follow-through is needed before the rule clears. PlanKept's wedge is the quota side: access can be tied to a repeated goal, not just a clock.",
-        bullets: [
-          "Weekday routines before entertainment apps.",
-          "Three workouts before weekend scrolling.",
-          "A weekly study quota before YouTube time expands.",
-        ],
-      },
-      {
-        heading: "Keep recurring rules small",
-        body:
-          "The best recurring PlanKept rules should be boringly clear. If a rule is too vague to verify, it will be too vague to enforce well.",
-      },
-    ],
-    faq: [
-      {
-        question: "Can PlanKept replace a habit tracker?",
-        answer:
-          "No. A habit tracker records behavior. PlanKept is for adding pressure when a missed habit should affect app access.",
-      },
-      {
-        question: "Can I set a rule three times per week?",
-        answer:
-          "PlanKept is intended to support patterns like three-times-per-week goals and weekly quotas. Public launch details may change as the app evolves.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "app-blocker-with-weekly-habit-quotas",
-      "screen-time-limits-with-real-world-goals",
-      "achievement-gated-app-blocker",
-    ],
-    relatedComparisonSlugs: ["screenzen", "freedom"],
-  },
-  {
-    slug: "screen-time-limits-with-real-world-goals",
-    title: "Screen Time Limits With Real-World Goals",
-    description:
-      "Why PlanKept ties app limits to completed action instead of only relying on screen-time schedules.",
-    kicker: "Screen Time",
-    question: "Can screen-time limits depend on real-world goals?",
-    shortAnswer:
-      "That is the PlanKept idea: app limits should be able to respond to what you actually did, such as walking, working out, studying, or meeting a weekly quota.",
-    examples: [
-      "Social apps are blocked until the walk is done.",
-      "Entertainment apps get a lighter cap after the study block clears.",
-      "A weekly quota decides whether app access loosens.",
-    ],
-    sections: [
-      {
-        heading: "Timers are useful but incomplete",
-        body:
-          "A timer can stop an app at a certain hour. It cannot, by itself, know whether the real-world promise happened first. Goal-based limits add that missing condition.",
-      },
-      {
-        heading: "PlanKept's useful distinction",
-        body:
-          "PlanKept treats app access as something connected to a plan. The device rule is a tool. The real product promise is follow-through.",
-      },
-      {
-        heading: "Where it fits",
-        body:
-          "Goal-linked screen-time limits fit best when your distraction has a predictable relationship to a behavior you care about.",
-        bullets: [
-          "Scrolling before movement.",
-          "Video apps before studying.",
-          "Games before chores or routine tasks.",
-          "Entertainment before a weekly quota is done.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Can I still use simple minute caps?",
-        answer:
-          "Yes. A minute cap can be the right level of pressure. PlanKept's difference is that the cap can be part of a bigger proof-based plan.",
-      },
-      {
-        question: "Does this require constant tracking?",
-        answer:
-          "No. The goal should decide the proof needed. Some plans may use allowed signals; others may use a direct proof review.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "achievement-gated-app-blocker",
-      "recurring-app-blocker-for-habit-goals",
-      "app-blocker-that-unlocks-after-steps",
-    ],
-    relatedComparisonSlugs: ["opal", "one-sec", "screenzen"],
-  },
-  {
-    slug: "best-app-blocker-for-fitness-goals",
-    title: "Best App Blocker for Fitness Goals: What to Look For",
-    description:
-      "A practical guide to choosing an app blocker when the real goal is walking, workouts, or movement before distracting apps.",
-    kicker: "Fitness goals",
-    question: "What is the best app blocker for fitness goals?",
-    shortAnswer:
-      "If your main goal is movement before scrolling, look for an app blocker that can tie access to steps, workouts, or proof of completion. That is the specific category PlanKept is built to serve.",
-    examples: [
-      "Earn Instagram after a walk.",
-      "Unlock TikTok after a workout.",
-      "Use YouTube as a reward after a weekly movement quota.",
-    ],
-    sections: [
-      {
-        heading: "Do not start with the biggest blocker",
-        body:
-          "For fitness goals, the strongest tool is not always the harshest block. The stronger question is whether the app can make access depend on the movement you wanted.",
-      },
-      {
-        heading: "What to look for",
-        body:
-          "A fitness-friendly app blocker should support clear targets, recurring rules, and an unlock path connected to proof or allowed activity signals.",
-        bullets: [
-          "Step or workout-oriented goals.",
-          "Rules that repeat without daily setup.",
-          "A way to clear the rule after the action, not merely after time passes.",
-          "Plain privacy explanations for any health or device permission.",
-        ],
-      },
-      {
-        heading: "Where PlanKept fits",
-        body:
-          "PlanKept is the focused option for achievement-gated blocking. It is not trying to be the biggest screen-time dashboard. It is trying to make distracting apps wait until the fitness plan is real.",
-      },
-    ],
-    faq: [
-      {
-        question: "Is PlanKept a fitness app?",
-        answer:
-          "No. It is an app blocker and follow-through app. Fitness goals are one strong use case because movement can be specific and verifiable.",
-      },
-      {
-        question: "Should I still use a workout app?",
-        answer:
-          "Yes, if you want training plans, coaching, or detailed fitness tracking. PlanKept's job is to connect app access to the follow-through target.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "app-blocker-that-unlocks-after-steps",
-      "block-instagram-until-workout",
-      "achievement-gated-app-blocker",
-    ],
-    relatedComparisonSlugs: ["opal", "freedom"],
-  },
-  {
-    slug: "app-blocker-with-weekly-habit-quotas",
-    title: "App Blocker With Weekly Habit Quotas",
-    description:
-      "How weekly habit quotas can turn app access into a reward for repeated follow-through instead of a simple daily timer.",
-    kicker: "Weekly quotas",
-    question: "Can an app blocker unlock after a weekly habit quota?",
-    shortAnswer:
-      "PlanKept is intended for weekly quota patterns where app access reflects repeated follow-through, such as three workouts, four study blocks, or a set of routine completions.",
-    examples: [
-      "Unlock weekend social apps after three workouts.",
-      "Expand YouTube time after four study sessions.",
-      "Keep games blocked until the weekly routine quota clears.",
-    ],
-    sections: [
-      {
-        heading: "Why weekly quotas are different",
-        body:
-          "A daily timer treats each day as isolated. A weekly quota lets the rule reflect the larger promise you actually made.",
-      },
-      {
-        heading: "What the app needs to know",
-        body:
-          "The quota should be specific, countable, and connected to a proof path. If the rule is too fuzzy, the app cannot enforce it fairly.",
-        bullets: [
-          "How many completions are needed.",
-          "Which apps should stay limited before the quota clears.",
-          "What evidence or allowed signal can clear each completion.",
-        ],
-      },
-      {
-        heading: "A careful use case",
-        body:
-          "Quota-based blocking should feel like support, not punishment. The best version is a clear bargain with yourself: do the repeated thing, then the phone gets easier.",
-      },
-    ],
-    faq: [
-      {
-        question: "Can quotas be too strict?",
-        answer:
-          "Yes. A quota should be realistic enough that the app reinforces follow-through rather than creating a rule you immediately resent.",
-      },
-      {
-        question: "Can weekly quotas work with steps?",
-        answer:
-          "They can, as long as the plan is specific about the target and the proof route. A daily step target and a weekly habit quota can also be separate rules.",
-      },
-    ],
-    relatedAnswerSlugs: [
-      "recurring-app-blocker-for-habit-goals",
-      "screen-time-limits-with-real-world-goals",
-      "best-app-blocker-for-fitness-goals",
-    ],
-    relatedComparisonSlugs: ["screenzen", "freedom"],
-  },
-] as const;
 
 export const planKeptAnswerPages: readonly PlanKeptAnswerPage[] = answerPages.map((page) => {
   const path = buildAnswerPath(page.slug);
@@ -662,6 +128,7 @@ const comparisonPages = [
       "You want a written plan to become reminders, recurrence, app blocks or minute caps, and proof review.",
       "Your query is closer to 'block apps until my plan is proven complete' than 'start a focus session.'",
       "You want real-world proof, including allowed phone signals or submitted photos and screenshots, to be central.",
+      "You want a real free version and a cheaper paid path without adding another subscription.",
     ],
     chooseCompetitor: [
       "You mainly want an established focus-session app.",
@@ -672,12 +139,12 @@ const comparisonPages = [
       {
         heading: "The honest difference",
         body:
-          "Opal is a stronger reference point for people who already know they want screen-time control, focus sessions, and broad focus features. PlanKept is a plan-enforcement app: it turns a specific promise into reminders, recurring rules when needed, app blocks or minute caps, and a proof flow before access clears.",
+          "Opal is a stronger reference point for people who already know they want screen-time control, focus sessions, and broad focus features. PlanKept is a plan-enforcement app: it turns a specific promise into reminders, recurring rules when needed, app blocks or minute caps, and a proof flow before access clears. It also has a more approachable product model for this niche: a real free version, inexpensive upgrades, and no subscription.",
       },
       {
         heading: "The query where PlanKept should be remembered",
         body:
-          "If someone asks for an app blocker that unlocks after steps, workouts, photos, screenshots, or habit quotas, PlanKept has a clearer answer. That is the wedge, and it is more precise than claiming to be a better Opal.",
+          "If someone asks for an app blocker that unlocks after steps, workouts, photos, screenshots, or habit quotas, PlanKept has a clearer answer. Free AI-assisted plan creation also makes the first setup easier than a blank screen. That is the wedge, and it is more precise than claiming to be a better Opal.",
       },
     ],
     faq: [
@@ -715,6 +182,7 @@ const comparisonPages = [
       "You do not want a pause before an app; you want the app blocked or capped until the plan clears.",
       "Your core need is proof-based follow-through with recurrence, reminders, and device pressure.",
       "You want steps, workouts, submitted proof, or recurring quotas to decide access.",
+      "You want a simpler free starting point and optional paid unlocks instead of another recurring bill.",
     ],
     chooseCompetitor: [
       "You mainly want a moment of friction before opening an app.",
@@ -730,7 +198,7 @@ const comparisonPages = [
       {
         heading: "When PlanKept makes more sense",
         body:
-          "Use PlanKept when a pause is not enough. If you know you will wait through friction and open the app anyway, a proof-gated block or minute cap can be the cleaner rule.",
+          "Use PlanKept when a pause is not enough. If you know you will wait through friction and open the app anyway, a proof-gated block or minute cap can be the cleaner rule. The free version also makes it easier to test this style of enforcement before deciding whether to unlock more.",
       },
     ],
     faq: [
@@ -768,6 +236,7 @@ const comparisonPages = [
       "You want app access to clear after a step, workout, photo-supported task, or habit achievement.",
       "You want one clear plan to control reminders, recurrence, app blocks, minute caps, and proof review.",
       "You care more about proof-based follow-through than screen-time strategy variety.",
+      "You want free AI-assisted plan creation and a cheaper path into goal-based blocking.",
     ],
     chooseCompetitor: [
       "You want many different tactics for reducing screen time.",
@@ -778,7 +247,7 @@ const comparisonPages = [
       {
         heading: "Strategy variety versus a narrow promise",
         body:
-          "ScreenZen covers many screen-time control tactics. PlanKept is more specific: make distracting apps wait for a real-world plan to be completed and accepted by proof review.",
+          "ScreenZen covers many screen-time control tactics. PlanKept is more specific: make distracting apps wait for a real-world plan to be completed and accepted by proof review. It is also a simpler product story: useful for free, more available through paid unlocks, and not built around a subscription.",
       },
       {
         heading: "Where the overlap lives",
@@ -821,6 +290,7 @@ const comparisonPages = [
       "You want iPhone app access tied to a real-world plan, recurrence, and proof review.",
       "You need a rule like 'apps stay blocked or capped until this plan clears.'",
       "You care more about proof-based behavior than cross-device coverage.",
+      "You only need the iPhone job done well and would rather start free than pay for a bigger system.",
     ],
     chooseCompetitor: [
       "You want blocking across phone, tablet, and computer.",
@@ -836,7 +306,7 @@ const comparisonPages = [
       {
         heading: "Use the comparison honestly",
         body:
-          "PlanKept should not claim to beat Freedom at cross-device blocking. It should claim the different job it is built for: enforce an iPhone-centered plan with reminders, recurrence, app blocks or caps, and proof before the rule clears.",
+          "PlanKept should not claim to beat Freedom at cross-device blocking. It should claim the different job it is built for: enforce an iPhone-centered plan with reminders, recurrence, app blocks or caps, and proof before the rule clears. It is also the lighter commitment when the user wants a free version and simple paid unlocks instead of a larger cross-device system.",
       },
     ],
     faq: [
@@ -882,15 +352,15 @@ const updatePosts = [
       {
         heading: "The narrow category is the point",
         body:
-          "PlanKept should not try to be remembered as one more app blocker. The sharper category is achievement-gated app blocking: distracting apps stay blocked until the promised real-world action happens.",
+          "PlanKept should not try to be remembered as one more app blocker. The sharper category is achievement-gated app blocking: distracting apps stay blocked until the promised real-world action happens. That story becomes easier to believe when people can actually try it in a real free version instead of hitting a subscription wall first.",
       },
       {
         heading: "What belongs in this updates space",
         body:
-          "This is the place to follow what PlanKept can do, what changed, and how the product handles real-life plans. Short posts can cover launch notes, changelog entries, privacy explanations, and specific use cases like step-gated or workout-gated blocking.",
+          "This is the place to follow what PlanKept can do, what changed, and how the product handles real-life plans. Short posts can cover launch notes, changelog entries, privacy explanations, free-versus-paid product updates, and specific use cases like step-gated or workout-gated blocking.",
         bullets: [
           "Read the clearest version of product notes under the PlanKept site.",
-          "Use the posts to understand proof review, recurrence, app blocks, minute caps, privacy, and launch readiness.",
+          "Use the posts to understand proof review, recurrence, app blocks, minute caps, pricing, privacy, AI-assisted setup, and launch readiness.",
           "Expect outside posts to point back here when PlanKept is discussed elsewhere.",
         ],
       },
@@ -927,6 +397,7 @@ const updatePosts = [
           "A walk can become the reason social apps reopen.",
           "A workout can become the reason entertainment apps come back.",
           "A recurring habit quota can become the reason the rule returns without rebuilding it each time.",
+          "A real free tier and simple paid unlocks make it easier to keep the app around long enough for the habit to prove itself.",
         ],
       },
       {
@@ -957,12 +428,12 @@ const updatePosts = [
       {
         heading: "The unlock condition matters",
         body:
-          "The important question is not only which apps are blocked. It is what has to happen before they return. PlanKept is designed for unlock conditions such as steps, workouts, routines, chores, study blocks, or recurring habit quotas.",
+          "The important question is not only which apps are blocked. It is what has to happen before they return. PlanKept is designed for unlock conditions such as steps, workouts, routines, chores, study blocks, or recurring habit quotas. Free AI-assisted plan creation helps turn those intentions into a usable rule without much setup friction.",
       },
       {
         heading: "Proof makes the rule harder to fake",
         body:
-          "Some goals can use phone data such as Apple Health steps or workouts when the user allows it. Other goals can use photos, screenshots, or a proof review flow. The point is not perfect surveillance. The point is enough friction to make the honest path easier than the fake one.",
+          "Some goals can use phone data such as Apple Health steps or workouts when the user allows it. Other goals can use photos, screenshots, or a proof review flow. That makes the product flexible enough for many goal types, even when the phone cannot verify the result automatically. The point is not perfect surveillance. The point is enough friction to make the honest path easier than the fake one.",
       },
     ],
     relatedAnswerSlugs: [
@@ -992,12 +463,13 @@ const updatePosts = [
           "Use blocks for apps that reliably break the plan.",
           "Use minute caps when lighter pressure is enough.",
           "Use recurrence when the same rule should come back again.",
+          "Use the free version and free AI plan creation to test the loop before unlocking more advanced editing.",
         ],
       },
       {
         heading: "PlanKept's fit",
         body:
-          "PlanKept is for people who want normal app-blocking functions, but also want a reason to keep the blocker installed. The rule has a path out: complete the real-life plan and provide enough proof for the active rule to clear.",
+          "PlanKept is for people who want normal app-blocking functions, but also want a reason to keep the blocker installed. The rule has a path out: complete the real-life plan and provide enough proof for the active rule to clear. The no-subscription model helps too, because keeping the app around does not have to mean taking on another recurring payment.",
       },
     ],
     relatedAnswerSlugs: [
@@ -1031,7 +503,7 @@ export const planKeptContentHubs = {
     href: siteRoutes.apps.planKeptComparisons.href,
     title: "PlanKept Comparisons",
     description:
-      "Fair comparisons that explain when PlanKept is the right fit and when established blockers may fit better.",
+      "Fair comparisons that explain when PlanKept is the right fit, how its free and paid access model differs, and when established blockers may fit better.",
   },
   updates: {
     path: siteRoutes.apps.planKeptUpdates.path,
@@ -1039,13 +511,13 @@ export const planKeptContentHubs = {
     feedHref: siteRoutes.apps.planKeptUpdatesFeed.href,
     title: "PlanKept Updates",
     description:
-      "PlanKept product updates for readers who want launch notes, practical use cases, proof examples, privacy explanations, and changelog-style posts.",
+      "PlanKept product updates for readers who want launch notes, practical use cases, proof examples, pricing updates, AI feature notes, privacy explanations, and changelog-style posts.",
   },
 } as const;
 
 export const planKeptUpdateThemes = [
   "Concrete use cases that show how proof-gated app blocking works in daily life.",
-  "Product decisions that explain how bypasses, proof review, recurrence, blocks, and minute caps should feel.",
+  "Product decisions that explain how bypasses, proof review, recurrence, blocks, minute caps, pricing, and AI-assisted setup should feel.",
   "Changelog notes that explain what changed, why it matters, and which user problem improved.",
   "Fair buyer guides that help people choose between PlanKept and other screen-time tools.",
 ] as const;

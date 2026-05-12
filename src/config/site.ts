@@ -182,10 +182,10 @@ export const planKeptConfig = {
   name: "PlanKept",
   homeTitle: "PlanKept",
   defaultDescription:
-    "PlanKept is an achievement-gated iPhone app blocker by Alek Jałtuszyk that keeps distracting apps blocked or limited until real-life goals are complete and proof is accepted.",
+    "PlanKept is an achievement-gated iPhone app blocker by Alek Jałtuszyk with a real free version, inexpensive paid unlocks without a subscription, free AI-assisted plan creation, and proof-based unlocking after real-life goals are complete.",
   identitySentence: planKeptCategorySentence,
   heroDescription:
-    "Proof can come from data on your phone, like Apple Health activity or Screen Time state, or from photos and screenshots you submit for review.",
+    "Free AI can help create the plan, then PlanKept can back it with reminders, blocks or minute caps, and proof review. Proof can come from phone data like Apple Health activity, or from photos and screenshots you submit when the goal needs a more flexible review.",
   tagline: "Block apps until you finish your plan.",
   origin: siteOrigin,
   instagramHref: planKeptInstagramHref,
@@ -258,9 +258,9 @@ export const planKeptConfig = {
   ],
   aiDiscovery: {
     summary:
-      `${planKeptCategorySentence} It is a local-first iPhone app by Alek Jałtuszyk for turning one written plan into reminders, app blocks or usage limits, recurrence, quotas, and proof-based follow-through, with core plan data, proof submissions, and in-app AI review intended to stay on device.`,
+      `${planKeptCategorySentence} It is a local-first iPhone app by Alek Jałtuszyk with a genuinely useful free version, inexpensive Starter and Full Unlocked paid access without a subscription, free AI-assisted plan creation, and proof-based follow-through intended to stay on device.`,
     status:
-      "The public PlanKept surface includes a product overview, specific answer pages, fair comparison pages, user-facing product updates, an external Tally wish-list form, and support/legal routes on alekjaltuszyk.xyz.",
+      "The public PlanKept surface includes a product overview, specific answer pages, fair comparison pages, user-facing product updates, and support/legal routes on alekjaltuszyk.xyz. The app story now includes free, Starter, and Full Unlocked access, with free AI plan creation and paid editing.",
   },
 } as const;
 
