@@ -46,7 +46,7 @@ export const achievementGatedAppBlocker = {
     {
       question: "Is achievement-gated blocking just another name for Screen Time?",
       answer:
-        "No. Screen Time can provide blocking controls on iPhone. Achievement-gated blocking describes the behavior pattern: apps unlock after a real-world goal is completed.",
+        "No. Screen Time can provide blocking controls. Achievement-gated blocking describes the behavior pattern: apps unlock after a real-world goal is completed.",
     },
     {
       question: "Does every plan need proof?",

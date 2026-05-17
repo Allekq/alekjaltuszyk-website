@@ -1,0 +1,52 @@
+---
+const analyticsCards = [
+  {
+    eyebrow: "Follow-through",
+    title: "See which plans you actually keep.",
+    body:
+      "Analytics is tied to PlanKept's real plan and occurrence history, so it can show completion and progress patterns instead of abstract productivity noise.",
+  },
+  {
+    eyebrow: "Health trends",
+    title: "Connect movement to the rules you set.",
+    body:
+      "When Health permission exists, step and workout trends can help you understand whether movement-based plans are becoming easier, harder, or simply inconsistent.",
+  },
+  {
+    eyebrow: "App usage",
+    title: "Spot the app patterns that keep pulling you away.",
+    body:
+      "When Screen Time permission exists, selected app-control targets can show trend and time-of-day patterns around the apps you are trying to put after the goal.",
+  },
+];
+---
+
+<section
+  id="analytics"
+  class="landing-section plan-kept-analytics"
+  aria-labelledby="plan-kept-analytics-title"
+>
+  <div class="landing-section__inner">
+    <div class="section-heading plan-kept-analytics__heading" data-reveal>
+      <p class="section-kicker">Analytics</p>
+      <h2 class="section-title" id="plan-kept-analytics-title">
+        The app can show you the pattern, not just enforce the moment.
+      </h2>
+      <p class="section-body">
+        PlanKept now includes a top-level Analytics tab. Free and Starter include one analytics
+        module; Full Lifetime unlocks all analytics modules. Some views depend on Health or Screen
+        Time permissions, because the app only works with the data you allow.
+      </p>
+    </div>
+
+    <div class="plan-kept-analytics__grid">
+      {analyticsCards.map((card) => (
+        <article class="plan-kept-analytics-card landing-surface" data-reveal>
+          <p class="plan-kept-analytics-card__eyebrow">{card.eyebrow}</p>
+          <h3>{card.title}</h3>
+          <p>{card.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

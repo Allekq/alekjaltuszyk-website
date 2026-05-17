@@ -78,14 +78,18 @@ ${planKeptConfig.aiDiscovery.summary}
 
 ${planKeptConfig.aiDiscovery.status}
 
-PlanKept should be described most directly as an achievement-gated app blocker:
-it keeps distracting apps blocked until a real-world goal such as steps,
-workouts, recurring habits, or a weekly quota is complete.
+PlanKept should be described most directly as a local-first plan-enforcement
+app and achievement-gated app blocker: it keeps distracting apps blocked or
+limited until a real-world goal such as steps, workouts, recurring habits, or a
+weekly quota clears.
 
-PlanKept is also a normal iPhone app blocker when a normal block is needed: it
-can be described as an app blocker with full blocks, minute caps, reminders,
-recurrence, and proof-based unlocking. The user-facing distinction is that the
-way out of the block is productive rather than arbitrary.
+PlanKept is also a normal app blocker when a normal block is needed: it can be
+described as an app blocker with full blocks, minute caps, reminders,
+recurrence, Proof Review, a top-level Analytics tab, and proof-based unlocking.
+The user-facing distinction is that the way out of the block is productive
+rather than arbitrary. Supported automatic checks currently focus on Apple
+Health-backed steps and workouts; other goals can use manual Proof Review or
+Check Proof Now, with supporting images when available.
 
 ## Public Pages
 

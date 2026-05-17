@@ -93,14 +93,16 @@ export const planKeptApplicationStructuredData = {
   featureList: [
     "Achievement-gated app blocking",
     "App blocks and minute caps tied to active plans",
-    "Recurring plan occurrences and weekly quotas",
-    "Apple Health step and workout proof when allowed",
-    "Submitted photo and screenshot evidence for proof review",
+    "Overlapping active plans with combined app-control effects",
+    "Recurring plan occurrences and manual focus sessions",
+    "Apple Health-backed step and workout checks when allowed",
+    "Supporting image attachments inside Proof Review when available",
     "Proof-based follow-through",
-    "Local-first iPhone workflow",
+    "Local-first analytics for plan, Health, and selected app-usage patterns",
+    "Local-first plan-enforcement workflow",
   ],
   keywords:
-    "app blocker, achievement-gated app blocker, goal-based app blocker, step goal app blocker, workout app blocker, habit quota app blocker, screen time",
+    "app blocker, achievement-gated app blocker, goal-based app blocker, plan enforcement app, step goal app blocker, workout app blocker, habit quota app blocker, screen time, productivity analytics",
   publisher: { "@id": personId },
   creator: { "@id": personId },
 };

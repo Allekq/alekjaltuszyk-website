@@ -40,7 +40,7 @@ export const appBlockerThatIsNotAnnoying = {
     {
       question: "Is PlanKept still a real app blocker?",
       answer:
-        "Yes. PlanKept is still about blocking or limiting distracting apps on iPhone. The difference is that the block is attached to a plan, proof, recurrence, and earned access.",
+        "Yes. PlanKept is still about blocking or limiting distracting apps. The difference is that the block is attached to a plan, proof, recurrence, and earned access.",
     },
     {
       question: "What makes it less annoying?",

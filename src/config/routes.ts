@@ -73,12 +73,12 @@ export const appDirectory = [
     eyebrow: "On this domain",
     status: "Product page here",
     description:
-      "An achievement-gated iPhone app blocker that keeps distracting apps blocked until real-world goals are completed.",
+      "A local-first plan-enforcement app that pairs reminders, app friction, proof-aware completion, and analytics.",
     theme: "coral",
     chips: [
       "Unlock after steps or workouts",
-      "Recurring habit quotas",
-      "Proof-based follow-through",
+      "Proof Review",
+      "No subscription",
     ],
     ctaLabel: "Open PlanKept",
     href: siteRoutes.apps.planKept.href,

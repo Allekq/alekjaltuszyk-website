@@ -35,7 +35,7 @@ export const discoveryPages = {
       title: "PlanKept",
       path: siteRoutes.apps.planKept.path,
       description:
-        "Public PlanKept product page from Alek Jałtuszyk covering achievement-gated app blocking, local-first plan enforcement, proof review, and legal/support links.",
+        "Public PlanKept product page from Alek Jałtuszyk covering local-first plan enforcement, achievement-gated app blocking, Proof Review, analytics, and legal/support links.",
     },
     {
       title: planKeptContentHubs.answers.title,

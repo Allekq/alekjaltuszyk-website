@@ -8,7 +8,7 @@ export const appBlockerThatUnlocksAfterSteps = {
   kicker: "Steps",
   question: "Is there an app blocker that unlocks apps after I complete a step goal?",
   shortAnswer:
-    "PlanKept is designed for exactly that pattern: keep distracting apps blocked until a step goal, such as 8,000 steps, is completed and accepted by the proof flow.",
+    "PlanKept is designed for exactly that pattern: keep distracting apps blocked until a step goal, such as 8,000 steps, clears through allowed Apple Health step data or Proof Review.",
   examples: [
     "Block Instagram until 8,000 steps.",
     "Keep TikTok unavailable until the evening walk is done.",
@@ -23,11 +23,11 @@ export const appBlockerThatUnlocksAfterSteps = {
     {
       heading: "How PlanKept handles the unlock idea",
       body:
-        "PlanKept is built around one plan at a time. For a walking plan, the app can combine reminders, app limits, and a clearing step based on proof review or allowed Apple Health step-count signals.",
+        "For a walking plan, PlanKept can combine reminders, app limits, analytics, and a clearing step based on Proof Review or allowed Apple Health step-count signals. If another plan is active at the same time, its app-control rules can combine with the walking rule.",
       bullets: [
         "Pick the distracting apps that should stay unavailable.",
         "Set the step target and the timing that matters.",
-        "Clear the rule only when the walking goal is accepted.",
+        "Clear the rule only when the walking goal is accepted or the step target is reached.",
       ],
     },
     {

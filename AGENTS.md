@@ -122,3 +122,4 @@ The domain is now split on purpose:
 
 - `skills/landing-page-workflow/SKILL.md`
 - `skills/legal-update-sync/SKILL.md`
+- `skills/roam-timeline-variants/SKILL.md`

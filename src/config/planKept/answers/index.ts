@@ -7,6 +7,7 @@ import { blockTiktokUntilWorkout } from "./blockTiktokUntilWorkout";
 import { blockInstagramUntilFinishStudying } from "./blockInstagramUntilFinishStudying";
 import { earnScreenTimeWithRealWorldGoals } from "./earnScreenTimeWithRealWorldGoals";
 import { appBlockerWithAppleHealthGoals } from "./appBlockerWithAppleHealthGoals";
+import { appBlockerWithFollowThroughAnalytics } from "./appBlockerWithFollowThroughAnalytics";
 import { appBlockerWithProofReview } from "./appBlockerWithProofReview";
 import { appBlockerThatUnlocksAfterSteps } from "./appBlockerThatUnlocksAfterSteps";
 import { blockInstagramUntilStepGoal } from "./blockInstagramUntilStepGoal";
@@ -28,6 +29,7 @@ blockTiktokUntilWorkout,
 blockInstagramUntilFinishStudying,
 earnScreenTimeWithRealWorldGoals,
 appBlockerWithAppleHealthGoals,
+appBlockerWithFollowThroughAnalytics,
 appBlockerWithProofReview,
 appBlockerThatUnlocksAfterSteps,
 blockInstagramUntilStepGoal,

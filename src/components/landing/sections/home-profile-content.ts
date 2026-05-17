@@ -33,7 +33,7 @@ export const homeSkills = [
       "Unity is still a major part of my work, from polished developer tools to fast-moving gameplay systems.",
     highlights: [
       "Built highly rated Unity assets used by thousands of developers, including procedural placement systems and VR-oriented frameworks.",
-      "Worked across player mechanics, enemy AI, networking, physics, shaders, and world-building on a text-to-game startup.",
+      "Contributed across player mechanics, enemy AI, networking, physics, shaders, and world-building as part of a small text-to-game startup team.",
       "Care deeply about making complex systems feel intuitive, reusable, and pleasant to work with.",
     ],
     related: [
@@ -107,20 +107,22 @@ export const homeTimeline = [
       "Turned the Asset Store from a learning platform into a profitable technical business with strong user feedback.",
     ],
   },
+  // ROAM_TIMELINE_ENTRY_START
   {
     id: "roam-ai",
     label: "Roam AI",
     period: "2025-2026",
-    title: "Text-to-game startup in San Francisco",
-    role: "Gameplay and AI systems developer",
+    title: "Roam AI text-to-game startup",
+    role: "Core gameplay and AI systems contractor",
     summary:
-      "I joined Roam to help build a text-to-game experience at the level where gameplay engineering and AI systems start overlapping.",
+      "I joined Roam as a core contractor on a small team building a text-to-game experience at the level where gameplay engineering and AI systems start overlapping.",
     highlights: [
-      "Built player mechanics, enemy AI, networking, physics interactions, and world-building systems.",
-      "Relocated to San Francisco for direct collaboration with the core engineering team.",
-      "Moved fluidly between gameplay development, internal tooling, and urgent AI-driven problem solving.",
+      "Built player mechanics, enemy AI, networking, physics interactions, and world-building systems with the team.",
+      "Selected for two company-supported San Francisco stays, spending four months there for direct in-person collaboration with the core team.",
+      "Worked closely with teammates across gameplay development, internal tooling, product context, and urgent AI-driven problem solving.",
     ],
   },
+  // ROAM_TIMELINE_ENTRY_END
   {
     id: "current-products",
     label: "Current",
@@ -131,7 +133,7 @@ export const homeTimeline = [
       "My current work is centered on personal products where AI systems, product thinking, and behavior design meet.",
     highlights: [
       "Launched Voice of Self, a voice-first reflection app for noticing recurring worries, resolved worries, and personal growth.",
-      "Building PlanKept, a local-first iPhone plan-enforcement app that turns written goals into reminders, app limits, and proof review.",
+      "Building PlanKept, a local-first plan-enforcement app that turns written goals into reminders, app limits, and proof review.",
       "Using agentic workflows as part of the way I build, research, and iterate on software.",
     ],
   },

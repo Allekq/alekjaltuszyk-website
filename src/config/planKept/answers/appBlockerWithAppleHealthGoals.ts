@@ -27,7 +27,7 @@ export const appBlockerWithAppleHealthGoals = {
       bullets: [
         "Steps and workouts are strong activity-proof examples.",
         "Permissions should be explicit and user-controlled.",
-        "Other goals may still need proof review, photos, screenshots, or accepted justification.",
+        "Other goals may still need Proof Review, supporting image attachments, or accepted justification.",
       ],
     },
     {
@@ -40,7 +40,7 @@ export const appBlockerWithAppleHealthGoals = {
     {
       question: "Does PlanKept need Apple Health for every plan?",
       answer:
-        "No. Apple Health is useful for activity goals. Other plans can use proof review or other allowed evidence.",
+        "No. Apple Health is useful for steps and workouts. Other plans can use manual completion, Proof Review, or other allowed evidence.",
     },
     {
       question: "Does PlanKept write to Apple Health?",

@@ -8,7 +8,7 @@ export const blockTiktokUntilWorkout = {
   kicker: "TikTok",
   question: "Can I block TikTok until I work out?",
   shortAnswer:
-    "PlanKept is built for rules like this: TikTok stays blocked or limited while the workout plan is unfinished, then access can return after the workout is completed and accepted by the proof flow.",
+    "PlanKept is built for rules like this: TikTok stays blocked or limited while the workout plan is unfinished, then access can return after the workout clears through Apple Health-backed evidence or Proof Review.",
   examples: [
     "No TikTok until the gym session is done.",
     "TikTok stays blocked until the run clears.",
@@ -27,7 +27,7 @@ export const blockTiktokUntilWorkout = {
       bullets: [
         "Block or cap TikTok during the active plan.",
         "Use a workout target that is specific enough to prove.",
-        "Clear the rule through proof review or allowed activity data when available.",
+        "Clear the rule through Proof Review or allowed Apple Health workout data when available.",
       ],
     },
     {

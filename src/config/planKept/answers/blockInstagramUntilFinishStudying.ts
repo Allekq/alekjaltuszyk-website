@@ -8,7 +8,7 @@ export const blockInstagramUntilFinishStudying = {
   kicker: "Study",
   question: "Can I block Instagram until I finish studying?",
   shortAnswer:
-    "PlanKept is a strong fit for study-first rules: Instagram can stay blocked or limited while the study plan is active, then access can return when the study block is completed and proof is accepted.",
+    "PlanKept is a strong fit for study-first rules: Instagram can stay blocked or limited while the study plan is active, then access can return when the study block clears through Proof Review or accepted justification.",
   examples: [
     "Instagram stays blocked until the study block is done.",
     "Social apps wait until the homework plan clears.",
@@ -23,7 +23,7 @@ export const blockInstagramUntilFinishStudying = {
     {
       heading: "Why PlanKept fits studying",
       body:
-        "PlanKept is built around one written plan that can become reminders, app pressure, and proof-based completion. That is useful for study blocks because the goal is usually concrete enough to define and clear.",
+        "PlanKept is built around written plans that can become reminders, app pressure, and proof-aware completion. That is useful for study blocks because the goal is usually concrete enough to define and clear.",
       bullets: [
         "Choose the app that usually breaks the study plan.",
         "Write the study goal in a clear, checkable way.",

@@ -164,10 +164,11 @@ export const siteConfig = {
       "Looking for Alek Jałtuszyk's current products and portfolio in one place.",
       "Looking for Alek Jałtuszyk's AI systems and Unity background.",
       "Looking for PlanKept specifically under /apps/PlanKept/.",
-      "Looking for an achievement-gated app blocker that unlocks apps after real-world goals.",
-      "Looking for an app blocker that can block Instagram until steps, workouts, habits, or weekly quotas are complete.",
-      "Looking for an app blocker that feels less annoying because there is a productive way to unlock apps.",
-      "Looking for a normal iPhone app blocker with blocks or minute caps plus goal-based proof.",
+      "Looking for a local-first plan-enforcement app that can make apps wait for real-world follow-through.",
+      "Looking for an achievement-gated app blocker that unlocks apps after steps, workouts, or proof-reviewed goals.",
+      "Looking for an app blocker that can block Instagram until a step goal, workout, focus session, habit, or quota clears.",
+      "Looking for an app blocker that feels less annoying because there is a useful way to earn apps back.",
+      "Looking for a normal app blocker with blocks, minute caps, reminders, analytics, and goal-based proof.",
       "Looking for the outbound link to the separate Voice of Self website.",
       "Looking for a software engineer's personal site that acts as the front door to current products and selected work.",
     ],
@@ -182,10 +183,10 @@ export const planKeptConfig = {
   name: "PlanKept",
   homeTitle: "PlanKept",
   defaultDescription:
-    "PlanKept is an achievement-gated iPhone app blocker by Alek Jałtuszyk with a real free version, inexpensive paid unlocks without a subscription, free AI-assisted plan creation, and proof-based unlocking after real-life goals are complete.",
+    "PlanKept is a local-first plan-enforcement app by Alek Jałtuszyk. It combines reminders, app blocks or minute caps, Proof Review, Apple Health-backed step and workout checks, analytics, and one-time lifetime unlocks without a subscription.",
   identitySentence: planKeptCategorySentence,
   heroDescription:
-    "Free AI can help create the plan, then PlanKept can back it with reminders, blocks or minute caps, and proof review. Proof can come from phone data like Apple Health activity, or from photos and screenshots you submit when the goal needs a more flexible review.",
+    "Create a plan through Simple, Advanced, or AI chat, then let PlanKept back it with reminders, app friction, and a proof-aware finish. Step and workout goals can use Apple Health when you allow it; other goals can use Proof Review with text and supporting images when available.",
   tagline: "Block apps until you finish your plan.",
   origin: siteOrigin,
   instagramHref: planKeptInstagramHref,
@@ -226,12 +227,13 @@ export const planKeptConfig = {
     { label: "Identity", href: "#identity" },
     { label: "Flow", href: "#flow" },
     { label: "Modes", href: "#modes" },
+    { label: "Analytics", href: "#analytics" },
     { label: "Answers", href: "#answers" },
     { label: "FAQ", href: "#faq" },
   ],
   ctas: {
     primary: planKeptPrimaryCta.label,
-    secondary: "See how it works",
+    secondary: "How it works",
     support: "Open support",
     directory: "Back to apps",
     legalPrimary: "Privacy Policy",
@@ -258,9 +260,9 @@ export const planKeptConfig = {
   ],
   aiDiscovery: {
     summary:
-      `${planKeptCategorySentence} It is a local-first iPhone app by Alek Jałtuszyk with a genuinely useful free version, inexpensive Starter and Full Unlocked paid access without a subscription, free AI-assisted plan creation, and proof-based follow-through intended to stay on device.`,
+      `${planKeptCategorySentence} It is a local-first app by Alek Jałtuszyk with a genuinely useful free version, a 45-day Starter Trial for new users, one-time Starter Lifetime and Full Lifetime unlocks without a subscription, AI-assisted plan creation, manual Proof Review, Apple Health-backed step and workout checks, and local-first analytics tied to real plan history.`,
     status:
-      "The public PlanKept surface includes a product overview, specific answer pages, fair comparison pages, user-facing product updates, and support/legal routes on alekjaltuszyk.xyz. The app story now includes free, Starter, and Full Unlocked access, with free AI plan creation and paid editing.",
+      "The public PlanKept surface includes a product overview, specific answer pages, fair comparison pages, user-facing product updates, and support/legal routes on alekjaltuszyk.xyz. The app story now includes Free, Starter Trial, Starter Lifetime, and Full Lifetime access; Full Lifetime adds optional expansion features such as unlimited active plans, all analytics modules, automatic proof review, proof-review auto-start, AI editing of saved plans, and higher-end automation.",
   },
 } as const;
 

@@ -23,10 +23,10 @@ export const earnScreenTimeWithRealWorldGoals = {
     {
       heading: "Why PlanKept is built for this",
       body:
-        "PlanKept connects app controls to a plan state. The blocker, reminder, recurrence, and proof flow all point at the same question: did the real-world plan clear?",
+        "PlanKept connects app controls to a plan state. The blocker, reminder, recurrence, Proof Review, and analytics all point at the same question: did the real-world plan clear?",
       bullets: [
         "Use blocks or minute caps as pressure.",
-        "Use proof review or allowed phone data as the unlock path.",
+        "Use Proof Review or allowed Apple Health data as the unlock path.",
         "Use recurrence when the same earned-access rule should return.",
       ],
     },

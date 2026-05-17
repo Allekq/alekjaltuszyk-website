@@ -8,7 +8,7 @@ export const blockInstagramUntilWorkout = {
   kicker: "Workout",
   question: "Can I block Instagram until I work out?",
   shortAnswer:
-    "PlanKept is meant for workout-gated rules where distracting apps stay blocked until the workout is completed and accepted by the proof flow.",
+    "PlanKept is meant for workout-gated rules where distracting apps stay blocked until the workout clears through Apple Health-backed evidence or Proof Review.",
   examples: [
     "No Instagram until the gym session is done.",
     "TikTok unlocks after the run.",
@@ -23,7 +23,7 @@ export const blockInstagramUntilWorkout = {
     {
       heading: "What counts as proof",
       body:
-        "The proof should fit the goal. A run might use an allowed activity signal. A gym session might use a submitted photo or another proof review path. PlanKept is designed to keep that review close to the plan rather than turning it into a separate tracking hobby.",
+        "The proof should fit the goal. A run or workout can use allowed Apple Health evidence when available. A gym session can also use Proof Review, with a supporting image when that helps. PlanKept is designed to keep that review close to the plan rather than turning it into a separate tracking hobby.",
     },
     {
       heading: "Rules that tend to work",

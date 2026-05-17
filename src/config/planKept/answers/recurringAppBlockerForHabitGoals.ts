@@ -8,7 +8,7 @@ export const recurringAppBlockerForHabitGoals = {
   kicker: "Recurring habits",
   question: "Can an app blocker come back automatically for recurring habit goals?",
   shortAnswer:
-    "PlanKept is intended for recurring plans where the same app rule returns on a schedule or quota, then clears when the habit target is completed.",
+    "Yes. PlanKept plans operate through occurrences, so the same app rule can return on a schedule or quota, clear when the habit target is completed, and then reappear when the next occurrence arrives.",
   examples: [
     "No YouTube until study is complete on weekdays.",
     "Social apps unlock after three workouts this week.",
@@ -18,7 +18,7 @@ export const recurringAppBlockerForHabitGoals = {
     {
       heading: "The useful part of recurrence",
       body:
-        "A recurring rule removes the need to negotiate the same promise every morning. If the habit matters repeatedly, the pressure can return repeatedly too.",
+        "A recurring rule removes the need to negotiate the same promise every morning. If the habit matters repeatedly, the pressure can return repeatedly too. Completing one occurrence does not have to retire the whole plan forever.",
     },
     {
       heading: "Schedules and quotas are different",
@@ -45,7 +45,7 @@ export const recurringAppBlockerForHabitGoals = {
     {
       question: "Can I set a rule three times per week?",
       answer:
-        "PlanKept is intended to support patterns like three-times-per-week goals and weekly quotas. Public launch details may change as the app evolves.",
+        "Yes. PlanKept can support patterns like three-times-per-week goals and weekly quotas when the target and proof path are clear enough to enforce.",
     },
   ],
   relatedAnswerSlugs: [
