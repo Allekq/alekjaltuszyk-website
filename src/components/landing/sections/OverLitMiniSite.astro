@@ -1,0 +1,47 @@
+---
+import SimpleSiteHeader from "./SimpleSiteHeader.astro";
+import { overLitConfig, siteConfig } from "../../../config/site";
+import { siteRoutes } from "../../../config/routes";
+import { toAbsoluteSiteUrl } from "../../../lib/discovery";
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+
+const overLitStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: overLitConfig.name,
+    applicationCategory: "GameApplication",
+    operatingSystem: "iOS",
+    url: toAbsoluteSiteUrl(siteRoutes.apps.overLit.path),
+    description: overLitConfig.defaultDescription,
+    author: {
+      "@type": "Person",
+      name: siteConfig.legalName,
+    },
+  },
+];
+---
+
+<SiteLayout
+  title={overLitConfig.homeTitle}
+  description={overLitConfig.defaultDescription}
+  pageType="landing"
+  structuredData={overLitStructuredData}
+>
+  <SimpleSiteHeader />
+  <section class="overlit-mini-site" aria-labelledby="overlit-title">
+    <div class="overlit-mini-site__panel landing-surface">
+      <p class="overlit-mini-site__eyebrow">iPhone arcade game</p>
+      <h1 id="overlit-title">{overLitConfig.name}</h1>
+      <p class="overlit-mini-site__lead">{overLitConfig.tagline}</p>
+      <p>
+        A fast reflex grid game where cells light up, heat toward red, and burn out. Tap the active
+        cells before any one burns out.
+      </p>
+      <nav class="overlit-mini-site__links" aria-label="OverLit links">
+        <a class="overlit-mini-site__link" href={overLitConfig.supportHref}>Support</a>
+        <a class="overlit-mini-site__link" href={overLitConfig.privacyHref}>Privacy Policy</a>
+      </nav>
+    </div>
+  </section>
+</SiteLayout>

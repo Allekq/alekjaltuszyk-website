@@ -11,6 +11,7 @@ const createExternalRoute = (href: string) => ({
 });
 
 const planKeptBasePath = "/apps/PlanKept/";
+const overLitBasePath = "/apps/OverLit/";
 
 export const planKeptContentPaths = {
   answersIndex: `${planKeptBasePath}answers/`,
@@ -36,6 +37,9 @@ export const siteRoutes = {
     planKeptComparisons: createInternalRoute(planKeptContentPaths.comparisonsIndex),
     planKeptUpdates: createInternalRoute(planKeptContentPaths.updatesIndex),
     planKeptUpdatesFeed: createInternalRoute(planKeptContentPaths.updatesFeed),
+    overLit: createInternalRoute(overLitBasePath),
+    overLitPrivacyPolicy: createInternalRoute(`${overLitBasePath}privacy-policy/`),
+    overLitSupport: createInternalRoute(`${overLitBasePath}support/`),
     voiceOfSelf: createExternalRoute("https://voiceofself.life"),
   },
   wishList: createInternalRoute("/wish-list/"),
@@ -83,6 +87,24 @@ export const appDirectory = [
     ctaLabel: "Open PlanKept",
     href: siteRoutes.apps.planKept.href,
     routeLabel: siteRoutes.apps.planKept.path,
+    external: false,
+  },
+  {
+    id: "overlit",
+    name: "OverLit",
+    eyebrow: "On this domain",
+    status: "Small app page",
+    description:
+      "A fast reflex grid game for iPhone built around clearing lit cells before they burn out.",
+    theme: "mint",
+    chips: [
+      "Arcade reflex game",
+      "iPhone",
+      "Support and privacy here",
+    ],
+    ctaLabel: "Open OverLit",
+    href: siteRoutes.apps.overLit.href,
+    routeLabel: siteRoutes.apps.overLit.path,
     external: false,
   },
   {

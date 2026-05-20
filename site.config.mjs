@@ -21,6 +21,11 @@ export const legalDocuments = {
     effectiveDate: "2026-05-17",
     path: "/PlanKept/privacy-policy/",
   },
+  overLitPrivacy: {
+    version: "1.0.1",
+    effectiveDate: "2026-05-19",
+    path: "/apps/OverLit/privacy-policy/",
+  },
   terms: {
     version: "1.2.2",
     effectiveDate: "2026-05-05",

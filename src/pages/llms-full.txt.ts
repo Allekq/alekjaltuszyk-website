@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { planKeptConfig, siteConfig } from "../config/site";
+import { overLitConfig, planKeptConfig, siteConfig } from "../config/site";
 import { siteRoutes } from "../config/routes";
 import { discoveryPages, toAbsoluteSiteUrl } from "../lib/discovery";
 
@@ -28,10 +28,11 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 ## Quick Facts
 
 - Site type: personal site and app directory
-- Stage: personal homepage and app directory with a simple PlanKept product page
+- Stage: personal homepage and app directory with PlanKept and OverLit product pages
 - Current internal app page: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
+- Current internal OverLit page: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Separate external app site: ${siteRoutes.apps.voiceOfSelf.href}
-- Website role: personal landing page, shared app chooser, and PlanKept product/support/legal surface
+- Website role: personal landing page, shared app chooser, PlanKept product/support/legal surface, and small OverLit app/legal surface
 
 ## Engineering Profile
 
@@ -62,6 +63,7 @@ The current app split is:
 - ${homePath}: personal homepage placeholder
 - ${appsDirectoryPath}: directory of apps and product sites
 - ${planKeptPath}: internal PlanKept page on this domain
+- ${siteRoutes.apps.overLit.path}: internal OverLit page with support and privacy links on this domain
 - ${voiceOfSelfUrl}: external Voice of Self site
 
 ## Privacy Notes
@@ -90,6 +92,12 @@ The user-facing distinction is that the way out of the block is productive
 rather than arbitrary. Supported automatic checks currently focus on Apple
 Health-backed steps and workouts; other goals can use manual Proof Review or
 Check Proof Now, with supporting images when available.
+
+## OverLit Overview
+
+${overLitConfig.aiDiscovery.summary}
+
+${overLitConfig.aiDiscovery.status}
 
 ## Public Pages
 

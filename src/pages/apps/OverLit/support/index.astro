@@ -1,0 +1,20 @@
+---
+import OverLitSupportGuide from "../../../../components/support/OverLitSupportGuide.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import { overLitConfig } from "../../../../config/site";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Support | OverLit"
+  description="Email-based support for OverLit."
+  pageType="content"
+>
+  <OverLitSupportGuide />
+
+  <SiteFooter links={overLitConfig.footerLinks} showBrand={false} showSocials={false} />
+
+  <script>
+    import "../../../../scripts/waitlist-guide/copy-buttons";
+  </script>
+</SiteLayout>

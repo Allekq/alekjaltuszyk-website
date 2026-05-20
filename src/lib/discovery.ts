@@ -29,13 +29,24 @@ export const discoveryPages = {
       title: "Apps",
       path: siteRoutes.apps.index.path,
       description:
-        "Shared app directory for current products by Alek Jałtuszyk, including PlanKept and the outbound Voice of Self link.",
+        "Shared app directory for current products by Alek Jałtuszyk, including PlanKept, OverLit, and the outbound Voice of Self link.",
     },
     {
       title: "PlanKept",
       path: siteRoutes.apps.planKept.path,
       description:
         "Public PlanKept product page from Alek Jałtuszyk covering local-first plan enforcement, achievement-gated app blocking, Proof Review, analytics, and legal/support links.",
+    },
+    {
+      title: "OverLit",
+      path: siteRoutes.apps.overLit.path,
+      description:
+        "Small OverLit app page from Alek Jałtuszyk for the fast reflex grid game and its support and privacy links.",
+    },
+    {
+      title: "OverLit Support",
+      path: siteRoutes.apps.overLitSupport.path,
+      description: "Email-based support instructions for OverLit.",
     },
     {
       title: planKeptContentHubs.answers.title,
@@ -90,6 +101,12 @@ export const discoveryPages = {
       description: "Usage terms for the website, support flows, and future app access.",
     },
     {
+      title: "OverLit Privacy Policy",
+      path: siteRoutes.apps.overLitPrivacyPolicy.path,
+      description:
+        "How OverLit handles local gameplay data, support contact, in-app advertising, and external advertising campaigns.",
+    },
+    {
       title: "Legal Manifest",
       path: siteRoutes.legalManifest.path,
       description: "Machine-readable legal document versions and effective dates.",
@@ -115,6 +132,9 @@ export const sitemapPagePaths = [
   siteRoutes.home.path,
   siteRoutes.apps.index.path,
   siteRoutes.apps.planKept.path,
+  siteRoutes.apps.overLit.path,
+  siteRoutes.apps.overLitSupport.path,
+  siteRoutes.apps.overLitPrivacyPolicy.path,
   siteRoutes.apps.planKeptAnswers.path,
   ...planKeptAnswerPages.map((page) => page.path),
   siteRoutes.apps.planKeptComparisons.path,
