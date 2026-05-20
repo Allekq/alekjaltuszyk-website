@@ -29,6 +29,7 @@ interface Props {
 }
 
 const { page } = Astro.props as Props;
+const pageMetaTitle = page.seoTitle ?? page.title;
 const relatedAnswerLinks = page.relatedAnswerSlugs
   .map(getPlanKeptAnswerPage)
   .filter((related): related is PlanKeptAnswerPage => Boolean(related))
@@ -49,7 +50,7 @@ const relatedLinks = [...relatedAnswerLinks, ...relatedComparisonLinks];
 const structuredData = [
   planKeptApplicationStructuredData,
   buildPlanKeptWebPageData({
-    title: page.title,
+    title: pageMetaTitle,
     path: page.path,
     description: page.description,
   }),
@@ -62,7 +63,7 @@ const structuredData = [
 ];
 ---
 
-<SiteLayout title={page.title} description={page.description} pageType="content" structuredData={structuredData}>
+<SiteLayout title={pageMetaTitle} description={page.description} pageType="content" structuredData={structuredData}>
   <PlanKeptContentShell
     sectionLabel="Answers"
     sectionHref={planKeptContentHubs.answers.href}

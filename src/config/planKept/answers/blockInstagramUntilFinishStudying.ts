@@ -3,6 +3,7 @@ import type { PlanKeptAnswerPageContent } from "../types";
 export const blockInstagramUntilFinishStudying = {
   slug: "block-instagram-until-finish-studying",
   title: "Block Instagram Until I Finish Studying",
+  seoTitle: "Block Instagram Until Studying",
   description:
     "A direct answer for students and over-scrollers who want Instagram blocked until a study block is complete.",
   kicker: "Study",

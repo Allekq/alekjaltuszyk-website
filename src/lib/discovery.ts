@@ -64,11 +64,6 @@ export const discoveryPages = {
       description: planKeptContentHubs.updates.description,
     },
     {
-      title: "Wish List",
-      path: siteRoutes.wishList.path,
-      description: "PlanKept wish-list guide with a live external form and email fallback.",
-    },
-    {
       title: "Support",
       path: siteRoutes.planKept.support.path,
       description: "Email-based support instructions for PlanKept.",
@@ -104,7 +99,7 @@ export const discoveryPages = {
       title: "OverLit Privacy Policy",
       path: siteRoutes.apps.overLitPrivacyPolicy.path,
       description:
-        "How OverLit handles local gameplay data, support contact, in-app advertising, and external advertising campaigns.",
+        "How OverLit handles local gameplay data, support contact, AdMob advertising, local developer house ads, privacy choices, and App Store privacy disclosures.",
     },
     {
       title: "Legal Manifest",
@@ -141,7 +136,6 @@ export const sitemapPagePaths = [
   ...planKeptComparisonPages.map((page) => page.path),
   siteRoutes.apps.planKeptUpdates.path,
   ...planKeptUpdatePosts.map((post) => post.path),
-  siteRoutes.wishList.path,
   siteRoutes.planKept.support.path,
   siteRoutes.planKept.privacyPolicy.path,
   siteRoutes.planKept.termsOfService.path,

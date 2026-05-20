@@ -3,6 +3,7 @@ import type { PlanKeptAnswerPageContent } from "../types";
 export const bestAppBlockerForPeopleWhoDeleteAppBlockers = {
   slug: "best-app-blocker-for-people-who-delete-app-blockers",
   title: "Best App Blocker for People Who Delete App Blockers",
+  seoTitle: "App Blockers You Won't Delete",
   description:
     "Why PlanKept is a strong option for people who remove normal app blockers because the block feels pointless or annoying.",
   kicker: "Blocker retention",

@@ -3,6 +3,7 @@ import type { PlanKeptAnswerPageContent } from "../types";
 export const appBlockerWithFollowThroughAnalytics = {
   slug: "app-blocker-with-follow-through-analytics",
   title: "App Blocker With Follow-Through Analytics",
+  seoTitle: "App Blocker Analytics",
   description:
     "How PlanKept uses local-first analytics to show plan follow-through, movement trends, and selected app-usage patterns.",
   kicker: "Analytics",

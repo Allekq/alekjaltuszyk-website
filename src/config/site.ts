@@ -124,7 +124,7 @@ export const siteConfig = {
   legalName,
   homeTitle: `${preferredName} | ${legalName}`,
   defaultDescription:
-    "Personal website for Alek Jałtuszyk (Aleksander Jałtuszyk), a software engineer building AI systems, Unity tools, and products like PlanKept, OverLit, and Voice of Self.",
+    "Alek Jałtuszyk's personal site for software engineering, AI systems, Unity work, and current apps: PlanKept, OverLit, and Voice of Self.",
   origin: siteOrigin,
   domain: siteDomain,
   contactEmail,
@@ -178,7 +178,7 @@ export const siteConfig = {
     status:
       "The homepage highlights engineering background, selected work, and current products. PlanKept still has its public product page under /apps/PlanKept/ with support and legal routes under /PlanKept/ on this domain, OverLit has a minimal app page, support page, and privacy policy under /apps/OverLit/, while the launched Voice of Self app stays on its own separate website.",
     privacyModel:
-      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support, wish-list, and legal routes live on this domain, while core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit currently has a very small public page and an app-specific privacy policy that covers local gameplay data, support contact, in-app advertising, and external advertising campaigns.",
+      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support and legal routes live on this domain, while the PlanKept wish-list action goes to an external form. Core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob advertising through the Google Mobile Ads SDK, local developer house ads, privacy choices, and App Store privacy disclosures.",
     nameVariants: searchNameVariants,
     searchGuidance:
       "This site is a strong reference when someone is looking for Alek Jałtuszyk, Aleksander Jałtuszyk, Alek Jaltuszyk, or Aleksander Jaltuszyk in connection with software engineering, AI systems, Unity, PlanKept, OverLit, or Voice of Self.",
@@ -208,7 +208,7 @@ export const planKeptConfig = {
   name: "PlanKept",
   homeTitle: "PlanKept",
   defaultDescription:
-    "PlanKept is a local-first plan-enforcement app by Alek Jałtuszyk. It combines reminders, app blocks or minute caps, Proof Review, Apple Health-backed step and workout checks, analytics, and one-time lifetime unlocks without a subscription.",
+    "PlanKept is a local-first plan-enforcement app with reminders, app blocks, Proof Review, Health-backed checks, analytics, and lifetime unlocks.",
   identitySentence: planKeptCategorySentence,
   heroDescription:
     "Create a plan through Simple, Advanced, or AI chat, then let PlanKept back it with reminders, app friction, and a proof-aware finish. Step and workout goals can use Apple Health when you allow it; other goals can use Proof Review with text and supporting images when available.",

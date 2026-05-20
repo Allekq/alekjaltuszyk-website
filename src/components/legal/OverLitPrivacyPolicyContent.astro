@@ -3,6 +3,14 @@ import { legalDocuments } from "../../../site.config.mjs";
 import { overLitConfig } from "../../config/site";
 
 const appName = overLitConfig.name;
+const appPageUrl = new URL(overLitConfig.homeHref, overLitConfig.origin).toString();
+const supportPageUrl = new URL(overLitConfig.supportHref, overLitConfig.origin).toString();
+const privacyPolicyUrl = new URL(overLitConfig.privacyHref, overLitConfig.origin).toString();
+const appAdsTxtUrl = new URL("/app-ads.txt", overLitConfig.origin).toString();
+const googlePrivacyHref = "https://policies.google.com/privacy";
+const googleAdsTechnologiesHref = "https://policies.google.com/technologies/ads";
+const applePrivacyHref = "https://www.apple.com/legal/privacy/";
+const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
 ---
 
 <h1>{appName} Privacy Policy</h1>
@@ -13,149 +21,283 @@ const appName = overLitConfig.name;
 </p>
 
 <p>
-  This Privacy Policy explains how {appName} handles information when you use the app, visit the
-  small public app page under <code>/apps/OverLit/</code>, contact us, or interact with ads or
-  campaigns related to {appName}.
+  This Privacy Policy explains how {appName} handles information when you use the iPhone app,
+  visit the OverLit pages on this website, contact support, or interact with ads shown in or for
+  {appName}.
 </p>
 
 <p>
   {appName} is provided by Aleksander Jałtuszyk (&quot;Developer&quot;, &quot;we&quot;, &quot;us&quot;,
   or &quot;our&quot;). Country: Poland. Contact: <code>{overLitConfig.supportEmail}</code>.
-  Support page: <code>{overLitConfig.supportHref}</code>.
+  Support page: <a href={supportPageUrl}>{supportPageUrl}</a>.
 </p>
 
-<h2>Summary</h2>
+<p>
+  This policy covers the {appName} app and the OverLit pages on
+  <code>alekjaltuszyk.xyz</code>, including:
+</p>
 
 <ul>
-  <li>{appName} is a mobile arcade game for short play sessions.</li>
-  <li>The app does not require an account.</li>
+  <li><a href={appPageUrl}>{appPageUrl}</a></li>
+  <li><a href={supportPageUrl}>{supportPageUrl}</a></li>
+  <li><a href={privacyPolicyUrl}>{privacyPolicyUrl}</a></li>
+</ul>
+
+<h2>1. Summary</h2>
+
+<ul>
+  <li>{appName} is a short-session iPhone arcade/reflex game.</li>
+  <li>The app does not require an account, custom backend, chat, social feed, multiplayer, or cloud sync.</li>
   <li>Gameplay settings, preferences, and high scores may be stored locally on your device.</li>
   <li>
-    We may show ads in the app, including ads served by third-party advertising networks or
-    platform advertising services.
+    The app uses the Google Mobile Ads SDK for AdMob rewarded ads and interstitial ads.
   </li>
   <li>
-    We may advertise {appName} externally on services such as Apple Search Ads, Google, Meta,
-    Instagram, TikTok, or similar platforms.
+    Google/AdMob may collect or process advertising, device, product interaction, coarse location,
+    diagnostic, crash, and performance data as described below and in Google&apos;s own policies.
   </li>
   <li>
-    Advertising partners and platforms may process information under their own terms and privacy
-    policies. Your device, platform, and consent settings may affect what they receive.
+    The app may show local developer house ads for the Developer&apos;s own apps when network ads
+    cannot load. These local house ad panels are not third-party ad network requests.
   </li>
-  <li>We may receive information you choose to send by email or another support channel.</li>
+  <li>Apple and the App Store may process platform, purchase, device, and privacy data under Apple&apos;s policies.</li>
+  <li>We receive support email data only if you choose to contact support.</li>
 </ul>
 
-<h2>1. Information We Collect Or Process</h2>
+<h2>2. Data Stored Locally On Your Device</h2>
 
-<p>Depending on how you use {appName}, we or our providers may process categories such as:</p>
+<p>
+  {appName} gameplay is local. The app may store local gameplay/settings data on your device so the
+  game can work normally and remember your choices.
+</p>
 
 <ul>
-  <li>Local gameplay data, including scores, mode choices, settings, preferences, and progress</li>
-  <li>Support messages, email address, and any information you choose to send us</li>
-  <li>
-    Website delivery and security information, such as IP address, browser type, request time, and
-    similar hosting metadata when you visit this website
-  </li>
-  <li>
-    Advertising information, such as ad impressions, clicks, approximate location, device type,
-    app version, advertising or vendor identifiers where permitted, diagnostics, fraud-prevention
-    signals, campaign source, and aggregated campaign reports
-  </li>
+  <li>settings and app appearance preferences</li>
+  <li>high scores, stats, play progress, mode state, and theme unlocks</li>
+  <li>onboarding and legal acceptance state</li>
+  <li>play counters and ad counters used to decide when ads or unlock opportunities appear</li>
 </ul>
 
-<h2>2. How We Use Information</h2>
+<p>
+  This local app data is intended to stay on your device unless you separately choose to send
+  information to support, or unless Apple, Google/AdMob, or another platform provider collects or
+  processes data through their own platform or advertising services. Deleting the app may remove
+  local app data from the device, subject to normal iOS backup, restore, and device behavior.
+</p>
 
-<p>We may use information to:</p>
+<p>
+  {appName} does not provide public user-generated content, in-app chat, a social feed, multiplayer,
+  or an account system.
+</p>
+
+<h2>3. Advertising And AdMob</h2>
+
+<p>
+  {appName} integrates Google AdMob through the Google Mobile Ads SDK. Release builds use production
+  AdMob ad unit IDs. Debug or development builds may use Google demo or test ad IDs.
+</p>
+
+<p>The app currently uses AdMob for:</p>
 
 <ul>
-  <li>run the game and remember local settings or high scores</li>
-  <li>provide support and respond to messages</li>
-  <li>show, limit, personalize, measure, and improve ads where lawful</li>
-  <li>understand whether external advertising campaigns are working</li>
-  <li>detect fraud, prevent abuse, maintain security, and comply with law</li>
-  <li>improve the app, website, and player experience</li>
-</ul>
-
-<h2>3. In-App Advertising</h2>
-
-<p>
-  {appName} may include ads. Ads may be served directly by us, by app stores or platform services,
-  or by third-party advertising networks. Those providers may use information from your device or
-  app session to deliver ads, cap ad frequency, measure performance, prevent fraud, and report
-  aggregated campaign results.
-</p>
-
-<p>
-  If the app uses tracking that requires Apple App Tracking Transparency permission or another
-  legally required consent, the app should request that permission before using that type of
-  tracking. If you decline tracking, advertising may still be shown, but it should be limited,
-  contextual, or otherwise handled according to platform rules and applicable law.
-</p>
-
-<h2>4. External Advertising And Campaigns</h2>
-
-<p>
-  We may promote {appName} outside the app through paid or organic campaigns on third-party
-  platforms such as Apple Search Ads, Google, Meta, Instagram, TikTok, or similar services. If you
-  view, click, save, share, comment on, or otherwise interact with an ad for {appName}, that
-  platform may process the interaction under its own privacy policy.
-</p>
-
-<p>
-  We may use campaign links, referral information, UTM parameters, app store campaign reporting,
-  ad dashboards, pixels, SDK events, conversion APIs, or similar measurement tools where lawful and
-  with any required consent or platform disclosure.
-</p>
-
-<h2>5. Sharing</h2>
-
-<p>We may share or make information available to:</p>
-
-<ul>
-  <li>service providers who help host the website, deliver support, or operate the app</li>
-  <li>advertising networks, app stores, and campaign platforms used for ads or measurement</li>
-  <li>law enforcement, regulators, or other parties when required by law or to protect rights</li>
+  <li>rewarded ads that let players unlock cosmetic themes</li>
+  <li>interstitial ads after natural menu breaks, based on local play-session counters</li>
 </ul>
 
 <p>
-  We do not sell personal information in the ordinary sense of exchanging it for money. Some privacy
-  laws define certain advertising or analytics disclosures as &quot;sale&quot;, &quot;sharing&quot;, or
-  targeted advertising. Where those laws apply, you may have choices described by the relevant app,
-  device, browser, or consent controls.
+  Google&apos;s Mobile Ads SDK may collect, receive, or process information such as:
 </p>
 
-<h2>6. Your Choices</h2>
+<ul>
+  <li>IP address, which may be used to estimate coarse or general location</li>
+  <li>device identifiers, including advertising identifiers or app/developer-bounded identifiers where available</li>
+  <li>advertising data, such as ads shown, impressions, interactions, rewarded ad completion, and related ad events</li>
+  <li>product interaction or usage data, such as app launches, taps, video ad views, and other ad-performance events</li>
+  <li>crash data and diagnostic logs</li>
+  <li>performance data, such as app launch time, hang rate, energy usage, and SDK performance</li>
+</ul>
+
+<p>That data may be used for purposes such as:</p>
 
 <ul>
-  <li>You can use device settings to limit ad tracking, reset advertising identifiers, or manage app permissions.</li>
-  <li>You can use iOS privacy prompts, including App Tracking Transparency where it applies.</li>
-  <li>You can delete the app to remove locally stored app data from your device, subject to normal device backups.</li>
+  <li>showing third-party ads in the app</li>
+  <li>measuring ad performance and rewarded ad completion</li>
+  <li>preventing fraud, abuse, and invalid traffic</li>
+  <li>frequency capping, reporting, and campaign measurement</li>
+  <li>analytics and performance improvement for the Google Mobile Ads SDK</li>
+  <li>diagnostics, reliability, and SDK security</li>
+  <li>supporting privacy and consent choices where legally required</li>
+</ul>
+
+<p>
+  Google and its partners process this information under their own policies. You can read more in
+  the <a href={googlePrivacyHref}>Google Privacy Policy</a> and
+  <a href={googleAdsTechnologiesHref}>Google&apos;s advertising technologies information</a>.
+</p>
+
+<p>
+  To support authorized app advertising inventory, this site publishes an
+  <a href={appAdsTxtUrl}>app-ads.txt file</a> at <code>{appAdsTxtUrl}</code>. It includes the
+  Google publisher record:
+</p>
+
+<pre><code>google.com, pub-6606108754134100, DIRECT, f08c47fec0942fa0</code></pre>
+
+<h2>4. Local Developer House Ads</h2>
+
+<p>
+  If AdMob cannot load an ad, {appName} may show a local developer house ad instead. A house ad is a
+  local in-app panel that promotes the Developer&apos;s own apps, such as Voice of Self or PlanKept.
+</p>
+
+<p>
+  Showing a local developer house ad does not by itself send data to a third-party ad network. If
+  you tap a house ad and leave the app, the destination website, App Store, browser, or device
+  platform may process that visit under its own policies.
+</p>
+
+<h2>5. Privacy Choices And Consent</h2>
+
+<p>
+  {appName} may use Google&apos;s User Messaging Platform or AdMob privacy messaging where required.
+  Users in applicable regions may see privacy or consent choices for ads. When AdMob reports that
+  privacy options are required, {appName} may also make ad privacy options available from the app
+  settings.
+</p>
+
+<p>
+  You can also use Apple device-level privacy controls, such as App Tracking Transparency choices,
+  advertising identifier controls, and Apple personalized advertising settings where available.
+</p>
+
+<p>
+  If personalized ads are unavailable, declined, or not allowed, ads may still appear as
+  non-personalized or contextual ads. If AdMob cannot load, {appName} may show a local developer
+  house ad instead.
+</p>
+
+<h2>6. App Store Privacy Disclosures</h2>
+
+<p>
+  Apple&apos;s App Privacy labels use Apple-defined categories and may require disclosures that are
+  broader or more conservative than a plain-language policy. The current {appName} App Store privacy
+  disclosures are intended to reflect the AdMob setup described above.
+</p>
+
+<ul>
   <li>
-    You can contact us at <code>{overLitConfig.supportEmail}</code> or through
-    <code>{overLitConfig.supportHref}</code> with privacy questions or requests.
+    Coarse Location, Device Identifiers, Product Interaction or Usage Data, and Advertising Data may
+    be disclosed for Third-Party Advertising and Analytics. They may be linked to the user and may
+    be used for tracking where Apple&apos;s definitions and the SDK behavior require that disclosure.
+  </li>
+  <li>
+    Crash Data may be disclosed for Diagnostics and, where applicable, Analytics. It is generally
+    not treated as linked to the user by the Developer or used for tracking unless the relevant SDK
+    or platform manifest requires otherwise.
+  </li>
+  <li>
+    Performance Data may be disclosed for App Functionality, Analytics, and Third-Party Advertising.
+    Because SDK manifests and platform rules can be conservative, it may be disclosed as linked to
+    the user and used for tracking where required.
   </li>
 </ul>
 
-<h2>7. Children</h2>
+<p>
+  Apple and App Store services are governed by Apple&apos;s own policies, including
+  <a href={applePrivacyHref}>Apple&apos;s Privacy Policy</a> and the
+  <a href={appleAppStoreTermsHref}>Apple standard terms for apps</a>.
+</p>
+
+<h2>7. Support Emails</h2>
+
+<p>
+  If you email support, we process your email address, message content, and any details you choose
+  to include so we can understand the request and reply. The app itself does not require you to send
+  a support email.
+</p>
+
+<p>
+  Support email: <code>{overLitConfig.supportEmail}</code>. Support page:
+  <a href={supportPageUrl}>{supportPageUrl}</a>.
+</p>
+
+<h2>8. Website Pages</h2>
+
+<p>
+  The OverLit pages on <code>alekjaltuszyk.xyz</code> are mostly static and informational. They
+  provide the app page, support instructions, this privacy policy, and the public
+  <code>app-ads.txt</code> file. We do not currently add a website analytics service or advertising
+  cookies to the OverLit pages, so this policy does not add a cookie banner for those pages.
+</p>
+
+<p>
+  Website hosting and delivery systems may still process ordinary technical information, such as IP
+  address, browser type, requested URL, request time, and similar security or server metadata needed
+  to deliver the site.
+</p>
+
+<h2>9. Third-Party Services</h2>
+
+<p>Depending on how you use {appName}, third parties may process information under their own terms:</p>
+
+<ul>
+  <li>Google/AdMob and the Google Mobile Ads SDK for in-app advertising and related measurement</li>
+  <li>Apple, iOS, and the App Store for platform, device, privacy, download, purchase, and crash/diagnostic services</li>
+  <li>email providers if you choose to contact support</li>
+  <li>website hosting and delivery providers for the public OverLit pages</li>
+</ul>
+
+<p>
+  We do not control those third parties&apos; privacy practices. Their policies explain how they handle
+  information they collect or receive.
+</p>
+
+<h2>10. Children</h2>
 
 <p>
   {appName} is not directed to children under 13, and we do not knowingly collect personal
-  information from children under 13. If you believe a child has sent us personal information,
-  contact us so we can review and delete it where appropriate.
+  information from children under 13. If you believe a child has sent us personal information
+  through support or another channel, contact us so we can review and delete it where appropriate.
 </p>
 
-<h2>8. International Processing</h2>
+<h2>11. Data Retention</h2>
 
 <p>
-  We are based in Poland, and providers used for hosting, support, advertising, app stores, or
-  measurement may process information in other countries. Those countries may have privacy laws
-  different from where you live.
+  Local gameplay/settings data may remain on your device until you change it, reset it, delete the
+  app, or clear the relevant local data through normal device or app behavior.
 </p>
-
-<h2>9. Changes</h2>
 
 <p>
-  We may update this policy as {appName} changes, including if advertising providers, measurement
-  tools, or app features change. The effective date and version above show when this policy was
-  last updated.
+  Support emails may be kept for as long as reasonably needed to answer the request, maintain
+  support records, resolve disputes, comply with legal obligations, or protect our rights.
 </p>
+
+<p>
+  Google/AdMob, Apple, and other third-party providers retain data according to their own policies.
+</p>
+
+<h2>12. International Processing</h2>
+
+<p>
+  We are based in Poland. Third-party providers used for advertising, app distribution, platform
+  services, support email, website hosting, or measurement may process information in other
+  countries. Those countries may have privacy laws different from where you live.
+</p>
+
+<h2>13. Changes To This Policy</h2>
+
+<p>
+  We may update this policy as {appName} changes, including if advertising providers, consent
+  flows, App Store disclosures, house ad behavior, or app features change. The effective date and
+  version above show when this policy was last updated.
+</p>
+
+<h2>14. Contact</h2>
+
+<p>For privacy questions or requests, contact:</p>
+
+<ul>
+  <li>Email: <code>{overLitConfig.supportEmail}</code></li>
+  <li>Support page: <a href={supportPageUrl}>{supportPageUrl}</a></li>
+  <li>Country: Poland</li>
+</ul>

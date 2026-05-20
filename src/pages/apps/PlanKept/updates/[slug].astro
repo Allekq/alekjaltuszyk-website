@@ -27,6 +27,7 @@ interface Props {
 }
 
 const { post } = Astro.props as Props;
+const postMetaTitle = post.seoTitle ?? post.title;
 const publishedDate = new Date(`${post.date}T00:00:00`);
 const relatedLinks = post.relatedAnswerSlugs
   .map(getPlanKeptAnswerPage)
@@ -39,7 +40,7 @@ const relatedLinks = post.relatedAnswerSlugs
 const structuredData = [
   planKeptApplicationStructuredData,
   buildPlanKeptArticleData({
-    title: post.title,
+    title: postMetaTitle,
     path: post.path,
     description: post.description,
     date: post.date,
@@ -53,7 +54,7 @@ const structuredData = [
 ---
 
 <SiteLayout
-  title={post.title}
+  title={postMetaTitle}
   description={post.description}
   pageType="content"
   structuredData={structuredData}

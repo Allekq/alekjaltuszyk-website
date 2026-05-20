@@ -7,7 +7,7 @@ Personal site, app directory, and PlanKept web surface.
 - personal homepage
 - `/apps` directory
 - `/apps/PlanKept` page
-- wish-list signup surface
+- external PlanKept wish-list link
 - support page
 - privacy policy
 - terms of service

@@ -16,6 +16,7 @@ import {
 import SiteLayout from "../../../../layouts/SiteLayout.astro";
 
 const hub = planKeptContentHubs.updates;
+const hubMetaTitle = hub.seoTitle ?? hub.title;
 const structuredData = [
   planKeptApplicationStructuredData,
   {
@@ -41,7 +42,7 @@ const structuredData = [
 ---
 
 <SiteLayout
-  title={hub.title}
+  title={hubMetaTitle}
   description={hub.description}
   pageType="content"
   structuredData={structuredData}

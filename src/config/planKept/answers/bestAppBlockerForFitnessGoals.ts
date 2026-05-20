@@ -3,6 +3,7 @@ import type { PlanKeptAnswerPageContent } from "../types";
 export const bestAppBlockerForFitnessGoals = {
   slug: "best-app-blocker-for-fitness-goals",
   title: "Best App Blocker for Fitness Goals: What to Look For",
+  seoTitle: "Fitness App Blockers",
   description:
     "A practical guide to choosing an app blocker when the real goal is walking, workouts, or movement before distracting apps.",
   kicker: "Fitness goals",

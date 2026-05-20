@@ -14,7 +14,8 @@ const appsPageStructuredData = [
     "@type": "CollectionPage",
     name: "Apps",
     url: toAbsoluteSiteUrl(siteRoutes.apps.index.path),
-    description: "Directory of current products by Alek Jałtuszyk (Aleksander Jałtuszyk).",
+    description:
+      "Directory of current products by Alek Jałtuszyk, including PlanKept, OverLit, and the Voice of Self link.",
     about: { "@id": personId },
     isPartOf: {
       "@type": "WebSite",
@@ -26,7 +27,7 @@ const appsPageStructuredData = [
 
 <SiteLayout
   title="Apps"
-  description="Shared app directory for products by Alek Jałtuszyk (Aleksander Jałtuszyk)."
+  description="Shared app directory for Alek Jałtuszyk's current products, including PlanKept, OverLit, and the Voice of Self link."
   pageType="landing"
   structuredData={appsPageStructuredData}
 >

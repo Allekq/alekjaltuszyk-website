@@ -3,6 +3,7 @@ import type { PlanKeptAnswerPageContent } from "../types";
 export const bestAppBlockerThatUnlocksAfterSteps = {
   slug: "best-app-blocker-that-unlocks-after-steps",
   title: "Best App Blocker That Unlocks After Steps",
+  seoTitle: "Best Step-Gated App Blocker",
   description:
     "A focused guide to step-gated app blocking and why PlanKept is built for people who want app access after movement.",
   kicker: "Steps",

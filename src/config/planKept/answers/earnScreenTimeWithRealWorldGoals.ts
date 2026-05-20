@@ -3,6 +3,7 @@ import type { PlanKeptAnswerPageContent } from "../types";
 export const earnScreenTimeWithRealWorldGoals = {
   slug: "earn-screen-time-with-real-world-goals",
   title: "Earn Screen Time With Real-World Goals",
+  seoTitle: "Earn Screen Time With Real Goals",
   description:
     "How PlanKept turns app access into something earned through useful real-world action instead of a timer you wait out.",
   kicker: "Earned access",

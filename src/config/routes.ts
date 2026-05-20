@@ -42,7 +42,6 @@ export const siteRoutes = {
     overLitSupport: createInternalRoute(`${overLitBasePath}support/`),
     voiceOfSelf: createExternalRoute("https://voiceofself.life"),
   },
-  wishList: createInternalRoute("/wish-list/"),
   support: createInternalRoute("/support/"),
   privacyPolicy: createInternalRoute("/privacy-policy/"),
   termsOfService: createInternalRoute("/terms-of-service/"),

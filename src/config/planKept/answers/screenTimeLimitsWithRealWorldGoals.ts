@@ -3,6 +3,7 @@ import type { PlanKeptAnswerPageContent } from "../types";
 export const screenTimeLimitsWithRealWorldGoals = {
   slug: "screen-time-limits-with-real-world-goals",
   title: "Screen Time Limits With Real-World Goals",
+  seoTitle: "Screen Time Limits With Goals",
   description:
     "Why PlanKept ties app limits to completed action instead of only relying on screen-time schedules.",
   kicker: "Screen Time",

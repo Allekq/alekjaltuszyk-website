@@ -19,6 +19,7 @@ export interface PlanKeptLink {
 export interface PlanKeptAnswerPageContent {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   kicker: string;
   question: string;
@@ -40,6 +41,7 @@ export interface PlanKeptComparisonPage {
   path: string;
   href: string;
   title: string;
+  seoTitle?: string;
   description: string;
   competitor: string;
   competitorSummary: string;
@@ -56,6 +58,7 @@ export interface PlanKeptUpdatePost {
   path: string;
   href: string;
   title: string;
+  seoTitle?: string;
   description: string;
   date: string;
   author: string;

@@ -350,6 +350,7 @@ const updatePosts = [
   {
     slug: "why-achievement-gated-app-blocking",
     title: "Why PlanKept Is Focusing on Achievement-Gated App Blocking",
+    seoTitle: "Why Achievement-Gated Blocking",
     description:
       "The first PlanKept update: why the site is positioning the app around unlocking distractions after real-world follow-through.",
     date: "2026-05-06",
@@ -421,6 +422,7 @@ const updatePosts = [
   {
     slug: "app-blocker-that-unlocks-after-you-do-something-good",
     title: "An App Blocker That Unlocks After You Do Something Good",
+    seoTitle: "Unlock Apps After Doing Good",
     description:
       "The PlanKept idea in plain language: block distracting apps until the user completes a useful real-world action.",
     date: "2026-05-06",
@@ -451,6 +453,7 @@ const updatePosts = [
   {
     slug: "what-to-try-when-screen-time-limits-do-not-work",
     title: "What To Try When Screen Time Limits Do Not Work",
+    seoTitle: "When Screen Time Limits Fail",
     description:
       "A practical framing for people who bypass timers, ignore limits, or delete blockers when the rule feels pointless.",
     date: "2026-05-06",
@@ -516,8 +519,9 @@ export const planKeptContentHubs = {
     href: siteRoutes.apps.planKeptUpdates.href,
     feedHref: siteRoutes.apps.planKeptUpdatesFeed.href,
     title: "PlanKept Updates",
+    seoTitle: "PlanKept Product Updates",
     description:
-      "PlanKept product updates for readers who want launch notes, practical use cases, proof examples, analytics notes, pricing updates, AI feature notes, privacy explanations, and changelog-style posts.",
+      "PlanKept product updates about launch notes, proof examples, analytics, pricing, AI-assisted setup, privacy, and changelog posts.",
   },
 } as const;
 
