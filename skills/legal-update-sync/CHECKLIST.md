@@ -6,9 +6,12 @@ Use this checklist before finishing any task that touches:
 - `src/pages/terms-of-service/index.md`
 - `src/components/legal/PlanKeptPrivacyPolicyContent.astro`
 - `src/components/legal/PlanKeptTermsOfServiceContent.astro`
+- `src/components/legal/OverLitPrivacyPolicyContent.astro`
+- `src/components/legal/OverLitTermsOfUseContent.astro`
 - support/contact routes
 - wish-list routes
-- product claims about privacy, retention, reminders, accounts, model terms, or AI
+- product claims about privacy, retention, reminders, accounts, purchases, lifetime
+  unlocks, ads, model terms, AI, backups, or legal acceptance
 
 ## Required steps
 
@@ -18,7 +21,12 @@ Use this checklist before finishing any task that touches:
    effective date in `site.config.mjs`.
 4. Make sure `src/pages/legal-manifest.json.ts` still reflects the latest
    values through `src/config/site.ts`.
-5. Rebuild the site so generated legal/discovery output is refreshed.
+5. If OverLit legal versions changed, update the app-side legal catalog in
+   `/Users/alekj/Documents/GitHub/OverLit-app`.
+6. If PlanKept legal wording changed, check the app-side Legal, purchase, and
+   model-license surfaces in `/Users/alekj/Documents/GitHub/plan enforcer` for
+   consistency.
+7. Rebuild the site so generated legal/discovery output is refreshed.
 
 ## Reminder rule
 

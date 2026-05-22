@@ -84,8 +84,16 @@ const { supportHref } = Astro.props as Props;
   </li>
   <li>We do not currently provide a general in-app account system for PlanKept users.</li>
   <li>
+    PlanKept does not currently ask for account passwords, contact-list access, precise GPS
+    location permission, mailing addresses, billing addresses, job titles, or payment-card numbers.
+  </li>
+  <li>
     The core app is intended to store most plans, settings, proof-related state, and similar usage
     content locally on your device.
+  </li>
+  <li>
+    Local-first does not necessarily mean local records are excluded from Apple-managed device
+    backups, device migrations, iCloud backup settings, or operating-system recovery tools.
   </li>
   <li>
     We may receive information you choose to send through support, contact, or wish-list channels.
@@ -110,7 +118,7 @@ const { supportHref } = Astro.props as Props;
   <li>Messages, support requests, and other information you choose to send us</li>
   <li>
     Basic website-delivery and security information, such as IP address, browser type, request
-    timing, and similar server or hosting metadata
+    timing, page requested, referring URL, and similar server or hosting metadata
   </li>
   <li>
     Purchase and access information needed to offer, verify, or restore paid access through Apple
@@ -142,6 +150,22 @@ const { supportHref } = Astro.props as Props;
 </ul>
 
 <p>
+  PlanKept does not currently ask for contact-list permission or precise GPS location permission.
+  If you choose to attach a photo, screenshot, file, or other image, information embedded in that
+  attachment, such as visible text, faces, document details, timestamps, or location metadata, may
+  be part of the content you choose to process.
+</p>
+
+<p>
+  PlanKept does not currently ask you to create an app account or provide a password. PlanKept also
+  does not receive or store full payment-card numbers for App Store in-app purchases. Apple or the
+  relevant platform payment provider processes payment-card details, refunds, taxes, family sharing,
+  purchase restoration, and related payment records under its own terms and policies. PlanKept may
+  receive purchase, entitlement, transaction, or restore status needed to unlock access and provide
+  support.
+</p>
+
+<p>
   We aim to collect only the information reasonably needed to operate the relevant feature, comply
   with law, protect the service, or respond to you.
 </p>
@@ -157,6 +181,10 @@ const { supportHref } = Astro.props as Props;
   <li>power optional features you choose to use, including AI, attachments, permissions, or tools</li>
   <li>host and deliver the latest legal documents and legal-manifest information</li>
   <li>respond to support, contact, or wish-list requests</li>
+  <li>
+    send service, legal, support, purchase, wish-list, or marketing messages only where appropriate,
+    and process opt-out or unsubscribe requests
+  </li>
   <li>measure, understand, and improve our own advertising campaigns where lawful</li>
   <li>protect the service, detect misuse, and maintain security</li>
   <li>comply with legal obligations and enforce our terms</li>
@@ -173,6 +201,10 @@ const { supportHref } = Astro.props as Props;
 
 <ul>
   <li>Apple-managed purchase, restore, and entitlement flows</li>
+  <li>
+    Apple-provided crash, performance, or diagnostic reports where your Apple settings allow Apple
+    to make those reports available to developers
+  </li>
   <li>support emails, wish-list forms, and other contact channels you intentionally use</li>
   <li>hosted legal pages and legal-manifest checks</li>
   <li>speech-recognition or related platform services</li>
@@ -223,7 +255,7 @@ const { supportHref } = Astro.props as Props;
   <li>compliance with legal obligations</li>
 </ul>
 
-<h2>5. Advertising, Tracking, And Campaign Measurement</h2>
+<h2>5. Advertising, Tracking, Cookies, And Campaign Measurement</h2>
 
 <p>
   This section is about advertising PlanKept outside the PlanKept app. PlanKept is not an
@@ -276,6 +308,16 @@ const { supportHref } = Astro.props as Props;
   sending PlanKept app content to an ad platform.
 </p>
 
+<p>
+  The current PlanKept website is a static website and does not intentionally set our own
+  non-essential analytics cookies, advertising cookies, browser local storage, or session storage on
+  PlanKept product or legal pages. Hosting, browser, security, operating-system, App Store,
+  ad-platform, support, wish-list, or other third-party destinations may use their own cookies,
+  local storage, sessions, pixels, or similar technologies under their own policies when you use
+  those services. You can usually block or delete cookies and similar browser storage through your
+  browser settings, but doing so may affect third-party forms, links, or platform-managed features.
+</p>
+
 <h2>6. Sharing</h2>
 
 <p>
@@ -291,14 +333,23 @@ const { supportHref } = Astro.props as Props;
   <li>email providers</li>
   <li>external wish-list or form providers you intentionally use</li>
   <li>Apple and other platform providers</li>
+  <li>purchase, fraud-prevention, security, or diagnostic providers where needed for the service</li>
   <li>model hosts or user-selected AI/model routes</li>
   <li>advertising platforms when you interact with PlanKept ads on those platforms</li>
+  <li>professional advisers, such as legal, accounting, security, or technical advisers</li>
   <li>
     future advertising measurement providers only if the relevant pixel, SDK, conversion API, custom
     audience, or similar tool is added with required notice and compliance controls
   </li>
   <li>legal, regulatory, or law-enforcement recipients where required by law</li>
 </ul>
+
+<p>
+  If PlanKept, its assets, or the developer&apos;s related business are involved in a merger,
+  acquisition, financing, sale, reorganization, bankruptcy, or similar transaction, information may
+  be disclosed or transferred as part of evaluating or completing that transaction, subject to
+  appropriate limits and this policy where applicable.
+</p>
 
 <h2>7. Retention</h2>
 
@@ -314,6 +365,21 @@ const { supportHref } = Astro.props as Props;
 </p>
 
 <p>
+  Depending on your device settings, Apple platform behavior, and how iOS handles app containers,
+  local PlanKept records may be included in Apple-managed device backups, device transfers,
+  restores, or similar operating-system storage features unless the app or operating system excludes
+  a particular file. Those Apple-managed backup, restore, and device-migration features are
+  controlled by Apple and your device settings.
+</p>
+
+<p>
+  When we no longer need information we control outside your device, we aim to delete, anonymize, or
+  aggregate it where reasonably possible. Some copies may persist for a limited time in backups,
+  logs, archives, fraud-prevention records, legal records, or systems controlled by third-party
+  providers. It may not be technically possible to remove every residual copy immediately.
+</p>
+
+<p>
   Campaign links, referral information, and aggregated ad reports may be kept for as long as
   reasonably needed to understand campaign performance, manage advertising accounts, prevent misuse,
   keep business records, or comply with legal obligations.
@@ -323,7 +389,11 @@ const { supportHref } = Astro.props as Props;
 
 <p>
   We use reasonable measures intended to protect information, but no method of storage,
-  transmission, or processing is perfectly secure.
+  transmission, or processing is perfectly secure. We cannot guarantee that information will never
+  be accessed, disclosed, altered, or destroyed because of a bug, outage, user action, device issue,
+  provider issue, security incident, or other failure. You should protect access to your device and
+  avoid adding sensitive information to plans, proof, support messages, or AI inputs unless you are
+  comfortable processing it through the selected feature or provider.
 </p>
 
 <h2>9. International Transfers</h2>
@@ -337,18 +407,18 @@ const { supportHref } = Astro.props as Props;
 <h2>10. Children&apos;s Privacy</h2>
 
 <p>
-  PlanKept is not intended for children under 16, and we do not knowingly seek to collect personal
-  information from children under 16.
+  PlanKept is intended for people who are at least 13 years old. We do not knowingly seek to
+  collect personal information from children under 13.
 </p>
 
 <p>
-  If you are under the age required by applicable law where you live, do not use PlanKept unless
-  all applicable legal requirements have been satisfied.
+  If you are 13 or older but under the age of majority where you live, you may use PlanKept only
+  if your parent or guardian permits it and any applicable legal requirements have been satisfied.
 </p>
 
 <p>
-  Parents or guardians should not permit children to use PlanKept without satisfying applicable
-  legal requirements.
+  Parents or guardians should not permit children under 13 to use PlanKept. If you believe a child
+  under 13 has provided personal information to us, contact us so we can take appropriate steps.
 </p>
 
 <h2>11. Your Rights</h2>
@@ -381,6 +451,13 @@ const { supportHref } = Astro.props as Props;
 </p>
 
 <p>
+  We may need to verify your request before acting on it, and privacy rights are not absolute. For
+  example, we may keep limited information where required or permitted for legal compliance,
+  security, fraud prevention, dispute handling, support records, or to complete a transaction you
+  requested.
+</p>
+
+<p>
   To exercise applicable rights for data we control outside your device, contact us at
   <code>plankeptapp@gmail.com</code>, call <code>+48 73 2099027</code>, or use the support page.
 </p>
@@ -389,7 +466,8 @@ const { supportHref } = Astro.props as Props;
 
 <p>
   PlanKept may link to or rely on third-party websites and services. Those services are governed by
-  their own policies and terms.
+  their own policies and terms. We are not responsible for the content, accuracy, security,
+  availability, or privacy practices of third-party services that we do not control.
 </p>
 
 <p>

@@ -9,11 +9,13 @@ PlanKept or Voice of Self.
 
 - Personal website repo: `/Users/alekj/Documents/GitHub/alekjaltuszyk-website`
 - PlanKept app repo: `/Users/alekj/Documents/GitHub/plan enforcer`
+- OverLit app repo: `/Users/alekj/Documents/GitHub/OverLit-app`
 - Voice of Self website repo: `/Users/alekj/Documents/GitHub/voice-of-self-website`
 - Voice of Self app repo: `/Users/alekj/Documents/GitHub/closure-app`
 
 Plan Enforcer is the actual app repo behind PlanKept. Closure App is the actual
-app repo behind Voice of Self.
+app repo behind Voice of Self. OverLit App is the actual app repo behind
+OverLit.
 
 If a task is about actual app behavior, use the sibling app repo that matches
 the product. Do not assume this website repo contains either app implementation.
@@ -39,6 +41,8 @@ The domain is now split on purpose:
   behavior.
 - Switch to `/Users/alekj/Documents/GitHub/voice-of-self-website` for Voice of
   Self marketing/support/legal website work.
+- Switch to `/Users/alekj/Documents/GitHub/OverLit-app` for OverLit app behavior,
+  ads, app-side legal acceptance, privacy manifest, or App Store-facing claims.
 - If a request could affect both a website repo and an app repo, check whether
   the website copy and app behavior should be updated together.
 
@@ -112,9 +116,10 @@ The domain is now split on purpose:
   `src/pages/terms-of-service/index.md`, or changes data collection, support flows,
   wish-list flows, account claims, or other legal-facing behavior, open
   `skills/legal-update-sync/CHECKLIST.md` before finishing.
-- This repo does not yet have a mirrored legal file system in the app repo. If
-  that mirror is added later, keep the website legal copy and app-side legal
-  representation aligned.
+- Keep PlanKept website legal copy aligned with the PlanKept app legal,
+  purchase, and model-license surfaces.
+- Keep OverLit website legal copy and `site.config.mjs` versions aligned with
+  OverLit app-side legal acceptance/versioning.
 - Update version and effective-date changes in `site.config.mjs`, not in
   generated `dist/legal-manifest.json`.
 

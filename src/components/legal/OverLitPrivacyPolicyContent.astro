@@ -11,6 +11,8 @@ const googlePrivacyHref = "https://policies.google.com/privacy";
 const googleAdsTechnologiesHref = "https://policies.google.com/technologies/ads";
 const applePrivacyHref = "https://www.apple.com/legal/privacy/";
 const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
+const metaPrivacyHref = "https://www.facebook.com/privacy/policy/";
+const tiktokPrivacyHref = "https://www.tiktok.com/legal/page/eea/privacy-policy/en";
 ---
 
 <h1>{appName} Privacy Policy</h1>
@@ -50,15 +52,39 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   <li>The app does not require an account, custom backend, chat, social feed, multiplayer, or cloud sync.</li>
   <li>Gameplay settings, preferences, and high scores may be stored locally on your device.</li>
   <li>
+    The app does not ask for account registration, passwords, payment card details, phone numbers,
+    mailing addresses, precise GPS location, contacts, camera access, photo library access, or age.
+  </li>
+  <li>
     The app uses the Google Mobile Ads SDK for AdMob rewarded ads and interstitial ads.
+  </li>
+  <li>
+    The app uses Google User Messaging Platform / AdMob privacy messages for applicable
+    European regulations and U.S. state privacy regulations, and may show an AdMob IDFA
+    explainer before Apple&apos;s App Tracking Transparency prompt.
   </li>
   <li>
     Google/AdMob may collect or process advertising, device, product interaction, coarse location,
     diagnostic, crash, and performance data as described below and in Google&apos;s own policies.
   </li>
   <li>
-    The app may show local developer house ads for the Developer&apos;s own apps when network ads
-    cannot load. These local house ad panels are not third-party ad network requests.
+    If you allow tracking through Apple App Tracking Transparency and your regional consent choices
+    permit it, Google/AdMob and advertising partners may use identifiers such as the IDFA for
+    personalized ads, ad measurement, fraud prevention, and related advertising purposes.
+  </li>
+  <li>
+    If you deny tracking, decline consent, or opt out where applicable, ads may still appear without
+    IDFA-based or personalized tracking where required.
+  </li>
+  <li>
+    The app may show local developer house ads for PlanKept. Voice of Self is not currently an
+    active OverLit ad or promotion. These local house ad panels are not third-party ad network
+    requests.
+  </li>
+  <li>
+    We may advertise {appName} on external services such as Instagram, Meta, TikTok, Apple Search
+    Ads, Google, or similar platforms. We do not currently install Meta Pixel, TikTok Pixel, Meta
+    SDK, TikTok SDK, website/app activity retargeting code, or customer-list uploads for {appName}.
   </li>
   <li>Apple and the App Store may process platform, purchase, device, and privacy data under Apple&apos;s policies.</li>
   <li>We receive support email data only if you choose to contact support.</li>
@@ -90,11 +116,32 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   or an account system.
 </p>
 
-<h2>3. Advertising And AdMob</h2>
+<h2>3. Information We Do Not Ask For</h2>
+
+<p>
+  Some template privacy policies include broad categories that do not match {appName}. In the
+  current app, we do not ask you to create an account, choose a password, provide a phone number,
+  mailing address, billing address, payment card, job title, age, contact list, camera photo, photo
+  library item, or precise GPS location.
+</p>
+
+<p>
+  If you voluntarily include any of that information in a support email, we may receive it as part
+  of your message, but the app does not require it.
+</p>
+
+<h2>4. Advertising And AdMob</h2>
 
 <p>
   {appName} integrates Google AdMob through the Google Mobile Ads SDK. Release builds use production
   AdMob ad unit IDs. Debug or development builds may use Google demo or test ad IDs.
+</p>
+
+<p>
+  The app also includes Google User Messaging Platform / AdMob privacy messaging for applicable
+  European regulations and U.S. state privacy regulations, an AdMob IDFA explainer, Apple App
+  Tracking Transparency, and SKAdNetwork attribution support for privacy-preserving app advertising
+  measurement.
 </p>
 
 <p>The app currently uses AdMob for:</p>
@@ -105,14 +152,27 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
 </ul>
 
 <p>
+  Because {appName} is not age-gated and is intended to remain suitable for its App Store age
+  rating, the app configures Google Mobile Ads requests with teen treatment and a maximum ad
+  content rating no higher than Teen.
+</p>
+
+<p>
   Google&apos;s Mobile Ads SDK may collect, receive, or process information such as:
 </p>
 
 <ul>
   <li>IP address, which may be used to estimate coarse or general location</li>
-  <li>device identifiers, including advertising identifiers or app/developer-bounded identifiers where available</li>
+  <li>
+    device identifiers, including the IDFA when available and allowed, app/developer-bounded
+    identifiers, or other advertising identifiers where permitted
+  </li>
   <li>advertising data, such as ads shown, impressions, interactions, rewarded ad completion, and related ad events</li>
   <li>product interaction or usage data, such as app launches, taps, video ad views, and other ad-performance events</li>
+  <li>
+    attribution-related information, including SKAdNetwork-related signals or postbacks handled by
+    Apple, Google/AdMob, or advertising partners
+  </li>
   <li>crash data and diagnostic logs</li>
   <li>performance data, such as app launch time, hang rate, energy usage, and SDK performance</li>
 </ul>
@@ -124,6 +184,8 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   <li>measuring ad performance and rewarded ad completion</li>
   <li>preventing fraud, abuse, and invalid traffic</li>
   <li>frequency capping, reporting, and campaign measurement</li>
+  <li>personalizing ads where you have allowed tracking and any legally required consent permits it</li>
+  <li>supporting SKAdNetwork and other privacy-preserving attribution flows</li>
   <li>analytics and performance improvement for the Google Mobile Ads SDK</li>
   <li>diagnostics, reliability, and SDK security</li>
   <li>supporting privacy and consent choices where legally required</li>
@@ -143,11 +205,17 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
 
 <pre><code>google.com, pub-6606108754134100, DIRECT, f08c47fec0942fa0</code></pre>
 
-<h2>4. Local Developer House Ads</h2>
+<h2>5. Local Developer House Ads</h2>
 
 <p>
-  If AdMob cannot load an ad, {appName} may show a local developer house ad instead. A house ad is a
-  local in-app panel that promotes the Developer&apos;s own apps, such as Voice of Self or PlanKept.
+  {appName} may show a local developer house ad in the app context, including when AdMob cannot
+  load an ad. The current local developer house ads are for PlanKept. Voice of Self is not
+  currently an active OverLit ad or promotion.
+</p>
+
+<p>
+  A house ad is a local in-app panel that promotes the Developer&apos;s own app, app page, App Store
+  page, or related app destination.
 </p>
 
 <p>
@@ -156,27 +224,61 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   platform may process that visit under its own policies.
 </p>
 
-<h2>5. Privacy Choices And Consent</h2>
+<h2>6. External Marketing And Promotion</h2>
+
+<p>
+  We may promote {appName} through paid or organic ads on external services such as Instagram,
+  Meta, TikTok, Apple Search Ads, Google, or similar advertising platforms.
+</p>
+
+<p>
+  If you view, click, share, comment on, save, or otherwise interact with an OverLit ad on one of
+  those services, that service may process information about the interaction under its own terms,
+  privacy policy, and ad settings. For example, Meta/Instagram activity is governed by
+  <a href={metaPrivacyHref}>Meta&apos;s Privacy Policy</a>, and TikTok activity is governed by
+  <a href={tiktokPrivacyHref}>TikTok&apos;s Privacy Policy</a>.
+</p>
+
+<p>
+  We do not currently install Meta Pixel, TikTok Pixel, Meta SDK, TikTok SDK, Conversion API,
+  app-event SDKs, or similar external marketing trackers in {appName} or on the OverLit website
+  pages. We also do not currently upload support emails, contact lists, or customer files to ad
+  platforms for OverLit retargeting. If we add those practices later, this policy and the relevant
+  platform disclosures should be updated first.
+</p>
+
+<h2>7. Privacy Choices And Consent</h2>
 
 <p>
   {appName} may use Google&apos;s User Messaging Platform or AdMob privacy messaging where required.
-  Users in applicable regions may see privacy or consent choices for ads. When AdMob reports that
-  privacy options are required, {appName} may also make ad privacy options available from the app
-  settings.
+  Users in applicable regions may see privacy or consent choices for ads, including European
+  regulations messages and U.S. state privacy regulation messages. When AdMob reports that privacy
+  options are required, {appName} may also make ad privacy options available from the app settings.
 </p>
 
 <p>
-  You can also use Apple device-level privacy controls, such as App Tracking Transparency choices,
-  advertising identifier controls, and Apple personalized advertising settings where available.
+  On iOS, {appName} may show an AdMob IDFA explainer before Apple&apos;s App Tracking Transparency
+  prompt. If you allow tracking and your regional consent choices permit it, Google/AdMob and its
+  advertising partners may access or use identifiers such as Apple&apos;s Identifier for Advertisers
+  (IDFA) for personalized ads, ad measurement, fraud prevention, frequency capping, and related
+  advertising purposes.
 </p>
 
 <p>
-  If personalized ads are unavailable, declined, or not allowed, ads may still appear as
-  non-personalized or contextual ads. If AdMob cannot load, {appName} may show a local developer
-  house ad instead.
+  If you deny tracking in Apple&apos;s App Tracking Transparency prompt, decline consent, opt out, or
+  use device settings that restrict advertising identifiers, ads may still appear without IDFA-based
+  or personalized tracking where required. Those ads may be non-personalized, contextual, limited,
+  or otherwise served according to Google/AdMob, Apple, and applicable law. If AdMob cannot load,
+  {appName} may show a local PlanKept developer house ad instead.
 </p>
 
-<h2>6. App Store Privacy Disclosures</h2>
+<p>
+  You can manage choices through Google/AdMob consent and privacy flows shown in the app where
+  available, and through iOS privacy settings such as App Tracking Transparency, advertising
+  identifier controls, and Apple personalized advertising settings where available.
+</p>
+
+<h2>8. App Store Privacy Disclosures</h2>
 
 <p>
   Apple&apos;s App Privacy labels use Apple-defined categories and may require disclosures that are
@@ -189,6 +291,17 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
     Coarse Location, Device Identifiers, Product Interaction or Usage Data, and Advertising Data may
     be disclosed for Third-Party Advertising and Analytics. They may be linked to the user and may
     be used for tracking where Apple&apos;s definitions and the SDK behavior require that disclosure.
+  </li>
+  <li>
+    The app includes Apple App Tracking Transparency because IDFA-based advertising uses may be
+    available when you authorize tracking. If tracking is denied, IDFA-based tracking should not be
+    used for personalized ads, but non-personalized ads and privacy-preserving measurement may still
+    occur where allowed.
+  </li>
+  <li>
+    The app supports SKAdNetwork attribution for ads. SKAdNetwork is an Apple attribution framework
+    intended to help measure ad-driven installs or conversions while limiting user- or
+    device-specific data in Apple postbacks.
   </li>
   <li>
     Crash Data may be disclosed for Diagnostics and, where applicable, Analytics. It is generally
@@ -208,7 +321,7 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   <a href={appleAppStoreTermsHref}>Apple standard terms for apps</a>.
 </p>
 
-<h2>7. Support Emails</h2>
+<h2>9. Support Emails</h2>
 
 <p>
   If you email support, we process your email address, message content, and any details you choose
@@ -221,7 +334,13 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   <a href={supportPageUrl}>{supportPageUrl}</a>.
 </p>
 
-<h2>8. Website Pages</h2>
+<p>
+  We do not currently use support emails for marketing newsletters, customer-list uploads, or
+  retargeting audiences for {appName}. If you want us to delete or correct support information you
+  sent, contact us from the same email address when possible so we can verify the request.
+</p>
+
+<h2>10. Website Pages, Cookies, And Local Storage</h2>
 
 <p>
   The OverLit pages on <code>alekjaltuszyk.xyz</code> are mostly static and informational. They
@@ -236,13 +355,23 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   to deliver the site.
 </p>
 
-<h2>9. Third-Party Services</h2>
+<p>
+  The app uses local on-device storage for gameplay, settings, unlocks, counters, and legal
+  acceptance state. Google/AdMob and Apple may use identifiers, SDK storage, consent signals, or
+  similar mobile technologies as part of advertising, privacy choices, app distribution, fraud
+  prevention, and measurement. External websites or ad platforms you visit from an ad or link may
+  use their own cookies, pixels, local storage, sessions, or similar technologies under their own
+  policies.
+</p>
+
+<h2>11. Third-Party Services And Sharing</h2>
 
 <p>Depending on how you use {appName}, third parties may process information under their own terms:</p>
 
 <ul>
   <li>Google/AdMob and the Google Mobile Ads SDK for in-app advertising and related measurement</li>
   <li>Apple, iOS, and the App Store for platform, device, privacy, download, purchase, and crash/diagnostic services</li>
+  <li>Meta/Instagram, TikTok, Apple Search Ads, Google, or similar platforms if you interact with ads for {appName} outside the app</li>
   <li>email providers if you choose to contact support</li>
   <li>website hosting and delivery providers for the public OverLit pages</li>
 </ul>
@@ -252,7 +381,21 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   information they collect or receive.
 </p>
 
-<h2>10. Children</h2>
+<p>
+  We may share or disclose information when reasonably necessary to operate the app, show and
+  measure ads, provide support, maintain security, prevent fraud or abuse, comply with law, respond
+  to valid legal requests, protect rights and safety, or transfer relevant records in connection
+  with a merger, acquisition, reorganization, asset sale, or similar business transfer.
+</p>
+
+<p>
+  We do not sell support email lists or account lists to data brokers. Some privacy laws define
+  certain personalized advertising, ad SDK disclosures, or cross-context ad uses as a &quot;sale,&quot;
+  &quot;sharing,&quot; or &quot;targeted advertising.&quot; Where those laws apply, {appName} uses
+  AdMob privacy messages and available privacy choices to support opt-out or consent choices.
+</p>
+
+<h2>12. Children</h2>
 
 <p>
   {appName} is not directed to children under 13, and we do not knowingly collect personal
@@ -260,7 +403,7 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   through support or another channel, contact us so we can review and delete it where appropriate.
 </p>
 
-<h2>11. Data Retention</h2>
+<h2>13. Data Retention</h2>
 
 <p>
   Local gameplay/settings data may remain on your device until you change it, reset it, delete the
@@ -276,7 +419,38 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   Google/AdMob, Apple, and other third-party providers retain data according to their own policies.
 </p>
 
-<h2>12. International Processing</h2>
+<h2>14. Security</h2>
+
+<p>
+  We use reasonable administrative and technical measures for the parts of {appName} and the
+  OverLit website that we control. No app, website, network, device, or third-party service can be
+  guaranteed to be perfectly secure. If you believe there is a privacy or security issue, contact us
+  using the details below.
+</p>
+
+<h2>15. Privacy Rights</h2>
+
+<p>
+  Depending on where you live, you may have rights to request access, correction, deletion,
+  portability, restriction, objection, withdrawal of consent, or opt-out of certain sales, sharing,
+  targeted advertising, or profiling. You may also have the right not to be discriminated against
+  for exercising privacy rights.
+</p>
+
+<p>
+  Because {appName} does not have accounts or a custom backend, many gameplay records are stored
+  locally on your device. You can often control that local data by changing app settings, using
+  in-app reset options where available, or deleting the app. For data handled by Google/AdMob,
+  Apple, Meta/Instagram, TikTok, or other third parties, use their privacy tools and contact routes.
+</p>
+
+<p>
+  To make a request about information we control directly, contact
+  <code>{overLitConfig.supportEmail}</code>. We may need information to verify the request and may
+  be unable to fulfill requests about data we do not control or cannot reasonably identify.
+</p>
+
+<h2>16. International Processing</h2>
 
 <p>
   We are based in Poland. Third-party providers used for advertising, app distribution, platform
@@ -284,7 +458,7 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   countries. Those countries may have privacy laws different from where you live.
 </p>
 
-<h2>13. Changes To This Policy</h2>
+<h2>17. Changes To This Policy</h2>
 
 <p>
   We may update this policy as {appName} changes, including if advertising providers, consent
@@ -292,7 +466,7 @@ const appleAppStoreTermsHref = "https://www.apple.com/legal/internet-services/it
   version above show when this policy was last updated.
 </p>
 
-<h2>14. Contact</h2>
+<h2>18. Contact</h2>
 
 <p>For privacy questions or requests, contact:</p>
 

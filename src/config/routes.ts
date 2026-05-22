@@ -40,6 +40,7 @@ export const siteRoutes = {
     overLit: createInternalRoute(overLitBasePath),
     overLitPrivacyPolicy: createInternalRoute(`${overLitBasePath}privacy-policy/`),
     overLitSupport: createInternalRoute(`${overLitBasePath}support/`),
+    overLitTermsOfUse: createInternalRoute(`${overLitBasePath}terms-of-use/`),
     voiceOfSelf: createExternalRoute("https://voiceofself.life"),
   },
   support: createInternalRoute("/support/"),
@@ -99,7 +100,7 @@ export const appDirectory = [
     chips: [
       "Arcade reflex game",
       "iPhone",
-      "Support and privacy here",
+      "Support and legal here",
     ],
     ctaLabel: "Open OverLit",
     href: siteRoutes.apps.overLit.href,

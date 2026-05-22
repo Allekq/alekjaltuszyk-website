@@ -41,7 +41,7 @@ export const discoveryPages = {
       title: "OverLit",
       path: siteRoutes.apps.overLit.path,
       description:
-        "Small OverLit app page from Alek Jałtuszyk for the fast reflex grid game and its support and privacy links.",
+        "Small OverLit app page from Alek Jałtuszyk for the fast reflex grid game and its support and legal links.",
     },
     {
       title: "OverLit Support",
@@ -102,6 +102,12 @@ export const discoveryPages = {
         "How OverLit handles local gameplay data, support contact, AdMob advertising, local developer house ads, privacy choices, and App Store privacy disclosures.",
     },
     {
+      title: "OverLit Terms of Use",
+      path: siteRoutes.apps.overLitTermsOfUse.path,
+      description:
+        "Terms covering OverLit app, website, support, advertising, rewarded unlocks, local progress, acceptable use, and third-party services.",
+    },
+    {
       title: "Legal Manifest",
       path: siteRoutes.legalManifest.path,
       description: "Machine-readable legal document versions and effective dates.",
@@ -130,6 +136,7 @@ export const sitemapPagePaths = [
   siteRoutes.apps.overLit.path,
   siteRoutes.apps.overLitSupport.path,
   siteRoutes.apps.overLitPrivacyPolicy.path,
+  siteRoutes.apps.overLitTermsOfUse.path,
   siteRoutes.apps.planKeptAnswers.path,
   ...planKeptAnswerPages.map((page) => page.path),
   siteRoutes.apps.planKeptComparisons.path,

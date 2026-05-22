@@ -63,7 +63,7 @@ The current app split is:
 - ${homePath}: personal homepage placeholder
 - ${appsDirectoryPath}: directory of apps and product sites
 - ${planKeptPath}: internal PlanKept page on this domain
-- ${siteRoutes.apps.overLit.path}: internal OverLit page with support and privacy links on this domain
+- ${siteRoutes.apps.overLit.path}: internal OverLit page with support and legal links on this domain
 - ${voiceOfSelfUrl}: external Voice of Self site
 
 ## Privacy Notes

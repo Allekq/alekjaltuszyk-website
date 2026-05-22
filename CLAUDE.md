@@ -13,12 +13,17 @@ If the task is about Voice of Self app behavior, switch to:
 
 - `/Users/alekj/Documents/GitHub/closure-app`
 
+If the task is about OverLit app behavior, ads, app-side legal acceptance,
+privacy manifests, or App Store-facing claims, switch to:
+
+- `/Users/alekj/Documents/GitHub/OverLit-app`
+
 If the task is about the Voice of Self website, switch to:
 
 - `/Users/alekj/Documents/GitHub/voice-of-self-website`
 
 Plan Enforcer is the app repo behind PlanKept. Closure App is the app repo
-behind Voice of Self.
+behind Voice of Self. OverLit App is the app repo behind OverLit.
 
 ## Non-Negotiable Rules
 
@@ -83,6 +88,10 @@ behind Voice of Self.
 - Update legal version and effective-date changes in `site.config.mjs`.
 - If a task likely changes legal disclosures, do not finish with stale legal
   docs.
+- For PlanKept, also check the app legal, purchase, and model-license surfaces
+  in `/Users/alekj/Documents/GitHub/plan enforcer`.
+- For OverLit, also keep the public legal versions aligned with app-side legal
+  acceptance/versioning in `/Users/alekj/Documents/GitHub/OverLit-app`.
 
 ## Validation Checklist
 

@@ -1,0 +1,201 @@
+---
+import { legalDocuments } from "../../../site.config.mjs";
+import { overLitConfig } from "../../config/site";
+
+const appName = overLitConfig.name;
+const appPageUrl = new URL(overLitConfig.homeHref, overLitConfig.origin).toString();
+const supportPageUrl = new URL(overLitConfig.supportHref, overLitConfig.origin).toString();
+const privacyPolicyUrl = new URL(overLitConfig.privacyHref, overLitConfig.origin).toString();
+const termsPageUrl = new URL(overLitConfig.termsHref, overLitConfig.origin).toString();
+const appleStandardEulaHref =
+  "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
+---
+
+<h1>{appName} Terms of Use</h1>
+
+<p>
+  <strong>Effective Date:</strong> {legalDocuments.overLitTerms.effectiveDate}<br />
+  <strong>Version:</strong> {legalDocuments.overLitTerms.version}
+</p>
+
+<p>
+  These Terms of Use govern your use of the {appName} iPhone app, the OverLit pages on
+  <code>alekjaltuszyk.xyz</code>, support, ads, and related surfaces that link to these terms.
+</p>
+
+<p>
+  {appName} is provided by Aleksander Jałtuszyk (&quot;Developer&quot;, &quot;we&quot;,
+  &quot;us&quot;, or &quot;our&quot;). Country: Poland. Contact:
+  <code>{overLitConfig.supportEmail}</code>.
+</p>
+
+<p>These terms cover:</p>
+
+<ul>
+  <li><a href={appPageUrl}>{appPageUrl}</a></li>
+  <li><a href={supportPageUrl}>{supportPageUrl}</a></li>
+  <li><a href={privacyPolicyUrl}>{privacyPolicyUrl}</a></li>
+  <li><a href={termsPageUrl}>{termsPageUrl}</a></li>
+</ul>
+
+<h2>1. Acceptance</h2>
+
+<p>
+  By using {appName}, you agree to these terms. If you do not agree, do not use the app or related
+  OverLit website and support surfaces.
+</p>
+
+<h2>2. Apple Standard EULA</h2>
+
+<p>
+  If you download {appName} through Apple&apos;s App Store and no custom end user license agreement
+  is provided in App Store Connect, Apple&apos;s
+  <a href={appleStandardEulaHref}>Standard EULA</a> applies to the app license.
+</p>
+
+<p>
+  These Terms of Use govern OverLit-specific app, website, support, advertising, and related
+  behavior.
+</p>
+
+<h2>3. What OverLit Is</h2>
+
+<p>
+  {appName} is a short-session arcade/reflex game. A grid of cells lights up, heats toward red, and
+  burns out; the player taps active cells before any one burns out.
+</p>
+
+<p>Features, visuals, copy, ad behavior, and availability may change over time.</p>
+
+<h2>4. Eligibility</h2>
+
+<p>
+  {appName} is not directed to children under 13. You must be old enough under applicable law to use
+  {appName}, or have any required permission from a parent or guardian.
+</p>
+
+<h2>5. Gameplay Safety</h2>
+
+<p>
+  {appName} is a fast reflex game with flashing, color, motion, and time-pressure feedback. Stop
+  playing if you feel uncomfortable, dizzy, strained, or otherwise unwell.
+</p>
+
+<p>
+  Use device accessibility settings where they are helpful for your comfort and safety.
+</p>
+
+<h2>6. Ads And Rewarded Unlocks</h2>
+
+<p>
+  {appName} may show Google AdMob rewarded ads, Google AdMob interstitial ads, and local developer
+  house ads for the Developer&apos;s own apps.
+</p>
+
+<p>
+  Ad availability, ad loading, and rewards are not guaranteed. Rewarded unlocks may be unavailable,
+  delayed, interrupted, or changed.
+</p>
+
+<p>
+  Ads shown in or for {appName}, including local developer house ads, should be appropriate for
+  OverLit&apos;s app age rating. If you see an inappropriate or age-inappropriate ad, contact support
+  with a short description and any useful context.
+</p>
+
+<h2>7. Privacy</h2>
+
+<p>
+  OverLit privacy practices are explained in the
+  <a href={privacyPolicyUrl}>OverLit Privacy Policy</a>.
+</p>
+
+<h2>8. Local Progress</h2>
+
+<p>
+  High scores, settings, unlocks, play counters, and legal acceptance state may be stored locally
+  on your device so the app can work normally and remember your choices.
+</p>
+
+<p>
+  Deleting the app may remove local app data from the device, subject to normal iOS backup,
+  restore, and device behavior.
+</p>
+
+<h2>9. Acceptable Use</h2>
+
+<p>You agree not to:</p>
+
+<ul>
+  <li>use {appName}, the website, or support channels unlawfully</li>
+  <li>interfere with or disrupt the app, website, ads, or support channels</li>
+  <li>attempt unauthorized access to systems or services</li>
+  <li>reverse engineer, decompile, or bypass protections except where allowed by law</li>
+  <li>abuse support channels or send harmful, misleading, or abusive messages</li>
+  <li>misuse rewards, ads, links, app behavior, or local app state</li>
+</ul>
+
+<h2>10. Intellectual Property</h2>
+
+<p>
+  The app design, copy, branding, visuals, website, and related materials are owned by or licensed
+  to the Developer except where otherwise stated.
+</p>
+
+<p>
+  You may not copy, reproduce, redistribute, or exploit those materials except as allowed by law or
+  with permission.
+</p>
+
+<h2>11. Third-Party Services</h2>
+
+<p>
+  {appName} and related surfaces may link to or rely on third-party services, including Apple,
+  Google/AdMob, email providers, website hosting, App Store links, and external destinations.
+</p>
+
+<p>
+  Third-party services have their own terms and policies. We do not control those services and are
+  not responsible for their content, availability, policies, or practices.
+</p>
+
+<h2>12. No Professional Advice</h2>
+
+<p>
+  {appName} is a game. It is not legal, medical, therapeutic, financial, emergency, or other
+  professional advice.
+</p>
+
+<h2>13. Disclaimers</h2>
+
+<p>
+  To the fullest extent permitted by law, {appName} and related surfaces are provided on an
+  &quot;as is&quot; and &quot;as available&quot; basis. We do not guarantee uninterrupted availability,
+  error-free operation, ad availability, rewards, scores, compatibility, or fitness for a particular
+  purpose.
+</p>
+
+<h2>14. Limitation Of Liability</h2>
+
+<p>
+  To the fullest extent permitted by law, the Developer will not be liable for indirect, incidental,
+  special, consequential, or punitive damages arising out of or related to your use of {appName}, the
+  website, ads, support, or third-party services.
+</p>
+
+<h2>15. Changes To These Terms</h2>
+
+<p>
+  We may update these terms from time to time. When we do, we will update the effective date and
+  version above.
+</p>
+
+<h2>16. Contact</h2>
+
+<p>Questions about these terms can be sent to:</p>
+
+<ul>
+  <li>Email: <code>{overLitConfig.supportEmail}</code></li>
+  <li>Support page: <a href={supportPageUrl}>{supportPageUrl}</a></li>
+  <li>Country: Poland</li>
+</ul>

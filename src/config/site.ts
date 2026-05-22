@@ -111,6 +111,11 @@ export const legalManifest = {
     effectiveDate: legalDocuments.overLitPrivacy.effectiveDate,
     url: buildAbsoluteSiteHref(legalDocuments.overLitPrivacy.path),
   },
+  overLitTerms: {
+    version: legalDocuments.overLitTerms.version,
+    effectiveDate: legalDocuments.overLitTerms.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.overLitTerms.path),
+  },
   terms: {
     version: legalDocuments.terms.version,
     effectiveDate: legalDocuments.terms.effectiveDate,
@@ -176,7 +181,7 @@ export const siteConfig = {
     summary:
       "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, launched Voice of Self work, the PlanKept web surface, and the small OverLit web surface.",
     status:
-      "The homepage highlights engineering background, selected work, and current products. PlanKept still has its public product page under /apps/PlanKept/ with support and legal routes under /PlanKept/ on this domain, OverLit has a minimal app page, support page, and privacy policy under /apps/OverLit/, while the launched Voice of Self app stays on its own separate website.",
+      "The homepage highlights engineering background, selected work, and current products. PlanKept still has its public product page under /apps/PlanKept/ with support and legal routes under /PlanKept/ on this domain, OverLit has a minimal app page, support page, privacy policy, and terms of use under /apps/OverLit/, while the launched Voice of Self app stays on its own separate website.",
     privacyModel:
       "The personal homepage, portfolio sections, and app directory are informational. PlanKept support and legal routes live on this domain, while the PlanKept wish-list action goes to an external form. Core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob advertising through the Google Mobile Ads SDK, local developer house ads, privacy choices, and App Store privacy disclosures.",
     nameVariants: searchNameVariants,
@@ -302,6 +307,7 @@ export const overLitConfig = {
   homeHref: siteRoutes.apps.overLit.href,
   supportHref: siteRoutes.apps.overLitSupport.href,
   privacyHref: siteRoutes.apps.overLitPrivacyPolicy.href,
+  termsHref: siteRoutes.apps.overLitTermsOfUse.href,
   supportMailtoHref: buildMailtoHref(
     overLitSupportEmail,
     overLitSupportSubject,
@@ -321,12 +327,13 @@ export const overLitConfig = {
     { label: "Apps", href: siteRoutes.apps.index.href },
     { label: "Support", href: siteRoutes.apps.overLitSupport.href },
     { label: "Privacy Policy", href: siteRoutes.apps.overLitPrivacyPolicy.href },
+    { label: "Terms of Use", href: siteRoutes.apps.overLitTermsOfUse.href },
   ],
   aiDiscovery: {
     summary:
       "OverLit is a short-session iPhone arcade game by Alek Jałtuszyk. A grid of cells lights up, heats toward red, and burns out; the player taps active cells before any one burns out.",
     status:
-      "The public OverLit surface is intentionally tiny right now: a plain app page, support page, and privacy policy under /apps/OverLit/.",
+      "The public OverLit surface is intentionally tiny right now: a plain app page, support page, privacy policy, and terms of use under /apps/OverLit/.",
   },
 } as const;
 
