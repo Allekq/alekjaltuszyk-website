@@ -41,7 +41,7 @@ export const discoveryPages = {
       title: "OverLit",
       path: siteRoutes.apps.overLit.path,
       description:
-        "Small OverLit app page from Alek Jałtuszyk for the fast reflex grid game and its support and legal links.",
+        "Visual OverLit product page from Alek Jałtuszyk for the fast reflex iPhone arcade game, with launch CTA plus support and legal links.",
     },
     {
       title: "OverLit Support",

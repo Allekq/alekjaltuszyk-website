@@ -93,13 +93,13 @@ export const appDirectory = [
     id: "overlit",
     name: "OverLit",
     eyebrow: "On this domain",
-    status: "Small app page",
+    status: "Arcade game page",
     description:
-      "A fast reflex grid game for iPhone built around clearing lit cells before they burn out.",
+      "A fast reflex arcade game for iPhone about keeping a pressure-filled grid alive.",
     theme: "mint",
     chips: [
-      "Arcade reflex game",
-      "iPhone",
+      "Level-based arcade",
+      "No account required",
       "Support and legal here",
     ],
     ctaLabel: "Open OverLit",
