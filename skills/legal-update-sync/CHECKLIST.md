@@ -4,6 +4,8 @@ Use this checklist before finishing any task that touches:
 
 - `src/pages/privacy-policy/index.md`
 - `src/pages/terms-of-service/index.md`
+- `src/content/legal/plankept-privacy-policy.md`
+- `src/content/legal/overlit-privacy-policy.md`
 - `src/components/legal/PlanKeptPrivacyPolicyContent.astro`
 - `src/components/legal/PlanKeptTermsOfServiceContent.astro`
 - `src/components/legal/OverLitPrivacyPolicyContent.astro`

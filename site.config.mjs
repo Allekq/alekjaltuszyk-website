@@ -22,13 +22,13 @@ export const legalDocuments = {
     path: "/PlanKept/privacy-policy/",
   },
   overLitPrivacy: {
-    version: "1.0.5",
-    effectiveDate: "2026-05-22",
+    version: "1.0.6",
+    effectiveDate: "2026-05-27",
     path: "/apps/OverLit/privacy-policy/",
   },
   overLitTerms: {
-    version: "1.0.0",
-    effectiveDate: "2026-05-21",
+    version: "1.0.1",
+    effectiveDate: "2026-05-27",
     path: "/apps/OverLit/terms-of-use/",
   },
   terms: {

@@ -25,7 +25,8 @@ the public legal pages.
 
 ## PlanKept Canonical Files
 
-- Privacy copy: `src/components/legal/PlanKeptPrivacyPolicyContent.astro`
+- Privacy copy: `src/content/legal/plankept-privacy-policy.md`
+- Privacy wrapper/version shell: `src/components/legal/PlanKeptPrivacyPolicyContent.astro`
 - Terms copy: `src/components/legal/PlanKeptTermsOfServiceContent.astro`
 - App repo: `/Users/alekj/Documents/GitHub/plan enforcer`
 - App sync skill: `/Users/alekj/Documents/GitHub/plan enforcer/.agents/skills/legal-update-sync/SKILL.md`
@@ -38,7 +39,8 @@ license surfaces, and App Store-facing disclosures for consistency.
 
 ## OverLit Canonical Files
 
-- Privacy copy: `src/components/legal/OverLitPrivacyPolicyContent.astro`
+- Privacy copy: `src/content/legal/overlit-privacy-policy.md`
+- Privacy wrapper/version shell: `src/components/legal/OverLitPrivacyPolicyContent.astro`
 - Terms copy: `src/components/legal/OverLitTermsOfUseContent.astro`
 - App repo: `/Users/alekj/Documents/GitHub/OverLit-app`
 - App sync skill: `/Users/alekj/Documents/GitHub/OverLit-app/.agents/skills/legal-update-sync/SKILL.md`

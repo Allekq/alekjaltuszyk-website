@@ -99,7 +99,7 @@ export const discoveryPages = {
       title: "OverLit Privacy Policy",
       path: siteRoutes.apps.overLitPrivacyPolicy.path,
       description:
-        "How OverLit handles local gameplay data, support contact, AdMob advertising, local developer house ads, privacy choices, and App Store privacy disclosures.",
+        "How OverLit handles local gameplay data, support contact, the current no-network-ads release posture, local developer house ads, privacy choices, and App Store privacy disclosures.",
     },
     {
       title: "OverLit Terms of Use",
