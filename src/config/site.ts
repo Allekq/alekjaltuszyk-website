@@ -56,9 +56,9 @@ const overLitSupportDraftLines = [
 ];
 const overLitSupportBody = overLitSupportDraftLines.join("\r\n");
 const wishListFormHref = "https://tally.so/r/GxBQJk";
-// Add the App Store URL here at launch; the main CTA will switch to "Get the app".
+// PlanKept still uses the wish-list path until its App Store launch.
 const planKeptAppStoreHref = "";
-const overLitAppStoreHref = "https://example.com";
+const overLitAppStoreHref = "https://apps.apple.com/pl/app/overlit/id6771103256";
 const planKeptPrimaryCta = planKeptAppStoreHref
   ? {
       href: planKeptAppStoreHref,
@@ -73,7 +73,7 @@ const planKeptPrimaryCta = planKeptAppStoreHref
 const overLitPrimaryCta = {
   href: overLitAppStoreHref,
   label: "Get the app",
-  stage: "placeholder" as const,
+  stage: "app-store" as const,
 };
 const personalInstagramHref =
   "https://www.instagram.com/alek_jaltuszyk?igsh=bW1udjlqeHEwb3V5&utm_source=qr";
@@ -343,7 +343,7 @@ export const overLitConfig = {
     summary:
       "OverLit is a short-session iPhone arcade game by Alek Jałtuszyk. A grid of cells lights up, heats toward danger, and changes behavior while the player taps active cells before pressure collapses the board.",
     status:
-      "The public OverLit surface includes a visual product page, support page, privacy policy, and terms of use under /apps/OverLit/. The app CTA currently points to a placeholder URL until launch.",
+      "The public OverLit surface includes a visual product page, App Store CTA, support page, privacy policy, and terms of use under /apps/OverLit/.",
   },
 } as const;
 
