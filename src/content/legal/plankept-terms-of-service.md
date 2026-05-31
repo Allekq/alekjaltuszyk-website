@@ -14,6 +14,8 @@ Contact:
 
 By using the service, you agree to these terms. If you do not agree, do not use the service.
 
+These terms apply to official PlanKept releases distributed through Apple's App Store or another authorized channel. We are not responsible for modified, tampered, sideloaded, reverse-engineered, or otherwise unofficial copies of PlanKept, except where applicable law says otherwise.
+
 ## 2. Model Terms And Licenses
 
 PlanKept may offer optional local or third-party model routes. Each listed model route may carry separate provider terms, use restrictions, or open-source license conditions. Those terms are part of the conditions for using that selected model.
@@ -26,11 +28,15 @@ PlanKept includes a local-first app experience together with related website, le
 
 Features, visuals, copy, pricing, availability, AI/model routes, and platform integrations may change over time.
 
+PlanKept does not operate a general app account system or custom developer backend for normal app use. Most user-created app content is intended to stay on the user's device, subject to device backups, operating-system behavior, Apple services, and any optional provider routes the user chooses.
+
 ## 4. Purchases And Lifetime Access
 
 PlanKept may offer one-time in-app purchases such as Starter Lifetime or Full Lifetime. Purchase availability, pricing, taxes, payment processing, refunds, and restoration are handled through Apple's App Store systems and may be subject to Apple's terms and policies.
 
 In PlanKept, "Lifetime" means access for as long as the PlanKept app is offered and supported, not for the lifetime of any individual user. Lifetime access does not guarantee that every current feature, model route, platform integration, price, visual design, or service component will remain unchanged forever.
+
+Refund requests, purchase history, family sharing, payment method issues, and App Store account issues are handled by Apple or the relevant platform provider. PlanKept can offer reasonable support for restore or entitlement issues that appear inside the app, but it does not receive full payment-card details.
 
 ## 5. Eligibility
 
@@ -53,6 +59,8 @@ You agree not to:
 The service, including app design, site design, copy, graphics, and branding, is owned by or licensed to PlanKept except where otherwise stated.
 
 You may not copy, reproduce, redistribute, or exploit the service except as allowed by law or with permission.
+
+You keep your rights in plans, proof statements, attachments, and other content you create in the app. Because PlanKept is local-first, that content normally stays on your device unless you choose to send it to a support channel, Apple service, model route, or other third-party service.
 
 ## 8. Support And Third-Party Services
 
@@ -98,7 +106,13 @@ We may suspend, limit, or terminate access to the service if we reasonably belie
 
 We may update these terms from time to time. When we do, we will update the effective date and version above.
 
-## 16. Contact
+## 16. Governing Law And Consumer Rights
+
+These terms are intended to be governed by the laws of Poland, except where mandatory consumer protection, platform, or local law gives you rights that cannot be waived or changed by contract.
+
+Nothing in these terms limits rights that cannot legally be limited, including statutory consumer rights, refund rights handled by Apple or another platform provider, or rights arising from intentional misconduct, gross negligence, or other liability that applicable law does not allow us to exclude.
+
+## 17. Contact
 
 Questions about these terms can be sent to:
 

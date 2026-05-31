@@ -17,23 +17,23 @@ export const siteBasePath = normalizeBasePath(
 
 export const legalDocuments = {
   privacy: {
-    version: "1.2.9",
-    effectiveDate: "2026-05-22",
+    version: "1.2.10",
+    effectiveDate: "2026-05-31",
     path: "/PlanKept/privacy-policy/",
   },
   overLitPrivacy: {
-    version: "1.0.10",
+    version: "1.0.12",
     effectiveDate: "2026-05-31",
     path: "/apps/OverLit/privacy-policy/",
   },
   overLitTerms: {
-    version: "1.0.4",
+    version: "1.0.6",
     effectiveDate: "2026-05-31",
     path: "/apps/OverLit/terms-of-use/",
   },
   terms: {
-    version: "1.2.5",
-    effectiveDate: "2026-05-22",
+    version: "1.2.6",
+    effectiveDate: "2026-05-31",
     path: "/PlanKept/terms-of-service/",
   },
 };

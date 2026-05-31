@@ -47,6 +47,8 @@ Some template privacy policies include broad categories that do not match OverLi
 
 If you voluntarily include any of that information in a support email, we may receive it as part of your message, but the app does not require it.
 
+OverLit does not intentionally collect sensitive personal information, such as health, biometric, precise location, financial account, government ID, racial or ethnic origin, religious belief, union membership, sexual orientation, or similar sensitive categories. OverLit does not use sensitive personal information for ad targeting. If you choose to include sensitive information in a support email, we may receive it as part of that message, but you do not need to send it to use the app.
+
 ## 4. Advertising And AdMob
 
 OverLit integrates Google AdMob through the Google Mobile Ads SDK. Release builds use production AdMob app and ad unit IDs. Debug or development builds may use Google demo or test ad IDs.
@@ -109,6 +111,8 @@ When Full Version is active, OverLit stores a local entitlement cache and limite
 
 Full Version does not use custom user tracking, analytics, or a custom account. It does not automatically unlock progression-only rewards, arcade modes, or other non-ad content that still requires normal gameplay.
 
+Full Version purchases, refunds, chargebacks, family sharing availability, and purchase restoration are handled through Apple and the App Store. If Apple reports that a purchase has been refunded, revoked, or is otherwise no longer active, OverLit may update the local entitlement state to match Apple's entitlement status.
+
 ## 7. External Marketing And Promotion
 
 We may promote OverLit through paid or organic ads on external services such as Instagram, Meta, TikTok, Apple Search Ads, Google, or similar advertising platforms.
@@ -140,8 +144,7 @@ The relevant active AdMob-related categories include:
 - `Usage Data > Product Interaction`: includes ad views, taps, video views, rewarded completions, app launches, privacy-message interactions, and other ad or consent interaction data. It may be used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement; it may be linked to the user and used for tracking where required.
 - `Usage Data > Advertising Data`: includes ads shown, impressions, ad interactions, campaign or measurement data, and rewarded-ad completion. It may be used for Third-Party Advertising, Developer Advertising or Marketing, and Analytics, may be linked to the user, and may be used for tracking where required.
 - `Diagnostics > Crash Data`: may include non-user-related crash logs used for diagnostics, app functionality, analytics, SDK reliability, and security. We do not use support crash logs for retargeting.
-- `Diagnostics > Performance Data`: may include launch time, hang rate, energy usage, and SDK performance data. It may be used for App Functionality, Analytics, Third-Party Advertising, Developer Advertising or Marketing, and tracking where the SDK privacy report or App Store Connect requires.
-- `Diagnostics > Other Diagnostic Data`: may include SDK diagnostic signals used for Third-Party Advertising, developer advertising, analytics, reliability, and security. The Google Mobile Ads SDK privacy manifest reports this category as not linked and not used for tracking.
+- `Diagnostics > Performance Data`: may include launch time, hang rate, energy usage, and SDK performance data. It may be used for Analytics and Other Purposes, may be linked to the user, and is not currently marked as used for tracking.
 
 The App Store product-page preview may summarize those choices as data used to track you, data linked to you, and data not linked to you. Because AdMob is active, the product page may show that OverLit collects data used for tracking.
 
@@ -178,6 +181,8 @@ We do not control those third parties' privacy practices. Their policies explain
 We may share or disclose information when reasonably necessary to operate the app, show and measure ads, provide support, maintain security, prevent fraud or abuse, comply with law, respond to valid legal requests, protect rights and safety, or transfer relevant records in connection with a merger, acquisition, reorganization, asset sale, or similar business transfer.
 
 We do not sell support email lists or account lists to data brokers. Some privacy laws define certain personalized advertising, ad SDK disclosures, or cross-context ad uses as a "sale," "sharing," or "targeted advertising." Where those laws apply, OverLit uses AdMob privacy messages and available privacy choices to support opt-out or consent choices.
+
+OverLit does not use automated decision-making or profiling that produces legal or similarly significant effects for players. Ad networks may use automated systems to select, personalize, measure, limit, or prevent fraud in ads, subject to your consent, opt-out choices, device settings, and the ad providers' own policies.
 
 ## 13. Children
 

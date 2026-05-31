@@ -8,6 +8,8 @@ This policy is also intended to support transparency obligations under applicabl
 
 If you download, select, or use a local or third-party AI model through PlanKept, that model may be governed by its own terms, use restrictions, or license. PlanKept lists those model terms near the relevant download or selection surface. By using a selected model, you agree to the listed model terms in addition to PlanKept's own legal terms.
 
+PlanKept does not operate a custom developer backend, developer-controlled analytics service, app account server, or telemetry pipeline for the app. The PlanKept website and hosted legal documents are static pages served through GitHub Pages. GitHub may process technical request metadata, such as IP address and request information, under GitHub's own privacy practices when those pages or the hosted legal manifest are loaded.
+
 Contact:
 
 - Email: `plankeptapp@gmail.com`
@@ -20,6 +22,7 @@ Contact:
 - We do not sell personal data.
 - We do not use third-party advertising SDKs, Meta Pixel, TikTok Pixel, or similar ad-tracking code in the PlanKept app or website today.
 - PlanKept is not an ad-supported app. We do not show third-party ads inside the PlanKept app.
+- PlanKept does not operate a custom developer backend, app account server, developer analytics service, or telemetry pipeline for app usage.
 - We may advertise PlanKept on services such as Meta, Instagram, TikTok, Apple Search Ads, Google, or similar platforms. Buying ads does not by itself mean that the PlanKept app or website sends app data to those platforms.
 - If you view, click, save, share, comment on, or otherwise interact with a PlanKept ad on a third-party platform, that platform may process the interaction under its own policies.
 - If we later add an advertising pixel, app event SDK, conversion API, custom audience upload, or similar measurement tool, we will update this policy, use required consent or choice controls, and avoid sending plan content, proof content, Health data, Screen Time data, AI conversation content, or other sensitive app content to ad platforms.
@@ -28,16 +31,19 @@ Contact:
 - The core app is intended to store most plans, settings, proof-related state, and similar usage content locally on your device.
 - Local-first does not necessarily mean local records are excluded from Apple-managed device backups, device migrations, iCloud backup settings, or operating-system recovery tools.
 - We may receive information you choose to send through support, contact, or wish-list channels.
+- The PlanKept website and hosted legal manifest are served by GitHub Pages, a third-party static site host. GitHub may log technical request metadata for security and operations under GitHub's own privacy practices.
 - Apple and other third parties may process information when you choose to use platform-managed or third-party features, such as App Store purchases, speech services, model downloads, or external AI/model routes.
 - If PlanKept introduces materially different data processing later, this policy should be updated before or with that change.
 
 ## 1. Information We Collect
 
-Depending on how you use PlanKept, we may collect, receive, or process categories such as:
+PlanKept is primarily local-first. The app stores most user-created content and settings on your device, and we do not receive that local app content unless you intentionally send it to us through a support, contact, or similar channel.
+
+Depending on how you use PlanKept, the following categories may be processed locally by the app, processed by Apple or another provider you choose, or received by us only when you intentionally contact us:
 
 - Contact details you choose to provide, such as your email address if you contact us
 - Messages, support requests, and other information you choose to send us
-- Basic website-delivery and security information, such as IP address, browser type, request timing, page requested, referring URL, and similar server or hosting metadata
+- Basic website-delivery and security information processed by GitHub Pages or other website infrastructure when PlanKept pages or legal documents are loaded, such as IP address, browser type, request timing, page requested, referring URL, and similar server or hosting metadata
 - Purchase and access information needed to offer, verify, or restore paid access through Apple or other platform purchase systems
 - App content you create or provide, such as plans, schedules, reminders, proof statements, attachments, AI-conversation content, and related workflow state
 - Image attachments you choose to add from the camera, photo library, pasteboard, or files, including image bytes and limited image metadata such as file type, dimensions, source, capture timestamp indicators, or whether location metadata appears to be present
@@ -75,7 +81,7 @@ Examples can include:
 - Apple-managed purchase, restore, and entitlement flows
 - Apple-provided crash, performance, or diagnostic reports where your Apple settings allow Apple to make those reports available to developers
 - support emails, wish-list forms, and other contact channels you intentionally use
-- hosted legal pages and legal-manifest checks
+- hosted legal pages and legal-manifest checks served by GitHub Pages
 - speech-recognition or related platform services
 - Apple-managed AI routes, model hosts, or user-configured AI/model endpoints, which may receive selected text, image attachments, image summaries, or related metadata when you choose a route that sends those inputs off the device
 - ad-platform surfaces when you view, click, or otherwise interact with PlanKept ads
@@ -114,11 +120,11 @@ The current PlanKept website is a static website and does not intentionally set 
 
 ## 6. Sharing
 
-We do not sell personal data, and we do not currently use PlanKept for cross-context behavioral advertising. We may disclose or make information available to third parties only when reasonably necessary to operate the service, comply with law, or provide a feature you choose to use.
+We do not sell personal data, and we do not currently use PlanKept for cross-context behavioral advertising. Because PlanKept does not operate a custom app backend, most app content stays on your device unless you choose a feature or channel that involves Apple, a model host, support email, a form provider, or another third party. We may disclose or make information available to third parties only when reasonably necessary to operate the service, comply with law, or provide a feature you choose to use.
 
 Examples can include:
 
-- website hosting providers
+- website hosting providers, including GitHub Pages for the static PlanKept website and hosted legal documents
 - email providers
 - external wish-list or form providers you intentionally use
 - Apple and other platform providers

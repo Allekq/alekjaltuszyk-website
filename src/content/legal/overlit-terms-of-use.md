@@ -51,6 +51,8 @@ Purchases, restorations, refunds, billing, and payment methods are handled by Ap
 
 Ads shown in or for OverLit, including local developer house ads, should be appropriate for OverLit's app age rating. If you see an inappropriate or age-inappropriate ad, contact support with a short description and any useful context.
 
+Full Version is intended to remove normal in-app ads from OverLit while the entitlement is active. It does not remove ads, promotions, or tracking that may appear on third-party websites, the App Store, external ad platforms, or other destinations you open outside OverLit.
+
 ## 7. Privacy
 
 OverLit privacy practices are explained in the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/).
@@ -72,35 +74,55 @@ You agree not to:
 - abuse support channels or send harmful, misleading, or abusive messages
 - misuse rewards, ads, links, app behavior, or local app state
 
-## 10. Intellectual Property
+## 10. Suspension, Termination, And Availability
+
+Because OverLit does not use accounts or a custom backend, we usually cannot suspend a local player account. We may still stop providing, update, remove, block, or limit access to OverLit, related website surfaces, support channels, ad placements, or features where reasonably needed to operate the app, comply with law or platform rules, protect the app or users, respond to misuse, or end support for a feature.
+
+You may stop using OverLit at any time. Deleting the app may remove local app data from the device, subject to normal iOS backup, restore, purchase, and device behavior.
+
+## 11. Intellectual Property
 
 The app design, copy, branding, visuals, website, and related materials are owned by or licensed to the Developer except where otherwise stated.
 
 You may not copy, reproduce, redistribute, or exploit those materials except as allowed by law or with permission.
 
-## 11. Third-Party Services
+## 12. Third-Party Services
 
 OverLit and related surfaces may link to or rely on third-party services, including Apple, Google/AdMob, email providers, website hosting, App Store links, and external destinations.
 
 Third-party services have their own terms and policies. We do not control those services and are not responsible for their content, availability, policies, or practices.
 
-## 12. No Professional Advice
+## 13. No Professional Advice
 
 OverLit is a game. It is not legal, medical, therapeutic, financial, emergency, or other professional advice.
 
-## 13. Disclaimers
+## 14. Disclaimers
 
 To the fullest extent permitted by law, OverLit and related surfaces are provided on an "as is" and "as available" basis. We do not guarantee uninterrupted availability, error-free operation, ad availability, rewards, scores, compatibility, or fitness for a particular purpose.
 
-## 14. Limitation Of Liability
+## 15. Limitation Of Liability
 
 To the fullest extent permitted by law, the Developer will not be liable for indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of OverLit, the website, ads, support, or third-party services.
 
-## 15. Changes To These Terms
+Nothing in these Terms limits or excludes any rights, warranties, remedies, or liabilities that cannot be limited or excluded under applicable consumer protection law.
+
+## 16. Governing Law
+
+These Terms are governed by the laws of Poland, except that this choice of law does not limit any mandatory consumer protection rights or other mandatory laws that apply where you live. If you are a consumer, you may bring claims in the courts and forums available under applicable law.
+
+## 17. Severability
+
+If any part of these Terms is found invalid or unenforceable, the remaining parts will continue to apply to the fullest extent permitted by law. The invalid or unenforceable part will be interpreted or replaced in the closest lawful way that matches its original purpose.
+
+## 18. Assignment And Transfer
+
+You may not transfer your rights or obligations under these Terms unless applicable law gives you that right. We may transfer or assign these Terms, OverLit, or related rights and obligations in connection with operating the app, a business transfer, merger, acquisition, reorganization, asset sale, legal requirement, or similar event, as long as this does not remove mandatory rights you have under applicable law.
+
+## 19. Changes To These Terms
 
 We may update these terms from time to time. When we do, we will update the effective date and version above.
 
-## 16. Contact
+## 20. Contact
 
 Questions about these terms can be sent to:
 
