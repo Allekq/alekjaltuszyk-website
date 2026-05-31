@@ -27,7 +27,8 @@ the public legal pages.
 
 - Privacy copy: `src/content/legal/plankept-privacy-policy.md`
 - Privacy wrapper/version shell: `src/components/legal/PlanKeptPrivacyPolicyContent.astro`
-- Terms copy: `src/components/legal/PlanKeptTermsOfServiceContent.astro`
+- Terms copy: `src/content/legal/plankept-terms-of-service.md`
+- Terms wrapper/version shell: `src/components/legal/PlanKeptTermsOfServiceContent.astro`
 - App repo: `/Users/alekj/Documents/GitHub/plan enforcer`
 - App sync skill: `/Users/alekj/Documents/GitHub/plan enforcer/.agents/skills/legal-update-sync/SKILL.md`
 - App legal/model skill: `/Users/alekj/Documents/GitHub/plan enforcer/.agents/skills/legal-model-disclosures/SKILL.md`
@@ -41,7 +42,8 @@ license surfaces, and App Store-facing disclosures for consistency.
 
 - Privacy copy: `src/content/legal/overlit-privacy-policy.md`
 - Privacy wrapper/version shell: `src/components/legal/OverLitPrivacyPolicyContent.astro`
-- Terms copy: `src/components/legal/OverLitTermsOfUseContent.astro`
+- Terms copy: `src/content/legal/overlit-terms-of-use.md`
+- Terms wrapper/version shell: `src/components/legal/OverLitTermsOfUseContent.astro`
 - App repo: `/Users/alekj/Documents/GitHub/OverLit-app`
 - App sync skill: `/Users/alekj/Documents/GitHub/OverLit-app/.agents/skills/legal-update-sync/SKILL.md`
 - App legal catalog: `/Users/alekj/Documents/GitHub/OverLit-app/Sources/OverLitPlayableUI/Storage/PlayableAppGateState.swift`
