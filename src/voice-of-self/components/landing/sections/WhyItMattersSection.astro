@@ -1,0 +1,19 @@
+---
+import WhyItMattersDesktopShowcase from "./why-it-matters/WhyItMattersDesktopShowcase.astro";
+import WhyItMattersMobileShowcase from "./why-it-matters/WhyItMattersMobileShowcase.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import SectionShell from "../ui/SectionShell.astro";
+---
+
+<SectionShell id="why-it-matters" className="why-section">
+  <SectionHeading
+    eyebrow="Why it matters"
+    title="The important changes rarely announce themselves."
+    body="When a worry quietly stops appearing in your reflections, Voice of Self catches it. Instead of that change going unnoticed, you get a clear, gentle signal that something has shifted."
+    align="center"
+    className="why-section__heading"
+  />
+
+  <WhyItMattersDesktopShowcase />
+  <WhyItMattersMobileShowcase />
+</SectionShell>

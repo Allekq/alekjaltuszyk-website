@@ -1,0 +1,24 @@
+---
+import { faqEntries } from "./faq.data";
+import { siteConfig } from "../../../config/site";
+import ActionButton from "../ui/ActionButton.astro";
+import FaqList from "../ui/FaqList.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import SectionShell from "../ui/SectionShell.astro";
+---
+
+<SectionShell id="faq" tone="muted" className="faq-section">
+  <SectionHeading
+    eyebrow="FAQ"
+    title="Questions you might have"
+    align="center"
+  />
+
+  <FaqList items={faqEntries} />
+
+  <div class="faq-section__answers-cta" data-reveal>
+    <ActionButton href={siteConfig.answersHref} variant="secondary">
+      Browse all answers
+    </ActionButton>
+  </div>
+</SectionShell>

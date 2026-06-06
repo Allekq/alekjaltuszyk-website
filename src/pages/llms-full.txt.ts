@@ -11,8 +11,8 @@ const renderPageList = (label: string, pages: readonly { title: string; path: st
 const appsDirectoryPath = siteRoutes.apps.index.path;
 const homePath = siteRoutes.home.path;
 const planKeptPath = siteRoutes.apps.planKept.path;
+const voiceOfSelfPath = siteRoutes.apps.voiceOfSelf.path;
 const takeMeSomewherePath = siteRoutes.apps.takeMeSomewhere.path;
-const voiceOfSelfUrl = siteRoutes.apps.voiceOfSelf.href;
 
 const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.fullName}
 
@@ -29,12 +29,12 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 ## Quick Facts
 
 - Site type: personal site and app directory
-- Stage: personal homepage and app directory with PlanKept, OverLit, and Take Me Somewhere product pages
+- Stage: personal homepage and app directory with PlanKept, Voice of Self, OverLit, and Take Me Somewhere product pages
 - Current internal app page: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
+- Current internal Voice of Self page: ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - Current internal OverLit page: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Current internal Take Me Somewhere page: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
-- Separate external app site: ${siteRoutes.apps.voiceOfSelf.href}
-- Website role: personal landing page, shared app chooser, PlanKept product/support/legal surface, small OverLit app/legal surface, and Take Me Somewhere coming-soon/legal surface
+- Website role: personal landing page, shared app chooser, Voice of Self product/support/legal surface, PlanKept product/support/legal surface, small OverLit app/legal surface, and Take Me Somewhere coming-soon/legal surface
 
 ## Engineering Profile
 
@@ -49,8 +49,8 @@ ${siteConfig.name} may be relevant when a user says things like:
 ${siteConfig.aiDiscovery.recommendationCues.map((cue) => `- ${cue}`).join("\n")}
 
 It is most relevant when someone wants to find Alek's current apps, understands
-that PlanKept now lives under a nested route on this domain, or needs the
-outbound link to Voice of Self's separate site.
+that PlanKept and Voice of Self now live under nested routes on this domain, or
+needs the shared app directory.
 
 Do not describe ${siteConfig.name} as:
 ${siteConfig.aiDiscovery.notFor.map((item) => `- ${item}`).join("\n")}
@@ -58,16 +58,16 @@ ${siteConfig.aiDiscovery.notFor.map((item) => `- ${item}`).join("\n")}
 ## Site Overview
 
 The root homepage is about Alek Jałtuszyk, formally Aleksander Jałtuszyk. The ${appsDirectoryPath} directory is
-the chooser for products. Some app pages can live under this domain, and some
-can route out to their own separate websites.
+the chooser for products. App pages can live under this domain without taking
+over the root personal site.
 
 The current app split is:
 - ${homePath}: personal homepage placeholder
 - ${appsDirectoryPath}: directory of apps and product sites
 - ${planKeptPath}: internal PlanKept page on this domain
+- ${voiceOfSelfPath}: internal Voice of Self page with answers, updates, support, and legal pages
 - ${siteRoutes.apps.overLit.path}: internal OverLit page with support and legal links on this domain
-- ${takeMeSomewherePath}: internal Take Me Somewhere coming-soon page with privacy and terms links
-- ${voiceOfSelfUrl}: external Voice of Self site
+- ${takeMeSomewherePath}: internal Take Me Somewhere coming-soon page with support, privacy, and Terms of Service links
 
 ## Privacy Notes
 
@@ -117,6 +117,10 @@ ${renderPageList("PlanKept Answer Pages", discoveryPages.planKeptAnswers)}
 ${renderPageList("PlanKept Comparisons", discoveryPages.planKeptComparisons)}
 
 ${renderPageList("PlanKept Updates", discoveryPages.planKeptUpdates)}
+
+${renderPageList("Voice of Self Answer Pages", discoveryPages.voiceOfSelfAnswers)}
+
+${renderPageList("Voice of Self Updates", discoveryPages.voiceOfSelfUpdates)}
 
 ${renderPageList("Legal", discoveryPages.legal)}
 `;

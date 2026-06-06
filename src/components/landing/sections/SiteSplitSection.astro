@@ -18,9 +18,9 @@ const routeRows = [
     body: "Internal product page on this domain, separate from the root identity.",
   },
   {
-    label: siteRoutes.apps.voiceOfSelf.href,
+    label: siteRoutes.apps.voiceOfSelf.path,
     title: "Voice of Self",
-    body: "External destination that stays in its own repo and on its own website.",
+    body: "Internal product page on this domain, migrated from its standalone website repo.",
   },
 ];
 ---
@@ -32,8 +32,8 @@ const routeRows = [
       <h2 class="section-title">The split is deliberate so the structure stays obvious.</h2>
       <p class="section-body">
         The homepage can become a real personal site without dragging every app into the same page.
-        The app directory stays the chooser, internal app pages stay nested, and products that want
-        their own domain can keep it.
+        The app directory stays the chooser, and internal app pages stay nested even when they
+        started life as separate sites.
       </p>
 
       <ul class="mobile-beats">

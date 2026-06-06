@@ -28,9 +28,9 @@ Important notes:
 - ${siteConfig.aiDiscovery.privacyModel}
 - Not for: ${siteConfig.aiDiscovery.notFor[0] ?? "High-risk or team project management use cases."}
 - PlanKept lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
+- Voice of Self lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - OverLit lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Take Me Somewhere lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
-- Voice of Self stays on its own separate site at ${siteRoutes.apps.voiceOfSelf.href}
 - PlanKept summary: ${planKeptConfig.aiDiscovery.summary}
 - OverLit summary: ${overLitConfig.aiDiscovery.summary}
 - Take Me Somewhere summary: ${takeMeSomewhereConfig.aiDiscovery.summary}
@@ -46,6 +46,12 @@ ${renderLinks(discoveryPages.planKeptComparisons)}
 
 ## PlanKept Updates
 ${renderLinks(discoveryPages.planKeptUpdates)}
+
+## Voice of Self Answer Pages
+${renderLinks(discoveryPages.voiceOfSelfAnswers)}
+
+## Voice of Self Updates
+${renderLinks(discoveryPages.voiceOfSelfUpdates)}
 
 ## Legal
 ${renderLinks(discoveryPages.legal)}

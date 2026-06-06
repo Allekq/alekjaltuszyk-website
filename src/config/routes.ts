@@ -5,14 +5,10 @@ const createInternalRoute = (path: string) => ({
   href: withBase(path),
 });
 
-const createExternalRoute = (href: string) => ({
-  href,
-  external: true as const,
-});
-
 const planKeptBasePath = "/apps/PlanKept/";
 const overLitBasePath = "/apps/OverLit/";
 const takeMeSomewhereBasePath = "/apps/TakeMeSomewhere/";
+const voiceOfSelfBasePath = "/apps/VoiceOfSelf/";
 
 export const planKeptContentPaths = {
   answersIndex: `${planKeptBasePath}answers/`,
@@ -22,6 +18,17 @@ export const planKeptContentPaths = {
   updatesIndex: `${planKeptBasePath}updates/`,
   update: (slug: string) => `${planKeptBasePath}updates/${slug}/`,
   updatesFeed: `${planKeptBasePath}updates/feed.xml`,
+} as const;
+
+export const voiceOfSelfContentPaths = {
+  answersIndex: `${voiceOfSelfBasePath}answers/`,
+  answer: (slug: string) => `${voiceOfSelfBasePath}answers/${slug}/`,
+  updatesIndex: `${voiceOfSelfBasePath}updates/`,
+  update: (slug: string) => `${voiceOfSelfBasePath}updates/${slug}/`,
+  support: `${voiceOfSelfBasePath}support/`,
+  privacyPolicy: `${voiceOfSelfBasePath}privacy-policy/`,
+  termsOfService: `${voiceOfSelfBasePath}terms-of-service/`,
+  legalManifest: `${voiceOfSelfBasePath}legal-manifest.json`,
 } as const;
 
 export const siteRoutes = {
@@ -43,9 +50,17 @@ export const siteRoutes = {
     overLitSupport: createInternalRoute(`${overLitBasePath}support/`),
     overLitTermsOfUse: createInternalRoute(`${overLitBasePath}terms-of-use/`),
     takeMeSomewhere: createInternalRoute(takeMeSomewhereBasePath),
+    takeMeSomewhereLegalManifest: createInternalRoute(`${takeMeSomewhereBasePath}legal-manifest.json`),
     takeMeSomewherePrivacyPolicy: createInternalRoute(`${takeMeSomewhereBasePath}privacy-policy/`),
-    takeMeSomewhereTerms: createInternalRoute(`${takeMeSomewhereBasePath}terms-and-conditions/`),
-    voiceOfSelf: createExternalRoute("https://voiceofself.life"),
+    takeMeSomewhereSupport: createInternalRoute(`${takeMeSomewhereBasePath}support/`),
+    takeMeSomewhereTerms: createInternalRoute(`${takeMeSomewhereBasePath}terms-of-service/`),
+    voiceOfSelf: createInternalRoute(voiceOfSelfBasePath),
+    voiceOfSelfAnswers: createInternalRoute(voiceOfSelfContentPaths.answersIndex),
+    voiceOfSelfUpdates: createInternalRoute(voiceOfSelfContentPaths.updatesIndex),
+    voiceOfSelfSupport: createInternalRoute(voiceOfSelfContentPaths.support),
+    voiceOfSelfPrivacyPolicy: createInternalRoute(voiceOfSelfContentPaths.privacyPolicy),
+    voiceOfSelfTermsOfService: createInternalRoute(voiceOfSelfContentPaths.termsOfService),
+    voiceOfSelfLegalManifest: createInternalRoute(voiceOfSelfContentPaths.legalManifest),
   },
   support: createInternalRoute("/support/"),
   privacyPolicy: createInternalRoute("/privacy-policy/"),
@@ -114,7 +129,7 @@ export const appDirectory = [
   {
     id: "voice-of-self",
     name: "Voice of Self",
-    eyebrow: "Separate website",
+    eyebrow: "On this domain",
     status: "Live on the App Store",
     description:
       "A launched voice-first reflection app for noticing personal growth and resolved worries over time.",
@@ -122,12 +137,12 @@ export const appDirectory = [
     chips: [
       "Voice-first reflection",
       "Live iOS app",
-      "Opens voiceofself.life",
+      "Support and legal here",
     ],
-    ctaLabel: "Visit Voice of Self",
+    ctaLabel: "Open Voice of Self",
     href: siteRoutes.apps.voiceOfSelf.href,
-    routeLabel: siteRoutes.apps.voiceOfSelf.href,
-    external: true,
+    routeLabel: siteRoutes.apps.voiceOfSelf.path,
+    external: false,
   },
   {
     id: "take-me-somewhere",

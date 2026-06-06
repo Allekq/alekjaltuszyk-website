@@ -4,6 +4,14 @@ import {
   planKeptContentHubs,
   planKeptUpdatePosts,
 } from "../config/planKeptContent";
+import {
+  getVisibilityAnswerPath,
+  getVisibilityUpdatePath,
+  visibilityAnswerHub,
+  visibilityAnswerPages,
+  visibilityUpdateHub,
+  visibilityUpdatePosts,
+} from "../voice-of-self/config/visibility";
 import { siteConfig } from "../config/site";
 import { siteRoutes } from "../config/routes";
 import { withBase } from "./paths";
@@ -29,13 +37,19 @@ export const discoveryPages = {
       title: "Apps",
       path: siteRoutes.apps.index.path,
       description:
-        "Shared app directory for current products by Alek Jałtuszyk, including PlanKept, OverLit, Take Me Somewhere, and the outbound Voice of Self link.",
+        "Shared app directory for current products by Alek Jałtuszyk, including PlanKept, Voice of Self, OverLit, and Take Me Somewhere.",
     },
     {
       title: "PlanKept",
       path: siteRoutes.apps.planKept.path,
       description:
         "Public PlanKept product page from Alek Jałtuszyk covering local-first plan enforcement, achievement-gated app blocking, Proof Review, analytics, and legal/support links.",
+    },
+    {
+      title: "Voice of Self",
+      path: siteRoutes.apps.voiceOfSelf.path,
+      description:
+        "Public Voice of Self product page from Alek Jałtuszyk covering voice-first reflection, answers, updates, and legal/support links.",
     },
     {
       title: "OverLit",
@@ -48,6 +62,16 @@ export const discoveryPages = {
       path: siteRoutes.apps.takeMeSomewhere.path,
       description:
         "Coming-soon Take Me Somewhere product page from Alek Jałtuszyk for spontaneous, time-boxed local route discovery with Compass Mode, Route Mode, and map-grounded outings.",
+    },
+    {
+      title: "Voice of Self Support",
+      path: siteRoutes.apps.voiceOfSelfSupport.path,
+      description: "Email-based support instructions for Voice of Self.",
+    },
+    {
+      title: "Take Me Somewhere Support",
+      path: siteRoutes.apps.takeMeSomewhereSupport.path,
+      description: "Email-based support instructions for Take Me Somewhere.",
     },
     {
       title: "OverLit Support",
@@ -90,6 +114,30 @@ export const discoveryPages = {
     path: post.path,
     description: post.description,
   })),
+  voiceOfSelfAnswers: [
+    {
+      title: visibilityAnswerHub.title,
+      path: visibilityAnswerHub.path,
+      description: visibilityAnswerHub.description,
+    },
+    ...visibilityAnswerPages.map((page) => ({
+      title: page.title,
+      path: getVisibilityAnswerPath(page.slug),
+      description: page.description,
+    })),
+  ],
+  voiceOfSelfUpdates: [
+    {
+      title: visibilityUpdateHub.title,
+      path: visibilityUpdateHub.path,
+      description: visibilityUpdateHub.description,
+    },
+    ...visibilityUpdatePosts.map((post) => ({
+      title: post.title,
+      path: getVisibilityUpdatePath(post.slug),
+      description: post.description,
+    })),
+  ],
   legal: [
     {
       title: "Privacy Policy",
@@ -100,6 +148,18 @@ export const discoveryPages = {
       title: "Terms of Service",
       path: siteRoutes.planKept.termsOfService.path,
       description: "Usage terms for the website, support flows, and future app access.",
+    },
+    {
+      title: "Voice of Self Privacy Policy",
+      path: siteRoutes.apps.voiceOfSelfPrivacyPolicy.path,
+      description:
+        "How Voice of Self handles website, support, account, subscription, AI processing, and app-related data.",
+    },
+    {
+      title: "Voice of Self Terms of Service",
+      path: siteRoutes.apps.voiceOfSelfTermsOfService.path,
+      description:
+        "Terms covering Voice of Self app, website, subscriptions, managed AI features, support, and acceptable use.",
     },
     {
       title: "OverLit Privacy Policy",
@@ -117,13 +177,19 @@ export const discoveryPages = {
       title: "Take Me Somewhere Privacy Policy",
       path: siteRoutes.apps.takeMeSomewherePrivacyPolicy.path,
       description:
-        "Placeholder privacy policy for Take Me Somewhere, a coming-soon iPhone app for time-boxed local route discovery.",
+        "How Take Me Somewhere handles current location, route requests, local preferences, map providers, support contact, and privacy rights.",
     },
     {
-      title: "Take Me Somewhere Terms and Conditions",
+      title: "Take Me Somewhere Terms of Service",
       path: siteRoutes.apps.takeMeSomewhereTerms.path,
       description:
-        "Placeholder terms and conditions for Take Me Somewhere, including route safety expectations and launch-stage availability notes.",
+        "Terms covering Take Me Somewhere app and website use, route safety, map providers, Apple terms, privacy, support, and acceptable use.",
+    },
+    {
+      title: "Take Me Somewhere Legal Manifest",
+      path: siteRoutes.apps.takeMeSomewhereLegalManifest.path,
+      description:
+        "Machine-readable Take Me Somewhere legal document versions, effective dates, and canonical URLs.",
     },
     {
       title: "Legal Manifest",
@@ -151,13 +217,23 @@ export const sitemapPagePaths = [
   siteRoutes.home.path,
   siteRoutes.apps.index.path,
   siteRoutes.apps.planKept.path,
+  siteRoutes.apps.voiceOfSelf.path,
+  siteRoutes.apps.voiceOfSelfSupport.path,
+  siteRoutes.apps.voiceOfSelfAnswers.path,
+  ...visibilityAnswerPages.map((page) => getVisibilityAnswerPath(page.slug)),
+  siteRoutes.apps.voiceOfSelfUpdates.path,
+  ...visibilityUpdatePosts.map((post) => getVisibilityUpdatePath(post.slug)),
+  siteRoutes.apps.voiceOfSelfPrivacyPolicy.path,
+  siteRoutes.apps.voiceOfSelfTermsOfService.path,
   siteRoutes.apps.overLit.path,
   siteRoutes.apps.overLitSupport.path,
   siteRoutes.apps.overLitPrivacyPolicy.path,
   siteRoutes.apps.overLitTermsOfUse.path,
   siteRoutes.apps.takeMeSomewhere.path,
+  siteRoutes.apps.takeMeSomewhereSupport.path,
   siteRoutes.apps.takeMeSomewherePrivacyPolicy.path,
   siteRoutes.apps.takeMeSomewhereTerms.path,
+  siteRoutes.apps.takeMeSomewhereLegalManifest.path,
   siteRoutes.apps.planKeptAnswers.path,
   ...planKeptAnswerPages.map((page) => page.path),
   siteRoutes.apps.planKeptComparisons.path,

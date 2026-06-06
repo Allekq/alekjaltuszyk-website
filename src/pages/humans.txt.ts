@@ -15,7 +15,7 @@ ${siteConfig.identity.shortBio}
 
 Current products:
 - PlanKept: ${planKeptConfig.aiDiscovery.summary}
-- Voice of Self: separate product website linked from ${toAbsoluteSiteUrl(siteRoutes.apps.index.path)}
+- Voice of Self: internal product page under ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 
 Key pages:
 - Home: ${toAbsoluteSiteUrl(siteRoutes.home.path)}

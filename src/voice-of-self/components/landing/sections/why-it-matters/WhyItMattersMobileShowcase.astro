@@ -1,0 +1,22 @@
+---
+import WhyItMattersStage from "./WhyItMattersStage.astro";
+import WhyStageCueField from "./WhyStageCueField.astro";
+import WhyItMattersSharedContent from "./WhyItMattersSharedContent.astro";
+---
+
+<div class="why-mobile-flow">
+  <div class="why-showcase why-mobile-stage" data-reveal data-why-progress-root>
+    <div class="why-showcase__visual" data-why-visual-track>
+      <WhyStageCueField />
+      <div class="why-showcase__visual-frame" data-why-stage-frame>
+        <WhyItMattersStage />
+      </div>
+    </div>
+  </div>
+
+  <div class="why-showcase why-mobile-copy landing-surface" data-reveal data-reveal-early>
+    <div class="why-showcase__copy">
+      <WhyItMattersSharedContent />
+    </div>
+  </div>
+</div>

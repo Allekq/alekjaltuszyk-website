@@ -1,0 +1,143 @@
+---
+import "../styles/global.css";
+import { siteConfig } from "../config/site";
+import { withBase } from "../lib/paths";
+
+interface Frontmatter {
+  title?: string;
+  description?: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  frontmatter?: Frontmatter;
+  pageType?: "auto" | "content" | "legal";
+  articleClassName?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  frontmatter,
+  pageType = "auto",
+  articleClassName,
+  structuredData,
+} = Astro.props as Props;
+const pageTitle = Astro.props.title ?? frontmatter?.title ?? siteConfig.homeTitle;
+const description =
+  Astro.props.description ??
+  frontmatter?.description ??
+  siteConfig.defaultDescription;
+
+const normalizedPathname = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+const canonicalUrl = new URL(normalizedPathname, Astro.site ?? Astro.url).toString();
+const homeHref = siteConfig.homeHref;
+const isHomePage = normalizedPathname === siteConfig.homeHref;
+const resolvedPageType = isHomePage ? "home" : pageType === "auto" ? "legal" : pageType;
+const title =
+  isHomePage || pageTitle.includes(siteConfig.name)
+    ? pageTitle
+    : `${pageTitle} | ${siteConfig.name}`;
+const organizationId = `${siteConfig.origin}#organization`;
+const websiteId = `${siteConfig.origin}#website`;
+const imageUrl = siteConfig.defaultSocialImageUrl;
+const resolvedStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": organizationId,
+    name: siteConfig.name,
+    legalName: siteConfig.legalName,
+    url: siteConfig.origin,
+    logo: siteConfig.logoImageUrl,
+    email: siteConfig.contactEmail,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: siteConfig.supportEmail,
+        url: new URL(siteConfig.supportHref, siteConfig.origin).toString(),
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": websiteId,
+    name: siteConfig.name,
+    url: siteConfig.origin,
+    description: siteConfig.defaultDescription,
+    publisher: {
+      "@id": organizationId,
+    },
+  },
+  ...(structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : []),
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0c1019" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href={withBase("/favicon.png")} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={isHomePage ? "website" : "article"} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+    <link rel="alternate" type="text/plain" title="LLM context" href={withBase("/llms.txt")} />
+    {resolvedStructuredData.map((entry) => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
+    ))}
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
+    <title>{title}</title>
+  </head>
+  <body
+    class:list={[
+      resolvedPageType === "home" && "is-home",
+      resolvedPageType === "legal" && "is-legal",
+      resolvedPageType === "content" && "is-content",
+    ]}
+  >
+    <div class="site-backdrop" aria-hidden="true">
+      <div class="site-backdrop__orb site-backdrop__orb--gold"></div>
+      <div class="site-backdrop__orb site-backdrop__orb--blue"></div>
+      <div class="site-backdrop__grid"></div>
+    </div>
+
+    {resolvedPageType !== "home" && (
+      <header class="site-header">
+        <a class="site-header__home-link" href={homeHref}>{siteConfig.name}</a>
+      </header>
+    )}
+
+    <main class:list={["site-frame", resolvedPageType === "home" && "landing-page"]}>
+      {resolvedPageType === "home" ? (
+        <slot />
+      ) : (
+        <article
+          class:list={[
+            resolvedPageType === "legal" ? "legal-article" : "content-article",
+            articleClassName,
+          ]}
+        >
+          <slot />
+        </article>
+      )}
+    </main>
+  </body>
+</html>

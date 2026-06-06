@@ -1,0 +1,46 @@
+---
+import "../../../../voice-of-self/styles/landing.css";
+import "../../../../voice-of-self/styles/visibility.css";
+import SiteFooter from "../../../../voice-of-self/components/landing/sections/SiteFooter.astro";
+import UpdatesIndexView from "../../../../voice-of-self/components/visibility/UpdatesIndexView.astro";
+import {
+  getVisibilityUpdatePath,
+  visibilityUpdateHub,
+  visibilityUpdatePosts,
+} from "../../../../voice-of-self/config/visibility";
+import { siteConfig } from "../../../../voice-of-self/config/site";
+import { toAbsoluteSiteUrl } from "../../../../voice-of-self/lib/discovery";
+import SiteLayout from "../../../../voice-of-self/layouts/SiteLayout.astro";
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: visibilityUpdateHub.title,
+    url: toAbsoluteSiteUrl(visibilityUpdateHub.path),
+    description: visibilityUpdateHub.description,
+    about: {
+      "@type": "SoftwareApplication",
+      name: siteConfig.name,
+      applicationCategory: "LifestyleApplication",
+      operatingSystem: "iOS",
+    },
+    blogPost: visibilityUpdatePosts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: toAbsoluteSiteUrl(getVisibilityUpdatePath(post.slug)),
+      datePublished: post.publishedDate,
+    })),
+  },
+];
+---
+
+<SiteLayout
+  title={visibilityUpdateHub.title}
+  description={visibilityUpdateHub.description}
+  pageType="content"
+  structuredData={structuredData}
+>
+  <UpdatesIndexView />
+  <SiteFooter />
+</SiteLayout>

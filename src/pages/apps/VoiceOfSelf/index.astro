@@ -1,0 +1,68 @@
+---
+import "../../../voice-of-self/styles/landing.css";
+import HomePageOrchestrator from "../../../voice-of-self/components/landing/orchestrator/HomePageOrchestrator.astro";
+import { faqEntries } from "../../../voice-of-self/components/landing/sections/faq.data";
+import { siteConfig } from "../../../voice-of-self/config/site";
+import { toAbsoluteSiteUrl } from "../../../voice-of-self/lib/discovery";
+import SiteLayout from "../../../voice-of-self/layouts/SiteLayout.astro";
+import SiteFooter from "../../../voice-of-self/components/landing/sections/SiteFooter.astro";
+
+const organizationId = `${siteConfig.origin}#organization`;
+const homePageStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    name: siteConfig.name,
+    alternateName: "Closure",
+    operatingSystem: "iOS",
+    applicationCategory: "LifestyleApplication",
+    url: siteConfig.origin,
+    image: siteConfig.defaultSocialImageUrl,
+    description: siteConfig.aiDiscovery.summary,
+    publisher: {
+      "@id": organizationId,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqEntries.map((entry) => ({
+      "@type": "Question",
+      name: entry.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: entry.answer,
+      },
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: siteConfig.homeTitle,
+    url: toAbsoluteSiteUrl(siteConfig.homePath),
+    description: siteConfig.defaultDescription,
+    about: {
+      "@type": "Thing",
+      name: siteConfig.name,
+      description: siteConfig.aiDiscovery.summary,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${siteConfig.origin}#website`,
+    },
+  },
+];
+---
+
+<SiteLayout
+  title={siteConfig.homeTitle}
+  description={siteConfig.defaultDescription}
+  structuredData={homePageStructuredData}
+>
+  <HomePageOrchestrator />
+  <SiteFooter />
+
+  <script>
+    import "../../../voice-of-self/scripts/landing/init";
+  </script>
+</SiteLayout>
