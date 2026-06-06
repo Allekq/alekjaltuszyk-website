@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { overLitConfig, planKeptConfig, siteConfig } from "../config/site";
+import { overLitConfig, planKeptConfig, siteConfig, takeMeSomewhereConfig } from "../config/site";
 import { siteRoutes } from "../config/routes";
 import { discoveryPages, toAbsoluteSiteUrl } from "../lib/discovery";
 
@@ -29,9 +29,11 @@ Important notes:
 - Not for: ${siteConfig.aiDiscovery.notFor[0] ?? "High-risk or team project management use cases."}
 - PlanKept lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
 - OverLit lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
+- Take Me Somewhere lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
 - Voice of Self stays on its own separate site at ${siteRoutes.apps.voiceOfSelf.href}
 - PlanKept summary: ${planKeptConfig.aiDiscovery.summary}
 - OverLit summary: ${overLitConfig.aiDiscovery.summary}
+- Take Me Somewhere summary: ${takeMeSomewhereConfig.aiDiscovery.summary}
 
 ## Main Pages
 ${renderLinks(discoveryPages.main)}

@@ -29,7 +29,7 @@ export const discoveryPages = {
       title: "Apps",
       path: siteRoutes.apps.index.path,
       description:
-        "Shared app directory for current products by Alek Jałtuszyk, including PlanKept, OverLit, and the outbound Voice of Self link.",
+        "Shared app directory for current products by Alek Jałtuszyk, including PlanKept, OverLit, Take Me Somewhere, and the outbound Voice of Self link.",
     },
     {
       title: "PlanKept",
@@ -42,6 +42,12 @@ export const discoveryPages = {
       path: siteRoutes.apps.overLit.path,
       description:
         "Visual OverLit product page from Alek Jałtuszyk for the fast reflex iPhone arcade game, with launch CTA plus support and legal links.",
+    },
+    {
+      title: "Take Me Somewhere",
+      path: siteRoutes.apps.takeMeSomewhere.path,
+      description:
+        "Coming-soon Take Me Somewhere product page from Alek Jałtuszyk for spontaneous, time-boxed local route discovery with Compass Mode, Route Mode, and map-grounded outings.",
     },
     {
       title: "OverLit Support",
@@ -108,6 +114,18 @@ export const discoveryPages = {
         "Terms covering OverLit app, website, support, advertising, rewarded unlocks, local progress, acceptable use, and third-party services.",
     },
     {
+      title: "Take Me Somewhere Privacy Policy",
+      path: siteRoutes.apps.takeMeSomewherePrivacyPolicy.path,
+      description:
+        "Placeholder privacy policy for Take Me Somewhere, a coming-soon iPhone app for time-boxed local route discovery.",
+    },
+    {
+      title: "Take Me Somewhere Terms and Conditions",
+      path: siteRoutes.apps.takeMeSomewhereTerms.path,
+      description:
+        "Placeholder terms and conditions for Take Me Somewhere, including route safety expectations and launch-stage availability notes.",
+    },
+    {
       title: "Legal Manifest",
       path: siteRoutes.legalManifest.path,
       description: "Machine-readable legal document versions and effective dates.",
@@ -137,6 +155,9 @@ export const sitemapPagePaths = [
   siteRoutes.apps.overLitSupport.path,
   siteRoutes.apps.overLitPrivacyPolicy.path,
   siteRoutes.apps.overLitTermsOfUse.path,
+  siteRoutes.apps.takeMeSomewhere.path,
+  siteRoutes.apps.takeMeSomewherePrivacyPolicy.path,
+  siteRoutes.apps.takeMeSomewhereTerms.path,
   siteRoutes.apps.planKeptAnswers.path,
   ...planKeptAnswerPages.map((page) => page.path),
   siteRoutes.apps.planKeptComparisons.path,

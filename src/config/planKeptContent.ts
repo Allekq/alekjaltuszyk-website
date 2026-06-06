@@ -367,7 +367,7 @@ const updatePosts = [
           "This is the place to follow what PlanKept can do, what changed, and how the product handles real-life plans. Short posts can cover launch notes, changelog entries, privacy explanations, free-versus-paid product updates, and specific use cases like step-gated or workout-gated blocking.",
         bullets: [
           "Read the clearest version of product notes under the PlanKept site.",
-          "Use the posts to understand Proof Review, analytics, recurrence, app blocks, minute caps, pricing, privacy, AI-assisted setup, and launch readiness.",
+          "Use the posts to understand Proof Review, analytics, recurrence, app blocks, minute caps, pricing, privacy, AI-assisted setup, and App Store availability.",
           "Expect outside posts to point back here when PlanKept is discussed elsewhere.",
         ],
       },

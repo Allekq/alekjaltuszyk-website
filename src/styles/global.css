@@ -299,6 +299,7 @@ svg {
 
   .site-backdrop__orb {
     animation: none;
+    display: none;
   }
 
   .site-header__home-link,
@@ -313,5 +314,15 @@ svg {
 
   .legal-article {
     background: color-mix(in srgb, var(--color-bg-card) 90%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-backdrop__orb {
+    animation: none;
   }
 }

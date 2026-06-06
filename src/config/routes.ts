@@ -12,6 +12,7 @@ const createExternalRoute = (href: string) => ({
 
 const planKeptBasePath = "/apps/PlanKept/";
 const overLitBasePath = "/apps/OverLit/";
+const takeMeSomewhereBasePath = "/apps/TakeMeSomewhere/";
 
 export const planKeptContentPaths = {
   answersIndex: `${planKeptBasePath}answers/`,
@@ -41,6 +42,9 @@ export const siteRoutes = {
     overLitPrivacyPolicy: createInternalRoute(`${overLitBasePath}privacy-policy/`),
     overLitSupport: createInternalRoute(`${overLitBasePath}support/`),
     overLitTermsOfUse: createInternalRoute(`${overLitBasePath}terms-of-use/`),
+    takeMeSomewhere: createInternalRoute(takeMeSomewhereBasePath),
+    takeMeSomewherePrivacyPolicy: createInternalRoute(`${takeMeSomewhereBasePath}privacy-policy/`),
+    takeMeSomewhereTerms: createInternalRoute(`${takeMeSomewhereBasePath}terms-and-conditions/`),
     voiceOfSelf: createExternalRoute("https://voiceofself.life"),
   },
   support: createInternalRoute("/support/"),
@@ -124,5 +128,23 @@ export const appDirectory = [
     href: siteRoutes.apps.voiceOfSelf.href,
     routeLabel: siteRoutes.apps.voiceOfSelf.href,
     external: true,
+  },
+  {
+    id: "take-me-somewhere",
+    name: "Take Me Somewhere",
+    eyebrow: "On this domain",
+    status: "Coming soon",
+    description:
+      "A walking-first iPhone companion for spontaneous, time-boxed local outings with map-grounded routes.",
+    theme: "coral",
+    chips: [
+      "Time-boxed outings",
+      "Compass Mode",
+      "Mystery destination",
+    ],
+    ctaLabel: "View app details",
+    href: siteRoutes.apps.takeMeSomewhere.href,
+    routeLabel: siteRoutes.apps.takeMeSomewhere.path,
+    external: false,
   },
 ] as const satisfies readonly AppDirectoryItem[];

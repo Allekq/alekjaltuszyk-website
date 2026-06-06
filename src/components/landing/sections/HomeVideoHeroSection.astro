@@ -3,13 +3,23 @@ import { siteConfig } from "../../../config/site";
 import { withBase } from "../../../lib/paths";
 
 const heroVideoPath = withBase("/media/home/hero-energy-loop.mp4");
+const heroPosterPath = withBase("/media/home/hero-energy-poster.jpg");
 const heroNameLines = siteConfig.preferredName.split(" ");
 ---
 
 <section class="home-video-hero" id="home">
   <div class="home-video-hero__media" aria-hidden="true">
-    <video class="home-video-hero__video" autoplay loop muted playsinline preload="metadata">
-      <source src={heroVideoPath} type="video/mp4" />
+    <video
+      class="home-video-hero__video"
+      autoplay
+      loop
+      muted
+      playsinline
+      poster={heroPosterPath}
+      preload="none"
+      data-hero-video
+    >
+      <source data-src={heroVideoPath} type="video/mp4" />
     </video>
   </div>
 
@@ -28,3 +38,7 @@ const heroNameLines = siteConfig.preferredName.split(" ");
     </div>
   </div>
 </section>
+
+<script>
+  import "../../../scripts/landing/home-hero-video";
+</script>

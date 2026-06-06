@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { overLitConfig, planKeptConfig, siteConfig } from "../config/site";
+import { overLitConfig, planKeptConfig, siteConfig, takeMeSomewhereConfig } from "../config/site";
 import { siteRoutes } from "../config/routes";
 import { discoveryPages, toAbsoluteSiteUrl } from "../lib/discovery";
 
@@ -11,6 +11,7 @@ const renderPageList = (label: string, pages: readonly { title: string; path: st
 const appsDirectoryPath = siteRoutes.apps.index.path;
 const homePath = siteRoutes.home.path;
 const planKeptPath = siteRoutes.apps.planKept.path;
+const takeMeSomewherePath = siteRoutes.apps.takeMeSomewhere.path;
 const voiceOfSelfUrl = siteRoutes.apps.voiceOfSelf.href;
 
 const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.fullName}
@@ -28,11 +29,12 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 ## Quick Facts
 
 - Site type: personal site and app directory
-- Stage: personal homepage and app directory with PlanKept and OverLit product pages
+- Stage: personal homepage and app directory with PlanKept, OverLit, and Take Me Somewhere product pages
 - Current internal app page: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
 - Current internal OverLit page: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
+- Current internal Take Me Somewhere page: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
 - Separate external app site: ${siteRoutes.apps.voiceOfSelf.href}
-- Website role: personal landing page, shared app chooser, PlanKept product/support/legal surface, and small OverLit app/legal surface
+- Website role: personal landing page, shared app chooser, PlanKept product/support/legal surface, small OverLit app/legal surface, and Take Me Somewhere coming-soon/legal surface
 
 ## Engineering Profile
 
@@ -64,6 +66,7 @@ The current app split is:
 - ${appsDirectoryPath}: directory of apps and product sites
 - ${planKeptPath}: internal PlanKept page on this domain
 - ${siteRoutes.apps.overLit.path}: internal OverLit page with support and legal links on this domain
+- ${takeMeSomewherePath}: internal Take Me Somewhere coming-soon page with privacy and terms links
 - ${voiceOfSelfUrl}: external Voice of Self site
 
 ## Privacy Notes
@@ -98,6 +101,12 @@ Check Proof Now, with supporting images when available.
 ${overLitConfig.aiDiscovery.summary}
 
 ${overLitConfig.aiDiscovery.status}
+
+## Take Me Somewhere Overview
+
+${takeMeSomewhereConfig.aiDiscovery.summary}
+
+${takeMeSomewhereConfig.aiDiscovery.status}
 
 ## Public Pages
 

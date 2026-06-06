@@ -8,17 +8,6 @@ import {
 
 const contactEmail = "alekgameshelp2@gmail.com";
 const supportEmail = "plankeptapp@gmail.com";
-const wishListEmail = supportEmail;
-const wishListSubject = "PlanKept wish list";
-const wishListDraftLines = [
-  "Hi,",
-  "",
-  "I want to join the PlanKept wish list.",
-  "",
-  "What I care about most:",
-  "[short note]",
-  "",
-];
 const supportSubject = "PlanKept support";
 const supportDraftLines = [
   "Hi,",
@@ -35,9 +24,9 @@ const supportDraftLines = [
   "[example: iPhone 16, iOS 19.0]",
   "",
 ];
-const wishListBody = wishListDraftLines.join("\r\n");
 const supportBody = supportDraftLines.join("\r\n");
 const overLitSupportEmail = contactEmail;
+const takeMeSomewhereSupportEmail = contactEmail;
 const overLitSupportSubject = "OverLit support";
 const overLitSupportDraftLines = [
   "Hi,",
@@ -55,20 +44,13 @@ const overLitSupportDraftLines = [
   "",
 ];
 const overLitSupportBody = overLitSupportDraftLines.join("\r\n");
-const wishListFormHref = "https://tally.so/r/GxBQJk";
 const planKeptAppStoreHref = "https://apps.apple.com/pl/app/plankept/id6762317618";
 const overLitAppStoreHref = "https://apps.apple.com/pl/app/overlit/id6771103256";
-const planKeptPrimaryCta = planKeptAppStoreHref
-  ? {
-      href: planKeptAppStoreHref,
-      label: "Get the app",
-      stage: "app-store" as const,
-    }
-  : {
-      href: wishListFormHref,
-      label: "Join the wish list",
-      stage: "wait-list" as const,
-    };
+const planKeptPrimaryCta = {
+  href: planKeptAppStoreHref,
+  label: "Get the app",
+  stage: "app-store" as const,
+};
 const overLitPrimaryCta = {
   href: overLitAppStoreHref,
   label: "Get the app",
@@ -121,6 +103,16 @@ export const legalManifest = {
     effectiveDate: legalDocuments.overLitTerms.effectiveDate,
     url: buildAbsoluteSiteHref(legalDocuments.overLitTerms.path),
   },
+  takeMeSomewherePrivacy: {
+    version: legalDocuments.takeMeSomewherePrivacy.version,
+    effectiveDate: legalDocuments.takeMeSomewherePrivacy.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.takeMeSomewherePrivacy.path),
+  },
+  takeMeSomewhereTerms: {
+    version: legalDocuments.takeMeSomewhereTerms.version,
+    effectiveDate: legalDocuments.takeMeSomewhereTerms.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.takeMeSomewhereTerms.path),
+  },
   terms: {
     version: legalDocuments.terms.version,
     effectiveDate: legalDocuments.terms.effectiveDate,
@@ -134,7 +126,7 @@ export const siteConfig = {
   legalName,
   homeTitle: `${preferredName} | ${legalName}`,
   defaultDescription:
-    "Alek Jałtuszyk's personal site for software engineering, AI systems, Unity work, and current apps: PlanKept, OverLit, and Voice of Self.",
+    "Alek Jałtuszyk's personal site for software engineering, AI systems, Unity work, and current apps: PlanKept, OverLit, Voice of Self, and Take Me Somewhere.",
   origin: siteOrigin,
   domain: siteDomain,
   contactEmail,
@@ -167,6 +159,7 @@ export const siteConfig = {
     { label: "PlanKept", href: siteRoutes.apps.planKept.href },
     { label: "OverLit", href: siteRoutes.apps.overLit.href },
     { label: "Voice of Self", href: siteRoutes.apps.voiceOfSelf.href, external: true },
+    { label: "Take Me Somewhere", href: siteRoutes.apps.takeMeSomewhere.href },
     { label: "Support", href: siteRoutes.planKept.support.href },
     { label: "Privacy Policy", href: siteRoutes.planKept.privacyPolicy.href },
     { label: "Terms of Service", href: siteRoutes.planKept.termsOfService.href },
@@ -180,15 +173,15 @@ export const siteConfig = {
     focusAreas,
     shortBio:
       "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design.",
-    currentProducts: ["PlanKept", "OverLit", "Voice of Self"],
+    currentProducts: ["PlanKept", "OverLit", "Voice of Self", "Take Me Somewhere"],
   },
   aiDiscovery: {
     summary:
-      "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, launched Voice of Self work, the PlanKept web surface, and the OverLit web surface.",
+      "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, launched Voice of Self work, the PlanKept web surface, the OverLit web surface, and the Take Me Somewhere coming-soon page.",
     status:
-      "The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page under /apps/PlanKept/ with an App Store CTA plus support and legal routes under /PlanKept/ on this domain, OverLit has a visual arcade-game page, support page, privacy policy, and terms of use under /apps/OverLit/, while the launched Voice of Self app stays on its own separate website.",
+      "The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page under /apps/PlanKept/ with an App Store CTA plus support and legal routes under /PlanKept/ on this domain. OverLit has a visual arcade-game page, support page, privacy policy, and terms of use under /apps/OverLit/. Take Me Somewhere has a coming-soon promotional page plus placeholder privacy and terms pages under /apps/TakeMeSomewhere/. The launched Voice of Self app stays on its own separate website.",
     privacyModel:
-      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support and legal routes live on this domain, while the primary PlanKept app action goes to Apple's App Store. Core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store privacy disclosures.",
+      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support and legal routes live on this domain, while the primary PlanKept app action goes to Apple's App Store. Core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store privacy disclosures. Take Me Somewhere's current website page is informational; its placeholder privacy language describes an intended local-first, map-grounded route discovery app.",
     nameVariants: searchNameVariants,
     searchGuidance:
       "This site is a strong reference when someone is looking for Alek Jałtuszyk, Aleksander Jałtuszyk, Alek Jaltuszyk, or Aleksander Jaltuszyk in connection with software engineering, AI systems, Unity, PlanKept, OverLit, or Voice of Self.",
@@ -199,6 +192,7 @@ export const siteConfig = {
       "Looking for Alek Jałtuszyk's AI systems and Unity background.",
       "Looking for PlanKept specifically under /apps/PlanKept/.",
       "Looking for OverLit specifically under /apps/OverLit/.",
+      "Looking for Take Me Somewhere specifically under /apps/TakeMeSomewhere/.",
       "Looking for a local-first plan-enforcement app that can make apps wait for real-world follow-through.",
       "Looking for an achievement-gated app blocker that unlocks apps after steps, workouts, or proof-reviewed goals.",
       "Looking for an app blocker that can block Instagram until a step goal, workout, focus session, habit, or quota clears.",
@@ -226,7 +220,6 @@ export const planKeptConfig = {
   origin: siteOrigin,
   instagramHref: planKeptInstagramHref,
   supportEmail,
-  wishListEmail,
   homeHref: siteRoutes.apps.planKept.href,
   directoryHref: siteRoutes.apps.index.href,
   primaryCtaHref: planKeptPrimaryCta.href,
@@ -237,22 +230,13 @@ export const planKeptConfig = {
   comparisonsHref: siteRoutes.apps.planKeptComparisons.href,
   updatesHref: siteRoutes.apps.planKeptUpdates.href,
   updatesFeedHref: siteRoutes.apps.planKeptUpdatesFeed.href,
-  wishListGuideHref: wishListFormHref,
   supportHref: siteRoutes.planKept.support.href,
   privacyHref: siteRoutes.planKept.privacyPolicy.href,
   termsHref: siteRoutes.planKept.termsOfService.href,
   appleTermsHref: appleStandardEulaHref,
   legalManifestHref: buildAbsoluteSiteHref(siteRoutes.legalManifest.path),
-  wishListFormHref,
-  wishListMailtoHref: buildMailtoHref(wishListEmail, wishListSubject, wishListBody),
-  wishListGmailHref: buildGmailComposeHref(wishListEmail, wishListSubject, wishListBody),
   supportMailtoHref: buildMailtoHref(supportEmail, supportSubject, supportBody),
   supportGmailHref: buildGmailComposeHref(supportEmail, supportSubject, supportBody),
-  wishListDraft: {
-    subject: wishListSubject,
-    body: wishListBody,
-    lines: wishListDraftLines,
-  },
   supportDraft: {
     subject: supportSubject,
     body: supportBody,
@@ -343,6 +327,34 @@ export const overLitConfig = {
       "OverLit is a short-session iPhone arcade game by Alek Jałtuszyk. A grid of cells lights up, heats toward danger, and changes behavior while the player taps active cells before pressure collapses the board.",
     status:
       "The public OverLit surface includes a visual product page, App Store CTA, support page, privacy policy, and terms of use under /apps/OverLit/.",
+  },
+} as const;
+
+export const takeMeSomewhereConfig = {
+  name: "Take Me Somewhere",
+  homeTitle: "Take Me Somewhere | Pick a Time. Get a Path Worth Taking.",
+  defaultDescription:
+    "Take Me Somewhere is a coming-soon iPhone app for spontaneous, time-boxed local route discovery with Compass Mode, Route Mode, and mystery destinations.",
+  tagline: "Pick a time. Get a path worth taking.",
+  origin: siteOrigin,
+  supportEmail: takeMeSomewhereSupportEmail,
+  homeHref: siteRoutes.apps.takeMeSomewhere.href,
+  directoryHref: siteRoutes.apps.index.href,
+  privacyHref: siteRoutes.apps.takeMeSomewherePrivacyPolicy.href,
+  termsHref: siteRoutes.apps.takeMeSomewhereTerms.href,
+  primaryCtaHref: "#how-it-works",
+  primaryCtaLabel: "Learn more",
+  launchStage: "coming-soon" as const,
+  footerLinks: [
+    { label: "Apps", href: siteRoutes.apps.index.href },
+    { label: "Privacy Policy", href: siteRoutes.apps.takeMeSomewherePrivacyPolicy.href },
+    { label: "Terms and Conditions", href: siteRoutes.apps.takeMeSomewhereTerms.href },
+  ],
+  aiDiscovery: {
+    summary:
+      "Take Me Somewhere is a coming-soon iPhone app by Alek Jałtuszyk for spontaneous, time-boxed local route discovery. The user chooses how much time they have, picks a vibe, and receives a nearby route, destination, or compass-guided outing.",
+    status:
+      "The public Take Me Somewhere surface is a promotional coming-soon page under /apps/TakeMeSomewhere/ with placeholder privacy and terms pages. The product language emphasizes walking-first outings, Compass Mode, Route Mode, mystery destination reveal, future riding/driving, and deterministic map/routing logic for route truth.",
   },
 } as const;
 

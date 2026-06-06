@@ -31,6 +31,16 @@ export const legalDocuments = {
     effectiveDate: "2026-05-31",
     path: "/apps/OverLit/terms-of-use/",
   },
+  takeMeSomewherePrivacy: {
+    version: "0.1.0",
+    effectiveDate: "2026-06-06",
+    path: "/apps/TakeMeSomewhere/privacy-policy/",
+  },
+  takeMeSomewhereTerms: {
+    version: "0.1.0",
+    effectiveDate: "2026-06-06",
+    path: "/apps/TakeMeSomewhere/terms-and-conditions/",
+  },
   terms: {
     version: "1.2.7",
     effectiveDate: "2026-06-06",
