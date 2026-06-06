@@ -1,4 +1,4 @@
-These Terms of Service govern your use of the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/PlanKept/`, support channels, the external wish-list flow, and related services that link to these terms.
+These Terms of Service govern your use of the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/PlanKept/`, support channels, App Store download and purchase flows, and related services that link to these terms.
 
 If you download the app through Apple's App Store and no custom end user license agreement is presented there, your use of the app is also subject to Apple's [Licensed Application End User Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/).
 
@@ -24,7 +24,7 @@ You are responsible for reviewing the listed model terms before downloading, sel
 
 ## 3. What The Service Is
 
-PlanKept includes a local-first app experience together with related website, legal, support, and wish-list surfaces.
+PlanKept includes a local-first app experience together with related website, legal, support, and App Store surfaces.
 
 Features, visuals, copy, pricing, availability, AI/model routes, and platform integrations may change over time.
 
@@ -52,7 +52,7 @@ You agree not to:
 - interfere with or disrupt the app or website
 - attempt to gain unauthorized access
 - use the service to distribute harmful code or abusive content
-- misuse the app, website, support channel, or wish-list flow
+- misuse the app, website, support channel, App Store route, or purchase flow
 
 ## 7. Intellectual Property
 
@@ -64,7 +64,7 @@ You keep your rights in plans, proof statements, attachments, and other content 
 
 ## 8. Support And Third-Party Services
 
-Support routes are link-based, and the wish-list action currently routes to a third-party form. Some features may also rely on Apple or other third-party services.
+Support routes are link-based, and the primary app action routes to Apple's App Store. Some features may also rely on Apple or other third-party services.
 
 We may change, suspend, or remove features, providers, or routes at any time.
 
@@ -86,7 +86,7 @@ PlanKept is not legal, medical, therapeutic, financial, or emergency advice. You
 
 ## 11. Third-Party Services
 
-The service may link to or rely on third-party services, including Apple's App Store terms, Apple platform services, email providers, hosting providers, model hosts, and external forms. We are not responsible for third-party services or their policies.
+The service may link to or rely on third-party services, including Apple's App Store terms, Apple platform services, email providers, hosting providers, and model hosts. We are not responsible for third-party services or their policies.
 
 ## 12. Disclaimers
 

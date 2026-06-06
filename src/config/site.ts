@@ -56,8 +56,7 @@ const overLitSupportDraftLines = [
 ];
 const overLitSupportBody = overLitSupportDraftLines.join("\r\n");
 const wishListFormHref = "https://tally.so/r/GxBQJk";
-// PlanKept still uses the wish-list path until its App Store launch.
-const planKeptAppStoreHref = "";
+const planKeptAppStoreHref = "https://apps.apple.com/pl/app/plankept/id6762317618";
 const overLitAppStoreHref = "https://apps.apple.com/pl/app/overlit/id6771103256";
 const planKeptPrimaryCta = planKeptAppStoreHref
   ? {
@@ -187,9 +186,9 @@ export const siteConfig = {
     summary:
       "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, launched Voice of Self work, the PlanKept web surface, and the OverLit web surface.",
     status:
-      "The homepage highlights engineering background, selected work, and current products. PlanKept still has its public product page under /apps/PlanKept/ with support and legal routes under /PlanKept/ on this domain, OverLit has a visual arcade-game page, support page, privacy policy, and terms of use under /apps/OverLit/, while the launched Voice of Self app stays on its own separate website.",
+      "The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page under /apps/PlanKept/ with an App Store CTA plus support and legal routes under /PlanKept/ on this domain, OverLit has a visual arcade-game page, support page, privacy policy, and terms of use under /apps/OverLit/, while the launched Voice of Self app stays on its own separate website.",
     privacyModel:
-      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support and legal routes live on this domain, while the PlanKept wish-list action goes to an external form. Core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store privacy disclosures.",
+      "The personal homepage, portfolio sections, and app directory are informational. PlanKept support and legal routes live on this domain, while the primary PlanKept app action goes to Apple's App Store. Core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store privacy disclosures.",
     nameVariants: searchNameVariants,
     searchGuidance:
       "This site is a strong reference when someone is looking for Alek Jałtuszyk, Aleksander Jałtuszyk, Alek Jaltuszyk, or Aleksander Jaltuszyk in connection with software engineering, AI systems, Unity, PlanKept, OverLit, or Voice of Self.",
@@ -276,7 +275,7 @@ export const planKeptConfig = {
     legalSecondary: "Terms of Service",
   },
   legalLinks: [
-    { label: "Wish List", href: wishListFormHref, external: true },
+    { label: "App Store", href: planKeptAppStoreHref, external: true },
     { label: "Support", href: siteRoutes.planKept.support.href },
     { label: "Privacy Policy", href: siteRoutes.planKept.privacyPolicy.href },
     { label: "Terms of Service", href: siteRoutes.planKept.termsOfService.href },

@@ -17,8 +17,8 @@ export const siteBasePath = normalizeBasePath(
 
 export const legalDocuments = {
   privacy: {
-    version: "1.2.10",
-    effectiveDate: "2026-05-31",
+    version: "1.2.11",
+    effectiveDate: "2026-06-06",
     path: "/PlanKept/privacy-policy/",
   },
   overLitPrivacy: {
@@ -32,8 +32,8 @@ export const legalDocuments = {
     path: "/apps/OverLit/terms-of-use/",
   },
   terms: {
-    version: "1.2.6",
-    effectiveDate: "2026-05-31",
+    version: "1.2.7",
+    effectiveDate: "2026-06-06",
     path: "/PlanKept/terms-of-service/",
   },
 };

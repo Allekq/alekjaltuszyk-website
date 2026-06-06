@@ -1,4 +1,4 @@
-This Privacy Policy explains how PlanKept handles personal information when you use the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/PlanKept/`, the external wish-list flow, and related surfaces that link to this policy.
+This Privacy Policy explains how PlanKept handles personal information when you use the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/PlanKept/`, the App Store download and purchase flows, and related surfaces that link to this policy.
 
 PlanKept is provided by Aleksander Jałtuszyk ("Developer", "we", "us", or "our"). Country: Poland.
 
@@ -30,7 +30,7 @@ Contact:
 - PlanKept does not currently ask for account passwords, contact-list access, precise GPS location permission, mailing addresses, billing addresses, job titles, or payment-card numbers.
 - The core app is intended to store most plans, settings, proof-related state, and similar usage content locally on your device.
 - Local-first does not necessarily mean local records are excluded from Apple-managed device backups, device migrations, iCloud backup settings, or operating-system recovery tools.
-- We may receive information you choose to send through support, contact, or wish-list channels.
+- We may receive information you choose to send through support or contact channels.
 - The PlanKept website and hosted legal manifest are served by GitHub Pages, a third-party static site host. GitHub may log technical request metadata for security and operations under GitHub's own privacy practices.
 - Apple and other third parties may process information when you choose to use platform-managed or third-party features, such as App Store purchases, speech services, model downloads, or external AI/model routes.
 - If PlanKept introduces materially different data processing later, this policy should be updated before or with that change.
@@ -66,8 +66,8 @@ We may use information to:
 - verify purchases, restore access, and provide related customer support
 - power optional features you choose to use, including AI, attachments, permissions, or tools
 - host and deliver the latest legal documents and legal-manifest information
-- respond to support, contact, or wish-list requests
-- send service, legal, support, purchase, wish-list, or marketing messages only where appropriate, and process opt-out or unsubscribe requests
+- respond to support or contact requests
+- send service, legal, support, purchase, or marketing messages only where appropriate, and process opt-out or unsubscribe requests
 - measure, understand, and improve our own advertising campaigns where lawful
 - protect the service, detect misuse, and maintain security
 - comply with legal obligations and enforce our terms
@@ -80,7 +80,7 @@ Examples can include:
 
 - Apple-managed purchase, restore, and entitlement flows
 - Apple-provided crash, performance, or diagnostic reports where your Apple settings allow Apple to make those reports available to developers
-- support emails, wish-list forms, and other contact channels you intentionally use
+- support emails and other contact channels you intentionally use
 - hosted legal pages and legal-manifest checks served by GitHub Pages
 - speech-recognition or related platform services
 - Apple-managed AI routes, model hosts, or user-configured AI/model endpoints, which may receive selected text, image attachments, image summaries, or related metadata when you choose a route that sends those inputs off the device
@@ -112,21 +112,20 @@ We may buy ads and use the ad platform's own dashboard, campaign names, non-sens
 
 If we later add a website pixel, app event SDK, server-side conversion API, custom audience upload, or similar advertising measurement tool, we will treat that as a material advertising-data practice. Before or with that change, we will update this policy and the App Store privacy disclosures, use legally required cookie or tracking consent controls, and comply with Apple App Tracking Transparency where the iOS app tracks users across other companies' apps or websites.
 
-We will not intentionally send plan text, proof statements, proof attachments, AI conversation content, Health data, Screen Time data, selected blocked-app lists, support-message text, children's data, or other sensitive app content to Meta, TikTok, Google, Apple Search Ads, or similar ad platforms for targeting or campaign measurement. We also will not upload support lists or wish-list email addresses for custom-audience advertising unless we have a lawful basis, required notice, and any required consent.
+We will not intentionally send plan text, proof statements, proof attachments, AI conversation content, Health data, Screen Time data, selected blocked-app lists, support-message text, children's data, or other sensitive app content to Meta, TikTok, Google, Apple Search Ads, or similar ad platforms for targeting or campaign measurement. We also will not upload support contact lists for custom-audience advertising unless we have a lawful basis, required notice, and any required consent.
 
 In practical terms, we may advertise PlanKept, review whether ads seem to be working, and change ad creative, audiences, budgets, or landing-page links based on that campaign-level information. That is different from adding tracking code to the app or website, uploading contact lists, or sending PlanKept app content to an ad platform.
 
-The current PlanKept website is a static website and does not intentionally set our own non-essential analytics cookies, advertising cookies, browser local storage, or session storage on PlanKept product or legal pages. Hosting, browser, security, operating-system, App Store, ad-platform, support, wish-list, or other third-party destinations may use their own cookies, local storage, sessions, pixels, or similar technologies under their own policies when you use those services. You can usually block or delete cookies and similar browser storage through your browser settings, but doing so may affect third-party forms, links, or platform-managed features.
+The current PlanKept website is a static website and does not intentionally set our own non-essential analytics cookies, advertising cookies, browser local storage, or session storage on PlanKept product or legal pages. Hosting, browser, security, operating-system, App Store, ad-platform, support, email, or other third-party destinations may use their own cookies, local storage, sessions, pixels, or similar technologies under their own policies when you use those services. You can usually block or delete cookies and similar browser storage through your browser settings, but doing so may affect third-party links or platform-managed features.
 
 ## 6. Sharing
 
-We do not sell personal data, and we do not currently use PlanKept for cross-context behavioral advertising. Because PlanKept does not operate a custom app backend, most app content stays on your device unless you choose a feature or channel that involves Apple, a model host, support email, a form provider, or another third party. We may disclose or make information available to third parties only when reasonably necessary to operate the service, comply with law, or provide a feature you choose to use.
+We do not sell personal data, and we do not currently use PlanKept for cross-context behavioral advertising. Because PlanKept does not operate a custom app backend, most app content stays on your device unless you choose a feature or channel that involves Apple, a model host, support email, or another third party. We may disclose or make information available to third parties only when reasonably necessary to operate the service, comply with law, or provide a feature you choose to use.
 
 Examples can include:
 
 - website hosting providers, including GitHub Pages for the static PlanKept website and hosted legal documents
 - email providers
-- external wish-list or form providers you intentionally use
 - Apple and other platform providers
 - purchase, fraud-prevention, security, or diagnostic providers where needed for the service
 - model hosts or user-selected AI/model routes

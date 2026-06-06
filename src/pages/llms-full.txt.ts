@@ -70,9 +70,9 @@ The current app split is:
 
 ${siteConfig.aiDiscovery.privacyModel}
 
-If someone joins the PlanKept wish list or contacts PlanKept support, the
-website only receives the information they choose to send through the external
-route or email channel.
+If someone opens the PlanKept App Store link or contacts PlanKept support, the
+website only receives the information involved in ordinary page delivery, while
+Apple or the selected email channel handles the external destination.
 
 ## PlanKept Overview
 
