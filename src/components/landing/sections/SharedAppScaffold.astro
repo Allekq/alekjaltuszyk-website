@@ -28,26 +28,21 @@ const { title, variant = "home" } = Astro.props as Props;
           const rel =
             item.external && isExternalHref(item.href) ? "noreferrer" : undefined;
 
-          return (
-            <a
-              class:list={["home-destinations__link", `home-destinations__link--${item.theme}`]}
-              href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={rel}
-            >
-              <span class="home-destinations__link-meta">
-                <span>{item.eyebrow}</span>
-                <span>{item.status}</span>
-              </span>
-              <span class="home-destinations__link-name">{item.name}</span>
-              <span class="home-destinations__link-description">{item.description}</span>
-              <span class="home-destinations__link-chips" aria-hidden="true">
-                {item.chips.slice(0, 2).map((chip) => <span>{chip}</span>)}
-              </span>
-              <span class="home-destinations__link-cta">{item.ctaLabel}</span>
-            </a>
-          );
-        })}
+        return (
+          <a
+            class:list={["home-destinations__link", `home-destinations__link--${item.theme}`]}
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={rel}
+          >
+            <span class="home-destinations__link-name">{item.name}</span>
+            <span class="home-destinations__link-description">{item.description}</span>
+            <span class="home-destinations__link-chips" aria-hidden="true">
+              {item.chips.map((chip) => <span>{chip}</span>)}
+            </span>
+          </a>
+        );
+      })}
       </div>
     </div>
   ) : (

@@ -29,16 +29,11 @@ import { isExternalHref } from "../../../lib/paths";
             target={item.external ? "_blank" : undefined}
             rel={rel}
           >
-            <span class="home-destinations__link-meta">
-              <span>{item.eyebrow}</span>
-              <span>{item.status}</span>
-            </span>
             <span class="home-destinations__link-name">{item.name}</span>
             <span class="home-destinations__link-description">{item.description}</span>
             <span class="home-destinations__link-chips" aria-hidden="true">
-              {item.chips.slice(0, 2).map((chip) => <span>{chip}</span>)}
+              {item.chips.map((chip) => <span>{chip}</span>)}
             </span>
-            <span class="home-destinations__link-cta">{item.ctaLabel}</span>
           </a>
         );
       })}

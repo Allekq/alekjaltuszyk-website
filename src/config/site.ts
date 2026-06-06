@@ -1,5 +1,6 @@
 import { planKeptCategorySentence } from "./planKeptContent";
 import { appDirectory, siteRoutes } from "./routes";
+import { withBase } from "../lib/paths";
 import {
   legalDocuments,
   siteDomain,
@@ -83,6 +84,9 @@ const planKeptInstagramHref =
   "https://www.instagram.com/plankeptapp?igsh=cWV3azJ4bXNwZXF1&utm_source=qr";
 const logoImagePath = "/favicon.svg";
 const defaultSocialImagePath = "/favicon.svg";
+const planKeptIconPath = "/media/apps/plankept/app-icon-light.png";
+const overLitIconPath = "/media/apps/overlit/app-icon-light.png";
+const takeMeSomewhereIconPath = "/media/apps/take-me-somewhere/app-icon-light.png";
 const preferredName = "Alek Jałtuszyk";
 const legalName = "Aleksander Jałtuszyk";
 const asciiNameVariants = ["Alek Jaltuszyk", "Aleksander Jaltuszyk"] as const;
@@ -248,6 +252,8 @@ export const planKeptConfig = {
     "Create a plan through Simple, Advanced, or AI chat, then let PlanKept back it with reminders, app friction, and a proof-aware finish. Step and workout goals can use Apple Health when you allow it; other goals can use Proof Review with text and supporting images when available.",
   tagline: "Block apps until you finish your plan.",
   origin: siteOrigin,
+  faviconHref: withBase(planKeptIconPath),
+  faviconType: "image/png",
   instagramHref: planKeptInstagramHref,
   supportEmail,
   homeHref: siteRoutes.apps.planKept.href,
@@ -322,6 +328,8 @@ export const overLitConfig = {
     "OverLit is a fast reflex arcade game for iPhone by Alek Jałtuszyk. Tap cells, read danger states, clear levels, and keep the grid alive.",
   tagline: "Keep the grid alive.",
   origin: siteOrigin,
+  faviconHref: withBase(overLitIconPath),
+  faviconType: "image/png",
   supportEmail: overLitSupportEmail,
   homeHref: siteRoutes.apps.overLit.href,
   primaryCtaHref: overLitPrimaryCta.href,
@@ -367,6 +375,8 @@ export const takeMeSomewhereConfig = {
     "Take Me Somewhere is a coming-soon iPhone app for spontaneous, time-boxed local route discovery with Compass Mode, Route Mode, and mystery destinations.",
   tagline: "Pick a time. Get a path worth taking.",
   origin: siteOrigin,
+  faviconHref: withBase(takeMeSomewhereIconPath),
+  faviconType: "image/png",
   supportEmail: takeMeSomewhereSupportEmail,
   supportHref: siteRoutes.apps.takeMeSomewhereSupport.href,
   supportMailtoHref: buildMailtoHref(

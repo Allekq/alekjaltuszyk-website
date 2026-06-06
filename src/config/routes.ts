@@ -78,14 +78,10 @@ export type AppCardTheme = "coral" | "mint";
 export interface AppDirectoryItem {
   id: string;
   name: string;
-  eyebrow: string;
-  status: string;
   description: string;
   theme: AppCardTheme;
   chips: readonly string[];
-  ctaLabel: string;
   href: string;
-  routeLabel: string;
   external: boolean;
 }
 
@@ -93,8 +89,6 @@ export const appDirectory = [
   {
     id: "plankept",
     name: "PlanKept",
-    eyebrow: "On this domain",
-    status: "Product page here",
     description:
       "A local-first plan-enforcement app that pairs reminders, app friction, proof-aware completion, and analytics.",
     theme: "coral",
@@ -103,16 +97,12 @@ export const appDirectory = [
       "Proof Review",
       "No subscription",
     ],
-    ctaLabel: "Open PlanKept",
     href: siteRoutes.apps.planKept.href,
-    routeLabel: siteRoutes.apps.planKept.path,
     external: false,
   },
   {
     id: "overlit",
     name: "OverLit",
-    eyebrow: "On this domain",
-    status: "Arcade game page",
     description:
       "A fast reflex arcade game for iPhone about keeping a pressure-filled grid alive.",
     theme: "mint",
@@ -121,16 +111,12 @@ export const appDirectory = [
       "No account required",
       "Support and legal here",
     ],
-    ctaLabel: "Open OverLit",
     href: siteRoutes.apps.overLit.href,
-    routeLabel: siteRoutes.apps.overLit.path,
     external: false,
   },
   {
     id: "voice-of-self",
     name: "Voice of Self",
-    eyebrow: "On this domain",
-    status: "Live on the App Store",
     description:
       "A launched voice-first reflection app for noticing personal growth and resolved worries over time.",
     theme: "mint",
@@ -139,16 +125,12 @@ export const appDirectory = [
       "Live iOS app",
       "Support and legal here",
     ],
-    ctaLabel: "Open Voice of Self",
     href: siteRoutes.apps.voiceOfSelf.href,
-    routeLabel: siteRoutes.apps.voiceOfSelf.path,
     external: false,
   },
   {
     id: "take-me-somewhere",
     name: "Take Me Somewhere",
-    eyebrow: "On this domain",
-    status: "Coming soon",
     description:
       "A walking-first iPhone companion for spontaneous, time-boxed local outings with map-grounded routes.",
     theme: "coral",
@@ -157,9 +139,7 @@ export const appDirectory = [
       "Compass Mode",
       "Mystery destination",
     ],
-    ctaLabel: "View app details",
     href: siteRoutes.apps.takeMeSomewhere.href,
-    routeLabel: siteRoutes.apps.takeMeSomewhere.path,
     external: false,
   },
 ] as const satisfies readonly AppDirectoryItem[];

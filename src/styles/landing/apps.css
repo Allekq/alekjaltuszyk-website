@@ -202,8 +202,8 @@
   border-radius: var(--radius-xl);
   box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
   display: grid;
-  gap: 0.85rem;
-  min-height: 18rem;
+  gap: 0.95rem;
+  min-height: 15.5rem;
   overflow: hidden;
   padding: 1.25rem;
   position: relative;
@@ -253,21 +253,6 @@
   transform: translateY(-2px);
 }
 
-.home-destinations__link-meta {
-  align-items: start;
-  display: flex;
-  gap: 0.65rem;
-  justify-content: space-between;
-}
-
-.home-destinations__link-meta span {
-  color: var(--color-text-soft);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
 .home-destinations__link-name {
   color: var(--color-text-strong);
   font-family: var(--font-display);
@@ -284,8 +269,12 @@
 
 .home-destinations__link-chips {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+  margin-top: auto;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+  scrollbar-width: none;
 }
 
 .home-destinations__link-chips span {
@@ -293,25 +282,10 @@
   border: 1px solid color-mix(in srgb, var(--color-line) 92%, transparent);
   border-radius: var(--radius-pill);
   color: var(--color-text-muted);
-  font-size: 0.8rem;
+  flex: 0 0 auto;
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 0.5rem 0.68rem;
-}
-
-.home-destinations__link-cta {
-  align-self: end;
-  color: var(--color-coral-strong);
-  font-size: 0.92rem;
-  font-weight: 800;
-  margin-top: auto;
-}
-
-.home-destinations__link-cta::after {
-  content: " ->";
-}
-
-.home-destinations__link--mint .home-destinations__link-cta {
-  color: var(--color-mint-strong);
+  padding: 0.42rem 0.62rem;
 }
 
 .app-card-grid,
@@ -327,6 +301,7 @@
   overflow: hidden;
   padding: 1.35rem;
   position: relative;
+  text-decoration: none;
   transition:
     transform var(--motion-standard),
     border-color var(--motion-standard),
@@ -334,9 +309,10 @@
 }
 
 .app-card:hover,
-.app-card:focus-within {
+.app-card:focus-visible {
   border-color: rgba(24, 48, 56, 0.2);
   box-shadow: var(--shadow-deep);
+  outline: none;
   transform: translateY(-4px);
 }
 
@@ -360,36 +336,6 @@
   background: radial-gradient(circle, rgba(45, 185, 163, 0.68), transparent 70%);
 }
 
-.app-card__meta {
-  align-items: center;
-  display: flex;
-  gap: 0.75rem;
-  justify-content: space-between;
-}
-
-.app-card__eyebrow,
-.app-card__status {
-  margin: 0;
-}
-
-.app-card__eyebrow {
-  color: var(--color-coral-strong);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.app-card--mint .app-card__eyebrow {
-  color: var(--color-mint-strong);
-}
-
-.app-card__status {
-  color: var(--color-text-soft);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
 .app-card__title {
   color: var(--color-text-strong);
   font-family: var(--font-display);
@@ -398,8 +344,7 @@
   margin: 0;
 }
 
-.app-card__description,
-.app-card__route {
+.app-card__description {
   margin: 0;
 }
 
@@ -408,17 +353,13 @@
   line-height: 1.75;
 }
 
-.app-card__route {
-  color: var(--color-text-soft);
-  font-size: 0.86rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
 .app-card__chips {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+  scrollbar-width: none;
 }
 
 .app-card__chips span {
@@ -426,8 +367,9 @@
   border: 1px solid rgba(24, 48, 56, 0.08);
   border-radius: var(--radius-pill);
   color: var(--color-text-muted);
-  font-size: 0.84rem;
-  padding: 0.62rem 0.8rem;
+  flex: 0 0 auto;
+  font-size: 0.74rem;
+  padding: 0.45rem 0.66rem;
 }
 
 .apps-preview__footer,
@@ -496,10 +438,6 @@
     width: 100%;
   }
 
-.app-card__meta {
-    align-items: start;
-    flex-direction: column;
-  }
 }
 
 @media (max-width: 40rem) {

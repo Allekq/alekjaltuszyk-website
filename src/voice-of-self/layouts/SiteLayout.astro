@@ -15,6 +15,8 @@ interface Props {
   pageType?: "auto" | "content" | "legal";
   articleClassName?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  faviconHref?: string;
+  faviconType?: string;
 }
 
 const {
@@ -22,6 +24,8 @@ const {
   pageType = "auto",
   articleClassName,
   structuredData,
+  faviconHref,
+  faviconType = "image/png",
 } = Astro.props as Props;
 const pageTitle = Astro.props.title ?? frontmatter?.title ?? siteConfig.homeTitle;
 const description =
@@ -85,7 +89,7 @@ const resolvedStructuredData = [
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0c1019" />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" type="image/png" href={withBase("/favicon.png")} />
+    <link rel="icon" type={faviconType} href={faviconHref ?? withBase(siteConfig.logoImagePath)} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

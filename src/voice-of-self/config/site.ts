@@ -4,6 +4,7 @@ import {
   siteOrigin,
 } from "../../../site.config.mjs";
 import { siteRoutes } from "../../config/routes";
+import { withBase } from "../lib/paths";
 
 const contactEmail = "voiceofselfapp@gmail.com";
 const supportEmail = contactEmail;
@@ -25,7 +26,7 @@ const supportDraftLines = [
 ];
 const supportBody = supportDraftLines.join("\r\n");
 const appStoreHref = "https://apps.apple.com/us/app/voice-of-self/id6760653378";
-const logoImagePath = "/favicon.png";
+const logoImagePath = "/media/apps/voice-of-self/app-icon-light.png";
 const defaultSocialImagePath = "/images/how-it-works/see-what-changed.png";
 
 const buildMailtoHref = (email: string, subject: string, body: string) => {
@@ -73,6 +74,8 @@ export const siteConfig = {
   logoImageUrl: buildAbsoluteSiteHref(logoImagePath),
   defaultSocialImagePath,
   defaultSocialImageUrl: buildAbsoluteSiteHref(defaultSocialImagePath),
+  faviconHref: withBase(logoImagePath),
+  faviconType: "image/png",
   homeHref: siteRoutes.apps.voiceOfSelf.href,
   answersHref: siteRoutes.apps.voiceOfSelfAnswers.href,
   updatesHref: siteRoutes.apps.voiceOfSelfUpdates.href,

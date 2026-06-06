@@ -18,6 +18,8 @@ interface Props {
   canonicalHref?: string;
   robotsContent?: string;
   alternateLinks?: readonly { type: string; title: string; href: string }[];
+  faviconHref?: string;
+  faviconType?: string;
 }
 
 const {
@@ -28,6 +30,8 @@ const {
   canonicalHref,
   robotsContent,
   alternateLinks = [],
+  faviconHref,
+  faviconType = "image/svg+xml",
 } = Astro.props as Props;
 const pageTitle = Astro.props.title ?? frontmatter?.title ?? siteConfig.homeTitle;
 const description =
@@ -96,7 +100,7 @@ const resolvedStructuredData = [
     <meta name="theme-color" content="#020406" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="author" href={homeHref} />
-    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="icon" type={faviconType} href={faviconHref ?? withBase("/favicon.svg")} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
