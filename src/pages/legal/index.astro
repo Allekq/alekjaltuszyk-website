@@ -1,0 +1,123 @@
+---
+import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
+import {
+  overLitConfig,
+  planKeptConfig,
+  siteConfig,
+  takeMeSomewhereConfig,
+} from "../../config/site";
+import { siteRoutes } from "../../config/routes";
+import { siteConfig as voiceOfSelfConfig } from "../../voice-of-self/config/site";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const appLegalItems = [
+  {
+    name: "PlanKept",
+    description:
+      "PlanKept has app-specific legal documents for its local-first plan enforcement, Screen Time, Apple Health, AI/model routes, support, and App Store flows.",
+    links: [
+      { label: "Privacy Policy", href: siteRoutes.apps.planKeptPrivacyPolicy.href },
+      { label: "Terms of Service", href: siteRoutes.apps.planKeptTermsOfService.href },
+      { label: "Support", href: siteRoutes.apps.planKeptSupport.href },
+      { label: "Legal Manifest", href: siteRoutes.apps.planKeptLegalManifest.href },
+    ],
+    note:
+      "Temporary /PlanKept/ legal and support aliases, plus the root legal-manifest.json, remain available during the PlanKept app migration.",
+  },
+  {
+    name: "Voice of Self",
+    description:
+      "Voice of Self has app-specific legal documents for accounts, subscriptions, local entries and transcripts, managed AI processing, support, and backend-linked account records.",
+    links: [
+      { label: "Privacy Policy", href: siteRoutes.apps.voiceOfSelfPrivacyPolicy.href },
+      { label: "Terms of Service", href: siteRoutes.apps.voiceOfSelfTermsOfService.href },
+      { label: "Support", href: siteRoutes.apps.voiceOfSelfSupport.href },
+      { label: "Legal Manifest", href: siteRoutes.apps.voiceOfSelfLegalManifest.href },
+    ],
+    note:
+      "Voice of Self now lives on this domain under /apps/VoiceOfSelf/; the old separate website is no longer canonical.",
+  },
+  {
+    name: "OverLit",
+    description:
+      "OverLit has app-specific legal documents for local gameplay data, AdMob ads, privacy choices, Full Version purchases, support, and App Store flows.",
+    links: [
+      { label: "Privacy Policy", href: siteRoutes.apps.overLitPrivacyPolicy.href },
+      { label: "Terms of Use", href: siteRoutes.apps.overLitTermsOfUse.href },
+      { label: "Support", href: siteRoutes.apps.overLitSupport.href },
+    ],
+  },
+  {
+    name: "Take Me Somewhere",
+    description:
+      "Take Me Somewhere has app-specific legal documents for location, route suggestions, map and place providers, local preferences, support, and legal acceptance.",
+    links: [
+      { label: "Privacy Policy", href: siteRoutes.apps.takeMeSomewherePrivacyPolicy.href },
+      { label: "Terms of Service", href: siteRoutes.apps.takeMeSomewhereTerms.href },
+      { label: "Support", href: siteRoutes.apps.takeMeSomewhereSupport.href },
+      { label: "Legal Manifest", href: siteRoutes.apps.takeMeSomewhereLegalManifest.href },
+    ],
+  },
+] as const;
+
+const contactByApp = [
+  ["PlanKept", planKeptConfig.supportEmail],
+  ["Voice of Self", voiceOfSelfConfig.supportEmail],
+  ["OverLit", overLitConfig.supportEmail],
+  ["Take Me Somewhere", takeMeSomewhereConfig.supportEmail],
+] as const;
+---
+
+<SiteLayout
+  title="Legal"
+  description="Legal hub for alekjaltuszyk.xyz and app-specific privacy policies, terms, support pages, and legal manifests."
+  pageType="legal"
+  canonicalHref={siteRoutes.legal.href}
+>
+  <h1>Legal</h1>
+
+  <p>
+    This page separates the general website documents from the app-specific documents.
+    Each app has its own Privacy Policy and Terms because each app handles different data,
+    providers, permissions, purchases, or safety considerations.
+  </p>
+
+  <h2>General Website</h2>
+  <p>
+    These documents cover the personal homepage, app directory, support index, legal hub,
+    and static website surfaces.
+  </p>
+  <ul>
+    <li><a href={siteRoutes.privacyPolicy.href}>Website Privacy Policy</a></li>
+    <li><a href={siteRoutes.terms.href}>Website Terms</a></li>
+    <li><a href={siteRoutes.support.href}>Support directory</a></li>
+  </ul>
+
+  <h2>Apps</h2>
+  {appLegalItems.map((item) => (
+    <section aria-labelledby={`${item.name.toLowerCase().replaceAll(" ", "-")}-legal`}>
+      <h3 id={`${item.name.toLowerCase().replaceAll(" ", "-")}-legal`}>{item.name}</h3>
+      <p>{item.description}</p>
+      {"note" in item ? <p>{item.note}</p> : null}
+      <ul>
+        {item.links.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <h2>Contact</h2>
+  <p>
+    For privacy or legal questions about the general website, email
+    <code>{siteConfig.contactEmail}</code>. For app-specific support, use the relevant app
+    support page or email:
+  </p>
+  <ul>
+    {contactByApp.map(([name, email]) => (
+      <li>{name}: <code>{email}</code></li>
+    ))}
+  </ul>
+
+  <SiteFooter />
+</SiteLayout>

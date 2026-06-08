@@ -3,12 +3,15 @@ import PlanKeptSupportGuide from "../../../components/support/PlanKeptSupportGui
 import SiteFooter from "../../../components/landing/sections/SiteFooter.astro";
 import { planKeptConfig } from "../../../config/site";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { siteRoutes } from "../../../config/routes";
 ---
 
 <SiteLayout
   title="Support | PlanKept"
   description="Email-based PlanKept support for app questions, device details, troubleshooting notes, and direct contact with the developer."
   pageType="content"
+  canonicalHref={siteRoutes.apps.planKeptSupport.href}
+  robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
 >
   <PlanKeptSupportGuide />
 

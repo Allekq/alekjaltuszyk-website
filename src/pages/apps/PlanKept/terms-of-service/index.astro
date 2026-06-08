@@ -1,7 +1,7 @@
 ---
-import PlanKeptTermsOfServiceContent from "../../../components/legal/PlanKeptTermsOfServiceContent.astro";
-import SiteLayout from "../../../layouts/SiteLayout.astro";
-import { siteRoutes } from "../../../config/routes";
+import PlanKeptTermsOfServiceContent from "../../../../components/legal/PlanKeptTermsOfServiceContent.astro";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import { siteRoutes } from "../../../../config/routes";
 ---
 
 <SiteLayout
@@ -9,7 +9,6 @@ import { siteRoutes } from "../../../config/routes";
   description="PlanKept terms covering the app, website, support channels, App Store flows, AI/model routes, App Store terms, and acceptable use."
   pageType="legal"
   canonicalHref={siteRoutes.apps.planKeptTermsOfService.href}
-  robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
 >
   <PlanKeptTermsOfServiceContent />
 </SiteLayout>

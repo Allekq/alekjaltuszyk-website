@@ -10,12 +10,14 @@ PlanKept or Voice of Self.
 - Personal website repo: `/Users/alekj/Documents/GitHub/alekjaltuszyk-website`
 - PlanKept app repo: `/Users/alekj/Documents/GitHub/plan enforcer`
 - OverLit app repo: `/Users/alekj/Documents/GitHub/OverLit-app`
-- Voice of Self website repo: `/Users/alekj/Documents/GitHub/voice-of-self-website`
+- Voice of Self website/legal surface: this repo under `/apps/VoiceOfSelf/`
 - Voice of Self app repo: `/Users/alekj/Documents/GitHub/closure-app`
 
 Plan Enforcer is the actual app repo behind PlanKept. Closure App is the actual
 app repo behind Voice of Self. OverLit App is the actual app repo behind
-OverLit.
+OverLit. Voice of Self no longer has a separate website repo in the current
+canonical setup; its public website, support, and legal pages live here under
+`/apps/VoiceOfSelf/`.
 
 If a task is about actual app behavior, use the sibling app repo that matches
 the product. Do not assume this website repo contains either app implementation.
@@ -27,7 +29,8 @@ The domain is now split on purpose:
 - `/` is the personal site for Alek Jałtuszyk.
 - `/apps/` is the directory of apps and product sites.
 - `/apps/PlanKept/` is the PlanKept web surface on this domain.
-- Voice of Self stays on its own separate website and app repo.
+- Voice of Self uses this repo for its website/legal surface and `closure-app`
+  for the app implementation.
 
 ## How To Route Work
 
@@ -39,8 +42,8 @@ The domain is now split on purpose:
   architecture.
 - Switch to `/Users/alekj/Documents/GitHub/closure-app` for Voice of Self app
   behavior.
-- Switch to `/Users/alekj/Documents/GitHub/voice-of-self-website` for Voice of
-  Self marketing/support/legal website work.
+- Stay in this repo for Voice of Self marketing/support/legal website work
+  under `/apps/VoiceOfSelf/`.
 - Switch to `/Users/alekj/Documents/GitHub/OverLit-app` for OverLit app behavior,
   ads, app-side legal acceptance, privacy manifest, or App Store-facing claims.
 - If a request could affect both a website repo and an app repo, check whether
@@ -112,9 +115,10 @@ The domain is now split on purpose:
 ## Legal Update Flow
 
 - Treat privacy-policy and terms updates as a controlled workflow.
-- If a task edits `src/pages/privacy-policy/index.md` or
-  `src/pages/terms-of-service/index.md`, or changes data collection, support flows,
-  wish-list flows, account claims, or other legal-facing behavior, open
+- If a task edits root legal pages such as `src/pages/privacy-policy/index.astro`
+  or `src/pages/terms/index.astro`, app-specific legal pages under
+  `src/pages/apps/*/`, or changes data collection, support flows, wish-list
+  flows, account claims, or other legal-facing behavior, open
   `skills/legal-update-sync/CHECKLIST.md` before finishing.
 - Keep PlanKept website legal copy aligned with the PlanKept app legal,
   purchase, and model-license surfaces.

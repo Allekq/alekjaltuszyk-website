@@ -1,15 +1,14 @@
 ---
-import PlanKeptPrivacyPolicyContent from "../../components/legal/PlanKeptPrivacyPolicyContent.astro";
+import SitePrivacyPolicyContent from "../../components/legal/SitePrivacyPolicyContent.astro";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { siteRoutes } from "../../config/routes";
 ---
 
 <SiteLayout
-  title="Privacy Policy | PlanKept"
-  description="PlanKept privacy policy covering local-first app data, support contact, App Store flows, AI routes, Health data, and Screen Time permissions."
+  title="Website Privacy Policy"
+  description="Privacy policy for the alekjaltuszyk.xyz personal website, app directory, support index, legal hub, and static website surfaces."
   pageType="legal"
-  canonicalHref={siteRoutes.planKept.privacyPolicy.href}
-  robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+  canonicalHref={siteRoutes.privacyPolicy.href}
 >
-  <PlanKeptPrivacyPolicyContent />
+  <SitePrivacyPolicyContent />
 </SiteLayout>

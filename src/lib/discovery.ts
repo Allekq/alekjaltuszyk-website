@@ -43,7 +43,7 @@ export const discoveryPages = {
       title: "PlanKept",
       path: siteRoutes.apps.planKept.path,
       description:
-        "Public PlanKept product page from Alek Jałtuszyk covering local-first plan enforcement, achievement-gated app blocking, Proof Review, analytics, and legal/support links.",
+        "Public PlanKept product page from Alek Jałtuszyk covering local-first plan enforcement, achievement-gated app blocking, Proof Review, analytics, and app-specific legal/support links.",
     },
     {
       title: "Voice of Self",
@@ -95,8 +95,8 @@ export const discoveryPages = {
     },
     {
       title: "Support",
-      path: siteRoutes.planKept.support.path,
-      description: "Email-based support instructions for PlanKept.",
+      path: siteRoutes.support.path,
+      description: "Support directory for apps by Alek Jałtuszyk.",
     },
   ],
   planKeptAnswers: planKeptAnswerPages.map((page) => ({
@@ -140,14 +140,40 @@ export const discoveryPages = {
   ],
   legal: [
     {
-      title: "Privacy Policy",
-      path: siteRoutes.planKept.privacyPolicy.path,
-      description: "How PlanKept handles website, support, and future app-related data.",
+      title: "Legal",
+      path: siteRoutes.legal.path,
+      description:
+        "Legal hub listing the general website privacy policy and terms plus app-specific legal pages for PlanKept, Voice of Self, OverLit, and Take Me Somewhere.",
     },
     {
-      title: "Terms of Service",
-      path: siteRoutes.planKept.termsOfService.path,
-      description: "Usage terms for the website, support flows, and future app access.",
+      title: "Website Privacy Policy",
+      path: siteRoutes.privacyPolicy.path,
+      description:
+        "How the alekjaltuszyk.xyz personal website, app directory, support index, legal hub, and static website surfaces handle data.",
+    },
+    {
+      title: "Website Terms",
+      path: siteRoutes.terms.path,
+      description:
+        "Terms for the alekjaltuszyk.xyz personal website, app directory, support index, legal hub, and static website surfaces.",
+    },
+    {
+      title: "PlanKept Privacy Policy",
+      path: siteRoutes.apps.planKeptPrivacyPolicy.path,
+      description:
+        "How PlanKept handles local-first app data, support contact, App Store flows, AI/model routes, Health data, and Screen Time permissions.",
+    },
+    {
+      title: "PlanKept Terms of Service",
+      path: siteRoutes.apps.planKeptTermsOfService.path,
+      description:
+        "Terms covering PlanKept, support, App Store flows, AI/model routes, app blocking, reminders, Apple Health, Screen Time, and acceptable use.",
+    },
+    {
+      title: "PlanKept Legal Manifest",
+      path: siteRoutes.apps.planKeptLegalManifest.path,
+      description:
+        "Machine-readable PlanKept legal document versions, effective dates, and canonical URLs.",
     },
     {
       title: "Voice of Self Privacy Policy",
@@ -225,6 +251,10 @@ export const sitemapPagePaths = [
   ...visibilityUpdatePosts.map((post) => getVisibilityUpdatePath(post.slug)),
   siteRoutes.apps.voiceOfSelfPrivacyPolicy.path,
   siteRoutes.apps.voiceOfSelfTermsOfService.path,
+  siteRoutes.support.path,
+  siteRoutes.legal.path,
+  siteRoutes.privacyPolicy.path,
+  siteRoutes.terms.path,
   siteRoutes.apps.overLit.path,
   siteRoutes.apps.overLitSupport.path,
   siteRoutes.apps.overLitPrivacyPolicy.path,
@@ -234,13 +264,14 @@ export const sitemapPagePaths = [
   siteRoutes.apps.takeMeSomewherePrivacyPolicy.path,
   siteRoutes.apps.takeMeSomewhereTerms.path,
   siteRoutes.apps.takeMeSomewhereLegalManifest.path,
+  siteRoutes.apps.planKeptSupport.path,
+  siteRoutes.apps.planKeptPrivacyPolicy.path,
+  siteRoutes.apps.planKeptTermsOfService.path,
+  siteRoutes.apps.planKeptLegalManifest.path,
   siteRoutes.apps.planKeptAnswers.path,
   ...planKeptAnswerPages.map((page) => page.path),
   siteRoutes.apps.planKeptComparisons.path,
   ...planKeptComparisonPages.map((page) => page.path),
   siteRoutes.apps.planKeptUpdates.path,
   ...planKeptUpdatePosts.map((post) => post.path),
-  siteRoutes.planKept.support.path,
-  siteRoutes.planKept.privacyPolicy.path,
-  siteRoutes.planKept.termsOfService.path,
 ] as const;

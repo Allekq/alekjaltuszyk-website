@@ -5,8 +5,8 @@ description: Voice of Self privacy policy.
 ---
 # Voice of Self Privacy Policy
 
-Effective Date: 2026-06-06
-Version: 1.2.17
+Effective Date: 2026-06-08
+Version: 1.2.18
 
 This Privacy Policy explains how Voice of Self processes personal information
 when you use the Voice of Self iOS app, the public website, direct contact
@@ -192,6 +192,44 @@ stored locally by the app. If content appears to involve self-harm, abuse,
 illegal conduct, or other safety or acceptable-use risks, Voice of Self may
 block, hide, refuse, or leave some analysis incomplete.
 
+### 1.5.1 Sensitive information in entries and transcripts
+
+You choose what to write, say, record, transcribe, export, delete, or send. An
+open-ended reflection app can include sensitive personal topics such as health,
+mental health, relationships, sexuality, religion, politics, race or ethnic
+origin, philosophical beliefs, family matters, work issues, legal concerns, or
+other private subjects.
+
+Managed AI features may process the current entry, current transcript, live
+transcript excerpts while a recording is in progress, completed transcript
+text, and selected past entries, transcripts, summaries, relics, milestones, or
+related local context depending on the feature, account state, app settings,
+and workflow.
+
+Where applicable law requires explicit consent for processing entries,
+transcripts, or sensitive information you choose to include for managed AI
+features, Voice of Self relies on the consent and instructions you give through
+the app's legal acceptance, device permission prompts, feature prompts,
+settings, or other consent surfaces available in the app version you use. The
+app may ask for that consent during onboarding, before first managed AI use,
+when legal documents change, or before a feature that needs this processing.
+
+You can withdraw consent by disabling or avoiding managed AI features, deleting
+backend-linked account data where available, deleting local entries you no
+longer want processed, or contacting support at `voiceofselfapp@gmail.com`.
+If you withdraw consent or disable managed AI processing, features that require
+entries, transcripts, or selected context to be processed by managed AI may stop
+working or become limited. Withdrawal does not affect processing that happened
+before withdrawal or processing we must retain where another legal basis
+applies, such as security, legal compliance, dispute handling, or support
+records.
+
+Voice of Self does not use journal content, raw audio, transcripts, live
+question content, or AI outputs for ads, retargeting, custom audiences, or
+training our own models. Managed AI providers process request content under
+their own service terms, privacy terms, infrastructure controls, and retention
+settings.
+
 ### 1.6 Payment information
 
 Paid subscriptions are sold through Apple's in-app purchase system. Apple
@@ -367,6 +405,16 @@ guidance, therapy, crisis support, emergency support, safety-critical decision
 support, or proof that progress is truly present or absent. Additional safety
 and acceptable-use limits appear in the [Terms of
 Service](/apps/VoiceOfSelf/terms-of-service/).
+
+Current managed provider roles are summarized below. Provider availability,
+routing, model choices, and infrastructure settings may change over time.
+
+| Provider | Purpose | Data categories | Retention and training notes | Region / transfer note |
+| --- | --- | --- | --- | --- |
+| Firebase / Google | Authentication, callable backend, App Check, security, account records, usage/accounting metadata, and backend infrastructure | Account identifiers, authentication/session metadata, request metadata, App Check or integrity signals, token/cost/workflow metadata, and limited operational logs | Backend records are designed not to store raw journal text, raw audio, or AI output as persistent account records. Platform logs may retain limited technical metadata under Google/Firebase settings. | May process in regions used by Firebase / Google infrastructure. |
+| Amazon Bedrock / AWS | Managed analysis workflows and related AI processing | Transcript text, selected entry/context needed for the requested workflow, prompts, outputs, and technical request metadata | We do not use your content to train our own models. Our backend is designed not to retain raw Bedrock request or response bodies as persistent account records. Provider-side processing, abuse/security handling, logging settings, and retention are governed by AWS terms and configured AWS controls. | May process in AWS regions used for managed analysis. |
+| Groq | Managed live-question workflows | Live transcript excerpts, selected context needed for live-question requests, prompts, outputs, and technical request metadata | We do not use your content to train our own models. Our backend is designed not to retain raw Groq request or response bodies as persistent account records. Provider-side processing, reliability, abuse/security handling, and retention are governed by Groq terms and settings. | May process in regions used by Groq and its infrastructure providers. |
+| Apple | App Store billing, Sign in with Apple, DeviceCheck / App Attest, local device permissions, and Apple transcription or Apple-assisted features where used | Apple account/platform data, entitlement and transaction status, device integrity signals, microphone/speech data where Apple services are used, and device permission state | Apple handles platform data under Apple's own policies. Local app records remain under local app/device behavior unless you export, back up, share, or send them elsewhere. | Depends on Apple services, your device settings, and Apple's infrastructure. |
 
 ### 5.1 Managed account-mode AI
 

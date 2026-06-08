@@ -1,7 +1,7 @@
 ---
-import PlanKeptPrivacyPolicyContent from "../../../components/legal/PlanKeptPrivacyPolicyContent.astro";
-import SiteLayout from "../../../layouts/SiteLayout.astro";
-import { siteRoutes } from "../../../config/routes";
+import PlanKeptPrivacyPolicyContent from "../../../../components/legal/PlanKeptPrivacyPolicyContent.astro";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import { siteRoutes } from "../../../../config/routes";
 ---
 
 <SiteLayout
@@ -9,7 +9,6 @@ import { siteRoutes } from "../../../config/routes";
   description="PlanKept privacy policy covering local-first app data, support contact, App Store flows, AI routes, Health data, and Screen Time permissions."
   pageType="legal"
   canonicalHref={siteRoutes.apps.planKeptPrivacyPolicy.href}
-  robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
 >
   <PlanKeptPrivacyPolicyContent />
 </SiteLayout>

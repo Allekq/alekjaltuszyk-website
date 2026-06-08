@@ -112,10 +112,30 @@ const buildGmailComposeHref = (email: string, subject: string, body: string) =>
 const buildAbsoluteSiteHref = (path: string) => new URL(path, siteOrigin).toString();
 
 export const legalManifest = {
+  sitePrivacy: {
+    version: legalDocuments.sitePrivacy.version,
+    effectiveDate: legalDocuments.sitePrivacy.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.sitePrivacy.path),
+  },
+  siteTerms: {
+    version: legalDocuments.siteTerms.version,
+    effectiveDate: legalDocuments.siteTerms.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.siteTerms.path),
+  },
   privacy: {
-    version: legalDocuments.privacy.version,
-    effectiveDate: legalDocuments.privacy.effectiveDate,
-    url: buildAbsoluteSiteHref(legalDocuments.privacy.path),
+    version: legalDocuments.planKeptPrivacy.version,
+    effectiveDate: legalDocuments.planKeptPrivacy.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.planKeptPrivacy.path),
+  },
+  planKeptPrivacy: {
+    version: legalDocuments.planKeptPrivacy.version,
+    effectiveDate: legalDocuments.planKeptPrivacy.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.planKeptPrivacy.path),
+  },
+  planKeptTerms: {
+    version: legalDocuments.planKeptTerms.version,
+    effectiveDate: legalDocuments.planKeptTerms.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.planKeptTerms.path),
   },
   voiceOfSelfPrivacy: {
     version: legalDocuments.voiceOfSelfPrivacy.version,
@@ -148,9 +168,9 @@ export const legalManifest = {
     url: buildAbsoluteSiteHref(legalDocuments.takeMeSomewhereTerms.path),
   },
   terms: {
-    version: legalDocuments.terms.version,
-    effectiveDate: legalDocuments.terms.effectiveDate,
-    url: buildAbsoluteSiteHref(legalDocuments.terms.path),
+    version: legalDocuments.planKeptTerms.version,
+    effectiveDate: legalDocuments.planKeptTerms.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.planKeptTerms.path),
   },
 } as const;
 
@@ -172,7 +192,7 @@ export const siteConfig = {
   homeHref: siteRoutes.home.href,
   appsHref: siteRoutes.apps.index.href,
   planKeptHref: siteRoutes.apps.planKept.href,
-  supportHref: siteRoutes.planKept.support.href,
+  supportHref: siteRoutes.support.href,
   navigation: [
     { label: "About", href: "#about" },
     { label: "Structure", href: "#split" },
@@ -194,9 +214,10 @@ export const siteConfig = {
     { label: "OverLit", href: siteRoutes.apps.overLit.href },
     { label: "Voice of Self", href: siteRoutes.apps.voiceOfSelf.href },
     { label: "Take Me Somewhere", href: siteRoutes.apps.takeMeSomewhere.href },
-    { label: "Support", href: siteRoutes.planKept.support.href },
-    { label: "Privacy Policy", href: siteRoutes.planKept.privacyPolicy.href },
-    { label: "Terms of Service", href: siteRoutes.planKept.termsOfService.href },
+    { label: "Support", href: siteRoutes.support.href },
+    { label: "Legal", href: siteRoutes.legal.href },
+    { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
+    { label: "Terms", href: siteRoutes.terms.href },
   ],
   footerText: `© ${new Date().getFullYear()} ${legalName}. All rights reserved.`,
   identity: {
@@ -213,7 +234,7 @@ export const siteConfig = {
     summary:
       "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, the Voice of Self web surface, the PlanKept web surface, the OverLit web surface, and the Take Me Somewhere coming-soon page.",
     status:
-      "The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page under /apps/PlanKept/ with an App Store CTA plus support and legal routes under /PlanKept/ on this domain. Voice of Self now lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, and legal routes. OverLit has a visual arcade-game page, support page, privacy policy, and terms of use under /apps/OverLit/. Take Me Somewhere has a coming-soon promotional page plus support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/.",
+      "The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, and legal routes. OverLit has a visual arcade-game page, support page, privacy policy, and terms of use under /apps/OverLit/. Take Me Somewhere has a coming-soon promotional page plus support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/.",
     privacyModel:
       "The personal homepage, portfolio sections, and app directory are informational. PlanKept support and legal routes live on this domain, while the primary PlanKept app action goes to Apple's App Store. Core plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store privacy disclosures. Take Me Somewhere's public privacy language describes an intended local-first, map-grounded route discovery app with current-location use, support contact, and map-provider disclosures.",
     nameVariants: searchNameVariants,
@@ -270,7 +291,7 @@ export const planKeptConfig = {
   privacyHref: siteRoutes.planKept.privacyPolicy.href,
   termsHref: siteRoutes.planKept.termsOfService.href,
   appleTermsHref: appleStandardEulaHref,
-  legalManifestHref: buildAbsoluteSiteHref(siteRoutes.legalManifest.path),
+  legalManifestHref: buildAbsoluteSiteHref(siteRoutes.planKept.legalManifest.path),
   supportMailtoHref: buildMailtoHref(supportEmail, supportSubject, supportBody),
   supportGmailHref: buildGmailComposeHref(supportEmail, supportSubject, supportBody),
   supportDraft: {

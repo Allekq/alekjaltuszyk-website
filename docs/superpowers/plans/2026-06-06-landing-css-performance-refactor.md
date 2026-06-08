@@ -68,6 +68,6 @@
 **Files:**
 - Modify only if safe: `node_modules` local install state
 
-- [ ] Document that `node_modules` is currently a symlink to `../voice-of-self-website/node_modules`.
+- [ ] Document the current local `node_modules` state if dependency hygiene changes are made.
 - [ ] Do not replace it during this refactor unless dependency install is explicitly approved or already available without network.
 - [ ] Keep the build warning visible in final notes if it remains.

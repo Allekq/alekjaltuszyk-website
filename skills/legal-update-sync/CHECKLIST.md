@@ -2,10 +2,15 @@
 
 Use this checklist before finishing any task that touches:
 
-- `src/pages/privacy-policy/index.md`
-- `src/pages/terms-of-service/index.md`
+- `src/pages/privacy-policy/index.astro`
+- `src/pages/terms/index.astro`
+- `src/content/legal/site-privacy-policy.md`
+- `src/content/legal/site-terms.md`
 - `src/content/legal/plankept-privacy-policy.md`
 - `src/content/legal/plankept-terms-of-service.md`
+- `src/pages/apps/PlanKept/privacy-policy/index.astro`
+- `src/pages/apps/PlanKept/terms-of-service/index.astro`
+- `src/pages/apps/PlanKept/legal-manifest.json.ts`
 - `src/content/legal/overlit-privacy-policy.md`
 - `src/content/legal/overlit-terms-of-use.md`
 - `src/components/legal/PlanKeptPrivacyPolicyContent.astro`

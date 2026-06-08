@@ -27,16 +27,25 @@ the public legal pages.
 
 - Privacy copy: `src/content/legal/plankept-privacy-policy.md`
 - Privacy wrapper/version shell: `src/components/legal/PlanKeptPrivacyPolicyContent.astro`
+- Canonical privacy route: `src/pages/apps/PlanKept/privacy-policy/index.astro`
 - Terms copy: `src/content/legal/plankept-terms-of-service.md`
 - Terms wrapper/version shell: `src/components/legal/PlanKeptTermsOfServiceContent.astro`
+- Canonical terms route: `src/pages/apps/PlanKept/terms-of-service/index.astro`
+- Canonical manifest route: `src/pages/apps/PlanKept/legal-manifest.json.ts`
+- Temporary compatibility routes: `src/pages/PlanKept/privacy-policy/index.astro`,
+  `src/pages/PlanKept/terms-of-service/index.astro`,
+  `src/pages/PlanKept/support/index.astro`, and
+  `src/pages/legal-manifest.json.ts`
 - App repo: `/Users/alekj/Documents/GitHub/plan enforcer`
 - App sync skill: `/Users/alekj/Documents/GitHub/plan enforcer/.agents/skills/legal-update-sync/SKILL.md`
 - App legal/model skill: `/Users/alekj/Documents/GitHub/plan enforcer/.agents/skills/legal-model-disclosures/SKILL.md`
 
-PlanKept uses the hosted legal manifest for Terms and Privacy versions, so
-website version bumps usually do not require hardcoded app-version changes.
-Still check app legal settings, onboarding/legal gate, purchase copy, model
-license surfaces, and App Store-facing disclosures for consistency.
+PlanKept uses the hosted app-specific legal manifest for Terms and Privacy
+versions. During the 2026-06 migration, the root `legal-manifest.json` remains
+as a temporary compatibility surface for older app builds. Website version
+bumps usually do not require hardcoded app-version changes, but still check app
+legal settings, onboarding/legal gate, purchase copy, model-license surfaces,
+and App Store-facing disclosures for consistency.
 
 ## OverLit Canonical Files
 

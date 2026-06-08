@@ -1,4 +1,4 @@
-These Terms of Service govern your use of the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/PlanKept/`, support channels, App Store download and purchase flows, and related services that link to these terms.
+These Terms of Service govern your use of the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/apps/PlanKept/`, support channels, App Store download and purchase flows, and related services that link to these terms. Temporary `/PlanKept/` support and legal aliases may remain available during the app's manifest migration.
 
 If you download the app through Apple's App Store and no custom end user license agreement is presented there, your use of the app is also subject to Apple's [Licensed Application End User Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/).
 
@@ -8,7 +8,7 @@ Contact:
 
 - Email: `plankeptapp@gmail.com`
 - Telephone: `+48 73 2099027`
-- Support page: `/PlanKept/support/`
+- Support page: `/apps/PlanKept/support/`
 
 ## 1. Acceptance
 
@@ -28,7 +28,7 @@ PlanKept includes a local-first app experience together with related website, le
 
 Features, visuals, copy, pricing, availability, AI/model routes, and platform integrations may change over time.
 
-PlanKept does not operate a general app account system or custom developer backend for normal app use. Most user-created app content is intended to stay on the user's device, subject to device backups, operating-system behavior, Apple services, and any optional provider routes the user chooses.
+PlanKept does not operate a general app account system or custom developer-operated backend for app data in normal app use. Most user-created app content is intended to stay on the user's device, subject to device backups, operating-system behavior, Apple services, and any optional provider routes the user chooses.
 
 ## 4. Purchases And Lifetime Access
 
@@ -72,7 +72,17 @@ We may change, suspend, or remove features, providers, or routes at any time.
 
 AI, model, reminder, and proof-related features may be incomplete, unavailable, delayed, or wrong. You remain responsible for your own decisions, actions, and compliance with any commitments you make.
 
-PlanKept is not promised to be bug-free. Bugs, crashes, compatibility problems, operating-system limits, permission changes, provider outages, model errors, or other failures may cause reminders, alarms, app blocks, usage limits, proof review, automatic review, analytics, purchases, restores, or other features to fail, be delayed, apply incorrectly, clear incorrectly, or become unavailable.
+PlanKept does not guarantee that you will complete a plan, reduce screen time, finish a workout, meet a step goal, preserve a habit, avoid distraction, restore access at the exact intended moment, or achieve any particular personal, health, productivity, financial, work, school, legal, or safety outcome.
+
+PlanKept is not promised to be bug-free. Bugs, crashes, compatibility problems, operating-system limits, permission changes, provider outages, model errors, purchase or restore issues, device state, or other failures may cause AI, reminders, alarms, schedules, Apple Health checks, Screen Time integrations, app blocks, usage limits, unlock behavior, proof review, automatic review, analytics, purchases, restores, or other features to fail, be delayed, apply incorrectly, clear incorrectly, or become unavailable.
+
+PlanKept depends on iOS, Apple frameworks, Screen Time APIs, HealthKit where enabled, StoreKit, local storage, notifications, AlarmKit, model availability, device state, and permissions. Those dependencies can change, fail, behave differently across devices or OS versions, or become unavailable.
+
+Do not rely on PlanKept to restrict apps, websites, communications, services, or device access that you may need for emergencies, medical care, safety, transportation, work, school, banking, legal duties, childcare, caregiving, identity verification, housing, or other essential purposes. You are responsible for preserving independent access to essential services and for choosing app-blocking or limit settings that are safe for your situation.
+
+You may stop using PlanKept at any time. You can usually disable permissions, change iOS settings, change or remove PlanKept rules, or delete the app to stop or reduce local enforcement. Deleting the app or changing permissions may not instantly fix every issue, entitlement state, device state, OS-managed setting, notification, backup, purchase, or third-party/platform record.
+
+If you experience a bug, support is available through the support page. Bug reports are helpful, but we do not guarantee that every bug will be fixed or fixed within a particular time.
 
 We use safeguards intended to reduce explicit, unsafe, or age-inappropriate AI responses, but no automated system is perfect.
 
@@ -97,6 +107,13 @@ We do not guarantee that PlanKept will prevent distraction, enforce a plan, remi
 ## 13. Limitation Of Liability
 
 To the fullest extent permitted by law, PlanKept will not be liable for indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the service.
+
+To the fullest extent permitted by law, our total aggregate liability for all claims arising out of or related to PlanKept, the website, support, purchases, app blocking, app limits, reminders, Health integrations, Screen Time integrations, proof review, AI/model routes, or these terms will be limited to the greater of:
+
+- the amount you paid for PlanKept app or in-app purchases in the 12 months before the claim; or
+- EUR 25
+
+Nothing in these terms limits or excludes liability that cannot legally be limited or excluded, including liability for intentional misconduct, fraud, mandatory consumer rights, statutory refund rights handled by Apple or another platform provider, or other categories that applicable law does not allow contracts to limit.
 
 ## 14. Termination
 

@@ -1,4 +1,4 @@
-This Privacy Policy explains how PlanKept handles personal information when you use the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/PlanKept/`, the App Store download and purchase flows, and related surfaces that link to this policy.
+This Privacy Policy explains how PlanKept handles personal information when you use the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/apps/PlanKept/`, the App Store download and purchase flows, and related surfaces that link to this policy. Temporary `/PlanKept/` support and legal aliases may remain available during the app's manifest migration.
 
 PlanKept is provided by Aleksander Jałtuszyk ("Developer", "we", "us", or "our"). Country: Poland.
 
@@ -8,13 +8,13 @@ This policy is also intended to support transparency obligations under applicabl
 
 If you download, select, or use a local or third-party AI model through PlanKept, that model may be governed by its own terms, use restrictions, or license. PlanKept lists those model terms near the relevant download or selection surface. By using a selected model, you agree to the listed model terms in addition to PlanKept's own legal terms.
 
-PlanKept does not operate a custom developer backend, developer-controlled analytics service, app account server, or telemetry pipeline for the app. The PlanKept website and hosted legal documents are static pages served through GitHub Pages. GitHub may process technical request metadata, such as IP address and request information, under GitHub's own privacy practices when those pages or the hosted legal manifest are loaded.
+PlanKept does not operate a custom developer-operated backend for app data, developer-controlled analytics service, app account server, crash-reporting SDK, advertising SDK, or telemetry pipeline for normal app use. The app still may make network requests for platform or user-selected features, such as the hosted legal manifest, StoreKit purchases and restores, model downloads, Apple-managed services, local development/provider routes you configure, or support links you choose to open. The PlanKept website and hosted legal documents are static pages served through GitHub Pages. GitHub may process technical request metadata, such as IP address and request information, under GitHub's own privacy practices when those pages or the hosted legal manifest are loaded.
 
 Contact:
 
 - Email: `plankeptapp@gmail.com`
 - Telephone: `+48 73 2099027`
-- Support page: [`https://alekjaltuszyk.xyz/PlanKept/support/`](https://alekjaltuszyk.xyz/PlanKept/support/)
+- Support page: [`https://alekjaltuszyk.xyz/apps/PlanKept/support/`](https://alekjaltuszyk.xyz/apps/PlanKept/support/)
 - Country: Poland
 
 ## Summary
@@ -22,17 +22,18 @@ Contact:
 - We do not sell personal data.
 - We do not use third-party advertising SDKs, Meta Pixel, TikTok Pixel, or similar ad-tracking code in the PlanKept app or website today.
 - PlanKept is not an ad-supported app. We do not show third-party ads inside the PlanKept app.
-- PlanKept does not operate a custom developer backend, app account server, developer analytics service, or telemetry pipeline for app usage.
+- PlanKept does not operate a custom developer-operated backend for app data, app account server, developer analytics service, advertising SDK, crash-reporting SDK, or telemetry pipeline for app usage.
 - We may advertise PlanKept on services such as Meta, Instagram, TikTok, Apple Search Ads, Google, or similar platforms. Buying ads does not by itself mean that the PlanKept app or website sends app data to those platforms.
 - If you view, click, save, share, comment on, or otherwise interact with a PlanKept ad on a third-party platform, that platform may process the interaction under its own policies.
 - If we later add an advertising pixel, app event SDK, conversion API, custom audience upload, or similar measurement tool, we will update this policy, use required consent or choice controls, and avoid sending plan content, proof content, Health data, Screen Time data, AI conversation content, or other sensitive app content to ad platforms.
 - We do not currently provide a general in-app account system for PlanKept users.
 - PlanKept does not currently ask for account passwords, contact-list access, precise GPS location permission, mailing addresses, billing addresses, job titles, or payment-card numbers.
-- The core app is intended to store most plans, settings, proof-related state, and similar usage content locally on your device.
+- The core app stores plans, settings, proof-related state, selected app-control configuration, reminder state, Health-related proof/check state where enabled, and similar usage content locally on your device.
 - Local-first does not necessarily mean local records are excluded from Apple-managed device backups, device migrations, iCloud backup settings, or operating-system recovery tools.
 - We may receive information you choose to send through support or contact channels.
 - The PlanKept website and hosted legal manifest are served by GitHub Pages, a third-party static site host. GitHub may log technical request metadata for security and operations under GitHub's own privacy practices.
-- Apple and other third parties may process information when you choose to use platform-managed or third-party features, such as App Store purchases, speech services, model downloads, or external AI/model routes.
+- Downloaded on-device models are intended to run locally on your device after installation. Apple-managed AI features, local development/provider routes, model download hosts, and user-selected or external model routes may have their own processing paths and terms.
+- Apple and other third parties may process information when you choose to use platform-managed or third-party features, such as App Store purchases, speech services, model downloads, Apple Intelligence, or external AI/model routes.
 - If PlanKept introduces materially different data processing later, this policy should be updated before or with that change.
 
 ## 1. Information We Collect
@@ -45,9 +46,9 @@ Depending on how you use PlanKept, the following categories may be processed loc
 - Messages, support requests, and other information you choose to send us
 - Basic website-delivery and security information processed by GitHub Pages or other website infrastructure when PlanKept pages or legal documents are loaded, such as IP address, browser type, request timing, page requested, referring URL, and similar server or hosting metadata
 - Purchase and access information needed to offer, verify, or restore paid access through Apple or other platform purchase systems
-- App content you create or provide, such as plans, schedules, reminders, proof statements, attachments, AI-conversation content, and related workflow state
+- App content you create or provide, such as plans, schedules, reminders, selected app-blocking or minute-limit configuration, proof statements, attachments, AI-conversation content, and related workflow state
 - Image attachments you choose to add from the camera, photo library, pasteboard, or files, including image bytes and limited image metadata such as file type, dimensions, source, capture timestamp indicators, or whether location metadata appears to be present
-- Device-permission-based data you choose to enable, such as camera input, microphone input, speech transcription input, Apple Health data, Screen Time state, notifications, or similar platform-authorized information
+- Device-permission-based data you choose to enable, such as camera input, microphone input, speech transcription input, Apple Health data for user-selected proof/check features, Screen Time state, notifications, or similar platform-authorized information
 - Model-selection, install, provider, runtime, or compatibility information needed to run local, Apple-managed, or user-selected AI features
 - Advertising and campaign information if you interact with ads that promote PlanKept outside the app, or with campaign links, such as ad click metadata, referral source, campaign parameters, landing-page request metadata, and aggregated campaign reports from ad platforms
 
@@ -88,6 +89,14 @@ Examples can include:
 - future campaign-measurement tools, if they are added with required notice, consent, and applicable law and platform compliance controls
 
 Those providers operate under their own terms, notices, and privacy policies. Because available providers and routes may change, this policy describes the categories of outside processing rather than attempting to maintain an exhaustive provider inventory here.
+
+## 3.1 Apple Health And Screen Time Data
+
+PlanKept may use Apple Health data only for user-selected proof or check features, such as step or workout evidence, when you grant the relevant permission and choose a feature that needs it. PlanKept is designed to read only the selected Health signals needed for the feature and does not write Health data.
+
+PlanKept does not use Health data for ads, cross-context behavioral tracking, marketing, or model training. Health-related proof/check state is handled locally for the feature you choose. If you include Health evidence in a proof, AI, support, screenshot, or other user-selected flow, treat that evidence as part of the content you chose to process or send through that flow.
+
+PlanKept may use Apple Screen Time, Family Controls, DeviceActivity, Managed Settings, notifications, AlarmKit, and related iOS frameworks to support app blocking, app limits, schedules, reminders, and related local app behavior. Those features depend on iOS permissions, Apple frameworks, device state, and operating-system behavior.
 
 If you attach a photo or screenshot to an AI conversation or proof flow, treat that image as part of the content you are asking PlanKept to process. Local or on-device model routes are intended to keep the image on your device; in that case, image handling itself is not an example of information leaving your device. External or user-configured AI/model routes may require sending the image, an encoded copy of the image, image-derived observations, or related metadata to that provider. Avoid attaching images that contain information you do not want processed, such as faces, documents, addresses, health details, messages, location metadata, or other sensitive content.
 

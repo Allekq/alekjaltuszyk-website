@@ -104,7 +104,12 @@ To the fullest extent permitted by law, OverLit and related surfaces are provide
 
 To the fullest extent permitted by law, the Developer will not be liable for indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of OverLit, the website, ads, support, or third-party services.
 
-Nothing in these Terms limits or excludes any rights, warranties, remedies, or liabilities that cannot be limited or excluded under applicable consumer protection law.
+To the fullest extent permitted by law, our total aggregate liability for all claims arising out of or related to OverLit, the website, ads, rewarded unlocks, Full Version purchases, support, third-party services, or these Terms will be limited to the greater of:
+
+- the amount you paid for OverLit or in-app purchases in the 12 months before the claim; or
+- EUR 25
+
+Nothing in these Terms limits or excludes any rights, warranties, remedies, or liabilities that cannot be limited or excluded under applicable law, including mandatory consumer rights, liability for intentional misconduct, fraud, or other categories that applicable law does not allow contracts to limit.
 
 ## 16. Governing Law
 

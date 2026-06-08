@@ -16,19 +16,34 @@ export const siteBasePath = normalizeBasePath(
 );
 
 export const legalDocuments = {
-  privacy: {
-    version: "1.2.11",
-    effectiveDate: "2026-06-06",
-    path: "/PlanKept/privacy-policy/",
+  sitePrivacy: {
+    version: "1.0.0",
+    effectiveDate: "2026-06-08",
+    path: "/privacy-policy/",
+  },
+  siteTerms: {
+    version: "1.0.0",
+    effectiveDate: "2026-06-08",
+    path: "/terms/",
+  },
+  planKeptPrivacy: {
+    version: "1.2.12",
+    effectiveDate: "2026-06-08",
+    path: "/apps/PlanKept/privacy-policy/",
+  },
+  planKeptTerms: {
+    version: "1.2.8",
+    effectiveDate: "2026-06-08",
+    path: "/apps/PlanKept/terms-of-service/",
   },
   voiceOfSelfPrivacy: {
-    version: "1.2.17",
-    effectiveDate: "2026-06-06",
+    version: "1.2.18",
+    effectiveDate: "2026-06-08",
     path: "/apps/VoiceOfSelf/privacy-policy/",
   },
   voiceOfSelfTerms: {
-    version: "1.2.15",
-    effectiveDate: "2026-06-06",
+    version: "1.2.16",
+    effectiveDate: "2026-06-08",
     path: "/apps/VoiceOfSelf/terms-of-service/",
   },
   overLitPrivacy: {
@@ -37,8 +52,8 @@ export const legalDocuments = {
     path: "/apps/OverLit/privacy-policy/",
   },
   overLitTerms: {
-    version: "1.0.6",
-    effectiveDate: "2026-05-31",
+    version: "1.0.7",
+    effectiveDate: "2026-06-08",
     path: "/apps/OverLit/terms-of-use/",
   },
   takeMeSomewherePrivacy: {
@@ -47,13 +62,8 @@ export const legalDocuments = {
     path: "/apps/TakeMeSomewhere/privacy-policy/",
   },
   takeMeSomewhereTerms: {
-    version: "1.0.2",
+    version: "1.0.3",
     effectiveDate: "2026-06-08",
     path: "/apps/TakeMeSomewhere/terms-of-service/",
-  },
-  terms: {
-    version: "1.2.7",
-    effectiveDate: "2026-06-06",
-    path: "/PlanKept/terms-of-service/",
   },
 };

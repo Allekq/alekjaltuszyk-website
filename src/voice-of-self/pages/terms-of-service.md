@@ -5,8 +5,8 @@ description: Voice of Self terms of service.
 ---
 # Voice of Self Terms Of Service
 
-Effective Date: 2026-06-06
-Version: 1.2.15
+Effective Date: 2026-06-08
+Version: 1.2.16
 
 These Terms of Service ("Terms") govern your use of Voice of Self, including
 the iOS app, the public website, direct contact channels, and other related
@@ -172,8 +172,20 @@ data needed to fulfill an AI feature may pass through our backend and to the
 configured AI provider. These managed AI features require sign-in and an active
 free-trial, subscription, entitlement, or other access grant.
 
+Managed AI features may process the current entry, current transcript, live
+transcript excerpts while recording, completed transcript text, and selected
+past entries, transcripts, summaries, relics, milestones, or related local
+context depending on the feature, settings, and workflow. You are responsible
+for what you choose to record, write, process, export, share, or send.
+
 If live questions are enabled, transcript excerpts may be processed during a
 recording session before the full recording is finished.
+
+Where required by applicable law, managed AI processing of entries,
+transcripts, or sensitive information you choose to include may depend on your
+explicit consent. If you withdraw consent, disable managed AI, delete
+backend-linked account data where available, or otherwise stop the processing
+needed for managed AI, some features may stop working or become limited.
 
 We may set, change, or enforce usage caps, token limits, concurrency limits,
 rate limits, safety filters, or account restrictions at any time to protect the
@@ -395,7 +407,7 @@ THE GREATER OF:
 
 - THE TOTAL AMOUNT YOU PAID TO US FOR THE SERVICE IN THE 12 MONTHS BEFORE THE
   EVENT GIVING RISE TO THE CLAIM; OR
-- EUR 100
+- EUR 25
 
 THIS LIMITATION APPLIES REGARDLESS OF THE FORM OF ACTION AND EVEN IF ANY
 LIMITED REMEDY FAILS OF ITS ESSENTIAL PURPOSE.

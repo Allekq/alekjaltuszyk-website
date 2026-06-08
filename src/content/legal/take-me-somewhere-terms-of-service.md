@@ -139,7 +139,7 @@ Nothing in these terms limits rights, warranties, remedies, or liabilities that 
 
 To the fullest extent permitted by law, the Developer will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages arising out of or related to your use of Take Me Somewhere, route suggestions, maps, Compass Mode, Route Mode, provider data, website surfaces, support, or third-party services.
 
-To the fullest extent permitted by law, our total liability for claims arising out of or related to Take Me Somewhere will be limited to the greater of the amount you paid us directly for Take Me Somewhere in the 12 months before the claim or 50 EUR.
+To the fullest extent permitted by law, our total aggregate liability for claims arising out of or related to Take Me Somewhere will be limited to the greater of the amount you paid us directly for Take Me Somewhere in the 12 months before the claim or EUR 25.
 
 Nothing in these terms limits or excludes liability that cannot legally be limited or excluded, including liability for intentional misconduct or rights that applicable consumer law gives you and does not allow contracts to waive.
 

@@ -18,9 +18,8 @@ privacy manifests, or App Store-facing claims, switch to:
 
 - `/Users/alekj/Documents/GitHub/OverLit-app`
 
-If the task is about the Voice of Self website, switch to:
-
-- `/Users/alekj/Documents/GitHub/voice-of-self-website`
+If the task is about the Voice of Self website, support pages, legal pages, or
+public marketing surface, stay in this repo under `/apps/VoiceOfSelf/`.
 
 Plan Enforcer is the app repo behind PlanKept. Closure App is the app repo
 behind Voice of Self. OverLit App is the app repo behind OverLit.
@@ -76,8 +75,8 @@ behind Voice of Self. OverLit App is the app repo behind OverLit.
 - Internal links and routes must stay compatible with GitHub Pages base paths.
   Use `withBase()` for internal URLs.
 - The root domain is the personal site, not the PlanKept app itself.
-- Voice of Self stays a linked external destination here rather than being
-  copied into this repo.
+- Voice of Self's public website, support pages, and legal pages live in this
+  repo under `/apps/VoiceOfSelf/`.
 - Do not add secrets to this repo.
 - Keep public contact details easy to swap in `src/config/site.ts`.
 

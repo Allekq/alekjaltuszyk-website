@@ -8,7 +8,9 @@ You can open the site locally before publishing it.
 - Apps directory: `http://127.0.0.1:4321/apps/`
 - PlanKept page: `http://127.0.0.1:4321/apps/PlanKept/`
 - Privacy Policy: `http://127.0.0.1:4321/privacy-policy/`
-- Terms of Service: `http://127.0.0.1:4321/terms-of-service/`
+- Website Terms: `http://127.0.0.1:4321/terms/`
+- Legal hub: `http://127.0.0.1:4321/legal/`
+- PlanKept Terms of Service: `http://127.0.0.1:4321/apps/PlanKept/terms-of-service/`
 
 ## Start the local site yourself
 

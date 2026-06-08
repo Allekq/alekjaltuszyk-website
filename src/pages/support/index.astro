@@ -1,25 +1,73 @@
 ---
-import "../../styles/support.css";
-import "../../styles/waitlist-guide.css";
-import PlanKeptSupportGuide from "../../components/support/PlanKeptSupportGuide.astro";
 import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
-import { planKeptConfig } from "../../config/site";
-import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  overLitConfig,
+  planKeptConfig,
+  siteConfig,
+  takeMeSomewhereConfig,
+} from "../../config/site";
 import { siteRoutes } from "../../config/routes";
+import { siteConfig as voiceOfSelfConfig } from "../../voice-of-self/config/site";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const supportItems = [
+  {
+    name: "PlanKept",
+    description: "Support for plans, reminders, app blocking, Proof Review, Apple Health checks, purchases, and local-first app behavior.",
+    href: siteRoutes.apps.planKeptSupport.href,
+    email: planKeptConfig.supportEmail,
+  },
+  {
+    name: "Voice of Self",
+    description: "Support for account access, subscriptions, entries, transcripts, AI-assisted reflections, live questions, and local exports.",
+    href: siteRoutes.apps.voiceOfSelfSupport.href,
+    email: voiceOfSelfConfig.supportEmail,
+  },
+  {
+    name: "OverLit",
+    description: "Support for gameplay, ads, rewarded unlocks, Full Version purchases, local progress, and device-specific issues.",
+    href: siteRoutes.apps.overLitSupport.href,
+    email: overLitConfig.supportEmail,
+  },
+  {
+    name: "Take Me Somewhere",
+    description: "Support for route suggestions, location permission, map providers, Compass Mode, Route Mode, and local preferences.",
+    href: siteRoutes.apps.takeMeSomewhereSupport.href,
+    email: takeMeSomewhereConfig.supportEmail,
+  },
+] as const;
 ---
 
 <SiteLayout
   title="Support"
-  description="Email-based PlanKept support for app questions, device details, troubleshooting notes, and direct contact with the developer."
+  description="Support directory for apps by Alek Jałtuszyk, with app-specific support pages and contact emails."
   pageType="content"
-  canonicalHref={siteRoutes.planKept.support.href}
-  robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+  canonicalHref={siteRoutes.support.href}
 >
-  <PlanKeptSupportGuide />
+  <h1>Support</h1>
 
-  <SiteFooter links={planKeptConfig.footerLinks} showBrand={false} showSocials={false} />
+  <p>
+    Choose the app you need help with. Each support page includes a focused email draft so
+    the right details are easy to include.
+  </p>
 
-  <script>
-    import "../../scripts/waitlist-guide/copy-buttons";
-  </script>
+  <section aria-label="App support pages">
+    {supportItems.map((item) => (
+      <article>
+        <h2>{item.name}</h2>
+        <p>{item.description}</p>
+        <p>
+          <a href={item.href}>Open {item.name} support</a><br />
+          Email: <code>{item.email}</code>
+        </p>
+      </article>
+    ))}
+  </section>
+
+  <p>
+    For general website questions, email <code>{siteConfig.contactEmail}</code>.
+    For legal documents, start from the <a href={siteRoutes.legal.href}>Legal hub</a>.
+  </p>
+
+  <SiteFooter />
 </SiteLayout>

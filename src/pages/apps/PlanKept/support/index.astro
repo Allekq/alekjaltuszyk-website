@@ -1,0 +1,17 @@
+---
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import PlanKeptSupportGuide from "../../../../components/support/PlanKeptSupportGuide.astro";
+import { planKeptConfig } from "../../../../config/site";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import { siteRoutes } from "../../../../config/routes";
+---
+
+<SiteLayout
+  title="Support | PlanKept"
+  description="Email-based PlanKept support with issue details, device information, and direct contact with Alek Jałtuszyk."
+  pageType="content"
+  canonicalHref={siteRoutes.apps.planKeptSupport.href}
+>
+  <PlanKeptSupportGuide />
+  <SiteFooter links={planKeptConfig.footerLinks} showBrand={false} showSocials={false} />
+</SiteLayout>
