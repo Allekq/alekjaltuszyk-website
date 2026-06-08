@@ -28,7 +28,7 @@ Contact:
 - If we later add an advertising pixel, app event SDK, conversion API, custom audience upload, or similar measurement tool, we will update this policy, use required consent or choice controls, and avoid sending plan content, proof content, Health data, Screen Time data, AI conversation content, or other sensitive app content to ad platforms.
 - We do not currently provide a general in-app account system for PlanKept users.
 - PlanKept does not currently ask for account passwords, contact-list access, precise GPS location permission, mailing addresses, billing addresses, job titles, or payment-card numbers.
-- The core app stores plans, settings, proof-related state, selected app-control configuration, reminder state, Health-related proof/check state where enabled, and similar usage content locally on your device.
+- The core app stores plans, settings, proof-related state, selected app-control configuration, reminder state, Health-related proof/check state where enabled, local analytics views, and similar usage content locally on your device.
 - Local-first does not necessarily mean local records are excluded from Apple-managed device backups, device migrations, iCloud backup settings, or operating-system recovery tools.
 - We may receive information you choose to send through support or contact channels.
 - The PlanKept website and hosted legal manifest are served by GitHub Pages, a third-party static site host. GitHub may log technical request metadata for security and operations under GitHub's own privacy practices.
@@ -49,10 +49,13 @@ Depending on how you use PlanKept, the following categories may be processed loc
 - App content you create or provide, such as plans, schedules, reminders, selected app-blocking or minute-limit configuration, proof statements, attachments, AI-conversation content, and related workflow state
 - Image attachments you choose to add from the camera, photo library, pasteboard, or files, including image bytes and limited image metadata such as file type, dimensions, source, capture timestamp indicators, or whether location metadata appears to be present
 - Device-permission-based data you choose to enable, such as camera input, microphone input, speech transcription input, Apple Health data for user-selected proof/check features, Screen Time state, notifications, or similar platform-authorized information
+- Local app analytics and diagnostic surfaces generated on your device, such as usage trends, proof/check summaries, AI/model diagnostics, copied debug details, or other local summaries the app lets you view, copy, export, or include in support
 - Model-selection, install, provider, runtime, or compatibility information needed to run local, Apple-managed, or user-selected AI features
 - Advertising and campaign information if you interact with ads that promote PlanKept outside the app, or with campaign links, such as ad click metadata, referral source, campaign parameters, landing-page request metadata, and aggregated campaign reports from ad platforms
 
 PlanKept does not currently ask for contact-list permission or precise GPS location permission. If you choose to attach a photo, screenshot, file, or other image, information embedded in that attachment, such as visible text, faces, document details, timestamps, or location metadata, may be part of the content you choose to process.
+
+Some app surfaces may let you copy, export, or share local app content, local summaries, diagnostics, AI request/response details, screenshots, or support details. Copying or exporting those details does not send them to us by itself. The information leaves your device only if you choose to paste, send, upload, share, back up, or otherwise move it through another app, provider, or support channel.
 
 PlanKept does not currently ask you to create an app account or provide a password. PlanKept also does not receive or store full payment-card numbers for App Store in-app purchases. Apple or the relevant platform payment provider processes payment-card details, refunds, taxes, family sharing, purchase restoration, and related payment records under its own terms and policies. PlanKept may receive purchase, entitlement, transaction, or restore status needed to unlock access and provide support.
 
@@ -92,11 +95,11 @@ Those providers operate under their own terms, notices, and privacy policies. Be
 
 ## 3.1 Apple Health And Screen Time Data
 
-PlanKept may use Apple Health data only for user-selected proof or check features, such as step or workout evidence, when you grant the relevant permission and choose a feature that needs it. PlanKept is designed to read only the selected Health signals needed for the feature and does not write Health data.
+PlanKept may use Apple Health data only for user-selected proof, check, or local analytics features when you grant the relevant permission and choose a feature that needs it. Depending on the feature you enable, selected Health signals may include workouts, steps, flights climbed, mindful minutes, active energy, resting energy, sleep timing, or similar Health records supported by the app and Apple Health. PlanKept is designed to read only the selected Health signals needed for the feature and does not write Health data.
 
 PlanKept does not use Health data for ads, cross-context behavioral tracking, marketing, or model training. Health-related proof/check state is handled locally for the feature you choose. If you include Health evidence in a proof, AI, support, screenshot, or other user-selected flow, treat that evidence as part of the content you chose to process or send through that flow.
 
-PlanKept may use Apple Screen Time, Family Controls, DeviceActivity, Managed Settings, notifications, AlarmKit, and related iOS frameworks to support app blocking, app limits, schedules, reminders, and related local app behavior. Those features depend on iOS permissions, Apple frameworks, device state, and operating-system behavior.
+PlanKept may use Apple Screen Time, Family Controls, DeviceActivity, Managed Settings, notifications, AlarmKit, and related iOS frameworks to support app blocking, app limits, schedules, reminders, local app-usage analytics, and related local app behavior. Where Apple exposes it through those frameworks, this may include app or web usage durations, selected app or category tokens, display names, bundle identifiers, timestamps, schedules, and related current-device state. Those features depend on iOS permissions, Apple frameworks, device state, and operating-system behavior.
 
 If you attach a photo or screenshot to an AI conversation or proof flow, treat that image as part of the content you are asking PlanKept to process. Local or on-device model routes are intended to keep the image on your device; in that case, image handling itself is not an example of information leaving your device. External or user-configured AI/model routes may require sending the image, an encoded copy of the image, image-derived observations, or related metadata to that provider. Avoid attaching images that contain information you do not want processed, such as faces, documents, addresses, health details, messages, location metadata, or other sensitive content.
 

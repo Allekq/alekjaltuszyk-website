@@ -91,6 +91,10 @@ behind Voice of Self. OverLit App is the app repo behind OverLit.
   in `/Users/alekj/Documents/GitHub/plan enforcer`.
 - For OverLit, also keep the public legal versions aligned with app-side legal
   acceptance/versioning in `/Users/alekj/Documents/GitHub/OverLit-app`.
+- For Voice of Self, also sync the app-bundled legal files and legal manifest
+  in `/Users/alekj/Documents/GitHub/closure-app/external/legal/`.
+- For Take Me Somewhere, also keep the app legal catalog, privacy manifest, and
+  map/location disclosures aligned in `/Users/alekj/Documents/GitHub/TakeMeSomewhere`.
 
 ## Validation Checklist
 

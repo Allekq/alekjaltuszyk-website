@@ -67,13 +67,13 @@ Recent-destination memory is meant to avoid repeating places. It should remain l
 
 ## 9. Third-Party Services And Map Providers
 
-Take Me Somewhere may use or link to third-party services, including Apple MapKit, Apple Local Search, Apple Maps, OpenStreetMap-derived services, Overpass endpoints, Google Maps Platform services if configured, App Store services, email providers, website hosting providers, and external websites.
+Take Me Somewhere may use or link to third-party services, including Apple MapKit, Apple Local Search, Apple Maps, OpenStreetMap-derived services, Overpass endpoints, App Store services, email providers, website hosting providers, and external websites.
 
 Third-party services have their own terms and policies. We do not control third-party maps, routes, place databases, opening hours, reviews, ratings, road or trail data, traffic information, outages, provider rules, or external websites.
 
 You must not use Take Me Somewhere in a way that violates third-party service terms, provider attribution requirements, map-data licenses, App Store rules, Apple's Standard EULA, or applicable law.
 
-Provider choices may vary by build, configuration, region, feature, or future version. The default product direction is OpenStreetMap-derived place discovery with Apple destination search, Apple routing, Apple map display, and Apple Maps handoff. Google Maps Platform services are optional and should be used only when configured.
+Provider choices may vary by build, configuration, region, feature, or future version. The current product direction is OpenStreetMap-derived place discovery with Apple fallback discovery, Apple routing, Apple map display, and Apple Maps handoff.
 
 ## 10. Accounts And Purchases
 
@@ -109,7 +109,7 @@ If you send ideas, suggestions, or feedback, you allow us to use them without re
 
 The app design, code, copy, branding, visual style, website, and related materials are owned by or licensed to the Developer except where otherwise stated.
 
-Map data, place data, provider marks, platform marks, Apple marks, Google marks, OpenStreetMap data, and third-party content remain owned by their respective owners and may be subject to separate licenses, terms, attribution requirements, and usage restrictions.
+Map data, place data, provider marks, platform marks, Apple marks, OpenStreetMap data, and third-party content remain owned by their respective owners and may be subject to separate licenses, terms, attribution requirements, and usage restrictions.
 
 Nothing in these terms grants you rights to use our branding, provider branding, map data, app code, website code, or third-party content except as allowed by these terms, Apple's Standard EULA, provider terms, or applicable law.
 

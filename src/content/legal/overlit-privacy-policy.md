@@ -12,7 +12,7 @@ This policy covers the OverLit app and the OverLit pages on `alekjaltuszyk.xyz`,
 
 - OverLit is a short-session iPhone arcade/reflex game.
 - The app does not require an account, custom backend, chat, social feed, multiplayer, or cloud sync.
-- Gameplay settings, preferences, high scores, progress, unlocks, ad counters, purchase entitlement state, and legal acceptance may be stored locally on your device.
+- Gameplay settings, preferences, high scores, progress, local event history, unlocks, ad counters, purchase entitlement state, and legal acceptance may be stored locally on your device.
 - The app does not ask for account registration, passwords, payment card details, phone numbers, mailing addresses, precise GPS location, contacts, camera access, photo library access, or age.
 - The app uses Google Mobile Ads SDK for AdMob rewarded ads and interstitial ads in the free experience.
 - The app uses Google User Messaging Platform / AdMob privacy messages for applicable European regulations and U.S. state privacy regulations, and may show an AdMob IDFA explainer before Apple's App Tracking Transparency prompt.
@@ -30,12 +30,12 @@ This policy covers the OverLit app and the OverLit pages on `alekjaltuszyk.xyz`,
 OverLit gameplay is local. The app may store local gameplay/settings data on your device so the game can work normally and remember your choices.
 
 - settings and app appearance preferences
-- high scores, stats, play progress, mode state, and theme unlocks
+- high scores, stats, play progress, mode state, theme unlocks, and local event history
 - onboarding and legal acceptance state
-- play counters and ad counters used to decide when ads or unlock opportunities appear
+- play counters, ad counters, recent-run details, completion state, cadence timestamps, and similar local gameplay records used to restore progress, show stats, tune the local experience, and decide when ads or unlock opportunities appear
 - Full Version entitlement cache, verification time, and limited StoreKit transaction metadata needed to remember a verified purchase and restore access
 
-The app may include a Copy Progress option that copies a plain-text summary of local level progress, scores, and stars to your device clipboard. Copying progress does not send it to us by itself. The data leaves your device only if you choose to paste or share it, such as in a support or feedback email.
+The app may include a Copy Progress option that copies a plain-text summary of local level progress, scores, stars, and related gameplay state to your device clipboard. Copying progress does not send it to us by itself. The data leaves your device only if you choose to paste or share it, such as in a support or feedback email.
 
 This local app data is intended to stay on your device unless you separately choose to send information to support or feedback, unless Google/AdMob processes ad-related data through its SDK as described below, or unless Apple or another platform provider processes data through its own platform services. Deleting the app may remove local app data from the device, subject to normal iOS backup, restore, and device behavior.
 

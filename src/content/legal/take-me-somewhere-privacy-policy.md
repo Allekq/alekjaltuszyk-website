@@ -23,7 +23,7 @@ Where applicable data-protection law uses the term "controller," the controller 
 - Take Me Somewhere does not require an account.
 - The app is not designed to collect background location.
 - The app uses location while you create or follow a suggested route, if you grant permission.
-- Suggested route geometry, ETA, distance, map display, compass guidance, and destination search may involve map, routing, and place providers such as Apple MapKit, Apple Maps, OpenStreetMap-derived services, and optional Google Maps Platform services if configured.
+- Suggested route geometry, ETA, distance, map display, compass guidance, and destination search may involve map, routing, and place providers such as Apple MapKit, Apple Maps, and OpenStreetMap-derived services.
 - Preferences and optional recent-destination memory are intended to stay on your device.
 - Take Me Somewhere does not sell personal information.
 - Take Me Somewhere does not currently use third-party ads, cross-context behavioral advertising, or custom analytics inside the app.
@@ -37,7 +37,7 @@ Where applicable data-protection law uses the term "controller," the controller 
 
 If you allow location access, the app may use your current location while you are creating or following a suggested outing. Depending on the feature you use, the app may process:
 
-- current location or a selected start area
+- current location-derived start coordinate or nearby search region
 - destination search text or selected destination
 - route request settings such as time budget, travel mode, and selected vibe filters
 - suggested route geometry, waypoints, estimated duration, distance, progress, guidance mode, and destination reveal state
@@ -74,13 +74,12 @@ Take Me Somewhere depends on real map and routing systems for spatial truth. The
 
 Provider roles may include:
 
-- Apple MapKit, Apple Local Search, Apple Maps, and related Apple services for map display, destination search, route geometry, ETA, distance, route steps, and external navigation handoff.
-- OpenStreetMap-derived services or Overpass endpoints for nearby place discovery. These requests may include a start area, search radius, route filters, destination search text if used with that provider, and ordinary request metadata such as IP address and user agent.
-- Google Maps Platform services only if explicitly configured in the app or app build, for place discovery, place details, map display, routing, or external handoff. If Google routing is enabled, route requests should go through a backend proxy instead of shipping a Google Routes API key in the iOS app.
+- Apple MapKit, Apple Local Search, Apple Maps, and related Apple services for map display, destination search, place fallback, route geometry, ETA, distance, route steps, and external navigation handoff.
+- OpenStreetMap-derived services or Overpass endpoints for nearby place discovery. These requests may include a current-location-derived start coordinate or nearby search region, search radius, route filters, destination search text if used with that provider, and ordinary request metadata such as IP address and user agent.
 
-Those providers may process information under their own terms and privacy policies. Take Me Somewhere should send only what is reasonably needed for the selected feature, such as a route start area, destination or candidate places, destination query, travel mode, and route request parameters.
+Those providers may process information under their own terms and privacy policies. Take Me Somewhere should send only what is reasonably needed for the selected feature, such as a current-location-derived start coordinate or nearby search region, destination or candidate places, destination query, travel mode, and route request parameters.
 
-The default app direction is OpenStreetMap-derived discovery with Apple destination search, Apple routing, Apple map display, and Apple Maps handoff. Provider configuration may change by build, region, feature, or future version. The Privacy Policy explains what data may be processed. The Terms of Service explain that app routes, maps, compass direction, and progress are suggestions only and that you remain responsible for real-world route decisions.
+The default app direction is OpenStreetMap-derived discovery with Apple fallback for app-selected place discovery when OpenStreetMap search is unavailable or returns no usable places, Apple destination search, Apple routing, Apple map display, and Apple Maps handoff. Provider configuration may change by build, region, feature, or future version. The Privacy Policy explains what data may be processed. The Terms of Service explain that app routes, maps, compass direction, and progress are suggestions only and that you remain responsible for real-world route decisions.
 
 Take Me Somewhere should not invent location facts, distance, ETA, bearing, or route geometry with AI. The app does not currently use managed AI services. If optional AI assistance is introduced later, it should be limited to intent parsing, candidate explanation, or recommendation among already app-scored options, and this policy should be updated before new personal information is sent for AI processing.
 
@@ -128,7 +127,7 @@ Website technical logs are kept by hosting and infrastructure providers accordin
 
 When the app checks the hosted legal manifest, the website host may receive ordinary technical request metadata as described above. The manifest does not require an account and does not include your location or route history.
 
-Map, place, routing, App Store, and platform providers may keep information according to their own policies. Google place detail metadata, if Google is configured, is intended to carry provider retention metadata; review snippets should be treated as session/detail content rather than permanent route history.
+Map, place, routing, App Store, and platform providers may keep information according to their own policies.
 
 ## 9. Security
 

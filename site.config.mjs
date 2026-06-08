@@ -27,7 +27,7 @@ export const legalDocuments = {
     path: "/terms/",
   },
   planKeptPrivacy: {
-    version: "1.2.12",
+    version: "1.2.13",
     effectiveDate: "2026-06-08",
     path: "/apps/PlanKept/privacy-policy/",
   },
@@ -37,7 +37,7 @@ export const legalDocuments = {
     path: "/apps/PlanKept/terms-of-service/",
   },
   voiceOfSelfPrivacy: {
-    version: "1.2.19",
+    version: "1.2.20",
     effectiveDate: "2026-06-08",
     path: "/apps/VoiceOfSelf/privacy-policy/",
   },
@@ -47,8 +47,8 @@ export const legalDocuments = {
     path: "/apps/VoiceOfSelf/terms-of-service/",
   },
   overLitPrivacy: {
-    version: "1.0.12",
-    effectiveDate: "2026-05-31",
+    version: "1.0.13",
+    effectiveDate: "2026-06-08",
     path: "/apps/OverLit/privacy-policy/",
   },
   overLitTerms: {
@@ -57,12 +57,12 @@ export const legalDocuments = {
     path: "/apps/OverLit/terms-of-use/",
   },
   takeMeSomewherePrivacy: {
-    version: "1.0.2",
+    version: "1.0.3",
     effectiveDate: "2026-06-08",
     path: "/apps/TakeMeSomewhere/privacy-policy/",
   },
   takeMeSomewhereTerms: {
-    version: "1.0.3",
+    version: "1.0.4",
     effectiveDate: "2026-06-08",
     path: "/apps/TakeMeSomewhere/terms-of-service/",
   },
