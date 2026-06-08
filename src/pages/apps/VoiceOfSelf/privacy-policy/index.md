@@ -6,7 +6,7 @@ description: Voice of Self privacy policy.
 # Voice of Self Privacy Policy
 
 Effective Date: 2026-06-08
-Version: 1.2.18
+Version: 1.2.19
 
 This Privacy Policy explains how Voice of Self processes personal information
 when you use the Voice of Self iOS app, the public website, direct contact
@@ -40,11 +40,13 @@ Contact:
   opinions, sexual orientation, race, or other personal information. Some
   content may be blocked, hidden, or left unanalyzed under safety or acceptable
   use rules.
-- Our backend is designed not to retain raw audio, transcript text, or AI
-  output as persistent backend account records for managed AI requests. We do
-  retain limited account, subscription, security, diagnostic, and
-  usage/accounting metadata such as token counts, workflow labels, timestamps,
-  processing duration, and derived cost.
+- For normal managed AI requests, raw audio, transcript text, and AI output are
+  handled on a zero-retention basis by our backend and configured provider
+  routes: they are transmitted only to service the request and are not retained
+  as readable backend content after fulfillment. We do retain limited account,
+  subscription, security, diagnostic, and usage/accounting metadata such as
+  token counts, workflow labels, timestamps, processing duration, and derived
+  cost.
 - Apple handles billing, RevenueCat handles subscription syncing, Firebase /
   Google handles authentication and backend infrastructure, Amazon Bedrock /
   AWS and Groq handle managed AI processing, and GitHub Pages hosts the public
@@ -149,8 +151,9 @@ such as:
   operational tracking
 
 Our backend usage and accounting records are intended to track access, limits,
-cost, fraud prevention, and service operations. They are not intended to store
-raw transcript text, raw audio, or AI response content as account records.
+cost, fraud prevention, and service operations. They store usage metadata such
+as token and cost information; they do not store what you said, raw transcript
+text, raw audio, or AI response content as account records.
 
 ### 1.4 Website and direct contact submissions
 
@@ -226,9 +229,9 @@ records.
 
 Voice of Self does not use journal content, raw audio, transcripts, live
 question content, or AI outputs for ads, retargeting, custom audiences, or
-training our own models. Managed AI providers process request content under
-their own service terms, privacy terms, infrastructure controls, and retention
-settings.
+training our own models. For normal managed AI requests, request content is
+handled transiently to fulfill the feature and is not retained as readable
+backend content after fulfillment.
 
 ### 1.6 Payment information
 
@@ -409,11 +412,11 @@ Service](/apps/VoiceOfSelf/terms-of-service/).
 Current managed provider roles are summarized below. Provider availability,
 routing, model choices, and infrastructure settings may change over time.
 
-| Provider | Purpose | Data categories | Retention and training notes | Region / transfer note |
+| Provider | Purpose | Data handled for the request or service | Retention and training notes | Region / transfer note |
 | --- | --- | --- | --- | --- |
 | Firebase / Google | Authentication, callable backend, App Check, security, account records, usage/accounting metadata, and backend infrastructure | Account identifiers, authentication/session metadata, request metadata, App Check or integrity signals, token/cost/workflow metadata, and limited operational logs | Backend records are designed not to store raw journal text, raw audio, or AI output as persistent account records. Platform logs may retain limited technical metadata under Google/Firebase settings. | May process in regions used by Firebase / Google infrastructure. |
-| Amazon Bedrock / AWS | Managed analysis workflows and related AI processing | Transcript text, selected entry/context needed for the requested workflow, prompts, outputs, and technical request metadata | We do not use your content to train our own models. Our backend is designed not to retain raw Bedrock request or response bodies as persistent account records. Provider-side processing, abuse/security handling, logging settings, and retention are governed by AWS terms and configured AWS controls. | May process in AWS regions used for managed analysis. |
-| Groq | Managed live-question workflows | Live transcript excerpts, selected context needed for live-question requests, prompts, outputs, and technical request metadata | We do not use your content to train our own models. Our backend is designed not to retain raw Groq request or response bodies as persistent account records. Provider-side processing, reliability, abuse/security handling, and retention are governed by Groq terms and settings. | May process in regions used by Groq and its infrastructure providers. |
+| Amazon Bedrock / AWS | Managed analysis workflows and related AI processing | Transcript text, selected entry/context needed for the requested workflow, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. Our operational policy is not to enable Bedrock model invocation logging for raw request or response bodies, and our backend is designed not to retain raw Bedrock request or response bodies as persistent account records. | May process in AWS regions used for managed analysis. |
+| Groq | Managed live-question workflows | Live transcript excerpts, selected context needed for live-question requests, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. We do not use Groq batch processing, fine-tuning, or other application-state features that require customer-data retention for normal live-question requests, and our backend is designed not to retain raw Groq request or response bodies as persistent account records. | May process in regions used by Groq and its infrastructure providers. |
 | Apple | App Store billing, Sign in with Apple, DeviceCheck / App Attest, local device permissions, and Apple transcription or Apple-assisted features where used | Apple account/platform data, entitlement and transaction status, device integrity signals, microphone/speech data where Apple services are used, and device permission state | Apple handles platform data under Apple's own policies. Local app records remain under local app/device behavior unless you export, back up, share, or send them elsewhere. | Depends on Apple services, your device settings, and Apple's infrastructure. |
 
 ### 5.1 Managed account-mode AI
@@ -427,27 +430,19 @@ analysis workflows and Groq for live-question workflows. This may include
 transcript text and, in some flows, live transcript excerpts while a recording
 session is still in progress.
 
-Our systems are designed so raw audio, raw transcript text, and AI output are
-not stored as persistent backend account records after the request is
-fulfilled. We do, however, retain limited security, subscription, diagnostic,
-and usage/accounting metadata such as token counts, workflow labels,
-timestamps, processing duration, and derived cost. Transient handling,
-provider-side processing, retries, abuse/security tooling, and short-lived
-logs or caches may still occur as part of ordinary service operation. Where a
-managed provider offers privacy or retention controls, such as reduced or
-disabled retention settings, we may enable those operational controls, but
-third-party provider handling is still governed by that provider's service,
-privacy, and infrastructure terms.
+For normal managed AI requests, raw audio, raw transcript text, and AI output
+are handled on a zero-retention basis by our backend and configured provider
+routes. That means the content is transmitted only to service the request and
+is not retained as readable backend content after fulfillment. We do, however,
+retain limited security, subscription, diagnostic, and usage/accounting
+metadata such as token counts, workflow labels, timestamps, processing
+duration, and derived cost.
 
-We do not intentionally store raw managed-AI request content or raw AI output as
-persistent backend account records. Our app and backend code do not add Bedrock
-prompt cache checkpoints for these managed requests, and our operational policy
-is not to enable Bedrock model invocation logging for raw request or response
-bodies. We do not use Groq batch processing, fine-tuning, or other
-application-state features that require customer-data retention for normal
-live-question requests. Provider-side processing, reliability safeguards, abuse
-monitoring, regional routing, account settings, and retention controls remain
-subject to the applicable AWS, Groq, and other provider terms and settings.
+Our app and backend code do not add Bedrock prompt cache checkpoints for these
+managed requests, and our operational policy is not to enable Bedrock model
+invocation logging for raw request or response bodies. We do not use Groq batch
+processing, fine-tuning, or other application-state features that require
+customer-data retention for normal live-question requests.
 
 ### 5.2 On-device and Apple-assisted processing
 
@@ -556,13 +551,18 @@ Firebase logs are automatically deleted after 30 days unless custom retention or
 export settings are configured. Our backend code is designed not to log raw
 journal text, raw audio, or raw AI output.
 
-### 8.5 Raw managed-AI content
+### 8.5 Zero retention for raw managed-AI content
 
-For managed account-mode AI requests, our backend is designed not to retain raw
-audio, transcript text, or AI response content as persistent backend account
-records after fulfilling the request. Limited transient processing, in-memory
-handling, provider-side processing, retries, or short-lived system-level logs
-or caches may still occur as part of ordinary service operation.
+For normal managed account-mode AI requests, raw audio, transcript text, and AI
+response content are handled on a zero-retention basis by our backend and
+configured provider routes. They are transmitted only to service the request
+and are not retained as readable backend content after fulfillment.
+
+We do retain limited account, subscription, security, diagnostic, and
+usage/accounting metadata, such as token counts, workflow labels, timestamps,
+processing duration, and derived cost. This metadata is used to enforce access
+limits, prevent abuse, operate the service, and keep the service financially
+viable; it is not a record of what you said.
 
 ### 8.6 Direct contact data
 
@@ -696,11 +696,15 @@ Depending on how you use the service, we may process categories such as:
   version, device/browser characteristics, and security logs
 - Audio or electronic information, such as recordings, transcripts, AI outputs,
   and related content created through the app and stored locally after
-  processing
+  processing, or transiently transmitted only to service managed AI requests
 - Inferences or derived records, such as summaries, reflections, milestones,
   relics, and other structured outputs generated from your content
 - Sensitive personal information, to the extent you choose to include it in
   recordings, transcripts, direct messages to us, or related content
+
+These content categories are included here for privacy-law transparency. They
+do not mean that we retain a backend archive of what you said; normal managed
+AI request content is handled on a zero-retention basis as described above.
 
 Audio recordings may contain your voice, but we do not use those recordings to
 create biometric identity templates or voiceprints for identity verification.

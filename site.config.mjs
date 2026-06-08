@@ -37,7 +37,7 @@ export const legalDocuments = {
     path: "/apps/PlanKept/terms-of-service/",
   },
   voiceOfSelfPrivacy: {
-    version: "1.2.18",
+    version: "1.2.19",
     effectiveDate: "2026-06-08",
     path: "/apps/VoiceOfSelf/privacy-policy/",
   },
