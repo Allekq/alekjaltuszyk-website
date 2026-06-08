@@ -42,13 +42,13 @@ export const legalDocuments = {
     path: "/apps/OverLit/terms-of-use/",
   },
   takeMeSomewherePrivacy: {
-    version: "1.0.0",
-    effectiveDate: "2026-06-06",
+    version: "1.0.2",
+    effectiveDate: "2026-06-08",
     path: "/apps/TakeMeSomewhere/privacy-policy/",
   },
   takeMeSomewhereTerms: {
-    version: "1.0.0",
-    effectiveDate: "2026-06-06",
+    version: "1.0.2",
+    effectiveDate: "2026-06-08",
     path: "/apps/TakeMeSomewhere/terms-of-service/",
   },
   terms: {

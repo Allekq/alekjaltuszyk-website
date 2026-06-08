@@ -1,6 +1,6 @@
 This Privacy Policy explains how Take Me Somewhere handles personal information when you use the Take Me Somewhere iPhone app, the Take Me Somewhere pages on `alekjaltuszyk.xyz`, support channels, App Store surfaces, and related services that link to this policy.
 
-Take Me Somewhere is designed as a lightweight local exploration companion. The privacy direction is simple: use location only when it is needed to create or follow a route, keep preferences and optional history local-first, avoid accounts and background tracking unless clearly introduced later, and never rely on AI for route geometry, distance, ETA, bearing, or location truth.
+Take Me Somewhere is designed as a lightweight local exploration companion for people 13 and older. The privacy direction is simple: use location only when it is needed to create or follow a suggested outing, keep preferences and optional history local-first, avoid accounts and background tracking unless clearly introduced later, and never rely on AI for route geometry, distance, ETA, bearing, or location truth.
 
 This policy is intended to support transparency obligations under applicable privacy laws, including the GDPR in the EEA, the UK GDPR, the Swiss FADP, and applicable U.S. state privacy laws such as the CCPA/CPRA where they apply.
 
@@ -22,11 +22,12 @@ Where applicable data-protection law uses the term "controller," the controller 
 
 - Take Me Somewhere does not require an account.
 - The app is not designed to collect background location.
-- The app uses location while you create or follow a route, if you grant permission.
-- Route geometry, ETA, distance, map display, and destination search may involve map, routing, and place providers such as Apple MapKit, Apple Maps, OpenStreetMap-derived services, and optional Google Maps Platform services if configured.
+- The app uses location while you create or follow a suggested route, if you grant permission.
+- Suggested route geometry, ETA, distance, map display, compass guidance, and destination search may involve map, routing, and place providers such as Apple MapKit, Apple Maps, OpenStreetMap-derived services, and optional Google Maps Platform services if configured.
 - Preferences and optional recent-destination memory are intended to stay on your device.
 - Take Me Somewhere does not sell personal information.
 - Take Me Somewhere does not currently use third-party ads, cross-context behavioral advertising, or custom analytics inside the app.
+- Take Me Somewhere does not currently use managed AI services in the app. If AI is added later, this policy should be updated before new personal information is sent for AI processing.
 - Support emails and other messages you choose to send are processed so support can respond.
 - Website hosting infrastructure may process ordinary technical logs needed to deliver and secure the site.
 
@@ -34,22 +35,22 @@ Where applicable data-protection law uses the term "controller," the controller 
 
 ### App Location And Route Information
 
-If you allow location access, the app may use your current location while you are creating or following a route. Depending on the feature you use, the app may process:
+If you allow location access, the app may use your current location while you are creating or following a suggested outing. Depending on the feature you use, the app may process:
 
 - current location or a selected start area
 - destination search text or selected destination
 - route request settings such as time budget, travel mode, and selected vibe filters
-- route geometry, waypoints, estimated duration, distance, progress, guidance mode, and destination reveal state
+- suggested route geometry, waypoints, estimated duration, distance, progress, guidance mode, and destination reveal state
 - device heading and movement information needed for compass-style guidance
 - coarse route status such as whether route creation succeeded, failed, or no suitable places were found
 
-Take Me Somewhere should not use your location for background tracking, friend sharing, cloud route history, advertising, or analytics unless a future version clearly introduces a new feature and updates this policy before using it.
+The current app permission model is intended to use iOS "while using" location access, not always-on background location. Take Me Somewhere should not use your location for background tracking, friend sharing, cloud route history, advertising, or analytics unless a future version clearly introduces a new feature and updates this policy before using it.
 
 ### Local Preferences And Optional Local Memory
 
-The app may store settings locally on your device, such as default time budget, default travel mode, destination visibility preference, route-picking preference, guidance mode preference, and recent destination memory settings.
+The app may store settings locally on your device, such as default time budget, default travel mode, destination visibility preference, route-picking preference, guidance mode preference, place-memory depth, and legal-document acceptance state.
 
-Recent destination memory is intended to help avoid repeating nearby places. It is local-first and can be disabled. If disabled, the app should stop saving recent destination identifiers and clear the local recent-destination list.
+Recent destination memory is intended to help avoid repeating nearby places. It stores a small local list of recent provider destination identifiers, not a full GPS trail. It is local-first and can be disabled. If disabled, the app should stop saving recent destination identifiers and clear the local recent-destination list.
 
 ### Support And Contact Information
 
@@ -69,17 +70,19 @@ If Take Me Somewhere adds paid features later, the app may receive transaction o
 
 ## 4. Map, Place, And Routing Providers
 
-Take Me Somewhere depends on real map and routing systems for spatial truth. The app may send route-related requests to configured providers so those providers can return real places, route geometry, ETA, map tiles, directions, or external map handoff.
+Take Me Somewhere depends on real map and routing systems for spatial truth. The app may send route-related requests to configured providers so those providers can return real places, suggested route geometry, ETA, map tiles, directions, or external map handoff.
 
 Provider roles may include:
 
 - Apple MapKit, Apple Local Search, Apple Maps, and related Apple services for map display, destination search, route geometry, ETA, distance, route steps, and external navigation handoff.
-- OpenStreetMap-derived services or Overpass endpoints for nearby place discovery.
-- Google Maps Platform services only if explicitly configured in the app or app build, for place discovery, place details, map display, routing, or external handoff.
+- OpenStreetMap-derived services or Overpass endpoints for nearby place discovery. These requests may include a start area, search radius, route filters, destination search text if used with that provider, and ordinary request metadata such as IP address and user agent.
+- Google Maps Platform services only if explicitly configured in the app or app build, for place discovery, place details, map display, routing, or external handoff. If Google routing is enabled, route requests should go through a backend proxy instead of shipping a Google Routes API key in the iOS app.
 
-Those providers may process information under their own terms and privacy policies. Take Me Somewhere should send only what is reasonably needed for the selected feature, such as a route start area, destination or candidate places, travel mode, and route request parameters.
+Those providers may process information under their own terms and privacy policies. Take Me Somewhere should send only what is reasonably needed for the selected feature, such as a route start area, destination or candidate places, destination query, travel mode, and route request parameters.
 
-Take Me Somewhere should not invent location facts, distance, ETA, bearing, or route geometry with AI. If optional AI assistance is introduced later, it should be limited to intent parsing, candidate explanation, or recommendation among already app-scored options, and this policy should be updated if that changes what data is sent.
+The default app direction is OpenStreetMap-derived discovery with Apple destination search, Apple routing, Apple map display, and Apple Maps handoff. Provider configuration may change by build, region, feature, or future version. The Privacy Policy explains what data may be processed. The Terms of Service explain that app routes, maps, compass direction, and progress are suggestions only and that you remain responsible for real-world route decisions.
+
+Take Me Somewhere should not invent location facts, distance, ETA, bearing, or route geometry with AI. The app does not currently use managed AI services. If optional AI assistance is introduced later, it should be limited to intent parsing, candidate explanation, or recommendation among already app-scored options, and this policy should be updated before new personal information is sent for AI processing.
 
 ## 5. How We Use Information
 
@@ -117,7 +120,7 @@ Hosting providers, browsers, operating systems, App Store links, map providers, 
 
 ## 8. Retention
 
-Local app preferences and local recent-destination memory remain on your device until you change settings, clear local data where available, or delete the app.
+Local app preferences, legal acceptance state, and local recent-destination memory remain on your device until you change settings, clear local data where available, or delete the app.
 
 Support messages may be kept for as long as reasonably needed to respond, maintain support records, resolve disputes, improve reliability, protect against abuse, and comply with legal obligations.
 
@@ -125,7 +128,7 @@ Website technical logs are kept by hosting and infrastructure providers accordin
 
 When the app checks the hosted legal manifest, the website host may receive ordinary technical request metadata as described above. The manifest does not require an account and does not include your location or route history.
 
-Map, place, routing, App Store, and platform providers may keep information according to their own policies.
+Map, place, routing, App Store, and platform providers may keep information according to their own policies. Google place detail metadata, if Google is configured, is intended to carry provider retention metadata; review snippets should be treated as session/detail content rather than permanent route history.
 
 ## 9. Security
 
@@ -153,9 +156,11 @@ California residents and residents of other U.S. states with applicable privacy 
 
 To exercise rights for information we control outside your device, contact `alekgameshelp2@gmail.com` or use the support page. We may need to verify your request before acting on it. Privacy rights are not absolute; we may keep limited information where required or permitted for legal compliance, security, fraud prevention, dispute handling, support records, or to complete a transaction or service you requested.
 
-## 12. Children
+## 12. Children And Age Suitability
 
-Take Me Somewhere is not directed to children under 13, and it is not intended for the Kids Category unless separately stated in App Store metadata. Do not use Take Me Somewhere if you are not old enough to consent to app terms and location use under the laws that apply to you, unless a parent or legal guardian has reviewed and allowed your use.
+Take Me Somewhere is intended for users who are at least 13 years old. It is not directed to children under 13, and children under 13 may not use the app, website, or support surfaces. The app is not intended for the App Store Kids Category unless future App Store metadata separately says otherwise.
+
+If you are 13 or older but under the age of majority where you live, use Take Me Somewhere only with parent or guardian permission where required. App Store age ratings may vary by country or region. Because Take Me Somewhere has a 13+ minimum age, the App Store listing may use an age-rating override where Apple requires the rating to match a minimum-age term.
 
 If you believe a child provided personal information to us through support or another channel, contact us so we can review and respond appropriately.
 
