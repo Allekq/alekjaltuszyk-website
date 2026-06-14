@@ -5,8 +5,8 @@ description: Voice of Self privacy policy.
 ---
 # Voice of Self Privacy Policy
 
-Effective Date: 2026-06-08
-Version: 1.2.20
+Effective Date: 2026-06-11
+Version: 1.2.21
 
 This Privacy Policy explains how Voice of Self processes personal information
 when you use the Voice of Self iOS app, the public website, direct contact
@@ -51,8 +51,9 @@ Contact:
   processing duration, and derived cost.
 - Apple handles billing, RevenueCat handles subscription syncing, Firebase /
   Google handles authentication and backend infrastructure, Amazon Bedrock /
-  AWS and Groq handle managed AI processing, and GitHub Pages hosts the public
-  site.
+  AWS handles the current default managed AI routes, Groq may be used only if
+  backend routing is explicitly configured to use Groq, and GitHub Pages hosts
+  the public site.
 - If you grant notification permission, the app may schedule local device
   reminders, including reminders before an account-mode free trial ends or
   before a paid App Store subscription period ends. These reminders are
@@ -373,8 +374,10 @@ needed to operate the service. Categories include:
 
 - Firebase / Google for authentication, backend functions, infrastructure, and
   App Check related protection
-- Amazon Bedrock / AWS for managed account-mode analysis AI processing
-- Groq for managed account-mode live-question AI processing
+- Amazon Bedrock / AWS for the current default managed account-mode analysis
+  and live-question AI processing
+- Groq for managed account-mode AI processing only when a backend workflow
+  route is explicitly configured to use Groq
 - Apple for Sign in with Apple, App Store billing, DeviceCheck / App Attest,
   and transcription-related services when Apple services are used
 - RevenueCat for subscription syncing and entitlement management
@@ -421,20 +424,21 @@ routing, model choices, and infrastructure settings may change over time.
 | Provider | Purpose | Data handled for the request or service | Retention and training notes | Region / transfer note |
 | --- | --- | --- | --- | --- |
 | Firebase / Google | Authentication, callable backend, App Check, security, account records, usage/accounting metadata, and backend infrastructure | Account identifiers, authentication/session metadata, request metadata, App Check or integrity signals, token/cost/workflow metadata, performance metadata, and limited operational logs | Backend records are designed not to store raw journal text, transcript text, raw audio, or AI output as persistent account records. Platform logs may retain limited technical metadata under Google/Firebase settings. | May process in regions used by Firebase / Google infrastructure. |
-| Amazon Bedrock / AWS | Managed analysis workflows and related AI processing | Transcript text, selected entry/context needed for the requested workflow, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. Bedrock model invocation logging for raw request or response bodies is disabled for these managed requests, and our backend is designed not to retain raw Bedrock request or response bodies as persistent account records. | May process in AWS regions used for managed analysis. |
-| Groq | Managed live-question workflows | Live transcript excerpts, selected context needed for live-question requests, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. The provider route is configured for zero data retention for normal live-question requests, and our backend is designed not to retain raw Groq request or response bodies as persistent account records. | May process in regions used by Groq and its infrastructure providers. |
+| Amazon Bedrock / AWS | Managed analysis, live-question, and related AI processing | Transcript text, live transcript excerpts, selected entry/context needed for the requested workflow, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. Bedrock model invocation logging for raw request or response bodies is disabled for these managed requests, and our backend is designed not to retain raw Bedrock request or response bodies as persistent account records. | May process in AWS regions used for managed AI processing. |
+| Groq | Optional managed AI processing only when backend routing is explicitly configured to use Groq | Transcript text, live transcript excerpts, selected context needed for the requested workflow, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. If used, the provider route is configured for zero data retention for normal requests, and our backend is designed not to retain raw Groq request or response bodies as persistent account records. | May process in regions used by Groq and its infrastructure providers. |
 | Apple | App Store billing, Sign in with Apple, DeviceCheck / App Attest, local device permissions, and Apple transcription or Apple-assisted features where used | Apple account/platform data, entitlement and transaction status, device integrity signals, microphone/speech data where Apple services are used, and device permission state | Apple handles platform data under Apple's own policies. Local app records remain under local app/device behavior unless you export, back up, share, or send them elsewhere. | Depends on Apple services, your device settings, and Apple's infrastructure. |
 
 ### 5.1 Managed account-mode AI
 
 If you use account mode, content needed to fulfill the request may pass through
 our Firebase backend to the managed AI provider selected by our backend
-configuration for that workflow. Managed AI processing may use Amazon Bedrock /
-AWS or Groq depending on the workflow and operational routing configuration.
-The current default backend configuration uses Amazon Bedrock / AWS for
-analysis workflows and Groq for live-question workflows. This may include
-transcript text and, in some flows, live transcript excerpts while a recording
-session is still in progress.
+configuration for that workflow. Managed AI processing uses Amazon Bedrock /
+AWS for the default managed AI routes, including account-mode analysis and
+live-question workflows with OpenAI GPT-OSS model identifiers such as
+`openai.gpt-oss-20b-1:0` and `openai.gpt-oss-120b-1:0`. Groq may still be used
+if backend workflow routing is explicitly configured for a Groq model. This may
+include transcript text and, in some flows, live transcript excerpts while a
+recording session is still in progress.
 
 For normal managed AI requests, transcript text, selected context, prompts,
 and AI output are handled on a zero-retention basis by our backend and
@@ -449,8 +453,9 @@ cost.
 
 Our app and backend code do not add Bedrock prompt cache checkpoints for these
 managed requests, and Bedrock model invocation logging for raw request or
-response bodies is disabled for these managed requests. The Groq provider
-route is configured for zero data retention for normal live-question requests.
+response bodies is disabled for these managed requests. If a Groq route is
+explicitly configured, it is configured for zero data retention for normal
+managed requests.
 
 ### 5.2 On-device and Apple-assisted processing
 
@@ -496,8 +501,8 @@ their own policies.
 
 Yes. Depending on the feature you use and the provider involved, your
 information may be processed in countries other than your own, including the
-United States, AWS regions used for managed analysis processing, regions used
-by Firebase / Google infrastructure, and other regions where our service
+United States, AWS regions used for managed AI processing, regions used by
+Firebase / Google infrastructure, and other regions where our service
 providers operate. If you export or share files, transfer and storage
 locations also depend on the apps and storage destinations you choose.
 

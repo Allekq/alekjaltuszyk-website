@@ -451,6 +451,43 @@
   line-height: 1.7;
 }
 
+.home-history__highlight-title,
+.home-history__highlight-description {
+  display: block;
+}
+
+.home-history__project-highlight {
+  list-style: none;
+}
+
+.home-history__highlight-title {
+  color: var(--color-text-strong);
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.home-history__highlight-description {
+  color: var(--color-text-muted);
+  font-size: 0.95em;
+  line-height: 1.45;
+  margin-top: 0.05rem;
+}
+
+.home-history__highlight-details {
+  display: grid;
+  gap: 0.15rem;
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+}
+
+.home-history__highlight-details li {
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  line-height: 1.6;
+}
+
 .home-skills__related {
   display: flex;
   flex-wrap: wrap;

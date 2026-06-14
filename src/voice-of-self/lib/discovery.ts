@@ -69,6 +69,11 @@ export const discoveryPages = {
       description: "Usage terms for the website, support, and iOS app.",
     },
     {
+      title: "How Voice of Self Uses AI",
+      path: legalManifest.aiUsage.url.replace(siteOrigin, ""),
+      description: "Short managed-AI processing explanation used by app consent.",
+    },
+    {
       title: "Legal Manifest",
       path: siteRoutes.apps.voiceOfSelfLegalManifest.path,
       description: "Machine-readable versions and effective dates for the legal documents.",
@@ -87,6 +92,7 @@ export const discoveryPages = {
 export const sitemapPagePaths = [
   siteConfig.homePath,
   siteRoutes.apps.voiceOfSelfSupport.path,
+  siteRoutes.apps.voiceOfSelfHowUsesAI.path,
   visibilityAnswerHub.path,
   ...visibilityAnswerPages.map((page) => getVisibilityAnswerPath(page.slug)),
   visibilityUpdateHub.path,

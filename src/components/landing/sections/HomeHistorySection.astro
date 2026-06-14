@@ -55,7 +55,24 @@ const newestEntry = homeTimeline[homeTimeline.length - 1];
 
             <ul class="home-history__panel-highlights">
               {entry.highlights.map((highlight) => (
-                <li>{highlight}</li>
+                <li class:list={[typeof highlight !== "string" && "home-history__project-highlight"]}>
+                  {typeof highlight === "string" ? (
+                    highlight
+                  ) : (
+                    <>
+                      <span class="home-history__highlight-title">{highlight.title}</span>
+                      <span class="home-history__highlight-description">{highlight.description}</span>
+                      <ul class="home-history__highlight-details">
+                        {highlight.details.map((detail) => (
+                          <li>
+                            <span aria-hidden="true">-</span>
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </li>
               ))}
             </ul>
           </article>

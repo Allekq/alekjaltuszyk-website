@@ -34,7 +34,7 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 - Current internal Voice of Self page: ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - Current internal OverLit page: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Current internal Take Me Somewhere page: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
-- Website role: personal landing page, shared app chooser, Voice of Self product/support/legal surface, PlanKept product/support/legal surface, small OverLit app/legal surface, and Take Me Somewhere coming-soon/legal surface
+- Website role: personal landing page, shared app chooser, Voice of Self product/support/legal surface, PlanKept product/support/legal surface, small OverLit app/legal surface, and Take Me Somewhere product/support/legal surface
 
 ## Engineering Profile
 
@@ -67,7 +67,7 @@ The current app split is:
 - ${planKeptPath}: internal PlanKept page on this domain
 - ${voiceOfSelfPath}: internal Voice of Self page with answers, updates, support, and legal pages
 - ${siteRoutes.apps.overLit.path}: internal OverLit page with support and legal links on this domain
-- ${takeMeSomewherePath}: internal Take Me Somewhere coming-soon page with support, privacy, and Terms of Service links
+- ${takeMeSomewherePath}: internal Take Me Somewhere page with App Store, support, privacy, and Terms of Service links
 
 ## Privacy Notes
 

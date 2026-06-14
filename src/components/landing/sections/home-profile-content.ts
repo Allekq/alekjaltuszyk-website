@@ -20,7 +20,15 @@ export interface HomeTimelineEntry {
   title: string;
   role: string;
   summary: string;
-  highlights: readonly string[];
+  highlights: readonly HomeTimelineHighlight[];
+}
+
+export type HomeTimelineHighlight = string | HomeTimelineProjectHighlight;
+
+export interface HomeTimelineProjectHighlight {
+  title: string;
+  description: string;
+  details: readonly string[];
 }
 
 export const homeSkills = [
@@ -61,14 +69,14 @@ export const homeSkills = [
   {
     id: "ai",
     offset: "1.15rem",
-    title: "AI Specialist",
-    strap: "Agentic workflows, fast iteration, and behavior-aware product thinking.",
+    title: "AI Product Systems",
+    strap: "Memory, structured outputs, and product behavior that feels reliable.",
     summary:
-      "Right now AI is the center of gravity: system design, agent workflows, and products that connect technical intelligence to human behavior.",
+      "My AI work is strongest when the model output becomes real product state: remembered context, validated structure, and useful behavior inside the app.",
     highlights: [
-      "Self-taught Python quickly enough to architect and deploy an AI agent solution under serious time pressure.",
-      "Designed multi-agent workflows across Python and C# to handle advanced autonomous logic and implementation tasks.",
-      "Current work in products like PlanKept and Voice of Self is where AI, behavior design, and product craft come together.",
+      "Built Voice of Self around reflection memory: recurring worries, resolved worries, personal growth, and AI outputs that remain useful over time.",
+      "Built PlanKept flows where AI-assisted plan creation becomes durable reminders, app rules, quotas, and proof-review state.",
+      "Prefer schema-validated outputs, deterministic persistence, and product-specific memory over loose chatbot text.",
     ],
     related: [
       { label: "Current products", historyId: "current-products" },
@@ -127,14 +135,46 @@ export const homeTimeline = [
     id: "current-products",
     label: "Current",
     period: "2026-now",
-    title: "Independent AI products",
-    role: "Product builder and AI systems designer",
+    title: "Building 4 iPhone apps",
+    role: "Independent iOS product builder",
     summary:
-      "My current work is centered on personal products where AI systems, product thinking, and behavior design meet.",
+      "I developed and launched four separate iPhone apps: Voice of Self, PlanKept, OverLit, and Take Me Somewhere.",
     highlights: [
-      "Launched Voice of Self, a voice-first reflection app for noticing recurring worries, resolved worries, and personal growth.",
-      "Building PlanKept, a local-first plan-enforcement app that turns written goals into reminders, app limits, and proof review.",
-      "Using agentic workflows as part of the way I build, research, and iterate on software.",
+      {
+        title: "Voice of Self",
+        description: "Voice-first reflection app.",
+        details: [
+          "Built staged AI analysis and reflection memory for recurring worries, resolved worries, and personal growth.",
+          "Built managed subscription services and account flows.",
+          "Designed voice-first UX for capturing, processing, and reviewing reflections.",
+        ],
+      },
+      {
+        title: "PlanKept",
+        description: "Plan-enforcement and app-blocker product.",
+        details: [
+          "Shaped careful UX for reminders, app limits or blocks, recurrence, quotas, and proof review.",
+          "Solved local image-processing and memory-management issues for proof review.",
+          "Worked on on-device model handling, durable state machines, and Apple/iOS integrations.",
+        ],
+      },
+      {
+        title: "OverLit",
+        description: "Fast reflex arcade game.",
+        details: [
+          "Designed easy-to-learn, hard-to-master gameplay around simple mechanics with large gameplay impact.",
+          "Tuned variable difficulty, pressure states, level pacing, and easing so runs stayed fun without becoming too easy or too punishing.",
+          "Built an ad-supported monetization path.",
+        ],
+      },
+      {
+        title: "Take Me Somewhere",
+        description: "Route-discovery app for spontaneous outings.",
+        details: [
+          "Shipped a smooth UX around quick decisions and time-boxed local exploration.",
+          "Built Compass Mode and a low-friction route-discovery flow.",
+        ],
+      },
     ],
   },
 ] as const satisfies readonly HomeTimelineEntry[];

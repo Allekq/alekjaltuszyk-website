@@ -37,13 +37,13 @@ const structuredData = [
     />
 
     <main class="tms-simple-site__main">
-      <p class="tms-simple-site__eyebrow">Coming soon</p>
+      <p class="tms-simple-site__eyebrow">Live on the App Store</p>
       <h1 id="tms-title">Take Me Somewhere</h1>
       <div class="tms-simple-site__copy">
         <p>
-          Take Me Somewhere is a coming-soon iPhone app for spontaneous local outings. You tell it
-          how much time you have, pick a vibe, and it helps you find a nearby walk, route, compass
-          outing, or mystery destination.
+          Take Me Somewhere is an iPhone app for spontaneous local outings. You tell it how much
+          time you have, pick a vibe, and it helps you find a nearby walk, route, compass outing,
+          or mystery destination.
         </p>
         <p>
           It exists for the little gaps in a day when you want to go outside, but do not want to
@@ -56,10 +56,14 @@ const structuredData = [
           possible future modes.
         </p>
       </div>
+      <a class="tms-simple-site__cta" href={takeMeSomewhereConfig.primaryCtaHref}>
+        {takeMeSomewhereConfig.primaryCtaLabel}
+      </a>
     </main>
 
     <footer class="tms-simple-site__footer">
       <nav aria-label="Take Me Somewhere links">
+        <a href={takeMeSomewhereConfig.appStoreHref}>App Store</a>
         <a href={takeMeSomewhereConfig.supportHref}>Support</a>
         <a href={takeMeSomewhereConfig.privacyHref}>Privacy Policy</a>
         <a href={takeMeSomewhereConfig.termsHref}>Terms of Service</a>

@@ -9,6 +9,8 @@ const planKeptBasePath = "/apps/PlanKept/";
 const overLitBasePath = "/apps/OverLit/";
 const takeMeSomewhereBasePath = "/apps/TakeMeSomewhere/";
 const voiceOfSelfBasePath = "/apps/VoiceOfSelf/";
+const takeMeSomewhereAppStoreHref =
+  "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
 
 export const planKeptContentPaths = {
   answersIndex: `${planKeptBasePath}answers/`,
@@ -32,6 +34,7 @@ export const voiceOfSelfContentPaths = {
   support: `${voiceOfSelfBasePath}support/`,
   privacyPolicy: `${voiceOfSelfBasePath}privacy-policy/`,
   termsOfService: `${voiceOfSelfBasePath}terms-of-service/`,
+  howVoiceOfSelfUsesAI: `${voiceOfSelfBasePath}how-voice-of-self-uses-ai/`,
   legalManifest: `${voiceOfSelfBasePath}legal-manifest.json`,
 } as const;
 
@@ -72,6 +75,7 @@ export const siteRoutes = {
     voiceOfSelfSupport: createInternalRoute(voiceOfSelfContentPaths.support),
     voiceOfSelfPrivacyPolicy: createInternalRoute(voiceOfSelfContentPaths.privacyPolicy),
     voiceOfSelfTermsOfService: createInternalRoute(voiceOfSelfContentPaths.termsOfService),
+    voiceOfSelfHowUsesAI: createInternalRoute(voiceOfSelfContentPaths.howVoiceOfSelfUsesAI),
     voiceOfSelfLegalManifest: createInternalRoute(voiceOfSelfContentPaths.legalManifest),
   },
   support: createInternalRoute("/support/"),
@@ -122,8 +126,8 @@ export const appDirectory = [
     theme: "mint",
     chips: [
       "Level-based arcade",
-      "No account required",
-      "Support and legal here",
+      "Pressure-state gameplay",
+      "Ad-supported free play",
     ],
     href: siteRoutes.apps.overLit.href,
     external: false,
@@ -137,7 +141,7 @@ export const appDirectory = [
     chips: [
       "Voice-first reflection",
       "Live iOS app",
-      "Support and legal here",
+      "Reflection memory",
     ],
     href: siteRoutes.apps.voiceOfSelf.href,
     external: false,
@@ -146,14 +150,14 @@ export const appDirectory = [
     id: "take-me-somewhere",
     name: "Take Me Somewhere",
     description:
-      "A walking-first iPhone companion for spontaneous, time-boxed local outings with map-grounded routes.",
+      "A launched iPhone companion for spontaneous, time-boxed local outings with map-grounded routes.",
     theme: "coral",
     chips: [
+      "Live iOS app",
       "Time-boxed outings",
       "Compass Mode",
-      "Mystery destination",
     ],
-    href: siteRoutes.apps.takeMeSomewhere.href,
-    external: false,
+    href: takeMeSomewhereAppStoreHref,
+    external: true,
   },
 ] as const satisfies readonly AppDirectoryItem[];

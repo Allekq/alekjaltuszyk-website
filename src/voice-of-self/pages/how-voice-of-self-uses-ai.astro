@@ -1,0 +1,25 @@
+---
+import { legalManifest, siteConfig, voiceOfSelfAIUsageBody } from "../config/site";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import ActionButton from "../components/landing/ui/ActionButton.astro";
+
+const paragraphs = voiceOfSelfAIUsageBody
+  .split("\n\n")
+  .filter((paragraph: string) => paragraph.trim().length > 0);
+---
+
+<SiteLayout
+  title="How Voice of Self Uses AI | Voice of Self"
+  description="A short explanation of how Voice of Self uses managed AI for entries, transcripts, reflections, and live questions."
+>
+  <p><strong>Effective Date:</strong> {legalManifest.aiUsage.effectiveDate}</p>
+  <p><strong>Version:</strong> {legalManifest.aiUsage.version}</p>
+
+  <h1>How Voice of Self Uses AI</h1>
+
+  {paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
+
+  <p>
+    <ActionButton href={siteConfig.homeHref} variant="secondary">Back to Voice of Self</ActionButton>
+  </p>
+</SiteLayout>

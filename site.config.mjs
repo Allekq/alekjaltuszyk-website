@@ -37,14 +37,19 @@ export const legalDocuments = {
     path: "/apps/PlanKept/terms-of-service/",
   },
   voiceOfSelfPrivacy: {
-    version: "1.2.20",
-    effectiveDate: "2026-06-08",
+    version: "1.2.21",
+    effectiveDate: "2026-06-11",
     path: "/apps/VoiceOfSelf/privacy-policy/",
   },
   voiceOfSelfTerms: {
     version: "1.2.16",
     effectiveDate: "2026-06-08",
     path: "/apps/VoiceOfSelf/terms-of-service/",
+  },
+  voiceOfSelfAIUsage: {
+    version: "2026-06-14-v2",
+    effectiveDate: "2026-06-14",
+    path: "/apps/VoiceOfSelf/how-voice-of-self-uses-ai/",
   },
   overLitPrivacy: {
     version: "1.0.13",

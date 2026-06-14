@@ -61,7 +61,7 @@ export const discoveryPages = {
       title: "Take Me Somewhere",
       path: siteRoutes.apps.takeMeSomewhere.path,
       description:
-        "Coming-soon Take Me Somewhere product page from Alek Jałtuszyk for spontaneous, time-boxed local route discovery with Compass Mode, Route Mode, and map-grounded outings.",
+        "Take Me Somewhere product page from Alek Jałtuszyk for the launched spontaneous, time-boxed local route discovery app with Compass Mode, Route Mode, and map-grounded outings.",
     },
     {
       title: "Voice of Self Support",
