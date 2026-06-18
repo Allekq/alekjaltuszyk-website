@@ -37,7 +37,7 @@ Use device accessibility settings where they are helpful for your comfort and sa
 
 ## 6. Ads, Full Version, And Rewarded Unlocks
 
-The free experience of OverLit may show Google AdMob rewarded ads, Google AdMob interstitial ads, and local developer house ads for the Developer's own apps. Rewarded ads are opt-in value trades for eligible theme unlocks or level-skip offers. Interstitial ads may appear only at safe menu or replay breaks, not during active gameplay.
+The free experience of OverLit may show Google AdMob rewarded ads, Google AdMob interstitial ads, limited Google AdMob footer banner ads, and local developer house ads for the Developer's own apps. Rewarded ads are opt-in value trades for eligible theme unlocks or level-skip offers. Interstitial ads may appear only at safe menu or replay breaks, not during active gameplay.
 
 OverLit uses Google User Messaging Platform / AdMob privacy messages where required, including European regulations messages, U.S. state privacy regulation messages, and an AdMob IDFA explainer before Apple's App Tracking Transparency prompt where applicable. If you decline consent or tracking permission, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google/AdMob, Apple, and applicable law.
 

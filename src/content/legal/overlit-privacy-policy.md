@@ -14,13 +14,13 @@ This policy covers the OverLit app and the OverLit pages on `alekjaltuszyk.xyz`,
 - The app does not require an account, custom backend, chat, social feed, multiplayer, or cloud sync.
 - Gameplay settings, preferences, high scores, progress, local event history, unlocks, ad counters, purchase entitlement state, and legal acceptance may be stored locally on your device.
 - The app does not ask for account registration, passwords, payment card details, phone numbers, mailing addresses, precise GPS location, contacts, camera access, photo library access, or age.
-- The app uses Google Mobile Ads SDK for AdMob rewarded ads and interstitial ads in the free experience.
+- The app uses Google Mobile Ads SDK for AdMob rewarded ads, interstitial ads, and limited footer banner ads in the free experience.
 - The app uses Google User Messaging Platform / AdMob privacy messages for applicable European regulations and U.S. state privacy regulations, and may show an AdMob IDFA explainer before Apple's App Tracking Transparency prompt.
 - Google/AdMob may collect or process advertising data, device identifiers, product interaction data, coarse location, crash data, other diagnostic data, and performance data as described below and in Google's policies.
 - If you allow tracking through Apple App Tracking Transparency and your regional consent choices permit it, Google/AdMob and advertising partners may use identifiers such as the IDFA for personalized ads, ad measurement, fraud prevention, and related advertising purposes.
 - If you deny tracking, decline consent, or opt out where applicable, ads may still appear without IDFA-based or personalized tracking where required.
 - The app may show local developer house ads for PlanKept. Voice of Self is not currently an active OverLit ad or promotion. These local house ad panels are not third-party ad network requests.
-- The app may offer an optional one-time Full Version purchase through Apple's in-app purchase system. Full Version removes normal in-app ads, unlocks ad-gated themes, and lets existing level-skip offers complete without watching an ad, while non-ad progression rewards still require normal play.
+- The app may offer an optional one-time Full Version purchase through Apple's in-app purchase system. Full Version removes normal real in-app ad requests, including footer banner, interstitial, and rewarded ad requests, unlocks ad-gated themes, and lets existing level-skip offers complete without watching an ad, while non-ad progression rewards still require normal play.
 - We may advertise OverLit on external services such as Instagram, Meta, TikTok, Apple Search Ads, Google, or similar platforms. We do not currently install Meta Pixel, TikTok Pixel, Meta SDK, TikTok SDK, website/app activity retargeting code, or customer-list uploads for OverLit.
 - Apple and the App Store process in-app purchases, refunds, restorations, platform, device, and privacy data under Apple's policies. We do not receive your payment card details.
 - We receive support or feedback email data only if you choose to contact us, including any copied progress summary you decide to paste into a message.
@@ -51,7 +51,7 @@ OverLit does not intentionally collect sensitive personal information, such as h
 
 ## 4. Advertising And AdMob
 
-OverLit integrates Google AdMob through the Google Mobile Ads SDK. Release builds use production AdMob app and ad unit IDs. Debug or development builds may use Google demo or test ad IDs.
+OverLit integrates Google AdMob through the Google Mobile Ads SDK. Builds use configured AdMob app and ad unit IDs for the active app environment. Debug or development builds may use Google demo or test ad IDs, while production builds use the configured live AdMob units unless a local build override is deliberately supplied.
 
 The app also includes Google User Messaging Platform / AdMob privacy messaging for applicable European regulations and U.S. state privacy regulations, an AdMob IDFA explainer, Apple App Tracking Transparency, and SKAdNetwork attribution support for privacy-preserving app advertising measurement.
 
@@ -59,8 +59,9 @@ The app currently uses AdMob for:
 
 - rewarded ads that let players unlock cosmetic themes or accept ad-based level-skip offers
 - interstitial ads after natural menu or replay breaks, based on local play-session counters
+- optional footer banner ads shown outside the active grid/board cells, including voluntary Help the Dev footer banners for free users and, depending on local policy, footer banners connected to an ad-skip or abandoned-ad reminder state
 
-OverLit does not show banner ads on the game board and does not request ads during active gameplay. Full Version owners should not receive normal in-app ad requests for ordinary ad breaks or ad-gated theme/skip flows while the Full Version entitlement is active.
+OverLit does not show banner ads on the game board cells. Real ad content is not placed on the actual playable grid. Full Version owners should not receive real AdMob banner, interstitial, or rewarded ad requests while the Full Version entitlement is active. If a Full Version owner has a Help the Dev setting enabled, the app may show an in-game thank-you or support message instead of requesting a real ad.
 
 Because OverLit is not age-gated and is intended to remain suitable for its App Store age rating, the app configures Google Mobile Ads requests with teen treatment and a maximum ad content rating no higher than Teen.
 
@@ -68,8 +69,8 @@ Google's Mobile Ads SDK may collect, receive, or process information such as:
 
 - IP address, which may be used to estimate coarse or general location
 - device identifiers, including the IDFA when available and allowed, app/developer-bounded identifiers, or other advertising identifiers where permitted
-- advertising data, such as ads shown, impressions, interactions, rewarded ad completion, and related ad events
-- product interaction or usage data, such as app launches, taps, video ad views, and other ad-performance events
+- advertising data, such as ads requested, ads shown, banner impressions, interstitial impressions, rewarded ad completion, ad interactions, and related ad events
+- product interaction or usage data, such as app launches, taps, banner views, video ad views, privacy-message interactions, and other ad-performance events
 - attribution-related information, including SKAdNetwork-related signals or postbacks handled by Apple, Google/AdMob, or advertising partners
 - crash data and other diagnostic data
 - performance data, such as app launch time, hang rate, energy usage, and SDK performance
@@ -78,7 +79,7 @@ Google's Mobile Ads SDK may collect, receive, or process information such as:
 That data may be used for purposes such as:
 
 - showing third-party ads in the app
-- measuring ad performance and rewarded ad completion
+- measuring ad performance, banner impressions, ad interactions, and rewarded ad completion
 - preventing fraud, abuse, and invalid traffic
 - frequency capping, reporting, and campaign measurement
 - personalizing ads where you have allowed tracking and any legally required consent permits it
@@ -141,8 +142,8 @@ The relevant active AdMob-related categories include:
 
 - `Location > Coarse Location`: may be derived from IP address and used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement. It may be linked to the user and used for tracking where Apple's definitions and SDK behavior require that disclosure.
 - `Identifiers > Device ID`: includes IDFA when ATT-authorized and other device-level or app/developer-bounded identifiers where Google/AdMob uses them. It may be used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, fraud prevention, measurement, and tracking.
-- `Usage Data > Product Interaction`: includes ad views, taps, video views, rewarded completions, app launches, privacy-message interactions, and other ad or consent interaction data. It may be used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement; it may be linked to the user and used for tracking where required.
-- `Usage Data > Advertising Data`: includes ads shown, impressions, ad interactions, campaign or measurement data, and rewarded-ad completion. It may be used for Third-Party Advertising, Developer Advertising or Marketing, and Analytics, may be linked to the user, and may be used for tracking where required.
+- `Usage Data > Product Interaction`: includes ad views, banner views, taps, video views, rewarded completions, app launches, privacy-message interactions, and other ad or consent interaction data. It may be used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement; it may be linked to the user and used for tracking where required.
+- `Usage Data > Advertising Data`: includes ads requested, ads shown, banner impressions, interstitial impressions, ad interactions, campaign or measurement data, and rewarded-ad completion. It may be used for Third-Party Advertising, Developer Advertising or Marketing, and Analytics, may be linked to the user, and may be used for tracking where required.
 - `Diagnostics > Crash Data`: may include non-user-related crash logs used for diagnostics, app functionality, analytics, SDK reliability, and security. We do not use support crash logs for retargeting.
 - `Diagnostics > Performance Data`: may include launch time, hang rate, energy usage, and SDK performance data. It may be used for Analytics and Other Purposes, may be linked to the user, and is not currently marked as used for tracking.
 
