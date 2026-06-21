@@ -61,6 +61,7 @@ export const siteRoutes = {
     planKeptUpdates: createInternalRoute(planKeptContentPaths.updatesIndex),
     planKeptUpdatesFeed: createInternalRoute(planKeptContentPaths.updatesFeed),
     overLit: createInternalRoute(overLitBasePath),
+    overLitLegalManifest: createInternalRoute(`${overLitBasePath}legal-manifest.json`),
     overLitPrivacyPolicy: createInternalRoute(`${overLitBasePath}privacy-policy/`),
     overLitSupport: createInternalRoute(`${overLitBasePath}support/`),
     overLitTermsOfUse: createInternalRoute(`${overLitBasePath}terms-of-use/`),

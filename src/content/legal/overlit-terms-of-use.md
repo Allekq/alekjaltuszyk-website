@@ -37,9 +37,9 @@ Use device accessibility settings where they are helpful for your comfort and sa
 
 ## 6. Ads, Full Version, And Rewarded Unlocks
 
-The free experience of OverLit may show Google AdMob rewarded ads, Google AdMob interstitial ads, limited Google AdMob footer banner ads, and local developer house ads for the Developer's own apps. Rewarded ads are opt-in value trades for eligible theme unlocks or level-skip offers. Interstitial ads may appear only at safe menu or replay breaks, not during active gameplay.
+The free experience of OverLit may show Google AdMob rewarded ads, Google AdMob interstitial ads, limited Google AdMob footer banner ads, and local developer house ads for the Developer's own apps. Rewarded ads are opt-in value trades for eligible theme unlocks or level-skip offers. Interstitial ads may appear only at safe breaks outside active gameplay, such as menu, replay, or level-advance breaks. Players who choose 18 or older may also be eligible for the adult AdMob request profile, with maximum ad content controlled by AdMob account settings. Local developer house ads may include PlanKept, and may include Voice of Self only for players who choose 18 or older.
 
-OverLit uses Google User Messaging Platform / AdMob privacy messages where required, including European regulations messages, U.S. state privacy regulation messages, and an AdMob IDFA explainer before Apple's App Tracking Transparency prompt where applicable. If you decline consent or tracking permission, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google/AdMob, Apple, and applicable law.
+OverLit uses Google User Messaging Platform / AdMob privacy messages where required, including European regulations messages and U.S. state privacy regulation messages. The current build does not show an AdMob IDFA explainer, does not request Apple's App Tracking Transparency permission, and does not access the IDFA. If you decline consent or use device settings that restrict advertising technologies, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google/AdMob, Apple, and applicable law.
 
 Ad availability, ad loading, and rewards are not guaranteed. Rewarded unlocks may be unavailable, delayed, interrupted, or changed.
 
@@ -49,7 +49,7 @@ When active, Full Version removes normal in-app ads, unlocks ad-gated themes, an
 
 Purchases, restorations, refunds, billing, and payment methods are handled by Apple and the App Store under Apple's own terms and policies. The app may store local entitlement state and limited StoreKit transaction metadata so it can remember and restore a verified purchase.
 
-Ads shown in or for OverLit, including local developer house ads, should be appropriate for OverLit's app age rating. If you see an inappropriate or age-inappropriate ad, contact support with a short description and any useful context.
+Ads shown in or for OverLit, including local developer house ads, should be appropriate for the age range and settings that apply to the player. If you see an inappropriate or age-inappropriate ad, contact support with a short description and any useful context.
 
 Full Version is intended to remove normal in-app ads from OverLit while the entitlement is active. It does not remove ads, promotions, or tracking that may appear on third-party websites, the App Store, external ad platforms, or other destinations you open outside OverLit.
 

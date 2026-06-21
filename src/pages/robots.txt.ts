@@ -10,6 +10,7 @@ User-agent: OAI-SearchBot
 Allow: /
 
 Sitemap: ${toAbsoluteSiteUrl("/sitemap.xml")}
+LLMs: ${toAbsoluteSiteUrl("/llms.txt")}
 `;
 
 export const GET: APIRoute = () =>

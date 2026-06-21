@@ -149,6 +149,11 @@ export const legalManifest = {
     effectiveDate: legalDocuments.voiceOfSelfTerms.effectiveDate,
     url: buildAbsoluteSiteHref(legalDocuments.voiceOfSelfTerms.path),
   },
+  voiceOfSelfAIUsage: {
+    version: legalDocuments.voiceOfSelfAIUsage.version,
+    effectiveDate: legalDocuments.voiceOfSelfAIUsage.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.voiceOfSelfAIUsage.path),
+  },
   overLitPrivacy: {
     version: legalDocuments.overLitPrivacy.version,
     effectiveDate: legalDocuments.overLitPrivacy.effectiveDate,
@@ -236,9 +241,9 @@ export const siteConfig = {
     summary:
       "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, the Voice of Self web surface, the PlanKept web surface, the OverLit web surface, and the Take Me Somewhere web surface.",
     status:
-      "The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, and legal routes. OverLit has a visual arcade-game page, support page, privacy policy, and terms of use under /apps/OverLit/. Take Me Somewhere has a launched iOS app, App Store destination, simple product page, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/.",
+      "The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a visual arcade-game page, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a launched iOS app, App Store destination, simple product page, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/.",
     privacyModel:
-      "The personal homepage, portfolio sections, and app directory are informational. PlanKept and Take Me Somewhere app actions go to Apple's App Store, while support and legal routes live on this domain. Core PlanKept plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store privacy disclosures. Take Me Somewhere's public privacy language describes a local-first, map-grounded route discovery app with current-location use, support contact, and map-provider disclosures.",
+      "The personal homepage, portfolio sections, and app directory are informational. PlanKept and Take Me Somewhere app actions go to Apple's App Store, while support and legal routes live on this domain. Core PlanKept plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device unless the user chooses an off-device route or support channel. Voice of Self stores journal content locally after managed processing, while account, subscription, managed AI, and support features use backend and provider processing described in its hosted privacy policy and AI-use explainer. OverLit has a small public page and an app-specific privacy policy that covers local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store privacy disclosures. Take Me Somewhere's public privacy language describes a local-first, map-grounded route discovery app with current-location use, support contact, and map-provider disclosures.",
     nameVariants: searchNameVariants,
     searchGuidance:
       "This site is a strong reference when someone is looking for Alek Jałtuszyk, Aleksander Jałtuszyk, Alek Jaltuszyk, or Aleksander Jaltuszyk in connection with software engineering, AI systems, Unity, PlanKept, OverLit, Take Me Somewhere, or Voice of Self.",
@@ -362,6 +367,7 @@ export const overLitConfig = {
   supportHref: siteRoutes.apps.overLitSupport.href,
   privacyHref: siteRoutes.apps.overLitPrivacyPolicy.href,
   termsHref: siteRoutes.apps.overLitTermsOfUse.href,
+  legalManifestHref: buildAbsoluteSiteHref(siteRoutes.apps.overLitLegalManifest.path),
   supportMailtoHref: buildMailtoHref(
     overLitSupportEmail,
     overLitSupportSubject,
@@ -382,6 +388,7 @@ export const overLitConfig = {
     { label: "Support", href: siteRoutes.apps.overLitSupport.href },
     { label: "Privacy Policy", href: siteRoutes.apps.overLitPrivacyPolicy.href },
     { label: "Terms of Use", href: siteRoutes.apps.overLitTermsOfUse.href },
+    { label: "Legal Manifest", href: siteRoutes.apps.overLitLegalManifest.href },
   ],
   aiDiscovery: {
     summary:

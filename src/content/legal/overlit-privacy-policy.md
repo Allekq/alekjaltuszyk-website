@@ -12,14 +12,15 @@ This policy covers the OverLit app and the OverLit pages on `alekjaltuszyk.xyz`,
 
 - OverLit is a short-session iPhone arcade/reflex game.
 - The app does not require an account, custom backend, chat, social feed, multiplayer, or cloud sync.
-- Gameplay settings, preferences, high scores, progress, local event history, unlocks, ad counters, purchase entitlement state, and legal acceptance may be stored locally on your device.
-- The app does not ask for account registration, passwords, payment card details, phone numbers, mailing addresses, precise GPS location, contacts, camera access, photo library access, or age.
+- Gameplay settings, preferences, high scores, progress, local event history, unlocks, ad counters, purchase entitlement state, age-band answer, and legal acceptance may be stored locally on your device.
+- The app does not ask for account registration, passwords, payment card details, phone numbers, mailing addresses, precise GPS location, contacts, camera access, photo library access, or exact date of birth. The app asks you to choose a local age range, either 13 to 17 or 18 or older, during onboarding so teen and adult ad settings can be handled safely.
 - The app uses Google Mobile Ads SDK for AdMob rewarded ads, interstitial ads, and limited footer banner ads in the free experience.
-- The app uses Google User Messaging Platform / AdMob privacy messages for applicable European regulations and U.S. state privacy regulations, and may show an AdMob IDFA explainer before Apple's App Tracking Transparency prompt.
-- Google/AdMob may collect or process advertising data, device identifiers, product interaction data, coarse location, crash data, other diagnostic data, and performance data as described below and in Google's policies.
-- If you allow tracking through Apple App Tracking Transparency and your regional consent choices permit it, Google/AdMob and advertising partners may use identifiers such as the IDFA for personalized ads, ad measurement, fraud prevention, and related advertising purposes.
-- If you deny tracking, decline consent, or opt out where applicable, ads may still appear without IDFA-based or personalized tracking where required.
-- The app may show local developer house ads for PlanKept. Voice of Self is not currently an active OverLit ad or promotion. These local house ad panels are not third-party ad network requests.
+- The app uses Google User Messaging Platform / AdMob privacy messages for applicable European regulations and U.S. state privacy regulations.
+- The current app build may show an AdMob IDFA explainer and Apple's App Tracking Transparency prompt so AdMob can use IDFA for more relevant ads and ad measurement when allowed. If ATT is denied or unavailable, ads may still be requested without IDFA.
+- Google/AdMob may still collect or process advertising data, ad-delivery signals, product interaction data, coarse location, crash data, other diagnostic data, and performance data as described below and in Google's policies.
+- The app uses Apple's SKAdNetwork for aggregated, privacy-preserving install measurement across supported ad networks. This can support Google campaigns now and Meta or TikTok campaigns later without adding Meta Pixel, TikTok Pixel, Meta SDK, TikTok SDK, or customer-list uploads.
+- If you decline consent, opt out, or use device settings that restrict advertising technologies, ads may still appear as non-personalized, contextual, limited, or otherwise restricted ads where allowed.
+- The app may show local developer house ads for PlanKept. If you choose 18 or older, the app may also show local developer house ads for Voice of Self. Voice of Self house ads are not shown to players who choose 13 to 17 or users who have not answered the age-band question. These local house ad panels are not third-party ad network requests.
 - The app may offer an optional one-time Full Version purchase through Apple's in-app purchase system. Full Version removes normal real in-app ad requests, including footer banner, interstitial, and rewarded ad requests, unlocks ad-gated themes, and lets existing level-skip offers complete without watching an ad, while non-ad progression rewards still require normal play.
 - We may advertise OverLit on external services such as Instagram, Meta, TikTok, Apple Search Ads, Google, or similar platforms. We do not currently install Meta Pixel, TikTok Pixel, Meta SDK, TikTok SDK, website/app activity retargeting code, or customer-list uploads for OverLit.
 - Apple and the App Store process in-app purchases, refunds, restorations, platform, device, and privacy data under Apple's policies. We do not receive your payment card details.
@@ -31,7 +32,7 @@ OverLit gameplay is local. The app may store local gameplay/settings data on you
 
 - settings and app appearance preferences
 - high scores, stats, play progress, mode state, theme unlocks, and local event history
-- onboarding and legal acceptance state
+- onboarding, age-band answer, and legal acceptance state
 - play counters, ad counters, recent-run details, completion state, cadence timestamps, and similar local gameplay records used to restore progress, show stats, tune the local experience, and decide when ads or unlock opportunities appear
 - Full Version entitlement cache, verification time, and limited StoreKit transaction metadata needed to remember a verified purchase and restore access
 
@@ -43,7 +44,9 @@ OverLit does not provide public user-generated content, in-app chat, a social fe
 
 ## 3. Information We Do Not Ask For
 
-Some template privacy policies include broad categories that do not match OverLit. In the app, we do not ask you to create an account, choose a password, provide a phone number, mailing address, billing address, payment card, job title, age, contact list, camera photo, photo library item, or precise GPS location.
+Some template privacy policies include broad categories that do not match OverLit. In the app, we do not ask you to create an account, choose a password, provide a phone number, mailing address, billing address, payment card, job title, exact date of birth, contact list, camera photo, photo library item, or precise GPS location.
+
+OverLit asks for a local age range during onboarding: 13 to 17 or 18 or older. We use that local answer to choose conservative ad settings for teen players, allow the adult ad profile for players who choose 18 or older, and keep adult-only local Voice of Self house ads away from teen players and users who have not answered the age question. We do not ask for your exact birth date.
 
 If you voluntarily include any of that information in a support email, we may receive it as part of your message, but the app does not require it.
 
@@ -53,22 +56,24 @@ OverLit does not intentionally collect sensitive personal information, such as h
 
 OverLit integrates Google AdMob through the Google Mobile Ads SDK. Builds use configured AdMob app and ad unit IDs for the active app environment. Debug or development builds may use Google demo or test ad IDs, while production builds use the configured live AdMob units unless a local build override is deliberately supplied.
 
-The app also includes Google User Messaging Platform / AdMob privacy messaging for applicable European regulations and U.S. state privacy regulations, an AdMob IDFA explainer, Apple App Tracking Transparency, and SKAdNetwork attribution support for privacy-preserving app advertising measurement.
+The app also includes Google User Messaging Platform / AdMob privacy messaging for applicable European regulations and U.S. state privacy regulations, an AdMob IDFA explainer for Apple's App Tracking Transparency flow where available, and SKAdNetwork attribution support for privacy-preserving app advertising measurement. The current app build may request Apple's App Tracking Transparency permission so AdMob can use IDFA for more relevant ads and ad measurement when allowed. If you deny ATT or your device does not allow tracking requests, ads may still be requested without IDFA.
+
+To support app-install conversion measurement, the app's iOS configuration includes SKAdNetwork identifiers for Google and participating buyer/ad network attribution, including identifiers intended to keep future Meta and TikTok campaigns measurable if those campaigns are configured. SKAdNetwork is an Apple attribution system for aggregated install measurement. These Info.plist entries do not install Meta or TikTok SDKs, do not add Meta Pixel or TikTok Pixel to the website, and do not send OverLit gameplay events to Meta or TikTok. OverLit may report coarse SKAdNetwork conversion milestones, such as install observed, first onboarding run started or completed, or broad level-threshold progress. Those conversion values do not include age band, consent status, support content, or detailed gameplay history.
 
 The app currently uses AdMob for:
 
 - rewarded ads that let players unlock cosmetic themes or accept ad-based level-skip offers
-- interstitial ads after natural menu or replay breaks, based on local play-session counters
+- interstitial ads after natural breaks outside active gameplay, such as menu, replay, or level-advance breaks, based on local play-session counters and ad-pressure state
 - optional footer banner ads shown outside the active grid/board cells, including voluntary Help the Dev footer banners for free users and, depending on local policy, footer banners connected to an ad-skip or abandoned-ad reminder state
 
 OverLit does not show banner ads on the game board cells. Real ad content is not placed on the actual playable grid. Full Version owners should not receive real AdMob banner, interstitial, or rewarded ad requests while the Full Version entitlement is active. If a Full Version owner has a Help the Dev setting enabled, the app may show an in-game thank-you or support message instead of requesting a real ad.
 
-Because OverLit is not age-gated and is intended to remain suitable for its App Store age rating, the app configures Google Mobile Ads requests with teen treatment and a maximum ad content rating no higher than Teen.
+OverLit asks for a local age range before ad preparation. For players who choose 13 to 17, the app configures Google Mobile Ads requests with teen treatment, a maximum ad content rating no higher than Teen, publisher ad personalization disabled, and Google's publisher first-party ID disabled. For players who choose 18 or older, the app may use unspecified age treatment, leave the SDK max-content cap unset, enable publisher ad personalization, and enable Google's publisher first-party ID, subject to Google/AdMob settings, UMP consent, Apple's ATT permission, device settings, and applicable law.
 
 Google's Mobile Ads SDK may collect, receive, or process information such as:
 
 - IP address, which may be used to estimate coarse or general location
-- device identifiers, including the IDFA when available and allowed, app/developer-bounded identifiers, or other advertising identifiers where permitted
+- ad-related identifiers or SDK signals where permitted, including IDFA when Apple's ATT permission is granted
 - advertising data, such as ads requested, ads shown, banner impressions, interstitial impressions, rewarded ad completion, ad interactions, and related ad events
 - product interaction or usage data, such as app launches, taps, banner views, video ad views, privacy-message interactions, and other ad-performance events
 - attribution-related information, including SKAdNetwork-related signals or postbacks handled by Apple, Google/AdMob, or advertising partners
@@ -82,7 +87,7 @@ That data may be used for purposes such as:
 - measuring ad performance, banner impressions, ad interactions, and rewarded ad completion
 - preventing fraud, abuse, and invalid traffic
 - frequency capping, reporting, and campaign measurement
-- personalizing ads where you have allowed tracking and any legally required consent permits it
+- serving non-personalized, contextual, limited, or otherwise privacy-restricted ads according to consent choices, device settings, Google/AdMob rules, Apple rules, and applicable law
 - supporting SKAdNetwork and other privacy-preserving attribution flows
 - analytics and performance improvement for the Google Mobile Ads SDK
 - diagnostics, reliability, and SDK security
@@ -98,9 +103,9 @@ google.com, pub-6606108754134100, DIRECT, f08c47fec0942fa0
 
 ## 5. Local Developer House Ads
 
-OverLit may show a local developer house ad in the app context, including when AdMob cannot load an ad or when the local house-ad replacement chance is selected. The current local developer house ads are for PlanKept. Voice of Self is not currently an active OverLit ad or promotion.
+OverLit may show a local developer house ad in the app context, including when AdMob cannot load an ad or when the local house-ad replacement chance is selected. The current local developer house ads are for PlanKept and, only for players who choose 18 or older, Voice of Self. Voice of Self house ads are not shown to players who choose 13 to 17 or users who have not answered the age-band question.
 
-A house ad is a local in-app panel that promotes the Developer's own app, app page, App Store page, or related app destination.
+A house ad is a local in-app panel that promotes the Developer's own app, app page, App Store page, or related app destination. Full Version suppresses normal automatic house-ad fallback in the ordinary player experience while the entitlement is active, except developer-only preview tools.
 
 Showing a local developer house ad does not by itself send data to a third-party ad network. If you tap a house ad and leave the app, the destination website, App Store, browser, or device platform may process that visit under its own policies.
 
@@ -128,26 +133,27 @@ OverLit may use Google's User Messaging Platform or AdMob privacy messaging wher
 
 For applicable U.S. state privacy flows, Google's message may include wording such as "Do Not Sell or Share My Personal Information" or similar opt-out choices. Those choices are intended to send supported opt-out signals for sale, sharing, targeted advertising, or similar personalized-ad uses where required by the relevant law and supported by AdMob.
 
-On iOS, OverLit may show an AdMob IDFA explainer before Apple's App Tracking Transparency prompt. If you allow tracking and your regional consent choices permit it, Google/AdMob and its advertising partners may access or use identifiers such as Apple's Identifier for Advertisers (IDFA) for personalized ads, ad measurement, fraud prevention, frequency capping, and related advertising purposes.
+On iOS, OverLit may show an AdMob IDFA explainer followed by Apple's App Tracking Transparency prompt. If you allow ATT, AdMob may use IDFA for more relevant ads and ad measurement. If you deny ATT, do not see the prompt, or your device settings prevent tracking requests, ads may still be requested without IDFA. For 13 to 17, OverLit configures Google Mobile Ads with teen treatment, Teen max content rating, publisher ad personalization disabled, and Google's publisher first-party ID disabled. For 18 or older, OverLit may allow publisher ad personalization and Google's publisher first-party ID where UMP consent, ATT, AdMob settings, device settings, and law allow it.
 
-If you deny tracking in Apple's App Tracking Transparency prompt, decline consent, opt out, or use device settings that restrict advertising identifiers, ads may still appear without IDFA-based or personalized tracking where required. Those ads may be non-personalized, contextual, limited, or otherwise served according to Google/AdMob, Apple, and applicable law. If AdMob cannot load, OverLit may show a local PlanKept developer house ad instead.
+If you decline consent, opt out, or use device settings that restrict advertising technologies, ads may still appear as non-personalized, contextual, limited, or otherwise served according to Google/AdMob, Apple, and applicable law. If AdMob cannot load, OverLit may show a local PlanKept developer house ad instead, or a local Voice of Self house ad if you chose 18 or older.
 
-You can manage choices through Google/AdMob consent and privacy flows shown in the app where available, including Privacy and cookie settings when AdMob requires that entry point, and through iOS privacy settings such as App Tracking Transparency, advertising identifier controls, and Apple personalized advertising settings where available. For local OverLit gameplay data, you can change app settings, use in-app reset options where available, or delete the app.
+You can manage choices through Google/AdMob consent and privacy flows shown in the app where available, including Privacy and cookie settings when AdMob requires that entry point, and through iOS privacy settings such as Apple personalized advertising settings where available. For local OverLit gameplay data, you can change app settings, use in-app reset options where available, or delete the app.
 
 ## 9. App Store Privacy Disclosures
 
-Apple's App Privacy labels use Apple-defined categories and may require disclosures that are broader or more conservative than a plain-language policy. The current OverLit App Store privacy disclosures are intended to reflect the AdMob setup described above.
+Apple's App Privacy labels use Apple-defined categories and may require disclosures that are broader or more conservative than a plain-language policy. The current OverLit App Store privacy disclosures are intended to reflect the AdMob, UMP, IDFA-capable, and SKAdNetwork setup described above.
 
 The relevant active AdMob-related categories include:
 
-- `Location > Coarse Location`: may be derived from IP address and used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement. It may be linked to the user and used for tracking where Apple's definitions and SDK behavior require that disclosure.
-- `Identifiers > Device ID`: includes IDFA when ATT-authorized and other device-level or app/developer-bounded identifiers where Google/AdMob uses them. It may be used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, fraud prevention, measurement, and tracking.
-- `Usage Data > Product Interaction`: includes ad views, banner views, taps, video views, rewarded completions, app launches, privacy-message interactions, and other ad or consent interaction data. It may be used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement; it may be linked to the user and used for tracking where required.
-- `Usage Data > Advertising Data`: includes ads requested, ads shown, banner impressions, interstitial impressions, ad interactions, campaign or measurement data, and rewarded-ad completion. It may be used for Third-Party Advertising, Developer Advertising or Marketing, and Analytics, may be linked to the user, and may be used for tracking where required.
+- `Location > Coarse Location`: may be derived from IP address and used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement where Google/AdMob requires that disclosure.
+- `Identifiers > Device ID`: may include IDFA when App Tracking Transparency permission is granted, plus other device-level, app/developer-bounded, or SDK identifiers used for ad delivery, fraud prevention, measurement, consent, or reporting. For the current IDFA-capable ad-supported build, Device ID may be used for tracking under Apple's App Privacy categories.
+- `Usage Data > Product Interaction`: includes ad views, banner views, taps, video views, rewarded completions, app launches, privacy-message interactions, and other ad or consent interaction data. It may be used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement.
+- `Usage Data > Advertising Data`: includes ads requested, ads shown, banner impressions, interstitial impressions, ad interactions, campaign or measurement data, SKAdNetwork-related measurement, and rewarded-ad completion. It may be used for Third-Party Advertising, Developer Advertising or Marketing, and Analytics.
 - `Diagnostics > Crash Data`: may include non-user-related crash logs used for diagnostics, app functionality, analytics, SDK reliability, and security. We do not use support crash logs for retargeting.
-- `Diagnostics > Performance Data`: may include launch time, hang rate, energy usage, and SDK performance data. It may be used for Analytics and Other Purposes, may be linked to the user, and is not currently marked as used for tracking.
+- `Diagnostics > Performance Data`: may include launch time, hang rate, energy usage, and SDK performance data. Current Google SDK privacy manifests report this as not linked and not used for tracking.
+- `Diagnostics > Other Diagnostic Data`: may include other SDK diagnostic signals declared by Google Mobile Ads. Current Google SDK privacy manifests report this as not linked and not used for tracking.
 
-The App Store product-page preview may summarize those choices as data used to track you, data linked to you, and data not linked to you. Because AdMob is active, the product page may show that OverLit collects data used for tracking.
+The current build is IDFA-capable while still using SKAdNetwork for aggregate install attribution. The App Store product-page preview may summarize Google/AdMob SDK disclosures as data used to track you, data linked to you, or data not linked to you depending on Apple's current categories, the submitted binary, and Google's current SDK privacy manifests.
 
 Apple and App Store services are governed by Apple's own policies, including [Apple's Privacy Policy](https://www.apple.com/legal/privacy/) and the [Apple standard terms for apps](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/).
 
@@ -181,13 +187,13 @@ We do not control those third parties' privacy practices. Their policies explain
 
 We may share or disclose information when reasonably necessary to operate the app, show and measure ads, provide support, maintain security, prevent fraud or abuse, comply with law, respond to valid legal requests, protect rights and safety, or transfer relevant records in connection with a merger, acquisition, reorganization, asset sale, or similar business transfer.
 
-We do not sell support email lists or account lists to data brokers. Some privacy laws define certain personalized advertising, ad SDK disclosures, or cross-context ad uses as a "sale," "sharing," or "targeted advertising." Where those laws apply, OverLit uses AdMob privacy messages and available privacy choices to support opt-out or consent choices.
+We do not sell support email lists or account lists to data brokers. Some privacy laws define certain ad SDK disclosures, ad measurement, or cross-context ad uses as a "sale," "sharing," or "targeted advertising," whether or not IDFA is available. Where those laws apply, OverLit uses AdMob privacy messages and available privacy choices to support opt-out or consent choices.
 
 OverLit does not use automated decision-making or profiling that produces legal or similarly significant effects for players. Ad networks may use automated systems to select, personalize, measure, limit, or prevent fraud in ads, subject to your consent, opt-out choices, device settings, and the ad providers' own policies.
 
 ## 13. Children
 
-OverLit is not directed to children under 13, children under 13 should not use OverLit, and we do not knowingly collect personal information from children under 13. If you believe a child has sent us personal information through support or another channel, contact us so we can review and delete it where appropriate.
+OverLit is not directed to children under 13, children under 13 should not use OverLit, and we do not knowingly collect personal information from children under 13. OverLit asks new users to choose either 13 to 17 or 18 or older; the app does not provide an under-13 path. If you believe a child has sent us personal information through support or another channel, contact us so we can review and delete it where appropriate.
 
 ## 14. Data Retention
 
@@ -209,7 +215,7 @@ Depending on where you live, you may have rights to request access, correction, 
 
 Because OverLit does not have accounts or a custom backend, many gameplay records and the local Full Version entitlement cache are stored locally on your device. You can often control that local data by changing app settings, using in-app reset options where available, restoring purchases, or deleting the app. For purchase or platform data handled by Apple, or data handled by Google/AdMob, Meta/Instagram, TikTok, Google advertising platforms outside the app, or other third parties, use their privacy tools and contact routes.
 
-For users in the EEA, United Kingdom, or Switzerland, Aleksander Jałtuszyk is the controller for personal data that we control directly. Depending on the context, the legal bases for processing may include consent, such as for personalized advertising choices where required; performance of a contract, such as operating the app, support, legal acceptance, and local entitlement behavior; legitimate interests, such as security, fraud prevention, service reliability, basic support, app improvement, and local developer house ads; and legal obligation, such as compliance, records, or lawful requests. You may also have the right to lodge a complaint with a supervisory authority, including the Polish Personal Data Protection Office (UODO), the UK Information Commissioner's Office (ICO), the Swiss Federal Data Protection and Information Commissioner (FDPIC), or your local supervisory authority.
+For users in the EEA, United Kingdom, or Switzerland, Aleksander Jałtuszyk is the controller for personal data that we control directly. Depending on the context, the legal bases for processing may include consent, such as for ad privacy choices where required; performance of a contract, such as operating the app, support, legal acceptance, and local entitlement behavior; legitimate interests, such as security, fraud prevention, service reliability, basic support, app improvement, and local developer house ads; and legal obligation, such as compliance, records, or lawful requests. You may also have the right to lodge a complaint with a supervisory authority, including the Polish Personal Data Protection Office (UODO), the UK Information Commissioner's Office (ICO), the Swiss Federal Data Protection and Information Commissioner (FDPIC), or your local supervisory authority.
 
 To make a request about information we control directly, contact `alekgameshelp2@gmail.com`. We may need information to verify the request and may be unable to fulfill requests about data we do not control or cannot reasonably identify.
 

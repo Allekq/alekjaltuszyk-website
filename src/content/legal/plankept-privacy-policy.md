@@ -33,6 +33,7 @@ Contact:
 - We may receive information you choose to send through support or contact channels.
 - The PlanKept website and hosted legal manifest are served by GitHub Pages, a third-party static site host. GitHub may log technical request metadata for security and operations under GitHub's own privacy practices.
 - Downloaded on-device models are intended to run locally on your device after installation. Apple-managed AI features, local development/provider routes, model download hosts, and user-selected or external model routes may have their own processing paths and terms.
+- PlanKept does not use photos, pasted images, camera content, audio, speech, plans, proof, or attachments to identify people, create face templates, create voiceprints, perform speaker recognition, or build biometric identifiers.
 - Apple and other third parties may process information when you choose to use platform-managed or third-party features, such as App Store purchases, speech services, model downloads, Apple Intelligence, or external AI/model routes.
 - If PlanKept introduces materially different data processing later, this policy should be updated before or with that change.
 
@@ -55,7 +56,11 @@ Depending on how you use PlanKept, the following categories may be processed loc
 
 PlanKept does not currently ask for contact-list permission or precise GPS location permission. If you choose to attach a photo, screenshot, file, or other image, information embedded in that attachment, such as visible text, faces, document details, timestamps, or location metadata, may be part of the content you choose to process.
 
+PlanKept does not use photos, pasted images, camera content, audio, speech, plans, proof statements, or attachments to identify people, create face templates, create voiceprints, perform speaker recognition, or build biometric identifiers. If a future feature ever needs biometric identification or similar identity matching, this policy would need to be updated before that feature is offered.
+
 Some app surfaces may let you copy, export, or share local app content, local summaries, diagnostics, AI request/response details, screenshots, or support details. Copying or exporting those details does not send them to us by itself. The information leaves your device only if you choose to paste, send, upload, share, back up, or otherwise move it through another app, provider, or support channel.
+
+When contacting support, please avoid sending sensitive plans, proof, images, Health details, Screen Time details, AI conversation text, screenshots, or third-party personal information unless that information is needed to explain the support request.
 
 PlanKept does not currently ask you to create an app account or provide a password. PlanKept also does not receive or store full payment-card numbers for App Store in-app purchases. Apple or the relevant platform payment provider processes payment-card details, refunds, taxes, family sharing, purchase restoration, and related payment records under its own terms and policies. PlanKept may receive purchase, entitlement, transaction, or restore status needed to unlock access and provide support.
 
@@ -87,11 +92,13 @@ Examples can include:
 - support emails and other contact channels you intentionally use
 - hosted legal pages and legal-manifest checks served by GitHub Pages
 - speech-recognition or related platform services
-- Apple-managed AI routes, model hosts, or user-configured AI/model endpoints, which may receive selected text, image attachments, image summaries, or related metadata when you choose a route that sends those inputs off the device
+- Apple-managed AI routes, model hosts, or user-configured AI/model endpoints, which may receive selected text, image attachments, image summaries, transcripts, prompts, proof context, or related metadata when you choose a route that sends those inputs off the device
 - ad-platform surfaces when you view, click, or otherwise interact with PlanKept ads
 - future campaign-measurement tools, if they are added with required notice, consent, and applicable law and platform compliance controls
 
 Those providers operate under their own terms, notices, and privacy policies. Because available providers and routes may change, this policy describes the categories of outside processing rather than attempting to maintain an exhaustive provider inventory here.
+
+When PlanKept uses an on-device route, the selected content is intended to stay on your device. If you intentionally choose an Apple-managed, external, or user-configured AI/model route, PlanKept may send only the content and context needed for that selected request to the selected route or provider. That provider may process the content under its own terms, privacy settings, and technical limits. Do not choose an off-device route for content you do not want processed by that route or provider.
 
 ## 3.1 Apple Health And Screen Time Data
 

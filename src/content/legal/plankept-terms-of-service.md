@@ -52,6 +52,7 @@ You agree not to:
 - interfere with or disrupt the app or website
 - attempt to gain unauthorized access
 - use the service to distribute harmful code or abusive content
+- submit, attach, record, or process content unless you have the rights, consents, and notices required for that content, especially if it includes another person's image, voice, messages, health information, location, or other sensitive information
 - misuse the app, website, support channel, App Store route, or purchase flow
 
 ## 7. Intellectual Property
@@ -60,7 +61,9 @@ The service, including app design, site design, copy, graphics, and branding, is
 
 You may not copy, reproduce, redistribute, or exploit the service except as allowed by law or with permission.
 
-You keep your rights in plans, proof statements, attachments, and other content you create in the app. Because PlanKept is local-first, that content normally stays on your device unless you choose to send it to a support channel, Apple service, model route, or other third-party service.
+You keep your rights in plans, proof statements, photos, images, attachments, prompts, transcripts, AI conversation content, and other content you create in the app. Because PlanKept is local-first, that content normally stays on your device unless you choose to send it to a support channel, Apple service, model route, or other third-party service.
+
+When you choose to process content through an Apple-managed, external, or user-configured model route, or when you send content to support, you give PlanKept and the relevant service providers a limited permission to transmit, process, secure, troubleshoot, and respond to that content only as reasonably needed for the feature, route, or support request you initiated. This permission does not transfer ownership of your content to us.
 
 ## 8. Support And Third-Party Services
 

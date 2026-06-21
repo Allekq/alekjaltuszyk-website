@@ -5,8 +5,8 @@ description: Voice of Self privacy policy.
 ---
 # Voice of Self Privacy Policy
 
-Effective Date: 2026-06-11
-Version: 1.2.21
+Effective Date: 2026-06-20
+Version: 1.2.22
 
 This Privacy Policy explains how Voice of Self processes personal information
 when you use the Voice of Self iOS app, the public website, direct contact
@@ -28,6 +28,9 @@ Contact:
 - Voice of Self is an account-based, subscription-based reflection app. Managed
   AI features require a Voice of Self account, an active subscription or access
   grant, and our backend.
+- Voice of Self is a self-reflection and journaling tool. It is not healthcare,
+  therapy, diagnosis, treatment, crisis monitoring, emergency response, or a
+  substitute for a licensed professional.
 - After managed AI processing completes, journal content is stored locally on
   your device unless you export, back up, share, or directly send it elsewhere.
 - Local app data can also be copied into export files, Files/iCloud locations,
@@ -178,13 +181,19 @@ If you contact us through website or email channels, we may process:
 
 Direct contact emails may be processed through your email provider and ours.
 Please avoid sending more personal information than needed when contacting us.
+Do not send sensitive journal entries, recordings, transcripts, health
+information, location history, screenshots, or third-party personal information
+unless that information is needed for the support request.
 
 ### 1.5 Sensitive information
 
-Your journal content may contain sensitive personal information if you choose
-to say or write it. This is not because we ask you to create a sensitive
-profile; it is because an open-ended reflection app lets you talk about your
-life. This may include information about:
+Voice of Self is a self-reflection and journaling tool, not healthcare,
+therapy, diagnosis, treatment, crisis monitoring, emergency response, or a
+substitute for a licensed professional. Your journal content may still contain
+or imply sensitive personal information if you choose to say or write it. This
+is not because we ask you to create a sensitive profile; it is because an
+open-ended reflection app lets you talk about your life. This may include
+information about:
 
 - Health or mental-health-related topics
 - Religious or philosophical beliefs
@@ -441,15 +450,15 @@ include transcript text and, in some flows, live transcript excerpts while a
 recording session is still in progress.
 
 For normal managed AI requests, transcript text, selected context, prompts,
-and AI output are handled on a zero-retention basis by our backend and
-configured provider routes. That means the content is transmitted only to
-service the request and is not retained as readable backend content after
-fulfillment. Raw audio is handled locally or by Apple speech/transcription
-services where those services are used; it is not stored by our backend as a
-readable account record. We do, however, retain limited security,
-subscription, diagnostic, performance, and usage/accounting metadata such as
-token counts, workflow labels, timestamps, processing duration, and derived
-cost.
+and AI output are handled on a zero-retention basis for readable request
+content by our backend and configured provider routes. That means the content
+is transmitted only to service the request and is not retained as readable
+backend content after fulfillment. Raw audio is handled locally or by Apple
+speech/transcription services where those services are used; it is not stored
+by our backend as a readable account record. We do, however, retain limited
+security, subscription, diagnostic, performance, and usage/accounting metadata
+such as token counts, workflow labels, timestamps, processing duration, and
+derived cost.
 
 Our app and backend code do not add Bedrock prompt cache checkpoints for these
 managed requests, and Bedrock model invocation logging for raw request or
@@ -568,11 +577,11 @@ journal text, raw audio, or raw AI output.
 
 For normal managed account-mode AI requests, transcript text, selected
 context, prompts, and AI response content are handled on a zero-retention basis
-by our backend and configured provider routes. They are transmitted only to
-service the request and are not retained as readable backend content after
-fulfillment. Raw audio is handled locally or by Apple speech/transcription
-services where those services are used, not stored by our backend as a
-readable account record.
+for readable request content by our backend and configured provider routes.
+They are transmitted only to service the request and are not retained as
+readable backend content after fulfillment. Raw audio is handled locally or by
+Apple speech/transcription services where those services are used, not stored
+by our backend as a readable account record.
 
 We do retain limited account, subscription, security, diagnostic, performance,
 and usage/accounting metadata, such as token counts, workflow labels,
@@ -723,8 +732,10 @@ These content categories are included here for privacy-law transparency. They
 do not mean that we retain a backend archive of what you said; normal managed
 AI request content is handled on a zero-retention basis as described above.
 
-Audio recordings may contain your voice, but we do not use those recordings to
-create biometric identity templates or voiceprints for identity verification.
+Audio recordings may contain your voice, but we do not use recordings,
+transcripts, photos, images, or other content to identify people, create
+biometric identity templates, create voiceprints, perform speaker recognition,
+scan face geometry, or verify identity.
 
 ### 13.2 Sale, sharing, and sensitive information
 
@@ -752,6 +763,24 @@ your behalf, and we may ask for proof of that authorization.
 If we deny a request and applicable law gives you an appeal right, you may
 appeal by emailing `voiceofselfapp@gmail.com` or by using the other contact
 details in [Section 15](#15-how-can-you-contact-us-about-this-policy).
+
+### 13.5 Consumer health data note
+
+Some U.S. laws use terms such as "consumer health data" for information that
+can identify or imply a person's physical or mental health status, even outside
+traditional healthcare. Voice of Self is not healthcare, but entries,
+transcripts, reflections, or direct messages you choose to provide may include
+or imply health, mental-health, mood, grief, relationship, identity, or similar
+sensitive information.
+
+We do not sell that information, use it for targeted advertising, share it for
+cross-context behavioral advertising, or use it to train our own models. We use
+it only as described in this policy: to provide features you request, operate
+and secure the service, respond to support you initiate, comply with law, and
+protect users or the service. If an applicable law requires a separate consumer
+health data notice, consent flow, or rights process for a market where Voice of
+Self is offered, we will provide the required notice or control before or with
+that processing.
 
 We do not currently disclose personal information to third parties for their
 own direct-marketing purposes.

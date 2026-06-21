@@ -69,6 +69,11 @@ export const discoveryPages = {
       description: "Email-based support instructions for Voice of Self.",
     },
     {
+      title: "PlanKept Support",
+      path: siteRoutes.apps.planKeptSupport.path,
+      description: "Email-based support instructions for PlanKept.",
+    },
+    {
       title: "Take Me Somewhere Support",
       path: siteRoutes.apps.takeMeSomewhereSupport.path,
       description: "Email-based support instructions for Take Me Somewhere.",
@@ -188,6 +193,18 @@ export const discoveryPages = {
         "Terms covering Voice of Self app, website, subscriptions, managed AI features, support, and acceptable use.",
     },
     {
+      title: "How Voice of Self Uses AI",
+      path: siteRoutes.apps.voiceOfSelfHowUsesAI.path,
+      description:
+        "Hosted AI-use explainer covering Voice of Self managed AI routing, local audio handling, retention limits, metadata, and professional-service disclaimers.",
+    },
+    {
+      title: "Voice of Self Legal Manifest",
+      path: siteRoutes.apps.voiceOfSelfLegalManifest.path,
+      description:
+        "Machine-readable Voice of Self legal document versions, effective dates, AI-use body, and canonical URLs.",
+    },
+    {
       title: "OverLit Privacy Policy",
       path: siteRoutes.apps.overLitPrivacyPolicy.path,
       description:
@@ -198,6 +215,12 @@ export const discoveryPages = {
       path: siteRoutes.apps.overLitTermsOfUse.path,
       description:
         "Terms covering OverLit app, website, support, advertising, rewarded unlocks, local progress, acceptable use, and third-party services.",
+    },
+    {
+      title: "OverLit Legal Manifest",
+      path: siteRoutes.apps.overLitLegalManifest.path,
+      description:
+        "Machine-readable OverLit legal document versions, effective dates, and canonical URLs.",
     },
     {
       title: "Take Me Somewhere Privacy Policy",
@@ -251,6 +274,8 @@ export const sitemapPagePaths = [
   ...visibilityUpdatePosts.map((post) => getVisibilityUpdatePath(post.slug)),
   siteRoutes.apps.voiceOfSelfPrivacyPolicy.path,
   siteRoutes.apps.voiceOfSelfTermsOfService.path,
+  siteRoutes.apps.voiceOfSelfHowUsesAI.path,
+  siteRoutes.apps.voiceOfSelfLegalManifest.path,
   siteRoutes.support.path,
   siteRoutes.legal.path,
   siteRoutes.privacyPolicy.path,
@@ -259,6 +284,7 @@ export const sitemapPagePaths = [
   siteRoutes.apps.overLitSupport.path,
   siteRoutes.apps.overLitPrivacyPolicy.path,
   siteRoutes.apps.overLitTermsOfUse.path,
+  siteRoutes.apps.overLitLegalManifest.path,
   siteRoutes.apps.takeMeSomewhere.path,
   siteRoutes.apps.takeMeSomewhereSupport.path,
   siteRoutes.apps.takeMeSomewherePrivacyPolicy.path,
