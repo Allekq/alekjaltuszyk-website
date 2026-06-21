@@ -52,12 +52,12 @@ export const legalDocuments = {
     path: "/apps/VoiceOfSelf/how-voice-of-self-uses-ai/",
   },
   overLitPrivacy: {
-    version: "1.0.19",
+    version: "1.0.23",
     effectiveDate: "2026-06-21",
     path: "/apps/OverLit/privacy-policy/",
   },
   overLitTerms: {
-    version: "1.0.10",
+    version: "1.0.11",
     effectiveDate: "2026-06-21",
     path: "/apps/OverLit/terms-of-use/",
   },
