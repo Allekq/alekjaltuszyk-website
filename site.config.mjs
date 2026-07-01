@@ -52,8 +52,8 @@ export const legalDocuments = {
     path: "/apps/VoiceOfSelf/how-voice-of-self-uses-ai/",
   },
   overLitPrivacy: {
-    version: "1.0.23",
-    effectiveDate: "2026-06-21",
+    version: "1.0.24",
+    effectiveDate: "2026-06-29",
     path: "/apps/OverLit/privacy-policy/",
   },
   overLitTerms: {
