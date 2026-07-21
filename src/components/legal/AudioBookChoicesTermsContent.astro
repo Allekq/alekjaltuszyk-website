@@ -1,0 +1,16 @@
+---
+import { legalDocuments } from "../../../site.config.mjs";
+import { audioBookChoicesConfig } from "../../config/site";
+import AudioBookChoicesTermsBody from "../../content/legal/audio-book-choices-terms-of-use.md";
+
+const appName = audioBookChoicesConfig.name;
+---
+
+<h1>{appName} Terms of Use</h1>
+
+<p>
+  <strong>Last updated:</strong> {legalDocuments.audioBookChoicesTerms.effectiveDate}<br />
+  <strong>Version:</strong> {legalDocuments.audioBookChoicesTerms.version}
+</p>
+
+<AudioBookChoicesTermsBody />

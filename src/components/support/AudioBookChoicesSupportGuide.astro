@@ -1,0 +1,94 @@
+---
+import "../../styles/support.css";
+import "../../styles/waitlist-guide.css";
+import ActionButton from "../landing/ui/ActionButton.astro";
+import { audioBookChoicesConfig } from "../../config/site";
+---
+
+<div class="waitlist-guide">
+  <section class="waitlist-guide__hero landing-surface">
+    <p class="waitlist-guide__eyebrow">Support</p>
+    <h1 class="waitlist-guide__title">Need help with Audio Book Choices? Email support directly.</h1>
+    <p class="waitlist-guide__lead">
+      Support is intentionally straightforward for now. Send an email, describe what went wrong,
+      and include your device details if you have them.
+    </p>
+
+    <div class="waitlist-guide__actions">
+      <ActionButton href={audioBookChoicesConfig.supportGmailHref}>Open Gmail in browser</ActionButton>
+      <ActionButton href={audioBookChoicesConfig.supportMailtoHref} variant="secondary">
+        Open your email app
+      </ActionButton>
+    </div>
+
+    <p class="waitlist-guide__note">
+      If those options do not open cleanly, copy the support email and draft below.
+    </p>
+  </section>
+
+  <div class="waitlist-guide__grid">
+    <section class="waitlist-guide__card landing-surface">
+      <div class="waitlist-guide__card-head">
+        <div class="waitlist-guide__detail waitlist-guide__detail--email">
+          <p class="waitlist-guide__detail-label">Send it to</p>
+          <p class="waitlist-guide__detail-value waitlist-guide__detail-value--email">
+            {audioBookChoicesConfig.supportEmail}
+          </p>
+        </div>
+        <button
+          class="waitlist-guide__copy"
+          type="button"
+          data-copy-value={audioBookChoicesConfig.supportEmail}
+        >
+          Copy email
+        </button>
+      </div>
+
+      <div class="waitlist-guide__detail">
+        <p class="waitlist-guide__detail-label">Suggested subject</p>
+        <p class="waitlist-guide__pill">{audioBookChoicesConfig.supportDraft.subject}</p>
+      </div>
+
+      <p class="waitlist-guide__body">
+        A short description is enough to start. Which book you were listening to and your device
+        details help if you have them.
+      </p>
+    </section>
+
+    <section class="waitlist-guide__card landing-surface">
+      <p class="waitlist-guide__kicker">What to include</p>
+      <h2 class="waitlist-guide__card-title">A useful note gets the issue grounded quickly.</h2>
+
+      <ul class="waitlist-guide__list">
+        <li>What you were trying to do.</li>
+        <li>What happened instead.</li>
+        <li>The book or story point, and whether you were tapping or using head-nod.</li>
+        <li>Your device and OS version, if you know them.</li>
+      </ul>
+
+      <p class="waitlist-guide__body">
+        Because Audio Book Choices keeps your progress on your device and has no account, there is
+        no login or personal data for us to look up. Please avoid sending sensitive personal
+        information or another person's information unless it is needed for the support request.
+      </p>
+    </section>
+  </div>
+
+  <section class="waitlist-guide__card landing-surface">
+    <div class="waitlist-guide__card-head">
+      <div>
+        <p class="waitlist-guide__kicker">Ready-made draft</p>
+        <h2 class="waitlist-guide__card-title">Send this as-is or edit it first.</h2>
+      </div>
+      <button
+        class="waitlist-guide__copy"
+        type="button"
+        data-copy-value={audioBookChoicesConfig.supportDraft.body}
+      >
+        Copy draft
+      </button>
+    </div>
+
+    <pre class="waitlist-guide__template">{audioBookChoicesConfig.supportDraft.body}</pre>
+  </section>
+</div>

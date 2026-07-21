@@ -174,6 +174,16 @@ export const legalManifest = {
     effectiveDate: legalDocuments.takeMeSomewhereTerms.effectiveDate,
     url: buildAbsoluteSiteHref(legalDocuments.takeMeSomewhereTerms.path),
   },
+  audioBookChoicesPrivacy: {
+    version: legalDocuments.audioBookChoicesPrivacy.version,
+    effectiveDate: legalDocuments.audioBookChoicesPrivacy.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.audioBookChoicesPrivacy.path),
+  },
+  audioBookChoicesTerms: {
+    version: legalDocuments.audioBookChoicesTerms.version,
+    effectiveDate: legalDocuments.audioBookChoicesTerms.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.audioBookChoicesTerms.path),
+  },
   terms: {
     version: legalDocuments.planKeptTerms.version,
     effectiveDate: legalDocuments.planKeptTerms.effectiveDate,
@@ -221,6 +231,7 @@ export const siteConfig = {
     { label: "OverLit", href: siteRoutes.apps.overLit.href },
     { label: "Voice of Self", href: siteRoutes.apps.voiceOfSelf.href },
     { label: "Take Me Somewhere", href: siteRoutes.apps.takeMeSomewhere.href },
+    { label: "Audio Book Choices", href: siteRoutes.apps.audioBookChoices.href },
     { label: "Support", href: siteRoutes.support.href },
     { label: "Legal", href: siteRoutes.legal.href },
     { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
@@ -235,7 +246,7 @@ export const siteConfig = {
     focusAreas,
     shortBio:
       "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design.",
-    currentProducts: ["PlanKept", "OverLit", "Voice of Self", "Take Me Somewhere"],
+    currentProducts: ["PlanKept", "OverLit", "Voice of Self", "Take Me Somewhere", "Audio Book Choices"],
   },
   aiDiscovery: {
     summary:
@@ -445,6 +456,69 @@ export const takeMeSomewhereConfig = {
       "Take Me Somewhere is a launched iPhone app by Alek Jałtuszyk for spontaneous, time-boxed local route discovery. The user chooses how much time they have, picks a vibe, and receives a nearby route, destination, or compass-guided outing.",
     status:
       "The public Take Me Somewhere surface includes a simple product page, App Store CTA, support, privacy, Terms of Service, and hosted legal-manifest pages under /apps/TakeMeSomewhere/. The product language emphasizes walking-first outings, Compass Mode, Route Mode, mystery destination reveal, future riding/driving, and deterministic map/routing logic for route truth.",
+  },
+} as const;
+
+const audioBookChoicesSupportEmail = contactEmail;
+const audioBookChoicesSupportSubject = "Audio Book Choices support";
+const audioBookChoicesSupportDraftLines = [
+  "Hi,",
+  "",
+  "I need help with Audio Book Choices.",
+  "",
+  "What happened:",
+  "[brief description]",
+  "",
+  "What I expected instead:",
+  "[brief description]",
+  "",
+  "Device and OS version (optional):",
+  "[example: iPhone 16, iOS 19.0 or Pixel 9, Android 16]",
+  "",
+];
+const audioBookChoicesSupportBody = audioBookChoicesSupportDraftLines.join("\r\n");
+
+export const audioBookChoicesConfig = {
+  name: "Audio Book Choices",
+  homeTitle: "Audio Book Choices | Steer the Story You Hear",
+  defaultDescription:
+    "Audio Book Choices is an interactive 'choose your story' audiobook app for iOS and Android by Alek Jałtuszyk. Steer AI-narrated stories with Yes/No choices by tapping or nodding with AirPods.",
+  tagline: "Steer the story you hear.",
+  origin: siteOrigin,
+  supportEmail: audioBookChoicesSupportEmail,
+  homeHref: siteRoutes.apps.audioBookChoices.href,
+  directoryHref: siteRoutes.apps.index.href,
+  privacyHref: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href,
+  termsHref: siteRoutes.apps.audioBookChoicesTermsOfUse.href,
+  supportHref: siteRoutes.apps.audioBookChoicesSupport.href,
+  legalManifestHref: buildAbsoluteSiteHref(siteRoutes.apps.audioBookChoicesLegalManifest.path),
+  supportMailtoHref: buildMailtoHref(
+    audioBookChoicesSupportEmail,
+    audioBookChoicesSupportSubject,
+    audioBookChoicesSupportBody,
+  ),
+  supportGmailHref: buildGmailComposeHref(
+    audioBookChoicesSupportEmail,
+    audioBookChoicesSupportSubject,
+    audioBookChoicesSupportBody,
+  ),
+  supportDraft: {
+    subject: audioBookChoicesSupportSubject,
+    body: audioBookChoicesSupportBody,
+    lines: audioBookChoicesSupportDraftLines,
+  },
+  footerLinks: [
+    { label: "Apps", href: siteRoutes.apps.index.href },
+    { label: "Support", href: siteRoutes.apps.audioBookChoicesSupport.href },
+    { label: "Privacy Policy", href: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href },
+    { label: "Terms of Use", href: siteRoutes.apps.audioBookChoicesTermsOfUse.href },
+    { label: "Legal Manifest", href: siteRoutes.apps.audioBookChoicesLegalManifest.href },
+  ],
+  aiDiscovery: {
+    summary:
+      "Audio Book Choices is an interactive 'choose your story' audiobook app for iOS and Android by Alek Jałtuszyk. Listeners steer AI-narrated stories with Yes/No choices by tapping or nodding with AirPods, explore a branching story tree, and unlock books with free unlocks during a testing phase.",
+    status:
+      "The public Audio Book Choices surface includes a simple product page, privacy policy, and terms of use under /apps/AudioBookChoices/. The app requires no account, keeps all listening progress on device, uses no analytics or tracking, and on iOS optionally uses on-device headphone motion data for the head-nod feature. Everything is free during testing; paid unlocks and subscriptions are planned later through the app stores.",
   },
 } as const;
 

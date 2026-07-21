@@ -1,6 +1,7 @@
 ---
 import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
 import {
+  audioBookChoicesConfig,
   overLitConfig,
   planKeptConfig,
   siteConfig,
@@ -60,6 +61,17 @@ const appLegalItems = [
       { label: "Legal Manifest", href: siteRoutes.apps.takeMeSomewhereLegalManifest.href },
     ],
   },
+  {
+    name: "Audio Book Choices",
+    description:
+      "Audio Book Choices has app-specific legal documents for its no-account, on-device data model, personal-listening content license, temporary free testing phase, future app-store purchases, and optional on-device headphone motion.",
+    links: [
+      { label: "Privacy Policy", href: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href },
+      { label: "Terms of Use", href: siteRoutes.apps.audioBookChoicesTermsOfUse.href },
+      { label: "Support", href: siteRoutes.apps.audioBookChoicesSupport.href },
+      { label: "Legal Manifest", href: siteRoutes.apps.audioBookChoicesLegalManifest.href },
+    ],
+  },
 ] as const;
 
 const contactByApp = [
@@ -67,6 +79,7 @@ const contactByApp = [
   ["Voice of Self", voiceOfSelfConfig.supportEmail],
   ["OverLit", overLitConfig.supportEmail],
   ["Take Me Somewhere", takeMeSomewhereConfig.supportEmail],
+  ["Audio Book Choices", audioBookChoicesConfig.supportEmail],
 ] as const;
 ---
 

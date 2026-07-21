@@ -1,0 +1,20 @@
+---
+import AudioBookChoicesSupportGuide from "../../../../components/support/AudioBookChoicesSupportGuide.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import { audioBookChoicesConfig } from "../../../../config/site";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Support | Audio Book Choices"
+  description="Email-based Audio Book Choices support for playback, choices, head-nod, unlocks, device details, and direct contact with Alek Jałtuszyk."
+  pageType="content"
+>
+  <AudioBookChoicesSupportGuide />
+
+  <SiteFooter links={audioBookChoicesConfig.footerLinks} showBrand={false} showSocials={false} />
+
+  <script>
+    import "../../../../scripts/waitlist-guide/copy-buttons";
+  </script>
+</SiteLayout>

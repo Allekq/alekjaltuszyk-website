@@ -9,6 +9,7 @@ const planKeptBasePath = "/apps/PlanKept/";
 const overLitBasePath = "/apps/OverLit/";
 const takeMeSomewhereBasePath = "/apps/TakeMeSomewhere/";
 const voiceOfSelfBasePath = "/apps/VoiceOfSelf/";
+const audioBookChoicesBasePath = "/apps/AudioBookChoices/";
 const takeMeSomewhereAppStoreHref =
   "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
 
@@ -78,6 +79,11 @@ export const siteRoutes = {
     voiceOfSelfTermsOfService: createInternalRoute(voiceOfSelfContentPaths.termsOfService),
     voiceOfSelfHowUsesAI: createInternalRoute(voiceOfSelfContentPaths.howVoiceOfSelfUsesAI),
     voiceOfSelfLegalManifest: createInternalRoute(voiceOfSelfContentPaths.legalManifest),
+    audioBookChoices: createInternalRoute(audioBookChoicesBasePath),
+    audioBookChoicesLegalManifest: createInternalRoute(`${audioBookChoicesBasePath}legal-manifest.json`),
+    audioBookChoicesPrivacyPolicy: createInternalRoute(`${audioBookChoicesBasePath}privacy-policy/`),
+    audioBookChoicesTermsOfUse: createInternalRoute(`${audioBookChoicesBasePath}terms-of-use/`),
+    audioBookChoicesSupport: createInternalRoute(`${audioBookChoicesBasePath}support/`),
   },
   support: createInternalRoute("/support/"),
   privacyPolicy: createInternalRoute("/privacy-policy/"),
@@ -160,5 +166,19 @@ export const appDirectory = [
     ],
     href: takeMeSomewhereAppStoreHref,
     external: true,
+  },
+  {
+    id: "audio-book-choices",
+    name: "Audio Book Choices",
+    description:
+      "An interactive 'choose your story' audiobook app for iOS and Android where you steer AI-narrated stories with Yes/No choices.",
+    theme: "mint",
+    chips: [
+      "Branching story tree",
+      "Tap or nod to choose",
+      "Free during testing",
+    ],
+    href: siteRoutes.apps.audioBookChoices.href,
+    external: false,
   },
 ] as const satisfies readonly AppDirectoryItem[];

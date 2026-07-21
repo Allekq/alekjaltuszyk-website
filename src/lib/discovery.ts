@@ -79,9 +79,20 @@ export const discoveryPages = {
       description: "Email-based support instructions for Take Me Somewhere.",
     },
     {
+      title: "Audio Book Choices",
+      path: siteRoutes.apps.audioBookChoices.path,
+      description:
+        "Audio Book Choices product page from Alek Jałtuszyk for the interactive 'choose your story' audiobook app on iOS and Android, with Yes/No choices, a branching story tree, on-device progress, and legal links.",
+    },
+    {
       title: "OverLit Support",
       path: siteRoutes.apps.overLitSupport.path,
       description: "Email-based support instructions for OverLit.",
+    },
+    {
+      title: "Audio Book Choices Support",
+      path: siteRoutes.apps.audioBookChoicesSupport.path,
+      description: "Email-based support instructions for Audio Book Choices.",
     },
     {
       title: planKeptContentHubs.answers.title,
@@ -241,6 +252,24 @@ export const discoveryPages = {
         "Machine-readable Take Me Somewhere legal document versions, effective dates, and canonical URLs.",
     },
     {
+      title: "Audio Book Choices Privacy Policy",
+      path: siteRoutes.apps.audioBookChoicesPrivacyPolicy.path,
+      description:
+        "How Audio Book Choices handles data: no personal data collected, no account, on-device progress and settings, no analytics or tracking, and optional on-device headphone motion for the head-nod feature.",
+    },
+    {
+      title: "Audio Book Choices Terms of Use",
+      path: siteRoutes.apps.audioBookChoicesTermsOfUse.path,
+      description:
+        "Terms covering Audio Book Choices content licensing for personal listening, the temporary free testing phase, future app-store purchases, AI narration, no warranty, and contact.",
+    },
+    {
+      title: "Audio Book Choices Legal Manifest",
+      path: siteRoutes.apps.audioBookChoicesLegalManifest.path,
+      description:
+        "Machine-readable Audio Book Choices legal document versions, effective dates, and canonical URLs.",
+    },
+    {
       title: "Legal Manifest",
       path: siteRoutes.legalManifest.path,
       description: "Machine-readable legal document versions and effective dates.",
@@ -290,6 +319,11 @@ export const sitemapPagePaths = [
   siteRoutes.apps.takeMeSomewherePrivacyPolicy.path,
   siteRoutes.apps.takeMeSomewhereTerms.path,
   siteRoutes.apps.takeMeSomewhereLegalManifest.path,
+  siteRoutes.apps.audioBookChoices.path,
+  siteRoutes.apps.audioBookChoicesSupport.path,
+  siteRoutes.apps.audioBookChoicesPrivacyPolicy.path,
+  siteRoutes.apps.audioBookChoicesTermsOfUse.path,
+  siteRoutes.apps.audioBookChoicesLegalManifest.path,
   siteRoutes.apps.planKeptSupport.path,
   siteRoutes.apps.planKeptPrivacyPolicy.path,
   siteRoutes.apps.planKeptTermsOfService.path,

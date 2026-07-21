@@ -1,6 +1,7 @@
 ---
 import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
 import {
+  audioBookChoicesConfig,
   overLitConfig,
   planKeptConfig,
   siteConfig,
@@ -34,6 +35,12 @@ const supportItems = [
     description: "Support for route suggestions, location permission, map providers, Compass Mode, Route Mode, and local preferences.",
     href: siteRoutes.apps.takeMeSomewhereSupport.href,
     email: takeMeSomewhereConfig.supportEmail,
+  },
+  {
+    name: "Audio Book Choices",
+    description: "Support for playback, Yes/No choices, the head-nod feature, the branching story tree, book unlocks, and on-device progress.",
+    href: siteRoutes.apps.audioBookChoicesSupport.href,
+    email: audioBookChoicesConfig.supportEmail,
   },
 ] as const;
 ---
