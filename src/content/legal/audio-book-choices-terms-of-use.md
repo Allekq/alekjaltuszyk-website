@@ -1,87 +1,246 @@
 These Terms of Use govern your use of the Audio Book Choices app for iOS and Android and the Audio Book Choices pages on `alekjaltuszyk.xyz`.
 
-Audio Book Choices is provided by Aleksander Jałtuszyk ("Developer", "we", "us", or "our"). Country: Poland. Contact: `alekgameshelp2@gmail.com`.
+Audio Book Choices is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk ("Developer", "we", "us", or "our"), an individual sole trader established in Poland. Contact: `alekgameshelp2@gmail.com`. Support page: [https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/). Full trader identification details, including the registered address, are published on the Audio Book Choices listings in the Apple App Store and Google Play.
 
 ## 1. Acceptance
 
-By using Audio Book Choices, or by continuing after updated terms are presented, you agree to these terms. If you do not agree, do not use the app or the related Audio Book Choices website pages.
+By using Audio Book Choices you agree to these terms. The app shows you these terms and the Privacy Policy before you start listening, and asks you to accept them.
 
-## 2. What Audio Book Choices Is
+If you do not agree, do not use the app or the related Audio Book Choices website pages.
 
-Audio Book Choices is an interactive "choose your story" audiobook app. You listen to AI-narrated stories and steer them with Yes or No choices, made by tapping the screen or, on iOS, by nodding your head with supported headphones. Each book is a branching story tree you can explore.
+## 2. Eligibility
 
-Features, stories, visuals, narration, input methods, and supported platforms may change over time.
+Audio Book Choices is for listeners aged 13 and over. It is not directed to children under 13, and children under 13 should not use it.
 
-## 3. Content And Licensing
+If you are 13 or older but under the age of majority where you live, use the app only with the permission of a parent or guardian, and only where that is permitted by local law. You may use Audio Book Choices only if you are able to enter into a binding agreement with us.
 
-The audiobooks, stories, narration, text, artwork, branding, and app are owned by or licensed to the Developer, except where otherwise stated.
+Purchases must be made by someone able to authorise payment on the Apple or Google account being used.
 
-Audiobooks and other content are licensed to you for personal, non-commercial listening within the app only. You may not copy, record, download outside the app, redistribute, publicly perform, broadcast, resell, sublicense, or create derivative works from the audiobooks or other app content, except where applicable law gives you a non-waivable right to do so.
+## 3. What Audio Book Choices Is
 
-Your license to access content is personal to you and may be limited, suspended, or ended if you misuse the app or content or breach these terms.
+Audio Book Choices is an interactive "choose your story" audiobook app. You listen to a narrated story and steer where it goes with simple Yes or No choices, made by tapping the screen or, on iOS, by nodding your head with supported headphones. Each book is a branching tree of scenes with several different endings, and you can go back and explore paths you did not take.
 
-## 4. Free Testing Phase And Future Purchases
+Books are downloaded to your device as you listen, so playback continues offline once a section has been fetched.
 
-Audio Book Choices is currently in a testing phase. During this phase, book unlocks are provided free of charge. Free access during testing is temporary and provided as-is, and it may change, be limited, or end at any time.
+Features, books, narration, artwork, input methods, prices and supported platforms may change over time. Section 14 explains how.
 
-We plan to introduce paid unlocks and subscriptions in the future. Any paid unlocks, subscriptions, prices, trials, billing, renewals, refunds, and taxes would be handled by the Apple App Store or Google Play under their own terms. We do not receive full payment-card details from those platforms. Purchase terms would be presented in the app and the relevant app store before any purchase.
+## 4. Your Licence To Listen
 
-Free access granted during testing does not guarantee free or continued access to any book after the testing phase ends.
+The books, story text, narration, audio, artwork, branding, and the app itself are owned by or licensed to the Developer.
 
-## 5. Accounts And On-Device Data
+Subject to these terms, you are granted a personal, non-exclusive, non-transferable, revocable licence to listen to the books you have unlocked, subscribed to or bought, for your own personal and non-commercial use, on devices you control, through the Audio Book Choices app.
 
-Audio Book Choices does not require an account. Your listening progress, choices, unlocked books, and settings are stored on your device. Deleting the app may remove this local data, subject to normal iOS and Android backup and restore behavior. Privacy practices are described in the [Audio Book Choices Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/).
+You may not:
 
-## 6. Eligibility
+- copy, rip, record, extract, capture or otherwise reproduce the audio or story text outside the app
+- redistribute, share, upload, publish, broadcast, stream, publicly perform or sell any of the content
+- sublicense, rent, lend or transfer your access to anyone else
+- create derivative works from the books, narration or artwork
+- circumvent, disable or interfere with the app's download, entitlement or access-control mechanisms
 
-Audio Book Choices is not directed to children under 13. If you are under the age of majority where you live, use the app only with parent or guardian permission where required. You may use Audio Book Choices only if you can legally agree to these terms. App store age ratings may vary by region.
+None of the above limits anything you are entitled to do under a non-waivable right given to you by applicable law, such as certain uses permitted by copyright law.
 
-## 7. AI-Generated Narration
+Your licence lasts as long as your entitlement lasts. A subscription licence ends when the subscription ends. A licence for a book you bought outright continues for as long as the app and the book remain available, subject to section 14.
 
-Stories in Audio Book Choices are narrated using AI. AI narration and generated content may occasionally contain errors, unexpected phrasing, or content that does not match your expectations. Audio Book Choices is provided for entertainment and is not a source of factual, professional, medical, legal, or safety advice.
+## 5. Free Unlocks
 
-## 8. Acceptable Use
+Every installation gets **three free unlocks**. Spending one opens a paid book at no cost, and that book stays unlocked for that installation.
+
+The limit is enforced on our server against your installation's anonymous identifier, and it is not reset by clearing the app's local data or by asking us to delete your data. Deliberately trying to obtain more free unlocks than the allowance permits — by manufacturing new identifiers, tampering with the app, or otherwise — is a breach of these terms.
+
+Because free unlocks are tied to the same installation identifier as purchases, the Android reinstall note in section 6 applies to them as well. A free unlock is not a store purchase, so **Restore purchases** cannot bring one back; a fresh installation simply starts with its own allowance.
+
+Free unlocks are a promotional feature. They may be changed, limited or withdrawn for future installations, but withdrawing them will not take away a book that a free unlock has already opened for you.
+
+## 6. Book Unlocks: One-Time Purchases
+
+A Book Unlock is a one-time purchase that permanently opens one specific book for you. It is not a subscription and does not renew.
+
+What a Book Unlock gives you: access to that book, including its branches, endings and any corrections or re-recordings later published for it.
+
+What it does not give you: access to any other book, access to future books, any subscription benefit, or any right to download or keep the audio outside the app.
+
+**On Android, reinstalling the app can lose your unlocks.** The identifier that ties purchases to your installation lives in app storage on Android and is generally removed when you uninstall. If books look locked after a reinstall or on a new device, open **Settings** and tap **Restore purchases**. That reattaches purchases made with the same Google account. On iOS the identifier is stored in the system Keychain and normally survives a reinstall, but **Restore purchases** works there too. Restoring requires that you use the same store account you bought with.
+
+## 7. All Access: Auto-Renewing Subscription
+
+Audio Book Choices offers an auto-renewing subscription called **All Access**, which unlocks the whole catalogue for as long as it is active.
+
+- **What you get:** access to every book in the catalogue while the subscription is active, including books added during your subscription.
+- **Name, length and price:** the subscription name, the length of each billing period, the price in your local currency including applicable taxes, and any free-trial or introductory-offer terms are shown on the purchase screen in the app before you buy, and again on Apple's or Google's own confirmation sheet. Prices vary by country and may change; a price change is notified to you by the store before it takes effect, and you can cancel rather than accept it.
+- **Payment:** your Apple ID or Google Play account is charged when you confirm the purchase.
+- **Automatic renewal:** the subscription renews automatically for another period of the same length, at the then-current price, **unless you cancel it**. It continues to renew until you cancel.
+- **Free trials:** if a free trial is offered and you do not cancel before it ends, it converts into a paid subscription and you are charged the price shown at purchase. Any unused part of a free trial is forfeited if you buy a subscription during the trial.
+- **How to cancel:** cancel in your **Apple ID subscription settings** on iOS, or in **Google Play subscription settings** on Android, at least 24 hours before the current period ends. The app has a link to those settings, but the cancellation itself happens in the store, not in the app. **We cannot cancel, pause, change or refund your subscription for you** — Apple and Google control this entirely.
+- **When cancellation takes effect:** at the **end of the period you have already paid for**. You keep All Access until then. Cancelling does not produce a partial refund for the remainder of the period.
+- **When it ends:** books that only All Access unlocked become locked again. Books you unlocked with a free unlock or bought outright stay yours.
+
+If a subscription payment fails, or the store reports the subscription as expired, refunded or revoked, access ends.
+
+## 8. Payments And Refunds
+
+All payments are processed by Apple or by Google, through the App Store or Google Play, under their own terms. We never see or handle your card number, billing address or payment details.
+
+**Refunds are handled solely by Apple and Google. We cannot issue refunds.** This is not a policy choice — a developer has no ability to refund an App Store or Google Play purchase directly.
+
+- **Apple / iOS:** request a refund at [https://reportaproblem.apple.com](https://reportaproblem.apple.com), or through your purchase history.
+- **Google / Android:** request a refund through Google Play's order history or Google Play support.
+
+If a purchase is refunded, the corresponding access is withdrawn.
+
+None of this affects your statutory rights, including the withdrawal right in section 9 and any right to a remedy if content does not conform to what was described. If a refund is refused by the store and you believe you have a statutory right to it, contact us at `alekgameshelp2@gmail.com` and we will help you take it up with the store, even though we cannot issue the refund ourselves.
+
+## 9. Your 14-Day Right Of Withdrawal, EU And UK Consumers
+
+If you are a consumer in the European Union, the EEA or the United Kingdom, you normally have 14 days to withdraw from a purchase of digital content without giving a reason.
+
+Audio Book Choices delivers digital content immediately: the moment a purchase completes, the book or the whole catalogue is unlocked and ready to play. Under the Consumer Rights Directive and the Digital Content Directive, and their UK equivalents, that right ends once performance has begun — but only if you have given your prior express consent to it beginning, and have acknowledged that you lose the right as a result.
+
+Accordingly, and to make this explicit:
+
+> **By completing a purchase of a Book Unlock or an All Access subscription, you expressly request and consent that performance of the contract begins immediately, so that the content is unlocked for you straight away, and you acknowledge that you thereby lose your right of withdrawal once that access has begun.**
+
+If you would rather keep your 14-day withdrawal right, do not complete the purchase.
+
+Where, despite the above, a withdrawal right still applies to you, exercise it by writing to `alekgameshelp2@gmail.com` within 14 days of the purchase, saying clearly that you are withdrawing. Because the money is held by Apple or Google and not by us, we will direct the refund through the relevant store's process.
+
+This section does not affect your separate right to a remedy if the content is faulty or does not match its description. See section 15.
+
+## 10. Ratings
+
+You can give each book a rating from one to five stars. Ratings are optional.
+
+- **One rating per book, per installation.** Submitting again replaces your previous rating for that book rather than adding a new one.
+- **Ratings are numbers only.** There is no comment field, no review text and no username anywhere in the app. Do not attempt to encode personal information, contact details or messages into a rating — there is nothing to encode it in.
+- **Your rating may be shown publicly in aggregate.** Individual ratings are stored against your anonymous installation identifier, but what other listeners see is only the per-book average and the number of ratings. Your individual rating is never displayed to anyone else, and is not attributed to you.
+- **Rating requires listening.** You can rate a book once you have made at least three choices in it. The number of choices you had made is sent with your rating and checked on the server, so that ratings come from people who actually listened.
+- **Do not manipulate ratings.** Submitting ratings through automated means, or across multiple installations, to influence a book's average is a breach of these terms, and such ratings may be removed.
+
+You can ask for your ratings to be deleted. See the [Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/).
+
+## 11. AI Narration
+
+Stories in Audio Book Choices are narrated by an AI text-to-speech model, Kokoro-82M, released under the Apache 2.0 licence. The narration is generated by the Developer offline, before a book is published, and the finished audio is then delivered to your device like any other audio file.
+
+No listening data, no voice recording, no choice you make and no personal information is ever sent to an AI service or a text-to-speech service. There is no runtime AI in the app.
+
+The story text is written by a human author.
+
+AI narration is good but not perfect: it can occasionally mispronounce a name, misplace an emphasis or read a line in an unexpected tone. Audio Book Choices is entertainment. It is not a source of factual, professional, medical, legal, financial or safety advice, and nothing in a story should be treated as such.
+
+## 12. Content Advisory And The Age Setting
+
+The app asks you to state your age, and each book carries an advisory minimum age set by its author. The library hides books whose advisory age is higher than the age you stated. You can change your age in Settings at any time. If you skip the question, the app assumes 13.
+
+Please understand what this is and is not:
+
+- The age you state is **self-declared and not verified**, and it stays on your device. Nothing checks it.
+- The per-book age ratings are **advisory guidance from the author**, not a certification, and not equivalent to a film or game classification.
+- The filter is a **convenience feature, not a parental control, and not a substitute for a parent's or guardian's own judgement**. Anyone can change the stated age.
+
+Books may include tension, peril, violence, frightening scenes, mature themes or strong language. Parents and guardians who want a firmer boundary should use the device's own parental controls and screen-time features alongside the app's age rating on the App Store and Google Play.
+
+If you find content in a book that seems wrongly rated, tell us at `alekgameshelp2@gmail.com`.
+
+## 13. Acceptable Use
 
 You agree not to:
 
-- copy, record, redistribute, resell, or publicly perform the audiobooks or other app content
-- reverse engineer, tamper with, probe, scrape, or disrupt the app, its content protection, or its systems, except where applicable law gives you a non-waivable right to do so
-- circumvent unlock, testing, or purchase mechanisms
-- use the app unlawfully or to infringe the rights of others
-- submit false, harmful, abusive, infringing, or unlawful content through support
+- copy, rip, record, redistribute, resell or publicly perform the books, audio or story text
+- reverse engineer, decompile, tamper with, probe, scrape or disrupt the app, its content delivery, its entitlement logic or its servers, except where applicable law gives you a non-waivable right to do so
+- circumvent purchase, subscription, entitlement, free-unlock or age-filtering mechanisms, or attempt to obtain content you have not paid for
+- use automated means to access the service, or place unreasonable load on it
+- manipulate book ratings
+- use the app unlawfully, or in a way that infringes the rights of others
+- send false, harmful, abusive, infringing or unlawful content through support
 
-## 9. Third-Party Services
+## 14. Availability, Changes And Discontinuation
 
-Audio Book Choices may rely on or link to third-party services, including the Apple App Store, Google Play, and website hosting providers. These services have their own terms and policies, which apply to your use of them. If you download the app through Apple's App Store and no custom license agreement is provided, Apple's [Standard EULA](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) applies to the app license.
+We may add, change, suspend, remove, limit or discontinue Audio Book Choices, individual books, features, prices or the related website pages, where reasonably needed to operate the service, comply with law or platform rules, protect users, or manage cost.
 
-## 10. Availability And Changes
+If a book you bought outright is removed from the catalogue, we will make reasonable efforts to keep it available to you within the app, but a rights, legal or technical issue can make that impossible. If a book you bought outright becomes permanently unavailable to you shortly after purchase and you have not substantially listened to it, contact us and we will help you seek a refund from the store.
 
-We may add, change, suspend, remove, limit, or discontinue Audio Book Choices, individual books, features, the testing phase, or related website surfaces where reasonably needed to operate the app, comply with law or platform rules, protect users, or manage cost. Because the app does not use accounts, you may stop using it at any time by deleting it.
+We do not guarantee uninterrupted availability. The app needs an internet connection to fetch books, verify entitlements and refresh the catalogue; sections already downloaded continue to play offline.
 
-## 11. Legal Document Updates
+If the service were to be discontinued altogether, reasonable advance notice would be given in the app and on these pages where practical.
 
-We may update these terms or the Privacy Policy from time to time. The version and effective date appear at the top of the relevant page and in the hosted legal manifest at [https://alekjaltuszyk.xyz/apps/AudioBookChoices/legal-manifest.json](https://alekjaltuszyk.xyz/apps/AudioBookChoices/legal-manifest.json). Continuing to use Audio Book Choices after updated terms become effective means you accept the updated terms, unless applicable law requires a different form of notice or consent.
+## 15. Conformity And Disclaimers
 
-## 12. Disclaimers
+We must supply content that matches its description and is fit for its purpose, and we do not exclude that obligation. If a book does not conform — for example, if audio is missing, corrupted or does not match what was described — tell us at `alekgameshelp2@gmail.com`. Depending on the circumstances you may be entitled to have it put right, to a price reduction, or to terminate the contract for that content, in line with your statutory rights.
 
-To the fullest extent permitted by law, Audio Book Choices and related surfaces are provided on an "as is" and "as available" basis, without warranties of any kind. We do not guarantee uninterrupted availability, error-free operation, availability of any particular book, compatibility with every device, or that AI-narrated content will meet your expectations. Nothing in these terms limits rights, warranties, or remedies that cannot legally be limited or excluded under applicable consumer protection law.
+Subject to that, and to the extent permitted by law, the app and the website pages are provided without any additional warranties beyond those given here and those implied by law that cannot be excluded. In particular we do not warrant that the app will be free of every error, that it will be compatible with every device or every pair of headphones, that any specific book will remain available, or that AI narration will match every listener's expectations.
 
-## 13. Limitation Of Liability
+Nothing in this section limits, and nothing is intended to limit, any warranty, remedy or statutory right that cannot legally be limited or excluded, including your mandatory rights as a consumer.
 
-To the fullest extent permitted by law, the Developer will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages arising out of or related to your use of Audio Book Choices. To the fullest extent permitted by law, our total aggregate liability for claims arising out of or related to Audio Book Choices will be limited to the greater of the amount you paid us directly for the app in the 12 months before the claim or EUR 25. Nothing in these terms limits liability that cannot legally be limited or excluded.
+## 16. Limitation Of Liability
 
-## 14. Governing Law
+**Nothing in these terms excludes or limits our liability for:**
 
-These terms are intended to be governed by the laws of Poland, except where mandatory consumer protection, platform, or local law gives you rights that cannot be waived or changed by contract.
+- **death or personal injury caused by our negligence**
+- **fraud or fraudulent misrepresentation**
+- **gross negligence or wilful misconduct**
+- **any other liability that cannot lawfully be excluded or limited**, including your mandatory rights as a consumer under the law of your country of residence
 
-## 15. Severability
+Subject to the above, and to the maximum extent permitted by applicable law:
 
-If any part of these terms is found invalid or unenforceable, the remaining parts continue to apply to the fullest extent permitted by law.
+- our total aggregate liability for all claims arising out of or relating to Audio Book Choices in any twelve-month period is limited to the greater of the amount you paid for Audio Book Choices purchases in the twelve months before the claim, or EUR 50
+- we are not liable for loss that was not reasonably foreseeable at the time you accepted these terms, or for indirect or consequential loss
+- we are not liable for loss of profits, loss of business, or loss arising from your use of the app for any business purpose, since Audio Book Choices is supplied for personal use
 
-## 16. Contact
+If you are a consumer, these limits apply only to the extent that they are permitted by the consumer-protection law of your country of residence, and they do not affect it where it says otherwise.
 
-Questions about these terms can be sent to:
+## 17. Changes To These Terms
+
+We may update these terms, and the Privacy Policy, as the app changes, as the law changes, or as our business practices change. **We will not change them silently or without notice.**
+
+The version and effective date appear at the top of each document and in the hosted legal manifest at [https://alekjaltuszyk.xyz/apps/AudioBookChoices/legal-manifest.json](https://alekjaltuszyk.xyz/apps/AudioBookChoices/legal-manifest.json).
+
+When a change is material, the app presents the updated documents again before you continue listening, and asks you to accept the new version. You are free not to accept, in which case you should stop using the app; that does not take away rights you already have in respect of purchases you have already made. Non-material changes are published here with a new version and effective date.
+
+Changes that are materially adverse to you are not applied retroactively to purchases you already made.
+
+## 18. Termination
+
+You can stop using Audio Book Choices at any time by deleting the app. There is no account to close. The Privacy Policy explains how to delete data held on the server.
+
+We may suspend or end your access where you seriously or repeatedly breach these terms — for example by ripping and redistributing audio, by attacking or overloading the service, or by abusing the free-unlock or entitlement systems. Where it is reasonable to do so, we will warn you first and give you a chance to put things right, and any suspension will be proportionate to what happened.
+
+Because there is no account, ending access in practice means the app or particular features stop working for the installation concerned.
+
+Ending your access does not remove your statutory rights, and does not affect a subscription you must still cancel yourself through Apple or Google.
+
+## 19. Governing Law And Where Disputes Are Heard
+
+These terms are governed by the law of Poland.
+
+**If you are a consumer, that choice of law does not deprive you of the protection of the mandatory consumer-protection rules of the country where you habitually live.** Those rules continue to apply to you in full and may give you more rights than these terms do.
+
+If you are a consumer resident in the EU, the EEA or the UK, you may bring proceedings against us in the courts of your own country of residence, and we may bring proceedings against you only in the courts of your country of residence.
+
+For users who are not consumers, and for consumers outside the EU, EEA and UK, disputes will be heard in the courts of Poland, again without prejudice to any mandatory consumer-protection rights under your local law.
+
+**We do not require arbitration, and we do not ask you to waive any right to participate in a class or collective action.**
+
+## 20. Third-Party Services
+
+Audio Book Choices relies on the Apple App Store, Google Play, and infrastructure and payment providers described in the [Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/). Those services have their own terms, which apply to your use of them.
+
+These Terms of Use are the licence agreement for the Audio Book Choices app. They apply instead of Apple's Standard EULA. Apple is not a party to these terms and has no responsibility for the app or its content; Apple and its subsidiaries are, however, third-party beneficiaries of these terms and may enforce them against you.
+
+## 21. Severability
+
+If any part of these terms is found to be invalid or unenforceable, that part is modified to the minimum extent necessary, or removed, and the rest continues to apply.
+
+## 22. Contact And Complaints
+
+Questions, complaints and problems:
 
 - Email: `alekgameshelp2@gmail.com`
 - Support page: [https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/)
 - Country: Poland
+
+We aim to answer support and complaint emails within a few working days.
+
+For privacy complaints you can also contact Poland's data protection authority, the Urząd Ochrony Danych Osobowych (UODO), at [https://uodo.gov.pl/en](https://uodo.gov.pl/en), or your own national authority.
+
+For refunds, billing and subscription problems, contact Apple or Google first, as explained in section 8 — those are the only parties who can act on them.

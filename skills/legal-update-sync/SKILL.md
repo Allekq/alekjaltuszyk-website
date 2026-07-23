@@ -8,8 +8,8 @@ description: Use when editing app privacy-policy or terms pages, or when a websi
 Use this skill when changing legal text or any website/product behavior that
 could affect privacy, retention, contact, wish-list, support, ads, purchases,
 local storage, backup behavior, location/map providers, AI/model routing, or
-other legal-facing claims for PlanKept, Voice of Self, OverLit, or Take Me
-Somewhere.
+other legal-facing claims for PlanKept, Voice of Self, OverLit, Take Me
+Somewhere, or Audio Book Choices.
 
 ## Required reads
 
@@ -118,6 +118,42 @@ catalog fallback version. If location use, map/routing/place providers,
 background behavior, accounts, ads, analytics, purchases, recent-destination
 memory, support, or AI changes, review the public privacy policy, App Store
 privacy labels, and `PrivacyInfo.xcprivacy`.
+
+## Audio Book Choices Canonical Files
+
+- Privacy copy: `src/content/legal/audio-book-choices-privacy-policy.md`
+- Privacy wrapper/version shell:
+  `src/components/legal/AudioBookChoicesPrivacyPolicyContent.astro`
+- Terms copy: `src/content/legal/audio-book-choices-terms-of-use.md`
+- Terms wrapper/version shell:
+  `src/components/legal/AudioBookChoicesTermsContent.astro`
+- Canonical privacy route:
+  `src/pages/apps/AudioBookChoices/privacy-policy/index.astro`
+- Canonical terms route:
+  `src/pages/apps/AudioBookChoices/terms-of-use/index.astro`
+- Canonical manifest route:
+  `src/pages/apps/AudioBookChoices/legal-manifest.json.ts`
+- App repo: `/Users/alekj/Documents/GitHub/AudioBookChoices`
+- App sync skill:
+  `/Users/alekj/Documents/GitHub/AudioBookChoices/.claude/skills/legal-update-sync/SKILL.md`
+- App legal gate + version:
+  `shared/src/commonMain/kotlin/com/audiobookchoices/shared/ui/LegalGate.kt` and
+  `AppConfig.LEGAL_VERSION` in
+  `shared/src/commonMain/kotlin/com/audiobookchoices/shared/AppConfig.kt`
+
+Audio Book Choices is the one product here that is **not** local-only: it uses
+Firebase anonymous authentication (a pseudonymous device identifier), Firestore
+for entitlement and rating records, RevenueCat in front of Apple/Google
+purchases, and Cloudflare R2 for audio delivery. Do not copy the "everything
+stays on your device" framing used by the other apps into this app's documents —
+that framing was published here in 1.0.0 and was already false by launch.
+
+When its privacy or terms versions change, bump `AppConfig.LEGAL_VERSION` in the
+app repo so the in-app acceptance gate re-prompts returning listeners. If
+purchases, subscriptions, free unlocks, ratings, backend fields, retention,
+age declaration/content ratings, or third-party services change, review the
+policy, the terms, the in-app paywall and buy-sheet copy, and the App Store /
+Play privacy and age-rating declarations.
 
 ## Shared Website Files
 

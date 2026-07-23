@@ -28,6 +28,13 @@ Use this checklist before finishing any task that touches:
 - `src/components/legal/PlanKeptTermsOfServiceContent.astro`
 - `src/components/legal/OverLitPrivacyPolicyContent.astro`
 - `src/components/legal/OverLitTermsOfUseContent.astro`
+- `src/content/legal/audio-book-choices-privacy-policy.md`
+- `src/content/legal/audio-book-choices-terms-of-use.md`
+- `src/components/legal/AudioBookChoicesPrivacyPolicyContent.astro`
+- `src/components/legal/AudioBookChoicesTermsContent.astro`
+- `src/pages/apps/AudioBookChoices/privacy-policy/index.astro`
+- `src/pages/apps/AudioBookChoices/terms-of-use/index.astro`
+- `src/pages/apps/AudioBookChoices/legal-manifest.json.ts`
 - support/contact routes
 - wish-list routes
 - product claims about privacy, retention, reminders, accounts, purchases, lifetime
@@ -53,7 +60,12 @@ Use this checklist before finishing any task that touches:
 8. If PlanKept legal wording changed, check the app-side Legal, purchase, and
    model-license surfaces in `/Users/alekj/Documents/GitHub/plan enforcer` for
    consistency.
-9. Rebuild the site so generated legal/discovery output is refreshed.
+9. If Audio Book Choices legal versions changed, bump `AppConfig.LEGAL_VERSION`
+   in `/Users/alekj/Documents/GitHub/AudioBookChoices` so the in-app acceptance
+   gate re-prompts, and check the paywall/buy-sheet/licences copy. Unlike the
+   other apps here, it has a backend, purchases, and third-party processors —
+   never describe it as local-only.
+10. Rebuild the site so generated legal/discovery output is refreshed.
 
 ## Reminder rule
 

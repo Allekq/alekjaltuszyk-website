@@ -516,9 +516,9 @@ export const audioBookChoicesConfig = {
   ],
   aiDiscovery: {
     summary:
-      "Audio Book Choices is an interactive 'choose your story' audiobook app for iOS and Android by Alek Jałtuszyk. Listeners steer AI-narrated stories with Yes/No choices by tapping or nodding with AirPods, explore a branching story tree, and unlock books with free unlocks during a testing phase.",
+      "Audio Book Choices is an interactive 'choose your story' audiobook app for iOS and Android by Alek Jałtuszyk. Listeners steer AI-narrated stories with Yes/No choices by tapping or nodding with AirPods, explore a branching story tree, get three free unlocks, and then buy single books or an All Access subscription through the app stores.",
     status:
-      "The public Audio Book Choices surface includes a simple product page, privacy policy, and terms of use under /apps/AudioBookChoices/. The app requires no account, keeps all listening progress on device, uses no analytics or tracking, and on iOS optionally uses on-device headphone motion data for the head-nod feature. Everything is free during testing; paid unlocks and subscriptions are planned later through the app stores.",
+      "The public Audio Book Choices surface includes a simple product page, privacy policy, and terms of use under /apps/AudioBookChoices/. The app has no sign-up and asks for no name, email, or phone number, but it does create an anonymous installation identifier so purchases, free-unlock usage, and star ratings can be stored server-side; listening progress, settings, and the self-declared age stay on the device. It uses no analytics, crash reporting, advertising, or tracking, and on iOS optionally uses on-device headphone motion data for the head-nod feature. Purchases and subscriptions are handled by the App Store and Google Play, with RevenueCat as the purchase processor.",
   },
 } as const;
 
