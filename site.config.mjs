@@ -77,7 +77,7 @@ export const legalDocuments = {
     path: "/apps/AudioBookChoices/privacy-policy/",
   },
   audioBookChoicesTerms: {
-    version: "2.0.0",
+    version: "2.1.0",
     effectiveDate: "2026-07-24",
     path: "/apps/AudioBookChoices/terms-of-use/",
   },

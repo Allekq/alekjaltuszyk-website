@@ -490,6 +490,11 @@ export const audioBookChoicesConfig = {
   directoryHref: siteRoutes.apps.index.href,
   privacyHref: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href,
   termsHref: siteRoutes.apps.audioBookChoicesTermsOfUse.href,
+  // The app software's licence on iOS. Audio Book Choices ships no custom EULA in App
+  // Store Connect, so Apple's Standard EULA governs the app itself and the Terms of Use
+  // above govern the service and the books — see section 20 of the Terms. Same pairing as
+  // PlanKept and OverLit; keep the two links side by side wherever either is shown.
+  appleTermsHref: appleStandardEulaHref,
   supportHref: siteRoutes.apps.audioBookChoicesSupport.href,
   legalManifestHref: buildAbsoluteSiteHref(siteRoutes.apps.audioBookChoicesLegalManifest.path),
   supportMailtoHref: buildMailtoHref(
@@ -512,6 +517,7 @@ export const audioBookChoicesConfig = {
     { label: "Support", href: siteRoutes.apps.audioBookChoicesSupport.href },
     { label: "Privacy Policy", href: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href },
     { label: "Terms of Use", href: siteRoutes.apps.audioBookChoicesTermsOfUse.href },
+    { label: "App Store Terms of Use", href: appleStandardEulaHref, external: true },
     { label: "Legal Manifest", href: siteRoutes.apps.audioBookChoicesLegalManifest.href },
   ],
   aiDiscovery: {

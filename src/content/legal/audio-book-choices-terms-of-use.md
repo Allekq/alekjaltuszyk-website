@@ -28,6 +28,8 @@ Features, books, narration, artwork, input methods, prices and supported platfor
 
 The books, story text, narration, audio, artwork, branding, and the app itself are owned by or licensed to the Developer.
 
+On iOS, the licence to the app *software* is Apple's Standard EULA, not this section — see section 20. This section is your licence to the **content**: the books, their narration and their artwork. On Android, where no store licence exists, this section licenses the app as well.
+
 Subject to these terms, you are granted a personal, non-exclusive, non-transferable, revocable licence to listen to the books you have unlocked, subscribed to or bought, for your own personal and non-commercial use, on devices you control, through the Audio Book Choices app.
 
 You may not:
@@ -225,7 +227,11 @@ For users who are not consumers, and for consumers outside the EU, EEA and UK, d
 
 Audio Book Choices relies on the Apple App Store, Google Play, and infrastructure and payment providers described in the [Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/). Those services have their own terms, which apply to your use of them.
 
-These Terms of Use are the licence agreement for the Audio Book Choices app. They apply instead of Apple's Standard EULA. Apple is not a party to these terms and has no responsibility for the app or its content; Apple and its subsidiaries are, however, third-party beneficiaries of these terms and may enforce them against you.
+**Which document licenses the app itself.** On iOS, the Audio Book Choices app is licensed to you under Apple's [Standard End User Licence Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) ("Apple's Standard EULA"), because no custom end user licence agreement is supplied in App Store Connect. On Android there is no equivalent store licence, so section 4 of these terms is the licence for the app itself.
+
+In both cases these Terms of Use govern everything else: the books and their narration, free unlocks, one-time book purchases and the All Access subscription, ratings, acceptable use, and the service behind them. Where these terms and Apple's Standard EULA genuinely conflict about the licence to the app software on iOS, Apple's Standard EULA prevails, and these terms continue to apply to everything Apple's Standard EULA does not cover.
+
+Apple is not a party to these Terms of Use and has no responsibility for the app or its content. Apple and its subsidiaries are, however, third-party beneficiaries of these terms and may enforce them against you.
 
 ## 21. Severability
 
