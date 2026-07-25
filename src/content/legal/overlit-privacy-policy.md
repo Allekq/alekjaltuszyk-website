@@ -1,258 +1,409 @@
-This Privacy Policy explains how OverLit handles information when you use the iPhone app, visit the OverLit pages on this website, contact support, or interact with ads shown in or for OverLit.
+This Privacy Policy explains what OverLit does with information when you play the OverLit app on iPhone, visit the OverLit pages on `alekjaltuszyk.xyz`, contact support, or see ads shown in or for OverLit.
 
-OverLit is provided by Aleksander Jałtuszyk ("Developer", "we", "us", or "our"). Country: Poland. Contact: `alekgameshelp2@gmail.com`. Telephone: `+48 73 2099027`. Mailing address: `Aleksander Jałtuszyk, Skrytka Pocztowa 59, UP Warszawa 93, 02-800, Warszawa`. Support page: [https://alekjaltuszyk.xyz/apps/OverLit/support/](https://alekjaltuszyk.xyz/apps/OverLit/support/).
+OverLit is a short-session arcade game. There is no sign-up, no username and no password, and the app never asks you for a name, an email address or a phone number. There is no text field anywhere in the app, so there is nothing you can type into it. Most of what OverLit knows about your play — your scores, your progress, your unlocks, your settings — stays on your phone.
 
-This policy covers the OverLit app and the OverLit pages on `alekjaltuszyk.xyz`, including:
+Two things do leave your device, and this policy is mostly about them: **ads**, which are served by Google AdMob and pay for the free version of the game, and **online leaderboards**, which put a score and a computer-generated nickname on a public board. Both are described in full below, including the parts that are less flattering.
 
-- [https://alekjaltuszyk.xyz/apps/OverLit/](https://alekjaltuszyk.xyz/apps/OverLit/)
-- [https://alekjaltuszyk.xyz/apps/OverLit/support/](https://alekjaltuszyk.xyz/apps/OverLit/support/)
-- [https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/)
+## 1. Who Is Responsible For OverLit
 
-## 1. Summary
+OverLit is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk, an individual sole trader established in Poland. For data protection law, that person is the controller of the personal data described in this policy.
 
-- OverLit is a short-session iPhone arcade/reflex game.
-- The app does not require an account, custom backend, chat, social feed, multiplayer, or cloud sync.
-- Gameplay settings, preferences, high scores, progress, local event history, unlocks, ad counters, purchase entitlement state, age-band answer, and legal acceptance may be stored locally on your device.
-- The app does not ask for account registration, passwords, payment card details, phone numbers, mailing addresses, precise GPS location, contacts, camera access, photo library access, or exact date of birth. The app asks you to choose a local age range, either 13 to 17 or 18 or older, during onboarding so teen and adult ad settings can be handled safely.
-- The app uses Google Mobile Ads SDK for AdMob rewarded ads, interstitial ads, and limited footer banner ads in the free experience.
-- The app uses Google User Messaging Platform / AdMob privacy messages for applicable European regulations and U.S. state privacy regulations.
-- The current app build may show an AdMob IDFA explainer and Apple's App Tracking Transparency prompt so AdMob can use IDFA for more relevant ads and ad measurement when allowed. If ATT is denied or unavailable, ads may still be requested without IDFA.
-- Google/AdMob may still collect or process advertising data, ad-delivery signals, product interaction data, coarse location, crash data, other diagnostic data, and performance data as described below and in Google's policies.
-- The app uses Firebase Analytics / Google Analytics for Firebase for limited app conversion measurement and Google Ads optimization after you complete the app-side legal gate. Custom Firebase events are limited to onboarding completion, first onboarding run start and completion, broad one-time level completion milestones, and Full Version purchase.
-- The app uses Apple's SKAdNetwork for aggregated, privacy-preserving install measurement across supported ad networks. This can support Google campaigns now and Meta or TikTok campaigns later without adding Meta Pixel, TikTok Pixel, Meta SDK, TikTok SDK, or customer-list uploads.
-- If you decline consent, opt out, or use device settings that restrict advertising technologies, ads may still appear as non-personalized, contextual, limited, or otherwise restricted ads where allowed.
-- The app may show local developer house ads for PlanKept. If you choose 18 or older, the app may also show local developer house ads for Voice of Self. Voice of Self house ads are not shown to players who choose 13 to 17 or users who have not answered the age-band question. These local house ad panels are not third-party ad network requests.
-- The app may offer an optional one-time Full Version purchase through Apple's in-app purchase system. Full Version removes normal real in-app ad requests, including footer banner, interstitial, and rewarded ad requests, unlocks ad-gated themes, and lets existing level-skip offers complete without watching an ad, while non-ad progression rewards still require normal play.
-- We may advertise OverLit on external services such as Instagram, Meta, TikTok, Apple Search Ads, Google, or similar platforms. We do not currently install Meta Pixel, TikTok Pixel, Meta SDK, TikTok SDK, website/app activity retargeting code, or customer-list uploads for OverLit.
-- Apple and the App Store process in-app purchases, refunds, restorations, platform, device, and privacy data under Apple's policies. We do not receive your payment card details.
-- We receive support or feedback email data only if you choose to contact us, including any copied progress summary you decide to paste into a message.
+Contact:
 
-### Quick Data Map
+- Email: `alekgameshelp2@gmail.com`
+- Telephone: `+48 73 2099027`
+- Mailing address: `Aleksander Jałtuszyk, Skrytka Pocztowa 59, UP Warszawa 93, 02-800, Warszawa, Poland`
+- Support page: [`https://alekjaltuszyk.xyz/apps/OverLit/support/`](https://alekjaltuszyk.xyz/apps/OverLit/support/)
+- Privacy Policy: [`https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/`](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/)
+- Terms of Use: [`https://alekjaltuszyk.xyz/apps/OverLit/terms-of-use/`](https://alekjaltuszyk.xyz/apps/OverLit/terms-of-use/)
+- Legal manifest: [`https://alekjaltuszyk.xyz/apps/OverLit/legal-manifest.json`](https://alekjaltuszyk.xyz/apps/OverLit/legal-manifest.json)
 
-| Practice | What it means in OverLit |
-| --- | --- |
-| Local gameplay data | Scores, settings, progress, unlocks, age-band answer, legal acceptance, ad counters, and Full Version entitlement cache are stored on your device for app functionality. |
-| Google/AdMob ads | Free users may receive AdMob ad requests after required privacy and consent steps. Google may process ad identifiers, IP-derived coarse location, ad interactions, diagnostics, performance data, and consent signals. |
-| Firebase/GA4 measurement | Firebase Analytics starts disabled and is enabled only after onboarding, age-band answer, and current legal acceptance. OverLit's custom events are the milestone and purchase-product-ID events listed below; Google/Firebase may also process standard app-instance, session, device, diagnostic, consent, and analytics metadata needed to provide Firebase Analytics. |
-| Apple and StoreKit | Apple processes App Store downloads, purchases, refunds, restore-purchase checks, device/platform information, and platform diagnostics under Apple's policies. OverLit stores only the local entitlement cache and limited transaction metadata needed to remember Full Version. |
-| Support | We receive your email address, message, and any copied progress summary only if you choose to send support or feedback. |
-| Not used | No OverLit account, custom backend, chat, social feed, multiplayer, cloud sync, precise GPS, contacts, camera, photos, Meta/TikTok SDKs or pixels, customer-list uploads, or custom retargeting system is used in the current app. |
+No Data Protection Officer has been appointed, and none is required: this is a one-person business with no large-scale monitoring and no processing of special categories of data. No EU representative is required either, because the controller is established inside the EU.
 
-## 2. Data Stored Locally On Your Device
+This policy covers the OverLit app and the OverLit pages on `alekjaltuszyk.xyz`.
 
-OverLit gameplay is local. The app may store local gameplay/settings data on your device so the game can work normally and remember your choices.
+## 2. Quick Summary
 
-- settings and app appearance preferences
-- high scores, stats, play progress, mode state, theme unlocks, and local event history
-- onboarding, age-band answer, and legal acceptance state
-- play counters, ad counters, recent-run details, completion state, cadence timestamps, and similar local gameplay records used to restore progress, show stats, tune the local experience, and decide when ads or unlock opportunities appear
-- Full Version entitlement cache, verification time, and limited StoreKit transaction metadata needed to remember a verified purchase and restore access
+- There is no OverLit account, no sign-in, no password, and no name, email address or phone number is ever requested by the app.
+- Your scores, level progress, theme unlocks, settings, play counters and purchase state are stored **on your device**.
+- OverLit shows **Google AdMob ads** in the free version — banner, interstitial and opt-in rewarded ads. Google's advertising SDK processes ad-request and ad-interaction data, and your IP address, which can be used to estimate a coarse location.
+- OverLit **does not show Apple's App Tracking Transparency prompt and does not read your device's advertising identifier (IDFA)**. Earlier versions of this policy described an ATT prompt and IDFA use; that description did not match the app, and it has been corrected.
+- **Online leaderboards**, where enabled, send a score and a small set of technical fields to a server run by the developer on Google Cloud in **Belgium**, under an anonymous identifier. Your board nickname is generated by the server from that identifier. You cannot choose it, and nobody can put their own text on a board.
+- Analytics is limited to **16 one-time milestone events** — things like "finished onboarding" and "completed level 10". They carry no identifier you would recognise, no score, no age answer and no message content. Analytics stays switched off until you have accepted these documents.
+- The app asks you to pick an age range, **13 to 17** or **18 or older**. That answer stays on your device and is never transmitted. It changes how ads are configured: players in the teen band get non-personalised ads with a Teen content cap.
+- There is **one optional purchase**, Full Version. It is handled by Apple, it removes ads, and no payment-card details ever reach the developer.
+- Nothing is sold to data brokers. Some privacy laws nonetheless treat personalised advertising as "sharing" or "targeted advertising" — section 11 explains how to turn that off.
+- There is no chat, no social feed, no friend list, no multiplayer, no cloud save, no camera or photo access, no microphone access and no precise location.
 
-The app may include a Copy Progress option that copies a plain-text summary of local level progress, scores, stars, and related gameplay state to your device clipboard. Copying progress does not send it to us by itself. The data leaves your device only if you choose to paste or share it, such as in a support or feedback email.
+## 3. What Stays Only On Your Device
 
-This local app data is intended to stay on your device unless you separately choose to send information to support or feedback, unless Google/AdMob or Firebase/GA4 processes ad-related or conversion-measurement data through its SDKs as described below, or unless Apple or another platform provider processes data through its own platform services. Deleting the app may remove local app data from the device, subject to normal iOS backup, restore, and device behavior.
+The following is stored in your phone's app storage and is not transmitted to the developer:
 
-OverLit does not provide public user-generated content, in-app chat, a social feed, multiplayer, or an account system.
+- your high scores, level progress, stars, campaign and arcade state, and local run history
+- theme unlocks, menu position, and gameplay preferences such as haptics and accessibility settings
+- play counters, ad-pressure counters, ad-attempt records and timing values that decide when an ad or an unlock offer may appear
+- your Full Version entitlement state, plus the Apple transaction identifiers needed to recognise a restored purchase
+- which version of the legal documents you accepted, and when
+- your age-band answer
+- a record of which of the 16 analytics milestone events have already been sent, so that none is ever sent twice
 
-## 3. Information We Do Not Ask For
+Deleting the app removes this local data from the device, subject to normal iOS backup and restore behaviour.
 
-Some template privacy policies include broad categories that do not match OverLit. In the app, we do not ask you to create an account, choose a password, provide a phone number, mailing address, billing address, payment card, job title, exact date of birth, contact list, camera photo, photo library item, or precise GPS location.
+OverLit includes a **Copy Progress** option that copies a plain-text summary of your local progress to the clipboard. Copying it sends it nowhere. It only leaves your device if you choose to paste it somewhere, such as into a support email.
 
-OverLit asks for a local age range during onboarding: 13 to 17 or 18 or older. We use that local answer to choose conservative ad settings for teen players, allow the adult ad profile for players who choose 18 or older, and keep adult-only local Voice of Self house ads away from teen players and users who have not answered the age question. We do not ask for your exact birth date.
+There is **no cloud save**. OverLit does not use iCloud, Game Center, or any progress-sync service. A leaderboard entry is a published score, not a backup: if you delete the app, your progress is gone even if your score is still on a board.
 
-If you voluntarily include any of that information in a support email, we may receive it as part of your message, but the app does not require it.
+## 4. Online Leaderboards
 
-OverLit does not intentionally collect sensitive personal information, such as health, biometric, precise location, financial account, government ID, racial or ethnic origin, religious belief, union membership, sexual orientation, or similar sensitive categories. OverLit does not use sensitive personal information for ad targeting. If you choose to include sensitive information in a support email, we may receive it as part of that message, but you do not need to send it to use the app.
+OverLit is adding online leaderboards. **They are not switched on in every version of the app**, and where the feature is switched on, a board becomes available to you only after you complete campaign **Level 5**. Until both of those are true, no leaderboard data leaves your device and none of what follows happens.
 
-## 4. Advertising And AdMob
+### The anonymous identity
 
-OverLit integrates Google AdMob through the Google Mobile Ads SDK. Builds use configured AdMob app and ad unit IDs for the active app environment. Debug or development builds may use Google demo or test ad IDs, while production builds use the configured live AdMob units unless a local build override is deliberately supplied.
+The first time the app needs to talk to the leaderboard service, it creates an anonymous account with Firebase Authentication. This is not an account in any normal sense: it has no email address, no password, no phone number and no profile, and there is nothing to sign in or out of. It is a random identifier issued by Google.
 
-The app also includes Google User Messaging Platform / AdMob privacy messaging for applicable European regulations and U.S. state privacy regulations, an AdMob IDFA explainer for Apple's App Tracking Transparency flow where available, Firebase Analytics / Google Analytics for Firebase for limited app conversion measurement, and SKAdNetwork attribution support for privacy-preserving app advertising measurement. The current app build may request Apple's App Tracking Transparency permission so AdMob can use IDFA for more relevant ads and ad measurement when allowed. If you deny ATT or your device does not allow tracking requests, ads may still be requested without IDFA.
+Because that identifier lets the same installation be recognised again, and lets scores be attached to it, it is treated as **personal data** under the GDPR. This policy does not claim that leaderboards collect no personal data, because that would not be true.
 
-To support app-install conversion measurement, the app's iOS configuration includes SKAdNetwork identifiers for Google and participating buyer/ad network attribution, including identifiers intended to keep future Meta and TikTok campaigns measurable if those campaigns are configured. SKAdNetwork is an Apple attribution system for aggregated install measurement. These Info.plist entries do not install Meta or TikTok SDKs, do not add Meta Pixel or TikTok Pixel to the website, and do not send OverLit gameplay events to Meta or TikTok. The previous app-side manual SKAdNetwork conversion-value reporter has been replaced by Firebase/GA4 app events.
+The identifier is managed by the Firebase SDK and stored in the iOS Keychain. The Keychain is deliberately durable, so the identifier can survive deleting and reinstalling the app.
 
-Firebase/GA4 custom events are limited to `overlit_onboarding_complete`, `overlit_first_run_started`, `overlit_first_run_complete`, `overlit_level_1_complete`, `overlit_level_3_complete`, `overlit_level_5_complete`, `overlit_level_7_complete`, `overlit_level_10_complete`, `overlit_level_20_complete`, `overlit_level_30_complete`, `overlit_level_40_complete`, `overlit_level_50_complete`, `overlit_level_60_complete`, `overlit_level_70_complete`, `overlit_campaign_complete`, and `overlit_full_version_purchase` with the Full Version product ID. We do not send the local age-band answer, exact birth date, support email content, detailed gameplay history, or Apple StoreKit transaction ID in these custom Firebase events. Firebase Analytics collection starts disabled by default in the app configuration. The app enables analytics measurement only after the local app gate is current, which means onboarding is complete, the age question is answered, and the current legal agreement is accepted. Events that happen before analytics measurement is allowed are not queued and replayed later. After Firebase Analytics is enabled, Google/Firebase may also process standard analytics data such as app-instance identifiers, app launches, sessions, app version, device and platform information, approximate region derived from network information, diagnostics or performance-related metadata, consent state, and other standard analytics metadata needed to provide Firebase Analytics and Google Ads conversion measurement. In Firebase/GA4 consent mode, Google ad storage, ad user data, and ad personalization signals remain denied. AdMob personalized ads and IDFA access are handled separately through Google UMP, Apple's ATT prompt, device settings, Google/AdMob settings, and applicable law. OverLit does not currently use Firebase Authentication, Firestore, Realtime Database, Cloud Messaging, Remote Config, Crashlytics, Performance Monitoring, or a custom Firebase backend.
+### Your board nickname
 
-The app currently uses AdMob for:
+The server computes your public nickname from a hash of that identifier: the word `Player-` followed by five characters, for example `Player-K3M7Q`. It is the same every time, for the same installation.
 
-- rewarded ads that let players unlock cosmetic themes or accept ad-based level-skip offers
-- interstitial ads after natural breaks outside active gameplay, such as menu, replay, or level-advance breaks, based on local play-session counters and ad-pressure state
-- optional footer banner ads shown outside the active grid/board cells, including voluntary Help the Dev footer banners for free users and, depending on local policy, footer banners connected to an ad-skip or abandoned-ad reminder state
+You cannot choose it, edit it, or replace it. OverLit contains **no text-entry field of any kind**, anywhere in the app, so there is no way for anyone to put a real name, an insult, a phone number or an advertisement onto a board. That is a deliberate design choice and it removes an entire class of problem.
 
-OverLit does not show banner ads on the game board cells. Real ad content is not placed on the actual playable grid. Full Version owners should not receive real AdMob banner, interstitial, or rewarded ad requests while the Full Version entitlement is active. If a Full Version owner has a Help the Dev setting enabled, the app may show an in-game thank-you or support message instead of requesting a real ad.
+### What is sent when a score is submitted
 
-OverLit asks for a local age range before ad preparation. For players who choose 13 to 17, the app configures Google Mobile Ads requests with teen treatment, a maximum ad content rating no higher than Teen, publisher ad personalization disabled, and Google's publisher first-party ID disabled. For players who choose 18 or older, the app may use unspecified age treatment, leave the SDK max-content cap unset, enable publisher ad personalization, and enable Google's publisher first-party ID, subject to Google/AdMob settings, UMP consent, Apple's ATT permission, device settings, and applicable law.
+A submission carries exactly these fields, and nothing else:
 
-Google's Mobile Ads SDK may collect, receive, or process information such as:
+- a **board identifier**, which describes what was played: whether it was campaign, arcade, daily or legacy, the level or challenge, the grid size, the ruleset, whether the board ranks by score or by time, and the scoring version
+- the **week identifier**, for weekly boards, in ISO form such as `2026-W30`
+- the **score** — a whole number, either points or a duration in hundredths of a second — and whether higher or lower is better on that board
+- a **de-duplication key** built from the run, so that a retry after a dropped connection cannot create a second entry
+- the fixed word `STANDARD`, marking an ordinary run
+- the **platform** (`IOS`), the **app version**, and the **content version**
 
-- IP address, which may be used to estimate coarse or general location
-- ad-related identifiers or SDK signals where permitted, including IDFA when Apple's ATT permission is granted
-- advertising data, such as ads requested, ads shown, banner impressions, interstitial impressions, rewarded ad completion, ad interactions, and related ad events
-- product interaction or usage data, such as app launches, taps, banner views, video ad views, privacy-message interactions, and other ad-performance events
-- attribution-related information, including SKAdNetwork-related signals or postbacks handled by Apple, Google/AdMob, Firebase/GA4, or advertising partners
-- crash data and other diagnostic data
-- performance data, such as app launch time, hang rate, energy usage, and SDK performance
-- consent and privacy-choice signals needed to honor regional privacy choices
+That list is complete. No name, no age band, no advertising identifier, no device identifier, no location, no email address and no free text is ever sent to the leaderboard service.
 
-That data may be used for purposes such as:
+Submission happens automatically at the end of a qualifying run, and only when the score actually beats your own previous accepted best. Tutorial runs, your first onboarding run, abandoned runs and runs played with Developer Mode enabled are never submitted.
 
-- showing third-party ads in the app
-- measuring ad performance, banner impressions, ad interactions, and rewarded ad completion
-- preventing fraud, abuse, and invalid traffic
-- frequency capping, reporting, and campaign measurement
-- serving non-personalized, contextual, limited, or otherwise privacy-restricted ads according to consent choices, device settings, Google/AdMob rules, Apple rules, and applicable law
-- supporting SKAdNetwork, Firebase/GA4 app conversion measurement, and other privacy-preserving attribution flows
-- analytics and performance improvement for the Google Mobile Ads SDK
-- diagnostics, reliability, and SDK security
-- supporting privacy and consent choices where legally required
+### What is stored on the server
 
-Google and its partners process this information under their own policies. You can read more in the [Google Privacy Policy](https://policies.google.com/privacy) and [Google's advertising technologies information](https://policies.google.com/technologies/ads).
+Against your anonymous identifier:
 
-To support authorized app advertising inventory, this site publishes an [app-ads.txt file](https://alekjaltuszyk.xyz/app-ads.txt) at `https://alekjaltuszyk.xyz/app-ads.txt`. It includes the Google publisher record:
+- a **private player record** holding your generated nickname and per-identity rate counters, which cap submissions at 30 per hour and 200 per day to stop automated flooding
+- **one board entry per board**, holding the score, the server time at which that score was first accepted (earliest submission wins a tie), the generated nickname, the platform, the `STANDARD` marker and the identifier itself
+- a **de-duplication ledger** of recent submissions, so a replayed request returns the original answer instead of creating a duplicate. Each ledger record expires automatically **30 days** after it is written
+- an **overall rating record**, if you qualify for the overall board: a percentile-based score derived from your best all-time placements across at least three different families of levels
+
+Per board, not per person, the server keeps the board's registry entry and its size.
+
+### What other players see
+
+A board page shows at most ten rows. Each row is a rank, a nickname and a score — your own row is shown as **You**. If you are outside the top ten, the page shows the top seven plus the rows immediately above and below you, so you can see where you stand. Ranks are calculated on the server; the app never computes them.
+
+The stored platform value is **not displayed**, and the underlying identifier never leaves the server at all. No timestamps, no progress, no purchase state and nothing else about another player is ever shown to you, or about you to them.
+
+### Where it runs, and what protects it
+
+The server code and the database run in Google Cloud's `europe-west1` region in **Belgium**. The app cannot read or write the database directly: every operation goes through a small set of server functions, and the database rules deny all direct access.
+
+Each request is protected by **Firebase App Check**. Firebase is initialised when the app starts, and App Check uses Apple's App Attest service — with DeviceCheck as a fallback on older hardware — to confirm that the request is coming from a genuine, unmodified copy of OverLit on a genuine Apple device. That check produces a short-lived token. It tells the developer nothing about you, and Apple's documentation describes what Apple itself does with it.
+
+The whole feature can be switched off remotely, for everyone, without an app update.
+
+### The honest caveats
+
+- A leaderboard entry is **published**. Its nickname and score are visible to any other player who reaches that board.
+- Board entries have **no automatic expiry**. When a board's scoring rules change the board is archived rather than deleted, and archived boards stay readable indefinitely. An entry stays until you ask for it to be erased. Section 14 explains how.
+- Because a leaderboard identity is anonymous, there is no name or email address attached to it. That is good for your privacy and awkward for your rights — see section 14 and section 16.
+
+## 5. Advertising
+
+The free version of OverLit is paid for by ads, served through Google's Mobile Ads SDK from Google AdMob. There are three kinds:
+
+- **rewarded** ads, which you choose to watch in exchange for a theme unlock or a level skip
+- **interstitial** ads, shown only at breaks outside active play — returning to a menu, replaying, advancing a level
+- **footer banner** ads, shown outside the playable grid
+
+No ad is ever placed on the playable grid itself, and no ad is shown during a run.
+
+### What Google receives
+
+Google and its advertising partners may process, under their own policies:
+
+- your **IP address**, which can be used to estimate a coarse or general location
+- device and app information, and SDK-level signals used to request and render an ad
+- **advertising data**: which ads were requested and shown, impressions, clicks, rewarded-ad completions and similar events
+- **product interaction data**: app launches, taps, ad views and interactions with the privacy messages described in section 11
+- crash, diagnostic and performance data from the advertising SDK
+- attribution signals, including SKAdNetwork postbacks handled by Apple
+- your consent and privacy choices, so that they can be honoured
+
+Google uses this to select and deliver ads, measure them, cap how often you see them, detect fraud and invalid traffic, and to run the ad auction. Google's own descriptions are in the [Google Privacy Policy](https://policies.google.com/privacy) and in [Google's advertising technologies information](https://policies.google.com/technologies/ads).
+
+### What OverLit does not do
+
+- OverLit **does not show Apple's App Tracking Transparency prompt**, and therefore **does not read your device's advertising identifier (IDFA)**. Without that permission, iOS does not make the IDFA available, so it cannot be used to follow you from OverLit into other companies' apps.
+- OverLit does not include a Meta SDK, a Meta Pixel, a TikTok SDK, a TikTok Pixel, a conversion API integration, an attribution SDK other than Apple's SKAdNetwork, or any customer-list or audience upload.
+- OverLit does not use any data it holds about you to build an advertising profile, and does not upload support emails to any ad platform.
+
+### How your age answer changes the ads
+
+For players in the **13 to 17** band, the advertising SDK is configured with teen treatment, a maximum ad content rating of **Teen**, publisher ad personalisation **disabled**, and Google's publisher first-party identifier **disabled**. In plain terms, teen players get non-personalised ads.
+
+For players who chose **18 or older**, ad personalisation and Google's publisher first-party identifier may be enabled, subject to your consent choices, your device settings, Google's own settings and applicable law. The publisher first-party identifier is a Google-managed identifier scoped to this publisher; it is not the IDFA and is not shared as an advertising identifier with other publishers.
+
+### Install measurement
+
+The app declares 50 **SKAdNetwork** identifiers, the standard Google-mediation set. SKAdNetwork is Apple's own attribution system: it reports installs to ad networks in aggregate, with delays and thresholds designed to prevent any individual being identified. The developer receives campaign-level counts, not user-level data.
+
+### The app-ads.txt file
+
+To identify authorised sellers of OverLit's ad inventory, this site publishes an [app-ads.txt file](https://alekjaltuszyk.xyz/app-ads.txt) containing the publisher record:
 
 ```text
 google.com, pub-6606108754134100, DIRECT, f08c47fec0942fa0
 ```
 
-## 5. Local Developer House Ads
+### House ads
 
-OverLit may show a local developer house ad in the app context, including when AdMob cannot load an ad or when the local house-ad replacement chance is selected. The current local developer house ads are for PlanKept and, only for players who choose 18 or older, Voice of Self. Voice of Self house ads are not shown to players who choose 13 to 17 or users who have not answered the age-band question.
+When AdMob has no ad to show, when the device is offline, or for a small share of non-rewarded slots, OverLit shows a **house ad** instead: a panel promoting one of the developer's own apps. These are bundled into the app. Showing one sends nothing to any ad network.
 
-A house ad is a local in-app panel that promotes the Developer's own app, app page, App Store page, or related app destination. Full Version suppresses normal automatic house-ad fallback in the ordinary player experience while the entitlement is active, except developer-only preview tools.
+The current house ads are for **PlanKept** and **AudioChoices**, plus **Voice of Self**, which is shown only to players who chose 18 or older. Tapping one opens the App Store or a page on this website, and from that point the destination's own policies apply. Rewarded ads are never replaced by a house ad, and Full Version suppresses house-ad fallback along with everything else.
 
-Showing a local developer house ad does not by itself send data to a third-party ad network. If you tap a house ad and leave the app, the destination website, App Store, browser, or device platform may process that visit under its own policies.
+### Full Version removes ads
 
-## 6. Optional Full Version Purchase
+While the Full Version entitlement is active, OverLit makes no banner, interstitial or rewarded ad request and shows no house-ad fallback. If you have the "Help the Dev" setting on, you get a thank-you panel where an ad would have been.
 
-OverLit may offer an optional one-time non-consumable Full Version purchase through Apple's in-app purchase system. This purchase is processed by Apple through the App Store. We do not operate a custom payment account system and do not receive your payment card details.
+## 6. Analytics And Measurement
 
-When Full Version is active, OverLit stores a local entitlement cache and limited StoreKit transaction metadata on your device so the app can remember the purchase, suppress normal ads, unlock ad-gated themes, and let existing level-skip offers complete without watching an ad. The app may check StoreKit entitlements and may let you restore purchases using Apple's restoration flow. If the App Store reports that an entitlement is revoked or no longer active, the app may remove the local Full Version access state.
+OverLit uses Google Analytics for Firebase, in a deliberately narrow way.
 
-Full Version does not add a separate OverLit account or separate tracking system. The limited Firebase/GA4 Full Version purchase conversion event described above may still be logged with the Full Version product ID for analytics and Google Ads conversion measurement. Full Version does not automatically unlock progression-only rewards, arcade modes, or other non-ad content that still requires normal gameplay.
+**It starts switched off.** Analytics collection is disabled in the app's configuration and is enabled only after the app's legal gate is satisfied — that is, after onboarding is complete, the age question is answered, and the current version of these documents has been accepted. Events that occur before then are not queued and are not replayed later.
 
-Full Version purchases, refunds, chargebacks, family sharing availability, and purchase restoration are handled through Apple and the App Store. If Apple reports that a purchase has been refunded, revoked, or is otherwise no longer active, OverLit may update the local entitlement state to match Apple's entitlement status.
+**Consent mode is set to deny the advertising signals.** When collection is enabled, analytics storage is allowed, and **ad storage, ad user data and ad personalisation remain denied**. They are never granted. Firebase Analytics data is therefore not used to personalise the ads you see.
 
-## 7. External Marketing And Promotion
+**There are 16 events, each sent at most once, ever.** The app keeps a local record of which have been delivered so that none repeats:
 
-We may promote OverLit through paid or organic ads on external services such as Instagram, Meta, TikTok, Apple Search Ads, Google, or similar advertising platforms.
+`overlit_onboarding_complete`, `overlit_first_run_started`, `overlit_first_run_complete`, `overlit_level_1_complete`, `overlit_level_3_complete`, `overlit_level_5_complete`, `overlit_level_7_complete`, `overlit_level_10_complete`, `overlit_level_20_complete`, `overlit_level_30_complete`, `overlit_level_40_complete`, `overlit_level_50_complete`, `overlit_level_60_complete`, `overlit_level_70_complete`, `overlit_campaign_complete`, and `overlit_full_version_purchase`.
 
-If you view, click, share, comment on, save, or otherwise interact with an OverLit ad on one of those services, that service may process information about the interaction under its own terms, privacy policy, and ad settings. For example, Meta/Instagram activity is governed by [Meta's Privacy Policy](https://www.facebook.com/privacy/policy/), and TikTok activity is governed by [TikTok's Privacy Policy](https://www.tiktok.com/legal/page/eea/privacy-policy/en).
+The only parameters they carry are the milestone level number, the campaign's level count, and the Full Version product identifier. No score, no leaderboard identity, no age answer, no Apple transaction identifier and no message content is ever attached. The app sets no user identifier and no user properties.
 
-We do not currently install Meta Pixel, TikTok Pixel, Meta SDK, TikTok SDK, Conversion API, StoreKit purchase analytics SDKs, customer-list uploads, or similar external marketing trackers in OverLit or on the OverLit website pages. The app does include Firebase/GA4 app events for the limited conversion-measurement purposes described in this policy. We also do not currently upload support emails, contact lists, or customer files to ad platforms for OverLit retargeting. If we add those practices later, this policy and the relevant platform disclosures should be updated first.
+Alongside those events, Google and Firebase process the standard app-instance identifier, session and app-launch information, app version, device and platform information, an approximate region derived from the network, and diagnostic metadata that Firebase Analytics needs in order to function at all.
 
-## 8. Privacy Choices And Consent
+**What is not present.** OverLit does not include Firebase Crashlytics, Firebase Performance Monitoring, Firebase Remote Config, Firebase Cloud Messaging, or any third-party crash-reporting or product-analytics tool. Firebase Authentication, Cloud Functions and Cloud Firestore are used only for the leaderboards described in section 4, and Firebase App Check is used to protect them.
 
-OverLit may use Google's User Messaging Platform or AdMob privacy messaging where required. Users in applicable regions may see privacy or consent choices for ads, including European regulations messages and U.S. state privacy regulation messages. When AdMob reports that privacy options are required, OverLit may also make Privacy and cookie settings available from the app settings.
+## 7. The Full Version Purchase
 
-In the current app flow, choosing an age band may cause OverLit to prepare the Google/AdMob privacy flow before gameplay and before the final legal confirmation is completed. This preparation is used to decide whether a consent form, privacy-options form, or ATT explainer should be shown and whether ads may later be requested. It is not the same as requesting a real ad, and it is separate from Firebase Analytics, which remains disabled until the current legal agreement is accepted.
+OverLit offers one optional purchase: **Full Version**, a one-time non-consumable in-app purchase handled by Apple through the App Store. It removes ads and unlocks ad-gated themes, and it lets an existing level-skip offer complete without watching an ad. It does not unlock content that is meant to be earned by playing.
 
-For applicable U.S. state privacy flows, Google's message may include wording such as "Do Not Sell or Share My Personal Information" or similar opt-out choices. Those choices are intended to send supported opt-out signals for sale, sharing, targeted advertising, or similar personalized-ad uses where required by the relevant law and supported by AdMob.
+Apple takes the payment. **No payment-card details, billing address or Apple account details ever reach the developer.** The app checks your entitlement with StoreKit on the device, stores the result locally along with the Apple transaction identifiers needed to recognise a restored purchase, and supports Apple's Restore Purchases flow. There is no server-side receipt check, because there is no purchase server: entitlement is verified on your device by StoreKit itself.
 
-On iOS, OverLit may show an AdMob IDFA explainer followed by Apple's App Tracking Transparency prompt. If you allow ATT, AdMob may use IDFA for more relevant ads and ad measurement. If you deny ATT, do not see the prompt, or your device settings prevent tracking requests, ads may still be requested without IDFA. For 13 to 17, OverLit configures Google Mobile Ads with teen treatment, Teen max content rating, publisher ad personalization disabled, and Google's publisher first-party ID disabled. For 18 or older, OverLit may allow publisher ad personalization and Google's publisher first-party ID where UMP consent, ATT, AdMob settings, device settings, and law allow it.
+If Apple reports that a purchase was refunded or revoked, the app updates the local state to match.
 
-If you decline consent, opt out, or use device settings that restrict advertising technologies, ads may still appear as non-personalized, contextual, limited, or otherwise served according to Google/AdMob, Apple, and applicable law. Firebase Analytics collection starts disabled by default and is enabled only after the app-side legal gate is current. In Firebase/GA4 consent mode, Google ad storage, ad user data, and ad personalization signals remain denied; AdMob personalized ads and IDFA access are handled separately through Google UMP, Apple's ATT prompt, device settings, Google/AdMob settings, and applicable law. If AdMob cannot load, OverLit may show a local PlanKept developer house ad instead, or a local Voice of Self house ad if you chose 18 or older.
+The one-time `overlit_full_version_purchase` analytics event described in section 6 carries the product identifier only.
 
-You can manage choices through Google/AdMob consent and privacy flows shown in the app where available, including Privacy and cookie settings when AdMob requires that entry point, and through iOS privacy settings such as Apple personalized advertising settings where available. For local OverLit gameplay data, you can change app settings, use in-app reset options where available, or delete the app.
+## 8. Why This Data Is Processed, And The Legal Basis
 
-## 9. App Store Privacy Disclosures
+Under the GDPR, every purpose needs a lawful basis. These are the ones relied on:
 
-Apple's App Privacy labels use Apple-defined categories and may require disclosures that are broader or more conservative than a plain-language policy. The current OverLit App Store privacy disclosures are intended to reflect the AdMob, UMP, Firebase/GA4, IDFA-capable, and SKAdNetwork setup described above.
+| Purpose | Data used | Legal basis |
+| --- | --- | --- |
+| Run the game and remember your progress, settings and unlocks | On-device data only, which never reaches the developer | Art. 6(1)(b) — performance of the contract with you. No transmission, so nothing is disclosed |
+| Show and measure advertising, including personalised advertising where it is allowed | Ad request and interaction data, IP address, device and SDK signals, and where applicable Google's publisher first-party identifier | Art. 6(1)(a) — consent, collected through the Google privacy message described in section 11, together with ePrivacy consent for storing and reading information on your device. Where you refuse, ads may still be served on a non-personalised, contextual basis |
+| Understand whether new players get through onboarding and how far they get, and measure app-install advertising | The 16 one-time milestone events in section 6, plus the standard Firebase Analytics metadata | Art. 6(1)(a) — consent. To be precise about the mechanism: analytics collection stays switched off until you have completed onboarding, answered the age question and accepted these documents, and the advertising consent signals stay denied throughout. There is no separate analytics toggle in Settings |
+| Show house ads for the developer's own apps | Nothing leaves the device to show one | Art. 6(1)(f) — legitimate interests in promoting the developer's own products, in a way that involves no third party and no profiling |
+| Publish a score and a generated nickname on a leaderboard, and show you your rank | Anonymous identifier, generated nickname, score, board and week identifiers, platform, app and content version, server timestamp | Art. 6(1)(b) — performance of a competitive feature you actively chose to use by playing a qualifying run after unlocking it |
+| Keep leaderboards honest: rate limiting, de-duplication of retried submissions, plausibility checks, and device attestation | Per-identity rate counters, the 30-day de-duplication ledger, App Check attestations | Art. 6(1)(f) — legitimate interests in preventing cheating, flooding and fraudulent submissions on a shared public board |
+| Recognise a Full Version purchase and restore it | Apple transaction identifiers held on the device | Art. 6(1)(b) — performance of the contract |
+| Answer a support email you send | Your email address and whatever you choose to write | Art. 6(1)(b) and Art. 6(1)(f) — responding to your request and keeping a support record |
+| Keep the service secure and diagnose faults | Operational logs at Google, which can include a request IP address and the anonymous leaderboard identifier | Art. 6(1)(f) — legitimate interests in network and information security |
 
-The relevant active AdMob-related categories include:
+Where consent is the basis, you can withdraw it at any time — section 11 explains how — and withdrawing it does not affect processing that already happened.
 
-- `Location > Coarse Location`: may be derived from IP address and used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement where Google/AdMob requires that disclosure.
-- `Identifiers > Device ID`: may include IDFA when App Tracking Transparency permission is granted, plus other device-level, app/developer-bounded, or SDK identifiers used for ad delivery, fraud prevention, measurement, consent, or reporting. For the current IDFA-capable ad-supported build, Device ID may be used for tracking under Apple's App Privacy categories.
-- `Usage Data > Product Interaction`: includes ad views, banner views, taps, video views, rewarded completions, app launches, Firebase/GA4 conversion events, privacy-message interactions, and other ad, app, or consent interaction data. It may be used for Third-Party Advertising, Developer Advertising or Marketing, Analytics, App Functionality, privacy choices, fraud prevention, and measurement.
-- `Usage Data > Advertising Data`: includes ads requested, ads shown, banner impressions, interstitial impressions, ad interactions, campaign or measurement data, Firebase/GA4 app conversion measurement, SKAdNetwork-related measurement, and rewarded-ad completion. It may be used for Third-Party Advertising, Developer Advertising or Marketing, and Analytics.
-- `Purchases > Purchase History`: includes the Firebase/GA4 Full Version purchase conversion event with the product ID only. It does not include StoreKit transaction IDs in custom Firebase events. It may be used for Developer Advertising or Marketing, Analytics, and Third-Party Advertising when imported into Google Ads conversion goals.
-- `Diagnostics > Crash Data`: may include non-user-related crash logs used for diagnostics, app functionality, analytics, SDK reliability, and security. We do not use support crash logs for retargeting.
-- `Diagnostics > Performance Data`: may include launch time, hang rate, energy usage, and SDK performance data. Google's SDK privacy manifests may report some SDK-collected performance data as not linked and not used for tracking, but OverLit may disclose Performance Data more conservatively in App Store Connect when the final archive, Apple's App Privacy flow, Google disclosures, or the current IDFA-capable advertising and measurement setup requires it.
-- `Diagnostics > Other Diagnostic Data`: may include other SDK diagnostic signals declared by Google Mobile Ads. Current Google SDK privacy manifests report this as not linked and not used for tracking.
+There is **no automated decision-making that produces legal effects or similarly significant effects** for you. Ad networks use automated systems to select, cap, measure and fraud-check ads, subject to your choices; that is not a decision about you in the legal sense.
 
-The current build is IDFA-capable while still using SKAdNetwork for aggregate install attribution. The App Store product-page preview may summarize Google/AdMob SDK disclosures as data used to track you, data linked to you, or data not linked to you depending on Apple's current categories, the submitted binary, and Google's current SDK privacy manifests.
+## 9. Who Receives Data
 
-Apple and App Store services are governed by Apple's own policies, including [Apple's Privacy Policy](https://www.apple.com/legal/privacy/) and the [Apple standard terms for apps](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/).
+| Recipient | What it receives | Role |
+| --- | --- | --- |
+| **Google** (Google AdMob and the Mobile Ads SDK, User Messaging Platform) | Ad requests and interactions, IP address, device and SDK signals, consent state, and where applicable a Google publisher first-party identifier | Google acts largely as an independent controller for advertising. Google LLC is a **United States** company operating globally |
+| **Google** (Google Analytics for Firebase) | The 16 one-time milestone events and the standard analytics metadata described in section 6 | Processor for the developer's analytics, on Google's Firebase terms |
+| **Google** (Firebase Authentication, Cloud Functions, Cloud Firestore, App Check, Cloud Logging) | The anonymous leaderboard identifier, the submission fields listed in section 4, the stored board records, App Check attestations, and operational logs including request IP addresses | Processor. The functions and the database run in `europe-west1` in **Belgium**; Firebase Authentication and App Check are global Google services |
+| **Apple** (App Store, StoreKit, DeviceCheck / App Attest, SKAdNetwork) | Purchase, refund and restore information; device attestation; aggregated install attribution | Independent controller for the store relationship and for its own platform services. Card numbers and billing details stay between you and Apple |
+| **Other players** | Your generated nickname and your score, on any board you appear on | Publication, as described in section 4 |
+| **Email provider** | Only the content of a support email, if you send one | Processor for correspondence |
+| **Website hosting** | Ordinary web request metadata for the OverLit pages on `alekjaltuszyk.xyz` | Processor for the website |
 
-## 10. Support Emails
+Nothing is sold to a data broker. No customer list, contact list or support inbox is uploaded to any advertising platform. There is no attribution partner and no analytics vendor other than the two Google products named above.
 
-If you email support or send feedback, we process your email address, message content, and any details you choose to include so we can understand the request and reply. If you use Copy Progress and paste that text into your message, we may receive your level progress, scores, stars, and related local gameplay details. The app itself does not require you to send a support or feedback email.
+Information may additionally be disclosed where genuinely necessary to comply with law, to respond to a valid legal request, or to establish, exercise or defend legal claims. If the app or the developer's business were ever transferred to someone else, relevant records could transfer with it, and this policy would be updated first.
 
-Support email: `alekgameshelp2@gmail.com`. Support page: [https://alekjaltuszyk.xyz/apps/OverLit/support/](https://alekjaltuszyk.xyz/apps/OverLit/support/).
+## 10. International Transfers
 
-We do not currently use support emails for marketing newsletters, customer-list uploads, or retargeting audiences for OverLit. If you want us to delete or correct support information you sent, contact us from the same email address when possible so we can verify the request.
+**Leaderboard records stay in the EU.** The server functions and the database that hold the records described in section 4 run in Google Cloud's `europe-west1` region in **Belgium**. If you are in the EEA, the UK or Switzerland, those records do not leave the EU on an ongoing basis.
 
-## 11. Website Pages, Cookies, And Local Storage
+**Other processing does reach the United States**, and it is worth being clear about that rather than overstating how contained things are:
 
-The OverLit pages on `alekjaltuszyk.xyz` are mostly static and informational. They provide the app page, support instructions, this privacy policy, and the public `app-ads.txt` file. We do not currently add a website analytics service or advertising cookies to the OverLit pages, so this policy does not add a cookie banner for those pages.
+- **Google LLC**, which operates the EU-hosted infrastructure above, is itself a United States company. Some administrative access and some of Google's own operational logging can still involve the United States.
+- **Google's advertising and analytics services** — AdMob, the Mobile Ads SDK, the User Messaging Platform and Google Analytics for Firebase — are global services, and the data described in sections 5 and 6 is processed outside the EU, including in the United States.
+- **Firebase Authentication and App Check** are global Google services rather than regional ones.
+- **Apple** processes purchases, platform services and SKAdNetwork attribution under its own terms, internationally.
 
-Website hosting and delivery systems may still process ordinary technical information, such as IP address, browser type, requested URL, request time, and similar security or server metadata needed to deliver the site.
+**The safeguards relied on.** Where personal data is transferred to the United States, that is made under Article 46 GDPR safeguards and, where applicable, the European Commission's adequacy decision for the EU–US Data Privacy Framework. Google LLC is certified under the **EU–US Data Privacy Framework** and its UK Extension and Swiss–US counterpart, and Google's data processing terms additionally incorporate the **EU Standard Contractual Clauses**. Apple publishes its own safeguards for the data it handles as a controller. UK transfers additionally rely on the UK International Data Transfer Addendum or the UK Extension, and Swiss transfers on the Swiss–US Data Privacy Framework or the Swiss annex to the Standard Contractual Clauses.
 
-The app uses local on-device storage for gameplay, settings, unlocks, Full Version entitlement state, counters, and legal acceptance state. Google/AdMob and Apple may use identifiers, SDK storage, consent signals, or similar mobile technologies as part of advertising, privacy choices, app distribution, fraud prevention, and measurement. External websites, the App Store, or ad platforms you visit from an ad or link may use their own cookies, pixels, local storage, sessions, or similar technologies under their own policies.
+A copy of the safeguards relied on can be requested at `alekgameshelp2@gmail.com`. Data Privacy Framework adequacy has been challenged before; if it were invalidated, transfers to Google would continue under the Standard Contractual Clauses, and this policy would be reviewed.
 
-## 12. Third-Party Services And Sharing
+## 11. Your Privacy Choices
 
-Depending on how you use OverLit, third parties may process information under their own terms:
+**The Google privacy message.** Where required — in the EEA, the UK, and in US states with an applicable opt-out right — OverLit shows Google's User Messaging Platform message before advertising starts. Your answer there governs whether personalised advertising and the associated storage on your device are permitted. The Mobile Ads SDK is not started at all until that message reports that ads may be requested.
 
-- Google/AdMob and the Google Mobile Ads SDK for in-app advertising, consent messaging, and related measurement
-- Firebase Analytics / Google Analytics for Firebase for limited app analytics, app conversion measurement, and Google Ads optimization
-- Apple, iOS, and the App Store for platform, device, privacy, download, in-app purchase, restore purchase, refund, and crash/diagnostic services
-- Meta/Instagram, TikTok, Apple Search Ads, Google, or similar platforms if you interact with ads for OverLit outside the app
-- email providers if you choose to contact support
-- website hosting and delivery providers for the public OverLit pages
+**Changing your mind.** When Google reports that a privacy-options form is required for your region, OverLit's **Settings** screen shows a **Privacy and cookie settings** row that reopens it. That is the route to withdraw or change advertising consent. In some regions Google does not require that form, and the row is then not available; in that case your device-level advertising controls in iOS Settings are the remaining lever.
 
-We do not control those third parties' privacy practices. Their policies explain how they handle information they collect or receive.
+**US opt-outs.** For applicable US state laws, Google's message includes the "Do Not Sell or Share My Personal Information" style choice, and OverLit relies on Google's implementation to carry that signal to the advertising stack. OverLit does not itself detect the Global Privacy Control or any other browser-level opt-out signal, because it is an app rather than a website.
 
-We may share or disclose information when reasonably necessary to operate the app, show and measure ads, provide support, maintain security, prevent fraud or abuse, comply with law, respond to valid legal requests, protect rights and safety, or transfer relevant records in connection with a merger, acquisition, reorganization, asset sale, or similar business transfer.
+**Refusing.** If you refuse consent or opt out, ads may still appear — contextual, non-personalised or otherwise limited — because ads pay for the free game. What changes is the personalisation, not the presence of ads.
 
-We do not sell support email lists or account lists to data brokers. Some privacy laws define certain ad SDK disclosures, ad measurement, or cross-context ad uses as a "sale," "sharing," or "targeted advertising," whether or not IDFA is available. Where those laws apply, OverLit uses AdMob privacy messages and available privacy choices to support opt-out or consent choices.
+**Removing ads entirely.** The Full Version purchase stops OverLit requesting ads at all.
 
-OverLit does not use automated decision-making or profiling that produces legal or similarly significant effects for players. Ad networks may use automated systems to select, personalize, measure, limit, or prevent fraud in ads, subject to your consent, opt-out choices, device settings, and the ad providers' own policies.
+**Leaderboards.** There is currently no in-app switch that turns leaderboard submission off while you keep playing. Not reaching Level 5 keeps you off the boards, and Developer Mode voids submissions. Erasure is covered in section 14.
 
-## 13. Children
+**Analytics.** The 16 milestone events are sent only after you have completed onboarding, answered the age question and accepted these documents. There is no separate analytics switch in Settings, and the advertising consent signals are never granted to Firebase Analytics.
 
-OverLit is not directed to children under 13, children under 13 should not use OverLit, and we do not knowingly collect personal information from children under 13. OverLit asks new users to choose either 13 to 17 or 18 or older; the app does not provide an under-13 path. If you believe a child has sent us personal information through support or another channel, contact us so we can review and delete it where appropriate.
+## 12. App Store Privacy Labels
 
-## 14. Data Retention
+Apple's App Privacy labels use Apple's own categories, which are broader and blunter than plain language. The OverLit labels are meant to describe the same practices as this policy: advertising data and product interaction from the AdMob SDK, coarse location derived from IP address, device and SDK identifiers used for ad delivery and fraud prevention, the Full Version purchase event, and the diagnostic and performance data Google's SDK reports.
 
-Local gameplay/settings data may remain on your device until you change it, reset it, delete the app, or clear the relevant local data through normal device or app behavior.
+If you ever find that the App Store label and this policy disagree, please tell the developer at `alekgameshelp2@gmail.com`. The label is a summary; this policy is the detailed statement, and both should say the same thing.
 
-Local Full Version entitlement cache may remain on your device until the app refreshes StoreKit entitlement status, you reset or delete local app data, delete the app, or normal iOS backup, restore, purchase, refund, or device behavior changes it.
+Apple and App Store services are governed by [Apple's Privacy Policy](https://www.apple.com/legal/privacy/) and the [Apple standard terms for apps](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/).
 
-Support emails may be kept for as long as reasonably needed to answer the request, maintain support records, resolve disputes, comply with legal obligations, or protect our rights.
+## 13. Age, Children And Teens
 
-Google/AdMob, Firebase/GA4, Apple, and other third-party providers retain data according to their own policies.
+OverLit is intended for players aged **13 and over**. It is not directed to children under 13, and the developer does not knowingly collect personal information from children under 13. It is not enrolled in Apple's Made for Kids programme.
+
+During onboarding the app asks you to choose an age range: **13 to 17** or **18 or older**. There is no under-13 option and no path into the game without answering. The app does not ask for a date of birth and does not attempt any age verification, so the answer is self-declared.
+
+That answer is **stored on your device and never transmitted**. It is not attached to any leaderboard record, is not sent as an analytics parameter, and no copy of it exists on any server. What it does is change how the advertising SDK is configured, as described in section 5: the teen band gets non-personalised, Teen-rated ads and is kept away from the adult-only house ad.
+
+If you are 13 or older but under the age of majority where you live, use OverLit with a parent's or guardian's permission where that is required. In some EEA countries the age at which a person can consent on their own to services like advertising is higher than 13 — it varies between 13 and 16. If your child is below that age in your country, the appropriate step is to use the device's parental controls, or the Full Version purchase, which removes advertising entirely.
+
+If you believe a child under 13 has provided personal information, write to `alekgameshelp2@gmail.com` and it will be dealt with.
+
+## 14. Retention, And How To Delete Your Data
+
+### How long things are kept
+
+**On-device data** stays on your device until you change it, use an in-app reset where one exists, or delete the app.
+
+**Leaderboard board entries have no automatic expiry.** One entry per player per board is kept for as long as the board exists, and boards are archived rather than deleted when scoring rules change — an archived board stays readable indefinitely. An entry is removed when the board's underlying record is erased on request.
+
+**The leaderboard de-duplication ledger expires automatically after 30 days.** Each record carries an expiry timestamp and is deleted by the database's own time-to-live process.
+
+**The private player record, the rate counters and the overall rating record** are kept for as long as the anonymous identity exists — that is, until erasure.
+
+**Operational and access logs** at Google are kept for the periods Google applies to its own logging by default. Those periods are set by Google rather than configured by the developer.
+
+**Advertising and analytics data** held by Google is retained under Google's own policies and the retention settings of the Firebase and AdMob products.
+
+**Support emails** are kept for as long as reasonably needed to answer the request and keep a record of it.
+
+### Erasing your leaderboard data
+
+The leaderboard service has a single function whose only job is deletion. It hard-deletes **everything** held against your anonymous identity: every board entry on every board, the private player record and its rate counters, the rating record, the de-duplication ledger, and the anonymous Firebase Authentication user itself. It is deliberately never blocked by the feature's kill switch, because deletion has to keep working even when everything else is switched off.
+
+To have it run, email `alekgameshelp2@gmail.com` with the subject **"Delete my leaderboard data"**.
+
+There is a genuine limitation to be honest about. Your leaderboard identity is anonymous: no name, no email address and no account is attached to it, so an email on its own does not tell the developer which identity is yours. Include the board you appeared on, your generated `Player-` nickname if you can see it, and the exact score, and a match can usually be made. If a match cannot be made, the request cannot be actioned — under Article 11 GDPR a controller that genuinely cannot identify a data subject is not obliged to acquire extra data in order to do so, and inventing an identity-linking system to service deletion requests would be worse for everyone's privacy than the problem it solves.
+
+If your version of the app offers a leaderboard data-deletion control in **Settings**, that control is the reliable route, because it acts on your own identity directly and needs no matching.
+
+Deleting the app does not remove a published leaderboard entry.
+
+### Everything else
+
+**Local game data:** delete the app, or use the in-app reset controls where they exist.
+
+**Advertising and analytics data held by Google:** use the choices in section 11, and Google's own privacy tools and account controls.
+
+**Purchase records:** these are Apple's, and Apple's support channels handle them. The developer holds no purchase server and no purchase database.
+
+**Support emails:** ask, from the same address where possible, and they will be deleted.
+
+Requests are answered within one month, as the GDPR requires. If a request is complex that can be extended by up to two further months, and you will be told why.
 
 ## 15. Security
 
-We use reasonable administrative and technical measures for the parts of OverLit and the OverLit website that we control. No app, website, network, device, or third-party service can be guaranteed to be perfectly secure. If you believe there is a privacy or security issue, contact us using the details below.
+Every connection the app makes is encrypted in transit with HTTPS.
 
-## 16. Privacy Rights
+For leaderboards specifically: the database denies all direct access from the app, so every read and write goes through server code that validates it. Each request must carry both a Firebase authentication token and a **Firebase App Check** token backed by Apple's App Attest, which makes it substantially harder to submit scores from anything that is not a genuine copy of OverLit. Scores are checked against plausibility ceilings before they are accepted, submissions are rate-limited per identity, and retried submissions are de-duplicated rather than double-counted. The whole feature can be disabled remotely if it is abused.
 
-Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, withdrawal of consent, or opt-out of certain sales, sharing, targeted advertising, or profiling. You may also have the right not to be discriminated against for exercising privacy rights.
+Backend administrative access is limited to the developer and protected by the account security of the underlying platform providers.
 
-Because OverLit does not have accounts or a custom backend, many gameplay records and the local Full Version entitlement cache are stored locally on your device. You can often control that local data by changing app settings, using in-app reset options where available, restoring purchases, or deleting the app. For purchase or platform data handled by Apple, or data handled by Google/AdMob, Meta/Instagram, TikTok, Google advertising platforms outside the app, or other third parties, use their privacy tools and contact routes.
+No app, network, device or provider can be guaranteed to be perfectly secure. If you believe you have found a privacy or security problem, please write to `alekgameshelp2@gmail.com` before disclosing it publicly.
 
-For users in the EEA, United Kingdom, or Switzerland, Aleksander Jałtuszyk is the controller for personal data that we control directly. Depending on the context, the legal bases for processing may include consent, such as for ad privacy choices where required; performance of a contract, such as operating the app, support, legal acceptance, and local entitlement behavior; legitimate interests, such as security, fraud prevention, service reliability, basic support, app improvement, and local developer house ads; and legal obligation, such as compliance, records, or lawful requests. You may also have the right to lodge a complaint with a supervisory authority, including the Polish Personal Data Protection Office (UODO), the UK Information Commissioner's Office (ICO), the Swiss Federal Data Protection and Information Commissioner (FDPIC), or your local supervisory authority.
+## 16. Your Rights
 
-To make a request about information we control directly, contact `alekgameshelp2@gmail.com`. We may need information to verify the request and may be unable to fulfill requests about data we do not control or cannot reasonably identify.
+If you are in the EEA, the UK or Switzerland you have the rights below. They are honoured for everyone, everywhere, regardless of where you live.
 
-## 17. International Processing
+- **Access** — ask what is held, and get a copy.
+- **Rectification** — have inaccurate data corrected.
+- **Erasure** — ask for data to be deleted. Section 14 explains the routes and the one real limitation.
+- **Restriction** — ask that processing be limited while a dispute about accuracy or lawfulness is resolved.
+- **Portability** — receive data you provided in a structured, machine-readable format.
+- **Objection** — object to processing based on legitimate interests, including the anti-cheating measures described in section 8.
+- **Withdraw consent** — for advertising and analytics, at any time, through the routes in section 11.
 
-We are based in Poland. Third-party providers used for advertising, app distribution, platform services, support email, website hosting, external promotion, or measurement may process information in other countries. Those countries may have privacy laws different from where you live.
+Two practical notes. First, most of what OverLit knows about you is on your phone and never reaches the developer, so for that data the fastest "access request" is to open the app. Second, for leaderboard data the anonymity cuts both ways: without something that identifies your entry, a request cannot be matched to it. Section 14 explains what to include.
 
-Where required for international transfers, we or the relevant providers may rely on adequacy decisions, Standard Contractual Clauses, the UK international data transfer addendum or equivalent UK safeguards, Swiss transfer safeguards, or another lawful transfer mechanism. Third-party providers may describe their own transfer safeguards in their privacy terms and data processing terms. You can contact us for more information about the transfer safeguards that apply to information we control directly.
+Requests go to `alekgameshelp2@gmail.com`. There is no charge for the first request and no requirement to give a reason. You will never be treated differently for exercising a privacy right.
+
+If you are unhappy with how a request was handled, you can complain to a data protection supervisory authority. The developer's is Poland's:
+
+- **Urząd Ochrony Danych Osobowych (UODO)**, ul. Stanisława Moniuszki 1A, 00-014 Warszawa, Poland — [`https://uodo.gov.pl/en`](https://uodo.gov.pl/en)
+
+If you live elsewhere in the EEA you can also complain to your own national authority. In the UK that is the Information Commissioner's Office, [`https://ico.org.uk`](https://ico.org.uk). In Switzerland it is the Federal Data Protection and Information Commissioner.
+
+## 17. Support Emails And Website Pages
+
+If you email support, the developer receives your email address, your message, and anything you choose to include — for example your device model, iOS version, app version, or a pasted Copy Progress summary. Please do not send sensitive personal information in a support message unless your request genuinely needs it.
+
+Support email: `alekgameshelp2@gmail.com`. Support page: [`https://alekjaltuszyk.xyz/apps/OverLit/support/`](https://alekjaltuszyk.xyz/apps/OverLit/support/).
+
+Support emails are not used for marketing, are not uploaded to any advertising platform, and are not used to build audiences.
+
+The OverLit pages on `alekjaltuszyk.xyz` are static informational pages: the app page, support, these documents, the legal manifest and the public `app-ads.txt` file. They set no analytics cookies, no advertising cookies and no tracking storage of the developer's own, which is why there is no cookie banner on them. Ordinary hosting and security infrastructure processes technical information such as IP address, browser type, requested URL, referring URL and timestamps, in order to serve and protect the site.
 
 ## 18. Changes To This Policy
 
-We may update this policy as OverLit changes, including if purchase behavior, advertising providers, consent flows, App Store disclosures, house ad behavior, or app features change. The effective date and version above show when this policy was last updated.
+This policy will be updated when OverLit changes in a way that affects it. The version number and effective date at the top of this page show when it was last updated, and the same values are published in the legal manifest linked in section 1.
 
-## 19. Contact
+Changes will not be made silently or retroactively. When there is a material change — for example switching leaderboards on for the first time, changing what is stored, changing retention, or changing the advertising or analytics setup — the app shows the updated documents again before you continue playing and asks you to accept the new version. The app records which version you accepted, and when, on your device.
 
-For privacy questions or requests, contact:
+If a future change would involve a genuinely new kind of data processing, this policy will be updated before that processing begins, not after.
+
+## 19. Regional Information
+
+The practices described above are applied globally. This section covers a few regional specifics.
+
+**European Economic Area, United Kingdom, Switzerland.** Sections 8, 10 and 16 are the operative ones: legal bases, international transfers, and your rights. Advertising and analytics rely on your consent, collected through Google's privacy message; leaderboard records are stored in the EU. The controller is Aleksander Jałtuszyk, Poland; the lead supervisory authority is UODO. UK users may also contact the ICO, and UK transfers rely on the safeguards named in section 10. For players under 18, advertising in the teen band is configured as non-personalised by default.
+
+**United States.** OverLit almost certainly does not meet the applicability thresholds of the California Consumer Privacy Act as amended, or of the comprehensive privacy laws of other states, which are generally gated on annual revenue or on the number of state residents whose data is processed. No claim of applicability is made here either way. Regardless of applicability, the rights in section 16 are honoured for US residents on the same terms as for everyone else, and there is no discrimination for exercising them.
+
+Personal information is **not sold** for money. However: several US state privacy laws define "sale", "sharing" and "targeted advertising" broadly enough that serving personalised advertising through an ad network can fall within them, whether or not any money changes hands and whether or not an advertising identifier is available. Where that applies, the opt-out is Google's privacy message, described in section 11, and the complete opt-out is the Full Version purchase. No sensitive personal information is collected. Several states additionally restrict targeted advertising to known minors; OverLit's teen band is configured for non-personalised ads for that reason.
+
+**Children in the United States.** OverLit is not directed to children under 13 for the purposes of COPPA. It offers no under-13 path, asks for no contact information from anyone at any age, and keeps the declared age band on the device.
+
+**Canada, including Quebec.** The same protections apply. Quebec's Law 25 requires that the person responsible for the protection of personal information be identified: that is Aleksander Jałtuszyk, at `alekgameshelp2@gmail.com`. Technology that identifies, locates or profiles a user is disclosed in sections 4, 5 and 6, and the means of deactivating the advertising elements are in section 11. There is no automated decision made about you.
+
+**Brazil, Australia, Japan, South Korea, India, South Africa and elsewhere.** The same GDPR-grade protections and the same rights described in section 16 are applied everywhere, rather than a different standard per country. Requests go to the same address. Where local law requires a specific contact or a specific right that is not listed here, write to the address in section 20 and it will be handled.
+
+## 20. Contact
+
+Privacy questions, data-subject requests and deletion requests:
 
 - Email: `alekgameshelp2@gmail.com`
-- Support page: [https://alekjaltuszyk.xyz/apps/OverLit/support/](https://alekjaltuszyk.xyz/apps/OverLit/support/)
+- Support page: [`https://alekjaltuszyk.xyz/apps/OverLit/support/`](https://alekjaltuszyk.xyz/apps/OverLit/support/)
 - Telephone: `+48 73 2099027`
-- Mailing address: `Aleksander Jałtuszyk, Skrytka Pocztowa 59, UP Warszawa 93, 02-800, Warszawa`
+- Mailing address: `Aleksander Jałtuszyk, Skrytka Pocztowa 59, UP Warszawa 93, 02-800, Warszawa, Poland`
 - Country: Poland
