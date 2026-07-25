@@ -151,6 +151,8 @@ Google uses this to select and deliver ads, measure them, cap how often you see 
 
 For players in the **13 to 17** band, the advertising SDK is configured with teen treatment, a maximum ad content rating of **Teen**, publisher ad personalisation **disabled**, and Google's publisher first-party identifier **disabled**. In plain terms, teen players get non-personalised ads.
 
+Non-personalised is not the same as identifier-free, and it would be misleading to imply otherwise. Google's own documentation is explicit that non-personalised ads still use cookies or mobile advertising identifiers for frequency capping and aggregated ad reporting, and that consent is still required for that where the law says so — in the UK, Switzerland and parts of the EEA. What non-personalised removes is the targeting, not every identifier.
+
 For players who chose **18 or older**, ad personalisation and Google's publisher first-party identifier may be enabled, subject to your consent choices, your device settings, Google's own settings and applicable law. The publisher first-party identifier is a Google-managed identifier scoped to this publisher; it is not the IDFA and is not shared as an advertising identifier with other publishers.
 
 ### Install measurement
@@ -213,7 +215,7 @@ Under the GDPR, every purpose needs a lawful basis. These are the ones relied on
 | Show and measure advertising, including personalised advertising where it is allowed | Ad request and interaction data, IP address, device and SDK signals, and where applicable Google's publisher first-party identifier | Art. 6(1)(a) — consent, collected through the Google privacy message described in section 11, together with ePrivacy consent for storing and reading information on your device. Where you refuse, ads may still be served on a non-personalised, contextual basis |
 | Understand whether new players get through onboarding and how far they get, and measure app-install advertising | The 16 one-time milestone events in section 6, plus the standard Firebase Analytics metadata | Art. 6(1)(a) — consent. To be precise about the mechanism: analytics collection stays switched off until you have completed onboarding, answered the age question and accepted these documents, and the advertising consent signals stay denied throughout. There is no separate analytics toggle in Settings |
 | Show house ads for the developer's own apps | Nothing leaves the device to show one | Art. 6(1)(f) — legitimate interests in promoting the developer's own products, in a way that involves no third party and no profiling |
-| Publish a score and a generated nickname on a leaderboard, and show you your rank | Anonymous identifier, generated nickname, score, board and week identifiers, platform, app and content version, server timestamp | Art. 6(1)(b) — performance of a competitive feature you actively chose to use by playing a qualifying run after unlocking it |
+| Publish a score and a generated nickname on a leaderboard, and show you your rank | Anonymous identifier, generated nickname, score, board and week identifiers, platform, app and content version, server timestamp | Art. 6(1)(f) — legitimate interests in running a competitive board that is worth competing on. Being honest about why this is not "contract": a qualifying score is submitted automatically rather than by you asking each time, so publication is not something you have separately agreed to. That means **you have the right to object under Art. 21**, and section 16 says how |
 | Keep leaderboards honest: rate limiting, de-duplication of retried submissions, plausibility checks, and device attestation | Per-identity rate counters, the 30-day de-duplication ledger, App Check attestations | Art. 6(1)(f) — legitimate interests in preventing cheating, flooding and fraudulent submissions on a shared public board |
 | Recognise a Full Version purchase and restore it | Apple transaction identifiers held on the device | Art. 6(1)(b) — performance of the contract |
 | Answer a support email you send | Your email address and whatever you choose to write | Art. 6(1)(b) and Art. 6(1)(f) — responding to your request and keeping a support record |
@@ -223,11 +225,13 @@ Where consent is the basis, you can withdraw it at any time — section 11 expla
 
 There is **no automated decision-making that produces legal effects or similarly significant effects** for you. Ad networks use automated systems to select, cap, measure and fraud-check ads, subject to your choices; that is not a decision about you in the legal sense.
 
+**You are not required to give the developer any personal data in order to play OverLit.** There is no registration and nothing to fill in. Refusing advertising consent does not lock you out of the game, and buying Full Version removes advertising altogether. The one thing that necessarily involves personal data is publishing a score on a leaderboard, and that only happens if you play a qualifying run after unlocking the feature.
+
 ## 9. Who Receives Data
 
 | Recipient | What it receives | Role |
 | --- | --- | --- |
-| **Google** (Google AdMob and the Mobile Ads SDK, User Messaging Platform) | Ad requests and interactions, IP address, device and SDK signals, consent state, and where applicable a Google publisher first-party identifier | Google acts largely as an independent controller for advertising. Google LLC is a **United States** company operating globally |
+| **Google** (Google AdMob and the Mobile Ads SDK, User Messaging Platform) | Ad requests and interactions, IP address, device and SDK signals, consent state, and where applicable a Google publisher first-party identifier | Google acts as an **independent controller** for advertising — it decides how it uses this data under its own terms, and is not simply following the developer's instructions. Google LLC is a **United States** company operating globally |
 | **Google** (Google Analytics for Firebase) | The 16 one-time milestone events and the standard analytics metadata described in section 6 | Processor for the developer's analytics, on Google's Firebase terms |
 | **Google** (Firebase Authentication, Cloud Functions, Cloud Firestore, App Check, Cloud Logging) | The anonymous leaderboard identifier, the submission fields listed in section 4, the stored board records, App Check attestations, and operational logs including request IP addresses | Processor. The functions and the database run in `europe-west1` in **Belgium**; Firebase Authentication and App Check are global Google services |
 | **Apple** (App Store, StoreKit, DeviceCheck / App Attest, SKAdNetwork) | Purchase, refund and restore information; device attestation; aggregated install attribution | Independent controller for the store relationship and for its own platform services. Card numbers and billing details stay between you and Apple |
@@ -262,17 +266,19 @@ A copy of the safeguards relied on can be requested at `alekgameshelp2@gmail.com
 
 **US opt-outs.** For applicable US state laws, Google's message includes the "Do Not Sell or Share My Personal Information" style choice, and OverLit relies on Google's implementation to carry that signal to the advertising stack. OverLit does not itself detect the Global Privacy Control or any other browser-level opt-out signal, because it is an app rather than a website.
 
-**Refusing.** If you refuse consent or opt out, ads may still appear — contextual, non-personalised or otherwise limited — because ads pay for the free game. What changes is the personalisation, not the presence of ads.
+**Refusing.** If you refuse consent or opt out, ads may still appear — contextual, non-personalised or otherwise limited by Google according to your choice and the law where you are. What changes is how the ad is chosen and what identifiers may be used, not whether ads exist at all, because ads pay for the free game.
 
 **Removing ads entirely.** The Full Version purchase stops OverLit requesting ads at all.
 
-**Leaderboards.** There is currently no in-app switch that turns leaderboard submission off while you keep playing. Not reaching Level 5 keeps you off the boards, and Developer Mode voids submissions. Erasure is covered in section 14.
+**Leaderboards.** There is currently no in-app switch that turns leaderboard submission off while you keep playing. Not reaching Level 5 keeps you off the boards, and Developer Mode voids submissions. You can object to publication and have your entries erased — section 16 sets out that right and section 14 the mechanism — and adding a proper on/off control is the right fix rather than asking people to write in.
 
 **Analytics.** The 16 milestone events are sent only after you have completed onboarding, answered the age question and accepted these documents. There is no separate analytics switch in Settings, and the advertising consent signals are never granted to Firebase Analytics.
 
 ## 12. App Store Privacy Labels
 
 Apple's App Privacy labels use Apple's own categories, which are broader and blunter than plain language. The OverLit labels are meant to describe the same practices as this policy: advertising data and product interaction from the AdMob SDK, coarse location derived from IP address, device and SDK identifiers used for ad delivery and fraud prevention, the Full Version purchase event, and the diagnostic and performance data Google's SDK reports.
+
+Apple gives **tracking** a specific meaning: linking data from this app with data from other companies' apps, websites or offline sources for advertising or advertising measurement, or sharing it with a data broker. Doing that requires permission through the App Tracking Transparency framework. OverLit does not use that framework and does not read the advertising identifier, so the App Store label should not show data used to track you.
 
 If you ever find that the App Store label and this policy disagree, please tell the developer at `alekgameshelp2@gmail.com`. The label is a summary; this policy is the detailed statement, and both should say the same thing.
 
@@ -286,7 +292,11 @@ During onboarding the app asks you to choose an age range: **13 to 17** or **18 
 
 That answer is **stored on your device and never transmitted**. It is not attached to any leaderboard record, is not sent as an analytics parameter, and no copy of it exists on any server. What it does is change how the advertising SDK is configured, as described in section 5: the teen band gets non-personalised, Teen-rated ads and is kept away from the adult-only house ad.
 
-If you are 13 or older but under the age of majority where you live, use OverLit with a parent's or guardian's permission where that is required. In some EEA countries the age at which a person can consent on their own to services like advertising is higher than 13 — it varies between 13 and 16. If your child is below that age in your country, the appropriate step is to use the device's parental controls, or the Full Version purchase, which removes advertising entirely.
+If you are 13 or older but under the age of majority where you live, use OverLit with a parent's or guardian's permission where that is required.
+
+**The age at which a person counts as a child varies by country, and in several places it is higher than 13.** In the EEA the age at which someone can consent on their own to services like advertising is set nationally, between 13 and 16. In the UK, the Information Commissioner's children's code treats everyone under 18 as a child and expects marketing profiling to be off by default for them. Some countries, India among them, treat everyone under 18 as a child and require verifiable parental consent before their data is processed at all. OverLit does not operate a parental-consent system and cannot verify anyone's age.
+
+What that means practically: where a player is below the relevant age in their country, the right steps are a parent's or guardian's involvement, the device's own parental controls, or the Full Version purchase, which removes advertising entirely.
 
 If you believe a child under 13 has provided personal information, write to `alekgameshelp2@gmail.com` and it will be dealt with.
 
@@ -310,7 +320,7 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 ### Erasing your leaderboard data
 
-The leaderboard service has a single function whose only job is deletion. It hard-deletes **everything** held against your anonymous identity: every board entry on every board, the private player record and its rate counters, the rating record, the de-duplication ledger, and the anonymous Firebase Authentication user itself. It is deliberately never blocked by the feature's kill switch, because deletion has to keep working even when everything else is switched off.
+The leaderboard service has a single function whose only job is deletion. It hard-deletes **everything** held against your anonymous identity: every board entry on every board, the private player record and its rate counters, the rating record, the de-duplication ledger, and the anonymous Firebase Authentication user itself. Your entries come off the live boards, not merely out of an internal table — a published score is public, so erasing it has to mean erasing what other people can see. The function is deliberately never blocked by the feature's kill switch, because deletion has to keep working even when everything else is switched off.
 
 To have it run, email `alekgameshelp2@gmail.com` with the subject **"Delete my leaderboard data"**.
 
@@ -351,7 +361,7 @@ If you are in the EEA, the UK or Switzerland you have the rights below. They are
 - **Erasure** — ask for data to be deleted. Section 14 explains the routes and the one real limitation.
 - **Restriction** — ask that processing be limited while a dispute about accuracy or lawfulness is resolved.
 - **Portability** — receive data you provided in a structured, machine-readable format.
-- **Objection** — object to processing based on legitimate interests, including the anti-cheating measures described in section 8.
+- **Objection** — object to processing based on legitimate interests. That includes the anti-cheating measures in section 8 and, importantly, **the publication of your score on a leaderboard**. If you object to being published, say so and your entries and identity will be erased using the function in section 14. Being straight about the limitation: the app does not yet have a switch that keeps you playing while keeping you off the boards, so until it does, the only way to stop new entries appearing is not to play qualifying runs on boards you have unlocked. That gap is a fair criticism and the fix belongs in the app, not in this paragraph.
 - **Withdraw consent** — for advertising and analytics, at any time, through the routes in section 11.
 
 Two practical notes. First, most of what OverLit knows about you is on your phone and never reaches the developer, so for that data the fastest "access request" is to open the app. Second, for leaderboard data the anonymity cuts both ways: without something that identifies your entry, a request cannot be matched to it. Section 14 explains what to include.
@@ -386,17 +396,25 @@ If a future change would involve a genuinely new kind of data processing, this p
 
 The practices described above are applied globally. This section covers a few regional specifics.
 
-**European Economic Area, United Kingdom, Switzerland.** Sections 8, 10 and 16 are the operative ones: legal bases, international transfers, and your rights. Advertising and analytics rely on your consent, collected through Google's privacy message; leaderboard records are stored in the EU. The controller is Aleksander Jałtuszyk, Poland; the lead supervisory authority is UODO. UK users may also contact the ICO, and UK transfers rely on the safeguards named in section 10. For players under 18, advertising in the teen band is configured as non-personalised by default.
+**European Economic Area, United Kingdom, Switzerland.** Sections 8, 10 and 16 are the operative ones: legal bases, international transfers, and your rights. Advertising and analytics rely on your consent, collected through Google's privacy message, which also covers the ePrivacy consent needed to store and read information on your device. Leaderboard records are stored in the EU. The controller is Aleksander Jałtuszyk, Poland; the lead supervisory authority is UODO. UK users may also contact the ICO, and UK transfers rely on the safeguards named in section 10.
+
+In the UK, the Information Commissioner's children's code applies to services likely to be accessed by under-18s and expects marketing profiling to be off by default for them. Players who choose the 13-to-17 band get non-personalised ads with a Teen content cap, which is that default. Players who choose 18 or older are treated as adults, and the app cannot verify that choice.
 
 **United States.** OverLit almost certainly does not meet the applicability thresholds of the California Consumer Privacy Act as amended, or of the comprehensive privacy laws of other states, which are generally gated on annual revenue or on the number of state residents whose data is processed. No claim of applicability is made here either way. Regardless of applicability, the rights in section 16 are honoured for US residents on the same terms as for everyone else, and there is no discrimination for exercising them.
 
-Personal information is **not sold** for money. However: several US state privacy laws define "sale", "sharing" and "targeted advertising" broadly enough that serving personalised advertising through an ad network can fall within them, whether or not any money changes hands and whether or not an advertising identifier is available. Where that applies, the opt-out is Google's privacy message, described in section 11, and the complete opt-out is the Full Version purchase. No sensitive personal information is collected. Several states additionally restrict targeted advertising to known minors; OverLit's teen band is configured for non-personalised ads for that reason.
+Personal information is **not sold** for money. However: several US state privacy laws define "sale", "sharing" and "targeted advertising" broadly enough that serving personalised advertising through an ad network can fall within them, whether or not any money changes hands and whether or not an advertising identifier is available. Where that applies, the opt-out is Google's privacy message, described in section 11, and the complete opt-out is the Full Version purchase. No sensitive personal information is collected.
 
-**Children in the United States.** OverLit is not directed to children under 13 for the purposes of COPPA. It offers no under-13 path, asks for no contact information from anyone at any age, and keeps the declared age band on the device.
+OverLit is an app rather than a website, so there is no browser-level opt-out preference signal such as Global Privacy Control for it to receive. The in-app privacy message and your device's advertising settings are the equivalent controls.
 
-**Canada, including Quebec.** The same protections apply. Quebec's Law 25 requires that the person responsible for the protection of personal information be identified: that is Aleksander Jałtuszyk, at `alekgameshelp2@gmail.com`. Technology that identifies, locates or profiles a user is disclosed in sections 4, 5 and 6, and the means of deactivating the advertising elements are in section 11. There is no automated decision made about you.
+**Teenagers in the United States.** A growing number of states restrict targeted advertising to consumers a business knows to be a minor — Connecticut for 13-to-17-year-olds, Colorado and others for everyone under 18. Because OverLit asks for an age band, it knows when a player has said they are 13 to 17, and it configures the advertising SDK for that player with personalisation disabled and a Teen content cap. That is the point of asking.
 
-**Brazil, Australia, Japan, South Korea, India, South Africa and elsewhere.** The same GDPR-grade protections and the same rights described in section 16 are applied everywhere, rather than a different standard per country. Requests go to the same address. Where local law requires a specific contact or a specific right that is not listed here, write to the address in section 20 and it will be handled.
+**Children in the United States.** OverLit is not directed to children under 13 for the purposes of COPPA. It offers no under-13 path, asks for no contact information from anyone at any age, and keeps the declared age band on the device. Nothing is knowingly collected from a child under 13, and no parental-consent mechanism is operated because none is needed for a service that does not accept under-13 users.
+
+**Canada, including Quebec.** The same protections apply. Quebec's Law 25 requires that the person responsible for the protection of personal information be identified: that is Aleksander Jałtuszyk, reachable at `alekgameshelp2@gmail.com`. Technology capable of identifying, locating or profiling a user is disclosed in sections 4, 5 and 6, and the means of deactivating the advertising elements are in section 11. There is no automated decision made about you, and no personal information is used to make one.
+
+**India.** India's Digital Personal Data Protection Act treats **everyone under 18 as a child**, requires verifiable parental consent before a child's data is processed, and restricts tracking, behavioural monitoring and targeted advertising directed at children. OverLit does not operate a verifiable parental-consent mechanism and cannot verify a player's age. Players in India who are under 18 should only use OverLit with a parent or guardian's involvement, and the Full Version purchase removes advertising entirely.
+
+**Brazil, Australia, Japan, South Korea, South Africa and elsewhere.** The same protections and the same rights described in section 16 are applied everywhere, rather than a different standard per country, and requests go to the same address. Under Brazil's LGPD the controller is a small-scale processing agent with no Data Protection Officer appointed; the communication channel for data subjects is the contact in section 20. Where local law requires a specific contact or a specific right that is not listed here, write to that address and it will be handled.
 
 ## 20. Contact
 
