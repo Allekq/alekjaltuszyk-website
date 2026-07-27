@@ -213,7 +213,7 @@ OverLit uses Google Analytics for Firebase, in a deliberately narrow way.
 
 **It starts switched off.** Analytics collection is disabled in the app's configuration and is enabled only after the app's legal gate is satisfied — that is, after onboarding is complete, the age question is answered, and the current version of these documents has been accepted. Events that occur before then are not queued and are not replayed later.
 
-**Consent mode is set to deny the advertising signals.** When collection is enabled, analytics storage is allowed, and **ad storage, ad user data and ad personalisation remain denied**. They are never granted. Firebase Analytics data is therefore not used to personalise the ads you see.
+**Consent mode follows your tracking answer.** When collection is enabled, analytics storage is allowed. **Ad storage, ad user data and ad personalisation stay denied unless you allowed tracking through Apple's prompt** — described in section 5 — in which case all three are granted for as long as that permission stands. Accepting these documents on its own does not grant them, and players in the 13-to-17 band never grant them, because they are never shown the prompt. Withdraw the permission in iOS Settings and the three signals return to denied.
 
 **There are 16 events, each sent at most once, ever.** The app keeps a local record of which have been delivered so that none repeats:
 
@@ -356,7 +356,7 @@ To have it run, email `alekgameshelp2@gmail.com` with the subject **"Delete my l
 
 There is a genuine limitation to be honest about. Your leaderboard identity is anonymous: no name, no email address and no account is attached to it, so an email on its own does not tell the developer which identity is yours. Include the board you appeared on, the nickname you are shown under (the app displays your current one above the board), and the exact score, and a match can usually be made. If you have rolled a new nickname since, mention that too — the server keeps only your current one. If a match cannot be made, the request cannot be actioned — under Article 11 GDPR a controller that genuinely cannot identify a data subject is not obliged to acquire extra data in order to do so, and inventing an identity-linking system to service deletion requests would be worse for everyone's privacy than the problem it solves.
 
-If your version of the app offers a leaderboard data-deletion control in **Settings**, that control is the reliable route, because it acts on your own identity directly and needs no matching.
+**The reliable route is in the app.** Open **Settings → Legal → Delete my leaderboard data**. It acts on your own identity directly, so nothing has to be matched and nothing has to be described. It is available whenever leaderboards are available to you, it asks you to confirm, and it cannot be undone. Your local progress, levels and unlocks are not touched — only what the leaderboard service holds.
 
 Deleting the app does not remove a published leaderboard entry.
 
