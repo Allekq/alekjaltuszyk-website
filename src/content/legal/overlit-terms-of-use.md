@@ -23,7 +23,7 @@ These Terms of Use govern OverLit-specific app, website, support, advertising, l
 
 OverLit is a short-session arcade/reflex game. A grid of cells lights up, heats toward red, and burns out; the player taps active cells before any one burns out.
 
-Some versions of the app also offer **online leaderboards**, which publish a score and a computer-generated nickname on a shared board. Section 7 covers those.
+Some versions of the app also offer **online leaderboards**, which publish a score and a randomly generated nickname on a shared board. Section 7 covers those.
 
 Features, visuals, copy, ad behavior, leaderboard availability, and app availability may change over time.
 
@@ -65,9 +65,11 @@ Leaderboards are optional entertainment, not a service you buy. They are provide
 
 ### Your board nickname
 
-You are assigned a nickname by the server. It is the word `Player-` followed by five characters computed from your anonymous identifier. **You cannot choose, edit, or reserve it**, and it is not a username or an account.
+The server assigns you a nickname built from one to three words drawn at random from fixed lists written by the developer, such as `Grumpy Kraken`. A dice button next to it asks for a different random name, as often as you like. **You cannot type, edit, or reserve a nickname**, it is not a username or an account, and it is not exclusive — another player may be given the same one.
 
-OverLit contains no text-entry field anywhere in the app. You cannot type a name, a message, a link, or anything else onto a board. Impersonation, offensive names, and advertising in a display name are therefore not possible by design rather than by moderation.
+OverLit contains no text-entry field anywhere in the app, and no part of the leaderboard service accepts a nickname sent by an app. You cannot put a name, a message, a link, or anything else of your own onto a board. Impersonation, offensive names, and advertising in a display name are therefore not possible by design rather than by moderation.
+
+The developer may change the word lists, or the nickname attached to any entry, at any time.
 
 ### What gets submitted
 

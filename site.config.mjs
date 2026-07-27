@@ -52,13 +52,13 @@ export const legalDocuments = {
     path: "/apps/VoiceOfSelf/how-voice-of-self-uses-ai/",
   },
   overLitPrivacy: {
-    version: "2.0.0",
-    effectiveDate: "2026-07-25",
+    version: "2.1.0",
+    effectiveDate: "2026-07-27",
     path: "/apps/OverLit/privacy-policy/",
   },
   overLitTerms: {
-    version: "2.0.0",
-    effectiveDate: "2026-07-25",
+    version: "2.0.1",
+    effectiveDate: "2026-07-27",
     path: "/apps/OverLit/terms-of-use/",
   },
   takeMeSomewherePrivacy: {
