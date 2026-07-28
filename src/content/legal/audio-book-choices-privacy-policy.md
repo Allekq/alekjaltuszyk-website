@@ -114,7 +114,7 @@ These are the only recipients. Each one gets only what is listed.
 | --- | --- | --- |
 | **Google** (Firebase Authentication, Cloud Firestore, Cloud Functions, Cloud Logging) | The anonymous identifier; the request bodies the app sends, which contain only a book ID, a star rating and a choice count; the entitlement, purchase, free-unlock and rating records described in section 5; operational logs including request IP addresses | Processor, contracting through Google LLC, a United States company. The server code runs in Google's `europe-west1` region in Belgium, and the Firestore database is hosted in Google's **European** multi-region. Firebase Authentication is a global Google service. Because Google LLC is US-based, some administrative access and some operational logging can still involve the United States, as explained in section 8. |
 | **Cloudflare** (R2 object storage) | An HTTP request for each catalogue file, cover image, story text file and audio file your device fetches, which necessarily includes your device's IP address | Processor, for content delivery and storage. Cloudflare is a **United States** company operating a global network, and requests are served from whichever of its locations is nearest to you |
-| **RevenueCat** | Your anonymous identifier, as its `app_user_id`, plus purchase and subscription state, product identifiers and store transaction identifiers. It never receives a name, an email address or a payment-card number from the app | Processor for subscription and purchase management, based in the **United States**, where the subscriber records it holds are stored. RevenueCat also collects some device and purchase information itself, as described in its own privacy policy |
+| **RevenueCat** | Your anonymous identifier, as its `app_user_id`; purchase and subscription state; product identifiers; store transaction identifiers; and the technical and transaction information its SDK and the stores provide to operate subscription management, which can include device type, operating-system version, IP address, Apple receipt data or a Google purchase token, and the time the app was last seen. It never receives a name, an email address or a payment-card number from the app | Processor for subscription and purchase management, based in the **United States**, where the subscriber records it holds are stored. RevenueCat's own privacy information describes its processing in more detail. |
 | **Apple** (App Store) and **Google** (Google Play) | Everything needed to take your payment and manage your purchase, under their own terms | Independent controllers for the payment relationship. Card numbers, billing addresses and payment details stay between you and the store, and never reach the developer |
 | **Email provider** | Only the content of a support email, if you choose to send one | Processor for correspondence |
 | **Website hosting** | Ordinary web request metadata for the Audio Book Choices pages on `alekjaltuszyk.xyz`, which are static informational pages | Processor for the website |
@@ -149,7 +149,7 @@ Data Privacy Framework adequacy has been challenged repeatedly in the past. If i
 
 This is worth stating plainly, because it is unusual and it is verifiable in the app's build:
 
-- No analytics SDK of any kind is linked into the app. There is no Firebase Analytics, no Google Analytics, no product-analytics tool.
+- There is no developer-operated listener or product analytics SDK in the app. There is no Firebase Analytics, no Google Analytics and no tool used to measure listening behaviour, audience size or feature usage. RevenueCat does process purchase information for its subscription service and dashboard reporting; that limited purchase-service reporting is disclosed in Apple's privacy categories as **Analytics**, but it is not used by Audio Book Choices to profile listeners or decide what they see.
 - No crash-reporting or diagnostics SDK is linked into the app. There is no Crashlytics or equivalent.
 - No advertising is shown, and no advertising SDK is present.
 - The app never reads the iOS advertising identifier (IDFA) or the Android advertising ID (AAID), and never shows an App Tracking Transparency prompt, because it has nothing to track you with.
@@ -195,7 +195,7 @@ The filter is advisory content curation. It is not a security control, and it is
 
 **Star ratings and other non-essential records can be deleted on request.** See below.
 
-**Operational and access logs** at Google and Cloudflare are kept for the periods those platforms apply to their own logging by default. Those periods are set by the providers rather than configured by the developer, and they are short compared with the records above.
+**Operational and access logs** are retained as follows, unless a provider's legally required audit log has a fixed longer period. Firebase Authentication keeps logged IP addresses for a few weeks; Cloud Functions keeps request IP addresses temporarily. The project's ordinary Cloud Logging bucket is kept at Google's default **30 days** and is reviewed before any custom retention or export is enabled. Google-required administrative and system audit logs can be retained for **400 days** and cannot be shortened by the developer. Cloudflare R2's per-bucket operations metrics are available for **31 days**; the developer does not export Cloudflare request logs to a separate log store. These periods are reviewed if the provider configuration or service changes.
 
 **Support emails** are kept for as long as is reasonably needed to answer the request and keep a record of it.
 
@@ -210,7 +210,7 @@ There is no account to delete, so deletion works differently here. There are two
 
 Requests are answered within one month, as the GDPR requires. If a request is complex, that can be extended by up to two further months, and you will be told why.
 
-What deletion covers: your star ratings and votes, and the other server-side records held against your identifier that are not covered by the two retention exceptions above. What it does not cover: purchase, subscription and transaction records, and the minimal free-unlock-usage record, for the reasons given above. You will be told plainly which records were kept.
+What deletion covers: your star ratings and votes, and the other server-side records held against your identifier that are not covered by the retention exceptions above. What it does not cover: purchase, subscription and transaction records; the minimal free-unlock-usage record; and the Firebase anonymous-auth record that keys those retained records. The anonymous-auth record cannot be removed while the retained records still need that identifier to preserve paid access, process refunds and prevent abuse. You will be told plainly which records were kept.
 
 To remove all local data, delete the app from your device, or use the clear-local-data control in Settings.
 

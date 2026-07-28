@@ -52,12 +52,12 @@ export const legalDocuments = {
     path: "/apps/VoiceOfSelf/how-voice-of-self-uses-ai/",
   },
   overLitPrivacy: {
-    version: "2.1.0",
+    version: "2.1.1",
     effectiveDate: "2026-07-27",
     path: "/apps/OverLit/privacy-policy/",
   },
   overLitTerms: {
-    version: "2.0.1",
+    version: "2.0.2",
     effectiveDate: "2026-07-27",
     path: "/apps/OverLit/terms-of-use/",
   },
@@ -72,13 +72,13 @@ export const legalDocuments = {
     path: "/apps/TakeMeSomewhere/terms-of-service/",
   },
   audioBookChoicesPrivacy: {
-    version: "2.0.0",
-    effectiveDate: "2026-07-24",
+    version: "2.1.0",
+    effectiveDate: "2026-07-28",
     path: "/apps/AudioBookChoices/privacy-policy/",
   },
   audioBookChoicesTerms: {
-    version: "2.1.0",
-    effectiveDate: "2026-07-24",
+    version: "2.1.1",
+    effectiveDate: "2026-07-27",
     path: "/apps/AudioBookChoices/terms-of-use/",
   },
 };

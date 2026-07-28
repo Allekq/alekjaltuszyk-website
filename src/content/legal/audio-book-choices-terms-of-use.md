@@ -73,7 +73,7 @@ Audio Book Choices offers an auto-renewing subscription called **All Access**, w
 - **Payment:** your Apple ID or Google Play account is charged when you confirm the purchase.
 - **Automatic renewal:** the subscription renews automatically for another period of the same length, at the then-current price, **unless you cancel it**. It continues to renew until you cancel.
 - **Free trials:** if a free trial is offered and you do not cancel before it ends, it converts into a paid subscription and you are charged the price shown at purchase. Any unused part of a free trial is forfeited if you buy a subscription during the trial.
-- **How to cancel:** cancel in your **Apple ID subscription settings** on iOS, or in **Google Play subscription settings** on Android, at least 24 hours before the current period ends. The app has a link to those settings, but the cancellation itself happens in the store, not in the app. **We cannot cancel, pause, change or refund your subscription for you** — Apple and Google control this entirely.
+- **How to cancel:** cancel in your **Apple ID subscription settings** on iOS, or in **Google Play subscription settings** on Android, at least 24 hours before the current period ends. The app has a link to those settings, but cancellation is completed through the relevant store account.
 - **When cancellation takes effect:** at the **end of the period you have already paid for**. You keep All Access until then. Cancelling does not produce a partial refund for the remainder of the period.
 - **When it ends:** books that only All Access unlocked become locked again. Books you unlocked with a free unlock or bought outright stay yours.
 
@@ -81,32 +81,22 @@ If a subscription payment fails, or the store reports the subscription as expire
 
 ## 8. Payments And Refunds
 
-All payments are processed by Apple or by Google, through the App Store or Google Play, under their own terms. We never see or handle your card number, billing address or payment details.
+All payments are processed by Apple or Google through the App Store or Google Play, under their own terms. We never see or handle your card number, billing address or payment details.
 
-**Refunds are handled solely by Apple and Google. We cannot issue refunds.** This is not a policy choice — a developer has no ability to refund an App Store or Google Play purchase directly.
+Cancellation and refund requests for store purchases are handled through the relevant store, under its terms and policies.
 
 - **Apple / iOS:** request a refund at [https://reportaproblem.apple.com](https://reportaproblem.apple.com), or through your purchase history.
 - **Google / Android:** request a refund through Google Play's order history or Google Play support.
 
 If a purchase is refunded, the corresponding access is withdrawn.
 
-None of this affects your statutory rights, including the withdrawal right in section 9 and any right to a remedy if content does not conform to what was described. If a refund is refused by the store and you believe you have a statutory right to it, contact us at `alekgameshelp2@gmail.com` and we will help you take it up with the store, even though we cannot issue the refund ourselves.
+Nothing in these terms limits any mandatory consumer rights or any right to a remedy where content does not conform to what was described.
 
-## 9. Your 14-Day Right Of Withdrawal, EU And UK Consumers
+## 9. Store Purchases And Consumer Rights
 
-If you are a consumer in the European Union, the EEA or the United Kingdom, you normally have 14 days to withdraw from a purchase of digital content without giving a reason.
+Purchases are made through Apple or Google. Their checkout, terms and policies, together with applicable law, govern cancellation, withdrawal and refund rights for those purchases.
 
-Audio Book Choices delivers digital content immediately: the moment a purchase completes, the book or the whole catalogue is unlocked and ready to play. Under the Consumer Rights Directive and the Digital Content Directive, and their UK equivalents, that right ends once performance has begun — but only if you have given your prior express consent to it beginning, and have acknowledged that you lose the right as a result.
-
-Accordingly, and to make this explicit:
-
-> **By completing a purchase of a Book Unlock or an All Access subscription, you expressly request and consent that performance of the contract begins immediately, so that the content is unlocked for you straight away, and you acknowledge that you thereby lose your right of withdrawal once that access has begun.**
-
-If you would rather keep your 14-day withdrawal right, do not complete the purchase.
-
-Where, despite the above, a withdrawal right still applies to you, exercise it by writing to `alekgameshelp2@gmail.com` within 14 days of the purchase, saying clearly that you are withdrawing. Because the money is held by Apple or Google and not by us, we will direct the refund through the relevant store's process.
-
-This section does not affect your separate right to a remedy if the content is faulty or does not match its description. See section 15.
+Nothing in these terms limits any mandatory rights that apply to you, including rights concerning content that is faulty, unavailable or not as described. See section 15.
 
 ## 10. Ratings
 

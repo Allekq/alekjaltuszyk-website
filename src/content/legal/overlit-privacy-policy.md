@@ -2,7 +2,7 @@ This Privacy Policy explains what OverLit does with information when you play th
 
 OverLit is a short-session arcade game. There is no sign-up, no username and no password, and the app never asks you for a name, an email address or a phone number. There is no text field anywhere in the app, so there is nothing you can type into it. Most of what OverLit knows about your play — your scores, your progress, your unlocks, your settings — stays on your phone.
 
-Two things do leave your device, and this policy is mostly about them: **ads**, which are served by Google AdMob and pay for the free version of the game, and **online leaderboards**, which put a score and a randomly generated nickname on a public board. Both are described in full below, including the parts that are less flattering.
+The app also includes Google Firebase and Google advertising services. Firebase is initialised when the app launches so that Firebase App Check can protect the online-leaderboard service when it is used. Firebase Analytics starts disabled: it is never enabled for a player who declares 13 to 17, and it is enabled for a player who declares 18 or older only after Google's privacy-message process has completed. Accepting these documents is not analytics consent. Information can leave your device through **ads** served by Google AdMob, **analytics** described in section 6, and **online leaderboards**, which put a score and a randomly generated nickname on a public board. Each is described below, including the parts that are less flattering.
 
 ## 1. Who Is Responsible For OverLit
 
@@ -29,17 +29,17 @@ This policy covers the OverLit app and the OverLit pages on `alekjaltuszyk.xyz`.
 - OverLit shows **Google AdMob ads** in the free version — banner, interstitial and opt-in rewarded ads. Google's advertising SDK processes ad-request and ad-interaction data, and your IP address, which can be used to estimate a coarse location.
 - If you told the app you are **18 or older**, OverLit shows Apple's **App Tracking Transparency** prompt. If you allow tracking there, Google's advertising SDK may read your device's **advertising identifier (IDFA)** and use it to personalise ads and measure them across other companies' apps. If you say no, or never answer, the IDFA is not available and is not used. Players in the **13 to 17** band are **never shown the prompt** and their IDFA is never read.
 - **Online leaderboards**, where enabled, send a score and a small set of technical fields to a server run by the developer on Google Cloud in **Belgium**, under an anonymous identifier. Your board nickname is picked at random by the server from a fixed list of words written by the developer. You can ask for a different one at any time, but you cannot type your own, and nobody can put their own text on a board.
-- Analytics is limited to **16 one-time milestone events** — things like "finished onboarding" and "completed level 10". They carry no identifier you would recognise, no score, no age answer and no message content. Analytics stays switched off until you have accepted these documents.
-- The app asks you to pick an age range, **13 to 17** or **18 or older**. That answer stays on your device and is never transmitted. It changes how ads are configured: players in the teen band get non-personalised ads with a Teen content cap.
+- Analytics is limited to **16 one-time milestone events** — things like "finished onboarding" and "completed level 10". They carry no identifier you would recognise, no score, no age answer and no message content. A player who declares **13 to 17** sends none of these events. For a player who declares **18 or older**, Google’s privacy message and Consent Mode govern analytics collection; accepting these documents by itself does not enable analytics.
+- The app asks you to pick an age range, **13 to 17** or **18 or older**. That answer stays on your device and is never transmitted. It changes how ads and analytics are configured: players in the teen band get non-personalised ads with a Teen content cap and no OverLit Firebase milestone analytics.
 - There is **one optional purchase**, Full Version. It is handled by Apple, it removes ads, and no payment-card details ever reach the developer.
 - Nothing is sold to data brokers. Some privacy laws nonetheless treat personalised advertising as "sharing" or "targeted advertising" — section 11 explains how to turn that off.
 - There is no chat, no social feed, no friend list, no multiplayer, no cloud save, no camera or photo access, no microphone access and no precise location.
 
 ## 3. What Stays Only On Your Device
 
-The following is stored in your phone's app storage and is not transmitted to the developer:
+The following is stored in your phone's app storage and is not transmitted to the developer, except that an eligible personal-best score and the technical submission fields listed in section 4 can be sent to the leaderboard service:
 
-- your high scores, level progress, stars, campaign and arcade state, and local run history
+- your local high-score records, level progress, stars, campaign and arcade state, and local run history
 - theme unlocks, menu position, and gameplay preferences such as haptics and accessibility settings
 - play counters, ad-pressure counters, ad-attempt records and timing values that decide when an ad or an unlock offer may appear
 - your Full Version entitlement state, plus the Apple transaction identifiers needed to recognise a restored purchase
@@ -90,7 +90,7 @@ That list is complete. No name, no age band, no advertising identifier, no devic
 
 Rolling a new nickname is a separate request. It carries **no data at all** beyond what every call needs — the anonymous identifier and the app-attestation token — because the app has nothing to send: the server picks the words.
 
-Submission happens automatically at the end of a qualifying run, and only when the score actually beats your own previous accepted best. Tutorial runs, your first onboarding run, abandoned runs and runs played with Developer Mode enabled are never submitted.
+Submission happens automatically at the end of a qualifying run, and only when the score actually beats your own previous accepted best. When leaderboards first become available after campaign Level 5, OverLit also checks the eligible personal bests already stored on your device and queues any that are not already pending or recorded as accepted. The same check can run when importing genuine played progress first makes leaderboards available, and it can be started manually from development builds. This backfill sends one best per eligible board using exactly the same fields and ordinary eligibility rules as a live run; it does not upload your progress file or run history. Tutorial runs, your first onboarding run, abandoned runs, runs played with Developer Mode enabled, skipped levels, records created by developer tools and scores from an obsolete scoring version are never submitted.
 
 ### What is stored on the server
 
@@ -211,9 +211,9 @@ While the Full Version entitlement is active, OverLit makes no banner, interstit
 
 OverLit uses Google Analytics for Firebase, in a deliberately narrow way.
 
-**It starts switched off.** Analytics collection is disabled in the app's configuration and is enabled only after the app's legal gate is satisfied — that is, after onboarding is complete, the age question is answered, and the current version of these documents has been accepted. Events that occur before then are not queued and are not replayed later.
+**It starts switched off, and it stays off for declared teenagers.** Analytics collection is disabled in the app's configuration. A player who declares **13 to 17** sends no OverLit Firebase milestone, purchase, conversion or gameplay events. Events that occur before the privacy process is complete, or while analytics is disabled, are not queued and are not replayed later.
 
-**Consent mode follows your tracking answer.** When collection is enabled, analytics storage is allowed. **Ad storage, ad user data and ad personalisation stay denied unless you allowed tracking through Apple's prompt** — described in section 5 — in which case all three are granted for as long as that permission stands. Accepting these documents on its own does not grant them, and players in the 13-to-17 band never grant them, because they are never shown the prompt. Withdraw the permission in iOS Settings and the three signals return to denied.
+**Declared adults use Google's privacy message, not a document checkbox.** For a player who declares **18 or older**, the app first runs Google User Messaging Platform (UMP). Where Google's message applies, UMP maps that player's current privacy choice into Google Consent Mode, including the `analytics_storage` signal. The app then allows Firebase Analytics to operate under those Google-managed signals; it does not turn analytics on because the player accepted these documents, and it does not use Apple's App Tracking Transparency answer as analytics consent. UMP and Firebase determine the resulting consent-mode behaviour for the player's region and choice, including any limited measurement Google provides when storage consent is denied. If UMP preparation does not finish successfully, the app leaves Firebase Analytics disabled.
 
 **There are 16 events, each sent at most once, ever.** The app keeps a local record of which have been delivered so that none repeats:
 
@@ -221,7 +221,7 @@ OverLit uses Google Analytics for Firebase, in a deliberately narrow way.
 
 The only parameters they carry are the milestone level number, the campaign's level count, and the Full Version product identifier. No score, no leaderboard identity, no age answer, no Apple transaction identifier and no message content is ever attached. The app sets no user identifier and no user properties.
 
-Alongside those events, Google and Firebase process the standard app-instance identifier, session and app-launch information, app version, device and platform information, an approximate region derived from the network, and diagnostic metadata that Firebase Analytics needs in order to function at all.
+Alongside those events, for declared adults while Firebase Analytics is enabled, Google and Firebase process the standard app-instance identifier, session and app-launch information, app version, device and platform information, an approximate region derived from the network, and diagnostic metadata that Firebase Analytics needs in order to function at all.
 
 **What is not present.** OverLit does not include Firebase Crashlytics, Firebase Performance Monitoring, Firebase Remote Config, Firebase Cloud Messaging, or any third-party crash-reporting or product-analytics tool. Firebase Authentication, Cloud Functions and Cloud Firestore are used only for the leaderboards described in section 4, and Firebase App Check is used to protect them.
 
@@ -243,7 +243,7 @@ Under the GDPR, every purpose needs a lawful basis. These are the ones relied on
 | --- | --- | --- |
 | Run the game and remember your progress, settings and unlocks | On-device data only, which never reaches the developer | Art. 6(1)(b) — performance of the contract with you. No transmission, so nothing is disclosed |
 | Show and measure advertising, including personalised advertising where it is allowed | Ad request and interaction data, IP address, device and SDK signals, where applicable Google's publisher first-party identifier, and — only for players aged 18 or older who allowed tracking through Apple's prompt — the device advertising identifier (IDFA) | Art. 6(1)(a) — consent, collected through the Google privacy message described in section 11, together with ePrivacy consent for storing and reading information on your device. Where you refuse, ads may still be served on a non-personalised, contextual basis |
-| Understand whether new players get through onboarding and how far they get, and measure app-install advertising | The 16 one-time milestone events in section 6, plus the standard Firebase Analytics metadata | Art. 6(1)(a) — consent. To be precise about the mechanism: analytics collection stays switched off until you have completed onboarding, answered the age question and accepted these documents, and the advertising consent signals stay denied throughout. There is no separate analytics toggle in Settings |
+| Understand whether declared adult players get through onboarding and how far they get, and measure app-install advertising | The 16 one-time milestone events in section 6, plus the standard Firebase Analytics metadata | Art. 6(1)(a) — consent, collected through Google's UMP privacy message where that is required. Accepting these documents is not analytics consent. Declared 13-to-17 players do not send these events. |
 | Show house ads for the developer's own apps | Nothing leaves the device to show one | Art. 6(1)(f) — legitimate interests in promoting the developer's own products, in a way that involves no third party and no profiling |
 | Publish a score and a generated nickname on a leaderboard, and show you your rank | Anonymous identifier, generated nickname, score, board and week identifiers, platform, app and content version, server timestamp | Art. 6(1)(f) — legitimate interests in running a competitive board that is worth competing on. Being honest about why this is not "contract": a qualifying score is submitted automatically rather than by you asking each time, so publication is not something you have separately agreed to. That means **you have the right to object under Art. 21**, and section 16 says how |
 | Keep leaderboards honest: rate limiting, de-duplication of retried submissions, plausibility checks, and device attestation | Per-identity rate counters, the 30-day de-duplication ledger, App Check attestations | Art. 6(1)(f) — legitimate interests in preventing cheating, flooding and fraudulent submissions on a shared public board |
@@ -302,7 +302,7 @@ A copy of the safeguards relied on can be requested at `alekgameshelp2@gmail.com
 
 **Leaderboards.** There is currently no in-app switch that turns leaderboard submission off while you keep playing. Not reaching Level 5 keeps you off the boards, and Developer Mode voids submissions. You can object to publication and have your entries erased — section 16 sets out that right and section 14 the mechanism — and adding a proper on/off control is the right fix rather than asking people to write in.
 
-**Analytics.** The 16 milestone events are sent only after you have completed onboarding, answered the age question and accepted these documents. There is no separate analytics switch in Settings, and the advertising consent signals are never granted to Firebase Analytics.
+**Analytics.** A player who declares 13 to 17 sends no OverLit Firebase milestone events. For a player who declares 18 or older, the same Google privacy message described above carries Google's `analytics_storage` choice where it applies, and Google UMP maps that choice into Firebase Consent Mode. There is no second OverLit checkbox because it would not replace or override that Google consent mechanism. Use **Settings → Privacy and cookie settings** when that row is available to reopen the Google form. Accepting these documents is not analytics consent.
 
 ## 12. App Store Privacy Labels
 
@@ -320,7 +320,7 @@ OverLit is intended for players aged **13 and over**. It is not directed to chil
 
 During onboarding the app asks you to choose an age range: **13 to 17** or **18 or older**. There is no under-13 option and no path into the game without answering. The app does not ask for a date of birth and does not attempt any age verification, so the answer is self-declared.
 
-That answer is **stored on your device and never transmitted**. It is not attached to any leaderboard record, is not sent as an analytics parameter, and no copy of it exists on any server. What it does is change how the advertising SDK is configured, as described in section 5: the teen band gets non-personalised, Teen-rated ads and is kept away from the adult-only house ad.
+That answer is **stored on your device and never transmitted**. It is not attached to any leaderboard record, is not sent as an analytics parameter, and no copy of it exists on any server. What it does is change how the advertising SDK and Firebase Analytics are configured: the teen band gets non-personalised, Teen-rated ads, is kept away from the adult-only house ad, and sends no OverLit Firebase milestone events.
 
 If you are 13 or older but under the age of majority where you live, use OverLit with a parent's or guardian's permission where that is required.
 
@@ -391,7 +391,7 @@ If you are in the EEA, the UK or Switzerland you have the rights below. They are
 - **Erasure** — ask for data to be deleted. Section 14 explains the routes and the one real limitation.
 - **Restriction** — ask that processing be limited while a dispute about accuracy or lawfulness is resolved.
 - **Portability** — receive data you provided in a structured, machine-readable format.
-- **Objection** — object to processing based on legitimate interests. That includes the anti-cheating measures in section 8 and, importantly, **the publication of your score on a leaderboard**. If you object to being published, say so and your entries and identity will be erased using the function in section 14. Being straight about the limitation: the app does not yet have a switch that keeps you playing while keeping you off the boards, so until it does, the only way to stop new entries appearing is not to play qualifying runs on boards you have unlocked. That gap is a fair criticism and the fix belongs in the app, not in this paragraph.
+- **Objection** — object to processing based on legitimate interests. That includes the anti-cheating measures in section 8 and, importantly, **the publication of your score on a leaderboard**. If you object to being published, say so and your entries and identity will be erased using the function in section 14. Being straight about the limitation: the app does not yet have a switch that keeps you playing while keeping you off the boards. Until it does, the only way to prevent publication is not to complete campaign Level 5; once leaderboards become available, eligible personal bests already on the device can be queued automatically, and later qualifying runs can create new entries. That gap is a fair criticism and the fix belongs in the app, not in this paragraph.
 - **Withdraw consent** — for advertising and analytics, at any time, through the routes in section 11.
 
 Two practical notes. First, most of what OverLit knows about you is on your phone and never reaches the developer, so for that data the fastest "access request" is to open the app. Second, for leaderboard data the anonymity cuts both ways: without something that identifies your entry, a request cannot be matched to it. Section 14 explains what to include.

@@ -41,7 +41,7 @@ Use device accessibility settings where they are helpful for your comfort and sa
 
 The free experience of OverLit may show Google AdMob rewarded ads, Google AdMob interstitial ads, footer banner ads, and local developer house ads for the Developer's own apps. Rewarded ads are opt-in value trades for eligible theme unlocks or level-skip offers. Interstitial ads may appear only at safe breaks outside active gameplay, such as menu, replay, or level-advance breaks. Players who choose 18 or older may also be eligible for the adult AdMob request profile, with maximum ad content controlled by AdMob account settings. Local developer house ads may include PlanKept and AudioChoices, and may include Voice of Self only for players who choose 18 or older.
 
-OverLit uses Google User Messaging Platform / AdMob privacy messages where required, including European regulations messages and U.S. state privacy regulation messages. OverLit does not show Apple's App Tracking Transparency prompt and does not read your device's advertising identifier. The app also uses Google Analytics for Firebase for a small set of one-time milestone events, as described in the Privacy Policy. If you decline consent or use device settings that restrict advertising technologies, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google/AdMob, Apple, and applicable law.
+OverLit uses Google User Messaging Platform / AdMob privacy messages where required, including European regulations messages and U.S. state privacy regulation messages. For players who choose 18 or older, OverLit may show Apple's App Tracking Transparency prompt after the legal gate is complete. If that player allows tracking, the Google advertising SDK may access the device advertising identifier (IDFA) for personalised advertising and advertising measurement; players who choose 13 to 17 are not shown that prompt and are configured for non-personalised ads. The app uses Google Analytics for Firebase for a small set of one-time milestone events only for players who choose 18 or older, under Google's privacy-message and Consent Mode settings; accepting the Terms or Privacy Policy does not itself enable analytics. Players who choose 13 to 17 send no OverLit Firebase milestone events. If you decline consent or use device settings that restrict advertising technologies, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google/AdMob, Apple, and applicable law.
 
 Ad availability, ad loading, and rewards are not guaranteed. Rewarded unlocks may be unavailable, delayed, interrupted, or changed.
 
@@ -61,7 +61,7 @@ Full Version is intended to remove normal in-app ads from OverLit while the enti
 
 Where the feature is switched on in your version of the app, and once you have completed campaign Level 5, OverLit can publish your scores to shared online leaderboards: all-time boards per level or challenge, weekly boards, and an overall rating board.
 
-Leaderboards are optional entertainment, not a service you buy. They are provided free, alongside the paid Full Version, and buying Full Version gives you no leaderboard advantage.
+Leaderboards are free entertainment, not a service you buy. They are provided alongside the paid Full Version, and buying Full Version gives you no leaderboard advantage.
 
 ### Your board nickname
 
@@ -73,7 +73,7 @@ The developer may change the word lists, or the nickname attached to any entry, 
 
 ### What gets submitted
 
-Qualifying runs are submitted automatically at the end of the run, and only when the score beats your own previous accepted best on that board. Tutorial runs, your first onboarding run, abandoned runs, and runs played with Developer Mode enabled are never submitted.
+Qualifying runs are submitted automatically at the end of the run, and only when the score beats your own previous accepted best on that board. When leaderboards first become available after campaign Level 5, OverLit may also submit eligible personal bests already stored on your device, including genuine played progress that you later import. It sends one best per eligible board under the same rules as a live run; it does not upload your progress file or run history. Tutorial runs, your first onboarding run, abandoned runs, runs played with Developer Mode enabled, skipped levels, records created by developer tools, and scores from an obsolete scoring version are never submitted.
 
 Exactly what is sent, what is stored, how long it is kept, and how to have it erased are set out in the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/).
 
