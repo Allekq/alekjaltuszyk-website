@@ -1,5 +1,6 @@
 ---
 import type { AppDirectoryItem } from "../../../config/routes";
+import { directoryChips } from "../../../lib/appState";
 import { isExternalHref } from "../../../lib/paths";
 
 interface Props {
@@ -26,7 +27,7 @@ const rel = item.external && isExternalHref(item.href) ? "noreferrer" : undefine
   <p class="app-card__description">{item.description}</p>
 
   <div class="app-card__chips">
-    {item.chips.map((chip) => (
+    {directoryChips(item).map((chip) => (
       <span>{chip}</span>
     ))}
   </div>

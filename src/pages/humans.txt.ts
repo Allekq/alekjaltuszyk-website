@@ -1,9 +1,17 @@
 import type { APIRoute } from "astro";
-import { overLitConfig, planKeptConfig, siteConfig, takeMeSomewhereConfig } from "../config/site";
-import { siteRoutes } from "../config/routes";
+import { siteConfig } from "../config/site";
+import { appDirectory, siteRoutes } from "../config/routes";
+import { releaseStatusSentence } from "../lib/appState";
 import { toAbsoluteSiteUrl } from "../lib/discovery";
 
 export const prerender = true;
+
+const currentProductLines = appDirectory
+  .map(
+    (item) =>
+      `- ${item.name} (${item.releaseStage === "released" ? "released" : "not released yet"}): ${item.description}`,
+  )
+  .join("\n");
 
 const body = `# ${siteConfig.identity.preferredName}
 
@@ -13,11 +21,8 @@ Alternate search names: ${siteConfig.aiDiscovery.nameVariants.join(", ")}
 Bio:
 ${siteConfig.identity.shortBio}
 
-Current products:
-- PlanKept: ${planKeptConfig.aiDiscovery.summary}
-- Voice of Self: internal product page under ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
-- OverLit: ${overLitConfig.aiDiscovery.summary}
-- Take Me Somewhere: ${takeMeSomewhereConfig.aiDiscovery.summary}
+Current products (${releaseStatusSentence}):
+${currentProductLines}
 
 Key pages:
 - Home: ${toAbsoluteSiteUrl(siteRoutes.home.path)}
@@ -26,6 +31,7 @@ Key pages:
 - Voice of Self: ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - OverLit: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Take Me Somewhere: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
+- Audio Book Choices: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
 - PlanKept answers: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptAnswers.path)}
 - PlanKept comparisons: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptComparisons.path)}
 - PlanKept updates: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptUpdates.path)}

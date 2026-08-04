@@ -100,15 +100,35 @@ export const siteRoutes = {
 
 export type AppCardTheme = "coral" | "mint";
 
+/**
+ * "released" means the app is downloadable from a public store today.
+ * Anything else must never be described as available, live, or downloadable.
+ */
+export type AppReleaseStage = "released" | "unreleased";
+
+export type AppPlatform = "iOS" | "Android";
+
 export interface AppDirectoryItem {
   id: string;
   name: string;
   description: string;
+  /** One short sentence about the product problem, used in derived homepage copy. */
+  focus: string;
   theme: AppCardTheme;
   chips: readonly string[];
   href: string;
   external: boolean;
+  releaseStage: AppReleaseStage;
+  platforms: readonly AppPlatform[];
 }
+
+/**
+ * Single source of truth for the app portfolio.
+ *
+ * Counts, numerals, plurals, and app-name lists in public copy are derived from
+ * this array in `src/lib/appState.ts`. Adding an app here should update the
+ * wording across the site with no prose edits.
+ */
 
 export const appDirectory = [
   {
@@ -116,6 +136,8 @@ export const appDirectory = [
     name: "PlanKept",
     description:
       "A local-first plan-enforcement app that pairs reminders, app friction, proof-aware completion, and analytics.",
+    focus:
+      "PlanKept is about follow-through, iOS integration, and plan enforcement.",
     theme: "coral",
     chips: [
       "Unlock after steps or workouts",
@@ -124,12 +146,16 @@ export const appDirectory = [
     ],
     href: siteRoutes.apps.planKept.href,
     external: false,
+    releaseStage: "released",
+    platforms: ["iOS"],
   },
   {
     id: "overlit",
     name: "OverLit",
     description:
       "A fast reflex arcade game for iPhone about keeping a pressure-filled grid alive.",
+    focus:
+      "OverLit is a compact game-design project with ad-supported play.",
     theme: "mint",
     chips: [
       "Level-based arcade",
@@ -138,12 +164,15 @@ export const appDirectory = [
     ],
     href: siteRoutes.apps.overLit.href,
     external: false,
+    releaseStage: "released",
+    platforms: ["iOS"],
   },
   {
     id: "voice-of-self",
     name: "Voice of Self",
     description:
       "A launched voice-first reflection app for noticing personal growth and resolved worries over time.",
+    focus: "Voice of Self is about reflection memory and managed AI.",
     theme: "mint",
     chips: [
       "Voice-first reflection",
@@ -152,12 +181,16 @@ export const appDirectory = [
     ],
     href: siteRoutes.apps.voiceOfSelf.href,
     external: false,
+    releaseStage: "released",
+    platforms: ["iOS"],
   },
   {
     id: "take-me-somewhere",
     name: "Take Me Somewhere",
     description:
       "A launched iPhone companion for spontaneous, time-boxed local outings with map-grounded routes.",
+    focus:
+      "Take Me Somewhere is a quick, smooth route-discovery experience.",
     theme: "coral",
     chips: [
       "Live iOS app",
@@ -166,19 +199,25 @@ export const appDirectory = [
     ],
     href: takeMeSomewhereAppStoreHref,
     external: true,
+    releaseStage: "released",
+    platforms: ["iOS"],
   },
   {
     id: "audio-book-choices",
     name: "Audio Book Choices",
     description:
       "An interactive 'choose your story' audiobook app for iOS and Android where you steer AI-narrated stories with Yes/No choices.",
+    focus:
+      "Audio Book Choices is an interactive audiobook where the listener steers the story.",
     theme: "mint",
     chips: [
       "Branching story tree",
       "Tap or nod to choose",
-      "Free during testing",
+      "Three free unlocks",
     ],
     href: siteRoutes.apps.audioBookChoices.href,
     external: false,
+    releaseStage: "unreleased",
+    platforms: ["iOS", "Android"],
   },
 ] as const satisfies readonly AppDirectoryItem[];

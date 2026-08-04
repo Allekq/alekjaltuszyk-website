@@ -56,6 +56,10 @@ The domain is now split on purpose:
 - Keep human-facing route hierarchies folder-based when Astro supports that
   shape.
 - Keep the route tree and app destinations centralized in `src/config/routes.ts`.
+  `appDirectory` there is the single source of truth for which apps exist and
+  which are released.
+- Never type app counts, numerals, plurals, or app-name lists into prose. Derive
+  them from `src/lib/appState.ts`. See `skills/app-state-truth/SKILL.md`.
 - Keep `src/layouts/SiteLayout.astro` as the shared shell for the homepage and
   legal/content pages.
 - Keep homepage section order in
@@ -129,6 +133,7 @@ The domain is now split on purpose:
 
 ## Repo Skill Sources
 
+- `skills/app-state-truth/SKILL.md`
 - `skills/landing-page-workflow/SKILL.md`
 - `skills/legal-update-sync/SKILL.md`
 - `skills/roam-timeline-variants/SKILL.md`

@@ -1,3 +1,12 @@
+import {
+  appCount,
+  appNameList,
+  appCountWord,
+  platformAppNoun,
+  platformNameList,
+  releaseStatusSentence,
+} from "../../../lib/appState";
+
 export interface HomeSkill {
   id: string;
   offset: string;
@@ -135,10 +144,9 @@ export const homeTimeline = [
     id: "current-products",
     label: "Current",
     period: "2026-now",
-    title: "Building 4 iPhone apps",
-    role: "Independent iOS product builder",
-    summary:
-      "I developed and launched four separate iPhone apps: Voice of Self, PlanKept, OverLit, and Take Me Somewhere.",
+    title: `Building ${appCount} ${platformAppNoun}`,
+    role: `Independent ${platformNameList} product builder`,
+    summary: `I developed ${appCountWord} separate ${platformAppNoun}: ${appNameList}. ${releaseStatusSentence}`,
     highlights: [
       {
         title: "Voice of Self",
@@ -173,6 +181,15 @@ export const homeTimeline = [
         details: [
           "Shipped a smooth UX around quick decisions and time-boxed local exploration.",
           "Built Compass Mode and a low-friction route-discovery flow.",
+        ],
+      },
+      {
+        title: "Audio Book Choices",
+        description: "Interactive 'choose your story' audiobook app, not released yet.",
+        details: [
+          "Designed branching story trees where Yes or No choices open new paths through a book.",
+          "Built choice input that works by tapping the screen or nodding with AirPods.",
+          "Kept listening progress, settings, and the self-declared age on the device, with no sign-up and no analytics.",
         ],
       },
     ],

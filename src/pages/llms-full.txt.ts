@@ -1,6 +1,13 @@
 import type { APIRoute } from "astro";
-import { overLitConfig, planKeptConfig, siteConfig, takeMeSomewhereConfig } from "../config/site";
+import {
+  audioBookChoicesConfig,
+  overLitConfig,
+  planKeptConfig,
+  siteConfig,
+  takeMeSomewhereConfig,
+} from "../config/site";
 import { siteRoutes } from "../config/routes";
+import { appNameList, releaseStatusSentence } from "../lib/appState";
 import { discoveryPages, toAbsoluteSiteUrl } from "../lib/discovery";
 
 export const prerender = true;
@@ -29,12 +36,14 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 ## Quick Facts
 
 - Site type: personal site and app directory
-- Stage: personal homepage and app directory with PlanKept, Voice of Self, OverLit, and Take Me Somewhere product pages
+- Stage: personal homepage and app directory with product pages for ${appNameList}
+- Release state: ${releaseStatusSentence}
 - Current internal app page: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
 - Current internal Voice of Self page: ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - Current internal OverLit page: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Current internal Take Me Somewhere page: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
-- Website role: personal landing page, shared app chooser, Voice of Self product/support/legal surface, PlanKept product/support/legal surface, small OverLit app/legal surface, and Take Me Somewhere product/support/legal surface
+- Current internal Audio Book Choices page: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
+- Website role: personal landing page, shared app chooser, Voice of Self product/support/legal surface, PlanKept product/support/legal surface, small OverLit app/legal surface, Take Me Somewhere product/support/legal surface, and Audio Book Choices product/support/legal surface
 
 ## Engineering Profile
 
@@ -62,12 +71,13 @@ the chooser for products. App pages can live under this domain without taking
 over the root personal site.
 
 The current app split is:
-- ${homePath}: personal homepage placeholder
+- ${homePath}: personal homepage with profile, current products, skills, and history
 - ${appsDirectoryPath}: directory of apps and product sites
 - ${planKeptPath}: internal PlanKept page on this domain
 - ${voiceOfSelfPath}: internal Voice of Self page with answers, updates, support, and legal pages
 - ${siteRoutes.apps.overLit.path}: internal OverLit page with support and legal links on this domain
 - ${takeMeSomewherePath}: internal Take Me Somewhere page with App Store, support, privacy, and Terms of Service links
+- ${siteRoutes.apps.audioBookChoices.path}: internal Audio Book Choices page with support, privacy, and Terms of Use links
 
 ## Privacy Notes
 
@@ -107,6 +117,12 @@ ${overLitConfig.aiDiscovery.status}
 ${takeMeSomewhereConfig.aiDiscovery.summary}
 
 ${takeMeSomewhereConfig.aiDiscovery.status}
+
+## Audio Book Choices Overview
+
+${audioBookChoicesConfig.aiDiscovery.summary}
+
+${audioBookChoicesConfig.aiDiscovery.status}
 
 ## Public Pages
 

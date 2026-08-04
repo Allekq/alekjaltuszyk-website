@@ -14,6 +14,7 @@ import {
 } from "../voice-of-self/config/visibility";
 import { siteConfig } from "../config/site";
 import { siteRoutes } from "../config/routes";
+import { appNameList } from "./appState";
 import { withBase } from "./paths";
 
 export interface DiscoveryPage {
@@ -36,8 +37,7 @@ export const discoveryPages = {
     {
       title: "Apps",
       path: siteRoutes.apps.index.path,
-      description:
-        "Shared app directory for current products by Alek Jałtuszyk, including PlanKept, Voice of Self, OverLit, and Take Me Somewhere.",
+      description: `Shared app directory for current products by Alek Jałtuszyk: ${appNameList}.`,
     },
     {
       title: "PlanKept",
@@ -158,8 +158,7 @@ export const discoveryPages = {
     {
       title: "Legal",
       path: siteRoutes.legal.path,
-      description:
-        "Legal hub listing the general website privacy policy and terms plus app-specific legal pages for PlanKept, Voice of Self, OverLit, and Take Me Somewhere.",
+      description: `Legal hub listing the general website privacy policy and terms plus app-specific legal pages for ${appNameList}.`,
     },
     {
       title: "Website Privacy Policy",
@@ -261,7 +260,7 @@ export const discoveryPages = {
       title: "Audio Book Choices Terms of Use",
       path: siteRoutes.apps.audioBookChoicesTermsOfUse.path,
       description:
-        "Terms covering Audio Book Choices content licensing for personal listening, the temporary free testing phase, future app-store purchases, AI narration, no warranty, and contact.",
+        "Terms covering Audio Book Choices content licensing for personal listening, three free unlocks per installation, one-time book purchases, the All Access subscription, AI narration, no warranty, and contact.",
     },
     {
       title: "Audio Book Choices Legal Manifest",

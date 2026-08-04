@@ -72,8 +72,8 @@ export const legalDocuments = {
     path: "/apps/TakeMeSomewhere/terms-of-service/",
   },
   audioBookChoicesPrivacy: {
-    version: "2.1.0",
-    effectiveDate: "2026-07-28",
+    version: "2.1.1",
+    effectiveDate: "2026-08-04",
     path: "/apps/AudioBookChoices/privacy-policy/",
   },
   audioBookChoicesTerms: {

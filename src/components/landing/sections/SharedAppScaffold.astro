@@ -1,5 +1,10 @@
 ---
 import { appDirectory } from "../../../config/routes";
+import {
+  appCountPhrase,
+  directoryChips,
+  releaseStatusSentence,
+} from "../../../lib/appState";
 import { isExternalHref } from "../../../lib/paths";
 import ActionButton from "../ui/ActionButton.astro";
 
@@ -18,8 +23,7 @@ const { title, variant = "home" } = Astro.props as Props;
         <p class="shared-app-scaffold__eyebrow">Current products</p>
         <h1 class="shared-app-scaffold__title">{title}</h1>
         <p class="shared-app-scaffold__lead">
-          A small directory for the products I am building now, with PlanKept, Voice of Self,
-          OverLit, and Take Me Somewhere all living on this domain.
+          A small directory for the {appCountPhrase} I am building now. {releaseStatusSentence}
         </p>
       </div>
 
@@ -38,7 +42,7 @@ const { title, variant = "home" } = Astro.props as Props;
             <span class="home-destinations__link-name">{item.name}</span>
             <span class="home-destinations__link-description">{item.description}</span>
             <span class="home-destinations__link-chips" aria-hidden="true">
-              {item.chips.map((chip) => <span>{chip}</span>)}
+              {directoryChips(item).map((chip) => <span>{chip}</span>)}
             </span>
           </a>
         );

@@ -53,7 +53,7 @@ The following is stored on your device and is never transmitted to the developer
 - which choices you made and which endings you have reached
 - cumulative listening time and engagement counters, such as how many choices you have made in a book
 - downloaded audio and story text, and cover images
-- app settings and preferences, including playback speed, theme, download-on-Wi-Fi-only, and whether the head-nod input is enabled
+- app settings and preferences, including playback speed, theme, and whether the head-nod input is enabled
 - which books you have marked as favourites
 - which version of the legal documents you accepted, and when
 - your self-declared age

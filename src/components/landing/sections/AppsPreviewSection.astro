@@ -1,15 +1,18 @@
 ---
 import { siteConfig } from "../../../config/site";
 import { appDirectory } from "../../../config/routes";
+import { appCountPhrase, capitalizeFirst } from "../../../lib/appState";
 import ActionButton from "../ui/ActionButton.astro";
 import AppCard from "../ui/AppCard.astro";
+
+const appsPreviewTitle = `${capitalizeFirst(appCountPhrase)} now, more later.`;
 ---
 
 <section id="apps" class="landing-section">
   <div class="landing-section__inner">
     <div class="section-heading" data-reveal>
       <p class="section-kicker">Apps</p>
-      <h2 class="section-title">Two panels now, more later.</h2>
+      <h2 class="section-title">{appsPreviewTitle}</h2>
       <p class="section-body">
         The app directory is the chooser. Some apps can live under this domain, and some can jump
         out to their own standalone site without cluttering the root.

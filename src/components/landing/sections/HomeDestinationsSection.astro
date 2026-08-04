@@ -1,6 +1,16 @@
 ---
 import { appDirectory } from "../../../config/routes";
+import {
+  appCountWord,
+  capitalizeFirst,
+  directoryChips,
+  platformAppNoun,
+  releaseStatusSentence,
+} from "../../../lib/appState";
 import { isExternalHref } from "../../../lib/paths";
+
+const destinationsTitle = `${capitalizeFirst(appCountWord)} ${platformAppNoun}, ${appCountWord} different product problems.`;
+const destinationsBody = appDirectory.map((item) => item.focus).join(" ");
 ---
 
 <section class="home-destinations" id="current-products" aria-labelledby="home-destinations-title">
@@ -8,13 +18,10 @@ import { isExternalHref } from "../../../lib/paths";
     <div class="home-destinations__heading">
       <p class="home-destinations__eyebrow">Now building</p>
       <h2 class="home-destinations__title" id="home-destinations-title">
-        Four iPhone apps, four different product problems.
+        {destinationsTitle}
       </h2>
-      <p class="home-destinations__body">
-        Voice of Self is about reflection memory and managed AI. PlanKept is about follow-through,
-        iOS integration, and plan enforcement. OverLit is a compact game-design project with
-        ad-supported play. Take Me Somewhere is a quick, smooth route-discovery experience.
-      </p>
+      <p class="home-destinations__body">{destinationsBody}</p>
+      <p class="home-destinations__body">{releaseStatusSentence}</p>
     </div>
 
     <div class="home-destinations__grid">
@@ -32,7 +39,7 @@ import { isExternalHref } from "../../../lib/paths";
             <span class="home-destinations__link-name">{item.name}</span>
             <span class="home-destinations__link-description">{item.description}</span>
             <span class="home-destinations__link-chips" aria-hidden="true">
-              {item.chips.map((chip) => <span>{chip}</span>)}
+              {directoryChips(item).map((chip) => <span>{chip}</span>)}
             </span>
           </a>
         );

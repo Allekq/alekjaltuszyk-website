@@ -4,18 +4,19 @@ import SharedAppScaffold from "../../components/landing/sections/SharedAppScaffo
 import SimpleSiteHeader from "../../components/landing/sections/SimpleSiteHeader.astro";
 import { siteRoutes } from "../../config/routes";
 import { siteConfig } from "../../config/site";
+import { appNameList } from "../../lib/appState";
 import { toAbsoluteSiteUrl } from "../../lib/discovery";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
 const personId = `${siteConfig.origin}#person`;
+const appsPageDescription = `Directory of current products by Alek Jałtuszyk: ${appNameList}.`;
 const appsPageStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Apps",
     url: toAbsoluteSiteUrl(siteRoutes.apps.index.path),
-    description:
-      "Directory of current products by Alek Jałtuszyk, including PlanKept, Voice of Self, OverLit, and Take Me Somewhere.",
+    description: appsPageDescription,
     about: { "@id": personId },
     isPartOf: {
       "@type": "WebSite",
@@ -27,7 +28,7 @@ const appsPageStructuredData = [
 
 <SiteLayout
   title="Apps"
-  description="Shared app directory for Alek Jałtuszyk's current products, including PlanKept, Voice of Self, OverLit, and Take Me Somewhere."
+  description={appsPageDescription}
   pageType="landing"
   structuredData={appsPageStructuredData}
 >

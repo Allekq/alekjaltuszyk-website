@@ -1,9 +1,16 @@
 ---
 import SimpleSiteHeader from "./SimpleSiteHeader.astro";
 import { audioBookChoicesConfig, siteConfig } from "../../../config/site";
-import { siteRoutes } from "../../../config/routes";
+import { appDirectory, siteRoutes, type AppDirectoryItem } from "../../../config/routes";
 import { toAbsoluteSiteUrl } from "../../../lib/discovery";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
+
+const directoryEntry: AppDirectoryItem | undefined = (
+  appDirectory as readonly AppDirectoryItem[]
+).find((item) => item.id === "audio-book-choices");
+const platformLabel = directoryEntry?.platforms.join(" & ") ?? "iOS & Android";
+const isReleased = directoryEntry?.releaseStage === "released";
+const eyebrow = isReleased ? platformLabel : `${platformLabel} — not released yet`;
 
 const structuredData = [
   {
@@ -35,9 +42,16 @@ const structuredData = [
     />
 
     <main class="abc-simple-site__main">
-      <p class="abc-simple-site__eyebrow">iOS &amp; Android</p>
+      <p class="abc-simple-site__eyebrow">{eyebrow}</p>
       <h1 id="abc-title">Audio Book Choices</h1>
       <div class="abc-simple-site__copy">
+        {!isReleased && (
+          <p>
+            Audio Book Choices is still in development. It is not on the App Store or Google
+            Play yet, so there is nothing to download from this page today. Everything below
+            describes how the app works once it ships.
+          </p>
+        )}
         <p>
           Audio Book Choices is an interactive &ldquo;choose your story&rdquo; audiobook app. You
           listen to an AI-narrated story and steer where it goes with simple Yes or No choices,

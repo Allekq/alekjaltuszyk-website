@@ -30,6 +30,8 @@ behind Voice of Self. OverLit App is the app repo behind OverLit.
 - Do not dump homepage markup into `src/pages/index.astro`.
 - Do not hardcode repeated sizes, spacing, colors, radii, or motion values when
   tokens should own them.
+- Do not hardcode app counts or availability claims in prose. Derive them from
+  `src/lib/appState.ts`; see `skills/app-state-truth/SKILL.md`.
 - Do not add backend flows, auth, databases, or fake form handling. This site
   is static and public.
 - Do not create a second styling system when the token layer can be extended
@@ -40,7 +42,11 @@ behind Voice of Self. OverLit App is the app repo behind OverLit.
 - `src/pages/index.astro`
   Composition only.
 - `src/config/routes.ts`
-  Single source of truth for route hierarchy and app destinations.
+  Single source of truth for route hierarchy, app destinations, and the app
+  list (`appDirectory`) including each app's release stage.
+- `src/lib/appState.ts`
+  Derived app counts, numerals, plurals, name lists, and release wording. Public
+  copy must import these instead of hardcoding counts or availability claims.
 - `src/layouts/SiteLayout.astro`
   Shared shell only.
 - `src/components/landing/orchestrator/HomePageOrchestrator.astro`
@@ -110,6 +116,7 @@ Run these after meaningful site changes:
 
 ## Repo Skill Sources
 
+- `skills/app-state-truth/SKILL.md`
 - `skills/landing-page-workflow/SKILL.md`
 - `skills/legal-update-sync/SKILL.md`
 - `skills/roam-timeline-variants/SKILL.md`
