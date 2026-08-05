@@ -1,0 +1,133 @@
+/* Take Me Somewhere: viewport adaptations, phone first. */
+
+@media (max-width: 68rem) {
+  .tms-hero__grid,
+  .tms-plan__panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tms-hero__stage {
+    margin-inline: auto;
+    max-width: 30rem;
+    width: 100%;
+  }
+
+  .tms-modes__pair,
+  .tms-truth__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tms-truth__list {
+    gap: 1rem;
+  }
+}
+
+/*
+ * The route scene stacks: the map sticks under the header and the four beats
+ * scroll beneath it, so the walk still reads as a walk on a phone.
+ */
+@media (max-width: 62rem) {
+  .tms-route__scene {
+    display: block;
+  }
+
+  .tms-route__stage {
+    top: clamp(4.2rem, 12vh, 5.6rem);
+  }
+
+  /*
+   * The frame spans the same width as the beats sliding under it and drops its
+   * translucency, so nothing shows through or pokes out at the sides. The map
+   * letterboxes inside a shorter box to leave the beats room on screen.
+   */
+  .tms-route__frame {
+    background: linear-gradient(168deg, #12332a, #04100e);
+    max-width: none;
+  }
+
+  .tms-map--showcase {
+    aspect-ratio: 16 / 9;
+  }
+
+  .tms-route__beats {
+    gap: clamp(6rem, 32vh, 11rem);
+    padding-block: clamp(2.5rem, 10vh, 4.5rem) clamp(4.5rem, 22vh, 8rem);
+  }
+
+  .tms-route__beat-body {
+    max-width: none;
+  }
+}
+
+@media (max-width: 52rem) {
+  .tms-hero__ticket {
+    bottom: auto;
+    left: auto;
+    margin-top: 1rem;
+    position: relative;
+    width: 100%;
+  }
+
+  .tms-modes__visual {
+    aspect-ratio: 5 / 4;
+  }
+}
+
+@media (max-width: 40rem) {
+  .tms-hero {
+    padding-block: 1rem 1.5rem;
+  }
+
+  .tms-hero__title {
+    font-size: clamp(2.2rem, 11vw, 3rem);
+  }
+
+  .tms-hero__dial {
+    width: min(100%, 19rem);
+  }
+
+  .tms-plan__option {
+    flex: 1 1 auto;
+    font-size: 0.85rem;
+    min-height: 2.7rem;
+    padding-inline: 0.6rem;
+  }
+
+  /* Keep the four time budgets on one row rather than orphaning the last one. */
+  .tms-plan__group:first-of-type .tms-plan__options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .tms-plan__reach {
+    aspect-ratio: 5 / 3;
+  }
+
+  .tms-route__frame {
+    padding: 0.5rem;
+  }
+
+  .tms-route__hud-item--mode {
+    margin-left: auto;
+  }
+}
+
+/* Short landscape phones: the sticky map would eat the whole viewport. */
+@media (max-height: 34rem) and (orientation: landscape) {
+  .tms-route__stage {
+    position: static;
+  }
+
+  .tms-route__beats {
+    gap: 2rem;
+    padding-block: 2rem;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .tms-hero__ticket,
+  .tms-modes__hint,
+  .tms-page .app-header__bar {
+    backdrop-filter: none;
+  }
+}

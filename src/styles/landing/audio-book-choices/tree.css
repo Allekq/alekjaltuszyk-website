@@ -1,0 +1,330 @@
+/*
+ * The branching-story tree.
+ *
+ * Each branch carries `--edge-at` (where in the scene it starts drawing) and
+ * `--edge-scale` (the reciprocal of its window) as inline custom properties, so
+ * `--scene-progress` turns into a per-branch 0..1 with multiplication only —
+ * no division inside calc(), which keeps older engines happy.
+ */
+
+.abc-tree {
+  display: block;
+  height: auto;
+  overflow: visible;
+  width: 100%;
+}
+
+.abc-tree__edge {
+  fill: none;
+  stroke-dasharray: var(--edge-length);
+  stroke-linecap: round;
+  stroke-width: 2.6;
+  opacity: 0.62;
+}
+
+.abc-tree__edge.is-lit {
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--abc-ember) 60%, transparent));
+  opacity: 1;
+  stroke-width: 4;
+}
+
+.abc-tree__node-halo {
+  fill: color-mix(in srgb, var(--abc-paper) 8%, transparent);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.abc-tree__node-core {
+  fill: var(--abc-paper);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.abc-tree__node--yes .abc-tree__node-core {
+  fill: var(--abc-ember);
+}
+
+.abc-tree__node--no .abc-tree__node-core {
+  fill: var(--abc-tide);
+}
+
+.abc-tree__node--root .abc-tree__node-halo {
+  fill: color-mix(in srgb, var(--abc-paper) 16%, transparent);
+}
+
+.abc-tree__ending-disc {
+  fill: rgb(10 7 20 / 88%);
+  stroke: currentcolor;
+  stroke-width: 1.4;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.abc-tree__ending-mark {
+  fill: currentcolor;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.abc-tree__ending-mark path {
+  fill: none;
+}
+
+.abc-tree__ending-mark .abc-tree__ending-fill {
+  fill: currentcolor;
+  stroke: none;
+}
+
+.abc-tree__ending--win {
+  color: #ffd08a;
+}
+
+.abc-tree__ending--death {
+  color: #ff7b7b;
+}
+
+.abc-tree__ending--neutral {
+  color: var(--abc-tide);
+}
+
+/* ---- Hero tree: draws itself once, on entry ------------------------------ */
+
+.abc-tree--hero .abc-tree__edge {
+  animation: abc-edge-draw 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--edge-at) * 1.9s + 0.25s);
+}
+
+.abc-tree--hero :is(.abc-tree__node-core, .abc-tree__node-halo) {
+  animation: abc-node-pop 620ms cubic-bezier(0.22, 1.4, 0.36, 1) both;
+  animation-delay: calc(var(--node-at) * 1.9s + 0.45s);
+}
+
+/* A marker that walks one root-to-leaf run; `offset-path` is set inline so the
+   path data stays with the component that generated it. */
+.abc-tree__runner {
+  animation: abc-runner-travel 5.6s cubic-bezier(0.55, 0, 0.45, 1) infinite;
+  fill: var(--abc-paper);
+  filter: drop-shadow(0 0 8px var(--abc-ember));
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+  stroke: none;
+}
+
+@supports not (offset-distance: 0%) {
+  .abc-tree__runner {
+    display: none;
+  }
+}
+
+/* ---- Showcase tree: drawn by scroll -------------------------------------- */
+
+.abc-tree--showcase .abc-tree__edge {
+  --edge-draw: clamp(0, (var(--scene-progress) - var(--edge-at)) * var(--edge-scale), 1);
+  stroke-dashoffset: calc(var(--edge-length) * (1 - var(--edge-draw)));
+}
+
+.abc-tree--showcase :is(.abc-tree__node-core, .abc-tree__node-halo) {
+  --node-pop: clamp(0, (var(--scene-progress) - var(--node-at)) * var(--node-scale), 1);
+  opacity: var(--node-pop);
+  transform: scale(calc(0.4 + var(--node-pop) * 0.6));
+}
+
+.abc-tree--showcase :is(.abc-tree__ending-disc, .abc-tree__ending-mark) {
+  --node-pop: clamp(0, (var(--scene-progress) - var(--node-at)) * var(--node-scale), 1);
+  opacity: var(--node-pop);
+  transform: scale(calc(0.3 + var(--node-pop) * 0.7));
+}
+
+/* ---- The pinned scene ---------------------------------------------------- */
+
+.abc-tree-scene {
+  align-items: start;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+}
+
+.abc-tree-scene__stage {
+  align-self: start;
+  grid-column: 2;
+  order: 2;
+  position: sticky;
+  top: 7.6rem;
+  /* Beats scroll underneath, so the stage has to win the paint order. */
+  z-index: 2;
+}
+
+.abc-tree-scene__frame {
+  backdrop-filter: blur(20px);
+  background: linear-gradient(165deg, rgb(38 24 58 / 80%), rgb(12 8 22 / 90%));
+  border: 1px solid var(--app-line);
+  border-radius: clamp(1.2rem, 2.6vw, 1.9rem);
+  box-shadow: 0 36px 84px rgb(0 0 0 / 44%);
+  display: grid;
+  gap: clamp(0.9rem, 2vw, 1.3rem);
+  padding: clamp(1rem, 2.4vw, 1.6rem);
+}
+
+.abc-tree-scene__rail {
+  background: color-mix(in srgb, var(--abc-paper) 10%, transparent);
+  border-radius: 999px;
+  height: 3px;
+  overflow: hidden;
+}
+
+.abc-tree-scene__rail-fill {
+  background: linear-gradient(90deg, var(--abc-ember), var(--abc-tide));
+  display: block;
+  height: 100%;
+  transform: scaleX(var(--scene-progress));
+  transform-origin: left;
+  width: 100%;
+}
+
+.abc-tree-scene__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.1rem;
+}
+
+.abc-tree-scene__legend-item {
+  align-items: center;
+  color: var(--app-ink-mute);
+  display: inline-flex;
+  font-size: var(--text-caption);
+  font-weight: 800;
+  gap: 0.45rem;
+  letter-spacing: 0.1em;
+  opacity: calc(0.3 + var(--item-progress) * 0.7);
+  text-transform: uppercase;
+  transition: color var(--motion-standard);
+}
+
+.abc-tree-scene__legend-item.is-item-active {
+  color: var(--app-ink);
+}
+
+.abc-tree-scene__legend-dot {
+  border-radius: 999px;
+  height: 0.55rem;
+  transform: scale(calc(0.5 + var(--item-progress) * 0.5));
+  width: 0.55rem;
+}
+
+.abc-tree-scene__legend-item.is-win .abc-tree-scene__legend-dot {
+  background: #ffd08a;
+  box-shadow: 0 0 10px #ffd08a;
+}
+
+.abc-tree-scene__legend-item.is-death .abc-tree-scene__legend-dot {
+  background: #ff7b7b;
+  box-shadow: 0 0 10px #ff7b7b;
+}
+
+.abc-tree-scene__legend-item.is-neutral .abc-tree-scene__legend-dot {
+  background: var(--abc-tide);
+  box-shadow: 0 0 10px var(--abc-tide);
+}
+
+.abc-tree-scene__beats {
+  display: grid;
+  gap: clamp(9rem, 26vh, 16rem);
+  grid-column: 1;
+  order: 1;
+  padding-block: clamp(2rem, 8vh, 6rem) clamp(6rem, 22vh, 12rem);
+}
+
+.abc-tree-scene__beat {
+  border-left: 2px solid color-mix(in srgb, var(--abc-ember) 34%, transparent);
+  display: grid;
+  gap: 0.6rem;
+  padding-left: clamp(0.9rem, 2vw, 1.4rem);
+}
+
+.abc-tree-scene__beat-kicker {
+  color: var(--abc-ember);
+  font-size: var(--text-label);
+  font-weight: 850;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.abc-tree-scene__beat-title {
+  font-size: clamp(1.35rem, 2.7vw, 1.95rem);
+  letter-spacing: -0.03em;
+  line-height: 1.14;
+}
+
+.abc-tree-scene__beat-body {
+  color: var(--app-ink-soft);
+  line-height: 1.75;
+  max-width: 26rem;
+}
+
+@keyframes abc-edge-draw {
+  from {
+    stroke-dashoffset: var(--edge-length);
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes abc-node-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes abc-runner-travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  76% {
+    offset-distance: 100%;
+    opacity: 1;
+  }
+
+  88%,
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abc-tree--hero .abc-tree__edge,
+  .abc-tree--hero :is(.abc-tree__node-core, .abc-tree__node-halo) {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+    transform: none;
+  }
+
+  .abc-tree__runner {
+    display: none;
+  }
+
+  .abc-tree-scene__legend-item,
+  .abc-tree-scene__legend-dot {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

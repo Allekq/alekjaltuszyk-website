@@ -1,0 +1,112 @@
+---
+import ActionButton from "../../ui/ActionButton.astro";
+import { heroBadges } from "./overlit.data";
+import { overLitConfig } from "../../../../config/site";
+---
+
+<section class="overlit-hero" id="play">
+  <div class="overlit-hero__field" aria-hidden="true">
+    <span class="overlit-hero__scan"></span>
+    <span class="overlit-hero__bloom overlit-hero__bloom--cyan"></span>
+    <span class="overlit-hero__bloom overlit-hero__bloom--amber"></span>
+  </div>
+
+  <div class="app-shell overlit-hero__grid">
+    <div class="overlit-hero__copy">
+      <div class="overlit-hero__identity" data-rise style="--rise-index:0">
+        <img
+          class="overlit-hero__icon"
+          src={overLitConfig.iconHref}
+          alt="OverLit app icon"
+          width="96"
+          height="96"
+          decoding="async"
+        />
+        <p class="app-status app-status--live">
+          <span class="app-status__dot"></span>
+          On the App Store
+        </p>
+      </div>
+
+      <h1 class="overlit-hero__title" data-rise style="--rise-index:1">
+        Keep the grid alive.
+      </h1>
+
+      <p class="app-lead overlit-hero__lead" data-rise style="--rise-index:2">
+        {overLitConfig.heroDescription}
+      </p>
+
+      <div class="app-actions" data-rise style="--rise-index:3">
+        <ActionButton
+          href={overLitConfig.primaryCtaHref}
+          label={overLitConfig.primaryCtaLabel}
+          target="_blank"
+        />
+        <ActionButton href="#pressure" variant="ghost" label="How it plays" />
+      </div>
+
+      <ul class="app-chip-row overlit-hero__badges" data-rise style="--rise-index:4">
+        {heroBadges.map((badge) => <li class="app-chip">{badge}</li>)}
+      </ul>
+    </div>
+
+    <div class="overlit-hero__stage" data-rise="scale" style="--rise-index:1">
+      <div
+        class="overlit-board tilt-surface"
+        data-board-demo
+        data-board-size="5"
+        data-board-state="idle"
+        data-tilt
+        data-tilt-strength="0.55"
+      >
+        <div class="overlit-board__hud">
+          <span class="overlit-board__hud-item">
+            <span class="overlit-board__hud-label">Score</span>
+            <strong data-board-score>0</strong>
+          </span>
+          <span class="overlit-board__hud-item">
+            <span class="overlit-board__hud-label">Best</span>
+            <strong data-board-best>0</strong>
+          </span>
+          <span class="overlit-board__hud-item overlit-board__hud-item--lives">
+            <span class="overlit-board__hud-label">Lives</span>
+            <span class="overlit-board__lives" data-board-lives>
+              <span class="overlit-board__life" data-board-life></span>
+              <span class="overlit-board__life" data-board-life></span>
+              <span class="overlit-board__life" data-board-life></span>
+            </span>
+          </span>
+          <span class="overlit-board__hud-item overlit-board__hud-item--clock">
+            <span class="overlit-board__hud-label">Left</span>
+            <strong data-board-clock>25.0s</strong>
+          </span>
+        </div>
+
+        <div class="overlit-board__clock" aria-hidden="true">
+          <span class="overlit-board__clock-fill"></span>
+        </div>
+
+        <div class="overlit-board__grid" data-board-grid role="group" aria-label="Playable demo board"></div>
+
+        <ul class="overlit-board__legend">
+          <li data-phase="lit">Fresh</li>
+          <li data-phase="warning">Heating</li>
+          <li data-phase="critical">About to go</li>
+        </ul>
+
+        <div class="overlit-board__overlay" data-board-overlay>
+          <p class="overlit-board__result" data-board-result>25 seconds. Three lives.</p>
+          <p class="overlit-board__hint">
+            Cells light, heat, then burn out. Tap them before they do — hotter cells are worth more.
+          </p>
+          <button class="overlit-board__start" type="button" data-board-start>Play the demo</button>
+        </div>
+      </div>
+
+      <p class="overlit-hero__stage-note">
+        A stripped-down taste of the loop. The app has levels, modes, stars, and a board that
+        actually fights back.
+      </p>
+    </div>
+  </div>
+</section>

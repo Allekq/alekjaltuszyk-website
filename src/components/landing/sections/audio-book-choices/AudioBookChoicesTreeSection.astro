@@ -1,0 +1,95 @@
+---
+import StoryTreeFigure from "./StoryTreeFigure.astro";
+import { showcaseStoryTree } from "./story-tree.data";
+
+const beats = [
+  {
+    at: 0,
+    kicker: "One line",
+    title: "Every book opens on a single node.",
+    body: "You press play and there is nothing to decide yet. Just narration, and a story getting itself into trouble.",
+  },
+  {
+    at: 0.24,
+    kicker: "First fork",
+    title: "Then it asks, and both answers are real.",
+    body: "Yes is not the story and no is not a detour. They are two different scenes, written and narrated separately.",
+  },
+  {
+    at: 0.5,
+    kicker: "It keeps going",
+    title: "Every branch branches again.",
+    body: "Three turning points is already eight distinct routes through the same book — and none of them is the &lsquo;proper&rsquo; one.",
+  },
+  {
+    at: 0.74,
+    kicker: "Where it lands",
+    title: "Endings come in three flavours.",
+    body: "A win, a death, or something quieter that is neither. The tree fills in behind you, so you can see what you missed and go back for it.",
+  },
+] as const;
+
+const legend = [
+  { kind: "win", label: "Win", at: 0.8 },
+  { kind: "neutral", label: "Neutral", at: 0.86 },
+  { kind: "death", label: "Death", at: 0.92 },
+] as const;
+---
+
+<section class="app-section abc-tree-section" id="tree">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--wide" data-rise>
+      <p class="app-eyebrow">The whole shape</p>
+      <h2 class="app-title">A book is a tree, and you only ever hear one walk through it.</h2>
+      <p class="app-lead">
+        Scroll and it draws itself, the same way the app unveils it while you explore.
+      </p>
+    </header>
+
+    <div class="abc-tree-scene" data-scene data-scene-mode="pin">
+      <div class="abc-tree-scene__stage" data-scene-pin>
+        <div class="abc-tree-scene__frame">
+          <div class="abc-tree-scene__rail" aria-hidden="true">
+            <span class="abc-tree-scene__rail-fill"></span>
+          </div>
+
+          <StoryTreeFigure
+            className="abc-tree--showcase"
+            idPrefix="abc-showcase-tree"
+            showEndings
+            tree={showcaseStoryTree}
+          />
+
+          <ul class="abc-tree-scene__legend">
+            {legend.map((entry) => (
+              <li
+                class:list={["abc-tree-scene__legend-item", `is-${entry.kind}`]}
+                data-scene-item
+                data-item-at={entry.at}
+                data-item-span="0.06"
+              >
+                <span class="abc-tree-scene__legend-dot"></span>
+                {entry.label}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <ol class="abc-tree-scene__beats">
+        {beats.map((beat) => (
+          <li
+            class="abc-tree-scene__beat scene-beat"
+            data-scene-item
+            data-item-at={beat.at}
+            data-item-span="0.18"
+          >
+            <p class="abc-tree-scene__beat-kicker">{beat.kicker}</p>
+            <h3 class="abc-tree-scene__beat-title">{beat.title}</h3>
+            <p class="abc-tree-scene__beat-body" set:html={beat.body} />
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

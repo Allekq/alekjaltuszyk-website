@@ -1,0 +1,577 @@
+/* OverLit: pressure ladder, levels, modes, screenshots, and close. */
+
+/* ---- Pressure scene ------------------------------------------------------ */
+
+.overlit-pressure__scene {
+  align-items: start;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.overlit-pressure__stage {
+  align-self: start;
+  grid-column: 2;
+  position: sticky;
+  top: 7.6rem;
+  /* Beats scroll underneath, so the stage has to win the paint order. */
+  z-index: 2;
+}
+
+.overlit-pressure__cellframe {
+  background: linear-gradient(170deg, rgb(22 29 42 / 88%), rgb(9 12 19 / 94%));
+  border: 1px solid var(--app-line);
+  border-radius: 0.9rem;
+  box-shadow: 0 30px 70px rgb(0 0 0 / 46%);
+  display: grid;
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+  justify-items: center;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+}
+
+.overlit-pressure__cell {
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  isolation: isolate;
+  position: relative;
+  width: min(100%, 16rem);
+}
+
+.overlit-pressure__cell-face,
+.overlit-pressure__cell-layer,
+.overlit-pressure__cell-break {
+  border-radius: inherit;
+  inset: 0;
+  position: absolute;
+}
+
+.overlit-pressure__cell-face {
+  background: linear-gradient(180deg, #202a3a, #151c28);
+  border: 1px solid rgb(226 239 250 / 8%);
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 6%);
+}
+
+.overlit-pressure__cell-layer {
+  opacity: var(--item-progress);
+}
+
+.overlit-pressure__cell-layer.is-lit {
+  background: linear-gradient(180deg, var(--ol-cyan-hot), var(--ol-cyan));
+  box-shadow: 0 0 46px rgb(70 213 241 / 52%);
+}
+
+.overlit-pressure__cell-layer.is-warning {
+  background: linear-gradient(180deg, var(--ol-amber-hot), var(--ol-amber));
+  box-shadow: 0 0 52px rgb(255 195 86 / 54%);
+}
+
+.overlit-pressure__cell-layer.is-critical {
+  background: linear-gradient(180deg, var(--ol-critical-hot), var(--ol-critical));
+  box-shadow: 0 0 62px rgb(255 95 107 / 62%);
+}
+
+/* The collapse: the cell drains back to dark and cracks. */
+.overlit-pressure__cell-break {
+  background:
+    linear-gradient(
+      118deg,
+      transparent 47.2%,
+      rgb(7 10 17 / 92%) 47.2% 52.8%,
+      transparent 52.8%
+    ),
+    linear-gradient(
+      62deg,
+      transparent 45%,
+      rgb(7 10 17 / 70%) 45% 49%,
+      transparent 49%
+    ),
+    rgb(9 12 19 / calc(var(--item-progress) * 88%));
+  opacity: var(--item-progress);
+}
+
+.overlit-pressure__ladder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.overlit-pressure__rung {
+  align-items: center;
+  color: var(--app-ink-mute);
+  display: inline-flex;
+  font-size: 0.66rem;
+  font-weight: 900;
+  gap: 0.4rem;
+  letter-spacing: 0.16em;
+  opacity: calc(0.34 + var(--item-progress) * 0.66);
+  text-transform: uppercase;
+  transition: color var(--motion-standard);
+}
+
+.overlit-pressure__rung.is-item-active {
+  color: var(--app-ink);
+}
+
+.overlit-pressure__rung-dot {
+  border-radius: 0.14rem;
+  height: 0.5rem;
+  transform: scale(calc(0.7 + var(--item-progress) * 0.5));
+  width: 0.5rem;
+}
+
+.overlit-pressure__rung.is-idle .overlit-pressure__rung-dot {
+  background: rgb(226 239 250 / 34%);
+}
+
+.overlit-pressure__rung.is-lit .overlit-pressure__rung-dot {
+  background: var(--ol-cyan);
+  box-shadow: 0 0 10px var(--ol-cyan);
+}
+
+.overlit-pressure__rung.is-warning .overlit-pressure__rung-dot {
+  background: var(--ol-amber);
+  box-shadow: 0 0 10px var(--ol-amber);
+}
+
+.overlit-pressure__rung.is-critical .overlit-pressure__rung-dot {
+  background: var(--ol-critical);
+  box-shadow: 0 0 10px var(--ol-critical);
+}
+
+.overlit-pressure__rung.is-gone .overlit-pressure__rung-dot {
+  background: rgb(226 239 250 / 18%);
+  box-shadow: inset 0 0 0 1px rgb(255 95 107 / 60%);
+}
+
+.overlit-pressure__beats {
+  display: grid;
+  gap: clamp(7rem, 22vh, 13rem);
+  grid-column: 1;
+  padding-block: clamp(2rem, 8vh, 5rem) clamp(5rem, 20vh, 10rem);
+}
+
+.overlit-pressure__beat {
+  border-left: 2px solid color-mix(in srgb, var(--ol-cyan) 34%, transparent);
+  display: grid;
+  gap: 0.5rem;
+  padding-left: clamp(0.9rem, 2vw, 1.4rem);
+}
+
+.overlit-pressure__beat-label {
+  color: var(--ol-cyan);
+  font-size: var(--text-label);
+  font-weight: 900;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.overlit-pressure__beat-title {
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  line-height: 1.1;
+}
+
+.overlit-pressure__beat-body {
+  color: var(--app-ink-soft);
+  line-height: 1.72;
+  max-width: 26rem;
+}
+
+/* ---- Levels -------------------------------------------------------------- */
+
+.overlit-levels__head {
+  align-items: end;
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+  margin-bottom: clamp(2rem, 5vw, 3.2rem);
+}
+
+.overlit-levels__head .app-section__head {
+  margin-bottom: 0;
+}
+
+.overlit-levels__meter {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.overlit-levels__meter-label,
+.overlit-levels__meter-note {
+  color: var(--app-ink-mute);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.overlit-levels__meter-rail {
+  background: rgb(226 239 250 / 10%);
+  border-radius: 999px;
+  display: block;
+  height: 6px;
+  overflow: hidden;
+}
+
+.overlit-levels__meter-fill {
+  animation: overlit-meter-swell 6s ease-in-out infinite alternate;
+  background: linear-gradient(90deg, var(--ol-cyan), var(--ol-amber) 62%, var(--ol-critical));
+  display: block;
+  height: 100%;
+  transform-origin: left;
+  width: 100%;
+}
+
+.overlit-levels__list {
+  border-top: 1px solid var(--app-line);
+}
+
+.overlit-levels__item {
+  align-items: baseline;
+  border-bottom: 1px solid var(--app-line);
+  display: grid;
+  gap: 0.4rem 1.2rem;
+  grid-template-columns: 3rem minmax(0, 1fr) 8rem;
+  padding-block: clamp(0.85rem, 2vw, 1.2rem);
+  position: relative;
+  transition: background-color var(--motion-standard);
+}
+
+.overlit-levels__item:hover {
+  background: rgb(141 243 255 / 4%);
+}
+
+.overlit-levels__item-index {
+  color: var(--ol-cyan);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.overlit-levels__item-body {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.overlit-levels__item-name {
+  color: var(--app-ink);
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.overlit-levels__item-detail {
+  color: var(--app-ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+/* A bar that grows down the list: later twists arrive on a hotter board. */
+.overlit-levels__item-rail {
+  align-self: center;
+  background: rgb(226 239 250 / 9%);
+  border-radius: 999px;
+  display: block;
+  height: 5px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.overlit-levels__item-bar {
+  background: linear-gradient(
+    90deg,
+    var(--ol-cyan),
+    var(--ol-amber) 60%,
+    var(--ol-critical)
+  );
+  display: block;
+  height: 100%;
+  transform: scaleX(calc(0.14 + (var(--twist-index) / var(--twist-total)) * 0.86));
+  transform-origin: left;
+  width: 100%;
+}
+
+/* ---- Modes --------------------------------------------------------------- */
+
+.overlit-modes__grid {
+  display: grid;
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: clamp(2rem, 5vw, 3.2rem);
+}
+
+.overlit-modes__card-inner {
+  background:
+    radial-gradient(
+      120% 90% at var(--pointer-x, 50%) var(--pointer-y, 0%),
+      rgb(70 213 241 / calc(6% + var(--tilt-strength, 0) * 14%)),
+      transparent 62%
+    ),
+    linear-gradient(170deg, rgb(22 29 42 / 84%), rgb(10 14 21 / 92%));
+  border: 1px solid var(--app-line);
+  border-radius: 0.85rem;
+  box-shadow: 0 22px 50px rgb(0 0 0 / 34%);
+  display: grid;
+  gap: 0.7rem;
+  height: 100%;
+  padding: clamp(0.95rem, 2.2vw, 1.35rem);
+}
+
+.overlit-mini {
+  background: rgb(7 10 17 / 70%);
+  border: 1px solid rgb(226 239 250 / 7%);
+  border-radius: 0.5rem;
+  display: grid;
+  gap: 0.22rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 0.4rem;
+}
+
+.overlit-mini__cell {
+  animation: overlit-mini-pulse 3.6s ease-in-out infinite;
+  animation-delay: calc(var(--cell-order) * 0.19s);
+  aspect-ratio: 1;
+  background: rgb(226 239 250 / 7%);
+  border-radius: 0.18rem;
+}
+
+.overlit-mini--random .overlit-mini__cell {
+  --mini-hue: var(--ol-cyan);
+}
+
+.overlit-mini--pattern .overlit-mini__cell {
+  --mini-hue: var(--ol-amber);
+}
+
+.overlit-mini--snake .overlit-mini__cell {
+  --mini-hue: var(--ol-cyan-hot);
+  animation-duration: 3s;
+  animation-delay: calc(var(--cell-order) * 0.16s);
+}
+
+.overlit-mini--mixed .overlit-mini__cell {
+  --mini-hue: var(--ol-critical);
+}
+
+.overlit-modes__name {
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+}
+
+.overlit-modes__description {
+  color: var(--app-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.overlit-modes__rulesets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+
+.overlit-modes__rulesets li {
+  background: rgb(141 243 255 / 8%);
+  border: 1px solid var(--app-line);
+  border-radius: 0.4rem;
+  color: var(--app-ink-mute);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.5rem;
+  text-transform: uppercase;
+}
+
+.overlit-modes__footer {
+  align-items: center;
+  border-top: 1px solid var(--app-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.4rem;
+  padding-top: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.overlit-modes__footer-title {
+  color: var(--app-ink);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.overlit-modes__sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.overlit-modes__footer-note {
+  color: var(--app-ink-mute);
+  flex: 1 1 20rem;
+  font-size: var(--text-caption);
+  line-height: 1.6;
+}
+
+/* ---- Screenshots --------------------------------------------------------- */
+
+.overlit-screens__rail {
+  align-items: center;
+  display: grid;
+  gap: clamp(1.2rem, 4vw, 3rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.overlit-screens__slide {
+  display: grid;
+  transform: translate3d(0, var(--parallax-y, 0), 0);
+}
+
+.overlit-screens__figure {
+  display: grid;
+  gap: var(--space-md);
+  justify-items: center;
+}
+
+.overlit-screens__phone {
+  background: #05070c;
+  border: 1px solid rgb(226 239 250 / 18%);
+  border-radius: 1.8rem;
+  box-shadow:
+    0 34px 76px rgb(0 0 0 / 52%),
+    0 0 40px rgb(70 213 241 / 12%);
+  overflow: hidden;
+  padding: 0.42rem;
+  position: relative;
+  width: 100%;
+}
+
+.overlit-screens__phone img {
+  aspect-ratio: 416 / 900;
+  border-radius: 1.45rem;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.overlit-screens__notch {
+  background: #05070c;
+  border-radius: 0 0 0.6rem 0.6rem;
+  height: 0.8rem;
+  left: 50%;
+  position: absolute;
+  top: 0.42rem;
+  transform: translateX(-50%);
+  width: 32%;
+  z-index: 2;
+}
+
+.overlit-screens__glare {
+  background: linear-gradient(
+    118deg,
+    transparent 34%,
+    rgb(226 239 250 / calc(4% + var(--tilt-strength, 0) * 10%)) 50%,
+    transparent 62%
+  );
+  border-radius: inherit;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.overlit-screens__caption {
+  color: var(--app-ink-soft);
+  display: grid;
+  font-size: 0.9rem;
+  gap: 0.3rem;
+  line-height: 1.6;
+  max-width: 22rem;
+  text-align: center;
+}
+
+.overlit-screens__label {
+  color: var(--ol-cyan);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---- Close --------------------------------------------------------------- */
+
+.overlit-close__panel {
+  background: linear-gradient(150deg, rgb(70 213 241 / 14%), rgb(255 195 86 / 8%)),
+    linear-gradient(170deg, rgb(22 29 42 / 92%), rgb(9 12 19 / 96%));
+  border: 1px solid color-mix(in srgb, var(--ol-cyan) 28%, transparent);
+  border-radius: 1rem;
+  display: grid;
+  gap: clamp(0.85rem, 2vw, 1.25rem);
+  justify-items: start;
+  overflow: hidden;
+  padding: clamp(1.5rem, 5vw, 3.2rem);
+  position: relative;
+}
+
+.overlit-close__grid-bg {
+  background-image:
+    linear-gradient(90deg, rgb(141 243 255 / 9%) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(141 243 255 / 8%) 1px, transparent 1px);
+  background-size: 2.4rem 2.4rem;
+  inset: 0;
+  mask-image: radial-gradient(
+    90% 120% at var(--pointer-x, 82%) var(--pointer-y, 20%),
+    #000 10%,
+    transparent 72%
+  );
+  pointer-events: none;
+  position: absolute;
+}
+
+.overlit-close__panel > *:not(.overlit-close__grid-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+.overlit-close__title {
+  font-size: clamp(1.9rem, 5.2vw, 3.3rem);
+  line-height: 1.02;
+  max-width: 18ch;
+}
+
+@keyframes overlit-mini-pulse {
+  0%,
+  62%,
+  100% {
+    background: rgb(226 239 250 / 7%);
+    box-shadow: none;
+  }
+
+  8%,
+  20% {
+    background: var(--mini-hue);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--mini-hue) 60%, transparent);
+  }
+}
+
+@keyframes overlit-meter-swell {
+  from {
+    transform: scaleX(0.22);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlit-mini__cell,
+  .overlit-levels__meter-fill {
+    animation: none;
+  }
+
+  .overlit-levels__meter-fill {
+    transform: scaleX(0.7);
+  }
+}

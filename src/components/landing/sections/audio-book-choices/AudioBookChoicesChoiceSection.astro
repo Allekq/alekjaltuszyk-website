@@ -1,0 +1,146 @@
+---
+import EndingMark from "./EndingMark.astro";
+import ListenerHead from "./ListenerHead.astro";
+import {
+  demoBookNote,
+  demoBookTitle,
+  demoChoiceNodes,
+  demoEndingKindLabels,
+  demoEndingNodes,
+  demoRootId,
+} from "./choice-demo.data";
+---
+
+<section class="app-section abc-choice" id="choice">
+  <div class="app-shell">
+    <header class="app-section__head" data-rise>
+      <p class="app-eyebrow">The turning point</p>
+      <h2 class="app-title">The book stops, and asks you something.</h2>
+      <p class="app-lead">
+        Answer and it keeps going somewhere else. Not a different line of narration &mdash; a
+        different scene, different people, a different ending. Try it: three questions, eight
+        places to land.
+      </p>
+    </header>
+
+    <div class="abc-choice__grid">
+      <div
+        class="abc-player"
+        data-choice-demo
+        data-demo-root={demoRootId}
+        data-demo-steps="3"
+        data-demo-state="playing"
+        data-rise="scale"
+      >
+        <div class="abc-player__chrome">
+          <span class="abc-player__book">
+            <span class="abc-player__book-note">{demoBookNote}</span>
+            {demoBookTitle}
+          </span>
+          <span class="abc-player__step" data-demo-step>0 / 3</span>
+        </div>
+
+        <div class="abc-player__meter" aria-hidden="true">
+          <span class="abc-player__meter-fill"></span>
+        </div>
+
+        <div class="abc-player__stage">
+          {demoChoiceNodes.map((node) => (
+            <article
+              class:list={[
+                "abc-player__panel",
+                "abc-player__panel--choice",
+                node.id === demoRootId && "is-active",
+              ]}
+              data-demo-panel={node.id}
+              data-demo-kind="choice"
+              aria-hidden={node.id === demoRootId ? "false" : "true"}
+              hidden={node.id !== demoRootId}
+            >
+              <div class="abc-player__transport">
+                <span class="abc-player__stamp">{node.stamp}</span>
+                <div class="abc-wave abc-wave--sm" aria-hidden="true">
+                  {Array.from({ length: 9 }, (_, index) => (
+                    <span class="abc-wave__bar" style={`--bar-index:${index}`}></span>
+                  ))}
+                </div>
+              </div>
+
+              <p class="abc-player__line">{node.line}</p>
+              <p class="abc-player__prompt" data-demo-focus tabindex="-1">{node.prompt}</p>
+
+              <div class="abc-player__answers">
+                <button
+                  class="abc-answer abc-answer--yes"
+                  type="button"
+                  data-demo-answer="yes"
+                  data-demo-next={node.yes.next}
+                >
+                  <span class="abc-answer__key">Yes</span>
+                  <span class="abc-answer__label">{node.yes.label}</span>
+                </button>
+                <button
+                  class="abc-answer abc-answer--no"
+                  type="button"
+                  data-demo-answer="no"
+                  data-demo-next={node.no.next}
+                >
+                  <span class="abc-answer__key">No</span>
+                  <span class="abc-answer__label">{node.no.label}</span>
+                </button>
+              </div>
+            </article>
+          ))}
+
+          {demoEndingNodes.map((ending) => (
+            <article
+              class="abc-player__panel abc-player__panel--ending"
+              data-demo-panel={ending.id}
+              data-demo-kind="ending"
+              data-demo-ending-kind={ending.kind}
+              aria-hidden="true"
+              hidden
+            >
+              <p class="abc-player__ending-kind">{demoEndingKindLabels[ending.kind]}</p>
+              <EndingMark kind={ending.kind} />
+              <h3 class="abc-player__ending-title" data-demo-focus tabindex="-1">
+                {ending.title}
+              </h3>
+              <p class="abc-player__line">{ending.line}</p>
+              <button class="abc-player__replay" type="button" data-demo-restart>
+                Go back and choose differently
+              </button>
+            </article>
+          ))}
+        </div>
+
+        <footer class="abc-player__foot">
+          <ol class="abc-player__path is-empty" data-demo-path aria-label="Answers so far"></ol>
+          <div class="abc-player__controls">
+            <button class="abc-player__control" type="button" data-demo-back disabled>
+              Undo
+            </button>
+            <button class="abc-player__control" type="button" data-demo-restart>
+              Restart
+            </button>
+          </div>
+        </footer>
+      </div>
+
+      <aside class="abc-choice__aside" data-rise="right">
+        <ListenerHead hook />
+        <p class="abc-choice__aside-title">Hands stay in your pocket</p>
+        <p class="abc-choice__aside-copy">
+          Tap a button, or answer the way you would answer a person. On iPhone with AirPods or
+          motion-capable Beats, a nod is yes and a shake is no. On Android the headphone buttons
+          do the same job.
+        </p>
+        <ul class="abc-choice__aside-list">
+          <li><span>Nod</span> yes</li>
+          <li><span>Shake</span> no</li>
+          <li><span>Tap</span> always works</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>

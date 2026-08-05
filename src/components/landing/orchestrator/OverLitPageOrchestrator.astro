@@ -1,0 +1,53 @@
+---
+/** Source of truth for the /apps/OverLit/ section order. */
+import AppLandingHeader from "../ui/AppLandingHeader.astro";
+import OverLitCloseSection from "../sections/overlit/OverLitCloseSection.astro";
+import OverLitHero from "../sections/overlit/OverLitHero.astro";
+import OverLitLevelsSection from "../sections/overlit/OverLitLevelsSection.astro";
+import OverLitModesSection from "../sections/overlit/OverLitModesSection.astro";
+import OverLitPressureSection from "../sections/overlit/OverLitPressureSection.astro";
+import OverLitScreensSection from "../sections/overlit/OverLitScreensSection.astro";
+import { overLitConfig } from "../../../config/site";
+---
+
+<div class="app-page overlit-page">
+  <div class="app-page__texture overlit-page__mesh" aria-hidden="true"></div>
+
+  <AppLandingHeader
+    brand={overLitConfig.name}
+    brandHref="#play"
+    iconSrc={overLitConfig.iconHref}
+    iconAlt="OverLit app icon"
+    navigation={overLitConfig.navigation}
+    ctaHref={overLitConfig.primaryCtaHref}
+    ctaLabel={overLitConfig.primaryCtaLabel}
+  />
+
+  <OverLitHero />
+  <OverLitPressureSection />
+  <OverLitLevelsSection />
+  <OverLitModesSection />
+  <OverLitScreensSection />
+  <OverLitCloseSection />
+</div>
+
+<script>
+  import { setupAppLandingMotion } from "../../../scripts/landing/motion";
+  import { setupBoardDemo } from "../../../scripts/landing/overlit/board-demo";
+
+  const boot = () => {
+    setupAppLandingMotion();
+
+    try {
+      setupBoardDemo();
+    } catch (error) {
+      console.error("[overlit] board demo failed", error);
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
+</script>

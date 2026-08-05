@@ -1,0 +1,105 @@
+---
+import ActionButton from "../../ui/ActionButton.astro";
+import StoryTreeFigure from "./StoryTreeFigure.astro";
+import { audioBookChoicesConfig } from "../../../../config/site";
+import { heroBranchEdgeIds, heroBranchPathD, heroStoryTree } from "./story-tree.data";
+
+const isLive = audioBookChoicesConfig.launchStage !== "coming-soon";
+
+const heroChips = [
+  "No ads",
+  "No account",
+  "Offline replay",
+  "iOS & Android",
+] as const;
+---
+
+<section class="abc-hero" id="top">
+  <div class="abc-hero__aura" aria-hidden="true">
+    <span class="abc-hero__aura-orb abc-hero__aura-orb--ember"></span>
+    <span class="abc-hero__aura-orb abc-hero__aura-orb--tide"></span>
+  </div>
+
+  <div class="app-shell abc-hero__grid">
+    <div class="abc-hero__copy">
+      <p class="app-status" data-rise style="--rise-index:0">
+        <span class="app-status__dot"></span>
+        {isLive ? "Out now" : audioBookChoicesConfig.statusLabel}
+      </p>
+
+      <h1 class="abc-hero__title" data-rise style="--rise-index:1">
+        <span class="abc-hero__title-line">Every story here</span>
+        <span class="abc-hero__title-line abc-hero__title-line--accent">listens back.</span>
+      </h1>
+
+      <p class="app-lead abc-hero__lead" data-rise style="--rise-index:2">
+        {audioBookChoicesConfig.heroDescription}
+      </p>
+
+      <div class="app-actions" data-rise style="--rise-index:3">
+        {isLive && audioBookChoicesConfig.primaryCtaHref ? (
+          <ActionButton
+            href={audioBookChoicesConfig.primaryCtaHref}
+            label={audioBookChoicesConfig.primaryCtaLabel}
+            target="_blank"
+          />
+        ) : (
+          <ActionButton href="#choice" label="Make a choice" />
+        )}
+        <ActionButton href="#tree" variant="ghost" label="See the whole tree" />
+      </div>
+
+      <ul class="app-chip-row abc-hero__chips" data-rise style="--rise-index:4">
+        {heroChips.map((chip) => <li class="app-chip">{chip}</li>)}
+      </ul>
+    </div>
+
+    <div class="abc-hero__stage" data-rise="scale" style="--rise-index:2">
+      <div
+        class="abc-hero__panel tilt-surface"
+        data-tilt
+        data-tilt-strength="0.8"
+        data-parallax
+        data-parallax-speed="26"
+      >
+        <div class="abc-hero__panel-head">
+          <span class="abc-hero__panel-title">
+            The Cave
+            <span class="abc-hero__panel-meta">8 endings · 3 turning points</span>
+          </span>
+          <span class="abc-hero__panel-legend">
+            <span class="abc-hero__legend abc-hero__legend--yes">Yes</span>
+            <span class="abc-hero__legend abc-hero__legend--no">No</span>
+          </span>
+        </div>
+
+        <StoryTreeFigure
+          className="abc-tree--hero"
+          idPrefix="abc-hero-tree"
+          litEdgeIds={heroBranchEdgeIds}
+          branchPathD={heroBranchPathD}
+          tree={heroStoryTree}
+        />
+
+      </div>
+
+      <figure class="abc-hero__now parallax-layer" data-parallax data-parallax-speed="-38">
+        <figcaption class="abc-hero__now-label">Now playing</figcaption>
+        <div class="abc-wave" aria-hidden="true">
+          {Array.from({ length: 11 }, (_, index) => (
+            <span class="abc-wave__bar" style={`--bar-index:${index}`}></span>
+          ))}
+        </div>
+        <p class="abc-hero__now-line">&ldquo;Go in?&rdquo;</p>
+        <p class="abc-hero__now-hint">Your path draws itself as you explore.</p>
+      </figure>
+    </div>
+  </div>
+
+  <div class="app-shell abc-hero__cue" data-rise style="--rise-index:5">
+    <span class="app-scroll-cue">
+      <span class="app-scroll-cue__rail" aria-hidden="true"></span>
+      Scroll to answer
+    </span>
+  </div>
+</section>

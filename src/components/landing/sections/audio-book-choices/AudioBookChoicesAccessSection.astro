@@ -1,0 +1,103 @@
+---
+import { audioBookChoicesConfig } from "../../../../config/site";
+
+/*
+ * Access copy tracks the Terms of Use (three free unlocks per installation, a
+ * permanent one-time Book Unlock, and the auto-renewing All Access
+ * subscription). Keep the two in step if either changes.
+ */
+const tiers = [
+  {
+    id: "free",
+    name: "Free to start",
+    price: "Three free unlocks",
+    body: "Every installation gets three unlocks to spend on paid books. Spend one and that book stays open for you.",
+    points: ["No card", "No trial countdown", "No sign-up screen"],
+    tone: "tide",
+  },
+  {
+    id: "book",
+    name: "Book Unlock",
+    price: "One-time purchase",
+    body: "Buy a single book outright and it stays yours. Not a subscription, and it does not renew.",
+    points: ["One specific book", "Replay it as often as you like", "Restorable through the store"],
+    tone: "ember",
+    featured: true,
+  },
+  {
+    id: "all",
+    name: "All Access",
+    price: "Weekly or monthly",
+    body: "Opens the whole catalogue, including books added while it is active. It renews automatically until you cancel.",
+    points: [
+      "Every book in the catalogue",
+      "Cancel in Apple ID or Google Play settings",
+      "Price shown before you buy",
+    ],
+    tone: "dusk",
+  },
+] as const;
+
+const included = [
+  "Playback speed from 0.75× to 2×",
+  "Full lock-screen and notification controls",
+  "Download once, replay offline",
+  "No ads, anywhere in the app",
+  "No account, no name, no email address",
+  "No analytics, no crash reporting, no tracking",
+] as const;
+---
+
+<section class="app-section abc-access" id="access">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--centre" data-rise>
+      <p class="app-eyebrow">Getting in</p>
+      <h2 class="app-title">Start free. Pay only if you want more.</h2>
+      <p class="app-lead">
+        Purchases run through the App Store and Google Play at the price shown before you buy.
+      </p>
+    </header>
+
+    <ul class="abc-access__tiers">
+      {tiers.map((tier, index) => (
+        <li
+          class:list={[
+            "abc-access__tier",
+            `abc-access__tier--${tier.tone}`,
+            "featured" in tier && tier.featured && "is-featured",
+          ]}
+          data-rise="scale"
+          style={`--rise-index:${index}`}
+        >
+          <div class="abc-access__tier-inner tilt-surface" data-tilt data-tilt-strength="0.55">
+            <p class="abc-access__tier-name">{tier.name}</p>
+            <p class="abc-access__tier-price">{tier.price}</p>
+            <p class="abc-access__tier-body">{tier.body}</p>
+            <ul class="abc-access__tier-points">
+              {tier.points.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <div class="abc-access__included" data-rise>
+      <h3 class="abc-access__included-title">In every copy, paid or not</h3>
+      <ul class="abc-access__included-list">
+        {included.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+      <p class="abc-access__fineprint">
+        Purchases and free unlocks are tied to an anonymous identifier for your installation, which
+        is what lets them be restored later. The
+        <a href={audioBookChoicesConfig.privacyHref}>Privacy Policy</a> sets out exactly what that
+        is and what is stored, and the
+        <a href={audioBookChoicesConfig.termsHref}>Terms of Use</a> cover unlocks, subscriptions
+        and cancellation.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,71 @@
+---
+import ListenerHead from "./ListenerHead.astro";
+
+const methods = [
+  {
+    id: "nod",
+    badge: "iPhone",
+    title: "Nod yes. Shake no.",
+    body: "With AirPods or motion-capable Beats, the app reads head motion on the device to catch the answer. Nothing about the movement leaves the phone.",
+  },
+  {
+    id: "press",
+    badge: "Android",
+    title: "Double-tap yes. Triple-tap no.",
+    body: "The headphone button answers through the media session, so the phone can stay in a pocket on Android too.",
+  },
+  {
+    id: "tap",
+    badge: "Both",
+    title: "Or just tap the screen.",
+    body: "Every hands-free route is optional. The two buttons are always there, and they are always the fastest way to be sure.",
+  },
+] as const;
+
+const contexts = ["Walking", "Cooking", "Commuting", "In the dark", "Gym", "Falling asleep"] as const;
+---
+
+<section class="app-section abc-hands" id="hands-free">
+  <div class="app-shell">
+    <div class="abc-hands__grid">
+      <div class="abc-hands__copy">
+        <header class="app-section__head" data-rise>
+          <p class="app-eyebrow">Hands-free</p>
+          <h2 class="app-title">Answer without reaching for anything.</h2>
+          <p class="app-lead">
+            Being asked a question is only good if answering is easy. So the answer can be a
+            movement you were going to make anyway.
+          </p>
+        </header>
+
+        <ul class="abc-hands__list">
+          {methods.map((method, index) => (
+            <li class="abc-hands__card" data-rise style={`--rise-index:${index}`}>
+              <span class="abc-hands__badge">{method.badge}</span>
+              <h3 class="abc-hands__card-title">{method.title}</h3>
+              <p class="abc-hands__card-body">{method.body}</p>
+            </li>
+          ))}
+        </ul>
+
+        <ul class="app-chip-row abc-hands__contexts" data-rise>
+          {contexts.map((context) => <li class="app-chip">{context}</li>)}
+        </ul>
+      </div>
+
+      <div class="abc-hands__stage" data-rise="scale">
+        <div class="abc-hands__ring" aria-hidden="true">
+          <span class="abc-hands__ring-arc abc-hands__ring-arc--one"></span>
+          <span class="abc-hands__ring-arc abc-hands__ring-arc--two"></span>
+          <span class="abc-hands__ring-arc abc-hands__ring-arc--three"></span>
+        </div>
+        <ListenerHead className="abc-head--large abc-head--loop" />
+        <p class="abc-hands__caption">
+          <span class="abc-hands__caption-yes">Nod</span>
+          <span class="abc-hands__caption-sep">/</span>
+          <span class="abc-hands__caption-no">Shake</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

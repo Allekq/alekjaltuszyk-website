@@ -1,0 +1,41 @@
+---
+/**
+ * Closing link rail shared by the standalone app landing pages.
+ * Layout only — each page paints it from its own stylesheet.
+ */
+import { isExternalHref } from "../../../lib/paths";
+
+interface FooterLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface Props {
+  ariaLabel: string;
+  links: readonly FooterLink[];
+  note?: string;
+}
+
+const { ariaLabel, links, note } = Astro.props as Props;
+---
+
+<footer class="app-footer">
+  <nav class="app-footer__links" aria-label={ariaLabel}>
+    {links.map((link) => {
+      const external = link.external ?? (isExternalHref(link.href) && !link.href.startsWith("#"));
+
+      return (
+        <a
+          class="app-footer__link"
+          href={link.href}
+          rel={external ? "noreferrer" : undefined}
+          target={external ? "_blank" : undefined}
+        >
+          {link.label}
+        </a>
+      );
+    })}
+  </nav>
+  {note && <p class="app-footer__note">{note}</p>}
+</footer>

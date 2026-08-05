@@ -366,9 +366,19 @@ export const overLitConfig = {
   defaultDescription:
     "OverLit is a fast reflex arcade game for iPhone by Alek Jałtuszyk. Tap cells, read danger states, clear levels, and keep the grid alive.",
   tagline: "Keep the grid alive.",
+  heroDescription:
+    "A level-based arcade game about reading pressure fast. Cells light up, heat toward danger, change behaviour, and push the board closer to collapse. You get about a second to decide.",
   origin: siteOrigin,
   faviconHref: withBase(overLitIconPath),
   faviconType: "image/png",
+  iconHref: withBase("/media/overlit/app-icon-light-320.png"),
+  navigation: [
+    { label: "Play", href: "#play" },
+    { label: "Pressure", href: "#pressure" },
+    { label: "Levels", href: "#levels" },
+    { label: "Modes", href: "#modes" },
+    { label: "Screens", href: "#screens" },
+  ],
   supportEmail: overLitSupportEmail,
   homeHref: siteRoutes.apps.overLit.href,
   primaryCtaHref: overLitPrimaryCta.href,
@@ -415,9 +425,18 @@ export const takeMeSomewhereConfig = {
   defaultDescription:
     "Take Me Somewhere is a launched iPhone app for spontaneous, time-boxed local route discovery with Compass Mode, Route Mode, and mystery destinations.",
   tagline: "Pick a time. Get a path worth taking.",
+  heroDescription:
+    "Tell it how long you have and what kind of outing you want. It finds somewhere nearby worth walking to, then hands you a compass instead of a spoiler.",
   origin: siteOrigin,
   faviconHref: withBase(takeMeSomewhereIconPath),
   faviconType: "image/png",
+  iconHref: withBase(takeMeSomewhereIconPath),
+  navigation: [
+    { label: "Plan it", href: "#plan" },
+    { label: "The walk", href: "#path" },
+    { label: "Modes", href: "#modes" },
+    { label: "Ground truth", href: "#truth" },
+  ],
   supportEmail: takeMeSomewhereSupportEmail,
   supportHref: siteRoutes.apps.takeMeSomewhereSupport.href,
   supportMailtoHref: buildMailtoHref(
@@ -477,14 +496,34 @@ const audioBookChoicesSupportDraftLines = [
   "",
 ];
 const audioBookChoicesSupportBody = audioBookChoicesSupportDraftLines.join("\r\n");
+const audioBookChoicesIconPath = "/media/apps/audio-book-choices/app-icon.svg";
 
 export const audioBookChoicesConfig = {
   name: "Audio Book Choices",
   homeTitle: "Audio Book Choices | Steer the Story You Hear",
   defaultDescription:
     "Audio Book Choices is an interactive 'choose your story' audiobook app for iOS and Android by Alek Jałtuszyk. Steer AI-narrated stories with Yes/No choices by tapping or nodding with AirPods.",
-  tagline: "Steer the story you hear.",
+  tagline: "Every story here listens back.",
+  heroDescription:
+    "An interactive audiobook that branches on your answer. Yes or no at every turning point, by tap or by nodding your head, and the story genuinely goes somewhere else.",
   origin: siteOrigin,
+  // Unreleased: there is no store link to point at yet. When the app ships,
+  // switch `launchStage` to "app-store" and fill in `primaryCtaHref` — the
+  // landing page reads both and swaps the status pill for a real CTA.
+  launchStage: "coming-soon" as const,
+  statusLabel: "Coming soon — iOS & Android",
+  primaryCtaHref: null as string | null,
+  primaryCtaLabel: "Get the app",
+  faviconHref: withBase(audioBookChoicesIconPath),
+  faviconType: "image/svg+xml",
+  iconHref: withBase(audioBookChoicesIconPath),
+  navigation: [
+    { label: "The choice", href: "#choice" },
+    { label: "The tree", href: "#tree" },
+    { label: "Hands-free", href: "#hands-free" },
+    { label: "Library", href: "#library" },
+    { label: "Access", href: "#access" },
+  ],
   supportEmail: audioBookChoicesSupportEmail,
   homeHref: siteRoutes.apps.audioBookChoices.href,
   directoryHref: siteRoutes.apps.index.href,

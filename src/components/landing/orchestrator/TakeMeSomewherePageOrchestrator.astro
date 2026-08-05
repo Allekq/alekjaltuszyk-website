@@ -1,0 +1,53 @@
+---
+/** Source of truth for the /apps/TakeMeSomewhere/ section order. */
+import AppLandingHeader from "../ui/AppLandingHeader.astro";
+import TakeMeSomewhereCloseSection from "../sections/take-me-somewhere/TakeMeSomewhereCloseSection.astro";
+import TakeMeSomewhereHero from "../sections/take-me-somewhere/TakeMeSomewhereHero.astro";
+import TakeMeSomewhereModesSection from "../sections/take-me-somewhere/TakeMeSomewhereModesSection.astro";
+import TakeMeSomewherePlanSection from "../sections/take-me-somewhere/TakeMeSomewherePlanSection.astro";
+import TakeMeSomewhereRouteSection from "../sections/take-me-somewhere/TakeMeSomewhereRouteSection.astro";
+import { takeMeSomewhereConfig } from "../../../config/site";
+---
+
+<div class="app-page tms-page">
+  <div class="app-page__texture tms-page__contours" aria-hidden="true"></div>
+
+  <AppLandingHeader
+    brand={takeMeSomewhereConfig.name}
+    brandHref="#top"
+    iconSrc={takeMeSomewhereConfig.iconHref}
+    iconAlt="Take Me Somewhere app icon"
+    navigation={takeMeSomewhereConfig.navigation}
+    ctaHref={takeMeSomewhereConfig.primaryCtaHref}
+    ctaLabel={takeMeSomewhereConfig.primaryCtaLabel}
+  />
+
+  <TakeMeSomewhereHero />
+  <TakeMeSomewherePlanSection />
+  <TakeMeSomewhereRouteSection />
+  <TakeMeSomewhereModesSection />
+  <TakeMeSomewhereCloseSection />
+</div>
+
+<script>
+  import { setupAppLandingMotion } from "../../../scripts/landing/motion";
+  import { setupCompassNeedle } from "../../../scripts/landing/take-me-somewhere/compass";
+  import { setupPlanPicker } from "../../../scripts/landing/take-me-somewhere/plan-picker";
+
+  const boot = () => {
+    setupAppLandingMotion();
+
+    try {
+      setupCompassNeedle();
+      setupPlanPicker();
+    } catch (error) {
+      console.error("[take-me-somewhere] interactions failed", error);
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
+</script>

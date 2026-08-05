@@ -1,0 +1,122 @@
+---
+/**
+ * Renders a generated story tree as SVG.
+ *
+ * Every edge carries its own scroll window as inline custom properties, so the
+ * stylesheet can draw the tree branch by branch straight from `--scene-progress`
+ * without any per-frame JavaScript.
+ */
+import type { StoryTree } from "./story-tree.data";
+
+interface Props {
+  branchPathD?: string;
+  className?: string;
+  idPrefix: string;
+  litEdgeIds?: readonly string[];
+  showEndings?: boolean;
+  tree: StoryTree;
+}
+
+const {
+  branchPathD,
+  className,
+  idPrefix,
+  litEdgeIds = [],
+  showEndings = false,
+  tree,
+} = Astro.props as Props;
+
+const lit = new Set(litEdgeIds);
+const yesGradient = `${idPrefix}-yes`;
+const noGradient = `${idPrefix}-no`;
+const glowFilter = `${idPrefix}-glow`;
+---
+
+<svg
+  class:list={["abc-tree", className]}
+  viewBox={`0 0 ${tree.width} ${tree.height}`}
+  preserveAspectRatio="xMidYMid meet"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <linearGradient id={yesGradient} x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="var(--abc-ember-deep)" />
+      <stop offset="100%" stop-color="var(--abc-ember)" />
+    </linearGradient>
+    <linearGradient id={noGradient} x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="var(--abc-tide-deep)" />
+      <stop offset="100%" stop-color="var(--abc-tide)" />
+    </linearGradient>
+    <filter id={glowFilter} x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g class="abc-tree__edges">
+    {tree.edges.map((edge) => (
+      <path
+        class:list={[
+          "abc-tree__edge",
+          `abc-tree__edge--${edge.answer}`,
+          lit.has(edge.id) && "is-lit",
+        ]}
+        d={edge.d}
+        stroke={`url(#${edge.answer === "yes" ? yesGradient : noGradient})`}
+        style={`--edge-length:${edge.length};--edge-at:${edge.at};--edge-scale:${edge.scale}`}
+      />
+    ))}
+  </g>
+
+  {branchPathD && (
+    <circle class="abc-tree__runner" r="4.5" style={`offset-path:path('${branchPathD}')`} />
+  )}
+
+  <g class="abc-tree__nodes">
+    {tree.nodes.map((node) => (
+      <g
+        class:list={["abc-tree__node", `abc-tree__node--${node.answer}`]}
+        style={`--node-at:${node.at};--node-scale:${node.scale}`}
+        transform={`translate(${node.x} ${node.y})`}
+      >
+        <circle class="abc-tree__node-halo" r="13" />
+        <circle class="abc-tree__node-core" r="6" />
+      </g>
+    ))}
+  </g>
+
+  {showEndings && (
+    <g class="abc-tree__endings" filter={`url(#${glowFilter})`}>
+      {tree.endings.map((ending) => (
+        <g
+          class:list={["abc-tree__ending", `abc-tree__ending--${ending.kind}`]}
+          style={`--node-at:${ending.at};--node-scale:${ending.scale}`}
+          transform={`translate(${ending.x} ${ending.y})`}
+        >
+          <circle class="abc-tree__ending-disc" r="15" />
+          {ending.kind === "win" && (
+            <g class="abc-tree__ending-mark">
+              <circle r="4.6" />
+              <path d="M0 -9.5V-7M0 7v2.5M-9.5 0H-7M7 0h2.5M-6.8 -6.8l1.8 1.8M5 5l1.8 1.8M6.8 -6.8l-1.8 1.8M-5 5l-1.8 1.8" />
+            </g>
+          )}
+          {ending.kind === "death" && (
+            <g class="abc-tree__ending-mark">
+              <path d="M-5 -5L5 5M5 -5L-5 5" />
+            </g>
+          )}
+          {ending.kind === "neutral" && (
+            <g class="abc-tree__ending-mark">
+              <circle r="5.4" />
+              <path d="M0 -5.4A5.4 5.4 0 0 0 0 5.4Z" class="abc-tree__ending-fill" />
+            </g>
+          )}
+        </g>
+      ))}
+    </g>
+  )}
+</svg>

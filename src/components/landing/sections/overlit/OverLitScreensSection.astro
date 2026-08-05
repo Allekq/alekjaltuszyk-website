@@ -1,0 +1,66 @@
+---
+import { withBase } from "../../../../lib/paths";
+
+const screenshots = [
+  {
+    src: withBase("/media/overlit/iphone-level-13-gameplay.jpg"),
+    alt: "OverLit level 13 in play, with lit cyan and amber cells across a six by six grid.",
+    label: "Mid-level pressure",
+    caption: "Level 13, twenty-six seconds in, four cells asking at once.",
+    loading: "eager" as const,
+  },
+  {
+    src: withBase("/media/overlit/iphone-levels-stars.jpg"),
+    alt: "OverLit level select screen showing stars earned across handcrafted levels.",
+    label: "Stars, not just clears",
+    caption: "Three tiers per level, so a pass is only the start of the argument.",
+    loading: "lazy" as const,
+  },
+  {
+    src: withBase("/media/overlit/iphone-pattern-mode.jpg"),
+    alt: "OverLit pattern mode screen with survival and time attack options.",
+    label: "Modes",
+    caption: "Pattern family, picking between Survival and Time Attack.",
+    loading: "lazy" as const,
+  },
+] as const;
+---
+
+<section class="app-section overlit-screens" id="screens">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--centre" data-rise>
+      <p class="app-eyebrow">On the phone</p>
+      <h2 class="app-title">Built to be readable with one thumb.</h2>
+    </header>
+
+    <ul class="overlit-screens__rail">
+      {screenshots.map((shot, index) => (
+        <li
+          class="overlit-screens__slide"
+          data-parallax
+          data-parallax-speed={index === 1 ? 40 : -26}
+          data-rise="scale"
+        >
+          <figure class="overlit-screens__figure">
+            <div class="overlit-screens__phone tilt-surface" data-tilt data-tilt-strength="0.8">
+              <span class="overlit-screens__notch" aria-hidden="true"></span>
+              <img
+                src={shot.src}
+                alt={shot.alt}
+                width="416"
+                height="900"
+                loading={shot.loading}
+                decoding="async"
+              />
+              <span class="overlit-screens__glare" aria-hidden="true"></span>
+            </div>
+            <figcaption class="overlit-screens__caption">
+              <span class="overlit-screens__label">{shot.label}</span>
+              {shot.caption}
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

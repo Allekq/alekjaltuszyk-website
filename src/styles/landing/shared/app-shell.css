@@ -1,0 +1,517 @@
+/*
+ * Skeleton for the standalone app landing pages (Audio Book Choices, OverLit,
+ * Take Me Somewhere).
+ *
+ * Every page sets the palette contract below on its own root element; this file
+ * only owns structure, so a page can change its whole look by changing seven
+ * custom properties.
+ *
+ *   --app-ink          primary text
+ *   --app-ink-soft     secondary text
+ *   --app-ink-mute     tertiary text
+ *   --app-line         hairlines and borders
+ *   --app-panel        panel fill
+ *   --app-accent       primary accent
+ *   --app-accent-alt   secondary accent
+ */
+
+/*
+ * These pages paint their own full-bleed world, so they opt out of the shared
+ * frame's max width, padding, and cyan backdrop rather than sitting inside them.
+ */
+.site-frame:has(> .app-page) {
+  max-width: none;
+  padding: 0;
+}
+
+body:has(.app-page) .site-backdrop {
+  display: none;
+}
+
+.app-page {
+  --app-ink: var(--color-text-strong);
+  --app-ink-soft: var(--color-text-muted);
+  --app-ink-mute: var(--color-text-soft);
+  --app-line: var(--color-line);
+  --app-panel: var(--color-bg-card);
+  --app-accent: var(--color-coral);
+  --app-accent-alt: var(--color-mint);
+  --app-gutter: clamp(1.1rem, 4vw, 2.5rem);
+  --app-measure: 72rem;
+
+  color: var(--app-ink-soft);
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: clip;
+  position: relative;
+}
+
+/* Zero-specificity resets, so any page rule can still set its own spacing. */
+:where(.app-page) :where(h1, h2, h3, h4, p, figure, ul, ol) {
+  margin: 0;
+}
+
+:where(.app-page) :where(h1, h2, h3, h4) {
+  color: var(--app-ink);
+  text-wrap: balance;
+}
+
+:where(.app-page) :where(ul, ol) {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+ * Layering: sections stack above the page texture, and the sticky header sits
+ * above both. Textures opt out with `.app-page__texture`.
+ */
+.app-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.app-page > .app-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+}
+
+.app-page__texture {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.app-shell {
+  margin: 0 auto;
+  max-width: var(--app-measure);
+  padding-inline: var(--app-gutter);
+  position: relative;
+  width: 100%;
+}
+
+/* ---- Section rhythm ------------------------------------------------------ */
+
+.app-section {
+  padding-block: clamp(3.25rem, 7.5vw, 6.25rem);
+  position: relative;
+  scroll-margin-top: 5.5rem;
+}
+
+.app-section--tight {
+  padding-block: clamp(2.5rem, 6vw, 4.25rem);
+}
+
+.app-section__head {
+  display: grid;
+  gap: clamp(0.8rem, 2vw, 1.15rem);
+  margin-bottom: clamp(2.2rem, 6vw, 3.6rem);
+  max-width: 44rem;
+}
+
+.app-section__head--wide {
+  max-width: 54rem;
+}
+
+.app-section__head--centre {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.app-eyebrow {
+  align-items: center;
+  color: var(--app-accent);
+  display: inline-flex;
+  font-size: var(--text-label);
+  font-weight: 800;
+  gap: 0.6rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.app-eyebrow::before {
+  background: currentColor;
+  border-radius: 999px;
+  content: "";
+  height: 0.42rem;
+  width: 0.42rem;
+}
+
+.app-section__head--centre .app-eyebrow {
+  justify-self: center;
+}
+
+.app-title {
+  font-size: clamp(2rem, 5.4vw, 3.5rem);
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+
+.app-lead {
+  color: var(--app-ink-soft);
+  font-size: clamp(1rem, 1.6vw, 1.14rem);
+  line-height: 1.75;
+  max-width: 40rem;
+}
+
+.app-section__head--centre .app-lead {
+  margin-inline: auto;
+}
+
+/* ---- Header -------------------------------------------------------------- */
+
+.app-header {
+  padding-block: clamp(0.85rem, 2.5vw, 1.5rem) var(--space-md);
+}
+
+.app-header__inner {
+  margin: 0 auto;
+  max-width: var(--app-measure);
+  padding-inline: var(--app-gutter);
+  width: 100%;
+}
+
+.app-header__bar {
+  background: color-mix(in srgb, var(--app-panel) 84%, transparent);
+  border-color: var(--app-line);
+  gap: 0.75rem;
+}
+
+.app-header.is-scrolled .app-header__bar {
+  background: color-mix(in srgb, var(--app-panel) 95%, transparent);
+  border-color: color-mix(in srgb, var(--app-accent) 26%, var(--app-line) 74%);
+}
+
+.app-header__brand {
+  align-items: center;
+  color: var(--app-ink);
+  display: inline-flex;
+  gap: 0.65rem;
+  white-space: nowrap;
+}
+
+.app-header__icon {
+  border-radius: 0.7rem;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 28%);
+  height: 2.1rem;
+  width: 2.1rem;
+}
+
+.app-header__nav .landing-nav__link {
+  color: var(--app-ink-mute);
+}
+
+.app-header__nav .landing-nav__link:hover,
+.app-header__nav .landing-nav__link:focus-visible,
+.app-header__nav .landing-nav__link.is-active {
+  background: color-mix(in srgb, var(--app-accent) 15%, transparent);
+  color: var(--app-ink);
+}
+
+.app-header__nav .landing-nav__highlight {
+  background: color-mix(in srgb, var(--app-accent) 13%, transparent);
+  border-color: color-mix(in srgb, var(--app-accent) 20%, transparent);
+}
+
+.app-header__note {
+  border: 1px solid var(--app-line);
+  border-radius: var(--radius-pill);
+  color: var(--app-ink-soft);
+  font-size: var(--text-caption);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.62rem 0.95rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---- Status pill --------------------------------------------------------- */
+
+.app-status {
+  align-items: center;
+  background: color-mix(in srgb, var(--app-accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--app-accent) 30%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--app-ink);
+  display: inline-flex;
+  font-size: var(--text-caption);
+  font-weight: 800;
+  gap: 0.55rem;
+  letter-spacing: 0.08em;
+  padding: 0.55rem 0.95rem;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.app-status__dot {
+  background: var(--app-accent);
+  border-radius: 999px;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--app-accent) 60%, transparent);
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.app-status--live .app-status__dot {
+  animation: app-status-ping 2.4s ease-out infinite;
+}
+
+/* ---- Chips --------------------------------------------------------------- */
+
+.app-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.app-chip {
+  background: color-mix(in srgb, var(--app-panel) 70%, transparent);
+  border: 1px solid var(--app-line);
+  border-radius: var(--radius-pill);
+  color: var(--app-ink-soft);
+  font-size: var(--text-caption);
+  font-weight: 750;
+  padding: 0.55rem 0.85rem;
+}
+
+/* ---- Footer -------------------------------------------------------------- */
+
+.app-footer {
+  border-top: 1px solid var(--app-line);
+  display: grid;
+  gap: var(--space-md);
+  margin-top: clamp(2rem, 6vw, 3.5rem);
+  padding-block: clamp(1.6rem, 4vw, 2.4rem) clamp(2.4rem, 6vw, 3.6rem);
+}
+
+.app-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+}
+
+.app-footer__link {
+  color: var(--app-ink-soft);
+  font-size: 0.92rem;
+  font-weight: 750;
+  position: relative;
+  transition: color var(--motion-standard);
+}
+
+.app-footer__link::after {
+  background: var(--app-accent);
+  bottom: -0.28rem;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-standard);
+  width: 100%;
+}
+
+.app-footer__link:hover,
+.app-footer__link:focus-visible {
+  color: var(--app-ink);
+  outline: none;
+}
+
+.app-footer__link:hover::after,
+.app-footer__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.app-footer__note {
+  color: var(--app-ink-mute);
+  font-size: var(--text-caption);
+  line-height: 1.7;
+  max-width: 52rem;
+}
+
+/* ---- Buttons ------------------------------------------------------------- */
+
+.app-page .action-button {
+  min-height: 3.4rem;
+  padding-inline: 1.6rem;
+}
+
+.app-page .action-button--primary {
+  background: linear-gradient(135deg, var(--app-accent), var(--app-accent-alt));
+  box-shadow: 0 18px 38px color-mix(in srgb, var(--app-accent) 30%, transparent);
+  color: #08111a;
+}
+
+.app-page .action-button--ghost {
+  background: color-mix(in srgb, var(--app-panel) 62%, transparent);
+  border-color: var(--app-line);
+  color: var(--app-ink);
+}
+
+.app-page .action-button--ghost:hover,
+.app-page .action-button--ghost:focus-visible {
+  border-color: color-mix(in srgb, var(--app-accent) 45%, transparent);
+}
+
+.app-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+}
+
+/* ---- Scroll cue ---------------------------------------------------------- */
+
+.app-scroll-cue {
+  align-items: center;
+  color: var(--app-ink-mute);
+  display: inline-flex;
+  font-size: var(--text-caption);
+  font-weight: 750;
+  gap: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.app-scroll-cue__rail {
+  background: linear-gradient(180deg, var(--app-accent), transparent);
+  border-radius: 999px;
+  height: 2.6rem;
+  overflow: hidden;
+  position: relative;
+  width: 2px;
+}
+
+.app-scroll-cue__rail::after {
+  animation: app-cue-fall 2.1s ease-in-out infinite;
+  background: var(--app-ink);
+  content: "";
+  height: 0.8rem;
+  left: 0;
+  position: absolute;
+  top: -0.9rem;
+  width: 100%;
+}
+
+@keyframes app-cue-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(3.5rem);
+  }
+}
+
+@keyframes app-status-ping {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--app-accent) 55%, transparent);
+  }
+
+  70%,
+  100% {
+    box-shadow: 0 0 0 0.55rem transparent;
+  }
+}
+
+/*
+ * These pages carry an icon in the brand and four or five nav pills, so the
+ * single-row header runs out of room earlier than the shared one does. Stack it
+ * well before that happens: brand and CTA on the first row, nav underneath.
+ */
+@media (max-width: 64rem) {
+  .app-header__bar {
+    align-items: center;
+    gap: 0.6rem 0.9rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-items: stretch;
+  }
+
+  .app-header__brand {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .app-header__brand span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .app-header__nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start;
+    justify-self: stretch;
+    /* The nav becomes a scroll rail; fade the right edge so a clipped pill reads
+       as "there is more" rather than as a layout mistake. */
+    mask-image: linear-gradient(90deg, #000 86%, transparent 100%);
+    padding: 0;
+    scroll-snap-type: x proximity;
+  }
+
+  .app-header__nav .landing-nav__link {
+    scroll-snap-align: start;
+  }
+
+  .app-header__cta,
+  .app-header__note {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    min-width: 0;
+    width: auto;
+  }
+}
+
+@media (max-width: 52rem) {
+  .app-header__note {
+    font-size: 0.68rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .app-header__icon {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .app-actions .action-button {
+    flex: 1 1 12rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  /* `.app-page .action-button` outranks the shared header rule, so shrink the
+     header CTA here or it crowds the brand off the bar. */
+  .app-page .app-header__cta {
+    font-size: 0.86rem;
+    min-height: 2.5rem;
+    padding-inline: 0.9rem;
+  }
+
+  .app-actions {
+    display: grid;
+  }
+
+  .app-actions .action-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-scroll-cue__rail::after,
+  .app-status--live .app-status__dot {
+    animation: none;
+  }
+
+  .app-footer__link,
+  .app-footer__link::after {
+    transition: none;
+  }
+}

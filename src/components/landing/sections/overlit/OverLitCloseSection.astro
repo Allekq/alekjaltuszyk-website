@@ -1,0 +1,43 @@
+---
+import ActionButton from "../../ui/ActionButton.astro";
+import AppLandingFooter from "../../ui/AppLandingFooter.astro";
+import { overLitConfig } from "../../../../config/site";
+import { siteRoutes } from "../../../../config/routes";
+
+const footerLinks = [
+  { label: "App Store", href: overLitConfig.appStoreHref, external: true },
+  { label: "Support", href: overLitConfig.supportHref },
+  { label: "Privacy Policy", href: overLitConfig.privacyHref },
+  { label: "Terms of Use", href: overLitConfig.termsHref },
+  { label: "All apps", href: siteRoutes.apps.index.href },
+  { label: "Alek Jałtuszyk", href: siteRoutes.home.href },
+] as const;
+---
+
+<section class="app-section app-section--tight overlit-close">
+  <div class="app-shell">
+    <div class="overlit-close__panel tilt-surface" data-tilt data-tilt-strength="0.35" data-rise="scale">
+      <div class="overlit-close__grid-bg" aria-hidden="true"></div>
+      <p class="app-eyebrow">Built for the spare minute</p>
+      <h2 class="overlit-close__title">Watch the board. Trust your timing.</h2>
+      <p class="app-lead">
+        Free to play with ads, no account, and nothing that needs a connection. Your scores stay
+        on your phone.
+      </p>
+      <div class="app-actions">
+        <ActionButton
+          href={overLitConfig.primaryCtaHref}
+          label={overLitConfig.primaryCtaLabel}
+          target="_blank"
+        />
+        <ActionButton href="#play" variant="ghost" label="Play the demo again" />
+      </div>
+    </div>
+
+    <AppLandingFooter
+      ariaLabel="OverLit links"
+      links={footerLinks}
+      note="OverLit is made by Alek Jałtuszyk. Free to play with ads; high scores, unlocks, and settings are stored locally on the device."
+    />
+  </div>
+</section>

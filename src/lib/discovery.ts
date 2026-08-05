@@ -55,7 +55,7 @@ export const discoveryPages = {
       title: "OverLit",
       path: siteRoutes.apps.overLit.path,
       description:
-        "Visual OverLit product page from Alek Jałtuszyk for the fast reflex iPhone arcade game, with launch CTA plus support and legal links.",
+        "Visual OverLit product page from Alek Jałtuszyk for the fast reflex iPhone arcade game, with a playable browser demo of the grid, the cell pressure states, level twists, arcade modes, App Store CTA, and support and legal links.",
     },
     {
       title: "Take Me Somewhere",
@@ -82,7 +82,7 @@ export const discoveryPages = {
       title: "Audio Book Choices",
       path: siteRoutes.apps.audioBookChoices.path,
       description:
-        "Audio Book Choices product page from Alek Jałtuszyk for the interactive 'choose your story' audiobook app on iOS and Android, with Yes/No choices, a branching story tree, on-device progress, and legal links.",
+        "Audio Book Choices product page from Alek Jałtuszyk for the interactive 'choose your story' audiobook app coming to iOS and Android, with a playable sample of the Yes/No choice moment, the branching story tree, hands-free answering, access tiers, and legal links.",
     },
     {
       title: "OverLit Support",

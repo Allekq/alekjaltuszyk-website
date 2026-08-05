@@ -1,0 +1,63 @@
+---
+import ActionButton from "../../ui/ActionButton.astro";
+import AppLandingFooter from "../../ui/AppLandingFooter.astro";
+import { groundTruth } from "./take-me-somewhere.data";
+import { siteRoutes } from "../../../../config/routes";
+import { takeMeSomewhereConfig } from "../../../../config/site";
+
+const footerLinks = [
+  { label: "App Store", href: takeMeSomewhereConfig.appStoreHref, external: true },
+  { label: "Support", href: takeMeSomewhereConfig.supportHref },
+  { label: "Privacy Policy", href: takeMeSomewhereConfig.privacyHref },
+  { label: "Terms of Service", href: takeMeSomewhereConfig.termsHref },
+  { label: "All apps", href: siteRoutes.apps.index.href },
+  { label: "Alek Jałtuszyk", href: siteRoutes.home.href },
+] as const;
+---
+
+<section class="app-section tms-truth" id="truth">
+  <div class="app-shell">
+    <header class="app-section__head" data-rise>
+      <p class="app-eyebrow">Ground truth</p>
+      <h2 class="app-title">What it actually does with the map, and with you.</h2>
+    </header>
+
+    <ul class="tms-truth__list">
+      {groundTruth.map((entry, index) => (
+        <li class="tms-truth__item" data-rise style={`--rise-index:${index}`}>
+          <span class="tms-truth__marker" aria-hidden="true"></span>
+          <h3 class="tms-truth__title">{entry.title}</h3>
+          <p class="tms-truth__body">{entry.body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="app-section app-section--tight tms-close">
+  <div class="app-shell">
+    <div class="tms-close__panel tilt-surface" data-tilt data-tilt-strength="0.35" data-rise="scale">
+      <span class="tms-close__horizon" aria-hidden="true"></span>
+      <p class="app-eyebrow">Go outside</p>
+      <h2 class="tms-close__title">You have twenty minutes. That is enough.</h2>
+      <p class="app-lead">
+        Take Me Somewhere is on the App Store for iPhone. Pick a number, pick a mood, follow the
+        arrow.
+      </p>
+      <div class="app-actions">
+        <ActionButton
+          href={takeMeSomewhereConfig.primaryCtaHref}
+          label={takeMeSomewhereConfig.primaryCtaLabel}
+          target="_blank"
+        />
+        <ActionButton href="#plan" variant="ghost" label="Back to the planner" />
+      </div>
+    </div>
+
+    <AppLandingFooter
+      ariaLabel="Take Me Somewhere links"
+      links={footerLinks}
+      note="Take Me Somewhere is made by Alek Jałtuszyk. Route geometry, distance, and time estimates come from map and routing data; the app uses your current location to work out where you can get to."
+    />
+  </div>
+</section>
