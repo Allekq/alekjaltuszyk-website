@@ -1,25 +1,21 @@
 ---
 import TakeMeSomewherePageOrchestrator from "../orchestrator/TakeMeSomewherePageOrchestrator.astro";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
-import { siteConfig, takeMeSomewhereConfig } from "../../../config/site";
+import { buildAppStructuredData } from "../../../lib/appSchema";
 import { siteRoutes } from "../../../config/routes";
-import { toAbsoluteSiteUrl } from "../../../lib/discovery";
+import { takeMeSomewhereConfig } from "../../../config/site";
 
-const structuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: takeMeSomewhereConfig.name,
-    applicationCategory: "NavigationApplication",
-    operatingSystem: "iOS",
-    url: toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path),
-    description: takeMeSomewhereConfig.defaultDescription,
-    author: {
-      "@type": "Person",
-      name: siteConfig.legalName,
-    },
-  },
-];
+const structuredData = buildAppStructuredData({
+  name: takeMeSomewhereConfig.name,
+  alternateNames: takeMeSomewhereConfig.alternateNames,
+  path: siteRoutes.apps.takeMeSomewhere.path,
+  description: takeMeSomewhereConfig.defaultDescription,
+  applicationCategory: "TravelApplication",
+  applicationSubCategory: "Walking route discovery",
+  operatingSystem: "iOS",
+  downloadUrl: takeMeSomewhereConfig.appStoreHref,
+  featureList: takeMeSomewhereConfig.aiDiscovery.featureList,
+});
 ---
 
 <SiteLayout

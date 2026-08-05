@@ -1,24 +1,22 @@
 /*
  * A miniature, playable OverLit board.
  *
- * Cells light up, heat through warning into critical, and take a life when they
- * burn out. Tap a lit cell to clear it and score. It is a taste of the real
- * game's pressure loop, not a port of it — the app owns the actual rules,
- * levels, and tuning.
+ * Cells ignite, heat through warning into critical, and burn out if they are
+ * left. Tap one to clear it and score; hotter cells are worth more. Failure
+ * follows the app: a burnout ends the run. This is a taste of the pressure
+ * loop, not a port — the app owns the real levels, rulesets, and tuning.
  *
  * Markup contract
  *   [data-board-demo]              root; carries data-board-state
  *     data-board-size="5"          grid edge length
  *     [data-board-grid]            cell container (cells are created here)
  *     [data-board-score]           score readout
- *     [data-board-best]            best-score readout
- *     [data-board-lives]           lives container of [data-board-life] pips
- *     [data-board-clock]           remaining seconds
+ *     [data-board-clock]           elapsed seconds, counting up like the app
  *     [data-board-start]           start / restart button
- *     [data-board-overlay]         idle + game-over panel
- *     [data-board-result]          game-over headline
+ *     [data-board-overlay]         idle + run-end panel
+ *     [data-board-result]          run-end headline
  *
- * No score leaves the page: `best` lives in memory for the visit only.
+ * Nothing is stored: no score leaves the page or survives a reload.
  */
 
 type CellPhase = "idle" | "lit" | "warning" | "critical";
@@ -40,11 +38,11 @@ interface BoardConfig {
 }
 
 const CONFIG: BoardConfig = {
-  criticalMs: 900,
-  litMs: 1500,
+  criticalMs: 1200,
+  litMs: 2000,
   runMs: 25_000,
-  spawnMs: 900,
-  warningMs: 1100,
+  spawnMs: 1250,
+  warningMs: 1500,
 };
 
 const PHASE_MS: Record<Exclude<CellPhase, "idle">, number> = {
@@ -64,8 +62,6 @@ const NEXT_PHASE: Record<Exclude<CellPhase, "idle">, CellPhase | null> = {
   warning: "critical",
   critical: null,
 };
-
-const START_LIVES = 3;
 
 /**
  * Attract mode: a few cells sit lit behind the start overlay, so the board reads
@@ -121,17 +117,13 @@ const setupBoard = (root: HTMLElement) => {
   const size = Number.parseInt(root.dataset.boardSize ?? "5", 10) || 5;
   const total = size * size;
   const scoreOut = root.querySelector<HTMLElement>("[data-board-score]");
-  const bestOut = root.querySelector<HTMLElement>("[data-board-best]");
   const clockOut = root.querySelector<HTMLElement>("[data-board-clock]");
   const resultOut = root.querySelector<HTMLElement>("[data-board-result]");
-  const lifePips = Array.from(root.querySelectorAll<HTMLElement>("[data-board-life]"));
 
   const cells = buildCells(grid, total);
 
   let running = false;
   let score = 0;
-  let best = 0;
-  let lives = START_LIVES;
   let remaining = CONFIG.runMs;
   let sinceSpawn = 0;
   let lastFrame = 0;
@@ -148,40 +140,31 @@ const setupBoard = (root: HTMLElement) => {
   };
 
   const renderReadouts = () => {
+    const elapsed = CONFIG.runMs - Math.max(remaining, 0);
+
     if (scoreOut) {
       scoreOut.textContent = String(score);
     }
 
-    if (bestOut) {
-      bestOut.textContent = String(best);
-    }
-
+    // The app counts elapsed time up rather than counting a budget down.
     if (clockOut) {
-      clockOut.textContent = `${(Math.max(remaining, 0) / 1000).toFixed(1)}s`;
+      clockOut.textContent = (elapsed / 1000).toFixed(1);
     }
 
-    lifePips.forEach((pip, index) => {
-      pip.classList.toggle("is-spent", index >= lives);
-    });
-
-    root.style.setProperty("--board-heat", (1 - lives / START_LIVES).toFixed(3));
-    root.style.setProperty(
-      "--board-clock",
-      (Math.max(remaining, 0) / CONFIG.runMs).toFixed(3),
-    );
+    // Heat rises as the run gets on, which is what tints the board.
+    root.style.setProperty("--board-heat", (elapsed / CONFIG.runMs).toFixed(3));
   };
 
-  const stop = (reason: "time" | "lives") => {
+  const stop = (reason: "time" | "burnout") => {
     running = false;
     root.dataset.boardState = "over";
-    best = Math.max(best, score);
     cells.forEach((cell) => setPhase(cell, "idle"));
 
     if (resultOut) {
       resultOut.textContent =
-        reason === "lives"
-          ? `The board went dark at ${score}.`
-          : `Time. You held it at ${score}.`;
+        reason === "burnout"
+          ? `A cell burned out. You held it to ${score}.`
+          : `Survived. Final score ${score}.`;
     }
 
     startButton.textContent = "Play again";
@@ -190,16 +173,6 @@ const setupBoard = (root: HTMLElement) => {
     if (frameId !== 0) {
       window.cancelAnimationFrame(frameId);
       frameId = 0;
-    }
-  };
-
-  const loseLife = () => {
-    lives -= 1;
-    root.classList.add("is-hit");
-    window.setTimeout(() => root.classList.remove("is-hit"), 320);
-
-    if (lives <= 0) {
-      stop("lives");
     }
   };
 
@@ -228,7 +201,7 @@ const setupBoard = (root: HTMLElement) => {
 
     // Spawns speed up as the clock runs down, so the last seconds bite.
     const urgency = 1 - Math.max(remaining, 0) / CONFIG.runMs;
-    const spawnEvery = CONFIG.spawnMs * (1 - urgency * 0.55);
+    const spawnEvery = CONFIG.spawnMs * (1 - urgency * 0.42);
 
     if (sinceSpawn >= spawnEvery) {
       sinceSpawn = 0;
@@ -236,7 +209,9 @@ const setupBoard = (root: HTMLElement) => {
     }
 
     cells.forEach((cell) => {
-      if (cell.phase === "idle") {
+      // `stop` resets every cell, so a burnout earlier in this pass ends the
+      // loop for the rest of it.
+      if (!running || cell.phase === "idle") {
         return;
       }
 
@@ -253,9 +228,16 @@ const setupBoard = (root: HTMLElement) => {
         return;
       }
 
-      setPhase(cell, "idle");
-      loseLife();
+      // Burnout. In the app what this costs is the level's decision; here it
+      // simply ends the run.
+      root.classList.add("is-hit");
+      window.setTimeout(() => root.classList.remove("is-hit"), 320);
+      stop("burnout");
     });
+
+    if (!running) {
+      return;
+    }
 
     renderReadouts();
 
@@ -267,7 +249,6 @@ const setupBoard = (root: HTMLElement) => {
   const start = () => {
     running = true;
     score = 0;
-    lives = START_LIVES;
     remaining = CONFIG.runMs;
     sinceSpawn = 0;
     lastFrame = performance.now();

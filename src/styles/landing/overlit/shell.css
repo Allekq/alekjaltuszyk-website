@@ -21,10 +21,10 @@
   --app-accent-alt: var(--ol-amber);
 
   background:
-    radial-gradient(90% 48% at 8% 0%, rgb(70 213 241 / 16%), transparent 62%),
-    radial-gradient(80% 46% at 96% 22%, rgb(255 195 86 / 12%), transparent 60%),
-    radial-gradient(120% 60% at 50% 108%, rgb(255 95 107 / 12%), transparent 66%),
-    linear-gradient(176deg, #16202d 0%, var(--ol-deep) 46%, var(--ol-void) 100%);
+    radial-gradient(90% 44% at 10% 0%, rgb(70 213 241 / 11%), transparent 60%),
+    radial-gradient(86% 44% at 94% 26%, rgb(255 195 86 / 9%), transparent 58%),
+    radial-gradient(130% 62% at 50% 106%, rgb(126 70 96 / 26%), transparent 68%),
+    linear-gradient(176deg, #1b2330 0%, #121824 44%, #0a0d14 100%);
   color: var(--app-ink-soft);
 }
 
@@ -40,9 +40,9 @@
   background-image:
     linear-gradient(90deg, rgb(141 243 255 / 6%) 1px, transparent 1px),
     linear-gradient(180deg, rgb(141 243 255 / 5%) 1px, transparent 1px);
-  background-size: 4.5rem 4.5rem;
-  mask-image: radial-gradient(140% 100% at 50% 0%, #000 30%, transparent 86%);
-  opacity: 0.9;
+  background-size: 5.5rem 5.5rem;
+  mask-image: radial-gradient(140% 100% at 50% 0%, #000 22%, transparent 78%);
+  opacity: 0.5;
 }
 
 .overlit-page .app-header__bar {
@@ -172,132 +172,139 @@
 
 .overlit-board {
   --board-heat: 0;
-  --board-clock: 1;
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--ol-critical) calc(var(--board-heat) * 10%), rgb(28 37 52 / 94%)),
-      rgb(11 15 23 / 96%)
-    );
-  border: 1px solid var(--app-line);
-  border-radius: 0.9rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ol-critical) calc(var(--board-heat) * 7%), rgb(30 38 51 / 96%)),
+    rgb(16 21 31 / 97%)
+  );
+  border: 1px solid rgb(226 239 250 / 9%);
+  border-radius: 1.15rem;
   box-shadow:
     0 34px 80px rgb(0 0 0 / 48%),
-    0 0 46px color-mix(in srgb, var(--ol-cyan) calc(8% + var(--board-heat) * 16%), transparent);
+    inset 0 1px 0 rgb(255 255 255 / 5%);
   display: grid;
-  gap: clamp(0.6rem, 1.6vw, 0.95rem);
-  padding: clamp(0.85rem, 2.2vw, 1.25rem);
+  gap: clamp(0.7rem, 1.8vw, 1.05rem);
+  padding: clamp(0.9rem, 2.2vw, 1.3rem);
   position: relative;
-  transition: box-shadow var(--motion-standard);
+  transition: background-color var(--motion-standard);
 }
 
 .overlit-board.is-hit {
   animation: overlit-board-jolt 320ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
 }
 
+/* Mirrors the app's gameplay chrome: run identity left, metrics right. */
 .overlit-board__hud {
+  align-items: start;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.2rem;
+  gap: 0.6rem 1.2rem;
   justify-content: space-between;
 }
 
-.overlit-board__hud-item {
-  align-items: baseline;
+.overlit-board__hud-run {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.overlit-board__hud-level {
+  color: var(--app-ink);
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.overlit-board__hud-goal {
+  color: var(--app-ink-mute);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.overlit-board__hud-metrics {
   display: flex;
-  gap: 0.42rem;
+  gap: 1.3rem;
+}
+
+.overlit-board__hud-item {
+  display: grid;
+  gap: 0.05rem;
+  justify-items: end;
 }
 
 .overlit-board__hud-item strong {
   color: var(--app-ink);
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   font-variant-numeric: tabular-nums;
   font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .overlit-board__hud-label {
   color: var(--app-ink-mute);
-  font-size: 0.62rem;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
-.overlit-board__lives {
+.overlit-board__foot {
+  align-items: center;
   display: flex;
-  gap: 0.28rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.1rem;
+  justify-content: space-between;
 }
 
-.overlit-board__life {
-  background: var(--ol-cyan);
-  border-radius: 0.15rem;
-  box-shadow: 0 0 10px color-mix(in srgb, var(--ol-cyan) 60%, transparent);
-  height: 0.72rem;
-  transition:
-    background-color var(--motion-quick),
-    box-shadow var(--motion-quick),
-    opacity var(--motion-quick);
-  width: 0.34rem;
+.overlit-board__size {
+  color: var(--app-ink-mute);
+  font-size: 0.86rem;
+  font-weight: 700;
 }
 
-.overlit-board__life.is-spent {
-  background: rgb(226 239 250 / 18%);
-  box-shadow: none;
-}
-
-.overlit-board__clock {
-  background: rgb(226 239 250 / 10%);
-  border-radius: 999px;
-  height: 3px;
-  overflow: hidden;
-}
-
-.overlit-board__clock-fill {
-  background: linear-gradient(90deg, var(--ol-cyan), var(--ol-amber), var(--ol-critical));
-  display: block;
-  height: 100%;
-  transform: scaleX(var(--board-clock));
-  transform-origin: left;
-  width: 100%;
-}
-
+/*
+ * Cells match the app: flat saturated fills on rounded squares with generous
+ * gaps, not gradients. The glow is the only embellishment, because readability
+ * under pressure is the whole design brief.
+ */
 .overlit-board__grid {
   display: grid;
-  gap: clamp(0.28rem, 1vw, 0.5rem);
+  gap: clamp(0.34rem, 1.1vw, 0.55rem);
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .overlit-board__cell {
   aspect-ratio: 1;
-  background: linear-gradient(180deg, #202a3a, #171f2c);
-  border: 1px solid rgb(226 239 250 / 7%);
-  border-radius: 0.4rem;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 6%);
+  background: #222a37;
+  border: 1px solid rgb(226 239 250 / 5%);
+  border-radius: 0.62rem;
   cursor: pointer;
   padding: 0;
   position: relative;
   transition:
-    background-color 140ms linear,
-    box-shadow 140ms linear,
+    background-color 130ms linear,
+    box-shadow 130ms linear,
     transform 120ms ease;
   width: 100%;
 }
 
 .overlit-board__cell[data-phase="lit"] {
-  background: linear-gradient(180deg, var(--ol-cyan-hot), var(--ol-cyan));
-  box-shadow: 0 0 18px rgb(70 213 241 / 52%);
+  background: #5dd8f5;
+  border-color: transparent;
+  box-shadow: 0 0 20px rgb(93 216 245 / 42%);
 }
 
 .overlit-board__cell[data-phase="warning"] {
   animation: overlit-cell-throb 700ms ease-in-out infinite alternate;
-  background: linear-gradient(180deg, var(--ol-amber-hot), var(--ol-amber));
-  box-shadow: 0 0 20px rgb(255 195 86 / 56%);
+  background: #f5b95c;
+  border-color: transparent;
+  box-shadow: 0 0 22px rgb(245 185 92 / 46%);
 }
 
 .overlit-board__cell[data-phase="critical"] {
-  animation: overlit-cell-throb 320ms ease-in-out infinite alternate;
-  background: linear-gradient(180deg, var(--ol-critical-hot), var(--ol-critical));
-  box-shadow: 0 0 26px rgb(255 95 107 / 64%);
+  animation: overlit-cell-throb 300ms ease-in-out infinite alternate;
+  background: #f6605f;
+  border-color: transparent;
+  box-shadow: 0 0 26px rgb(246 96 95 / 56%);
 }
 
 .overlit-board__cell.is-cleared {
@@ -318,43 +325,37 @@
  * the board is filled in and labelled instead of played.
  */
 .overlit-board__legend {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 1.1rem;
+  gap: 0.4rem 0.9rem;
 }
 
 .overlit-board__legend li {
   align-items: center;
   color: var(--app-ink-mute);
   display: inline-flex;
-  font-size: 0.66rem;
-  font-weight: 900;
-  gap: 0.4rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+  gap: 0.35rem;
 }
 
 .overlit-board__legend li::before {
-  border-radius: 0.15rem;
+  border-radius: 0.16rem;
   content: "";
   height: 0.55rem;
   width: 0.55rem;
 }
 
 .overlit-board__legend li[data-phase="lit"]::before {
-  background: var(--ol-cyan);
+  background: #5dd8f5;
 }
 
 .overlit-board__legend li[data-phase="warning"]::before {
-  background: var(--ol-amber);
+  background: #f5b95c;
 }
 
 .overlit-board__legend li[data-phase="critical"]::before {
-  background: var(--ol-critical);
-}
-
-.overlit-board[data-board-state="static"] .overlit-board__legend {
-  display: flex;
+  background: #f6605f;
 }
 
 .overlit-board[data-board-state="static"] .overlit-board__overlay {

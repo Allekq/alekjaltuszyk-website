@@ -1,12 +1,15 @@
 /*
  * Copy for the playable choice demo.
  *
- * This is a purpose-written sample, not an excerpt from a shipping book — the
- * point is to let someone feel the shape of the interaction (listen, get asked,
- * answer, land somewhere different) before the app exists to download.
+ * This is written for this page. It is NOT an excerpt from a book in the
+ * catalogue and must never be labelled as one: the shipped books run to dozens
+ * of nodes, and quoting a real one here would either spoil it or misrepresent
+ * its size. The job of this demo is to let someone feel the shape of the
+ * interaction — listen, get asked, answer, land somewhere different — before the
+ * app exists to download.
  *
- * Three questions deep, so every run ends after three answers and every one of
- * the eight endings is reachable.
+ * Three questions deep, so every run ends after three answers and all eight of
+ * its endings are reachable. Those eight are the demo's, not any book's.
  */
 
 export type DemoEndingKind = "win" | "death" | "neutral";
@@ -29,66 +32,66 @@ export interface DemoEndingNode {
   title: string;
 }
 
-export const demoBookTitle = "The Cave";
-export const demoBookNote = "Sample story";
+export const demoLabel = "Sample";
+export const demoNote = "Written for this page";
 export const demoRootId = "q1";
 
 export const demoChoiceNodes: readonly DemoChoiceNode[] = [
   {
     id: "q1",
     stamp: "00:41",
-    line: "The torch gutters at the cave mouth. Behind you the forest has gone quiet in the way forests do when something is listening.",
-    prompt: "Go in?",
-    yes: { label: "Go in", next: "q2a" },
-    no: { label: "Stay out", next: "q2b" },
+    line: "Lights out was forty minutes ago. The guard on the east landing has walked the same eleven paces all week, and tonight, for the first time, he has stopped.",
+    prompt: "Go now?",
+    yes: { label: "Go now", next: "q2a" },
+    no: { label: "Wait a night", next: "q2b" },
   },
   {
     id: "q2a",
     stamp: "03:18",
-    line: "Twenty paces in, the passage splits. One way breathes warm air. The other drips, steadily, from somewhere far below.",
-    prompt: "Follow the warm air?",
-    yes: { label: "Follow the warmth", next: "q3a" },
-    no: { label: "Follow the water", next: "q3b" },
+    line: "The landing door gives. Two routes down: the laundry stair, warm and loud and full of people who owe you nothing, or the service shaft, cold and empty and a very long way.",
+    prompt: "Take the stair?",
+    yes: { label: "Take the stair", next: "q3a" },
+    no: { label: "Take the shaft", next: "q3b" },
   },
   {
     id: "q2b",
     stamp: "02:55",
-    line: "You back away. Halfway to the treeline you notice a second set of footprints in the mud, going in. They are small, and recent.",
-    prompt: "Call out?",
-    yes: { label: "Call out", next: "q3c" },
-    no: { label: "Keep quiet", next: "q3d" },
+    line: "You lie still and let it pass. In the morning your cellmate is gone, his bunk stripped, and nobody will say to where. By evening a note is under your mattress in handwriting you know.",
+    prompt: "Read it?",
+    yes: { label: "Read it", next: "q3c" },
+    no: { label: "Burn it", next: "q3d" },
   },
   {
     id: "q3a",
     stamp: "07:02",
-    line: "The warm passage opens into a chamber lit from above — a crack in the rock, and daylight falling on something that was left here on purpose.",
-    prompt: "Take it?",
-    yes: { label: "Take it", next: "e1" },
-    no: { label: "Leave it", next: "e2" },
+    line: "The laundry is running. Steam, noise, and a man at the far door who sees you, and keeps folding, and does not look up again.",
+    prompt: "Walk past him?",
+    yes: { label: "Walk past him", next: "e1" },
+    no: { label: "Ask what he wants", next: "e2" },
   },
   {
     id: "q3b",
     stamp: "07:40",
-    line: "The dripping leads to a ledge above black water. Something down there moves with the patience of a thing that has waited a long time.",
-    prompt: "Climb down?",
-    yes: { label: "Climb down", next: "e3" },
-    no: { label: "Turn back", next: "e4" },
+    line: "Four floors down the shaft, your torch finds a grille that was welded shut a long time ago — and, an arm's length beyond it, a draught that should not exist.",
+    prompt: "Force the grille?",
+    yes: { label: "Force it", next: "e3" },
+    no: { label: "Climb back", next: "e4" },
   },
   {
     id: "q3c",
     stamp: "06:12",
-    line: "Your voice comes back to you three times, then a fourth that is not yours. It answers from inside the hill.",
-    prompt: "Go after it?",
-    yes: { label: "Go after it", next: "e5" },
-    no: { label: "Run", next: "e6" },
+    line: "Six words, a time, and a gate number. It is either the best thing anyone has ever done for you or the last mistake you will be allowed to make.",
+    prompt: "Trust it?",
+    yes: { label: "Trust it", next: "e5" },
+    no: { label: "Hand it in", next: "e6" },
   },
   {
     id: "q3d",
     stamp: "06:48",
-    line: "You follow the small prints at a distance until they stop at a rockfall. There is a gap. There is also a way around, the long way, in the dark.",
-    prompt: "Take the gap?",
-    yes: { label: "Take the gap", next: "e7" },
-    no: { label: "Take the long way", next: "e8" },
+    line: "You burn it unread and sleep badly. Three days later the gate he meant comes up in conversation, casually, from a guard who has never once spoken to you.",
+    prompt: "Answer him?",
+    yes: { label: "Answer him", next: "e7" },
+    no: { label: "Say nothing", next: "e8" },
   },
 ];
 
@@ -97,57 +100,57 @@ export const demoEndingNodes: readonly DemoEndingNode[] = [
     id: "e1",
     kind: "win",
     emote: "☀",
-    title: "Daybreak",
-    line: "You climb out through the crack with it under your coat. The forest is loud again, and it is morning, and nothing follows you home.",
+    title: "Out through the noise",
+    line: "You walk past him and out through the delivery bay, and by the time the steam clears there is nobody to describe. He never did look up.",
   },
   {
     id: "e2",
     kind: "neutral",
     emote: "◐",
-    title: "Even trade",
-    line: "You leave it where it lies and walk back out the way you came. Years later you will still be deciding whether that was wisdom.",
+    title: "A name for a name",
+    line: "He wants one thing, and it is not money. You give it to him. You get out. Someone else does not, and you will carry that.",
   },
   {
     id: "e3",
     kind: "death",
     emote: "✕",
-    title: "Cold water",
-    line: "The ledge is wetter than it looked. The last thing you hear is your own torch hissing out somewhere above you.",
+    title: "The draught",
+    line: "The grille comes away easier than it should have. So does the floor behind it. The last thing you hear is your torch, falling for a long time.",
   },
   {
     id: "e4",
     kind: "neutral",
     emote: "◐",
-    title: "Still there",
-    line: "You turn back. The dripping follows you all the way to the entrance, and then, exactly at the threshold, stops.",
+    title: "Back in the bunk",
+    line: "You climb back up and are in your bed before the count. Nothing happened. Nothing will. That is the whole of it.",
   },
   {
     id: "e5",
     kind: "win",
     emote: "☀",
-    title: "Carried out",
-    line: "You find the child four hundred metres in, cold and furious and alive. You carry her out. She does the talking.",
+    title: "Six words",
+    line: "The gate is open at the time he said, held by a man who does not meet your eye. You never find out what it cost him.",
   },
   {
     id: "e6",
     kind: "death",
     emote: "✕",
-    title: "The drop",
-    line: "You run in the dark, which is a thing the hill has been counting on for a very long time.",
+    title: "Handed in",
+    line: "They thank you for the note. They move you somewhere quieter for your own protection. It is very quiet indeed.",
   },
   {
     id: "e7",
-    kind: "neutral",
-    emote: "◐",
-    title: "Walked away",
-    line: "The gap holds. Just. You come out on the far side into a different valley entirely, and you never do find the prints again.",
+    kind: "win",
+    emote: "☀",
+    title: "The long way out",
+    line: "You answer, carefully, and keep answering for two months. When you finally walk out it is through the front, with paperwork, and it is somehow better.",
   },
   {
     id: "e8",
-    kind: "win",
-    emote: "☀",
-    title: "Long way round",
-    line: "The long way takes until dawn. It also takes you past the second entrance, the open one, and the two of you walk out together.",
+    kind: "neutral",
+    emote: "◐",
+    title: "Nothing said",
+    line: "You say nothing, and the gate closes, and the guard stops speaking to you. Years later you will still be deciding whether that was wisdom.",
   },
 ];
 

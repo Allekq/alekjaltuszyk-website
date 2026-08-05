@@ -108,8 +108,13 @@
     gap: 0.4rem 0.8rem;
   }
 
-  .overlit-board__hud-item--clock {
-    margin-left: auto;
+  .overlit-board__hud-metrics {
+    gap: 1rem;
+  }
+
+  .overlit-board__hud-level,
+  .overlit-board__hud-item strong {
+    font-size: 1.15rem;
   }
 
   .overlit-modes__grid {

@@ -51,6 +51,11 @@ import { overLitConfig } from "../../../../config/site";
     </div>
 
     <div class="overlit-hero__stage" data-rise="scale" style="--rise-index:1">
+      {/*
+        The HUD mirrors the app's real gameplay chrome — level, goal, score,
+        time, board size — rather than inventing a scoring model. Failure is the
+        app's: let a cell burn out and the run is over.
+      */}
       <div
         class="overlit-board tilt-surface"
         data-board-demo
@@ -60,52 +65,46 @@ import { overLitConfig } from "../../../../config/site";
         data-tilt-strength="0.55"
       >
         <div class="overlit-board__hud">
-          <span class="overlit-board__hud-item">
-            <span class="overlit-board__hud-label">Score</span>
-            <strong data-board-score>0</strong>
+          <span class="overlit-board__hud-run">
+            <strong class="overlit-board__hud-level">Demo</strong>
+            <span class="overlit-board__hud-goal">Survive 0:25</span>
           </span>
-          <span class="overlit-board__hud-item">
-            <span class="overlit-board__hud-label">Best</span>
-            <strong data-board-best>0</strong>
-          </span>
-          <span class="overlit-board__hud-item overlit-board__hud-item--lives">
-            <span class="overlit-board__hud-label">Lives</span>
-            <span class="overlit-board__lives" data-board-lives>
-              <span class="overlit-board__life" data-board-life></span>
-              <span class="overlit-board__life" data-board-life></span>
-              <span class="overlit-board__life" data-board-life></span>
+          <span class="overlit-board__hud-metrics">
+            <span class="overlit-board__hud-item">
+              <span class="overlit-board__hud-label">Score</span>
+              <strong data-board-score>0</strong>
+            </span>
+            <span class="overlit-board__hud-item">
+              <span class="overlit-board__hud-label">Time</span>
+              <strong data-board-clock>0.0</strong>
             </span>
           </span>
-          <span class="overlit-board__hud-item overlit-board__hud-item--clock">
-            <span class="overlit-board__hud-label">Left</span>
-            <strong data-board-clock>25.0s</strong>
-          </span>
-        </div>
-
-        <div class="overlit-board__clock" aria-hidden="true">
-          <span class="overlit-board__clock-fill"></span>
         </div>
 
         <div class="overlit-board__grid" data-board-grid role="group" aria-label="Playable demo board"></div>
 
-        <ul class="overlit-board__legend">
-          <li data-phase="lit">Fresh</li>
-          <li data-phase="warning">Heating</li>
-          <li data-phase="critical">About to go</li>
-        </ul>
+        <div class="overlit-board__foot">
+          <span class="overlit-board__size">5x5</span>
+          <ul class="overlit-board__legend">
+            <li data-phase="lit">Fresh</li>
+            <li data-phase="warning">Warning</li>
+            <li data-phase="critical">Critical</li>
+          </ul>
+        </div>
 
         <div class="overlit-board__overlay" data-board-overlay>
-          <p class="overlit-board__result" data-board-result>25 seconds. Three lives.</p>
+          <p class="overlit-board__result" data-board-result>Survive 25 seconds.</p>
           <p class="overlit-board__hint">
-            Cells light, heat, then burn out. Tap them before they do — hotter cells are worth more.
+            Cells ignite, heat, then burn out. Tap them before they do — hotter cells are worth
+            more, and one burnout ends the run.
           </p>
           <button class="overlit-board__start" type="button" data-board-start>Play the demo</button>
         </div>
       </div>
 
       <p class="overlit-hero__stage-note">
-        A stripped-down taste of the loop. The app has levels, modes, stars, and a board that
-        actually fights back.
+        A stripped-down taste of the loop, not a slice of the real thing. The app has a level
+        campaign, arcade families, stars, themes, and boards that change the rules on you.
       </p>
     </div>
   </div>

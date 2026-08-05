@@ -1,25 +1,28 @@
 ---
 import OverLitPageOrchestrator from "../orchestrator/OverLitPageOrchestrator.astro";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
-import { overLitConfig, siteConfig } from "../../../config/site";
+import { buildAppStructuredData } from "../../../lib/appSchema";
+import { overLitConfig } from "../../../config/site";
 import { siteRoutes } from "../../../config/routes";
 import { toAbsoluteSiteUrl } from "../../../lib/discovery";
+import { withBase } from "../../../lib/paths";
 
-const overLitStructuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: overLitConfig.name,
-    applicationCategory: "GameApplication",
-    operatingSystem: "iOS",
-    url: toAbsoluteSiteUrl(siteRoutes.apps.overLit.path),
-    description: overLitConfig.defaultDescription,
-    author: {
-      "@type": "Person",
-      name: siteConfig.legalName,
-    },
-  },
-];
+const overLitStructuredData = buildAppStructuredData({
+  name: overLitConfig.name,
+  path: siteRoutes.apps.overLit.path,
+  description: overLitConfig.defaultDescription,
+  applicationCategory: "GameApplication",
+  applicationSubCategory: "Arcade",
+  operatingSystem: "iOS",
+  downloadUrl: overLitConfig.appStoreHref,
+  isAccessibleForFree: true,
+  featureList: overLitConfig.aiDiscovery.featureList,
+  screenshots: [
+    toAbsoluteSiteUrl(withBase("/media/overlit/iphone-level-13-gameplay.jpg")),
+    toAbsoluteSiteUrl(withBase("/media/overlit/iphone-levels-stars.jpg")),
+    toAbsoluteSiteUrl(withBase("/media/overlit/iphone-pattern-mode.jpg")),
+  ],
+});
 ---
 
 <SiteLayout

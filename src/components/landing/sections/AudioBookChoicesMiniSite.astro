@@ -1,25 +1,22 @@
 ---
 import AudioBookChoicesPageOrchestrator from "../orchestrator/AudioBookChoicesPageOrchestrator.astro";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
-import { audioBookChoicesConfig, siteConfig } from "../../../config/site";
+import { audioBookChoicesConfig } from "../../../config/site";
+import { buildAppStructuredData } from "../../../lib/appSchema";
 import { siteRoutes } from "../../../config/routes";
-import { toAbsoluteSiteUrl } from "../../../lib/discovery";
 
-const structuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: audioBookChoicesConfig.name,
-    applicationCategory: "EntertainmentApplication",
-    operatingSystem: "iOS, Android",
-    url: toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path),
-    description: audioBookChoicesConfig.defaultDescription,
-    author: {
-      "@type": "Person",
-      name: siteConfig.legalName,
-    },
-  },
-];
+const structuredData = buildAppStructuredData({
+  name: audioBookChoicesConfig.name,
+  alternateNames: audioBookChoicesConfig.alternateNames,
+  path: siteRoutes.apps.audioBookChoices.path,
+  description: audioBookChoicesConfig.defaultDescription,
+  applicationCategory: "BooksApplication",
+  applicationSubCategory: "Interactive audiobooks",
+  operatingSystem: "iOS, Android",
+  contentRating: "13+",
+  isAccessibleForFree: true,
+  featureList: audioBookChoicesConfig.aiDiscovery.featureList,
+});
 ---
 
 <SiteLayout

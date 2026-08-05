@@ -1,5 +1,11 @@
 import type { APIRoute } from "astro";
-import { overLitConfig, planKeptConfig, siteConfig, takeMeSomewhereConfig } from "../config/site";
+import {
+  audioBookChoicesConfig,
+  overLitConfig,
+  planKeptConfig,
+  siteConfig,
+  takeMeSomewhereConfig,
+} from "../config/site";
 import { siteRoutes } from "../config/routes";
 import { discoveryPages, toAbsoluteSiteUrl } from "../lib/discovery";
 
@@ -31,9 +37,12 @@ Important notes:
 - Voice of Self lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - OverLit lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Take Me Somewhere lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
+- Audio Book Choices lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
 - PlanKept summary: ${planKeptConfig.aiDiscovery.summary}
 - OverLit summary: ${overLitConfig.aiDiscovery.summary}
 - Take Me Somewhere summary: ${takeMeSomewhereConfig.aiDiscovery.summary}
+- Audio Book Choices summary: ${audioBookChoicesConfig.aiDiscovery.summary}
+- Audio Book Choices is also known as: ${audioBookChoicesConfig.alternateNames.join(", ")}
 
 ## Main Pages
 ${renderLinks(discoveryPages.main)}

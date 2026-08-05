@@ -64,8 +64,10 @@ const heroChips = [
       >
         <div class="abc-hero__panel-head">
           <span class="abc-hero__panel-title">
-            The Cave
-            <span class="abc-hero__panel-meta">8 endings · 3 turning points</span>
+            {audioBookChoicesConfig.featuredBook.title}
+            <span class="abc-hero__panel-meta">
+              {audioBookChoicesConfig.featuredBook.nodeCount} nodes · first forks shown
+            </span>
           </span>
           <span class="abc-hero__panel-legend">
             <span class="abc-hero__legend abc-hero__legend--yes">Yes</span>
@@ -90,7 +92,7 @@ const heroChips = [
             <span class="abc-wave__bar" style={`--bar-index:${index}`}></span>
           ))}
         </div>
-        <p class="abc-hero__now-line">&ldquo;Go in?&rdquo;</p>
+        <p class="abc-hero__now-line">&ldquo;Go now?&rdquo;</p>
         <p class="abc-hero__now-hint">Your path draws itself as you explore.</p>
       </figure>
     </div>

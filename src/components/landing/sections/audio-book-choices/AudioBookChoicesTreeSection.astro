@@ -1,6 +1,9 @@
 ---
 import StoryTreeFigure from "./StoryTreeFigure.astro";
+import { audioBookChoicesConfig } from "../../../../config/site";
 import { showcaseStoryTree } from "./story-tree.data";
+
+const featured = audioBookChoicesConfig.featuredBook;
 
 const beats = [
   {
@@ -19,7 +22,7 @@ const beats = [
     at: 0.5,
     kicker: "It keeps going",
     title: "Every branch branches again.",
-    body: "Three turning points is already eight distinct routes through the same book — and none of them is the &lsquo;proper&rsquo; one.",
+    body: `Three turning points alone is eight distinct routes, and none of them is the &lsquo;proper&rsquo; one. ${featured.title} keeps going: ${featured.nodeCount} nodes of it.`,
   },
   {
     at: 0.74,
@@ -42,7 +45,8 @@ const legend = [
       <p class="app-eyebrow">The whole shape</p>
       <h2 class="app-title">A book is a tree, and you only ever hear one walk through it.</h2>
       <p class="app-lead">
-        Scroll and it draws itself, the same way the app unveils it while you explore.
+        Below is the shape, not the size &mdash; the first few forks, drawing themselves the way
+        the app unveils a book while you explore it.
       </p>
     </header>
 

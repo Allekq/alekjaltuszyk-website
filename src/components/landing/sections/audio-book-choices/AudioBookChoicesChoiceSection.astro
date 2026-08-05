@@ -2,11 +2,11 @@
 import EndingMark from "./EndingMark.astro";
 import ListenerHead from "./ListenerHead.astro";
 import {
-  demoBookNote,
-  demoBookTitle,
   demoChoiceNodes,
   demoEndingKindLabels,
   demoEndingNodes,
+  demoLabel,
+  demoNote,
   demoRootId,
 } from "./choice-demo.data";
 ---
@@ -18,8 +18,9 @@ import {
       <h2 class="app-title">The book stops, and asks you something.</h2>
       <p class="app-lead">
         Answer and it keeps going somewhere else. Not a different line of narration &mdash; a
-        different scene, different people, a different ending. Try it: three questions, eight
-        places to land.
+        different scene, different people, a different ending. Try it below: three questions and
+        eight places to land, written for this page so nothing in the catalogue gets spoiled.
+        A real book is many times this size.
       </p>
     </header>
 
@@ -34,8 +35,8 @@ import {
       >
         <div class="abc-player__chrome">
           <span class="abc-player__book">
-            <span class="abc-player__book-note">{demoBookNote}</span>
-            {demoBookTitle}
+            <span class="abc-player__book-note">{demoLabel}</span>
+            {demoNote}
           </span>
           <span class="abc-player__step" data-demo-step>0 / 3</span>
         </div>

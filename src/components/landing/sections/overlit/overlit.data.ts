@@ -1,10 +1,11 @@
 /*
  * OverLit page data.
  *
- * Gameplay facts here track the app repo's own description of the game: levels
- * are the campaign, arcade families (Random, Pattern, Snake, Mixed) are
- * unlockable free-play spaces, rulesets are Survival and Time Attack, and grids
- * are 4x4 / 5x5 / 6x6. Keep them in step if the app's structure changes.
+ * Gameplay facts here track the app repo (`Docs/overlit-app-plan.md`, AGENTS.md)
+ * and the shipped screenshots: levels are the campaign, arcade families are
+ * unlockable free-play spaces, rulesets are Survival and Time Attack where they
+ * fit, grids are 4x4 / 5x5 / 6x6, and a cell runs fresh → warning → critical →
+ * burnout. Keep them in step if the app's structure changes.
  */
 
 export type CellPhase = "idle" | "lit" | "warning" | "critical";
@@ -28,8 +29,8 @@ export const pressureSteps: readonly PressureStep[] = [
   {
     at: 0.26,
     phase: "lit",
-    label: "Lit",
-    title: "It lights up. Now it is yours.",
+    label: "Fresh",
+    title: "It ignites. Now it is yours.",
     body: "This is the cheap window. Clear it here and you barely feel the cost — but there is always another one lighting somewhere else.",
   },
   {
@@ -37,21 +38,21 @@ export const pressureSteps: readonly PressureStep[] = [
     phase: "warning",
     label: "Warning",
     title: "It starts to heat.",
-    body: "Worth more, and worth more attention. The board is telling you which decision matters next, in the only language it has: colour.",
+    body: "The board is telling you which decision matters next, in the only language it has at speed: colour.",
   },
   {
     at: 0.72,
     phase: "critical",
     label: "Critical",
-    title: "Critical. Best points, worst timing.",
-    body: "Always three or four of these at once, always on opposite corners. Reading which one to save is the whole game.",
+    title: "Critical. The one you will misread.",
+    body: "The engine caps how many cells can be live at once, and later levels lift the cap. Reading which of them to save is the whole game.",
   },
   {
     at: 0.9,
     phase: "gone",
-    label: "Collapse",
-    title: "Miss it and the board takes something.",
-    body: "Not a scolding, just less room. Enough of those and the run is over — which is why you were never really playing for points.",
+    label: "Burnout",
+    title: "Let it go and the board answers.",
+    body: "Red to black, fast and loud, because you should see the failure happen rather than find a cell quietly gone. What that costs is the level's decision — the end of the run, or a hole in a no-miss streak.",
   },
 ];
 
@@ -65,10 +66,10 @@ export const levelTwists: readonly LevelTwist[] = [
   { name: "Survival goals", detail: "Just stay alive. The board decides how long that takes." },
   { name: "Deadlines", detail: "A clock that does not care how good the last run was." },
   { name: "No-miss pressure", detail: "One slip ends it. Levels that teach restraint." },
-  { name: "Line patterns", detail: "Whole rows and columns arrive together." },
-  { name: "Shape patterns", detail: "Formations that have to be read, not reacted to." },
-  { name: "Snake behaviour", detail: "A crawler that moves through the grid while you work." },
-  { name: "Mixed activation", detail: "Two spawn rules at once, disagreeing with each other." },
+  { name: "Line and diagonal waves", detail: "Whole rows, columns and diagonals arrive together." },
+  { name: "Shape Shifter", detail: "Weighted procedural formations that have to be read, not reacted to." },
+  { name: "Ember Snake", detail: "A short-fuse crawler that works a path through the grid while you play." },
+  { name: "Mixed pressure", detail: "Random cells combined with a readable pattern, disagreeing with each other." },
   { name: "Star targets", detail: "Three tiers per level, so clearing is never the ceiling." },
   { name: "Boss milestones", detail: "Set pieces that combine everything the run has taught you." },
 ];
@@ -91,7 +92,7 @@ export const arcadeModes: readonly ArcadeMode[] = [
   {
     id: "random",
     name: "Random",
-    description: "The plain one. Cells arrive wherever they like, and the only structure is the one you impose.",
+    description: "Scatter. Cells arrive wherever they like, and the only structure is the one you impose.",
     rulesets: ["Survival", "Time Attack"],
     cellOrder: [5, 0, 9, 3, 12, 7, 1, 14, 2, 11, 6, 15, 8, 4, 13, 10],
   },
@@ -112,7 +113,7 @@ export const arcadeModes: readonly ArcadeMode[] = [
   {
     id: "mixed",
     name: "Mixed",
-    description: "Two activation styles running at once. The board stops having a single tempo to lock onto.",
+    description: "Scatter and pattern running at once. The board stops having a single tempo to lock onto.",
     rulesets: ["Survival", "Time Attack"],
     cellOrder: [0, 3, 1, 4, 3, 0, 4, 1, 1, 4, 0, 3, 4, 1, 3, 0],
   },
@@ -121,8 +122,8 @@ export const arcadeModes: readonly ArcadeMode[] = [
 export const gridSizes = ["4 × 4", "5 × 5", "6 × 6"] as const;
 
 export const heroBadges = [
-  "No account",
+  "No sign-in",
   "Plays offline",
-  "Local high scores",
   "Short sessions",
+  "Free with ads",
 ] as const;

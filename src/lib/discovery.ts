@@ -55,7 +55,7 @@ export const discoveryPages = {
       title: "OverLit",
       path: siteRoutes.apps.overLit.path,
       description:
-        "Visual OverLit product page from Alek Jałtuszyk for the fast reflex iPhone arcade game, with a playable browser demo of the grid, the cell pressure states, level twists, arcade modes, App Store CTA, and support and legal links.",
+        "Visual OverLit product page from Alek Jałtuszyk for the released fast-reflex iPhone arcade game, with a playable browser demo of the grid, the fresh/warning/critical/burnout cell states, level twists, arcade families, App Store link, and support and legal links.",
     },
     {
       title: "Take Me Somewhere",
