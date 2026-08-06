@@ -1,13 +1,19 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import SiteTermsBody from "../../content/legal/site-terms.md";
+
+const doc = legalDocuments.siteTerms;
 ---
 
-<h1>Website Terms</h1>
-
-<p>
-  <strong>Effective Date:</strong> {legalDocuments.siteTerms.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.siteTerms.version}
-</p>
+<LegalDocumentHeader
+  heading="Website Terms"
+  documentName="Terms"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  scope="site"
+  kind="terms"
+/>
 
 <SiteTermsBody />

@@ -1,16 +1,21 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
 import { overLitConfig } from "../../config/site";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import OverLitTermsOfUseBody from "../../content/legal/overlit-terms-of-use.md";
 
 const appName = overLitConfig.name;
+const doc = legalDocuments.overLitTerms;
 ---
 
-<h1>{appName} Terms of Use</h1>
-
-<p>
-  <strong>Effective Date:</strong> {legalDocuments.overLitTerms.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.overLitTerms.version}
-</p>
+<LegalDocumentHeader
+  heading={`${appName} Terms of Use`}
+  documentName="Terms of Use"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName={appName}
+  kind="terms"
+/>
 
 <OverLitTermsOfUseBody />

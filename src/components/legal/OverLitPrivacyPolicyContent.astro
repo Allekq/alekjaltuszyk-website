@@ -1,16 +1,21 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
 import { overLitConfig } from "../../config/site";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import OverLitPrivacyPolicyBody from "../../content/legal/overlit-privacy-policy.md";
 
 const appName = overLitConfig.name;
+const doc = legalDocuments.overLitPrivacy;
 ---
 
-<h1>{appName} Privacy Policy</h1>
-
-<p>
-  <strong>Effective Date:</strong> {legalDocuments.overLitPrivacy.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.overLitPrivacy.version}
-</p>
+<LegalDocumentHeader
+  heading={`${appName} Privacy Policy`}
+  documentName="Privacy Policy"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName={appName}
+  kind="privacy"
+/>
 
 <OverLitPrivacyPolicyBody />

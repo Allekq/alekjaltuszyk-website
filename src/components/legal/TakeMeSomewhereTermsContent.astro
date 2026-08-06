@@ -1,16 +1,21 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
 import { takeMeSomewhereConfig } from "../../config/site";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import TakeMeSomewhereTermsBody from "../../content/legal/take-me-somewhere-terms-of-service.md";
 
 const appName = takeMeSomewhereConfig.name;
+const doc = legalDocuments.takeMeSomewhereTerms;
 ---
 
-<h1>{appName} Terms of Service</h1>
-
-<p>
-  <strong>Effective Date:</strong> {legalDocuments.takeMeSomewhereTerms.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.takeMeSomewhereTerms.version}
-</p>
+<LegalDocumentHeader
+  heading={`${appName} Terms of Service`}
+  documentName="Terms of Service"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName={appName}
+  kind="terms"
+/>
 
 <TakeMeSomewhereTermsBody />

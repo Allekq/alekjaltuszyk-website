@@ -8,6 +8,15 @@ description: Voice of Self terms of service.
 Effective Date: 2026-06-08
 Version: 1.2.16
 
+These Terms cover all versions of Voice of Self that are currently available.
+Some features described here may not be present in older versions of the app, or
+may not yet be switched on for you; where a feature is not available to you, the
+sections describing it do not apply to you. Where a later version of these Terms
+conflicts with an earlier one, the later version governs from its date onward —
+it does not change the terms that governed your use before then. Previous
+versions of this document remain publicly available in its
+[revision history](https://github.com/Allekq/alekjaltuszyk-website/commits/main/src/pages/apps/VoiceOfSelf/terms-of-service/index.md).
+
 These Terms of Service ("Terms") govern your use of Voice of Self, including
 the iOS app, the public website, direct contact channels, and other related
 services that link to these Terms (collectively, the "Service").

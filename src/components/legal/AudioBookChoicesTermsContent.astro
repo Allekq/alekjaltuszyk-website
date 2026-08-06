@@ -1,16 +1,21 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
 import { audioBookChoicesConfig } from "../../config/site";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import AudioBookChoicesTermsBody from "../../content/legal/audio-book-choices-terms-of-use.md";
 
 const appName = audioBookChoicesConfig.name;
+const doc = legalDocuments.audioBookChoicesTerms;
 ---
 
-<h1>{appName} Terms of Use</h1>
-
-<p>
-  <strong>Last updated:</strong> {legalDocuments.audioBookChoicesTerms.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.audioBookChoicesTerms.version}
-</p>
+<LegalDocumentHeader
+  heading={`${appName} Terms of Use`}
+  documentName="Terms of Use"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName={appName}
+  kind="terms"
+/>
 
 <AudioBookChoicesTermsBody />

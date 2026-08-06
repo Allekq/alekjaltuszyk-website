@@ -1,13 +1,19 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import PlanKeptPrivacyPolicyBody from "../../content/legal/plankept-privacy-policy.md";
+
+const doc = legalDocuments.planKeptPrivacy;
 ---
 
-<h1>PlanKept Privacy Policy</h1>
-
-<p>
-  <strong>Effective Date:</strong> {legalDocuments.planKeptPrivacy.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.planKeptPrivacy.version}
-</p>
+<LegalDocumentHeader
+  heading="PlanKept Privacy Policy"
+  documentName="Privacy Policy"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName="PlanKept"
+  kind="privacy"
+/>
 
 <PlanKeptPrivacyPolicyBody />

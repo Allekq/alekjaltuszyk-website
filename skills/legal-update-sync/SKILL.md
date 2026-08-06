@@ -24,6 +24,62 @@ legal docs, app-side legal gates, App Store-facing claims, or version records
 stale. Follow the checklist and keep `site.config.mjs` versions in sync with
 the public legal pages.
 
+## The masthead — required on every published document
+
+Every published legal document carries a masthead above its body: version,
+last-updated date, and the scope paragraph. It is produced by
+`src/components/legal/LegalDocumentHeader.astro`, which every `*Content.astro`
+document component must use. Do not hand-roll a version block, and do not remove
+the revision-history link.
+
+The scope paragraph is what lets one document be true for everybody at once.
+Apps ship features dark and switch them on later, so at any moment some readers
+are on a build that does not have what the document describes. Rather than
+partitioning documents by app version — which multiplies maintenance and works
+against Google Play's expectation that a disclosure covers "all versions and
+variations" of an app — one document covers everything and tells the reader that
+feature sections apply only where the feature exists.
+
+This repo is public, so each document's own file history **is** its archive.
+Nothing needs snapshotting. That is why every entry in `legalDocuments` carries a
+`sourcePath`: the masthead appends it to `legalSourceHistoryBase` to build the
+link. A new document must add its `sourcePath`, and a moved document must update
+it, or the archive link silently points at nothing.
+
+Voice of Self's pages are plain Markdown under `src/pages/apps/VoiceOfSelf/` and
+carry the same prose inline instead of using the component. Keep the two wordings
+aligned, and mirror any change into the source copies in
+`/Users/alekj/Documents/GitHub/closure-app/external/legal/`.
+
+## Version bumps do NOT behave the same for every app
+
+This is the single most important thing to get right in this repo. Bumping a
+version in `site.config.mjs` has opposite consequences depending on the app:
+
+| App | Where its accepted version comes from | Effect of bumping `site.config.mjs` and deploying |
+|---|---|---|
+| PlanKept | hosted `legal-manifest.json` | **Blocks every existing user** behind the acceptance gate on next launch |
+| Take Me Somewhere | hosted `legal-manifest.json`, merged over a bundled fallback | **Blocks every existing user** behind the acceptance gate on next launch |
+| Voice of Self | hosted `legal-manifest.json` | **Blocks every existing user** behind the acceptance gate on next launch |
+| Audio Book Choices | compiled into the binary (`AppConfig.LEGAL_VERSION`) | Nothing, until a new build ships |
+| OverLit | compiled into the binary (`PlayableLegalDocumentCatalog`) | Nothing, until a new build ships |
+| Website itself (`site*`) | nothing consumes it | Nothing; bookkeeping only |
+
+For the three live-gated apps, a version bump is a product decision as much as a
+legal one, it takes effect the moment the site deploys, and it cannot be undone.
+Only bump them for a substantive change — a new practice, recipient, or right —
+and surface it to the owner rather than deciding it inside a task. It also means
+their policies cannot be staged ahead of a release: publishing *is* activation.
+Write new practices with the scope paragraph's "may not yet be available to you"
+framing and bump when the feature is genuinely reachable.
+
+For the two binary-pinned apps the public document can safely be published on the
+day of store submission — the reviewer sees an accurate document while nobody on
+the old build is disturbed. The wall for those lives in the app repo.
+
+A clarification that adds no new obligation — wording, a masthead, a typo — must
+not bump anything, for any app. It is recorded in the public revision history.
+
 ## PlanKept Canonical Files
 
 - Privacy copy: `src/content/legal/plankept-privacy-policy.md`

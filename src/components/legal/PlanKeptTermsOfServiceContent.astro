@@ -1,13 +1,19 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import PlanKeptTermsOfServiceBody from "../../content/legal/plankept-terms-of-service.md";
+
+const doc = legalDocuments.planKeptTerms;
 ---
 
-<h1>PlanKept Terms Of Service</h1>
-
-<p>
-  <strong>Effective Date:</strong> {legalDocuments.planKeptTerms.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.planKeptTerms.version}
-</p>
+<LegalDocumentHeader
+  heading="PlanKept Terms Of Service"
+  documentName="Terms of Service"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName="PlanKept"
+  kind="terms"
+/>
 
 <PlanKeptTermsOfServiceBody />

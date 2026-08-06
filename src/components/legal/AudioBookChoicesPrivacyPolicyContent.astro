@@ -1,16 +1,21 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
 import { audioBookChoicesConfig } from "../../config/site";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import AudioBookChoicesPrivacyPolicyBody from "../../content/legal/audio-book-choices-privacy-policy.md";
 
 const appName = audioBookChoicesConfig.name;
+const doc = legalDocuments.audioBookChoicesPrivacy;
 ---
 
-<h1>{appName} Privacy Policy</h1>
-
-<p>
-  <strong>Last updated:</strong> {legalDocuments.audioBookChoicesPrivacy.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.audioBookChoicesPrivacy.version}
-</p>
+<LegalDocumentHeader
+  heading={`${appName} Privacy Policy`}
+  documentName="Privacy Policy"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName={appName}
+  kind="privacy"
+/>
 
 <AudioBookChoicesPrivacyPolicyBody />

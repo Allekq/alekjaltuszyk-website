@@ -1,16 +1,21 @@
 ---
 import { legalDocuments } from "../../../site.config.mjs";
 import { takeMeSomewhereConfig } from "../../config/site";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
 import TakeMeSomewherePrivacyPolicyBody from "../../content/legal/take-me-somewhere-privacy-policy.md";
 
 const appName = takeMeSomewhereConfig.name;
+const doc = legalDocuments.takeMeSomewherePrivacy;
 ---
 
-<h1>{appName} Privacy Policy</h1>
-
-<p>
-  <strong>Effective Date:</strong> {legalDocuments.takeMeSomewherePrivacy.effectiveDate}<br />
-  <strong>Version:</strong> {legalDocuments.takeMeSomewherePrivacy.version}
-</p>
+<LegalDocumentHeader
+  heading={`${appName} Privacy Policy`}
+  documentName="Privacy Policy"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName={appName}
+  kind="privacy"
+/>
 
 <TakeMeSomewherePrivacyPolicyBody />

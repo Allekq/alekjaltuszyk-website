@@ -1,0 +1,89 @@
+---
+/**
+ * Shared masthead for every published legal document.
+ *
+ * Beyond the version and date, this carries the scope paragraph that keeps a
+ * document honest across app versions. A policy is published once and read by
+ * people on many different builds — including people whose build does not yet
+ * have a feature the document describes, because features ship dark and are
+ * switched on later. Rather than partitioning documents by app version (which
+ * multiplies maintenance and works against Google Play's expectation that a
+ * disclosure covers "all versions and variations" of an app), one document
+ * covers everything and the reader is told that feature sections only apply
+ * where the feature exists.
+ *
+ * The revision history link points at the document body's file history in the
+ * public website repo, which is the archive. Nothing needs to be copied or
+ * snapshotted for it to work.
+ */
+import { legalSourceHistoryBase } from "../../../site.config.mjs";
+
+interface Props {
+  /** Rendered as the page heading, e.g. "OverLit Privacy Policy". */
+  heading: string;
+  /** How the document refers to itself in prose, e.g. "Privacy Policy". */
+  documentName: string;
+  version: string;
+  effectiveDate: string;
+  /**
+   * Repo-relative path of the document body, used to build the revision
+   * history link, e.g. "src/content/legal/overlit-privacy-policy.md".
+   */
+  sourcePath: string;
+  /**
+   * "app" documents get the cross-version scope sentence. "site" documents
+   * cover a website, where there are no older installed versions to worry
+   * about, so they get the supersession sentence only.
+   */
+  scope?: "app" | "site";
+  /** Subject of the scope sentence, e.g. "OverLit". Required when scope is "app". */
+  appName?: string;
+  /** Privacy documents talk about information; terms talk about the agreement. */
+  kind: "privacy" | "terms";
+}
+
+const {
+  heading,
+  documentName,
+  version,
+  effectiveDate,
+  sourcePath,
+  scope = "app",
+  appName,
+  kind,
+} = Astro.props;
+
+const historyHref = `${legalSourceHistoryBase}/${sourcePath}`;
+
+const supersessionClause =
+  kind === "privacy"
+    ? "it does not change how information was handled before then"
+    : "it does not change the terms that governed your use before then";
+---
+
+<h1>{heading}</h1>
+
+<p>
+  <strong>Version:</strong> {version}<br />
+  <strong>Last updated:</strong> {effectiveDate}
+</p>
+
+<p class="legal-scope">
+  {
+    scope === "app" && (
+      <>
+        This {documentName} covers all versions of {appName} that are currently
+        available. Some features described here may not be present in older
+        versions of the app, or may not yet be switched on for you; where a
+        feature is not available to you, the sections describing it do not apply
+        to you.{" "}
+      </>
+    )
+  }
+  Where a later version of this {documentName} conflicts with an earlier one,
+  the later version governs from its date onward — {supersessionClause}.
+  Previous versions of this document remain publicly available in its{" "}
+  <a href={historyHref} rel="noopener noreferrer" target="_blank">
+    revision history
+  </a>.
+</p>

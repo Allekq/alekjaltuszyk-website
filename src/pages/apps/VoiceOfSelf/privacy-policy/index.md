@@ -8,6 +8,15 @@ description: Voice of Self privacy policy.
 Effective Date: 2026-06-20
 Version: 1.2.22
 
+This Privacy Policy covers all versions of Voice of Self that are currently
+available. Some features described here may not be present in older versions of
+the app, or may not yet be switched on for you; where a feature is not available
+to you, the sections describing it do not apply to you. Where a later version of
+this Privacy Policy conflicts with an earlier one, the later version governs
+from its date onward — it does not change how information was handled before
+then. Previous versions of this document remain publicly available in its
+[revision history](https://github.com/Allekq/alekjaltuszyk-website/commits/main/src/pages/apps/VoiceOfSelf/privacy-policy/index.md).
+
 This Privacy Policy explains how Voice of Self processes personal information
 when you use the Voice of Self iOS app, the public website, direct contact
 channels, and other services that link to this policy.
