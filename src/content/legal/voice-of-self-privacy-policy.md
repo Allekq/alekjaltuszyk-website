@@ -1,13 +1,3 @@
----
-layout: ../layouts/SiteLayout.astro
-title: Privacy Policy | Voice of Self
-description: Voice of Self privacy policy.
----
-# Voice of Self Privacy Policy
-
-Effective Date: 2026-06-20
-Version: 1.2.22
-
 This Privacy Policy explains how Voice of Self processes personal information
 when you use the Voice of Self iOS app, the public website, direct contact
 channels, and other services that link to this policy.

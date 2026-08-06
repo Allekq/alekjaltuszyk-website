@@ -1,0 +1,19 @@
+---
+import { legalDocuments } from "../../../site.config.mjs";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
+import VoiceOfSelfTermsOfServiceBody from "../../content/legal/voice-of-self-terms-of-service.md";
+
+const doc = legalDocuments.voiceOfSelfTerms;
+---
+
+<LegalDocumentHeader
+  heading="Voice of Self Terms Of Service"
+  documentName="Terms of Service"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName="Voice of Self"
+  kind="terms"
+/>
+
+<VoiceOfSelfTermsOfServiceBody />

@@ -1,13 +1,3 @@
----
-layout: ../layouts/SiteLayout.astro
-title: Terms of Service | Voice of Self
-description: Voice of Self terms of service.
----
-# Voice of Self Terms Of Service
-
-Effective Date: 2026-06-08
-Version: 1.2.16
-
 These Terms of Service ("Terms") govern your use of Voice of Self, including
 the iOS app, the public website, direct contact channels, and other related
 services that link to these Terms (collectively, the "Service").

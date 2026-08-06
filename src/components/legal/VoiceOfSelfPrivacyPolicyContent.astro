@@ -1,0 +1,19 @@
+---
+import { legalDocuments } from "../../../site.config.mjs";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
+import VoiceOfSelfPrivacyPolicyBody from "../../content/legal/voice-of-self-privacy-policy.md";
+
+const doc = legalDocuments.voiceOfSelfPrivacy;
+---
+
+<LegalDocumentHeader
+  heading="Voice of Self Privacy Policy"
+  documentName="Privacy Policy"
+  version={doc.version}
+  effectiveDate={doc.effectiveDate}
+  sourcePath={doc.sourcePath}
+  appName="Voice of Self"
+  kind="privacy"
+/>
+
+<VoiceOfSelfPrivacyPolicyBody />

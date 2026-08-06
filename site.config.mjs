@@ -75,13 +75,13 @@ export const legalDocuments = {
     version: "1.2.22",
     effectiveDate: "2026-06-20",
     path: "/apps/VoiceOfSelf/privacy-policy/",
-    sourcePath: "src/pages/apps/VoiceOfSelf/privacy-policy/index.md",
+    sourcePath: "src/content/legal/voice-of-self-privacy-policy.md",
   },
   voiceOfSelfTerms: {
     version: "1.2.16",
     effectiveDate: "2026-06-08",
     path: "/apps/VoiceOfSelf/terms-of-service/",
-    sourcePath: "src/pages/apps/VoiceOfSelf/terms-of-service/index.md",
+    sourcePath: "src/content/legal/voice-of-self-terms-of-service.md",
   },
   voiceOfSelfAIUsage: {
     version: "2026-06-20-v1",
