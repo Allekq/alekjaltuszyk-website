@@ -72,18 +72,18 @@ const supersessionClause =
   {
     scope === "app" && (
       <>
-        This {documentName} covers all versions of {appName} that are currently
-        available. Some features described here may not be present in older
-        versions of the app, or may not yet be switched on for you; where a
-        feature is not available to you, the sections describing it do not apply
-        to you.{" "}
+        This {documentName} covers every version of {appName}. Some features
+        described here may not be present in your version of the app, may not
+        yet be switched on for you, or may describe functionality that has not
+        been released yet; where a feature is not available to you, the sections
+        describing it do not apply to you until it is. Accepting this{" "}
+        {documentName} does not put anything into effect that the app does not
+        actually do.{" "}
       </>
     )
   }
   Where a later version of this {documentName} conflicts with an earlier one,
   the later version governs from its date onward — {supersessionClause}.
   Previous versions of this document remain publicly available in its{" "}
-  <a href={historyHref} rel="noopener noreferrer" target="_blank">
-    revision history
-  </a>.
+  <a href={historyHref} rel="noopener noreferrer" target="_blank">revision history</a>.
 </p>
