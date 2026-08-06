@@ -1,97 +1,28 @@
 ---
-import SimpleSiteHeader from "./SimpleSiteHeader.astro";
-import ActionButton from "../ui/ActionButton.astro";
-import { overLitConfig, siteConfig } from "../../../config/site";
+import OverLitPageOrchestrator from "../orchestrator/OverLitPageOrchestrator.astro";
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { buildAppStructuredData } from "../../../lib/appSchema";
+import { overLitConfig } from "../../../config/site";
 import { siteRoutes } from "../../../config/routes";
 import { toAbsoluteSiteUrl } from "../../../lib/discovery";
 import { withBase } from "../../../lib/paths";
-import SiteLayout from "../../../layouts/SiteLayout.astro";
 
-const screenshots = [
-  {
-    src: withBase("/media/overlit/iphone-level-13-gameplay.jpg"),
-    alt: "OverLit level 13 gameplay with lit cyan and amber cells on a 6 by 6 grid.",
-    label: "Survival pressure",
-    className: "overlit-phone-shot--primary",
-    loading: "eager",
-  },
-  {
-    src: withBase("/media/overlit/iphone-levels-stars.jpg"),
-    alt: "OverLit level select screen showing stars earned across handcrafted levels.",
-    label: "Earn stars",
-    className: "overlit-phone-shot--secondary",
-    loading: "lazy",
-  },
-  {
-    src: withBase("/media/overlit/iphone-pattern-mode.jpg"),
-    alt: "OverLit pattern mode screen with survival and time attack options.",
-    label: "More modes",
-    className: "overlit-phone-shot--tertiary",
-    loading: "lazy",
-  },
-] as const;
-
-const boardCells = Array.from({ length: 36 }, (_, index) => {
-  const variants = new Map([
-    [2, "cyan"],
-    [8, "amber"],
-    [13, "cyan"],
-    [21, "warning"],
-    [28, "amber"],
-    [32, "critical"],
-  ]);
-
-  return {
-    className: variants.get(index) ?? "idle",
-  };
+const overLitStructuredData = buildAppStructuredData({
+  name: overLitConfig.name,
+  path: siteRoutes.apps.overLit.path,
+  description: overLitConfig.defaultDescription,
+  applicationCategory: "GameApplication",
+  applicationSubCategory: "Arcade",
+  operatingSystem: "iOS",
+  downloadUrl: overLitConfig.appStoreHref,
+  isAccessibleForFree: true,
+  featureList: overLitConfig.aiDiscovery.featureList,
+  screenshots: [
+    toAbsoluteSiteUrl(withBase("/media/overlit/iphone-level-13-gameplay.jpg")),
+    toAbsoluteSiteUrl(withBase("/media/overlit/iphone-levels-stars.jpg")),
+    toAbsoluteSiteUrl(withBase("/media/overlit/iphone-pattern-mode.jpg")),
+  ],
 });
-
-const featureCards = [
-  {
-    eyebrow: "Tap",
-    title: "Clear the hot cells",
-    description:
-      "Cells light up, heat toward danger, and ask for fast, clean reactions before the board collapses.",
-  },
-  {
-    eyebrow: "Climb",
-    title: "Beat handcrafted levels",
-    description:
-      "Early challenges teach the rhythm. Later ones change grid sizes, pressure patterns, goals, and mode rules.",
-  },
-  {
-    eyebrow: "Replay",
-    title: "Chase the better run",
-    description:
-      "Short sessions, local high scores, stars, haptics, sound options, and no account standing in the way.",
-  },
-] as const;
-
-const modeTiles = [
-  "Survival",
-  "Time Attack",
-  "Pattern clears",
-  "4x4, 5x5, 6x6 grids",
-  "Stars and level goals",
-  "Offline play",
-] as const;
-
-const appIconSrc = withBase("/media/overlit/app-icon-light-320.png");
-const overLitStructuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: overLitConfig.name,
-    applicationCategory: "GameApplication",
-    operatingSystem: "iOS",
-    url: toAbsoluteSiteUrl(siteRoutes.apps.overLit.path),
-    description: overLitConfig.defaultDescription,
-    author: {
-      "@type": "Person",
-      name: siteConfig.legalName,
-    },
-  },
-];
 ---
 
 <SiteLayout
@@ -102,129 +33,5 @@ const overLitStructuredData = [
   faviconHref={overLitConfig.faviconHref}
   faviconType={overLitConfig.faviconType}
 >
-  <div class="overlit-mini-site" aria-labelledby="overlit-title">
-    <SimpleSiteHeader brand={overLitConfig.name} brandHref={overLitConfig.homeHref} />
-    <section class="overlit-hero">
-      <div class="overlit-hero__copy">
-        <div class="overlit-hero__identity">
-          <img
-            class="overlit-hero__icon"
-            src={appIconSrc}
-            alt="OverLit app icon"
-            width="96"
-            height="96"
-            decoding="async"
-          />
-          <p class="overlit-mini-site__eyebrow">Fast reflex arcade game for iPhone</p>
-        </div>
-        <h1 id="overlit-title">Keep the grid alive.</h1>
-        <p class="overlit-mini-site__lead">
-          OverLit is a level-based arcade game about reading pressure fast. Cells light up,
-          heat up, change behavior, and push the board closer to collapse.
-        </p>
-        <div class="overlit-hero__actions" aria-label="OverLit actions">
-          <ActionButton
-            href={overLitConfig.primaryCtaHref}
-            label={overLitConfig.primaryCtaLabel}
-            target="_blank"
-          />
-          <ActionButton href="#how-it-plays" variant="ghost" label="How it plays" />
-        </div>
-        <div class="overlit-hero__badges" aria-label="OverLit highlights">
-          <span>No account</span>
-          <span>Offline friendly</span>
-          <span>Quick sessions</span>
-        </div>
-      </div>
-
-      <div class="overlit-hero__visual" aria-label="OverLit gameplay preview">
-        <div class="overlit-board-demo" aria-hidden="true">
-          <div class="overlit-board-demo__header">
-            <span>Level 13</span>
-            <span>26.3s</span>
-          </div>
-          <div class="overlit-board-demo__grid">
-            {
-              boardCells.map((cell) => (
-                <span
-                  class:list={[
-                    "overlit-board-demo__cell",
-                    `overlit-board-demo__cell--${cell.className}`,
-                  ]}
-                />
-              ))
-            }
-          </div>
-        </div>
-        <div class="overlit-phone-stack">
-          {
-            screenshots.map((screenshot) => (
-              <figure class:list={["overlit-phone-shot", screenshot.className]}>
-                <img
-                  src={screenshot.src}
-                  alt={screenshot.alt}
-                  width="416"
-                  height="900"
-                  loading={screenshot.loading}
-                  decoding="async"
-                />
-                <figcaption>{screenshot.label}</figcaption>
-              </figure>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class="overlit-section" id="how-it-plays" aria-labelledby="overlit-play-title">
-      <div class="overlit-section__intro">
-        <p class="overlit-mini-site__eyebrow">How it plays</p>
-        <h2 id="overlit-play-title">Fast to understand. Mean when the board wakes up.</h2>
-        <p>
-          Tap what needs saving, react before pressure takes over, and keep the run alive as
-          each level adds a new twist.
-        </p>
-      </div>
-      <div class="overlit-feature-grid">
-        {
-          featureCards.map((feature) => (
-            <article class="overlit-feature-card">
-              <p>{feature.eyebrow}</p>
-              <h3>{feature.title}</h3>
-              <span>{feature.description}</span>
-            </article>
-          ))
-        }
-      </div>
-    </section>
-
-    <section class="overlit-section overlit-section--split" aria-labelledby="overlit-modes-title">
-      <div class="overlit-section__intro">
-        <p class="overlit-mini-site__eyebrow">Many ways to read the board</p>
-        <h2 id="overlit-modes-title">Survive, score, adapt, and try again.</h2>
-      </div>
-      <div class="overlit-mode-grid" aria-label="OverLit modes and features">
-        {modeTiles.map((tile) => <span>{tile}</span>)}
-      </div>
-    </section>
-
-    <section class="overlit-close" aria-labelledby="overlit-close-title">
-      <div>
-        <p class="overlit-mini-site__eyebrow">Built for the spare minute</p>
-        <h2 id="overlit-close-title">Watch the board. Trust your timing. Keep the light alive.</h2>
-      </div>
-      <div class="overlit-close__actions">
-        <ActionButton
-          href={overLitConfig.primaryCtaHref}
-          label={overLitConfig.primaryCtaLabel}
-          target="_blank"
-        />
-        <nav class="overlit-mini-site__links" aria-label="OverLit links">
-          <a class="overlit-mini-site__link" href={overLitConfig.supportHref}>Support</a>
-          <a class="overlit-mini-site__link" href={overLitConfig.privacyHref}>Privacy</a>
-          <a class="overlit-mini-site__link" href={overLitConfig.termsHref}>Terms</a>
-        </nav>
-      </div>
-    </section>
-  </div>
+  <OverLitPageOrchestrator />
 </SiteLayout>

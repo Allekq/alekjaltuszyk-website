@@ -1,0 +1,150 @@
+/* OverLit: viewport adaptations, phone first. */
+
+@media (max-width: 68rem) {
+  .overlit-hero__grid {
+    gap: clamp(2rem, 6vw, 3rem);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .overlit-hero__stage {
+    max-width: 34rem;
+  }
+
+  .overlit-levels__head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .overlit-modes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/*
+ * The pressure scene stacks below this width: the cell sticks to the top and the
+ * five beats scroll underneath it.
+ */
+@media (max-width: 62rem) {
+  .overlit-pressure__scene {
+    display: block;
+  }
+
+  .overlit-pressure__stage {
+    top: clamp(4.2rem, 12vh, 5.6rem);
+  }
+
+  /* Opaque and full width, so the beats scrolling under it stay hidden. */
+  .overlit-pressure__cellframe {
+    background: linear-gradient(170deg, #18202e, #090c13);
+    max-width: none;
+  }
+
+  .overlit-pressure__cell {
+    width: min(100%, 11rem);
+  }
+
+  .overlit-pressure__beats {
+    gap: clamp(5.5rem, 30vh, 10rem);
+    padding-block: clamp(2.5rem, 10vh, 4.5rem) clamp(4.5rem, 22vh, 8rem);
+  }
+
+  .overlit-pressure__beat-body {
+    max-width: none;
+  }
+
+  /* Screens become a snap rail rather than three shrinking columns. */
+  .overlit-screens__rail {
+    display: flex;
+    gap: var(--space-md);
+    margin-inline: calc(var(--app-gutter) * -1);
+    overflow-x: auto;
+    padding: 0 var(--app-gutter) var(--space-md);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .overlit-screens__rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .overlit-screens__slide {
+    flex: 0 0 min(74vw, 19rem);
+    scroll-snap-align: center;
+    transform: none;
+  }
+}
+
+@media (max-width: 52rem) {
+  .overlit-levels__item {
+    gap: 0.35rem 0.9rem;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+  }
+
+  .overlit-levels__item-rail {
+    grid-column: 2;
+    width: min(100%, 12rem);
+  }
+
+  .overlit-modes__footer {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 40rem) {
+  .overlit-hero {
+    padding-block: 1rem 2rem;
+  }
+
+  .overlit-hero__title {
+    font-size: clamp(2.5rem, 12vw, 3.4rem);
+    max-width: none;
+  }
+
+  .overlit-board {
+    padding: 0.7rem;
+  }
+
+  .overlit-board__hud {
+    gap: 0.4rem 0.8rem;
+  }
+
+  .overlit-board__hud-metrics {
+    gap: 1rem;
+  }
+
+  .overlit-board__hud-level,
+  .overlit-board__hud-item strong {
+    font-size: 1.15rem;
+  }
+
+  .overlit-modes__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .overlit-mini {
+    max-width: 9rem;
+  }
+}
+
+/* Short landscape phones: give the sticky cell back to the content. */
+@media (max-height: 34rem) and (orientation: landscape) {
+  .overlit-pressure__stage {
+    position: static;
+  }
+
+  .overlit-pressure__beats {
+    gap: 2rem;
+    padding-block: 2rem;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .overlit-board__overlay,
+  .overlit-page .app-header__bar {
+    backdrop-filter: none;
+  }
+
+  .overlit-board__overlay {
+    background: rgb(7 10 17 / 92%);
+  }
+}

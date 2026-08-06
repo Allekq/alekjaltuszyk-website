@@ -1,0 +1,406 @@
+/* Take Me Somewhere: palette, page world, hero, and the compass dial. */
+
+.tms-page {
+  --tms-night: #081512;
+  --tms-deep: #04100e;
+  --tms-moss: #0f2a22;
+  --tms-sun: #ffa25c;
+  --tms-sun-hot: #ffd0a4;
+  --tms-sage: #8fe0c0;
+  --tms-sky: #7cc9ff;
+  --tms-paper: #eef8f2;
+
+  --app-ink: var(--tms-paper);
+  --app-ink-soft: rgb(238 248 242 / 74%);
+  --app-ink-mute: rgb(238 248 242 / 46%);
+  --app-line: rgb(143 224 192 / 16%);
+  --app-panel: rgb(12 30 25 / 82%);
+  --app-accent: var(--tms-sun);
+  --app-accent-alt: var(--tms-sage);
+
+  background:
+    radial-gradient(100% 52% at 82% -4%, rgb(255 162 92 / 20%), transparent 62%),
+    radial-gradient(80% 44% at 6% 16%, rgb(143 224 192 / 12%), transparent 60%),
+    radial-gradient(120% 64% at 50% 112%, rgb(124 201 255 / 12%), transparent 66%),
+    linear-gradient(177deg, var(--tms-moss) 0%, var(--tms-night) 42%, var(--tms-deep) 100%);
+  color: var(--app-ink-soft);
+}
+
+.tms-page :is(h1, h2, h3) {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+/* Faint contour lines, like a walking map left in a pocket. */
+.tms-page__contours {
+  background-image:
+    repeating-radial-gradient(
+      circle at 18% 8%,
+      transparent 0 46px,
+      rgb(143 224 192 / 5%) 46px 47px
+    ),
+    repeating-radial-gradient(
+      circle at 88% 74%,
+      transparent 0 58px,
+      rgb(255 162 92 / 4%) 58px 59px
+    );
+  mask-image: radial-gradient(150% 100% at 50% 10%, #000 20%, transparent 84%);
+  opacity: 0.8;
+}
+
+.tms-page .action-button--primary {
+  color: #1c0d03;
+}
+
+/* ---- Hero ---------------------------------------------------------------- */
+
+.tms-hero {
+  padding-block: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+  position: relative;
+}
+
+.tms-hero__sky {
+  inset: -6rem 0 auto;
+  height: 62rem;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.tms-hero__glow {
+  border-radius: 999px;
+  filter: blur(90px);
+  position: absolute;
+}
+
+.tms-hero__glow--sun {
+  animation: tms-drift-sun 30s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgb(255 162 92 / 40%), transparent 68%);
+  height: 32rem;
+  right: -4rem;
+  top: -2rem;
+  width: 32rem;
+}
+
+.tms-hero__glow--sage {
+  animation: tms-drift-sage 26s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgb(143 224 192 / 26%), transparent 70%);
+  height: 28rem;
+  left: -5rem;
+  top: 10rem;
+  width: 28rem;
+}
+
+/* A soft horizon behind the hero, so the page reads as "outside". */
+.tms-hero__ridge {
+  background: linear-gradient(180deg, transparent, rgb(15 42 34 / 62%));
+  bottom: 0;
+  clip-path: polygon(
+    0% 100%,
+    0% 62%,
+    12% 48%,
+    24% 58%,
+    38% 36%,
+    52% 52%,
+    64% 40%,
+    78% 56%,
+    90% 44%,
+    100% 54%,
+    100% 100%
+  );
+  height: 16rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.tms-hero__grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+}
+
+.tms-hero__copy {
+  display: grid;
+  gap: clamp(1rem, 2.4vw, 1.5rem);
+  justify-items: start;
+}
+
+.tms-hero__title {
+  font-size: clamp(2.4rem, 5.2vw, 3.9rem);
+  line-height: 1.04;
+}
+
+.tms-hero__title-accent {
+  background: linear-gradient(96deg, var(--tms-sun) 4%, var(--tms-sun-hot) 42%, var(--tms-sage) 100%);
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.tms-hero__lead {
+  max-width: 33rem;
+}
+
+.tms-hero__stage {
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+
+.tms-hero__dial {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: min(100%, 26rem);
+}
+
+.tms-hero__ticket {
+  backdrop-filter: blur(16px);
+  background: linear-gradient(155deg, rgb(18 44 36 / 94%), rgb(6 18 15 / 94%));
+  border: 1px solid color-mix(in srgb, var(--tms-sun) 30%, transparent);
+  border-radius: 1rem;
+  bottom: -0.5rem;
+  box-shadow: 0 24px 56px rgb(0 0 0 / 46%);
+  display: grid;
+  gap: 0.3rem;
+  left: 0;
+  padding: 0.9rem 1.1rem;
+  position: absolute;
+  width: min(14rem, 54%);
+}
+
+.tms-hero__ticket-label {
+  color: var(--tms-sun);
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.tms-hero__ticket-value {
+  color: var(--app-ink);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.tms-hero__ticket-note {
+  color: var(--app-ink-mute);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.tms-hero__ticket-bearing {
+  align-items: baseline;
+  border-top: 1px solid var(--app-line);
+  display: flex;
+  gap: 0.6rem;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+  padding-top: 0.5rem;
+}
+
+.tms-hero__ticket-bearing span {
+  color: var(--app-ink-mute);
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.tms-hero__ticket-bearing strong {
+  color: var(--tms-sage);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+.tms-hero__cue {
+  margin-top: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* ---- Compass ------------------------------------------------------------- */
+
+.tms-compass {
+  --needle-angle: -28deg;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.tms-compass__rim {
+  background:
+    radial-gradient(circle at 50% 34%, rgb(143 224 192 / 10%), transparent 62%),
+    linear-gradient(165deg, rgb(18 44 36 / 92%), rgb(5 16 13 / 96%));
+  border: 1px solid var(--app-line);
+  border-radius: 999px;
+  box-shadow:
+    0 30px 70px rgb(0 0 0 / 46%),
+    inset 0 0 0 1px rgb(238 248 242 / 5%),
+    inset 0 12px 40px rgb(0 0 0 / 40%);
+  inset: 0;
+  position: absolute;
+}
+
+/* A radar-ish sweep, slow enough to feel like weather rather than a loading spinner. */
+.tms-compass__sweep {
+  animation: tms-sweep 9s linear infinite;
+  background: conic-gradient(
+    from 0deg,
+    color-mix(in srgb, var(--tms-sage) 26%, transparent) 0deg,
+    transparent 52deg,
+    transparent 360deg
+  );
+  border-radius: 999px;
+  inset: 6%;
+  mask-image: radial-gradient(circle, transparent 22%, #000 24%);
+  position: absolute;
+}
+
+/*
+ * Ticks sit at the top of the dial and rotate about its centre. The origin is
+ * expressed in the tick's own box: it starts 4% down a face that is 100% tall
+ * and is 6% tall itself, so the centre is 46/6 = 766% of its own height away.
+ */
+.tms-compass__tick {
+  background: rgb(238 248 242 / 20%);
+  height: 6%;
+  left: 50%;
+  position: absolute;
+  top: 4%;
+  transform: translateX(-50%) rotate(var(--tick-angle));
+  transform-origin: 50% 766%;
+  width: 1px;
+}
+
+.tms-compass__tick.is-major {
+  background: rgb(238 248 242 / 52%);
+  width: 2px;
+}
+
+.tms-compass__cardinal {
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%) rotate(var(--tick-angle));
+  width: 1px;
+}
+
+.tms-compass__cardinal span {
+  color: var(--app-ink-mute);
+  font-size: clamp(0.62rem, 1.4vw, 0.8rem);
+  font-weight: 900;
+  left: 50%;
+  letter-spacing: 0.1em;
+  position: absolute;
+  top: 12%;
+  transform: translateX(-50%) rotate(calc(var(--tick-angle) * -1));
+}
+
+.tms-compass__needle {
+  height: 62%;
+  position: relative;
+  rotate: var(--needle-angle);
+  transform-origin: 50% 50%;
+  width: 8%;
+  z-index: 2;
+}
+
+.tms-compass__needle-north,
+.tms-compass__needle-south {
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.tms-compass__needle-north {
+  background: linear-gradient(180deg, var(--tms-sun-hot), var(--tms-sun));
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  filter: drop-shadow(0 0 12px rgb(255 162 92 / 60%));
+  height: 50%;
+  top: 0;
+}
+
+.tms-compass__needle-south {
+  background: linear-gradient(0deg, rgb(238 248 242 / 26%), rgb(238 248 242 / 12%));
+  bottom: 0;
+  clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
+  height: 50%;
+}
+
+.tms-compass__hub {
+  background: var(--tms-paper);
+  border-radius: 999px;
+  box-shadow: 0 0 14px rgb(238 248 242 / 60%);
+  height: 4.5%;
+  position: absolute;
+  width: 4.5%;
+  z-index: 3;
+}
+
+
+/* Small instances animate on a loop instead of tracking a pointer. */
+.tms-compass--loop .tms-compass__needle {
+  animation: tms-needle-loop 12s ease-in-out infinite;
+}
+
+@keyframes tms-sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tms-needle-loop {
+  0%,
+  100% {
+    rotate: -34deg;
+  }
+
+  30% {
+    rotate: 14deg;
+  }
+
+  55% {
+    rotate: -8deg;
+  }
+
+  80% {
+    rotate: 26deg;
+  }
+}
+
+@keyframes tms-drift-sun {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(-4rem, 3rem, 0) scale(1.14);
+  }
+}
+
+@keyframes tms-drift-sage {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(4rem, 2rem, 0) scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tms-hero__glow,
+  .tms-compass__sweep,
+  .tms-compass--loop .tms-compass__needle {
+    animation: none;
+  }
+}

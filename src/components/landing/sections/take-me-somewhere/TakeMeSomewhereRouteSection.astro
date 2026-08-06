@@ -1,0 +1,50 @@
+---
+import RouteMap from "./RouteMap.astro";
+import { routeBeats } from "./take-me-somewhere.data";
+---
+
+<section class="app-section tms-route" id="path">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--wide" data-rise>
+      <p class="app-eyebrow">The walk</p>
+      <h2 class="app-title">A line drawn one street at a time.</h2>
+      <p class="app-lead">Scroll, and the outing happens.</p>
+    </header>
+
+    <div class="tms-route__scene" data-scene data-scene-mode="pin">
+      <div class="tms-route__stage" data-scene-pin>
+        <div class="tms-route__frame">
+          <RouteMap className="tms-map--showcase" idPrefix="tms-showcase" />
+
+          <div class="tms-route__hud">
+            <span class="tms-route__hud-item">
+              <span class="tms-route__hud-label">Progress</span>
+              <span class="tms-route__hud-rail" aria-hidden="true">
+                <span class="tms-route__hud-fill"></span>
+              </span>
+            </span>
+            <span class="tms-route__hud-item tms-route__hud-item--mode">
+              <span class="tms-route__hud-label">Mode</span>
+              <strong>Compass</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <ol class="tms-route__beats">
+        {routeBeats.map((beat) => (
+          <li
+            class="tms-route__beat scene-beat"
+            data-scene-item
+            data-item-at={beat.at}
+            data-item-span="0.2"
+          >
+            <p class="tms-route__beat-kicker">{beat.kicker}</p>
+            <h3 class="tms-route__beat-title">{beat.title}</h3>
+            <p class="tms-route__beat-body">{beat.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

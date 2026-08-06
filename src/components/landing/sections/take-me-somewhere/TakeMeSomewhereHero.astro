@@ -1,0 +1,79 @@
+---
+import ActionButton from "../../ui/ActionButton.astro";
+import CompassDial from "./CompassDial.astro";
+import { heroChips } from "./take-me-somewhere.data";
+import { takeMeSomewhereConfig } from "../../../../config/site";
+---
+
+<section class="tms-hero" id="top">
+  <div class="tms-hero__sky" aria-hidden="true">
+    <span class="tms-hero__glow tms-hero__glow--sun"></span>
+    <span class="tms-hero__glow tms-hero__glow--sage"></span>
+    <span class="tms-hero__ridge"></span>
+  </div>
+
+  <div class="app-shell tms-hero__grid">
+    <div class="tms-hero__copy">
+      <p class="app-status app-status--live" data-rise style="--rise-index:0">
+        <span class="app-status__dot"></span>
+        Live on the App Store
+      </p>
+
+      <h1 class="tms-hero__title" data-rise style="--rise-index:1">
+        Pick a time.<br />
+        <span class="tms-hero__title-accent">Get a path worth taking.</span>
+      </h1>
+
+      <p class="app-lead tms-hero__lead" data-rise style="--rise-index:2">
+        {takeMeSomewhereConfig.heroDescription}
+      </p>
+
+      <div class="app-actions" data-rise style="--rise-index:3">
+        <ActionButton
+          href={takeMeSomewhereConfig.primaryCtaHref}
+          label={takeMeSomewhereConfig.primaryCtaLabel}
+          target="_blank"
+        />
+        <ActionButton href="#plan" variant="ghost" label="Try the planner" />
+      </div>
+
+      <ul class="app-chip-row" data-rise style="--rise-index:4">
+        {heroChips.map((chip) => <li class="app-chip">{chip}</li>)}
+      </ul>
+    </div>
+
+    {/*
+      `data-compass` sits on the stage rather than the dial so the needle tracks
+      the pointer across the whole area, and so the live bearing can live in the
+      ticket card instead of colliding with the needle inside the face.
+    */}
+    <div class="tms-hero__stage" data-compass data-rise="scale" style="--rise-index:1">
+      <div
+        class="tms-hero__dial tilt-surface"
+        data-tilt
+        data-tilt-strength="0.6"
+        data-parallax
+        data-parallax-speed="22"
+      >
+        <CompassDial className="tms-compass--hero" hook />
+      </div>
+
+      <figure class="tms-hero__ticket parallax-layer" data-parallax data-parallax-speed="-34">
+        <figcaption class="tms-hero__ticket-label">Destination</figcaption>
+        <p class="tms-hero__ticket-value">Hidden</p>
+        <p class="tms-hero__ticket-note">Within your time budget · reveal any time</p>
+        <p class="tms-hero__ticket-bearing">
+          <span>Heading</span>
+          <strong data-compass-bearing>N · 0°</strong>
+        </p>
+      </figure>
+    </div>
+  </div>
+
+  <div class="app-shell tms-hero__cue" data-rise style="--rise-index:5">
+    <span class="app-scroll-cue">
+      <span class="app-scroll-cue__rail" aria-hidden="true"></span>
+      Scroll to walk it
+    </span>
+  </div>
+</section>

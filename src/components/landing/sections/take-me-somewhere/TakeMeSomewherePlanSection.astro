@@ -1,0 +1,102 @@
+---
+import { timeBudgets, vibes } from "./take-me-somewhere.data";
+
+const defaultTime = timeBudgets[1];
+const defaultVibe = vibes[0];
+---
+
+<section class="app-section tms-plan" id="plan">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--wide" data-rise>
+      <p class="app-eyebrow">Two inputs, that is all</p>
+      <h2 class="app-title">How long have you got, and what are you in the mood for?</h2>
+      <p class="app-lead">
+        That is the whole setup. No address to type, no destination to research, no evening spent
+        deciding. Try it — the card follows along.
+      </p>
+    </header>
+
+    <div
+      class="tms-plan__panel"
+      data-plan
+      data-plan-vibe={defaultVibe.hue}
+      style={`--plan-spread:${defaultTime.spread}`}
+    >
+      <div class="tms-plan__controls">
+        <fieldset class="tms-plan__group">
+          <legend class="tms-plan__legend">Time budget</legend>
+          <div class="tms-plan__options">
+            {timeBudgets.map((budget) => (
+              <button
+                class:list={["tms-plan__option", budget.id === defaultTime.id && "is-selected"]}
+                type="button"
+                aria-pressed={budget.id === defaultTime.id ? "true" : "false"}
+                data-plan-option="time"
+                data-plan-value={budget.id}
+                data-plan-reach={budget.reach}
+                data-plan-minutes={String(budget.minutes)}
+                data-plan-spread={String(budget.spread)}
+              >
+                {budget.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset class="tms-plan__group">
+          <legend class="tms-plan__legend">Vibe</legend>
+          <div class="tms-plan__options">
+            {vibes.map((vibe) => (
+              <button
+                class:list={["tms-plan__option", vibe.id === defaultVibe.id && "is-selected"]}
+                type="button"
+                aria-pressed={vibe.id === defaultVibe.id ? "true" : "false"}
+                data-plan-option="vibe"
+                data-plan-value={vibe.id}
+                data-plan-hue={vibe.hue}
+                data-plan-teaser={vibe.teaser}
+                data-plan-blurb={vibe.blurb}
+              >
+                {vibe.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        <p class="tms-plan__disclaimer">
+          Reach figures here are a rough feel for the distance. In the app the numbers come from
+          real routing data for the streets you are actually standing on.
+        </p>
+      </div>
+
+      <div class="tms-plan__preview tilt-surface" data-tilt data-tilt-strength="0.45">
+        <div class="tms-plan__reach" aria-hidden="true">
+          <span class="tms-plan__reach-ring tms-plan__reach-ring--outer"></span>
+          <span class="tms-plan__reach-ring tms-plan__reach-ring--inner"></span>
+          <span class="tms-plan__reach-pin"></span>
+        </div>
+
+        <dl class="tms-plan__readout">
+          <div class="tms-plan__row">
+            <dt>Time budget</dt>
+            <dd><span data-plan-out-minutes>{defaultTime.minutes}</span> min</dd>
+          </div>
+          <div class="tms-plan__row">
+            <dt>Reach</dt>
+            <dd data-plan-out-reach>{defaultTime.reach}</dd>
+          </div>
+          <div class="tms-plan__row">
+            <dt>Destination</dt>
+            <dd class="tms-plan__teaser" data-plan-out-teaser>{defaultVibe.teaser}</dd>
+          </div>
+        </dl>
+
+        <p class="tms-plan__blurb" data-plan-out-blurb>{defaultVibe.blurb}</p>
+
+        <p class="tms-plan__cta-note">
+          In the app this is where you press <strong>Take Me Somewhere</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

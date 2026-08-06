@@ -1,0 +1,57 @@
+---
+import CompassDial from "./CompassDial.astro";
+import RouteMap from "./RouteMap.astro";
+import { guidanceModes } from "./take-me-somewhere.data";
+
+const compassMode = guidanceModes[0];
+const routeMode = guidanceModes[1];
+---
+
+<section class="app-section tms-modes" id="modes">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--centre" data-rise>
+      <p class="app-eyebrow">Two ways to be guided</p>
+      <h2 class="app-title">Mystery or map. Switch mid-walk.</h2>
+      <p class="app-lead">
+        Same route underneath, two different amounts of knowing. You can flip between them at any
+        point, and reveal the destination whenever the mystery stops being fun.
+      </p>
+    </header>
+
+    <div class="tms-modes__pair">
+      <article class="tms-modes__card tms-modes__card--compass" data-rise="left">
+        <div class="tms-modes__visual tms-modes__visual--compass">
+          <CompassDial className="tms-compass--card tms-compass--loop" />
+          <span class="tms-modes__hint">Keep heading this way</span>
+        </div>
+        <div class="tms-modes__body">
+          <p class="tms-modes__tagline">{compassMode.tagline}</p>
+          <h3 class="tms-modes__name">{compassMode.name}</h3>
+          <p class="tms-modes__description">{compassMode.description}</p>
+          <ul class="tms-modes__bullets">
+            {compassMode.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </div>
+      </article>
+
+      <article class="tms-modes__card tms-modes__card--route" data-rise="right">
+        <div class="tms-modes__visual tms-modes__visual--route">
+          <RouteMap className="tms-map--card" idPrefix="tms-card" />
+          <span class="tms-modes__hint">Distance and time from routing data</span>
+        </div>
+        <div class="tms-modes__body">
+          <p class="tms-modes__tagline">{routeMode.tagline}</p>
+          <h3 class="tms-modes__name">{routeMode.name}</h3>
+          <p class="tms-modes__description">{routeMode.description}</p>
+          <ul class="tms-modes__bullets">
+            {routeMode.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

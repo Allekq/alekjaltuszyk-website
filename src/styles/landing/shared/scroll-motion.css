@@ -1,0 +1,145 @@
+/*
+ * Behaviour layer for the shared scroll-motion engine
+ * (`src/scripts/landing/motion/`). Colours and layout stay with each page; this
+ * file only owns how things enter, tilt, and drift.
+ */
+
+:root {
+  --rise-distance: 1.6rem;
+  --rise-duration: 720ms;
+  --rise-stagger: 70ms;
+  --rise-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --scene-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Entrance reveals ---------------------------------------------------- */
+
+.js [data-rise] {
+  --rise-index: 0;
+  opacity: 0;
+  transform: translate3d(0, var(--rise-distance), 0);
+  transition:
+    opacity var(--rise-duration) var(--rise-ease),
+    transform var(--rise-duration) var(--rise-ease);
+  transition-delay: calc(var(--rise-index) * var(--rise-stagger));
+  will-change: opacity, transform;
+}
+
+.js [data-rise="left"] {
+  transform: translate3d(calc(var(--rise-distance) * -1.4), 0, 0);
+}
+
+.js [data-rise="right"] {
+  transform: translate3d(calc(var(--rise-distance) * 1.4), 0, 0);
+}
+
+.js [data-rise="scale"] {
+  transform: translate3d(0, calc(var(--rise-distance) * 0.6), 0) scale(0.965);
+}
+
+.js [data-rise="blur"] {
+  filter: blur(0.6rem);
+  transition:
+    opacity var(--rise-duration) var(--rise-ease),
+    transform var(--rise-duration) var(--rise-ease),
+    filter var(--rise-duration) var(--rise-ease);
+  transition-delay: calc(var(--rise-index) * var(--rise-stagger));
+}
+
+.js [data-rise].is-risen {
+  filter: none;
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* ---- Scroll scenes ------------------------------------------------------- */
+
+/*
+ * Without JavaScript a scene has no driver, so it rests at its finished state
+ * and the page still reads. The `.js` class is set inline in <head>, before
+ * first paint, so scripted visits start from zero and animate in.
+ */
+[data-scene] {
+  --scene-progress: 1;
+}
+
+[data-scene-item] {
+  --item-progress: 1;
+}
+
+.js [data-scene] {
+  --scene-progress: 0;
+}
+
+.js [data-scene-item] {
+  --item-progress: 0;
+}
+
+/* Convenience: a beat that fades and lifts straight from its own progress. */
+.scene-beat {
+  opacity: calc(0.06 + var(--item-progress) * 0.94);
+  transform: translate3d(0, calc((1 - var(--item-progress)) * 1.5rem), 0);
+}
+
+/* ---- Pointer tilt -------------------------------------------------------- */
+
+[data-tilt] {
+  --pointer-x: 50%;
+  --pointer-y: 30%;
+  --tilt-lift: 0px;
+  --tilt-strength: 0;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  transform-style: preserve-3d;
+}
+
+.tilt-surface {
+  transform:
+    perspective(1200px)
+    rotateX(var(--tilt-x))
+    rotateY(var(--tilt-y))
+    translate3d(0, var(--tilt-lift), 0);
+  transition: transform 120ms linear;
+}
+
+/* ---- Parallax ------------------------------------------------------------ */
+
+[data-parallax] {
+  --parallax-shift: 0;
+  --parallax-y: 0px;
+}
+
+.parallax-layer {
+  transform: translate3d(0, var(--parallax-y), 0);
+  will-change: transform;
+}
+
+/* ---- Reduced motion ------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-rise] {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  [data-scene],
+  [data-scene-item] {
+    --item-progress: 1;
+    --scene-progress: 1;
+  }
+
+  .scene-beat {
+    opacity: 1;
+    transform: none;
+  }
+
+  .parallax-layer,
+  .tilt-surface {
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}

@@ -1,0 +1,67 @@
+---
+/*
+ * Covers are deliberately abstract placeholders: the catalogue is small and the
+ * app is unreleased, so the shelf shows genre and shape rather than inventing
+ * titles that would date the page the moment a fourth book ships.
+ */
+const shelf = [
+  { id: "ember", genre: "Science-fantasy", meta: "Ages 12+", tone: "ember" },
+  { id: "case", genre: "Detective mystery", meta: "Ages 13+", tone: "tide" },
+  { id: "chair", genre: "Drama", meta: "Ages 10+", tone: "dusk" },
+  { id: "next", genre: "In production", meta: "Added over time", tone: "blank" },
+] as const;
+
+const promises = [
+  {
+    title: "Written and narrated in full, before you press play",
+    body: "Every branch is produced and checked ahead of publication. Nothing is generated while you listen.",
+  },
+  {
+    title: "A shelf that matches what you asked for",
+    body: "A short setup shapes what shows up. It is worked out on your device from what you told the app — no profile, no tracking, nothing to sign up for.",
+  },
+  {
+    title: "New books, same app",
+    body: "Books are content, not updates. New ones appear across genres without you chasing a release.",
+  },
+] as const;
+---
+
+<section class="app-section abc-library" id="library">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--centre" data-rise>
+      <p class="app-eyebrow">The shelf</p>
+      <h2 class="app-title">A small catalogue, made properly.</h2>
+      <p class="app-lead">
+        Launching with a handful of complete books rather than a wall of half-finished ones.
+      </p>
+    </header>
+
+    <ul class="abc-library__shelf" data-scene data-scene-start="0.95" data-scene-end="0.3">
+      {shelf.map((book, index) => (
+        <li
+          class:list={["abc-library__slot", `abc-library__slot--${book.tone}`]}
+          data-scene-item
+          data-parallax
+          data-parallax-speed={index % 2 === 0 ? 22 : -18}
+        >
+          <div class="abc-library__cover tilt-surface" data-tilt data-tilt-strength="0.7">
+            <span class="abc-library__cover-art" aria-hidden="true"></span>
+            <span class="abc-library__cover-spine" aria-hidden="true"></span>
+            <span class="abc-library__cover-genre">{book.genre}</span>
+          </div>
+          <p class="abc-library__meta">{book.meta}</p>
+        </li>
+      ))}
+    </ul>
+
+    <ul class="abc-library__promises">
+      {promises.map((promise, index) => (
+        <li class="abc-library__promise" data-rise style={`--rise-index:${index}`}>
+          <h3 class="abc-library__promise-title">{promise.title}</h3>
+          <p class="abc-library__promise-body">{promise.body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

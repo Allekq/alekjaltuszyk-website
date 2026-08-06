@@ -1,0 +1,57 @@
+---
+import { arcadeModes, gridSizes } from "./overlit.data";
+---
+
+<section class="app-section overlit-modes" id="modes">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--centre" data-rise>
+      <p class="app-eyebrow">Arcade families</p>
+      <h2 class="app-title">Four ways for the board to come at you.</h2>
+      <p class="app-lead">
+        Unlockable free-play spaces that reuse the same grid language differently, with Survival
+        and Time Attack rulesets where they fit.
+      </p>
+    </header>
+
+    <ul class="overlit-modes__grid">
+      {arcadeModes.map((mode, index) => (
+        <li class="overlit-modes__card" data-rise="scale" style={`--rise-index:${index}`}>
+          <div class="overlit-modes__card-inner tilt-surface" data-tilt data-tilt-strength="0.6">
+            <div
+              class:list={["overlit-mini", `overlit-mini--${mode.id}`]}
+              aria-hidden="true"
+            >
+              {mode.cellOrder.map((order) => (
+                <span
+                  class="overlit-mini__cell"
+                  style={`--cell-order:${order}`}
+                ></span>
+              ))}
+            </div>
+
+            <h3 class="overlit-modes__name">{mode.name}</h3>
+            <p class="overlit-modes__description">{mode.description}</p>
+            <ul class="overlit-modes__rulesets">
+              {mode.rulesets.map((ruleset) => (
+                <li>{ruleset}</li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <div class="overlit-modes__footer" data-rise>
+      <p class="overlit-modes__footer-title">On every board size</p>
+      <ul class="overlit-modes__sizes">
+        {gridSizes.map((size) => (
+          <li class="app-chip">{size}</li>
+        ))}
+      </ul>
+      <p class="overlit-modes__footer-note">
+        Grid size is a surface, not the point. Bigger boards mean more to read, not smaller
+        targets — cells stay thumb-sized.
+      </p>
+    </div>
+  </div>
+</section>

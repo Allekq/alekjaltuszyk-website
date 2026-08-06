@@ -1,0 +1,34 @@
+---
+/**
+ * The head glyph that nods for yes and shakes for no.
+ *
+ * The 3D transform lives on the wrapping element rather than inside the SVG,
+ * because SVG child elements do not honour `preserve-3d` reliably.
+ */
+interface Props {
+  className?: string;
+  hook?: boolean;
+}
+
+const { className, hook = false } = Astro.props as Props;
+const hookAttributes = hook ? { "data-demo-head": true } : {};
+---
+
+<div class:list={["abc-head", className]} aria-hidden="true">
+  <div class="abc-head__pivot" {...hookAttributes}>
+    <svg class="abc-head__art" viewBox="0 0 120 120" focusable="false">
+      <g class="abc-head__body">
+        <path class="abc-head__neck" d="M50 84h20v14a10 10 0 0 1-20 0Z" />
+        <ellipse class="abc-head__face" cx="60" cy="54" rx="29" ry="33" />
+        <path class="abc-head__band" d="M26 50a34 32 0 0 1 68 0" />
+        <rect class="abc-head__cup" x="16" y="44" width="15" height="26" rx="7.5" />
+        <rect class="abc-head__cup" x="89" y="44" width="15" height="26" rx="7.5" />
+        <circle class="abc-head__eye" cx="50" cy="52" r="3" />
+        <circle class="abc-head__eye" cx="70" cy="52" r="3" />
+        <path class="abc-head__mouth" d="M51 66q9 7 18 0" />
+      </g>
+    </svg>
+    <span class="abc-head__pulse abc-head__pulse--one"></span>
+    <span class="abc-head__pulse abc-head__pulse--two"></span>
+  </div>
+</div>

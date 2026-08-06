@@ -1,0 +1,58 @@
+---
+/** Source of truth for the /apps/AudioBookChoices/ section order. */
+import AppLandingHeader from "../ui/AppLandingHeader.astro";
+import AudioBookChoicesAccessSection from "../sections/audio-book-choices/AudioBookChoicesAccessSection.astro";
+import AudioBookChoicesChoiceSection from "../sections/audio-book-choices/AudioBookChoicesChoiceSection.astro";
+import AudioBookChoicesCloseSection from "../sections/audio-book-choices/AudioBookChoicesCloseSection.astro";
+import AudioBookChoicesHandsFreeSection from "../sections/audio-book-choices/AudioBookChoicesHandsFreeSection.astro";
+import AudioBookChoicesHero from "../sections/audio-book-choices/AudioBookChoicesHero.astro";
+import AudioBookChoicesLibrarySection from "../sections/audio-book-choices/AudioBookChoicesLibrarySection.astro";
+import AudioBookChoicesTreeSection from "../sections/audio-book-choices/AudioBookChoicesTreeSection.astro";
+import { audioBookChoicesConfig } from "../../../config/site";
+
+const isLive = audioBookChoicesConfig.launchStage !== "coming-soon";
+---
+
+<div class="app-page abc-page">
+  <div class="app-page__texture abc-page__weave" aria-hidden="true"></div>
+
+  <AppLandingHeader
+    brand={audioBookChoicesConfig.name}
+    brandHref="#top"
+    iconSrc={audioBookChoicesConfig.iconHref}
+    iconAlt="Audio Book Choices app icon"
+    navigation={audioBookChoicesConfig.navigation}
+    ctaHref={isLive ? audioBookChoicesConfig.primaryCtaHref ?? undefined : undefined}
+    ctaLabel={isLive ? audioBookChoicesConfig.primaryCtaLabel : undefined}
+    ctaNote={isLive ? undefined : "Coming soon"}
+  />
+
+  <AudioBookChoicesHero />
+  <AudioBookChoicesChoiceSection />
+  <AudioBookChoicesTreeSection />
+  <AudioBookChoicesHandsFreeSection />
+  <AudioBookChoicesLibrarySection />
+  <AudioBookChoicesAccessSection />
+  <AudioBookChoicesCloseSection />
+</div>
+
+<script>
+  import { setupAppLandingMotion } from "../../../scripts/landing/motion";
+  import { setupChoiceDemo } from "../../../scripts/landing/audio-book-choices/choice-demo";
+
+  const boot = () => {
+    setupAppLandingMotion();
+
+    try {
+      setupChoiceDemo();
+    } catch (error) {
+      console.error("[audio-book-choices] choice demo failed", error);
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
+</script>

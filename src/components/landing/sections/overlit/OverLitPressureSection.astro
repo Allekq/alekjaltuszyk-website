@@ -1,0 +1,74 @@
+---
+import { pressureSteps } from "./overlit.data";
+---
+
+<section class="app-section overlit-pressure" id="pressure">
+  <div class="app-shell">
+    <header class="app-section__head app-section__head--wide" data-rise>
+      <p class="app-eyebrow">Reading the board</p>
+      <h2 class="app-title">Every cell tells you how long you have.</h2>
+      <p class="app-lead">
+        There is no tutorial text mid-run. Colour is the whole interface, so it has to be legible
+        at a glance, at speed, with a thumb in the way.
+      </p>
+    </header>
+
+    <div class="overlit-pressure__scene" data-scene data-scene-mode="pin">
+      <div class="overlit-pressure__stage" data-scene-pin>
+        <div class="overlit-pressure__cellframe">
+          {/*
+            One cell, painted by four stacked layers. Each layer is its own scene
+            beat, so `--item-progress` doubles as its opacity and the cell melts
+            from idle through critical without a line of JavaScript.
+          */}
+          <div class="overlit-pressure__cell" aria-hidden="true">
+            <span class="overlit-pressure__cell-face"></span>
+            {(["lit", "warning", "critical"] as const).map((phase, index) => (
+              <span
+                class:list={["overlit-pressure__cell-layer", `is-${phase}`]}
+                data-scene-item
+                data-item-at={pressureSteps[index + 1].at - 0.06}
+                data-item-span="0.14"
+              ></span>
+            ))}
+            <span
+              class="overlit-pressure__cell-break"
+              data-scene-item
+              data-item-at={pressureSteps[4].at - 0.04}
+              data-item-span="0.1"
+            ></span>
+          </div>
+
+          <ol class="overlit-pressure__ladder">
+            {pressureSteps.map((step) => (
+              <li
+                class:list={["overlit-pressure__rung", `is-${step.phase}`]}
+                data-scene-item
+                data-item-at={step.at}
+                data-item-span="0.08"
+              >
+                <span class="overlit-pressure__rung-dot"></span>
+                {step.label}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <ol class="overlit-pressure__beats">
+        {pressureSteps.map((step) => (
+          <li
+            class="overlit-pressure__beat scene-beat"
+            data-scene-item
+            data-item-at={step.at}
+            data-item-span="0.16"
+          >
+            <p class="overlit-pressure__beat-label">{step.label}</p>
+            <h3 class="overlit-pressure__beat-title">{step.title}</h3>
+            <p class="overlit-pressure__beat-body">{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import { levelTwists } from "./overlit.data";
+---
+
+<section class="app-section overlit-levels" id="levels">
+  <div class="app-shell">
+    <div class="overlit-levels__head">
+      <header class="app-section__head" data-rise>
+        <p class="app-eyebrow">The campaign</p>
+        <h2 class="app-title">Levels are where the rules keep changing.</h2>
+        <p class="app-lead">
+          Early ones teach the rhythm. Later ones take it away. Each twist arrives on its own,
+          gets a level to itself, and then starts showing up combined with the last four.
+        </p>
+      </header>
+
+      <div class="overlit-levels__meter" data-rise="right">
+        <span class="overlit-levels__meter-label">Difficulty</span>
+        <span class="overlit-levels__meter-rail" aria-hidden="true">
+          <span class="overlit-levels__meter-fill"></span>
+        </span>
+        <span class="overlit-levels__meter-note">Stacks, never resets</span>
+      </div>
+    </div>
+
+    {/*
+      Per-item reveals rather than one scene: the list is long enough that a
+      single scene would leave its last rows faded out by the time they scroll
+      into view.
+    */}
+    <ol class="overlit-levels__list">
+      {levelTwists.map((twist, index) => (
+        <li
+          class="overlit-levels__item"
+          data-rise="left"
+          style={`--twist-index:${index};--twist-total:${levelTwists.length};--rise-index:${index % 4}`}
+        >
+          <span class="overlit-levels__item-index">{String(index + 1).padStart(2, "0")}</span>
+          <span class="overlit-levels__item-body">
+            <span class="overlit-levels__item-name">{twist.name}</span>
+            <span class="overlit-levels__item-detail">{twist.detail}</span>
+          </span>
+          <span class="overlit-levels__item-rail" aria-hidden="true">
+            <span class="overlit-levels__item-bar"></span>
+          </span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

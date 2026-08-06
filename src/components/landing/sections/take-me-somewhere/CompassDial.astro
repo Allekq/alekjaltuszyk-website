@@ -1,0 +1,45 @@
+---
+/**
+ * The compass face. The needle's rotation is a custom property, driven either by
+ * `compass.ts` (pointer, scroll, idle drift) or by a plain CSS loop in the
+ * smaller instances that just need to look alive.
+ */
+interface Props {
+  className?: string;
+  /** Marks the needle for `compass.ts`. The pointer-tracking root is elsewhere. */
+  hook?: boolean;
+}
+
+const { className, hook = false } = Astro.props as Props;
+const ticks = Array.from({ length: 36 }, (_, index) => index * 10);
+const cardinals = [
+  { label: "N", angle: 0 },
+  { label: "E", angle: 90 },
+  { label: "S", angle: 180 },
+  { label: "W", angle: 270 },
+] as const;
+---
+
+<div class:list={["tms-compass", className]}>
+  <div class="tms-compass__rim" aria-hidden="true">
+    <span class="tms-compass__sweep"></span>
+    {ticks.map((angle) => (
+      <span
+        class:list={["tms-compass__tick", angle % 90 === 0 && "is-major"]}
+        style={`--tick-angle:${angle}deg`}
+      ></span>
+    ))}
+    {cardinals.map((cardinal) => (
+      <span class="tms-compass__cardinal" style={`--tick-angle:${cardinal.angle}deg`}>
+        <span>{cardinal.label}</span>
+      </span>
+    ))}
+  </div>
+
+  <div class="tms-compass__needle" data-compass-needle={hook ? true : undefined} aria-hidden="true">
+    <span class="tms-compass__needle-north"></span>
+    <span class="tms-compass__needle-south"></span>
+  </div>
+
+  <span class="tms-compass__hub" aria-hidden="true"></span>
+</div>

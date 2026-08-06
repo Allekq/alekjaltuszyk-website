@@ -1,0 +1,614 @@
+/* Take Me Somewhere: planner, route scene, modes, ground truth, and close. */
+
+/* ---- Planner ------------------------------------------------------------- */
+
+.tms-plan__panel {
+  --plan-spread: 0.56;
+  align-items: start;
+  background: linear-gradient(168deg, rgb(18 44 36 / 74%), rgb(6 18 15 / 86%));
+  border: 1px solid var(--app-line);
+  border-radius: clamp(1.2rem, 2.6vw, 1.9rem);
+  box-shadow: 0 32px 74px rgb(0 0 0 / 40%);
+  display: grid;
+  gap: clamp(1.4rem, 3.5vw, 2.6rem);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+}
+
+.tms-plan__controls {
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.tms-plan__group {
+  border: none;
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+}
+
+.tms-plan__legend {
+  color: var(--app-ink-mute);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.tms-plan__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tms-plan__option {
+  background: rgb(238 248 242 / 5%);
+  border: 1px solid var(--app-line);
+  border-radius: var(--radius-pill);
+  color: var(--app-ink-soft);
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 750;
+  min-height: 2.9rem;
+  padding: 0.6rem 1.1rem;
+  transition:
+    background-color var(--motion-standard),
+    border-color var(--motion-standard),
+    color var(--motion-standard),
+    transform var(--motion-standard);
+}
+
+.tms-plan__option:hover,
+.tms-plan__option:focus-visible {
+  border-color: color-mix(in srgb, var(--tms-sun) 46%, transparent);
+  color: var(--app-ink);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.tms-plan__option.is-selected {
+  background: color-mix(in srgb, var(--tms-sun) 20%, transparent);
+  border-color: color-mix(in srgb, var(--tms-sun) 62%, transparent);
+  color: var(--app-ink);
+}
+
+.tms-plan__disclaimer {
+  color: var(--app-ink-mute);
+  font-size: var(--text-caption);
+  line-height: 1.7;
+  max-width: 34rem;
+}
+
+.tms-plan__preview {
+  background:
+    radial-gradient(
+      110% 80% at var(--pointer-x, 50%) var(--pointer-y, 8%),
+      rgb(255 162 92 / calc(8% + var(--tilt-strength, 0) * 12%)),
+      transparent 62%
+    ),
+    linear-gradient(168deg, rgb(24 56 46 / 88%), rgb(5 16 13 / 94%));
+  border: 1px solid color-mix(in srgb, var(--tms-sun) 24%, var(--app-line) 76%);
+  border-radius: clamp(1rem, 2.2vw, 1.5rem);
+  display: grid;
+  gap: clamp(0.85rem, 2vw, 1.2rem);
+  padding: clamp(1.1rem, 2.6vw, 1.6rem);
+}
+
+/* The reach rings open as the time budget grows. */
+.tms-plan__reach {
+  aspect-ratio: 2 / 1;
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+  position: relative;
+}
+
+.tms-plan__reach-ring {
+  border: 1px solid color-mix(in srgb, var(--tms-sage) 40%, transparent);
+  border-radius: 999px;
+  grid-area: 1 / 1;
+  transition: transform var(--motion-slow);
+}
+
+.tms-plan__reach-ring--outer {
+  aspect-ratio: 1;
+  border-style: dashed;
+  transform: scale(calc(0.32 + var(--plan-spread) * 0.68));
+  width: 88%;
+}
+
+.tms-plan__reach-ring--inner {
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgb(143 224 192 / 16%), transparent 70%);
+  transform: scale(calc(0.22 + var(--plan-spread) * 0.5));
+  width: 88%;
+}
+
+.tms-plan__reach-pin {
+  background: var(--tms-sun);
+  border-radius: 999px;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--tms-sun) 22%, transparent);
+  grid-area: 1 / 1;
+  height: 0.7rem;
+  width: 0.7rem;
+}
+
+.tms-plan__panel[data-plan-vibe="sage"] .tms-plan__reach-pin {
+  background: var(--tms-sage);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--tms-sage) 22%, transparent);
+}
+
+.tms-plan__panel[data-plan-vibe="sky"] .tms-plan__reach-pin {
+  background: var(--tms-sky);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--tms-sky) 22%, transparent);
+}
+
+.tms-plan__readout {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.tms-plan__row {
+  align-items: baseline;
+  border-top: 1px solid var(--app-line);
+  display: flex;
+  gap: 0.8rem;
+  justify-content: space-between;
+  padding-top: 0.45rem;
+}
+
+.tms-plan__row dt {
+  color: var(--app-ink-mute);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tms-plan__row dd {
+  color: var(--app-ink);
+  font-size: 1rem;
+  font-weight: 750;
+  margin: 0;
+  text-align: right;
+}
+
+.tms-plan__teaser {
+  color: var(--tms-sun);
+}
+
+.tms-plan__blurb {
+  color: var(--app-ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.tms-plan__cta-note {
+  border-top: 1px solid var(--app-line);
+  color: var(--app-ink-mute);
+  font-size: var(--text-caption);
+  padding-top: 0.7rem;
+}
+
+.tms-plan__cta-note strong {
+  color: var(--app-ink);
+}
+
+/* ---- Route scene --------------------------------------------------------- */
+
+.tms-route__scene {
+  align-items: start;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+}
+
+.tms-route__stage {
+  align-self: start;
+  grid-column: 2;
+  position: sticky;
+  top: 7.6rem;
+  /* Beats scroll underneath, so the stage has to win the paint order. */
+  z-index: 2;
+}
+
+.tms-route__frame {
+  background: linear-gradient(168deg, rgb(18 44 36 / 88%), rgb(5 16 13 / 94%));
+  border: 1px solid var(--app-line);
+  border-radius: clamp(1.1rem, 2.4vw, 1.6rem);
+  box-shadow: 0 34px 78px rgb(0 0 0 / 46%);
+  display: grid;
+  gap: 0.9rem;
+  overflow: hidden;
+  padding: clamp(0.7rem, 1.8vw, 1rem);
+}
+
+.tms-map {
+  border-radius: clamp(0.7rem, 1.6vw, 1.1rem);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.tms-map--showcase {
+  aspect-ratio: 720 / 520;
+}
+
+.tms-map__park {
+  fill: rgb(143 224 192 / 14%);
+}
+
+.tms-map__water {
+  fill: rgb(124 201 255 / 15%);
+}
+
+.tms-map__streets path {
+  fill: none;
+  stroke: rgb(238 248 242 / 11%);
+  stroke-width: 8;
+}
+
+.tms-map__route-ghost {
+  fill: none;
+  stroke: rgb(238 248 242 / 20%);
+  stroke-dasharray: 0.012 0.02;
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+
+.tms-map__route {
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--scene-progress));
+  stroke-linecap: round;
+  stroke-width: 5;
+}
+
+.tms-map__start-halo {
+  fill: rgb(143 224 192 / 18%);
+}
+
+.tms-map__start-core {
+  fill: var(--tms-sage);
+}
+
+.tms-map__waypoint {
+  opacity: var(--item-progress);
+}
+
+.tms-map__waypoint-ring {
+  fill: none;
+  stroke: var(--tms-sky);
+  stroke-width: 1.6;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(calc(0.4 + var(--item-progress) * 0.6));
+}
+
+.tms-map__waypoint-core {
+  fill: var(--tms-sky);
+}
+
+.tms-map__destination {
+  opacity: var(--item-progress);
+}
+
+.tms-map__destination-halo {
+  fill: rgb(255 162 92 / 16%);
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(calc(0.5 + var(--item-progress) * 0.5));
+}
+
+.tms-map__destination-disc {
+  fill: var(--tms-sun);
+}
+
+.tms-map__destination-pin {
+  fill: #1c0d03;
+}
+
+.tms-map__walker {
+  fill: var(--tms-paper);
+  filter: drop-shadow(0 0 8px var(--tms-sun));
+  offset-distance: calc(var(--scene-progress) * 100%);
+  offset-rotate: 0deg;
+  opacity: clamp(0, var(--scene-progress) * 24, 1);
+}
+
+@supports not (offset-distance: 0%) {
+  .tms-map__walker {
+    display: none;
+  }
+}
+
+.tms-route__hud {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  padding-inline: 0.3rem;
+}
+
+.tms-route__hud-item {
+  align-items: center;
+  display: flex;
+  flex: 1 1 10rem;
+  gap: 0.6rem;
+}
+
+.tms-route__hud-item--mode {
+  flex: 0 0 auto;
+}
+
+.tms-route__hud-item strong {
+  color: var(--app-ink);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.tms-route__hud-label {
+  color: var(--app-ink-mute);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tms-route__hud-rail {
+  background: rgb(238 248 242 / 10%);
+  border-radius: 999px;
+  flex: 1 1 auto;
+  height: 3px;
+  overflow: hidden;
+}
+
+.tms-route__hud-fill {
+  background: linear-gradient(90deg, var(--tms-sage), var(--tms-sky) 55%, var(--tms-sun));
+  display: block;
+  height: 100%;
+  transform: scaleX(var(--scene-progress));
+  transform-origin: left;
+  width: 100%;
+}
+
+.tms-route__beats {
+  display: grid;
+  gap: clamp(8rem, 24vh, 14rem);
+  grid-column: 1;
+  padding-block: clamp(2rem, 8vh, 5rem) clamp(5rem, 20vh, 10rem);
+}
+
+.tms-route__beat {
+  border-left: 2px solid color-mix(in srgb, var(--tms-sun) 34%, transparent);
+  display: grid;
+  gap: 0.55rem;
+  padding-left: clamp(0.9rem, 2vw, 1.4rem);
+}
+
+.tms-route__beat-kicker {
+  color: var(--tms-sun);
+  font-size: var(--text-label);
+  font-weight: 900;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.tms-route__beat-title {
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  line-height: 1.14;
+}
+
+.tms-route__beat-body {
+  color: var(--app-ink-soft);
+  line-height: 1.75;
+  max-width: 26rem;
+}
+
+/* ---- Guidance modes ------------------------------------------------------ */
+
+.tms-modes__pair {
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tms-modes__card {
+  background: linear-gradient(168deg, rgb(18 44 36 / 76%), rgb(5 16 13 / 88%));
+  border: 1px solid var(--app-line);
+  border-radius: clamp(1.1rem, 2.4vw, 1.6rem);
+  display: grid;
+  gap: clamp(1rem, 2.4vw, 1.4rem);
+  overflow: hidden;
+  padding: clamp(1.1rem, 2.6vw, 1.7rem);
+}
+
+/* Both previews share the map's own ratio, so the route card fills exactly and
+   the compass card still has room to breathe. */
+.tms-modes__visual {
+  align-items: center;
+  aspect-ratio: 72 / 52;
+  background: rgb(4 12 10 / 62%);
+  border: 1px solid var(--app-line);
+  border-radius: 0.9rem;
+  display: grid;
+  justify-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.tms-modes__visual--compass .tms-compass {
+  block-size: 86%;
+  inline-size: auto;
+}
+
+.tms-modes__visual--route .tms-map {
+  border-radius: 0;
+  height: auto;
+  width: 100%;
+}
+
+/* The card map is a preview, not a scene: show the finished route. */
+.tms-map--card {
+  --scene-progress: 1;
+}
+
+.tms-map--card .tms-map__waypoint,
+.tms-map--card .tms-map__destination {
+  opacity: 1;
+}
+
+.tms-map--card .tms-map__walker {
+  offset-distance: 62%;
+}
+
+.tms-map--card :is(.tms-map__waypoint-ring, .tms-map__destination-halo) {
+  transform: none;
+}
+
+.tms-modes__hint {
+  backdrop-filter: blur(8px);
+  background: rgb(4 12 10 / 82%);
+  border: 1px solid var(--app-line);
+  border-radius: var(--radius-pill);
+  bottom: 0.7rem;
+  color: var(--app-ink);
+  font-size: 0.76rem;
+  font-weight: 800;
+  left: 50%;
+  padding: 0.4rem 0.8rem;
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.tms-modes__body {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.tms-modes__tagline {
+  color: var(--tms-sage);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.tms-modes__card--route .tms-modes__tagline {
+  color: var(--tms-sky);
+}
+
+.tms-modes__name {
+  font-size: clamp(1.4rem, 3vw, 1.95rem);
+}
+
+.tms-modes__description {
+  color: var(--app-ink-soft);
+  line-height: 1.72;
+}
+
+.tms-modes__bullets {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.tms-modes__bullets li {
+  align-items: baseline;
+  color: var(--app-ink-mute);
+  display: flex;
+  font-size: 0.92rem;
+  gap: 0.55rem;
+  line-height: 1.6;
+}
+
+.tms-modes__bullets li::before {
+  color: var(--tms-sun);
+  content: "→";
+  font-weight: 900;
+}
+
+/* ---- Ground truth -------------------------------------------------------- */
+
+.tms-truth__list {
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tms-truth__item {
+  border-top: 1px solid var(--app-line);
+  display: grid;
+  gap: 0.5rem;
+  padding-top: clamp(1rem, 2.4vw, 1.4rem);
+  position: relative;
+}
+
+.tms-truth__marker {
+  background: var(--tms-sun);
+  border-radius: 999px;
+  height: 0.5rem;
+  left: 0;
+  position: absolute;
+  top: -0.25rem;
+  width: 0.5rem;
+}
+
+.tms-truth__title {
+  font-size: clamp(1.05rem, 2.1vw, 1.32rem);
+  line-height: 1.25;
+}
+
+.tms-truth__body {
+  color: var(--app-ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.72;
+}
+
+/* ---- Close --------------------------------------------------------------- */
+
+.tms-close__panel {
+  background: linear-gradient(160deg, rgb(26 62 50 / 92%), rgb(5 16 13 / 96%));
+  border: 1px solid color-mix(in srgb, var(--tms-sun) 26%, transparent);
+  border-radius: clamp(1.3rem, 3vw, 2.1rem);
+  box-shadow: 0 40px 90px rgb(0 0 0 / 46%);
+  display: grid;
+  gap: clamp(0.85rem, 2vw, 1.25rem);
+  justify-items: start;
+  overflow: hidden;
+  padding: clamp(1.5rem, 5vw, 3.2rem);
+  position: relative;
+}
+
+.tms-close__horizon {
+  background: radial-gradient(
+    70% 120% at var(--pointer-x, 84%) var(--pointer-y, 6%),
+    rgb(255 162 92 / 30%),
+    transparent 66%
+  );
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.tms-close__panel > *:not(.tms-close__horizon) {
+  position: relative;
+  z-index: 1;
+}
+
+.tms-close__title {
+  font-size: clamp(1.9rem, 5.2vw, 3.2rem);
+  line-height: 1.04;
+  max-width: 18ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tms-plan__option,
+  .tms-plan__reach-ring {
+    transition: none;
+  }
+}

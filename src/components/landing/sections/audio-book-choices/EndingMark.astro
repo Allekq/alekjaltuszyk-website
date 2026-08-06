@@ -1,0 +1,36 @@
+---
+import type { DemoEndingKind } from "./choice-demo.data";
+
+interface Props {
+  className?: string;
+  kind: DemoEndingKind;
+}
+
+const { className, kind } = Astro.props as Props;
+---
+
+<svg
+  class:list={["abc-ending-mark", `abc-ending-mark--${kind}`, className]}
+  viewBox="-24 -24 48 48"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="abc-ending-mark__disc" r="21" />
+  {kind === "win" && (
+    <g class="abc-ending-mark__glyph">
+      <circle r="6.5" />
+      <path d="M0 -14v3.4M0 10.6V14M-14 0h3.4M10.6 0H14M-9.9 -9.9l2.4 2.4M7.5 7.5l2.4 2.4M9.9 -9.9l-2.4 2.4M-7.5 7.5l-2.4 2.4" />
+    </g>
+  )}
+  {kind === "death" && (
+    <g class="abc-ending-mark__glyph">
+      <path d="M-7.5 -7.5L7.5 7.5M7.5 -7.5L-7.5 7.5" />
+    </g>
+  )}
+  {kind === "neutral" && (
+    <g class="abc-ending-mark__glyph">
+      <circle r="8" />
+      <path class="abc-ending-mark__fill" d="M0 -8A8 8 0 0 0 0 8Z" />
+    </g>
+  )}
+</svg>

@@ -1,0 +1,529 @@
+/* OverLit: palette, page world, and hero. */
+
+.overlit-page {
+  --ol-void: #070a11;
+  --ol-deep: #0d121c;
+  --ol-slab: #161d2a;
+  --ol-cyan: #46d5f1;
+  --ol-cyan-hot: #8df3ff;
+  --ol-amber: #ffc356;
+  --ol-amber-hot: #ffe0a0;
+  --ol-critical: #ff5f6b;
+  --ol-critical-hot: #ff9d8a;
+  --ol-paper: #f2f8ff;
+
+  --app-ink: var(--ol-paper);
+  --app-ink-soft: rgb(226 239 250 / 74%);
+  --app-ink-mute: rgb(226 239 250 / 46%);
+  --app-line: rgb(141 243 255 / 16%);
+  --app-panel: rgb(22 29 42 / 82%);
+  --app-accent: var(--ol-cyan);
+  --app-accent-alt: var(--ol-amber);
+
+  background:
+    radial-gradient(90% 44% at 10% 0%, rgb(70 213 241 / 11%), transparent 60%),
+    radial-gradient(86% 44% at 94% 26%, rgb(255 195 86 / 9%), transparent 58%),
+    radial-gradient(130% 62% at 50% 106%, rgb(126 70 96 / 26%), transparent 68%),
+    linear-gradient(176deg, #1b2330 0%, #121824 44%, #0a0d14 100%);
+  color: var(--app-ink-soft);
+}
+
+.overlit-page :is(h1, h2, h3) {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* The arcade grid the whole page sits on. */
+.overlit-page__mesh {
+  background-image:
+    linear-gradient(90deg, rgb(141 243 255 / 6%) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(141 243 255 / 5%) 1px, transparent 1px);
+  background-size: 5.5rem 5.5rem;
+  mask-image: radial-gradient(140% 100% at 50% 0%, #000 22%, transparent 78%);
+  opacity: 0.5;
+}
+
+.overlit-page .app-header__bar {
+  border-radius: 0.85rem;
+}
+
+.overlit-page .app-header__icon {
+  border-radius: 0.5rem;
+}
+
+.overlit-page .app-header__brand,
+.overlit-page .landing-nav__link,
+.overlit-page .action-button {
+  font-family: var(--font-sans);
+}
+
+.overlit-page .app-header__brand {
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.overlit-page .action-button {
+  border-radius: 0.7rem;
+}
+
+.overlit-page .action-button--primary {
+  color: #06131a;
+}
+
+/* Square-ish corners throughout: the app is a grid, so the site is too. */
+.overlit-page .app-chip,
+.overlit-page .app-status,
+.overlit-page .app-header__note {
+  border-radius: 0.55rem;
+}
+
+/* ---- Hero ---------------------------------------------------------------- */
+
+.overlit-hero {
+  padding-block: clamp(2rem, 6vw, 4rem) clamp(2.5rem, 7vw, 5rem);
+  position: relative;
+}
+
+.overlit-hero__field {
+  inset: -8rem 0 auto;
+  height: 60rem;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.overlit-hero__scan {
+  animation: overlit-scan 8s linear infinite;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(141 243 255 / 9%) 46%,
+    transparent 54%
+  );
+  inset: -40% 0;
+  position: absolute;
+}
+
+.overlit-hero__bloom {
+  border-radius: 999px;
+  filter: blur(80px);
+  position: absolute;
+}
+
+.overlit-hero__bloom--cyan {
+  animation: overlit-bloom-a 22s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgb(70 213 241 / 34%), transparent 68%);
+  height: 30rem;
+  left: -5rem;
+  top: 4rem;
+  width: 30rem;
+}
+
+.overlit-hero__bloom--amber {
+  animation: overlit-bloom-b 27s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgb(255 195 86 / 26%), transparent 70%);
+  height: 26rem;
+  right: -3rem;
+  top: 12rem;
+  width: 26rem;
+}
+
+.overlit-hero__grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.overlit-hero__copy {
+  display: grid;
+  gap: clamp(1rem, 2.4vw, 1.5rem);
+  justify-items: start;
+}
+
+.overlit-hero__identity {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.overlit-hero__icon {
+  border-radius: 1.1rem;
+  box-shadow:
+    0 18px 40px rgb(0 0 0 / 44%),
+    0 0 0 1px rgb(255 255 255 / 14%);
+  height: 4rem;
+  width: 4rem;
+}
+
+.overlit-hero__title {
+  font-size: clamp(2.7rem, 6.2vw, 4.7rem);
+  max-width: 12ch;
+}
+
+.overlit-hero__lead {
+  max-width: 32rem;
+}
+
+/* ---- Playable board ------------------------------------------------------ */
+
+.overlit-board {
+  --board-heat: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ol-critical) calc(var(--board-heat) * 7%), rgb(30 38 51 / 96%)),
+    rgb(16 21 31 / 97%)
+  );
+  border: 1px solid rgb(226 239 250 / 9%);
+  border-radius: 1.15rem;
+  box-shadow:
+    0 34px 80px rgb(0 0 0 / 48%),
+    inset 0 1px 0 rgb(255 255 255 / 5%);
+  display: grid;
+  gap: clamp(0.7rem, 1.8vw, 1.05rem);
+  padding: clamp(0.9rem, 2.2vw, 1.3rem);
+  position: relative;
+  transition: background-color var(--motion-standard);
+}
+
+.overlit-board.is-hit {
+  animation: overlit-board-jolt 320ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+/* Mirrors the app's gameplay chrome: run identity left, metrics right. */
+.overlit-board__hud {
+  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  justify-content: space-between;
+}
+
+.overlit-board__hud-run {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.overlit-board__hud-level {
+  color: var(--app-ink);
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.overlit-board__hud-goal {
+  color: var(--app-ink-mute);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.overlit-board__hud-metrics {
+  display: flex;
+  gap: 1.3rem;
+}
+
+.overlit-board__hud-item {
+  display: grid;
+  gap: 0.05rem;
+  justify-items: end;
+}
+
+.overlit-board__hud-item strong {
+  color: var(--app-ink);
+  font-size: 1.35rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.overlit-board__hud-label {
+  color: var(--app-ink-mute);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.overlit-board__foot {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.1rem;
+  justify-content: space-between;
+}
+
+.overlit-board__size {
+  color: var(--app-ink-mute);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+/*
+ * Cells match the app: flat saturated fills on rounded squares with generous
+ * gaps, not gradients. The glow is the only embellishment, because readability
+ * under pressure is the whole design brief.
+ */
+.overlit-board__grid {
+  display: grid;
+  gap: clamp(0.34rem, 1.1vw, 0.55rem);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.overlit-board__cell {
+  aspect-ratio: 1;
+  background: #222a37;
+  border: 1px solid rgb(226 239 250 / 5%);
+  border-radius: 0.62rem;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition:
+    background-color 130ms linear,
+    box-shadow 130ms linear,
+    transform 120ms ease;
+  width: 100%;
+}
+
+.overlit-board__cell[data-phase="lit"] {
+  background: #5dd8f5;
+  border-color: transparent;
+  box-shadow: 0 0 20px rgb(93 216 245 / 42%);
+}
+
+.overlit-board__cell[data-phase="warning"] {
+  animation: overlit-cell-throb 700ms ease-in-out infinite alternate;
+  background: #f5b95c;
+  border-color: transparent;
+  box-shadow: 0 0 22px rgb(245 185 92 / 46%);
+}
+
+.overlit-board__cell[data-phase="critical"] {
+  animation: overlit-cell-throb 300ms ease-in-out infinite alternate;
+  background: #f6605f;
+  border-color: transparent;
+  box-shadow: 0 0 26px rgb(246 96 95 / 56%);
+}
+
+.overlit-board__cell.is-cleared {
+  animation: overlit-cell-clear 320ms ease-out;
+}
+
+.overlit-board__cell.is-miss {
+  animation: overlit-cell-miss 260ms ease-out;
+}
+
+.overlit-board__cell:focus-visible {
+  outline: 2px solid var(--ol-cyan-hot);
+  outline-offset: 2px;
+}
+
+/*
+ * The state legend replaces the interactive overlay under reduced motion, where
+ * the board is filled in and labelled instead of played.
+ */
+.overlit-board__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+}
+
+.overlit-board__legend li {
+  align-items: center;
+  color: var(--app-ink-mute);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 700;
+  gap: 0.35rem;
+}
+
+.overlit-board__legend li::before {
+  border-radius: 0.16rem;
+  content: "";
+  height: 0.55rem;
+  width: 0.55rem;
+}
+
+.overlit-board__legend li[data-phase="lit"]::before {
+  background: #5dd8f5;
+}
+
+.overlit-board__legend li[data-phase="warning"]::before {
+  background: #f5b95c;
+}
+
+.overlit-board__legend li[data-phase="critical"]::before {
+  background: #f6605f;
+}
+
+.overlit-board[data-board-state="static"] .overlit-board__overlay {
+  display: none;
+}
+
+.overlit-board__overlay {
+  align-content: center;
+  backdrop-filter: blur(3px);
+  background: rgb(7 10 17 / 62%);
+  border-radius: inherit;
+  display: grid;
+  gap: 0.7rem;
+  inset: 0;
+  justify-items: center;
+  padding: clamp(1rem, 3vw, 1.8rem);
+  position: absolute;
+  text-align: center;
+  transition: opacity var(--motion-standard);
+  z-index: 2;
+}
+
+.overlit-board[data-board-state="playing"] .overlit-board__overlay {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.overlit-board__result {
+  color: var(--app-ink);
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.overlit-board__hint {
+  color: var(--app-ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 26rem;
+}
+
+.overlit-board__start {
+  background: linear-gradient(135deg, var(--ol-cyan), var(--ol-amber));
+  border: none;
+  border-radius: 0.7rem;
+  color: #06131a;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  min-height: 3rem;
+  padding: 0.75rem 1.6rem;
+  transition:
+    transform var(--motion-standard),
+    box-shadow var(--motion-standard);
+}
+
+.overlit-board__start:hover,
+.overlit-board__start:focus-visible {
+  box-shadow: 0 16px 34px rgb(70 213 241 / 28%);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.overlit-hero__stage {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.overlit-hero__stage-note {
+  color: var(--app-ink-mute);
+  font-size: var(--text-caption);
+  line-height: 1.65;
+  max-width: 30rem;
+}
+
+@keyframes overlit-scan {
+  0% {
+    transform: translateY(-45%);
+  }
+
+  100% {
+    transform: translateY(45%);
+  }
+}
+
+@keyframes overlit-bloom-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(4rem, 2.5rem, 0) scale(1.16);
+  }
+}
+
+@keyframes overlit-bloom-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(-3.5rem, 3rem, 0) scale(1.12);
+  }
+}
+
+@keyframes overlit-cell-throb {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(1.28);
+  }
+}
+
+@keyframes overlit-cell-clear {
+  0% {
+    box-shadow: 0 0 0 0 rgb(141 243 255 / 70%);
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(0.86);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.8rem transparent;
+    transform: scale(1);
+  }
+}
+
+@keyframes overlit-cell-miss {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-3px);
+  }
+
+  70% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes overlit-board-jolt {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate3d(-5px, 2px, 0);
+  }
+
+  60% {
+    transform: translate3d(4px, -2px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlit-hero__scan,
+  .overlit-hero__bloom,
+  .overlit-board__cell,
+  .overlit-board.is-hit {
+    animation: none;
+  }
+}

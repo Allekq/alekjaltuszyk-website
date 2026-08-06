@@ -1,0 +1,118 @@
+---
+/**
+ * The stylised map the route draws itself across.
+ *
+ * The route path carries `pathLength="1"`, so the stylesheet can dash it
+ * straight from `--scene-progress` with no measured length, and the walker
+ * marker rides the same path via `offset-path`.
+ */
+interface Props {
+  className?: string;
+  idPrefix: string;
+}
+
+const { className, idPrefix } = Astro.props as Props;
+
+const routeD =
+  "M74 452 C138 452 150 392 206 376 C262 360 258 296 312 280 C368 264 378 206 438 190 C498 174 512 118 574 102 C606 94 630 84 648 66";
+
+/** Waypoints sit on the route; `at` is where in the scene each one lands. */
+const waypoints = [
+  { at: 0.24, label: "Bench", x: 206, y: 376 },
+  { at: 0.5, label: "Cut-through", x: 312, y: 280 },
+  { at: 0.74, label: "Bridge", x: 438, y: 190 },
+] as const;
+
+const streets = [
+  "M0 330 L720 246",
+  "M0 200 L720 118",
+  "M0 452 L720 366",
+  "M148 520 L214 0",
+  "M356 520 L420 0",
+  "M556 520 L618 0",
+] as const;
+
+const routeGradient = `${idPrefix}-route`;
+const glowFilter = `${idPrefix}-route-glow`;
+---
+
+<svg
+  class:list={["tms-map", className]}
+  viewBox="0 0 720 520"
+  preserveAspectRatio="xMidYMid meet"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <linearGradient id={routeGradient} x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="var(--tms-sage)" />
+      <stop offset="55%" stop-color="var(--tms-sky)" />
+      <stop offset="100%" stop-color="var(--tms-sun)" />
+    </linearGradient>
+    <filter id={glowFilter} x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g class="tms-map__land">
+    <path class="tms-map__park" d="M28 40 C120 6 236 22 272 74 C308 126 258 186 178 196 C98 206 22 158 20 106 C19 78 20 54 28 40Z" />
+    <path class="tms-map__water" d="M720 520 L720 366 C640 384 590 430 540 446 C490 462 430 452 388 470 C346 488 330 508 322 520Z" />
+  </g>
+
+  <g class="tms-map__streets">
+    {streets.map((d, index) => (
+      <path d={d} style={`--street-index:${index}`} />
+    ))}
+  </g>
+
+  <path class="tms-map__route-ghost" d={routeD} pathLength="1" />
+  <path
+    class="tms-map__route"
+    d={routeD}
+    pathLength="1"
+    stroke={`url(#${routeGradient})`}
+    filter={`url(#${glowFilter})`}
+  />
+
+  <g class="tms-map__start">
+    <circle class="tms-map__start-halo" cx="74" cy="452" r="18" />
+    <circle class="tms-map__start-core" cx="74" cy="452" r="7" />
+  </g>
+
+  <g class="tms-map__waypoints">
+    {waypoints.map((point) => (
+      <g
+        class="tms-map__waypoint"
+        data-scene-item
+        data-item-at={point.at}
+        data-item-span="0.06"
+        transform={`translate(${point.x} ${point.y})`}
+      >
+        <circle class="tms-map__waypoint-ring" r="12" />
+        <circle class="tms-map__waypoint-core" r="4.5" />
+      </g>
+    ))}
+  </g>
+
+  <g
+    class="tms-map__destination"
+    data-scene-item
+    data-item-at="0.88"
+    data-item-span="0.1"
+    transform="translate(648 66)"
+  >
+    <circle class="tms-map__destination-halo" r="26" />
+    <circle class="tms-map__destination-disc" r="14" />
+    <path class="tms-map__destination-pin" d="M0 -7.5 L6 5 L0 2 L-6 5 Z" />
+  </g>
+
+  <circle
+    class="tms-map__walker"
+    r="6.5"
+    style={`offset-path:path('${routeD}')`}
+  />
+</svg>

@@ -1,32 +1,22 @@
 ---
-import SimpleSiteHeader from "./SimpleSiteHeader.astro";
-import { audioBookChoicesConfig, siteConfig } from "../../../config/site";
-import { appDirectory, siteRoutes, type AppDirectoryItem } from "../../../config/routes";
-import { toAbsoluteSiteUrl } from "../../../lib/discovery";
+import AudioBookChoicesPageOrchestrator from "../orchestrator/AudioBookChoicesPageOrchestrator.astro";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { audioBookChoicesConfig } from "../../../config/site";
+import { buildAppStructuredData } from "../../../lib/appSchema";
+import { siteRoutes } from "../../../config/routes";
 
-const directoryEntry: AppDirectoryItem | undefined = (
-  appDirectory as readonly AppDirectoryItem[]
-).find((item) => item.id === "audio-book-choices");
-const platformLabel = directoryEntry?.platforms.join(" & ") ?? "iOS & Android";
-const isReleased = directoryEntry?.releaseStage === "released";
-const eyebrow = isReleased ? platformLabel : `${platformLabel} — not released yet`;
-
-const structuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: audioBookChoicesConfig.name,
-    applicationCategory: "EntertainmentApplication",
-    operatingSystem: "iOS, Android",
-    url: toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path),
-    description: audioBookChoicesConfig.defaultDescription,
-    author: {
-      "@type": "Person",
-      name: siteConfig.legalName,
-    },
-  },
-];
+const structuredData = buildAppStructuredData({
+  name: audioBookChoicesConfig.name,
+  alternateNames: audioBookChoicesConfig.alternateNames,
+  path: siteRoutes.apps.audioBookChoices.path,
+  description: audioBookChoicesConfig.defaultDescription,
+  applicationCategory: "BooksApplication",
+  applicationSubCategory: "Interactive audiobooks",
+  operatingSystem: "iOS, Android",
+  contentRating: "13+",
+  isAccessibleForFree: true,
+  featureList: audioBookChoicesConfig.aiDiscovery.featureList,
+});
 ---
 
 <SiteLayout
@@ -34,58 +24,8 @@ const structuredData = [
   description={audioBookChoicesConfig.defaultDescription}
   pageType="landing"
   structuredData={structuredData}
+  faviconHref={audioBookChoicesConfig.faviconHref}
+  faviconType={audioBookChoicesConfig.faviconType}
 >
-  <div class="abc-simple-site" aria-labelledby="abc-title">
-    <SimpleSiteHeader
-      brand={audioBookChoicesConfig.name}
-      brandHref={audioBookChoicesConfig.homeHref}
-    />
-
-    <main class="abc-simple-site__main">
-      <p class="abc-simple-site__eyebrow">{eyebrow}</p>
-      <h1 id="abc-title">Audio Book Choices</h1>
-      <div class="abc-simple-site__copy">
-        {!isReleased && (
-          <p>
-            Audio Book Choices is still in development. It is not on the App Store or Google
-            Play yet, so there is nothing to download from this page today. Everything below
-            describes how the app works once it ships.
-          </p>
-        )}
-        <p>
-          Audio Book Choices is an interactive &ldquo;choose your story&rdquo; audiobook app. You
-          listen to an AI-narrated story and steer where it goes with simple Yes or No choices,
-          made by tapping the screen or nodding your head with AirPods.
-        </p>
-        <p>
-          Every book is a branching story tree. Your choices open new paths, and you can explore
-          the tree to see where other decisions would have led. Your listening progress, your
-          choices and your settings stay on your device &mdash; there is no sign-up, and the app
-          never asks for your name, email address or phone number.
-        </p>
-        <p>
-          Every installation gets three free unlocks. After that you can buy a single book
-          outright or take the All Access subscription, both handled through the App Store and
-          Google Play at the price shown before you buy. Purchases are tied to an anonymous identifier for your
-          installation, which is what lets them be restored later &mdash; the
-          <a href={audioBookChoicesConfig.privacyHref}>Privacy Policy</a> explains exactly what that
-          is and what is stored.
-        </p>
-        <p>
-          There is no analytics tool, no crash reporting, no advertising and no tracking anywhere
-          in the app.
-        </p>
-      </div>
-    </main>
-
-    <footer class="abc-simple-site__footer">
-      <nav aria-label="Audio Book Choices links">
-        <a href={audioBookChoicesConfig.supportHref}>Support</a>
-        <a href={audioBookChoicesConfig.privacyHref}>Privacy Policy</a>
-        <a href={audioBookChoicesConfig.termsHref}>Terms of Use</a>
-        <a href={siteRoutes.apps.index.href}>Apps</a>
-        <a href={siteRoutes.home.href}>Home</a>
-      </nav>
-    </footer>
-  </div>
+  <AudioBookChoicesPageOrchestrator />
 </SiteLayout>

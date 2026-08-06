@@ -1,25 +1,21 @@
 ---
-import SimpleSiteHeader from "./SimpleSiteHeader.astro";
-import { siteConfig, takeMeSomewhereConfig } from "../../../config/site";
-import { siteRoutes } from "../../../config/routes";
-import { toAbsoluteSiteUrl } from "../../../lib/discovery";
+import TakeMeSomewherePageOrchestrator from "../orchestrator/TakeMeSomewherePageOrchestrator.astro";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { buildAppStructuredData } from "../../../lib/appSchema";
+import { siteRoutes } from "../../../config/routes";
+import { takeMeSomewhereConfig } from "../../../config/site";
 
-const structuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: takeMeSomewhereConfig.name,
-    applicationCategory: "NavigationApplication",
-    operatingSystem: "iOS",
-    url: toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path),
-    description: takeMeSomewhereConfig.defaultDescription,
-    author: {
-      "@type": "Person",
-      name: siteConfig.legalName,
-    },
-  },
-];
+const structuredData = buildAppStructuredData({
+  name: takeMeSomewhereConfig.name,
+  alternateNames: takeMeSomewhereConfig.alternateNames,
+  path: siteRoutes.apps.takeMeSomewhere.path,
+  description: takeMeSomewhereConfig.defaultDescription,
+  applicationCategory: "TravelApplication",
+  applicationSubCategory: "Walking route discovery",
+  operatingSystem: "iOS",
+  downloadUrl: takeMeSomewhereConfig.appStoreHref,
+  featureList: takeMeSomewhereConfig.aiDiscovery.featureList,
+});
 ---
 
 <SiteLayout
@@ -30,46 +26,5 @@ const structuredData = [
   faviconHref={takeMeSomewhereConfig.faviconHref}
   faviconType={takeMeSomewhereConfig.faviconType}
 >
-  <div class="tms-simple-site" aria-labelledby="tms-title">
-    <SimpleSiteHeader
-      brand={takeMeSomewhereConfig.name}
-      brandHref={takeMeSomewhereConfig.homeHref}
-    />
-
-    <main class="tms-simple-site__main">
-      <p class="tms-simple-site__eyebrow">Live on the App Store</p>
-      <h1 id="tms-title">Take Me Somewhere</h1>
-      <div class="tms-simple-site__copy">
-        <p>
-          Take Me Somewhere is an iPhone app for spontaneous local outings. You tell it how much
-          time you have, pick a vibe, and it helps you find a nearby walk, route, compass outing,
-          or mystery destination.
-        </p>
-        <p>
-          It exists for the little gaps in a day when you want to go outside, but do not want to
-          plan a route from scratch. The goal is to make a small walk feel easier to begin and a
-          little more memorable once you are moving.
-        </p>
-        <p>
-          Routes, distance, ETA, and map geometry should come from real map and routing data, not
-          invented directions. The first version is walking-first, with riding and driving as
-          possible future modes.
-        </p>
-      </div>
-      <a class="tms-simple-site__cta" href={takeMeSomewhereConfig.primaryCtaHref}>
-        {takeMeSomewhereConfig.primaryCtaLabel}
-      </a>
-    </main>
-
-    <footer class="tms-simple-site__footer">
-      <nav aria-label="Take Me Somewhere links">
-        <a href={takeMeSomewhereConfig.appStoreHref}>App Store</a>
-        <a href={takeMeSomewhereConfig.supportHref}>Support</a>
-        <a href={takeMeSomewhereConfig.privacyHref}>Privacy Policy</a>
-        <a href={takeMeSomewhereConfig.termsHref}>Terms of Service</a>
-        <a href={siteRoutes.apps.index.href}>Apps</a>
-        <a href={siteRoutes.home.href}>Home</a>
-      </nav>
-    </footer>
-  </div>
+  <TakeMeSomewherePageOrchestrator />
 </SiteLayout>

@@ -44,6 +44,7 @@ Important notes:
 - OverLit summary: ${overLitConfig.aiDiscovery.summary}
 - Take Me Somewhere summary: ${takeMeSomewhereConfig.aiDiscovery.summary}
 - Audio Book Choices summary: ${audioBookChoicesConfig.aiDiscovery.summary}
+- Audio Book Choices is also known as: ${audioBookChoicesConfig.alternateNames.join(", ")}
 
 ## Main Pages
 ${renderLinks(discoveryPages.main)}

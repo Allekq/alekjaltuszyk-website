@@ -2,3 +2,5 @@
 @import "./shared/legacy-sections.css";
 @import "./shared/footer.css";
 @import "./shared/motion.css";
+@import "./shared/scroll-motion.css";
+@import "./shared/app-shell.css";

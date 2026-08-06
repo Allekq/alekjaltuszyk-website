@@ -1,0 +1,55 @@
+---
+import ActionButton from "../../ui/ActionButton.astro";
+import AppLandingFooter from "../../ui/AppLandingFooter.astro";
+import { audioBookChoicesConfig } from "../../../../config/site";
+import { siteRoutes } from "../../../../config/routes";
+
+const isLive = audioBookChoicesConfig.launchStage !== "coming-soon";
+
+const footerLinks = [
+  { label: "Support", href: audioBookChoicesConfig.supportHref },
+  { label: "Privacy Policy", href: audioBookChoicesConfig.privacyHref },
+  { label: "Terms of Use", href: audioBookChoicesConfig.termsHref },
+  { label: "App Store Terms of Use", href: audioBookChoicesConfig.appleTermsHref, external: true },
+  { label: "All apps", href: siteRoutes.apps.index.href },
+  { label: "Alek Jałtuszyk", href: siteRoutes.home.href },
+] as const;
+---
+
+<section class="app-section abc-close">
+  <div class="app-shell">
+    <div class="abc-close__panel tilt-surface" data-tilt data-tilt-strength="0.4" data-rise="scale">
+      <div class="abc-close__glow" aria-hidden="true"></div>
+      <p class="app-eyebrow">{isLive ? "Out now" : "Not out yet"}</p>
+      <h2 class="abc-close__title">Find out where choosing differently takes you.</h2>
+      <p class="app-lead">
+        {isLive
+          ? "Available on the App Store and Google Play."
+          : "Audio Book Choices is finishing up for iOS and Android. Support and the legal pages are already live if you want to read exactly how it handles your data first."}
+      </p>
+
+      <div class="app-actions">
+        {isLive && audioBookChoicesConfig.primaryCtaHref ? (
+          <ActionButton
+            href={audioBookChoicesConfig.primaryCtaHref}
+            label={audioBookChoicesConfig.primaryCtaLabel}
+            target="_blank"
+          />
+        ) : (
+          <ActionButton href={audioBookChoicesConfig.privacyHref} label="Read the privacy policy" />
+        )}
+        <ActionButton
+          href={audioBookChoicesConfig.supportHref}
+          variant="ghost"
+          label="Contact support"
+        />
+      </div>
+    </div>
+
+    <AppLandingFooter
+      ariaLabel="Audio Book Choices links"
+      links={footerLinks}
+      note="Audio Book Choices is made by Alek Jałtuszyk. Purchases and subscriptions are handled by the App Store and Google Play; Apple's Standard EULA licenses the app software on iOS, and the Terms of Use govern the books and the service."
+    />
+  </div>
+</section>
