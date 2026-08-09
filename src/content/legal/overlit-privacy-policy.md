@@ -350,6 +350,10 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 ### Erasing your leaderboard data
 
+These steps also have their own page, written to be read without the app installed:
+[Delete your OverLit data](https://alekjaltuszyk.xyz/apps/OverLit/delete-data/). It restates what
+is below and adds nothing to it.
+
 The leaderboard service has a single function whose only job is deletion. It hard-deletes **everything** held against your anonymous identity: every board entry on every board, the private player record and its rate counters, the rating record, the de-duplication ledger, and the anonymous Firebase Authentication user itself. Your entries come off the live boards, not merely out of an internal table — a published score is public, so erasing it has to mean erasing what other people can see. The function is deliberately never blocked by the feature's kill switch, because deletion has to keep working even when everything else is switched off.
 
 To have it run, email `alekgameshelp2@gmail.com` with the subject **"Delete my leaderboard data"**.

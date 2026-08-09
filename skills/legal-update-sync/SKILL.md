@@ -80,6 +80,45 @@ the old build is disturbed. The wall for those lives in the app repo.
 A clarification that adds no new obligation — wording, a masthead, a typo — must
 not bump anything, for any app. It is recorded in the public revision history.
 
+## The data-deletion pages are store surfaces, not documents
+
+`/apps/OverLit/delete-data/` and `/apps/AudioBookChoices/delete-data/` exist because
+**Google Play requires a deletion URL that works for someone who has already
+uninstalled the app**, and publishes that link on the store listing. They are
+deliberately unlike every other legal page here:
+
+- **No version, no masthead, no `legalDocuments` entry, no `sourcePath`.** They
+  restate rights the privacy policy already grants and create no new obligation,
+  so they must never bump a version and must never gate an in-app acceptance
+  prompt. Do not give them `LegalDocumentHeader`.
+- **The privacy policy remains the binding text.** Each page says so and links
+  back. If the two ever disagree, the policy wins and the page is what to fix.
+- **Play's three requirements for the linked page**: name the app or developer as
+  the store listing shows them, prominently feature the steps, and state what is
+  deleted, what is kept, and any additional retention. Every edit must leave all
+  three intact.
+- Both must stay usable **without the app installed** — that is the entire point.
+  Watch the email route especially: if it asks for an identifier the app only
+  shows in Settings, that route is useless to exactly the person the URL exists
+  for. OverLit asks for the public leaderboard nickname, which survives an
+  uninstall; Audio Book Choices has no equivalent and says so plainly.
+
+Canonical files:
+
+- `src/content/legal/overlit-data-deletion.md` and
+  `src/content/legal/audio-book-choices-data-deletion.md`
+- `src/components/legal/OverLitDataDeletionContent.astro` and
+  `src/components/legal/AudioBookChoicesDataDeletionContent.astro`
+- `src/pages/apps/OverLit/delete-data/index.astro` and
+  `src/pages/apps/AudioBookChoices/delete-data/index.astro`
+- Routes: `siteRoutes.apps.overLitDataDeletion`,
+  `siteRoutes.apps.audioBookChoicesDataDeletion`
+
+**When a retention period, a deletion scope, or an in-app deletion control
+changes, these pages change with the policy — not after it.** The URL is on a
+live store listing, so a stale one is a false statement in the place a reviewer
+is most likely to look.
+
 ## PlanKept Canonical Files
 
 - Privacy copy: `src/content/legal/plankept-privacy-policy.md`

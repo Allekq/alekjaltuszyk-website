@@ -64,6 +64,9 @@ export const siteRoutes = {
     overLit: createInternalRoute(overLitBasePath),
     overLitLegalManifest: createInternalRoute(`${overLitBasePath}legal-manifest.json`),
     overLitPrivacyPolicy: createInternalRoute(`${overLitBasePath}privacy-policy/`),
+    /* Linked from the Google Play store listing as the data deletion URL. Must stay reachable
+       without installing the app, and must not be folded into the privacy policy as an anchor. */
+    overLitDataDeletion: createInternalRoute(`${overLitBasePath}delete-data/`),
     overLitSupport: createInternalRoute(`${overLitBasePath}support/`),
     overLitTermsOfUse: createInternalRoute(`${overLitBasePath}terms-of-use/`),
     takeMeSomewhere: createInternalRoute(takeMeSomewhereBasePath),
@@ -82,6 +85,8 @@ export const siteRoutes = {
     audioBookChoices: createInternalRoute(audioBookChoicesBasePath),
     audioBookChoicesLegalManifest: createInternalRoute(`${audioBookChoicesBasePath}legal-manifest.json`),
     audioBookChoicesPrivacyPolicy: createInternalRoute(`${audioBookChoicesBasePath}privacy-policy/`),
+    /* Same role as `overLitDataDeletion`: the Play listing's data deletion URL. */
+    audioBookChoicesDataDeletion: createInternalRoute(`${audioBookChoicesBasePath}delete-data/`),
     audioBookChoicesTermsOfUse: createInternalRoute(`${audioBookChoicesBasePath}terms-of-use/`),
     audioBookChoicesSupport: createInternalRoute(`${audioBookChoicesBasePath}support/`),
   },

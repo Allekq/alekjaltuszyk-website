@@ -246,6 +246,10 @@ The filter is advisory content curation. It is not a security control, and it is
 
 ### How to request deletion
 
+These steps also have their own page, written to be read without the app installed:
+[Delete your Audio Book Choices data](https://alekjaltuszyk.xyz/apps/AudioBookChoices/delete-data/).
+It restates what is below and adds nothing to it.
+
 There is no account to delete, so deletion works differently here. There are two routes, and you can use either:
 
 1. **In the app.** Open **Settings** and use the data-deletion control there. It deletes the deletable server-side records held against your installation's anonymous identifier. Data held on the device is separate, and is cleared with the "clear data on this device" control beside it.

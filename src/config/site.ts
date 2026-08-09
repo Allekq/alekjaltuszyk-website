@@ -390,6 +390,7 @@ export const overLitConfig = {
   appStoreHref: overLitAppStoreHref,
   supportHref: siteRoutes.apps.overLitSupport.href,
   privacyHref: siteRoutes.apps.overLitPrivacyPolicy.href,
+  dataDeletionHref: siteRoutes.apps.overLitDataDeletion.href,
   termsHref: siteRoutes.apps.overLitTermsOfUse.href,
   legalManifestHref: buildAbsoluteSiteHref(siteRoutes.apps.overLitLegalManifest.path),
   supportMailtoHref: buildMailtoHref(
@@ -411,6 +412,7 @@ export const overLitConfig = {
     { label: "Apps", href: siteRoutes.apps.index.href },
     { label: "Support", href: siteRoutes.apps.overLitSupport.href },
     { label: "Privacy Policy", href: siteRoutes.apps.overLitPrivacyPolicy.href },
+    { label: "Delete Your Data", href: siteRoutes.apps.overLitDataDeletion.href },
     { label: "Terms of Use", href: siteRoutes.apps.overLitTermsOfUse.href },
     { label: "Legal Manifest", href: siteRoutes.apps.overLitLegalManifest.href },
   ],
@@ -598,6 +600,7 @@ export const audioBookChoicesConfig = {
   homeHref: siteRoutes.apps.audioBookChoices.href,
   directoryHref: siteRoutes.apps.index.href,
   privacyHref: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href,
+  dataDeletionHref: siteRoutes.apps.audioBookChoicesDataDeletion.href,
   termsHref: siteRoutes.apps.audioBookChoicesTermsOfUse.href,
   // The app software's licence on iOS. Audio Book Choices ships no custom EULA in App
   // Store Connect, so Apple's Standard EULA governs the app itself and the Terms of Use
@@ -625,6 +628,7 @@ export const audioBookChoicesConfig = {
     { label: "Apps", href: siteRoutes.apps.index.href },
     { label: "Support", href: siteRoutes.apps.audioBookChoicesSupport.href },
     { label: "Privacy Policy", href: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href },
+    { label: "Delete Your Data", href: siteRoutes.apps.audioBookChoicesDataDeletion.href },
     { label: "Terms of Use", href: siteRoutes.apps.audioBookChoicesTermsOfUse.href },
     { label: "App Store Terms of Use", href: appleStandardEulaHref, external: true },
     { label: "Legal Manifest", href: siteRoutes.apps.audioBookChoicesLegalManifest.href },

@@ -1,0 +1,16 @@
+---
+import AudioBookChoicesDataDeletionContent from "../../../../components/legal/AudioBookChoicesDataDeletionContent.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import { audioBookChoicesConfig } from "../../../../config/site";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Delete Your Data | Audio Book Choices"
+  description="How to have Audio Book Choices data erased: the in-app control, the email route, and exactly what is deleted and what is kept."
+  pageType="legal"
+>
+  <AudioBookChoicesDataDeletionContent />
+
+  <SiteFooter links={audioBookChoicesConfig.footerLinks} showBrand={false} showSocials={false} />
+</SiteLayout>

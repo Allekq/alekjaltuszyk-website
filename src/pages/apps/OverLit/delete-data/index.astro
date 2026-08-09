@@ -1,0 +1,16 @@
+---
+import OverLitDataDeletionContent from "../../../../components/legal/OverLitDataDeletionContent.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import { overLitConfig } from "../../../../config/site";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Delete Your Data | OverLit"
+  description="How to have OverLit's leaderboard data erased: the in-game control, the email route for uninstalled players, and exactly what is deleted and what is kept."
+  pageType="legal"
+>
+  <OverLitDataDeletionContent />
+
+  <SiteFooter links={overLitConfig.footerLinks} showBrand={false} showSocials={false} />
+</SiteLayout>
