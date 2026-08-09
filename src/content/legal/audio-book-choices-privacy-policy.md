@@ -26,7 +26,7 @@ No Data Protection Officer has been appointed, and none is required: this is a o
 - The app does create an anonymous identifier for your installation. It is a random string with no personal details attached, but it is treated as personal data, because it lets purchases and ratings be tied back to one installation.
 - Where you are in a story, which choices you made, which endings you reached, your settings, your downloaded audio and your self-declared age stay on your device and are never sent anywhere.
 - The app does report a short list of yes-or-no milestones per book — that you started it, that you reached an ending, that you have heard a quarter, half, four fifths or all of its scenes, that you have listened for at least 10, 30 or 60 minutes. Each is reported once and never again, only for books you have unlocked or subscribed to, and only to the developer's own server. Section 9 sets out exactly what is and is not recorded.
-- Server-side, the app stores what you have bought or unlocked, how many free unlocks you have used, any star ratings you submit, and which of those milestones your installation has already contributed. Those records are held in a Google Cloud database hosted in the **European Union**. A narrower set of processing — for purchases and content delivery — still reaches the United States, as described in section 8.
+- Server-side, the app stores what you have bought or unlocked, how many free unlocks you have used, and any star ratings you submit. The milestones are **not** stored against you: they only ever add one to a per-book total, and no record is kept anywhere of which ones came from your installation. Those records are held in a Google Cloud database hosted in the **European Union**. A narrower set of processing — for purchases and content delivery — still reaches the United States, as described in section 8.
 - Audio and text files are delivered from Cloudflare's network, which necessarily sees your device's IP address for every file it delivers.
 - Purchases are handled by Apple and Google, with RevenueCat as the subscription and purchase processor. No payment-card details ever reach the developer.
 - No third-party analytics tool, no crash-reporting tool, no advertising, no advertising identifier (IDFA or AAID), no tracking and no cross-app profiling are used. The milestones above go to the developer's own server and are never shared, sold or used for advertising.
@@ -56,6 +56,8 @@ The following is stored on your device and is never transmitted to the developer
 - downloaded audio and story text, and cover images
 - app settings and preferences, including playback speed, theme, and whether the head-nod input is enabled
 - which books you have marked as favourites
+- which of the milestones in section 9 have already been reported for each book, so the same one is never sent twice. This is the whole of the de-duplication mechanism, and it lives only here — there is no matching record on the server
+- whether you have left the "Share anonymous usage data" setting on
 - which version of the legal documents you accepted, and when
 - your self-declared age
 
@@ -72,7 +74,6 @@ Stored against your anonymous identifier:
 - store transaction identifiers for those purchases, and whether a transaction was later refunded
 - which books you have spent your free unlocks on, and the free-unlock limit
 - your own star rating for each book you rated, from 1 to 5, and the number of story choices you had made in that book at the time you rated it, which is used to check that a rating comes from someone who actually listened
-- which of the milestones in section 9 have already been counted for you in each book. This exists for one reason only — so that the same milestone is never counted twice — and it is deleted when you ask for deletion
 - timestamps for the records above, and a log of subscription and purchase events received from RevenueCat
 
 Stored per book, not per person:
@@ -101,12 +102,12 @@ Under the GDPR, every purpose needs a lawful basis. These are the ones relied on
 | Prevent repeated abuse of the free-unlock allowance, including after a deletion request | A minimal record that this identifier has used its free unlocks | Art. 6(1)(f) — legitimate interests in preventing fraud and abuse of a free tier |
 | Store the star rating you chose to give, and show you your own past ratings | Anonymous identifier, your 1–5 rating per book, the choice count at the time of rating | Art. 6(1)(b) — performance of a feature you actively used |
 | Show an honest average rating for each book | Per-book totals only, which are not linked to any individual | Art. 6(1)(f) — legitimate interests in showing readers a meaningful, non-manipulated average |
-| Understand which books hold listeners and which lose them, so that better books get written and the library can be ordered honestly | The milestones in section 9, and the record of which of them your installation has already contributed | Art. 6(1)(f) — legitimate interests in understanding whether the books published are working |
+| Understand which books hold listeners and which lose them, so that better books get written and the library can be ordered honestly | The milestones in section 9, which are added to per-book totals and never stored against you | Art. 6(1)(f) — legitimate interests in understanding whether the books published are working |
 | Deliver audio, story text, covers and the catalogue to your device | IP address and ordinary request metadata seen by Cloudflare and Google as an inherent part of any internet request | Art. 6(1)(f) — legitimate interests in delivering the content you asked for |
 | Keep the service secure, diagnose faults, and prevent abuse of the backend | Operational logs, which can include the anonymous identifier and the IP address of a request | Art. 6(1)(f) — legitimate interests in network and information security |
 | Answer a support email you send | Your email address and whatever you choose to write | Art. 6(1)(b) and Art. 6(1)(f) — responding to your request and maintaining support records |
 
-On the milestone row specifically, legitimate interests are relied on rather than consent because of how narrow the processing is: the facts recorded are a fixed list of yes-or-no thresholds, each recorded once; nothing is recorded about which choices you made or when you listened; the result is a set of per-book totals, not a profile; and none of it is shared, sold, or used for advertising or to decide anything about you as an individual. You can object to it under Art. 21 at the address in section 20, and you can remove your side of it at any time with the deletion control in Settings.
+On the milestone row specifically, legitimate interests are relied on rather than consent because of how narrow the processing is: the facts recorded are a fixed list of yes-or-no thresholds, each recorded once; nothing is recorded about which choices you made or when you listened; the result is a set of per-book totals, not a profile; and none of it is shared, sold, or used for advertising or to decide anything about you as an individual. You can object to it under Art. 21 at the address in section 20, and you can switch it off entirely at any time in **Settings**, under "Share anonymous usage data" — which stops the app sending anything further, immediately and without asking you to justify it.
 
 Audio Book Choices does not rely on consent as a legal basis for any of the above, because none of it is advertising, profiling or tracking. The one place consent applies is the optional head-nod feature: iOS asks for motion permission, and you can grant or refuse it, and change your mind at any time in iOS Settings.
 
@@ -169,7 +170,9 @@ Each of these is recorded once and then never again.
 
 **Only for books you have access to.** These milestones are recorded only for free books, and for paid books you have subscribed to, bought, or opened with one of your free unlocks. If you sample the opening of a book you have not unlocked and stop, nothing is recorded at all. That boundary exists so the figures describe how good a story is, rather than how people react to a price.
 
-**Why the identifier is involved.** The facts are sent against the same anonymous identifier described in section 3, and a record is kept of which milestones your installation has already contributed. That record exists for one purpose: so the same milestone is not counted twice. It is not a history of your listening, and it is deleted when you ask for deletion — see section 13.
+**Nothing is stored against you.** The request is authenticated with the same anonymous identifier described in section 3, because the server has to check that you actually have access to the book before counting anything. But the identifier is used and discarded: it is never written next to a milestone, and no record exists anywhere on the server of which milestones came from which installation. All that changes is that a per-book total goes up by one. The job of not counting the same milestone twice is done entirely on your own device, by your own copy of the app.
+
+**You can turn it off.** **Settings → "Share anonymous usage data"** stops it, immediately and for good, and clears what your device was keeping track of. It is on unless you turn it off, which is why it is described here and on the acceptance screen rather than buried.
 
 **What is kept afterwards.** What is not deleted is the running total for the book itself: how many times a book has been started, how many times it has been finished. Once your milestone has been added to a total, nothing records that it was ever yours, so there is nothing personal left in the total to erase. If you keep listening after asking for deletion, you may contribute to those totals again, because there is no longer anything held that would recognise you.
 
@@ -221,7 +224,7 @@ The filter is advisory content curation. It is not a security control, and it is
 
 **A minimal record that an installation has used its free unlocks is kept even after you ask for deletion.** Without it, deleting data would reset the three free unlocks and could be repeated indefinitely, which would make the free tier meaningless. This retention is based on legitimate interests in fraud and abuse prevention, under Art. 6(1)(f). The record kept for this purpose is minimal: the identifier and the fact that its free unlocks were used.
 
-**Star ratings and other non-essential records can be deleted on request.** See below. This includes the record of which milestones your installation has contributed, described in section 9.
+**Star ratings and other non-essential records can be deleted on request.** See below.
 
 **The per-book milestone totals are kept indefinitely, and deletion does not remove them.** They are running counts of events — how many times a book was started, how many times it was finished — held with no identifier attached and no way to work out which total came from whom. Once the record linking your installation to a milestone is deleted, nothing remains that connects any number in those totals to you, so there is no personal data left in them to erase. This is a deliberate choice and not a technical limitation: the link exists right up until deletion, and it is destroyed rather than used to subtract from the totals, because subtracting would mean keeping a per-person history of listening precisely in order to be able to undo it.
 
@@ -240,7 +243,7 @@ There is no account to delete, so deletion works differently here. There are two
 
 Requests are answered within one month, as the GDPR requires. If a request is complex, that can be extended by up to two further months, and you will be told why.
 
-What deletion covers: your star ratings and votes, the record of which milestones your installation has contributed, and the other server-side records held against your identifier that are not covered by the retention exceptions above. What it does not cover: purchase, subscription and transaction records; the minimal free-unlock-usage record; the per-book milestone totals, which hold nothing that identifies anyone; and the Firebase anonymous-auth record that keys those retained records. The anonymous-auth record cannot be removed while the retained records still need that identifier to preserve paid access, process refunds and prevent abuse. You will be told plainly which records were kept.
+What deletion covers: your star ratings and votes, and the other server-side records held against your identifier that are not covered by the retention exceptions above. What it does not cover: purchase, subscription and transaction records; the minimal free-unlock-usage record; the per-book milestone totals, which hold nothing that identifies anyone; and the Firebase anonymous-auth record that keys those retained records. The anonymous-auth record cannot be removed while the retained records still need that identifier to preserve paid access, process refunds and prevent abuse. You will be told plainly which records were kept.
 
 To remove all local data, delete the app from your device, or use the clear-local-data control in Settings.
 
@@ -309,6 +312,8 @@ The practices described above are applied globally. This section covers a few re
 **European Economic Area, United Kingdom, Switzerland.** Sections 6, 8 and 15 are the operative ones: legal bases, international transfers, and your rights. Section 8 explains where things stand: the server-side records described in section 5 are stored in the European Union, and a narrower set of processing — by RevenueCat, Cloudflare, and Google LLC's own administrative access and logging — still reaches the United States, under the safeguards described there. The controller is Aleksander Jałtuszyk, Poland. The lead supervisory authority is UODO, and UK users may also contact the ICO.
 
 **United States.** Audio Book Choices almost certainly does not meet the applicability thresholds of the California Consumer Privacy Act as amended, or of the comprehensive privacy laws of other states, which are generally gated on annual revenue or on processing the data of large numbers of state residents. No claim of applicability is made here either way. Regardless of applicability, the rights in section 15 — to know, access, correct, delete and port — are honoured for US residents on the same terms as for everyone else, and there is no discrimination for exercising them. Audio Book Choices does not sell personal information, does not share it for cross-context behavioural advertising, and does not use it for targeted advertising or profiling, so there is nothing to opt out of. No sensitive personal information is collected.
+
+**Do Not Track.** California's Online Privacy Protection Act requires this to be stated whatever the size of the operator, so: Audio Book Choices does not monitor or respond to Do Not Track browser signals, because there is nothing for them to switch off. The app is not a browser and does no cross-site tracking, and the website pages set no analytics or advertising storage of the developer's own. No third party is permitted to collect personally identifiable information about your activity across other sites or apps, through this app or these pages, over time.
 
 **Children in the United States.** The app is not directed to children under 13 for the purposes of COPPA. It asks for no contact information from anyone, asks its age question neutrally and without encouraging anyone to overstate an age, and keeps the declared age on the device. No parental-consent mechanism is operated, because no personal information is knowingly collected from children under 13.
 
