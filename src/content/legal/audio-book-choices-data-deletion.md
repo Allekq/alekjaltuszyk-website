@@ -9,7 +9,7 @@ control in the app that erases the deletable part of it.
 
 ## In the app — one tap
 
-Open **Settings** and use the **data-deletion control**.
+Open **Settings**, expand **Privacy & Legal**, and tap **Delete my data from our server**.
 
 It deletes the deletable server-side records held against your installation's anonymous ID, without
 you having to describe or match anything.
@@ -19,8 +19,8 @@ deleting the app removes that data too.
 
 ## By email
 
-Your anonymous ID is shown in **Settings** so you can copy it. Email **alekgameshelp2@gmail.com**
-with the subject **"Delete my data"** and paste it in.
+Your anonymous ID is shown at the top of **Settings → Privacy & Legal**, with a **Copy** button
+next to it. Email **alekgameshelp2@gmail.com** with the subject **"Delete my data"** and paste it in.
 
 Because no name or email address is attached to your data, that ID is the only thing that says
 which records are yours. Without it the request cannot be actioned.
@@ -46,8 +46,8 @@ Art. 6(1)(f) GDPR: the ID, and the fact that its unlocks were used.
 paid access, process refunds and prevent abuse.
 
 **Per-book milestone totals** — running counts of how many times a book was started or finished,
-with no ID attached. Once the record linking your installation to a milestone is gone, nothing
-connects any number in those totals to you.
+with no ID attached. The server never records which installation contributed which event, so there
+is nothing in those totals that could be traced back to you, and nothing to subtract.
 
 **Operational logs** at Google and Cloudflare, for the periods those providers apply.
 
