@@ -90,8 +90,8 @@ export const legalDocuments = {
     sourcePath: "src/pages/apps/VoiceOfSelf/how-voice-of-self-uses-ai/index.astro",
   },
   overLitPrivacy: {
-    version: "2.1.2",
-    effectiveDate: "2026-08-06",
+    version: "2.2.0",
+    effectiveDate: "2026-08-10",
     path: "/apps/OverLit/privacy-policy/",
     sourcePath: "src/content/legal/overlit-privacy-policy.md",
   },
