@@ -1,0 +1,51 @@
+---
+/*
+ * The plain list. Every app, no scrolling narrative, nothing to wait for —
+ * this is the escape hatch the showcase's "See the grid" control points at,
+ * and the same markup runs on the homepage and /apps.
+ */
+import { appDirectory } from "../../../../config/routes";
+import { directoryChips, releaseStatusSentence } from "../../../../lib/appState";
+import { isExternalHref } from "../../../../lib/paths";
+
+interface Props {
+  headingLevel?: "h2" | "h3";
+  title?: string;
+}
+
+const { headingLevel = "h2", title = "Every app, in one list." } =
+  Astro.props as Props;
+const Heading = headingLevel;
+---
+
+<section class="app-grid-section" id="grid" aria-labelledby="app-grid-title">
+  <div class="app-grid-section__inner">
+    <div class="app-grid-section__heading" data-reveal>
+      <p class="app-grid-section__eyebrow">The grid</p>
+      <Heading class="app-grid-section__title" id="app-grid-title">{title}</Heading>
+      <p class="app-grid-section__body">{releaseStatusSentence}</p>
+    </div>
+
+    <div class="app-grid">
+      {appDirectory.map((item) => {
+        const rel =
+          item.external && isExternalHref(item.href) ? "noreferrer" : undefined;
+
+        return (
+          <a
+            class:list={["app-grid__link", `app-grid__link--${item.theme}`]}
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={rel}
+          >
+            <span class="app-grid__name">{item.name}</span>
+            <span class="app-grid__description">{item.description}</span>
+            <span class="app-grid__chips" aria-hidden="true">
+              {directoryChips(item).map((chip) => <span>{chip}</span>)}
+            </span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>

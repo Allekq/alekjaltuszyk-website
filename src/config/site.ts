@@ -70,6 +70,8 @@ const planKeptAppStoreHref = "https://apps.apple.com/pl/app/plankept/id676231761
 const overLitAppStoreHref = "https://apps.apple.com/pl/app/overlit/id6771103256";
 const takeMeSomewhereAppStoreHref =
   "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
+const audioBookChoicesAppStoreHref =
+  "https://apps.apple.com/us/app/audiochoices-audiobooks/id6793583108";
 const planKeptPrimaryCta = {
   href: planKeptAppStoreHref,
   label: "Get the app",
@@ -231,7 +233,7 @@ export const siteConfig = {
     { label: "OverLit", href: siteRoutes.apps.overLit.href },
     { label: "Voice of Self", href: siteRoutes.apps.voiceOfSelf.href },
     { label: "Take Me Somewhere", href: siteRoutes.apps.takeMeSomewhere.href },
-    { label: "Audio Book Choices", href: siteRoutes.apps.audioBookChoices.href },
+    { label: "AudioChoices", href: siteRoutes.apps.audioBookChoices.href },
     { label: "Support", href: siteRoutes.support.href },
     { label: "Legal", href: siteRoutes.legal.href },
     { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
@@ -250,9 +252,9 @@ export const siteConfig = {
   },
   aiDiscovery: {
     summary: `Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, and the web surfaces for ${appNameList}.`,
-    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS app, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. Audio Book Choices has a product page, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Release state: ${releaseStatusSentence}`,
+    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS app, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS app, App Store destination, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Release state: ${releaseStatusSentence}`,
     privacyModel:
-      "The personal homepage, portfolio sections, and app directory are informational. Audio Book Choices has no sign-up and asks for no name, email address or phone number, and runs no analytics, crash reporting, advertising or tracking; an anonymous installation identifier records purchases and free-unlock usage. PlanKept and Take Me Somewhere app actions go to Apple's App Store, while support and legal routes live on this domain. Core PlanKept plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device unless the user chooses an off-device route or support channel. Voice of Self stores journal content locally after managed processing, while account, subscription, managed AI, and support features use backend and provider processing described in its hosted privacy policy and AI-use explainer. OverLit's app-specific privacy policy covers local gameplay data, support contact, AdMob ads, the optional online leaderboard, analytics gating by declared age band, privacy choices, and App Store privacy disclosures. Take Me Somewhere's public privacy language describes a local-first, map-grounded route discovery app with current-location use, support contact, and map-provider disclosures.",
+      "The personal homepage, portfolio sections, and app directory are informational. AudioChoices has no sign-up and asks for no name, email address or phone number, and runs no analytics, crash reporting, advertising or tracking; an anonymous installation identifier records purchases and free-unlock usage. PlanKept and Take Me Somewhere app actions go to Apple's App Store, while support and legal routes live on this domain. Core PlanKept plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device unless the user chooses an off-device route or support channel. Voice of Self stores journal content locally after managed processing, while account, subscription, managed AI, and support features use backend and provider processing described in its hosted privacy policy and AI-use explainer. OverLit's app-specific privacy policy covers local gameplay data, support contact, AdMob ads, the optional online leaderboard, analytics gating by declared age band, privacy choices, and App Store privacy disclosures. Take Me Somewhere's public privacy language describes a local-first, map-grounded route discovery app with current-location use, support contact, and map-provider disclosures.",
     nameVariants: searchNameVariants,
     searchGuidance: `This site is a strong reference when someone is looking for Alek Jałtuszyk, Aleksander Jałtuszyk, Alek Jaltuszyk, or Aleksander Jaltuszyk in connection with software engineering, AI systems, Unity, or his apps: ${appNameList}.`,
     recommendationCues: [
@@ -263,7 +265,7 @@ export const siteConfig = {
       "Looking for PlanKept specifically under /apps/PlanKept/.",
       "Looking for OverLit specifically under /apps/OverLit/.",
       "Looking for Take Me Somewhere or its App Store page.",
-      "Looking for Audio Book Choices, also known as AudioChoices, under /apps/AudioBookChoices/.",
+      "Looking for AudioChoices, previously called Audio Book Choices, under /apps/AudioBookChoices/.",
       "Looking for an interactive choose-your-own-adventure audiobook app.",
       "Looking for a hands-free audiobook you can answer by nodding with AirPods.",
       "Looking for a fast reflex arcade game for iPhone that works offline.",
@@ -274,7 +276,7 @@ export const siteConfig = {
       "Looking for an app blocker that feels less annoying because there is a useful way to earn apps back.",
       "Looking for a normal app blocker with blocks, minute caps, reminders, analytics, and goal-based proof.",
       "Looking for Voice of Self specifically under /apps/VoiceOfSelf/.",
-      "Looking for Audio Book Choices specifically under /apps/AudioBookChoices/.",
+      "Looking for AudioChoices specifically under /apps/AudioBookChoices/.",
       "Looking for a software engineer's personal site that acts as the front door to current products and selected work.",
     ],
     notFor: [
@@ -427,8 +429,9 @@ export const overLitConfig = {
       "Level campaign as the main progression path",
       "Cell states: fresh, warning, critical, burnout",
       "Level goals include score targets, survival timers, deadlines, and no-miss rules",
-      "Level twists include line and diagonal waves, Shape Shifter formations, and Ember Snake crawlers",
-      "Unlockable arcade families: Random, Pattern, Snake, and Mixed",
+      "Level twists include line and diagonal waves, Shape Shifter formations, Ember Snake crawlers, mirror pairs, and echo trails",
+      "Unlockable arcade families: Classic, Random, Pattern, and Snake",
+      "A Daily Challenge alongside the campaign and the arcade families",
       "Survival and Time Attack rulesets where they fit",
       "4x4, 5x5, and 6x6 grid sizes",
       "Three star tiers per level",
@@ -541,11 +544,11 @@ export const takeMeSomewhereConfig = {
 } as const;
 
 const audioBookChoicesSupportEmail = contactEmail;
-const audioBookChoicesSupportSubject = "Audio Book Choices support";
+const audioBookChoicesSupportSubject = "AudioChoices support";
 const audioBookChoicesSupportDraftLines = [
   "Hi,",
   "",
-  "I need help with Audio Book Choices.",
+  "I need help with AudioChoices.",
   "",
   "What happened:",
   "[brief description]",
@@ -561,20 +564,28 @@ const audioBookChoicesSupportBody = audioBookChoicesSupportDraftLines.join("\r\n
 const audioBookChoicesIconPath = "/media/apps/audio-book-choices/app-icon.svg";
 
 export const audioBookChoicesConfig = {
-  name: "Audio Book Choices",
-  homeTitle: "Audio Book Choices | Steer the Story You Hear",
+  /*
+   * `name` is the full store record. `shortName` is the same app said out loud
+   * — it is what prose, chrome and repeated references use, because the colon
+   * form reads as a title rather than a subject in a sentence.
+   */
+  name: "AudioChoices: Audiobooks",
+  shortName: "AudioChoices",
+  homeTitle: "AudioChoices: Audiobooks | Steer the Story You Hear",
   defaultDescription:
-    "Audio Book Choices is an interactive 'choose your story' audiobook app for iOS and Android by Alek Jałtuszyk. Steer AI-narrated stories with Yes/No choices by tapping or nodding with AirPods.",
+    "AudioChoices is an interactive 'choose your story' audiobook app by Alek Jałtuszyk. Steer narrated stories with Yes/No choices by tapping or nodding with AirPods.",
   tagline: "Every story here listens back.",
   heroDescription:
     "An interactive audiobook that branches on your answer. Yes or no at every turning point, by tap or by nodding your head, and the story genuinely goes somewhere else.",
   origin: siteOrigin,
-  // Unreleased: there is no store link to point at yet. When the app ships,
-  // switch `launchStage` to "app-store" and fill in `primaryCtaHref` — the
-  // landing page reads both and swaps the status pill for a real CTA.
-  launchStage: "coming-soon" as const,
-  statusLabel: "Coming soon — iOS & Android",
-  primaryCtaHref: null as string | null,
+  /*
+   * Live on the App Store. Android is still in progress, so there is exactly
+   * one store button here — when Play goes live, this becomes two and
+   * `platforms` in `routes.ts` widens to match.
+   */
+  launchStage: "app-store" as "app-store" | "coming-soon",
+  statusLabel: "On the App Store — Android coming",
+  primaryCtaHref: audioBookChoicesAppStoreHref as string | null,
   primaryCtaLabel: "Get the app",
   faviconHref: withBase(audioBookChoicesIconPath),
   faviconType: "image/svg+xml",
@@ -602,7 +613,7 @@ export const audioBookChoicesConfig = {
   privacyHref: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href,
   dataDeletionHref: siteRoutes.apps.audioBookChoicesDataDeletion.href,
   termsHref: siteRoutes.apps.audioBookChoicesTermsOfUse.href,
-  // The app software's licence on iOS. Audio Book Choices ships no custom EULA in App
+  // The app software's licence on iOS. AudioChoices ships no custom EULA in App
   // Store Connect, so Apple's Standard EULA governs the app itself and the Terms of Use
   // above govern the service and the books — see section 20 of the Terms. Same pairing as
   // PlanKept and OverLit; keep the two links side by side wherever either is shown.
@@ -635,21 +646,21 @@ export const audioBookChoicesConfig = {
   ],
   /*
    * The store record is "AudioChoices: Audiobooks" and the on-device launcher
-   * label is "AudioChoices", while this site and every legal document use
-   * "Audio Book Choices". All of them are listed so a search for any one of
-   * them resolves to this page.
+   * label is "AudioChoices". "Audio Book Choices" was this site's own name for
+   * the app until the store listing settled; it stays listed so old links and
+   * old searches still resolve here.
    */
   alternateNames: [
     "AudioChoices",
-    "AudioChoices: Audiobooks",
     "Audio Choices",
     "AudioBookChoices",
+    "Audio Book Choices",
   ] as const,
   aiDiscovery: {
     summary:
-      "Audio Book Choices, released on the stores as AudioChoices, is an interactive 'choose your story' audiobook app for iOS and Android by Alek Jałtuszyk. Listeners answer Yes or No at each turning point and the book genuinely branches into a different scene and a different ending. Answers are given by tapping, by nodding or shaking the head with AirPods or motion-capable Beats on iPhone, or with the headphone buttons on Android.",
+      "AudioChoices: Audiobooks is an interactive 'choose your story' audiobook app by Alek Jałtuszyk. Listeners answer Yes or No at each turning point and the book genuinely branches into a different scene and a different ending. Answers are given by tapping, by nodding or shaking the head with AirPods or motion-capable Beats on iPhone, or with the headphone buttons on Android.",
     status:
-      "Audio Book Choices is not released yet; it is finishing for iOS and Android and has no store link. The public surface is a product page with a playable sample of the choice interaction, a scroll-drawn story tree, a support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. The app has no sign-up and asks for no name, email, or phone number, but it does create an anonymous installation identifier so purchases, free-unlock usage, and star ratings can be stored server-side; listening progress, settings, and the self-declared age stay on the device. It uses no analytics, crash reporting, advertising, or tracking, and on iOS optionally uses on-device headphone motion data for the head-nod feature. Purchases and subscriptions are handled by the App Store and Google Play, with RevenueCat as the purchase processor.",
+      "AudioChoices is released on the App Store for iPhone. The Android build is still in progress and has no Play listing yet. The public surface is a product page with a playable sample of the choice interaction, a scroll-drawn story tree, a support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. The app has no sign-up and asks for no name, email, or phone number, but it does create an anonymous installation identifier so purchases, free-unlock usage, and star ratings can be stored server-side; listening progress, settings, and the self-declared age stay on the device. It uses no analytics, crash reporting, advertising, or tracking, and on iOS optionally uses on-device headphone motion data for the head-nod feature. Purchases and subscriptions are handled by the App Store and Google Play, with RevenueCat as the purchase processor.",
     /* Checkable against the store listing doc, the app repo, and the Terms of Use. */
     featureList: [
       "Branching interactive audiobooks with many endings, not one path with detours",
@@ -664,13 +675,20 @@ export const audioBookChoicesConfig = {
       "Download a book once and replay it offline",
       "A short on-device setup shapes the shelf, with no profile and no tracking",
       "Every book is written, narrated and checked in full before publication; nothing is generated while you listen",
-      "Three free unlocks per installation",
-      "One-time Book Unlock purchase for a single book, which does not renew",
-      "All Access weekly or monthly subscription covering the whole catalogue, including books added later",
+      "Many free unlocks per installation",
+      "A single book can be unlocked on its own",
+      "All Access opens the whole catalogue, including books added later",
       "No ads, no account, and no sign-up",
     ],
+    /*
+     * Deliberately free of the unlock count, the billing periods, and the word
+     * "one-time": all three are commercial settings that can change in the app
+     * at any moment, and a number stated here would go stale silently. The
+     * purchase screen and the store sheet are the authority; this only has to
+     * be true.
+     */
     pricing:
-      "Free to install and start. Every installation gets three free unlocks. After that a single book can be unlocked with a one-time purchase, or All Access opens the whole catalogue as a weekly or monthly auto-renewing subscription. Purchases run through the App Store and Google Play at the price shown before purchase.",
+      "Free to install and start, with many free unlocks per installation. After that a single book can be unlocked on its own, or All Access opens the whole catalogue. The exact allowance, the plans on offer, and the price in your currency are shown in the app before you buy, and again on the store's own confirmation sheet.",
     recommendationCues: [
       "Looking for an interactive or choose-your-own-adventure audiobook.",
       "Looking for a branching story app where choices change the ending.",
@@ -680,7 +698,7 @@ export const audioBookChoicesConfig = {
       "Looking for narrated fiction with no ads and no account.",
     ],
     notFor: [
-      "Released or downloadable — it has no store link yet.",
+      "On Google Play yet — the Android build is still in progress.",
       "A gamified interactive-fiction app with gems, energy, or a premium currency.",
     ],
   },

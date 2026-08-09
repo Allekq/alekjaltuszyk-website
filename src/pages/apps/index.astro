@@ -1,7 +1,10 @@
 ---
 import "../../styles/apps.css";
-import SharedAppScaffold from "../../components/landing/sections/SharedAppScaffold.astro";
+import AppGridSection from "../../components/landing/sections/apps/AppGridSection.astro";
+import AppShowcaseSection from "../../components/landing/sections/apps/AppShowcaseSection.astro";
+import AppsIntroSection from "../../components/landing/sections/apps/AppsIntroSection.astro";
 import SimpleSiteHeader from "../../components/landing/sections/SimpleSiteHeader.astro";
+import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
 import { siteRoutes } from "../../config/routes";
 import { siteConfig } from "../../config/site";
 import { appNameList } from "../../lib/appState";
@@ -33,5 +36,12 @@ const appsPageStructuredData = [
   structuredData={appsPageStructuredData}
 >
   <SimpleSiteHeader />
-  <SharedAppScaffold title="Apps" variant="apps" />
+  <AppsIntroSection
+    eyebrow="Current products"
+    headingLevel="h1"
+    body="One at a time as you scroll, or all at once in the grid at the bottom — whichever you came for."
+  />
+  <AppShowcaseSection gridHref="#grid" />
+  <AppGridSection />
+  <SiteFooter />
 </SiteLayout>

@@ -1,15 +1,16 @@
 ---
-import { arcadeModes, gridSizes } from "./overlit.data";
+import { arcadeModes, gridSizes, pressureStyles } from "./overlit.data";
 ---
 
 <section class="app-section overlit-modes" id="modes">
   <div class="app-shell">
     <header class="app-section__head app-section__head--centre" data-rise>
       <p class="app-eyebrow">Arcade families</p>
-      <h2 class="app-title">Four ways for the board to come at you.</h2>
+      <h2 class="app-title">Many ways for the board to come at you.</h2>
       <p class="app-lead">
         Unlockable free-play spaces that reuse the same grid language differently, with Survival
-        and Time Attack rulesets where they fit.
+        and Time Attack rulesets where they fit — and the campaign and Daily Challenge alongside
+        them.
       </p>
     </header>
 
@@ -40,6 +41,16 @@ import { arcadeModes, gridSizes } from "./overlit.data";
         </li>
       ))}
     </ul>
+
+    <div class="overlit-modes__styles" data-rise>
+      <p class="overlit-modes__footer-title">And the pressure styles they are built from</p>
+      <ul class="overlit-modes__style-list">
+        {pressureStyles.map((style) => (
+          <li class="app-chip">{style}</li>
+        ))}
+        <li class="app-chip overlit-modes__style-more">and more</li>
+      </ul>
+    </div>
 
     <div class="overlit-modes__footer" data-rise>
       <p class="overlit-modes__footer-title">On every board size</p>

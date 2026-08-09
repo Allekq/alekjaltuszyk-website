@@ -31,7 +31,7 @@ Key pages:
 - Voice of Self: ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - OverLit: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Take Me Somewhere: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
-- Audio Book Choices: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
+- AudioChoices: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
 - PlanKept answers: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptAnswers.path)}
 - PlanKept comparisons: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptComparisons.path)}
 - PlanKept updates: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptUpdates.path)}

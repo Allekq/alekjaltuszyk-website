@@ -38,13 +38,13 @@ Important notes:
 - Voice of Self lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - OverLit lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Take Me Somewhere lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
-- Audio Book Choices lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
+- AudioChoices lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
 - Release state: ${releaseStatusSentence}
 - PlanKept summary: ${planKeptConfig.aiDiscovery.summary}
 - OverLit summary: ${overLitConfig.aiDiscovery.summary}
 - Take Me Somewhere summary: ${takeMeSomewhereConfig.aiDiscovery.summary}
-- Audio Book Choices summary: ${audioBookChoicesConfig.aiDiscovery.summary}
-- Audio Book Choices is also known as: ${audioBookChoicesConfig.alternateNames.join(", ")}
+- AudioChoices summary: ${audioBookChoicesConfig.aiDiscovery.summary}
+- AudioChoices is also known as: ${audioBookChoicesConfig.alternateNames.join(", ")}
 
 ## Main Pages
 ${renderLinks(discoveryPages.main)}

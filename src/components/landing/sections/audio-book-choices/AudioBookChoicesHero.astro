@@ -10,7 +10,7 @@ const heroChips = [
   "No ads",
   "No account",
   "Offline replay",
-  "iOS & Android",
+  "On iPhone",
 ] as const;
 ---
 
@@ -36,17 +36,24 @@ const heroChips = [
         {audioBookChoicesConfig.heroDescription}
       </p>
 
+      {/* Once there is a store link it leads, but the playable sample is the
+          thing that actually sells this page, so it keeps a button either way. */}
       <div class="app-actions" data-rise style="--rise-index:3">
         {isLive && audioBookChoicesConfig.primaryCtaHref ? (
-          <ActionButton
-            href={audioBookChoicesConfig.primaryCtaHref}
-            label={audioBookChoicesConfig.primaryCtaLabel}
-            target="_blank"
-          />
+          <>
+            <ActionButton
+              href={audioBookChoicesConfig.primaryCtaHref}
+              label={audioBookChoicesConfig.primaryCtaLabel}
+              target="_blank"
+            />
+            <ActionButton href="#choice" variant="ghost" label="Make a choice" />
+          </>
         ) : (
-          <ActionButton href="#choice" label="Make a choice" />
+          <>
+            <ActionButton href="#choice" label="Make a choice" />
+            <ActionButton href="#tree" variant="ghost" label="See the whole tree" />
+          </>
         )}
-        <ActionButton href="#tree" variant="ghost" label="See the whole tree" />
       </div>
 
       <ul class="app-chip-row abc-hero__chips" data-rise style="--rise-index:4">

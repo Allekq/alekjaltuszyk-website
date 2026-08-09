@@ -383,13 +383,30 @@
   text-transform: uppercase;
 }
 
-.overlit-modes__footer {
+.overlit-modes__footer,
+.overlit-modes__styles {
   align-items: center;
   border-top: 1px solid var(--app-line);
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem 1.4rem;
   padding-top: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.overlit-modes__style-list {
+  display: flex;
+  flex: 1 1 20rem;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* The list is a sample, not a census — the closing chip has to read as the
+   sentence ending rather than as one more named style. */
+.overlit-modes__style-more {
+  background: none;
+  border-color: transparent;
+  color: var(--app-ink-mute);
+  font-style: italic;
 }
 
 .overlit-modes__footer-title {
@@ -446,25 +463,16 @@
   width: 100%;
 }
 
+/* The screenshots already contain the device's own status bar and Dynamic
+   Island, so the bezel draws no notch of its own — one used to sit on top of
+   the image and read as a rendering bug. */
 .overlit-screens__phone img {
-  aspect-ratio: 416 / 900;
+  aspect-ratio: 402 / 874;
   border-radius: 1.45rem;
   display: block;
   height: auto;
   object-fit: cover;
   width: 100%;
-}
-
-.overlit-screens__notch {
-  background: #05070c;
-  border-radius: 0 0 0.6rem 0.6rem;
-  height: 0.8rem;
-  left: 50%;
-  position: absolute;
-  top: 0.42rem;
-  transform: translateX(-50%);
-  width: 32%;
-  z-index: 2;
 }
 
 .overlit-screens__glare {

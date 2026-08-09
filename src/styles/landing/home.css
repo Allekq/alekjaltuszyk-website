@@ -122,50 +122,6 @@
   transform: translateY(-2px);
 }
 
-.home-destinations {
-  padding: clamp(2rem, 6vw, 4rem) var(--section-pad-x) clamp(4rem, 8vw, 6rem);
-  position: relative;
-}
-
-.home-destinations__inner {
-  display: grid;
-  gap: clamp(1.2rem, 3vw, 1.7rem);
-  margin: 0 auto;
-  max-width: 64rem;
-}
-
-.home-destinations__heading {
-  display: grid;
-  gap: var(--space-md);
-  max-width: 46rem;
-}
-
-.home-destinations__eyebrow {
-  color: var(--color-text-soft);
-  font-size: var(--text-label);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.home-destinations__title {
-  color: var(--color-text-strong);
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4.4vw, 3.25rem);
-  letter-spacing: -0.04em;
-  line-height: 0.98;
-  margin: 0;
-  text-wrap: balance;
-}
-
-.home-destinations__body {
-  color: var(--color-text-muted);
-  font-size: var(--text-body-lg);
-  line-height: 1.8;
-  margin: 0;
-}
-
 .home-skills,
 .home-history {
   padding: 0 var(--section-pad-x) clamp(4.5rem, 9vw, 7rem);
@@ -939,5 +895,218 @@
 .home-history__panel.is-entering > *,
 .home-history__panel.is-leaving > * {
     animation: none;
+  }
+}
+
+/* ---- Intro: the CV summary at the top of the homepage -------------------- */
+
+.home-intro {
+  padding: clamp(2.5rem, 7vw, 4.5rem) var(--section-pad-x) clamp(3rem, 7vw, 5rem);
+  scroll-margin-top: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.home-intro__inner {
+  display: grid;
+  gap: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 0 auto;
+  max-width: var(--container-content);
+}
+
+.home-intro__lede {
+  display: grid;
+  gap: var(--space-md);
+  max-width: 48rem;
+}
+
+.home-intro__eyebrow {
+  color: var(--color-coral-strong);
+  font-size: var(--text-label);
+  font-weight: 800;
+  letter-spacing: var(--tracking-label);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.home-intro__title {
+  color: var(--color-text-strong);
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.home-intro__body {
+  color: var(--color-text-muted);
+  font-size: var(--text-body-lg);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.home-intro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.2rem;
+}
+
+.home-intro__cta {
+  align-items: center;
+  background: var(--color-coral);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  color: var(--color-button-primary-text);
+  display: inline-flex;
+  font-size: 0.96rem;
+  font-weight: 800;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.85rem 1.35rem;
+  transition:
+    background-color var(--motion-standard),
+    border-color var(--motion-standard),
+    transform var(--motion-standard);
+}
+
+.home-intro__cta span {
+  transition: transform var(--motion-standard);
+}
+
+.home-intro__cta:hover,
+.home-intro__cta:focus-visible {
+  background: var(--color-coral-strong);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.home-intro__cta:hover span,
+.home-intro__cta:focus-visible span {
+  transform: translateX(0.25rem);
+}
+
+.home-intro__cta--ghost {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--color-line-strong) 96%, transparent);
+  color: var(--color-text-strong);
+}
+
+.home-intro__cta--ghost:hover,
+.home-intro__cta--ghost:focus-visible {
+  background: color-mix(in srgb, var(--color-coral) 12%, transparent);
+  border-color: color-mix(in srgb, var(--color-coral) 46%, transparent);
+}
+
+.home-intro__milestones {
+  display: grid;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-md);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-intro__milestone-inner {
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-bg-card) 56%, transparent),
+    color-mix(in srgb, var(--color-bg-card) 40%, transparent)
+  );
+  border: 1px solid color-mix(in srgb, var(--color-line-strong) 92%, transparent);
+  border-radius: var(--radius-lg);
+  display: grid;
+  gap: 0.3rem;
+  height: 100%;
+  padding: 1.1rem;
+  transition:
+    border-color var(--motion-standard),
+    transform var(--motion-standard);
+}
+
+a.home-intro__milestone-inner:hover,
+a.home-intro__milestone-inner:focus-visible {
+  border-color: color-mix(in srgb, var(--color-coral) 44%, transparent);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.home-intro__milestone-value {
+  color: var(--color-text-strong);
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.6vw, 3rem);
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.home-intro__milestone-label {
+  color: var(--color-text-strong);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.home-intro__milestone-detail {
+  color: var(--color-text-soft);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.home-intro__stack {
+  border-top: 1px solid color-mix(in srgb, var(--color-line) 90%, transparent);
+  display: grid;
+  gap: 0.75rem;
+  padding-top: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.home-intro__stack-title {
+  color: var(--color-text-soft);
+  font-size: var(--text-label);
+  font-weight: 800;
+  letter-spacing: var(--tracking-label);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.home-intro__stack-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.home-intro__stack-list li {
+  border: 1px solid color-mix(in srgb, var(--color-line-strong) 92%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.5rem 0.85rem;
+}
+
+.home-intro__stack-note {
+  color: var(--color-text-soft);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.home-intro__stack-note a {
+  color: var(--color-text-strong);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 64rem) {
+  .home-intro__milestones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 30rem) {
+  .home-intro__milestones {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

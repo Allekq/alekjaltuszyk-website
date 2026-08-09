@@ -56,8 +56,14 @@ export const formatNameList = (names: readonly string[]) => {
 export const pluralize = (count: number, singular: string, plural: string) =>
   count === 1 ? singular : plural;
 
+/*
+ * Prose gets the short name. A store title with a subtitle reads as a heading,
+ * not as a list item, so "PlanKept, OverLit, and AudioChoices" beats
+ * "…, and AudioChoices: Audiobooks" everywhere the name sits inside a sentence.
+ * Cards, page titles, and structured data still use the full `name`.
+ */
 const toNames = (items: readonly AppDirectoryItem[]) =>
-  items.map((item) => item.name);
+  items.map((item) => item.shortName);
 
 export const releasedApps = appDirectory.filter(
   (item) => item.releaseStage === "released",
@@ -130,7 +136,7 @@ export const directoryChips = (item: AppDirectoryItem): readonly string[] =>
 
 /**
  * Honest one-sentence description of the released/unreleased split, e.g.
- * "Four are live on the App Store, and Audio Book Choices is not released yet."
+ * "Four are live on the App Store, and AudioChoices is not released yet."
  */
 export const releaseStatusSentence = (() => {
   if (unreleasedAppCount === 0) {

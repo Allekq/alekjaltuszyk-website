@@ -1,0 +1,52 @@
+---
+/*
+ * Heading for the app showcase, shared by /apps and the bottom of the homepage.
+ *
+ * It carries the "See the grid" escape hatch, because the scroll narrative
+ * should never be the only route to the list. On /apps the heading is the page
+ * h1; on the homepage it is a section h2.
+ */
+import {
+  appCountWord,
+  capitalizeFirst,
+  platformAppCountPhrase,
+  releaseStatusSentence,
+} from "../../../../lib/appState";
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  body?: string;
+  headingLevel?: "h1" | "h2";
+  gridHref?: string;
+}
+
+const {
+  eyebrow = "The apps",
+  title = `${capitalizeFirst(platformAppCountPhrase)}, ${appCountWord} different product problems.`,
+  body,
+  headingLevel = "h2",
+  gridHref = "#grid",
+} = Astro.props as Props;
+
+const Heading = headingLevel;
+const resolvedBody = body ?? releaseStatusSentence;
+---
+
+<section class="apps-intro" id="apps" aria-labelledby="apps-intro-title">
+  <div class="apps-intro__inner" data-rise>
+    <p class="apps-intro__eyebrow">{eyebrow}</p>
+    <Heading class="apps-intro__title" id="apps-intro-title">{title}</Heading>
+    <p class="apps-intro__body">{resolvedBody}</p>
+
+    <div class="apps-intro__actions">
+      <a class="apps-intro__cue" href="#showcase">
+        Scroll through them
+        <span aria-hidden="true">↓</span>
+      </a>
+      <a class="apps-intro__cue apps-intro__cue--ghost" href={gridHref}>
+        See the grid
+      </a>
+    </div>
+  </div>
+</section>

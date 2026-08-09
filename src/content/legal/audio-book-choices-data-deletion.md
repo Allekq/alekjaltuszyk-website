@@ -1,6 +1,6 @@
-# Delete your Audio Book Choices data
+# Delete your AudioChoices data
 
-Audio Book Choices is an iPhone and Android app published by **Alek Jałtuszyk**.
+AudioChoices is an iPhone and Android app published by **Alek Jałtuszyk**.
 
 There is no account here — no name, no email address, no password, no sign-in. Your listening
 progress, your choices, the endings you reached and your settings never leave your device. What is
@@ -39,7 +39,7 @@ to meet accounting and tax record-keeping obligations under Polish law. A purcha
 years later, so these are not deleted on request.
 
 **A minimal record that this installation used its free unlocks.** Without it, deleting data would
-reset the three free unlocks and could be repeated indefinitely. Kept on legitimate interests under
+reset an installation's free unlocks and could be repeated indefinitely. Kept on legitimate interests under
 Art. 6(1)(f) GDPR: the ID, and the fact that its unlocks were used.
 
 **The anonymous account record itself**, because the records above still need that ID to preserve
@@ -62,5 +62,5 @@ and must be cancelled there. See the
 ---
 
 The binding text is section 13 of the
-[Audio Book Choices Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/).
+[AudioChoices Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/).
 This page is a plain-language summary of it and adds nothing to it.

@@ -16,11 +16,13 @@ const isLive = audioBookChoicesConfig.launchStage !== "coming-soon";
 <div class="app-page abc-page">
   <div class="app-page__texture abc-page__weave" aria-hidden="true"></div>
 
+  {/* Chrome uses the short name: the full store title reads as a headline, not
+      as a brand sitting next to its own icon. */}
   <AppLandingHeader
-    brand={audioBookChoicesConfig.name}
+    brand={audioBookChoicesConfig.shortName}
     brandHref="#top"
     iconSrc={audioBookChoicesConfig.iconHref}
-    iconAlt="Audio Book Choices app icon"
+    iconAlt="AudioChoices app icon"
     navigation={audioBookChoicesConfig.navigation}
     ctaHref={isLive ? audioBookChoicesConfig.primaryCtaHref ?? undefined : undefined}
     ctaLabel={isLive ? audioBookChoicesConfig.primaryCtaLabel : undefined}

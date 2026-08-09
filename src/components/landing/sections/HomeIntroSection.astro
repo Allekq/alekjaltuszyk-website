@@ -1,0 +1,79 @@
+---
+/*
+ * The CV, above the fold's fold: who I am, the four numbers behind it, the
+ * stack, and the way out to the apps. Everything below this section is detail;
+ * this is the part that has to work on its own.
+ */
+import { homeMilestones, homeStack } from "./home-profile-content";
+import { siteConfig } from "../../../config/site";
+import { siteRoutes } from "../../../config/routes";
+import {
+  appCountPhrase,
+  platformNameList,
+  releasedAppNameList,
+} from "../../../lib/appState";
+---
+
+<section class="home-intro" id="about" aria-labelledby="home-intro-title">
+  <div class="home-intro__inner">
+    <div class="home-intro__lede" data-rise>
+      <p class="home-intro__eyebrow">Alek Jałtuszyk</p>
+      <h2 class="home-intro__title" id="home-intro-title">
+        I build products where intelligence, behaviour, and a little useful pressure meet.
+      </h2>
+      <p class="home-intro__body">
+        Years of Unity engineering, a stretch as a core contractor on an AI text-to-game startup,
+        and now {appCountPhrase} of my own on {platformNameList}: {releasedAppNameList}.
+      </p>
+
+      <div class="home-intro__actions">
+        <a class="home-intro__cta" href={siteConfig.appsHref}>
+          The apps
+          <span aria-hidden="true">→</span>
+        </a>
+        <a class="home-intro__cta home-intro__cta--ghost" href="#history">
+          How I got here
+        </a>
+      </div>
+    </div>
+
+    <ul class="home-intro__milestones">
+      {homeMilestones.map((milestone, index) => (
+        <li class="home-intro__milestone" data-rise="scale" style={`--rise-index:${index}`}>
+          {milestone.historyId ? (
+            <a
+              class="home-intro__milestone-inner"
+              href="#history"
+              data-history-jump
+              data-history-target={milestone.historyId}
+            >
+              <span class="home-intro__milestone-value">{milestone.value}</span>
+              <span class="home-intro__milestone-label">{milestone.label}</span>
+              <span class="home-intro__milestone-detail">{milestone.detail}</span>
+            </a>
+          ) : (
+            <div class="home-intro__milestone-inner">
+              <span class="home-intro__milestone-value">{milestone.value}</span>
+              <span class="home-intro__milestone-label">{milestone.label}</span>
+              <span class="home-intro__milestone-detail">{milestone.detail}</span>
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    <div class="home-intro__stack" data-rise>
+      <p class="home-intro__stack-title">The core stack right now</p>
+      <ul class="home-intro__stack-list">
+        {homeStack.map((entry) => (
+          <li>{entry}</li>
+        ))}
+      </ul>
+      <p class="home-intro__stack-note">
+        The detail is under <a href="#skills">core skills</a>, and the apps themselves are
+        <a href={siteRoutes.apps.index.href}>in the directory</a> or waiting at the bottom of this
+        page.
+      </p>
+    </div>
+  </div>
+</section>

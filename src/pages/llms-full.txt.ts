@@ -85,8 +85,8 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 - Current internal Voice of Self page: ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - Current internal OverLit page: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Current internal Take Me Somewhere page: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
-- Current internal Audio Book Choices page: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
-- Website role: personal landing page, shared app chooser, Voice of Self product/support/legal surface, PlanKept product/support/legal surface, small OverLit app/legal surface, Take Me Somewhere product/support/legal surface, and Audio Book Choices product/support/legal surface
+- Current internal AudioChoices page: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
+- Website role: personal landing page, shared app chooser, Voice of Self product/support/legal surface, PlanKept product/support/legal surface, small OverLit app/legal surface, Take Me Somewhere product/support/legal surface, and AudioChoices product/support/legal surface
 
 ## Engineering Profile
 
@@ -120,7 +120,7 @@ The current app split is:
 - ${voiceOfSelfPath}: internal Voice of Self page with answers, updates, support, and legal pages
 - ${siteRoutes.apps.overLit.path}: internal OverLit page with support and legal links on this domain
 - ${takeMeSomewherePath}: internal Take Me Somewhere page with App Store, support, privacy, and Terms of Service links
-- ${audioBookChoicesPath}: internal Audio Book Choices page with support, privacy, and Terms of Use links
+- ${audioBookChoicesPath}: internal AudioChoices page with support, privacy, and Terms of Use links
 
 ## Privacy Notes
 
@@ -153,9 +153,9 @@ ${renderApp("OverLit", siteRoutes.apps.overLit.path, overLitConfig)}
 
 ${renderApp("Take Me Somewhere", takeMeSomewherePath, takeMeSomewhereConfig)}
 
-${renderApp("Audio Book Choices", audioBookChoicesPath, audioBookChoicesConfig)}
+${renderApp("AudioChoices", audioBookChoicesPath, audioBookChoicesConfig)}
 
-## Audio Book Choices Overview
+## AudioChoices Overview
 
 ${audioBookChoicesConfig.aiDiscovery.summary}
 

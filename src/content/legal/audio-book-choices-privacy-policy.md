@@ -1,12 +1,12 @@
-This Privacy Policy explains what Audio Book Choices does with information when you use the Audio Book Choices app for iOS and Android and the Audio Book Choices pages on `alekjaltuszyk.xyz`.
+This Privacy Policy explains what AudioChoices does with information when you use the AudioChoices app for iOS and Android and the AudioChoices pages on `alekjaltuszyk.xyz`.
 
-Audio Book Choices is an interactive "choose your story" audiobook app. It has no sign-up, no username, and no password, and it asks you for no name, email address, or phone number. It does still process a small amount of personal data: to remember what you have bought or unlocked, and to store the star ratings you choose to give, the app needs a way to recognise the same installation again. That is described in full below.
+AudioChoices is an interactive "choose your story" audiobook app. It has no sign-up, no username, and no password, and it asks you for no name, email address, or phone number. It does still process a small amount of personal data: to remember what you have bought or unlocked, and to store the star ratings you choose to give, the app needs a way to recognise the same installation again. That is described in full below.
 
 There is no third-party analytics tool, no crash-reporting tool, no advertising and no tracking of any kind in this app. Almost everything the app knows about your listening stays on your device. The one exception is a short list of anonymous milestones about how far listeners get through each book, sent to the developer's own server and to nobody else, so that it is possible to tell which stories hold up and which lose people. Section 9 lists them exactly.
 
-## 1. Who Is Responsible For Audio Book Choices
+## 1. Who Is Responsible For AudioChoices
 
-Audio Book Choices is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk, an individual sole trader established in Poland. For data protection law, that person is the controller of the personal data described in this policy.
+AudioChoices is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk, an individual sole trader established in Poland. For data protection law, that person is the controller of the personal data described in this policy.
 
 Contact:
 
@@ -16,7 +16,7 @@ Contact:
 - Terms of Use: [`https://alekjaltuszyk.xyz/apps/AudioBookChoices/terms-of-use/`](https://alekjaltuszyk.xyz/apps/AudioBookChoices/terms-of-use/)
 - Legal manifest: [`https://alekjaltuszyk.xyz/apps/AudioBookChoices/legal-manifest.json`](https://alekjaltuszyk.xyz/apps/AudioBookChoices/legal-manifest.json)
 
-Full trader identification details, including the registered address required for consumer and Digital Services Act purposes, are published on the Audio Book Choices listings in the Apple App Store and Google Play.
+Full trader identification details, including the registered address required for consumer and Digital Services Act purposes, are published on the AudioChoices listings in the Apple App Store and Google Play.
 
 No Data Protection Officer has been appointed, and none is required: this is a one-person business with no large-scale monitoring and no processing of special categories of data. No EU representative is required either, because the controller is established inside the EU.
 
@@ -37,7 +37,7 @@ No Data Protection Officer has been appointed, and none is required: this is a o
 
 The first time the app needs to talk to the server, it creates an anonymous account with Firebase Authentication. This is not an account in any normal sense: it has no email address, no password, no phone number and no profile. It is a random identifier, and it is the only thing that links you to anything stored on the server.
 
-Because that identifier lets the app recognise the same installation again, and lets purchases, free-unlock usage and ratings be attached to it, it is treated as personal data under the GDPR. This policy does not claim that Audio Book Choices collects no personal data, because that would not be true.
+Because that identifier lets the app recognise the same installation again, and lets purchases, free-unlock usage and ratings be attached to it, it is treated as personal data under the GDPR. This policy does not claim that AudioChoices collects no personal data, because that would not be true.
 
 Where the identifier lives, and how long it lasts, depends on the platform:
 
@@ -98,7 +98,7 @@ Under the GDPR, every purpose needs a lawful basis. These are the ones relied on
 | Give you access to the books you bought, unlocked or subscribed to, and remember that between sessions and devices | Anonymous identifier, subscription state, purchased book IDs | Art. 6(1)(b) — performance of the contract with you |
 | Process a subscription or a one-time book unlock through Apple or Google | Anonymous identifier passed to RevenueCat as its `app_user_id`, purchase and subscription state, store transaction identifiers | Art. 6(1)(b) — performance of the contract |
 | Keep records of purchases and refunds for accounting and tax purposes | Store transaction identifiers, purchase and refund records, dates | Art. 6(1)(c) — compliance with a legal obligation under Polish accounting and tax law |
-| Grant the three free unlocks and enforce the limit | Anonymous identifier, list of books a free unlock was spent on | Art. 6(1)(b) — performance of the contract |
+| Grant the free unlocks and enforce the limit | Anonymous identifier, list of books a free unlock was spent on | Art. 6(1)(b) — performance of the contract |
 | Prevent repeated abuse of the free-unlock allowance, including after a deletion request | A minimal record that this identifier has used its free unlocks | Art. 6(1)(f) — legitimate interests in preventing fraud and abuse of a free tier |
 | Store the star rating you chose to give, and show you your own past ratings | Anonymous identifier, your 1–5 rating per book, the choice count at the time of rating | Art. 6(1)(b) — performance of a feature you actively used |
 | Show an honest average rating for each book | Per-book totals only, which are not linked to any individual | Art. 6(1)(f) — legitimate interests in showing readers a meaningful, non-manipulated average |
@@ -109,7 +109,7 @@ Under the GDPR, every purpose needs a lawful basis. These are the ones relied on
 
 On the milestone row specifically, legitimate interests are relied on rather than consent because of how narrow the processing is: the facts recorded are a fixed list of yes-or-no thresholds, each recorded once; nothing is recorded about which choices you made or when you listened; the result is a set of per-book totals, not a profile; and none of it is shared, sold, or used for advertising or to decide anything about you as an individual. You can object to it under Art. 21 at the address in section 20, and you can switch it off entirely at any time in **Settings**, under "Share anonymous usage data" — which stops the app sending anything further, immediately and without asking you to justify it.
 
-Audio Book Choices does not rely on consent as a legal basis for any of the above, because none of it is advertising, profiling or tracking. There are two exceptions, and both are real ones.
+AudioChoices does not rely on consent as a legal basis for any of the above, because none of it is advertising, profiling or tracking. There are two exceptions, and both are real ones.
 
 The first is the optional head-nod feature: iOS asks for motion permission, and you can grant or refuse it, and change your mind at any time in iOS Settings.
 
@@ -128,7 +128,7 @@ These are the only recipients. Each one gets only what is listed.
 | **RevenueCat** | Your anonymous identifier, as its `app_user_id`; purchase and subscription state; product identifiers; store transaction identifiers; and the technical and transaction information its SDK and the stores provide to operate subscription management, which can include device type, operating-system version, IP address, Apple receipt data or a Google purchase token, and the time the app was last seen. It never receives a name, an email address or a payment-card number from the app | Processor for subscription and purchase management, based in the **United States**, where the subscriber records it holds are stored. RevenueCat's own privacy information describes its processing in more detail. |
 | **Apple** (App Store) and **Google** (Google Play) | Everything needed to take your payment and manage your purchase, under their own terms | Independent controllers for the payment relationship. Card numbers, billing addresses and payment details stay between you and the store, and never reach the developer |
 | **Email provider** | Only the content of a support email, if you choose to send one | Processor for correspondence |
-| **Website hosting** | Ordinary web request metadata for the Audio Book Choices pages on `alekjaltuszyk.xyz`, which are static informational pages | Processor for the website |
+| **Website hosting** | Ordinary web request metadata for the AudioChoices pages on `alekjaltuszyk.xyz`, which are static informational pages | Processor for the website |
 
 Nothing is sold. Nothing is shared for advertising. There is no data broker, no ad network, no attribution partner and no analytics vendor anywhere in this app.
 
@@ -158,7 +158,7 @@ Data Privacy Framework adequacy has been challenged repeatedly in the past. If i
 
 ## 9. How We Measure Whether A Book Works, And What Is Still Not Done
 
-Audio Book Choices records a small amount of anonymous information about how far listeners get through each book, so that it is possible to tell which stories hold up and which lose people. There are no adverts in the app, no advertising identifier is used, and none of this information is sent to anyone else — it goes to the developer's own server and stays there.
+AudioChoices records a small amount of anonymous information about how far listeners get through each book, so that it is possible to tell which stories hold up and which lose people. There are no adverts in the app, no advertising identifier is used, and none of this information is sent to anyone else — it goes to the developer's own server and stays there.
 
 For each book, these are the facts recorded, and there are no others:
 
@@ -190,7 +190,7 @@ These totals are used to decide which books to write next, and a rounded version
 
 **And these remain true:**
 
-- There is no third-party listener or product analytics SDK in the app. There is no Firebase Analytics, no Google Analytics and no third-party tool used to measure listening behaviour, audience size or feature usage. RevenueCat does process purchase information for its subscription service and dashboard reporting; that limited purchase-service reporting is disclosed in Apple's privacy categories as **Analytics**, but it is not used by Audio Book Choices to profile listeners or decide what they see.
+- There is no third-party listener or product analytics SDK in the app. There is no Firebase Analytics, no Google Analytics and no third-party tool used to measure listening behaviour, audience size or feature usage. RevenueCat does process purchase information for its subscription service and dashboard reporting; that limited purchase-service reporting is disclosed in Apple's privacy categories as **Analytics**, but it is not used by AudioChoices to profile listeners or decide what they see.
 - No crash-reporting or diagnostics SDK is linked into the app. There is no Crashlytics or equivalent.
 - No advertising is shown, and no advertising SDK is present.
 - The app never reads the iOS advertising identifier (IDFA) or the Android advertising ID (AAID), and never shows an App Tracking Transparency prompt, because it has nothing to track you with.
@@ -200,7 +200,7 @@ These totals are used to decide which books to write next, and a rounded version
 
 ## 10. AI Narration
 
-Stories in Audio Book Choices are narrated by an AI text-to-speech model, Kokoro-82M, which is released under the Apache 2.0 licence.
+Stories in AudioChoices are narrated by an AI text-to-speech model, Kokoro-82M, which is released under the Apache 2.0 licence.
 
 That narration is produced by the developer, offline, on the developer's own equipment, before a book is published. The finished audio files are then uploaded and delivered to your device like any other audio file.
 
@@ -210,7 +210,7 @@ The story text itself is written by a human author.
 
 ## 11. Headphone Motion, iOS Head-Nod Feature, Optional
 
-On iOS, Audio Book Choices offers an optional feature that lets you answer Yes or No by nodding or shaking your head while wearing supported headphones such as AirPods. If you enable it, iOS asks for motion permission, and the app reads headphone motion data while it is waiting for you to answer a choice, and while you are testing the feature in Settings. It stops reading motion as soon as the choice is answered.
+On iOS, AudioChoices offers an optional feature that lets you answer Yes or No by nodding or shaking your head while wearing supported headphones such as AirPods. If you enable it, iOS asks for motion permission, and the app reads headphone motion data while it is waiting for you to answer a choice, and while you are testing the feature in Settings. It stops reading motion as soon as the choice is answered.
 
 That motion data is used in the moment to recognise the gesture, on your device. It is never stored and never transmitted. If you do not enable the feature, or your headphones do not support it, no motion data is read at all. You can always answer by tapping instead. Android does not have this feature.
 
@@ -232,7 +232,7 @@ The filter is advisory content curation. It is not a security control, and it is
 
 **Purchase, subscription and transaction records** are kept for as long as they are needed to give you the access you paid for, and to meet accounting and tax record-keeping obligations under Polish law. Because a purchase can be restored years later, and because tax records must be retained, these records are **not deleted on request**. There is currently **no automatic time-based deletion of purchase records**.
 
-**A minimal record that an installation has used its free unlocks is kept even after you ask for deletion.** Without it, deleting data would reset the three free unlocks and could be repeated indefinitely, which would make the free tier meaningless. This retention is based on legitimate interests in fraud and abuse prevention, under Art. 6(1)(f). The record kept for this purpose is minimal: the identifier and the fact that its free unlocks were used.
+**A minimal record that an installation has used its free unlocks is kept even after you ask for deletion.** Without it, deleting data would reset an installation's free unlocks and could be repeated indefinitely, which would make the free tier meaningless. This retention is based on legitimate interests in fraud and abuse prevention, under Art. 6(1)(f). The record kept for this purpose is minimal: the identifier and the fact that its free unlocks were used.
 
 **Star ratings and other non-essential records can be deleted on request.** See below.
 
@@ -253,7 +253,7 @@ that you can copy it. Without that identifier there is no way to tell which reco
 the request cannot be actioned.
 
 **The steps for both routes are on their own page:
-[Delete your Audio Book Choices data](https://alekjaltuszyk.xyz/apps/AudioBookChoices/delete-data/).**
+[Delete your AudioChoices data](https://alekjaltuszyk.xyz/apps/AudioBookChoices/delete-data/).**
 That page is a plain-language summary; where the two differ, this document governs.
 
 Requests are answered within one month, as the GDPR requires. If a request is complex, that can be extended by up to two further months, and you will be told why.
@@ -296,11 +296,11 @@ If you live elsewhere in the EEA, you can also complain to your own national sup
 
 ## 16. Children
 
-Audio Book Choices is intended for listeners aged 13 and over. It is not directed to children under 13, and the developer does not knowingly collect personal information from children under 13.
+AudioChoices is intended for listeners aged 13 and over. It is not directed to children under 13, and the developer does not knowingly collect personal information from children under 13.
 
 The app asks for no name, no email address, no phone number, no photograph and no contact details from anyone, at any age. The age question described in section 12 is asked plainly, without pushing you toward any particular answer and without any advantage to overstating your age, and the age you give stays on your device.
 
-Audio Book Choices is not enrolled in Apple's Made for Kids or Google Play's Designed for Families programmes, and is not designed for young children.
+AudioChoices is not enrolled in Apple's Made for Kids or Google Play's Designed for Families programmes, and is not designed for young children.
 
 Books carry advisory minimum ages set by their authors, and some are written for older teenagers or adults. Parents and guardians should treat those advisories as guidance rather than a control, and use the device's own parental controls and screen-time features where they want a firmer boundary.
 
@@ -310,11 +310,11 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 If you email support, the developer receives your email address, your message, and anything you choose to include, such as your device model, OS version, app version, or your installation identifier. Please do not send sensitive personal information in a support message unless your request genuinely needs it.
 
-The Audio Book Choices pages on `alekjaltuszyk.xyz` are static informational pages. They set no analytics cookies, no advertising cookies and no tracking storage of the developer's own. Ordinary hosting and security infrastructure processes technical information such as IP address, browser type, requested URL, referring URL and timestamps, in order to serve and protect the site.
+The AudioChoices pages on `alekjaltuszyk.xyz` are static informational pages. They set no analytics cookies, no advertising cookies and no tracking storage of the developer's own. Ordinary hosting and security infrastructure processes technical information such as IP address, browser type, requested URL, referring URL and timestamps, in order to serve and protect the site.
 
 ## 18. Changes To This Policy
 
-This policy will be updated when Audio Book Choices changes in a way that affects it. The version number and effective date at the top of this page show when it was last updated, and the same values are published in the legal manifest linked in section 1.
+This policy will be updated when AudioChoices changes in a way that affects it. The version number and effective date at the top of this page show when it was last updated, and the same values are published in the legal manifest linked in section 1.
 
 Changes will not be made silently or retroactively. When there is a material change, the app shows the updated documents again before you continue listening, and asks you to accept the new version. The app records which version you accepted and when, on your device. If a change is not material, the updated document is published here with a new version and effective date.
 
@@ -326,9 +326,9 @@ The practices described above are applied globally. This section covers a few re
 
 **European Economic Area, United Kingdom, Switzerland.** Sections 6, 8 and 15 are the operative ones: legal bases, international transfers, and your rights. Section 8 explains where things stand: the server-side records described in section 5 are stored in the European Union, and a narrower set of processing — by RevenueCat, Cloudflare, and Google LLC's own administrative access and logging — still reaches the United States, under the safeguards described there. The controller is Aleksander Jałtuszyk, Poland. The lead supervisory authority is UODO, and UK users may also contact the ICO.
 
-**United States.** Audio Book Choices almost certainly does not meet the applicability thresholds of the California Consumer Privacy Act as amended, or of the comprehensive privacy laws of other states, which are generally gated on annual revenue or on processing the data of large numbers of state residents. No claim of applicability is made here either way. Regardless of applicability, the rights in section 15 — to know, access, correct, delete and port — are honoured for US residents on the same terms as for everyone else, and there is no discrimination for exercising them. Audio Book Choices does not sell personal information, does not share it for cross-context behavioural advertising, and does not use it for targeted advertising or profiling, so there is nothing to opt out of. No sensitive personal information is collected.
+**United States.** AudioChoices almost certainly does not meet the applicability thresholds of the California Consumer Privacy Act as amended, or of the comprehensive privacy laws of other states, which are generally gated on annual revenue or on processing the data of large numbers of state residents. No claim of applicability is made here either way. Regardless of applicability, the rights in section 15 — to know, access, correct, delete and port — are honoured for US residents on the same terms as for everyone else, and there is no discrimination for exercising them. AudioChoices does not sell personal information, does not share it for cross-context behavioural advertising, and does not use it for targeted advertising or profiling, so there is nothing to opt out of. No sensitive personal information is collected.
 
-**Do Not Track.** California's Online Privacy Protection Act requires this to be stated whatever the size of the operator, so: Audio Book Choices does not monitor or respond to Do Not Track browser signals, because there is nothing for them to switch off. The app is not a browser and does no cross-site tracking, and the website pages set no analytics or advertising storage of the developer's own. No third party is permitted to collect personally identifiable information about your activity across other sites or apps, through this app or these pages, over time.
+**Do Not Track.** California's Online Privacy Protection Act requires this to be stated whatever the size of the operator, so: AudioChoices does not monitor or respond to Do Not Track browser signals, because there is nothing for them to switch off. The app is not a browser and does no cross-site tracking, and the website pages set no analytics or advertising storage of the developer's own. No third party is permitted to collect personally identifiable information about your activity across other sites or apps, through this app or these pages, over time.
 
 **Children in the United States.** The app is not directed to children under 13 for the purposes of COPPA. It asks for no contact information from anyone, asks its age question neutrally and without encouraging anyone to overstate an age, and keeps the declared age on the device. No parental-consent mechanism is operated, because no personal information is knowingly collected from children under 13.
 

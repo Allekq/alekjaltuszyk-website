@@ -79,10 +79,10 @@ export const discoveryPages = {
       description: "Email-based support instructions for Take Me Somewhere.",
     },
     {
-      title: "Audio Book Choices",
+      title: "AudioChoices",
       path: siteRoutes.apps.audioBookChoices.path,
       description:
-        "Audio Book Choices product page from Alek Jałtuszyk for the interactive 'choose your story' audiobook app coming to iOS and Android, with a playable sample of the Yes/No choice moment, the branching story tree, hands-free answering, access tiers, and legal links.",
+        "AudioChoices product page from Alek Jałtuszyk for the interactive 'choose your story' audiobook app on the App Store, with a playable sample of the Yes/No choice moment, the branching story tree, hands-free answering, access tiers, and legal links.",
     },
     {
       title: "OverLit Support",
@@ -90,9 +90,9 @@ export const discoveryPages = {
       description: "Email-based support instructions for OverLit.",
     },
     {
-      title: "Audio Book Choices Support",
+      title: "AudioChoices Support",
       path: siteRoutes.apps.audioBookChoicesSupport.path,
-      description: "Email-based support instructions for Audio Book Choices.",
+      description: "Email-based support instructions for AudioChoices.",
     },
     {
       title: planKeptContentHubs.answers.title,
@@ -251,22 +251,22 @@ export const discoveryPages = {
         "Machine-readable Take Me Somewhere legal document versions, effective dates, and canonical URLs.",
     },
     {
-      title: "Audio Book Choices Privacy Policy",
+      title: "AudioChoices Privacy Policy",
       path: siteRoutes.apps.audioBookChoicesPrivacyPolicy.path,
       description:
-        "How Audio Book Choices handles data: no personal data collected, no account, on-device progress and settings, no analytics or tracking, and optional on-device headphone motion for the head-nod feature.",
+        "How AudioChoices handles data: no personal data collected, no account, on-device progress and settings, no analytics or tracking, and optional on-device headphone motion for the head-nod feature.",
     },
     {
-      title: "Audio Book Choices Terms of Use",
+      title: "AudioChoices Terms of Use",
       path: siteRoutes.apps.audioBookChoicesTermsOfUse.path,
       description:
-        "Terms covering Audio Book Choices content licensing for personal listening, three free unlocks per installation, one-time book purchases, the All Access subscription, AI narration, no warranty, and contact.",
+        "Terms covering AudioChoices content licensing for personal listening, free unlocks, single-book purchases, the All Access subscription, AI narration, no warranty, and contact.",
     },
     {
-      title: "Audio Book Choices Legal Manifest",
+      title: "AudioChoices Legal Manifest",
       path: siteRoutes.apps.audioBookChoicesLegalManifest.path,
       description:
-        "Machine-readable Audio Book Choices legal document versions, effective dates, and canonical URLs.",
+        "Machine-readable AudioChoices legal document versions, effective dates, and canonical URLs.",
     },
     {
       title: "Legal Manifest",

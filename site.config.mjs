@@ -115,15 +115,20 @@ export const legalDocuments = {
     path: "/apps/TakeMeSomewhere/terms-of-service/",
     sourcePath: "src/content/legal/take-me-somewhere-terms-of-service.md",
   },
+  // Renamed to match the store record ("AudioChoices"), and the free-unlock
+  // allowance moved out of the text and into the app's own purchase screen —
+  // which section 5 already reserved the right to change. No new obligation, so
+  // AppConfig.LEGAL_VERSION in the app repo is deliberately NOT bumped: doing so
+  // would put an acceptance wall in front of every listener for a rename.
   audioBookChoicesPrivacy: {
-    version: "2.2.1",
+    version: "2.2.2",
     effectiveDate: "2026-08-09",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },
   audioBookChoicesTerms: {
-    version: "2.1.2",
-    effectiveDate: "2026-08-06",
+    version: "2.1.3",
+    effectiveDate: "2026-08-09",
     path: "/apps/AudioBookChoices/terms-of-use/",
     sourcePath: "src/content/legal/audio-book-choices-terms-of-use.md",
   },

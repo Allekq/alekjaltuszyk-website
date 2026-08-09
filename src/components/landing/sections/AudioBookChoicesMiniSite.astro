@@ -12,7 +12,10 @@ const structuredData = buildAppStructuredData({
   description: audioBookChoicesConfig.defaultDescription,
   applicationCategory: "BooksApplication",
   applicationSubCategory: "Interactive audiobooks",
-  operatingSystem: "iOS, Android",
+  /* iOS only until the Play listing exists — this is a machine-readable claim
+     about what someone can install today, not about what is being built. */
+  operatingSystem: "iOS",
+  downloadUrl: audioBookChoicesConfig.primaryCtaHref ?? undefined,
   contentRating: "13+",
   isAccessibleForFree: true,
   featureList: audioBookChoicesConfig.aiDiscovery.featureList,

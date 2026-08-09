@@ -1,24 +1,24 @@
-These Terms of Use govern your use of the Audio Book Choices app for iOS and Android and the Audio Book Choices pages on `alekjaltuszyk.xyz`.
+These Terms of Use govern your use of the AudioChoices app for iOS and Android and the AudioChoices pages on `alekjaltuszyk.xyz`.
 
-Audio Book Choices is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk ("Developer", "we", "us", or "our"), an individual sole trader established in Poland. Contact: `alekgameshelp2@gmail.com`. Support page: [https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/). Full trader identification details, including the registered address, are published on the Audio Book Choices listings in the Apple App Store and Google Play.
+AudioChoices is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk ("Developer", "we", "us", or "our"), an individual sole trader established in Poland. Contact: `alekgameshelp2@gmail.com`. Support page: [https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/). Full trader identification details, including the registered address, are published on the AudioChoices listings in the Apple App Store and Google Play.
 
 ## 1. Acceptance
 
-By using Audio Book Choices you agree to these terms. The app shows you these terms and the Privacy Policy before you start listening, and asks you to accept them.
+By using AudioChoices you agree to these terms. The app shows you these terms and the Privacy Policy before you start listening, and asks you to accept them.
 
-If you do not agree, do not use the app or the related Audio Book Choices website pages.
+If you do not agree, do not use the app or the related AudioChoices website pages.
 
 ## 2. Eligibility
 
-Audio Book Choices is for listeners aged 13 and over. It is not directed to children under 13, and children under 13 should not use it.
+AudioChoices is for listeners aged 13 and over. It is not directed to children under 13, and children under 13 should not use it.
 
-If you are 13 or older but under the age of majority where you live, use the app only with the permission of a parent or guardian, and only where that is permitted by local law. You may use Audio Book Choices only if you are able to enter into a binding agreement with us.
+If you are 13 or older but under the age of majority where you live, use the app only with the permission of a parent or guardian, and only where that is permitted by local law. You may use AudioChoices only if you are able to enter into a binding agreement with us.
 
 Purchases must be made by someone able to authorise payment on the Apple or Google account being used.
 
-## 3. What Audio Book Choices Is
+## 3. What AudioChoices Is
 
-Audio Book Choices is an interactive "choose your story" audiobook app. You listen to a narrated story and steer where it goes with simple Yes or No choices, made by tapping the screen or, on iOS, by nodding your head with supported headphones. Each book is a branching tree of scenes with several different endings, and you can go back and explore paths you did not take.
+AudioChoices is an interactive "choose your story" audiobook app. You listen to a narrated story and steer where it goes with simple Yes or No choices, made by tapping the screen or, on iOS, by nodding your head with supported headphones. Each book is a branching tree of scenes with several different endings, and you can go back and explore paths you did not take.
 
 Books are downloaded to your device as you listen, so playback continues offline once a section has been fetched.
 
@@ -30,7 +30,7 @@ The books, story text, narration, audio, artwork, branding, and the app itself a
 
 On iOS, the licence to the app *software* is Apple's Standard EULA, not this section — see section 20. This section is your licence to the **content**: the books, their narration and their artwork. On Android, where no store licence exists, this section licenses the app as well.
 
-Subject to these terms, you are granted a personal, non-exclusive, non-transferable, revocable licence to listen to the books you have unlocked, subscribed to or bought, for your own personal and non-commercial use, on devices you control, through the Audio Book Choices app.
+Subject to these terms, you are granted a personal, non-exclusive, non-transferable, revocable licence to listen to the books you have unlocked, subscribed to or bought, for your own personal and non-commercial use, on devices you control, through the AudioChoices app.
 
 You may not:
 
@@ -46,7 +46,7 @@ Your licence lasts as long as your entitlement lasts. A subscription licence end
 
 ## 5. Free Unlocks
 
-Every installation gets **three free unlocks**. Spending one opens a paid book at no cost, and that book stays unlocked for that installation.
+Every installation gets a number of **free unlocks**, and the current allowance is shown in the app. Spending one opens a paid book at no cost, and that book stays unlocked for that installation.
 
 The limit is enforced on our server against your installation's anonymous identifier, and it is not reset by clearing the app's local data or by asking us to delete your data. Deliberately trying to obtain more free unlocks than the allowance permits — by manufacturing new identifiers, tampering with the app, or otherwise — is a breach of these terms.
 
@@ -66,7 +66,7 @@ What it does not give you: access to any other book, access to future books, any
 
 ## 7. All Access: Auto-Renewing Subscription
 
-Audio Book Choices offers an auto-renewing subscription called **All Access**, which unlocks the whole catalogue for as long as it is active.
+AudioChoices offers an auto-renewing subscription called **All Access**, which unlocks the whole catalogue for as long as it is active.
 
 - **What you get:** access to every book in the catalogue while the subscription is active, including books added during your subscription.
 - **Name, length and price:** the subscription name, the length of each billing period, the price in your local currency including applicable taxes, and any free-trial or introductory-offer terms are shown on the purchase screen in the app before you buy, and again on Apple's or Google's own confirmation sheet. Prices vary by country and may change; a price change is notified to you by the store before it takes effect, and you can cancel rather than accept it.
@@ -112,13 +112,13 @@ You can ask for your ratings to be deleted. See the [Privacy Policy](https://ale
 
 ## 11. AI Narration
 
-Stories in Audio Book Choices are narrated by an AI text-to-speech model, Kokoro-82M, released under the Apache 2.0 licence. The narration is generated by the Developer offline, before a book is published, and the finished audio is then delivered to your device like any other audio file.
+Stories in AudioChoices are narrated by an AI text-to-speech model, Kokoro-82M, released under the Apache 2.0 licence. The narration is generated by the Developer offline, before a book is published, and the finished audio is then delivered to your device like any other audio file.
 
 No listening data, no voice recording, no choice you make and no personal information is ever sent to an AI service or a text-to-speech service. There is no runtime AI in the app.
 
 The story text is written by a human author.
 
-AI narration is good but not perfect: it can occasionally mispronounce a name, misplace an emphasis or read a line in an unexpected tone. Audio Book Choices is entertainment. It is not a source of factual, professional, medical, legal, financial or safety advice, and nothing in a story should be treated as such.
+AI narration is good but not perfect: it can occasionally mispronounce a name, misplace an emphasis or read a line in an unexpected tone. AudioChoices is entertainment. It is not a source of factual, professional, medical, legal, financial or safety advice, and nothing in a story should be treated as such.
 
 ## 12. Content Advisory And The Age Setting
 
@@ -148,7 +148,7 @@ You agree not to:
 
 ## 14. Availability, Changes And Discontinuation
 
-We may add, change, suspend, remove, limit or discontinue Audio Book Choices, individual books, features, prices or the related website pages, where reasonably needed to operate the service, comply with law or platform rules, protect users, or manage cost.
+We may add, change, suspend, remove, limit or discontinue AudioChoices, individual books, features, prices or the related website pages, where reasonably needed to operate the service, comply with law or platform rules, protect users, or manage cost.
 
 If a book you bought outright is removed from the catalogue, we will make reasonable efforts to keep it available to you within the app, but a rights, legal or technical issue can make that impossible. If a book you bought outright becomes permanently unavailable to you shortly after purchase and you have not substantially listened to it, contact us and we will help you seek a refund from the store.
 
@@ -175,9 +175,9 @@ Nothing in this section limits, and nothing is intended to limit, any warranty, 
 
 Subject to the above, and to the maximum extent permitted by applicable law:
 
-- our total aggregate liability for all claims arising out of or relating to Audio Book Choices in any twelve-month period is limited to the greater of the amount you paid for Audio Book Choices purchases in the twelve months before the claim, or EUR 50
+- our total aggregate liability for all claims arising out of or relating to AudioChoices in any twelve-month period is limited to the greater of the amount you paid for AudioChoices purchases in the twelve months before the claim, or EUR 50
 - we are not liable for loss that was not reasonably foreseeable at the time you accepted these terms, or for indirect or consequential loss
-- we are not liable for loss of profits, loss of business, or loss arising from your use of the app for any business purpose, since Audio Book Choices is supplied for personal use
+- we are not liable for loss of profits, loss of business, or loss arising from your use of the app for any business purpose, since AudioChoices is supplied for personal use
 
 If you are a consumer, these limits apply only to the extent that they are permitted by the consumer-protection law of your country of residence, and they do not affect it where it says otherwise.
 
@@ -193,7 +193,7 @@ Changes that are materially adverse to you are not applied retroactively to purc
 
 ## 18. Termination
 
-You can stop using Audio Book Choices at any time by deleting the app. There is no account to close. The Privacy Policy explains how to delete data held on the server.
+You can stop using AudioChoices at any time by deleting the app. There is no account to close. The Privacy Policy explains how to delete data held on the server.
 
 We may suspend or end your access where you seriously or repeatedly breach these terms — for example by ripping and redistributing audio, by attacking or overloading the service, or by abusing the free-unlock or entitlement systems. Where it is reasonable to do so, we will warn you first and give you a chance to put things right, and any suspension will be proportionate to what happened.
 
@@ -215,9 +215,9 @@ For users who are not consumers, and for consumers outside the EU, EEA and UK, d
 
 ## 20. Third-Party Services
 
-Audio Book Choices relies on the Apple App Store, Google Play, and infrastructure and payment providers described in the [Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/). Those services have their own terms, which apply to your use of them.
+AudioChoices relies on the Apple App Store, Google Play, and infrastructure and payment providers described in the [Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/). Those services have their own terms, which apply to your use of them.
 
-**Which document licenses the app itself.** On iOS, the Audio Book Choices app is licensed to you under Apple's [Standard End User Licence Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) ("Apple's Standard EULA"), because no custom end user licence agreement is supplied in App Store Connect. On Android there is no equivalent store licence, so section 4 of these terms is the licence for the app itself.
+**Which document licenses the app itself.** On iOS, the AudioChoices app is licensed to you under Apple's [Standard End User Licence Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) ("Apple's Standard EULA"), because no custom end user licence agreement is supplied in App Store Connect. On Android there is no equivalent store licence, so section 4 of these terms is the licence for the app itself.
 
 In both cases these Terms of Use govern everything else: the books and their narration, free unlocks, one-time book purchases and the All Access subscription, ratings, acceptable use, and the service behind them. Where these terms and Apple's Standard EULA genuinely conflict about the licence to the app software on iOS, Apple's Standard EULA prevails, and these terms continue to apply to everything Apple's Standard EULA does not cover.
 

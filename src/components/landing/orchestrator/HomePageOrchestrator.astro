@@ -1,13 +1,29 @@
 ---
-import HomeDestinationsSection from "../sections/HomeDestinationsSection.astro";
+/**
+ * Source of truth for the homepage section order.
+ *
+ * The shape is CV first, apps last: hero, the summary and the way out to
+ * /apps, then the long-form history and skills, and only then the app showcase
+ * — the same showcase /apps leads with, ending in the same plain grid.
+ */
+import AppGridSection from "../sections/apps/AppGridSection.astro";
+import AppShowcaseSection from "../sections/apps/AppShowcaseSection.astro";
+import AppsIntroSection from "../sections/apps/AppsIntroSection.astro";
 import HomeHistorySection from "../sections/HomeHistorySection.astro";
+import HomeIntroSection from "../sections/HomeIntroSection.astro";
 import HomeSkillsSection from "../sections/HomeSkillsSection.astro";
 import HomeVideoHeroSection from "../sections/HomeVideoHeroSection.astro";
 import SiteFooter from "../sections/SiteFooter.astro";
 ---
 
 <HomeVideoHeroSection />
-<HomeDestinationsSection />
-<HomeSkillsSection />
+<HomeIntroSection />
 <HomeHistorySection />
+<HomeSkillsSection />
+<AppsIntroSection
+  eyebrow="What I am building"
+  body="The same scroll-through that opens the apps directory. Every one of them has its own page, or its own store listing."
+/>
+<AppShowcaseSection gridHref="#grid" />
+<AppGridSection />
 <SiteFooter />

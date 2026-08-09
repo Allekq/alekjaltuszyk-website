@@ -1,26 +1,28 @@
 ---
 import { withBase } from "../../../../lib/paths";
 
+/* Captured from the shipped iPhone build. Every shot keeps the device's own
+   status bar, so the phone frame around them must not draw a second notch. */
 const screenshots = [
   {
-    src: withBase("/media/overlit/iphone-level-13-gameplay.jpg"),
-    alt: "OverLit level 13 in play, with lit cyan and amber cells across a six by six grid.",
-    label: "Mid-level pressure",
-    caption: "Level 13, twenty-six seconds in, four cells asking at once.",
+    src: withBase("/media/overlit/iphone-classic-6x6-pressure.jpg"),
+    alt: "OverLit Classic survival on a six by six grid, one cell critical red and two amber.",
+    label: "Mid-run pressure",
+    caption: "Classic on 6 × 6, seven seconds in: one cell already critical, two heating.",
     loading: "eager" as const,
   },
   {
-    src: withBase("/media/overlit/iphone-levels-stars.jpg"),
-    alt: "OverLit level select screen showing stars earned across handcrafted levels.",
+    src: withBase("/media/overlit/iphone-levels-campaign.jpg"),
+    alt: "OverLit level select screen showing the Novice levels and a locked Intermediate tier.",
     label: "Stars, not just clears",
-    caption: "Three tiers per level, so a pass is only the start of the argument.",
+    caption: "Three tiers per level, and the next tier stays shut until the stars arrive.",
     loading: "lazy" as const,
   },
   {
-    src: withBase("/media/overlit/iphone-pattern-mode.jpg"),
-    alt: "OverLit pattern mode screen with survival and time attack options.",
+    src: withBase("/media/overlit/iphone-mode-hub.jpg"),
+    alt: "OverLit mode hub listing Daily Challenge, Levels, Classic, and the locked Random, Pattern and Snake modes.",
     label: "Modes",
-    caption: "Pattern family, picking between Survival and Time Attack.",
+    caption: "The hub. Some of it is open on install, and the rest is something you earn.",
     loading: "lazy" as const,
   },
 ] as const;
@@ -43,12 +45,11 @@ const screenshots = [
         >
           <figure class="overlit-screens__figure">
             <div class="overlit-screens__phone tilt-surface" data-tilt data-tilt-strength="0.8">
-              <span class="overlit-screens__notch" aria-hidden="true"></span>
               <img
                 src={shot.src}
                 alt={shot.alt}
-                width="416"
-                height="900"
+                width="402"
+                height="874"
                 loading={shot.loading}
                 decoding="async"
               />

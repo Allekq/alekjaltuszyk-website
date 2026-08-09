@@ -2,23 +2,25 @@
 import { audioBookChoicesConfig } from "../../../../config/site";
 
 /*
- * Access copy tracks the Terms of Use (three free unlocks per installation, a
- * permanent one-time Book Unlock, and the auto-renewing All Access
- * subscription). Keep the two in step if either changes.
+ * Access copy tracks the Terms of Use in shape only. It deliberately states no
+ * unlock count, no billing period and no price: those are live commercial
+ * settings that can change in the app on any day, and a number written here
+ * would drift without anyone noticing. The purchase screen is the authority,
+ * and the copy points readers at it.
  */
 const tiers = [
   {
     id: "free",
     name: "Free to start",
-    price: "Three free unlocks",
-    body: "Every installation gets three unlocks to spend on paid books. Spend one and that book stays open for you.",
+    price: "Many free unlocks",
+    body: "Every installation arrives with unlocks to spend on paid books. Spend one and that book stays open for you.",
     points: ["No card", "No trial countdown", "No sign-up screen"],
     tone: "tide",
   },
   {
     id: "book",
     name: "Book Unlock",
-    price: "One-time purchase",
+    price: "One book, yours",
     body: "Buy a single book outright and it stays yours. Not a subscription, and it does not renew.",
     points: ["One specific book", "Replay it as often as you like", "Restorable through the store"],
     tone: "ember",
@@ -27,12 +29,12 @@ const tiers = [
   {
     id: "all",
     name: "All Access",
-    price: "Weekly or monthly",
+    price: "The whole shelf",
     body: "Opens the whole catalogue, including books added while it is active. It renews automatically until you cancel.",
     points: [
       "Every book in the catalogue",
       "Cancel in Apple ID or Google Play settings",
-      "Price shown before you buy",
+      "Plan and price shown before you buy",
     ],
     tone: "dusk",
   },
@@ -54,7 +56,8 @@ const included = [
       <p class="app-eyebrow">Getting in</p>
       <h2 class="app-title">Start free. Pay only if you want more.</h2>
       <p class="app-lead">
-        Purchases run through the App Store and Google Play at the price shown before you buy.
+        Purchases run through the store at the price shown before you buy. How many free unlocks
+        you get, and which plans are on offer, is always what the app's own purchase screen says.
       </p>
     </header>
 

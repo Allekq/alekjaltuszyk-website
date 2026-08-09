@@ -2,6 +2,7 @@ import {
   appCount,
   appNameList,
   appCountWord,
+  capitalizeFirst,
   platformAppNoun,
   platformNameList,
   releaseStatusSentence,
@@ -39,6 +40,68 @@ export interface HomeTimelineProjectHighlight {
   description: string;
   details: readonly string[];
 }
+
+export interface HomeMilestone {
+  id: string;
+  value: string;
+  label: string;
+  detail: string;
+  /** History panel this milestone came from, so the card can jump to it. */
+  historyId?: string;
+}
+
+/**
+ * The CV in four numbers, for the top of the homepage.
+ *
+ * Every one of these is a restatement of something already in `homeTimeline` or
+ * `homeSkills` below — nothing new is claimed here. The app count is derived so
+ * it cannot drift from `appDirectory`.
+ */
+export const homeMilestones = [
+  {
+    id: "apps",
+    value: capitalizeFirst(appCountWord),
+    label: `${platformAppNoun} built and shipped`,
+    detail: releaseStatusSentence,
+    historyId: "current-products",
+  },
+  {
+    id: "roam",
+    value: "4",
+    label: "months in San Francisco",
+    detail:
+      "Two company-supported stays, working in person with the Roam AI core team.",
+    historyId: "roam-ai",
+  },
+  {
+    id: "assets",
+    value: "5★",
+    label: "Unity assets on the Asset Store",
+    detail:
+      "Procedural placement systems and VR-oriented frameworks, used by thousands of developers.",
+    historyId: "alek-games",
+  },
+  {
+    id: "boulder",
+    value: "7c",
+    label: "max boulder grade",
+    detail: "Two regional wins, plus a one-arm pull-up and a front lever.",
+  },
+] satisfies readonly HomeMilestone[];
+
+/**
+ * The stack, said plainly. `siteConfig.focusAreas` is the canonical list for
+ * metadata; this is the same story in the order a reader wants it, with the two
+ * mobile toolchains the shipped apps are actually written in.
+ */
+export const homeStack = [
+  "Swift & SwiftUI",
+  "Unity",
+  "C#",
+  "Kotlin Multiplatform",
+  "Python",
+  "AI product systems",
+] as const;
 
 export const homeSkills = [
   {
@@ -184,8 +247,8 @@ export const homeTimeline = [
         ],
       },
       {
-        title: "Audio Book Choices",
-        description: "Interactive 'choose your story' audiobook app, not released yet.",
+        title: "AudioChoices",
+        description: "Interactive 'choose your story' audiobook app.",
         details: [
           "Designed branching story trees where Yes or No choices open new paths through a book.",
           "Built choice input that works by tapping the screen or nodding with AirPods.",
