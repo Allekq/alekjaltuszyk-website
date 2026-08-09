@@ -350,17 +350,15 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 ### Erasing your leaderboard data
 
-These steps also have their own page, written to be read without the app installed:
-[Delete your OverLit data](https://alekjaltuszyk.xyz/apps/OverLit/delete-data/). It restates what
-is below and adds nothing to it.
+**The steps are on their own page:
+[Delete your OverLit data](https://alekjaltuszyk.xyz/apps/OverLit/delete-data/).** That page is a
+plain-language summary; where the two differ, this document governs.
 
 The leaderboard service has a single function whose only job is deletion. It hard-deletes **everything** held against your anonymous identity: every board entry on every board, the private player record and its rate counters, the rating record, the de-duplication ledger, and the anonymous Firebase Authentication user itself. Your entries come off the live boards, not merely out of an internal table — a published score is public, so erasing it has to mean erasing what other people can see. The function is deliberately never blocked by the feature's kill switch, because deletion has to keep working even when everything else is switched off.
 
-To have it run, email `alekgameshelp2@gmail.com` with the subject **"Delete my leaderboard data"**.
+**The route in the app is one tap.** Open **Settings → Legal → Delete my leaderboard data**. It acts on your own identity directly, so nothing has to be matched and nothing has to be described. It is available whenever leaderboards are available to you, it asks you to confirm, and it cannot be undone. Your local progress, levels and unlocks are not touched — only what the leaderboard service holds.
 
-There is a genuine limitation to be honest about. Your leaderboard identity is anonymous: no name, no email address and no account is attached to it, so an email on its own does not tell the developer which identity is yours. Include the board you appeared on, the nickname you are shown under (the app displays your current one above the board), and the exact score, and a match can usually be made. If you have rolled a new nickname since, mention that too — the server keeps only your current one. If a match cannot be made, the request cannot be actioned — under Article 11 GDPR a controller that genuinely cannot identify a data subject is not obliged to acquire extra data in order to do so, and inventing an identity-linking system to service deletion requests would be worse for everyone's privacy than the problem it solves.
-
-**The reliable route is in the app.** Open **Settings → Legal → Delete my leaderboard data**. It acts on your own identity directly, so nothing has to be matched and nothing has to be described. It is available whenever leaderboards are available to you, it asks you to confirm, and it cannot be undone. Your local progress, levels and unlocks are not touched — only what the leaderboard service holds.
+**By email**, write to `alekgameshelp2@gmail.com` with the subject **"Delete my leaderboard data"**, carrying your leaderboard ID. Your identity is anonymous — no name, no email address, no account — so that ID is the only thing that says which data is yours; **Settings → Legal → Copy my leaderboard ID** puts it on the clipboard. Your nickname is not a substitute: it is drawn from a fixed vocabulary and is not unique. Without the ID the request cannot be actioned, and under Article 11 GDPR a controller that genuinely cannot identify a data subject is not obliged to acquire extra data in order to do so — inventing an identity-linking system to service deletion requests would be worse for everyone's privacy than the problem it solves.
 
 Deleting the app does not remove a published leaderboard entry.
 
