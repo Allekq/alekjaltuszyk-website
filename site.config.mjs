@@ -115,14 +115,32 @@ export const legalDocuments = {
     path: "/apps/TakeMeSomewhere/terms-of-service/",
     sourcePath: "src/content/legal/take-me-somewhere-terms-of-service.md",
   },
-  // Renamed to match the store record ("AudioChoices"), and the free-unlock
-  // allowance moved out of the text and into the app's own purchase screen —
-  // which section 5 already reserved the right to change. No new obligation, so
-  // AppConfig.LEGAL_VERSION in the app repo is deliberately NOT bumped: doing so
-  // would put an acceptance wall in front of every listener for a rename.
+  // 2.3.0 does two things a clarification cannot, which is why this is a minor
+  // bump and not a patch. It DISCLOSES NEW PROCESSING — the App Attest / Play
+  // Integrity app-integrity check, which was already live and named nowhere in
+  // the document — and it CORRECTS a location claim that was simply wrong:
+  // sections 5 and 8 said the anonymous identifier was stored in the EU, and
+  // Firebase Authentication is a global Google service with no region setting,
+  // so it never was. The correction is stated as a correction rather than
+  // quietly dropping the sentence, because people accepted the old wording.
+  //
+  // 2.2.2's note below still holds for the case it described: a rename is not
+  // an obligation and must not bump the app constant. This one is different.
+  // AppConfig.LEGAL_VERSION IS bumped for 2.3.0 (5 -> 6), and that is the
+  // disruptive half — AudioChoices is binary-pinned, so the bump walls every
+  // live iOS listener behind LegalGate on their next launch after they update.
+  // ORDER: publish this document first (harmless, reaches nobody), ship the
+  // build carrying LEGAL_VERSION 6 second. A build must never reach a device
+  // before the 2.3.0 text is live, or the gate asks people to accept a
+  // document that does not exist yet.
+  //
+  // 2.2.2: renamed to match the store record ("AudioChoices"), and the
+  // free-unlock allowance moved out of the text and into the app's own purchase
+  // screen — which section 5 already reserved the right to change. No new
+  // obligation, so LEGAL_VERSION was deliberately NOT bumped for it.
   audioBookChoicesPrivacy: {
-    version: "2.2.2",
-    effectiveDate: "2026-08-09",
+    version: "2.3.0",
+    effectiveDate: "2026-08-10",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },

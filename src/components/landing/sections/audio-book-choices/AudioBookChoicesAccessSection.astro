@@ -46,7 +46,11 @@ const included = [
   "Download once, replay offline",
   "No ads, anywhere in the app",
   "No account, no name, no email address",
-  "No analytics, no crash reporting, no tracking",
+  // Not "no analytics". The app reports anonymous per-book milestones to the
+  // developer's own server, which the Privacy Policy sets out in section 9 — so
+  // the claim that survives is the one about third parties, and it is the one
+  // people actually care about. A bullet that oversells is worse than no bullet.
+  "No third-party analytics, no crash reporting, no cross-app tracking",
 ] as const;
 ---
 

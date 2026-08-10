@@ -254,7 +254,7 @@ export const discoveryPages = {
       title: "AudioChoices Privacy Policy",
       path: siteRoutes.apps.audioBookChoicesPrivacyPolicy.path,
       description:
-        "How AudioChoices handles data: no personal data collected, no account, on-device progress and settings, no analytics or tracking, and optional on-device headphone motion for the head-nod feature.",
+        "How AudioChoices handles data: no account and no name, email address or phone number, but an anonymous installation identifier that purchases and ratings are stored against; progress, settings and self-declared age stay on the device; no third-party analytics, advertising, crash reporting or cross-app tracking, and a short list of anonymous per-book milestones sent to the developer's own server that Settings turns off; optional on-device headphone motion for the head-nod feature.",
     },
     {
       title: "AudioChoices Terms of Use",
