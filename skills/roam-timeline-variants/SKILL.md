@@ -1,36 +1,49 @@
 ---
 name: roam-timeline-variants
-description: Use when editing the Roam AI timeline entry in src/components/landing/sections/home-profile-content.ts or the root-level RoamTimeline_*Variant.mjs scripts.
+description: Use when editing the Roam AI timeline entry, the homepage milestone row, or anything that describes where work was done, in src/components/landing/sections/home-profile-content.ts.
 ---
 
 # Roam Timeline Variants
 
-Use this skill whenever the Roam AI timeline entry or its wording variants are
-changed.
+The site can describe the Roam AI period with or without the company-funded
+stays in the United States. That choice is a single flag, not a wording
+exercise, and not a script that rewrites source.
 
-## Files
+## The switch
 
-- Source timeline copy:
-  `src/components/landing/sections/home-profile-content.ts`
-- CV-aimed variant script:
-  `RoamTimeline_CVVariant.mjs`
-- U.S.-friendly variant script:
-  `RoamTimeline_USFriendlyVariant.mjs`
+`travelMention` in `src/components/landing/sections/home-profile-content.ts`.
+
+- `"omitted"` — **the default.** No mention of travel anywhere. The Roam
+  timeline entry stands on the engineering work, and the milestone card next to
+  it shows the contract period instead.
+- `"named"` — the stays are described the way a CV would describe them, and the
+  milestone card becomes the months figure.
+
+Flip the constant. Nothing else needs editing: the timeline highlight and the
+milestone card both read from it.
+
+Two root-level scripts (`RoamTimeline_CVVariant.mjs`,
+`RoamTimeline_USFriendlyVariant.mjs`) used to do this by rewriting the file
+between `// ROAM_TIMELINE_ENTRY_START/END` markers. They are gone, along with
+the markers. Their wording is still in git history if a third variant is ever
+wanted.
 
 ## Rules
 
-1. Keep the Roam timeline entry wrapped by:
-   `// ROAM_TIMELINE_ENTRY_START` and `// ROAM_TIMELINE_ENTRY_END`.
-2. If the Roam entry shape changes, update both root-level scripts in the same
-   change so either script can still replace the whole marked block.
-3. Keep the CV script aligned with the public portfolio/CV wording.
-4. Keep the U.S.-friendly script aligned with the low-ambiguity remote-work
-   wording and avoid naming San Francisco there.
-5. Keep comments neutral and non-sensitive. They should describe the variant
-   purpose, not personal legal reasoning.
-6. After changes, run:
-   - `node --check RoamTimeline_CVVariant.mjs`
-   - `node --check RoamTimeline_USFriendlyVariant.mjs`
-   - `npm run check`
-   - `npm run build`
+1. `travelMention` is the only place travel is decided. If a new sentence needs
+   to mention it, gate that sentence on the flag too — never add an ungated
+   mention somewhere else.
+2. Keep the flag's default at `"omitted"` unless the owner asks otherwise.
+3. Keep both branches truthful and keep them the same shape: flipping the flag
+   must not change what the entry claims about the work itself.
+4. Keep comments neutral and non-sensitive. Describe what the variant shows,
+   not personal legal reasoning.
+5. The Roam entry's `summary` and `role` must stay travel-free, so they read
+   correctly under either setting.
 
+## Validation
+
+- `npm run check`
+- `npm run build`
+- With the default setting, this must return nothing:
+  `grep -rn "San Francisco" dist/`

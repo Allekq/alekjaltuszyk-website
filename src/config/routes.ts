@@ -118,17 +118,19 @@ export interface AppDirectoryItem {
   /** The full store record, for cards, titles, and structured data. */
   name: string;
   /**
-   * The same app said out loud, for sentences. Only differs where the store
-   * name carries a subtitle — "AudioChoices: Audiobooks" is a title, not
-   * something you can drop into the middle of a list of apps.
+   * Optional. The same app said out loud, for sentences. Defaults to `name`,
+   * and only needs setting where the store name carries a subtitle —
+   * "AudioChoices: Audiobooks" is a title, not something you can drop into the
+   * middle of a list of apps.
    */
-  shortName: string;
+  shortName?: string;
   description: string;
   /** One short sentence about the product problem, used in derived homepage copy. */
   focus: string;
   /** The app in one line, in its own voice. Used as the showcase headline. */
   pitch: string;
-  theme: AppCardTheme;
+  /** Optional accent. Defaults to alternating coral/mint down the list. */
+  theme?: AppCardTheme;
   chips: readonly string[];
   href: string;
   /** App icon, base-path safe. Carried here so the showcase needs no lookup table. */
@@ -142,8 +144,27 @@ export interface AppDirectoryItem {
  * Single source of truth for the app portfolio.
  *
  * Counts, numerals, plurals, and app-name lists in public copy are derived from
- * this array in `src/lib/appState.ts`. Adding an app here should update the
- * wording across the site with no prose edits.
+ * this array in `src/lib/appState.ts`. Adding an app here updates the wording
+ * across the site with no prose edits.
+ *
+ * ── Adding an app ──────────────────────────────────────────────────────────
+ *
+ * 1. Add an entry below. Required: `id`, `name`, `description`, `focus`,
+ *    `pitch`, `chips`, `href`, `iconHref`, `external`, `releaseStage`,
+ *    `platforms`. `shortName` and `theme` are optional and default sensibly.
+ * 2. Drop the icon at `public/media/apps/<id>/` and point `iconHref` at it
+ *    through `withBase()`.
+ * 3. If the app gets pages on this domain, add its routes to `siteRoutes.apps`
+ *    above, its legal versions to `site.config.mjs`, and its pages to
+ *    `src/lib/discovery.ts` so the sitemap and LLM files stay current.
+ *
+ * That is the whole list. The homepage count, the "N apps" phrasing, the
+ * release sentence, the /apps showcase beat, the grid card, `humans.txt` and
+ * `llms.txt` all follow on their own. Do not edit prose to match — if a
+ * sentence needs a new derived phrase, add it to `src/lib/appState.ts`.
+ *
+ * `releaseStage: "released"` means downloadable from a public store today, and
+ * `platforms` means where it can be installed today, not where it is heading.
  */
 
 export const appDirectory = [
@@ -246,7 +267,7 @@ export const appDirectory = [
       "Many free unlocks",
     ],
     href: siteRoutes.apps.audioBookChoices.href,
-    iconHref: withBase("/media/apps/audio-book-choices/app-icon.svg"),
+    iconHref: withBase("/media/apps/audio-book-choices/app-icon-light.png"),
     external: false,
     releaseStage: "released",
     /* iOS only for now. The Android build is real but unlisted, and claiming

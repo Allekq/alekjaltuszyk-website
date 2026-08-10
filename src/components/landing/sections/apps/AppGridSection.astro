@@ -4,8 +4,11 @@
  * this is the escape hatch the showcase's "See the grid" control points at,
  * and the same markup runs on the homepage and /apps.
  */
-import { appDirectory } from "../../../../config/routes";
-import { directoryChips, releaseStatusSentence } from "../../../../lib/appState";
+import {
+  apps,
+  directoryChips,
+  releaseStatusSentence,
+} from "../../../../lib/appState";
 import { isExternalHref } from "../../../../lib/paths";
 
 interface Props {
@@ -27,7 +30,7 @@ const Heading = headingLevel;
     </div>
 
     <div class="app-grid">
-      {appDirectory.map((item) => {
+      {apps.map((item) => {
         const rel =
           item.external && isExternalHref(item.href) ? "noreferrer" : undefined;
 

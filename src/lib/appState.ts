@@ -1,5 +1,6 @@
 import {
   appDirectory,
+  type AppCardTheme,
   type AppDirectoryItem,
   type AppPlatform,
 } from "../config/routes";
@@ -12,6 +13,31 @@ import {
  * numeral, plural, and app-name list in public copy should come from here so
  * that adding or shipping an app updates the wording automatically.
  */
+
+/**
+ * An `appDirectory` entry with its optional fields filled in. Components render
+ * from this rather than from the raw list, so a new app can be added with the
+ * fields that carry real information and nothing else.
+ */
+export interface AppEntry extends AppDirectoryItem {
+  shortName: string;
+  theme: AppCardTheme;
+}
+
+const themeCycle = ["coral", "mint"] as const satisfies readonly AppCardTheme[];
+
+export const apps: readonly AppEntry[] = appDirectory.map((item, index) => {
+  /* Widened deliberately: `appDirectory` is `as const`, so the literal union
+     narrows `item` to `never` on the "field was omitted" branch and the
+     defaults below stop compiling. */
+  const entry: AppDirectoryItem = item;
+
+  return {
+    ...entry,
+    shortName: entry.shortName ?? entry.name,
+    theme: entry.theme ?? themeCycle[index % themeCycle.length],
+  };
+});
 
 const numberWords = [
   "zero",
@@ -62,24 +88,24 @@ export const pluralize = (count: number, singular: string, plural: string) =>
  * "…, and AudioChoices: Audiobooks" everywhere the name sits inside a sentence.
  * Cards, page titles, and structured data still use the full `name`.
  */
-const toNames = (items: readonly AppDirectoryItem[]) =>
+const toNames = (items: readonly AppEntry[]) =>
   items.map((item) => item.shortName);
 
-export const releasedApps = appDirectory.filter(
+export const releasedApps = apps.filter(
   (item) => item.releaseStage === "released",
 );
-export const unreleasedApps = appDirectory.filter(
+export const unreleasedApps = apps.filter(
   (item) => item.releaseStage !== "released",
 );
 
-export const appCount = appDirectory.length;
+export const appCount = apps.length;
 export const releasedAppCount = releasedApps.length;
 export const unreleasedAppCount = unreleasedApps.length;
 
 export const appCountWord = spellNumber(appCount);
 export const releasedAppCountWord = spellNumber(releasedAppCount);
 
-export const appNames = toNames(appDirectory);
+export const appNames = toNames(apps);
 export const releasedAppNames = toNames(releasedApps);
 export const unreleasedAppNames = toNames(unreleasedApps);
 
@@ -92,7 +118,7 @@ export const unreleasedAppNameList = formatNameList(unreleasedAppNames);
  * with no repeats. Adding a platform to an `appDirectory` entry widens this on
  * its own.
  */
-export const platformNames = appDirectory.reduce<AppPlatform[]>(
+export const platformNames = apps.reduce<AppPlatform[]>(
   (names, item) => {
     for (const platform of item.platforms) {
       if (!names.includes(platform)) {

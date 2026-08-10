@@ -10,8 +10,7 @@
  *
  * Every app comes from `appDirectory`, so adding one adds a beat.
  */
-import { appDirectory } from "../../../../config/routes";
-import { directoryChips } from "../../../../lib/appState";
+import { apps, directoryChips } from "../../../../lib/appState";
 import { isExternalHref } from "../../../../lib/paths";
 
 interface Props {
@@ -41,8 +40,8 @@ const Heading = headingLevel;
 const FIRST_BEAT_AT = -0.18;
 const LAST_BEAT_AT = 0.99;
 const beatGap =
-  appDirectory.length > 1
-    ? (LAST_BEAT_AT - FIRST_BEAT_AT) / (appDirectory.length - 1)
+  apps.length > 1
+    ? (LAST_BEAT_AT - FIRST_BEAT_AT) / (apps.length - 1)
     : 1;
 const itemSpan = (beatGap * 0.8).toFixed(4);
 const itemAt = (index: number) =>
@@ -52,7 +51,7 @@ const itemAt = (index: number) =>
 <section class="app-showcase" id="showcase" aria-label="Apps, one at a time">
   <div class="app-showcase__scene" data-scene data-scene-mode="pin">
     <div class="app-showcase__beats">
-      {appDirectory.map((item, index) => {
+      {apps.map((item, index) => {
         const rel =
           item.external && isExternalHref(item.href) ? "noreferrer" : undefined;
 
@@ -65,7 +64,7 @@ const itemAt = (index: number) =>
           >
             <p class="app-showcase__index">
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <span class="app-showcase__index-total">/ {appDirectory.length}</span>
+              <span class="app-showcase__index-total">/ {apps.length}</span>
             </p>
 
             <Heading class="app-showcase__pitch">{item.pitch}</Heading>
@@ -100,7 +99,7 @@ const itemAt = (index: number) =>
           fade-out pass is needed, which is what keeps this to pure CSS.
         */}
         <div class="app-showcase__art" aria-hidden="true">
-          {appDirectory.map((item, index) => (
+          {apps.map((item, index) => (
             <span
               class:list={["app-showcase__art-layer", `app-showcase__art-layer--${item.theme}`]}
               style={`z-index:${index + 1};`}
@@ -122,7 +121,7 @@ const itemAt = (index: number) =>
         </div>
 
         <ol class="app-showcase__rail">
-          {appDirectory.map((item, index) => (
+          {apps.map((item, index) => (
             <li
               class="app-showcase__tick"
               data-scene-item

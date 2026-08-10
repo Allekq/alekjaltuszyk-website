@@ -51,6 +51,26 @@ export interface HomeMilestone {
 }
 
 /**
+ * Whether the site talks about the company-funded stays in the United States.
+ *
+ * This is the single switch. Flip it and both the Roam AI timeline entry and
+ * the milestone row change together — there is nothing else to edit and no
+ * script to run.
+ *
+ *   "omitted"  the site says nothing about travel at all, and the Roam entry
+ *              stands on the engineering work. This is the default.
+ *   "named"    the stays are described the way a CV would describe them.
+ *
+ * Default is "omitted" on purpose: the trips were company-funded personal
+ * travel rather than work performed abroad, and a public page is a bad place
+ * to have to make that distinction.
+ */
+export type TravelMention = "omitted" | "named";
+export const travelMention: TravelMention = "omitted";
+
+const namesTravel = (travelMention as TravelMention) === "named";
+
+/**
  * The CV in four numbers, for the top of the homepage.
  *
  * Every one of these is a restatement of something already in `homeTimeline` or
@@ -65,14 +85,23 @@ export const homeMilestones = [
     detail: releaseStatusSentence,
     historyId: "current-products",
   },
-  {
-    id: "roam",
-    value: "4",
-    label: "months in San Francisco",
-    detail:
-      "Two company-supported stays, working in person with the Roam AI core team.",
-    historyId: "roam-ai",
-  },
+  namesTravel
+    ? {
+        id: "roam",
+        value: "4",
+        label: "months in San Francisco",
+        detail:
+          "Two company-supported stays with the Roam AI core team.",
+        historyId: "roam-ai",
+      }
+    : {
+        id: "roam",
+        value: "2025→26",
+        label: "core contractor at Roam AI",
+        detail:
+          "Player mechanics, enemy AI, networking, physics and world-building on a text-to-game startup.",
+        historyId: "roam-ai",
+      },
   {
     id: "assets",
     value: "5★",
@@ -187,7 +216,6 @@ export const homeTimeline = [
       "Turned the Asset Store from a learning platform into a profitable technical business with strong user feedback.",
     ],
   },
-  // ROAM_TIMELINE_ENTRY_START
   {
     id: "roam-ai",
     label: "Roam AI",
@@ -198,11 +226,16 @@ export const homeTimeline = [
       "I joined Roam as a core contractor on a small team building a text-to-game experience at the level where gameplay engineering and AI systems start overlapping.",
     highlights: [
       "Built player mechanics, enemy AI, networking, physics interactions, and world-building systems with the team.",
-      "Selected for two company-supported San Francisco stays, spending four months there for direct in-person collaboration with the core team.",
+      /* The only travel-dependent line on the site. `travelMention` above owns
+         it; nothing else in the entry refers to where the work happened. */
+      ...(namesTravel
+        ? [
+            "Selected for two company-supported San Francisco stays, spending four months there with the core team.",
+          ]
+        : []),
       "Worked closely with teammates across gameplay development, internal tooling, product context, and urgent AI-driven problem solving.",
     ],
   },
-  // ROAM_TIMELINE_ENTRY_END
   {
     id: "current-products",
     label: "Current",
@@ -257,4 +290,4 @@ export const homeTimeline = [
       },
     ],
   },
-] as const satisfies readonly HomeTimelineEntry[];
+] satisfies readonly HomeTimelineEntry[];

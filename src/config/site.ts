@@ -561,7 +561,12 @@ const audioBookChoicesSupportDraftLines = [
   "",
 ];
 const audioBookChoicesSupportBody = audioBookChoicesSupportDraftLines.join("\r\n");
-const audioBookChoicesIconPath = "/media/apps/audio-book-choices/app-icon.svg";
+/*
+ * The shipped app icon, copied from the AudioChoices repo's
+ * `iosApp/Assets.xcassets/AppIcon.appiconset/icon_any.png`. Re-copy it here
+ * when the app's icon changes; nothing on this site draws its own.
+ */
+const audioBookChoicesIconPath = "/media/apps/audio-book-choices/app-icon-light.png";
 
 export const audioBookChoicesConfig = {
   /*
@@ -588,8 +593,10 @@ export const audioBookChoicesConfig = {
   primaryCtaHref: audioBookChoicesAppStoreHref as string | null,
   primaryCtaLabel: "Get the app",
   faviconHref: withBase(audioBookChoicesIconPath),
-  faviconType: "image/svg+xml",
-  iconHref: withBase(audioBookChoicesIconPath),
+  faviconType: "image/png",
+  /* Header renders this at 40px, so it gets the small copy rather than the
+     1024 master — same split as OverLit. */
+  iconHref: withBase("/media/apps/audio-book-choices/app-icon-light-320.png"),
   /*
    * The book the landing page leads with. `nodeCount` is the book's real node
    * count and is the ONLY place the site states a size for it — change it here

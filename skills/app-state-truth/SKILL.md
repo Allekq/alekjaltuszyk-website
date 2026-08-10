@@ -11,9 +11,10 @@ claims are derived from data, never typed into prose.
 ## Files
 
 - Source of truth for the app list:
-  `src/config/routes.ts` (`appDirectory`)
-- Derived counts, numerals, plurals, name lists, platform list, role phrasing,
-  status chip: `src/lib/appState.ts`
+  `src/config/routes.ts` (`appDirectory`) — the authored data
+- Normalized list every component renders from, plus derived counts, numerals,
+  plurals, name lists, platform list, role phrasing, status chip:
+  `src/lib/appState.ts` (`apps`, and the `AppEntry` type)
 - Legal versions per app: `site.config.mjs`
 - Discovery/LLM outputs: `src/lib/discovery.ts`, `src/pages/llms.txt.ts`,
   `src/pages/llms-full.txt.ts`, `src/pages/humans.txt.ts`
@@ -49,12 +50,25 @@ claims are derived from data, never typed into prose.
 
 ## Adding an app
 
-1. Add the `appDirectory` entry in `src/config/routes.ts`.
+1. Add the `appDirectory` entry in `src/config/routes.ts`. Required fields:
+   `id`, `name`, `description`, `focus`, `pitch`, `chips`, `href`, `iconHref`,
+   `external`, `releaseStage`, `platforms`.
+   - `shortName` is optional and defaults to `name`. Set it only when the store
+     name carries a subtitle, so sentences read "…and AudioChoices" rather than
+     "…and AudioChoices: Audiobooks".
+   - `theme` is optional and defaults to alternating coral/mint down the list.
+   - `pitch` is the showcase headline: the app in one line, in its own voice.
+   - `iconHref` goes through `withBase()` and points at
+     `public/media/apps/<id>/`.
 2. Add its routes, page, support, and legal entries, plus legal versions in
    `site.config.mjs`.
 3. Add its pages to `src/lib/discovery.ts` so sitemap and LLM outputs stay
    current.
-4. Change no prose. Counts and derived phrases must already be correct.
+4. Change no prose. The count, the "N apps" phrasing, the release sentence, the
+   `/apps` showcase beat, the grid card, `humans.txt` and `llms.txt` all follow
+   from step 1 alone.
+5. Render from `apps` in `src/lib/appState.ts`, never from `appDirectory`
+   directly — only the normalized list has the defaults applied.
 
 ## Releasing an app
 
