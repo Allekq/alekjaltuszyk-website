@@ -180,9 +180,15 @@ export const legalDocuments = {
   // free-unlock allowance moved out of the text and into the app's own purchase
   // screen — which section 5 already reserved the right to change. No new
   // obligation, so LEGAL_VERSION was deliberately NOT bumped for it.
+  // 2.5.0 is amended in place rather than superseded: it was drafted on the 12th and never
+  // deployed, so no reader has seen the earlier text and there is no version for a bump to
+  // distinguish it from. The corrections it carries — the Google Analytics disclosure on the
+  // consent screen, the UK in section 10, the SDK's own housekeeping events, the age limit on
+  // who is asked — were found by review before publication, which is the point of reviewing
+  // before publication. The file's own public history is the archive.
   audioBookChoicesPrivacy: {
     version: "2.5.0",
-    effectiveDate: "2026-08-12",
+    effectiveDate: "2026-08-13",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },

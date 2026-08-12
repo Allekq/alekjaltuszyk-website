@@ -40,7 +40,8 @@ years later, so these are not deleted on request.
 
 **A minimal record that this installation used its free unlocks.** Without it, deleting data would
 reset an installation's free unlocks and could be repeated indefinitely. Kept on legitimate interests under
-Art. 6(1)(f) GDPR: the ID, and the fact that its unlocks were used.
+Art. 6(1)(f) GDPR: the ID, which books its free unlocks were spent on, and the hour the allowance
+started.
 
 **The anonymous account record itself**, because the records above still need that ID to preserve
 paid access, process refunds and prevent abuse.
@@ -61,6 +62,6 @@ and must be cancelled there. See the
 
 ---
 
-The binding text is section 13 of the
+The binding text is section 15 of the
 [AudioChoices Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/).
 This page is a plain-language summary of it and adds nothing to it.
