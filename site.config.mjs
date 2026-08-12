@@ -115,6 +115,32 @@ export const legalDocuments = {
     path: "/apps/TakeMeSomewhere/terms-of-service/",
     sourcePath: "src/content/legal/take-me-somewhere-terms-of-service.md",
   },
+  // 2.5.0 adds Google Analytics for Firebase, and it is the largest privacy
+  // change this app has made. It DISCLOSES NEW COLLECTION BY A THIRD PARTY:
+  // two automatic events (first_open, in_app_purchase) plus a per-install
+  // identifier, sent to Google and used by Google Ads to tell whether money
+  // spent advertising the app produced anything. Nothing about listening
+  // behaviour goes with it, and no advertising identifier is read on either
+  // platform — the iOS build links the WithoutAdIdSupport variant and Android
+  // switches it off in the manifest, which is what keeps an ATT prompt out of
+  // the app. It also RETRACTS a claim people accepted: previous versions said
+  // outright that there was no analytics SDK. Section 9 now says so plainly
+  // rather than quietly dropping the sentence.
+  //
+  // AND IT COSTS THE UK ITS EXEMPTION. GB moves into the ask-outright regions
+  // (AnalyticsRegion.kt): PECR Sch. A1 para 5 exempts storage whose SOLE
+  // purpose is statistical measurement to improve a service, the exemption is
+  // not divisible, and measuring advertising is not that purpose. UK listeners
+  // are now asked the same question as EEA listeners. Note this is the second
+  // time the UK has moved in two versions, in opposite directions, for
+  // unrelated reasons — 2.4.0 corrected a false claim that it was asked, 2.5.0
+  // makes it true. Both are explained in the document.
+  //
+  // AppConfig.LEGAL_VERSION IS bumped for 2.5.0 (7 -> 8). Same ORDER rule as
+  // below. One extra deploy step that is NOT in this repo: the GA4 property's
+  // user-data retention must be set to 2 months, which is what section 15 of
+  // the policy tells people.
+  //
   // 2.4.0 covers the notification feature, and it is a minor bump for the same
   // two reasons 2.3.0 was. NEW STORAGE, on the listener's own device: the note
   // described in the new section 12. Nothing about it reaches a server, so
@@ -155,7 +181,7 @@ export const legalDocuments = {
   // screen — which section 5 already reserved the right to change. No new
   // obligation, so LEGAL_VERSION was deliberately NOT bumped for it.
   audioBookChoicesPrivacy: {
-    version: "2.4.0",
+    version: "2.5.0",
     effectiveDate: "2026-08-12",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
