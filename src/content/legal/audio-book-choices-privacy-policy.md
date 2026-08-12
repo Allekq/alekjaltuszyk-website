@@ -60,6 +60,7 @@ The following is stored on your device and is never transmitted to the developer
 - which of the milestones in section 9 have already been reported for each book, so the same one is never sent twice. This is the whole of the de-duplication mechanism, and it lives only here — there is no matching record on the server
 - while notifications are switched on, the small note described in section 12: which books your device has seen in the catalogue, which you have been told about, which categories you appear to enjoy, which books you left unfinished, and when the app was last opened. Switching notifications off deletes it
 - whether you have left the "Share anonymous usage data" setting on
+- which story you finished most recently, how many you have finished, and which ones the app has already asked you to rate — so that it asks about a book at most once, and does not ask again for a fortnight. This is kept whatever your notification settings say, and is cleared with the rest of your local data
 - whether you said yes or no to notifications, and which kinds you have left switched on. This is your answer rather than part of the note above, so it deliberately outlasts both: it survives switching notifications off, and it survives clearing local data in Settings. An answer that a housekeeping control could quietly forget would mean asking you again, which is the opposite of respecting it
 - which version of the legal documents you accepted, and when
 - your self-declared age
