@@ -115,6 +115,22 @@ export const legalDocuments = {
     path: "/apps/TakeMeSomewhere/terms-of-service/",
     sourcePath: "src/content/legal/take-me-somewhere-terms-of-service.md",
   },
+  // 2.4.0 covers the notification feature, and it is a minor bump for the same
+  // two reasons 2.3.0 was. NEW STORAGE, on the listener's own device: the note
+  // described in the new section 12. Nothing about it reaches a server, so
+  // there is no new server-side processing and docs/ANALYTICS_LIA.md in the app
+  // repo is untouched by it — but ePrivacy Art. 5(3) (in Poland PKE art. 399)
+  // governs writing to somebody's device whether or not the data is personal,
+  // and the in-app opt-in is what the document now relies on as permission for
+  // it. And a CORRECTION: sections 9 and 16 said milestone consent is asked for
+  // outright in the UK. It is not — AnalyticsRegion.kt excludes GB under the
+  // PECR Schedule A1 para 5 statistical-purposes exemption, and section 6
+  // always said so. Both stale places are fixed.
+  //
+  // AppConfig.LEGAL_VERSION IS bumped for 2.4.0 (6 -> 7). Same ORDER rule as
+  // below, and it still has teeth: this document goes live first, the build
+  // carrying 7 second.
+  //
   // 2.3.0 does two things a clarification cannot, which is why this is a minor
   // bump and not a patch. It DISCLOSES NEW PROCESSING — the App Attest / Play
   // Integrity app-integrity check, which was already live and named nowhere in
@@ -139,8 +155,8 @@ export const legalDocuments = {
   // screen — which section 5 already reserved the right to change. No new
   // obligation, so LEGAL_VERSION was deliberately NOT bumped for it.
   audioBookChoicesPrivacy: {
-    version: "2.3.0",
-    effectiveDate: "2026-08-10",
+    version: "2.4.0",
+    effectiveDate: "2026-08-12",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },
