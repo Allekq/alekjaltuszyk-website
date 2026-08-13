@@ -90,14 +90,14 @@ export const legalDocuments = {
     sourcePath: "src/pages/apps/VoiceOfSelf/how-voice-of-self-uses-ai/index.astro",
   },
   overLitPrivacy: {
-    version: "2.2.0",
-    effectiveDate: "2026-08-10",
+    version: "3.0.0",
+    effectiveDate: "2026-08-13",
     path: "/apps/OverLit/privacy-policy/",
     sourcePath: "src/content/legal/overlit-privacy-policy.md",
   },
   overLitTerms: {
-    version: "2.0.3",
-    effectiveDate: "2026-08-06",
+    version: "3.0.0",
+    effectiveDate: "2026-08-13",
     path: "/apps/OverLit/terms-of-use/",
     sourcePath: "src/content/legal/overlit-terms-of-use.md",
   },

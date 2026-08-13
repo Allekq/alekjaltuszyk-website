@@ -1,4 +1,4 @@
-These Terms of Use govern your use of the OverLit iPhone app, the OverLit pages on `alekjaltuszyk.xyz`, support, ads, online leaderboards, and related surfaces that link to these terms.
+These Terms of Use govern your use of the OverLit app on iPhone and Android, the OverLit pages on `alekjaltuszyk.xyz`, support, ads, online leaderboards, and related surfaces that link to these terms.
 
 OverLit is provided by Aleksander Jałtuszyk ("Developer", "we", "us", or "our"). Country: Poland. Contact: `alekgameshelp2@gmail.com`. Telephone: `+48 73 2099027`. Mailing address: `Aleksander Jałtuszyk, Skrytka Pocztowa 59, UP Warszawa 93, 02-800, Warszawa`.
 
@@ -8,14 +8,18 @@ These terms cover:
 - [https://alekjaltuszyk.xyz/apps/OverLit/support/](https://alekjaltuszyk.xyz/apps/OverLit/support/)
 - [https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/)
 - [https://alekjaltuszyk.xyz/apps/OverLit/terms-of-use/](https://alekjaltuszyk.xyz/apps/OverLit/terms-of-use/)
+- [https://alekjaltuszyk.xyz/apps/OverLit/delete-data/](https://alekjaltuszyk.xyz/apps/OverLit/delete-data/)
 
 ## 1. Acceptance
 
 By using OverLit, you agree to these terms. If you do not agree, do not use the app or related OverLit website and support surfaces.
 
-## 2. Apple Standard EULA
+## 2. Store Terms
 
-If you download OverLit through Apple's App Store and no custom end user license agreement is provided in App Store Connect, Apple's [Standard EULA](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) applies to the app license.
+Your licence to use the app also runs through the store you installed it from.
+
+- **App Store.** If no custom end user license agreement is provided in App Store Connect, Apple's [Standard EULA](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) applies to the app licence.
+- **Google Play.** The [Google Play Terms of Service](https://play.google.com/intl/en/about/play-terms/) apply to your use of the store and to purchases made through it.
 
 These Terms of Use govern OverLit-specific app, website, support, advertising, leaderboard, and related behavior.
 
@@ -25,11 +29,13 @@ OverLit is a short-session arcade/reflex game. A grid of cells lights up, heats 
 
 Some versions of the app also offer **online leaderboards**, which publish a score and a randomly generated nickname on a shared board. Section 7 covers those.
 
-Features, visuals, copy, ad behavior, leaderboard availability, and app availability may change over time.
+**The two platforms do not offer identical features.** Most visibly, the iPhone app shows network ads and the Android app currently does not. Section 3 of the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/) lists which components exist on which platform, and it is kept current. Features, visuals, copy, ad behavior, leaderboard availability, and app availability may change over time, and may change on one platform before the other.
 
 ## 4. Eligibility
 
 OverLit is not directed to children under 13, and children under 13 should not use OverLit. If you are 13 or older but under the age of majority where you live, use OverLit only with parent or guardian permission where required.
+
+In some countries the law treats everyone under 18 as a child. Where that is so, OverLit applies its more restrictive settings to every player in that country regardless of the age range they chose; section 14 of the Privacy Policy lists which countries and what changes.
 
 ## 5. Gameplay Safety
 
@@ -39,21 +45,25 @@ Use device accessibility settings where they are helpful for your comfort and sa
 
 ## 6. Ads, Full Version, And Rewarded Unlocks
 
-The free experience of OverLit may show Google AdMob rewarded ads, Google AdMob interstitial ads, footer banner ads, and local developer house ads for the Developer's own apps. Rewarded ads are opt-in value trades for eligible theme unlocks or level-skip offers. Interstitial ads may appear only at safe breaks outside active gameplay, such as menu, replay, or level-advance breaks. Players who choose 18 or older may also be eligible for the adult AdMob request profile, with maximum ad content controlled by AdMob account settings. Local developer house ads may include PlanKept and AudioChoices, and may include Voice of Self only for players who choose 18 or older.
+Where the app serves ads, the free experience may show Google AdMob rewarded ads, Google AdMob interstitial ads, footer banner ads, and local developer house ads for the Developer's own apps. Rewarded ads are opt-in value trades for eligible theme unlocks or level-skip offers. Interstitial ads may appear only at safe breaks outside active gameplay, such as menu, replay, or level-advance breaks. Local developer house ads may include PlanKept and AudioChoices, and may include Voice of Self only for players treated as adults.
 
-OverLit uses Google User Messaging Platform / AdMob privacy messages where required, including European regulations messages and U.S. state privacy regulation messages. For players who choose 18 or older, OverLit may show Apple's App Tracking Transparency prompt after the legal gate is complete. If that player allows tracking, the Google advertising SDK may access the device advertising identifier (IDFA) for personalised advertising and advertising measurement; players who choose 13 to 17 are not shown that prompt and are configured for non-personalised ads. The app uses Google Analytics for Firebase for a small set of one-time milestone events only for players who choose 18 or older, under Google's privacy-message and Consent Mode settings; accepting the Terms or Privacy Policy does not itself enable analytics. Players who choose 13 to 17 send no OverLit Firebase milestone events. If you decline consent or use device settings that restrict advertising technologies, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google/AdMob, Apple, and applicable law.
+OverLit uses Google's privacy messages (User Messaging Platform) where required, including European regulations messages and U.S. state privacy regulation messages. On iPhone, for players treated as adults, OverLit may show Apple's App Tracking Transparency prompt after the legal gate is complete; if that player allows tracking, the Google advertising SDK may access the device advertising identifier for personalised advertising and advertising measurement. Players treated as minors are not shown that prompt and are configured for non-personalised ads.
 
-Ad availability, ad loading, and rewards are not guaranteed. Rewarded unlocks may be unavailable, delayed, interrupted, or changed.
+The app uses Google Analytics for Firebase, on both platforms, for the small set of events listed in the Privacy Policy, and only for players treated as adults, under Google's privacy-message and Consent Mode settings. **Accepting the Terms or Privacy Policy does not itself enable analytics or advertising consent.** Players treated as minors send no OverLit Firebase events.
 
-OverLit may offer an optional one-time non-consumable in-app purchase called Full Version. Full Version is processed by Apple through the App Store. It is not a subscription and does not require a custom OverLit account.
+If you decline consent or use device settings that restrict advertising technologies, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google, Apple, and applicable law.
+
+Ad availability, ad loading, and rewards are not guaranteed. Rewarded unlocks may be unavailable, delayed, interrupted, or changed. Where a build serves no network ads at all, rewarded unlocks that depend on them may be unavailable on that platform.
+
+OverLit may offer an optional one-time non-consumable in-app purchase called Full Version. It is processed by Apple through the App Store or by Google Play Billing, depending on where you installed the app. It is not a subscription and does not require a custom OverLit account.
 
 When active, Full Version removes normal in-app ads, unlocks ad-gated themes, and lets existing level-skip offers complete without watching an ad, subject to the app's normal daily skip limits. Full Version does not automatically unlock progression-only rewards, arcade modes, or other non-ad content that still requires normal gameplay. Full Version does not change leaderboard eligibility, ranking, or scoring in any way.
 
-Purchases, restorations, refunds, billing, and payment methods are handled by Apple and the App Store under Apple's own terms and policies. The app may store local entitlement state and limited StoreKit transaction metadata so it can remember and restore a verified purchase.
+Purchases, restorations, refunds, billing, and payment methods are handled by the store you bought from, under its own terms and policies. The app may store local entitlement state and limited transaction metadata so it can remember and restore a verified purchase. A purchase made on one platform is a purchase in that store's account, and does not transfer to the other platform.
 
 Ads shown in or for OverLit, including local developer house ads, should be appropriate for the age range and settings that apply to the player. If you see an inappropriate or age-inappropriate ad, contact support with a short description and any useful context.
 
-Full Version is intended to remove normal in-app ads from OverLit while the entitlement is active. It does not remove ads, promotions, or tracking that may appear on third-party websites, the App Store, external ad platforms, or other destinations you open outside OverLit.
+Full Version is intended to remove normal in-app ads from OverLit while the entitlement is active. It does not remove ads, promotions, or tracking that may appear on third-party websites, app stores, external ad platforms, or other destinations you open outside OverLit.
 
 ## 7. Online Leaderboards
 
@@ -62,6 +72,12 @@ Full Version is intended to remove normal in-app ads from OverLit while the enti
 Where the feature is switched on in your version of the app, and once you have completed campaign Level 5, OverLit can publish your scores to shared online leaderboards: all-time boards per level or challenge, weekly boards, and an overall rating board.
 
 Leaderboards are free entertainment, not a service you buy. They are provided alongside the paid Full Version, and buying Full Version gives you no leaderboard advantage.
+
+### Choosing not to take part
+
+**Settings → Legal → Post my scores to leaderboards** turns publication off while you keep playing, on either platform. With it off nothing about a run is sent, and you can still read the boards. For players who chose the 13-to-17 age range it starts off.
+
+Turning it off stops future submissions. It does not remove scores you have already published; the Privacy Policy explains how to erase those.
 
 ### Your board nickname
 
@@ -73,7 +89,7 @@ The developer may change the word lists, or the nickname attached to any entry, 
 
 ### What gets submitted
 
-Qualifying runs are submitted automatically at the end of the run, and only when the score beats your own previous accepted best on that board. When leaderboards first become available after campaign Level 5, OverLit may also submit eligible personal bests already stored on your device, including genuine played progress that you later import. It sends one best per eligible board under the same rules as a live run; it does not upload your progress file or run history. Tutorial runs, your first onboarding run, abandoned runs, runs played with Developer Mode enabled, skipped levels, records created by developer tools, and scores from an obsolete scoring version are never submitted.
+Qualifying runs are submitted automatically at the end of the run, and only when the score beats your own previous accepted best on that board. When leaderboards first become available after campaign Level 5, OverLit may also submit eligible personal bests already stored on your device, including genuine played progress that you later import. It sends one best per eligible board under the same rules as a live run; it does not upload your progress file or run history. Nothing is submitted while publication is switched off, and tutorial runs, your first onboarding run, abandoned runs, runs played with Developer Mode enabled, skipped levels, records created by developer tools, and scores from an obsolete scoring version are never submitted.
 
 Exactly what is sent, what is stored, how long it is kept, and how to have it erased are set out in the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/).
 
@@ -82,7 +98,7 @@ Exactly what is sent, what is stored, how long it is kept, and how to have it er
 You agree not to:
 
 - submit a score that was not achieved by playing the game normally on a genuine, unmodified copy of OverLit
-- use automation, scripts, macros, input injection, emulators, memory or clock manipulation, modified builds, jailbroken-device tooling, or any other method that produces a score the game itself did not produce
+- use automation, scripts, macros, input injection, emulators, memory or clock manipulation, modified builds, rooted or jailbroken-device tooling, or any other method that produces a score the game itself did not produce
 - tamper with, intercept, replay, or forge requests to the leaderboard service, or attempt to bypass its authentication, attestation, rate limits, or plausibility checks
 - attempt to submit on behalf of, or interfere with, another player
 - flood, scrape, or otherwise place unreasonable load on the leaderboard service
@@ -110,13 +126,13 @@ There is no prize, no money, no ranking-based reward, and no competition entry a
 
 ## 8. Privacy
 
-OverLit privacy practices are explained in the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/).
+OverLit privacy practices are explained in the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/). Deletion steps are summarised at [Delete your OverLit data](https://alekjaltuszyk.xyz/apps/OverLit/delete-data/).
 
 ## 9. Local Progress
 
-High scores, settings, unlocks, play counters, and legal acceptance state are stored locally on your device so the app can work normally and remember your choices. There is no cloud save and no cross-device sync.
+High scores, settings, unlocks, play counters, your age answer, your leaderboard publication choice, and legal acceptance state are stored locally on your device so the app can work normally and remember your choices. There is no cloud save and no cross-device sync.
 
-Deleting the app may remove local app data from the device, subject to normal iOS backup, restore, and device behavior.
+Deleting the app may remove local app data from the device, subject to the platform's normal backup, restore, and device behavior.
 
 ## 10. Acceptable Use
 
@@ -135,7 +151,7 @@ OverLit has no user account, so there is usually no account to suspend. Where le
 
 We may also stop providing, update, remove, block, or limit access to OverLit, related website surfaces, the leaderboard service, support channels, ad placements, or features where reasonably needed to operate the app, comply with law or platform rules, protect the app or its players, respond to misuse, or end support for a feature.
 
-You may stop using OverLit at any time. Deleting the app may remove local app data from the device, subject to normal iOS backup, restore, purchase, and device behavior.
+You may stop using OverLit at any time. Deleting the app may remove local app data from the device, subject to the platform's normal backup, restore, purchase, and device behavior.
 
 ## 12. Intellectual Property
 
@@ -145,7 +161,7 @@ You may not copy, reproduce, redistribute, or exploit those materials except as 
 
 ## 13. Third-Party Services
 
-OverLit and related surfaces may link to or rely on third-party services, including Apple, Google/AdMob, Google Firebase and Google Cloud, email providers, website hosting, App Store links, and external destinations.
+OverLit and related surfaces may link to or rely on third-party services, including Apple, Google (AdMob, Firebase, Google Cloud, Google Play), email providers, website hosting, app store links, and external destinations.
 
 Third-party services have their own terms and policies. We do not control those services and are not responsible for their content, availability, policies, or practices.
 
