@@ -5,6 +5,15 @@ OverLit is an iPhone and Android game published by **Alek Jałtuszyk**.
 Almost everything OverLit knows about you never leaves your phone. The only data held on a server is
 what the online leaderboards need, and there is a button in the game that erases all of it.
 
+## Before that: you can stop new scores being posted
+
+**Settings → Legal → Post my scores to leaderboards.** Off keeps your runs on this device while you
+keep playing, and you can still read the boards. For players who chose the 13-to-17 age range it
+starts off.
+
+That stops anything *new* being published. To remove what is already there, use one of the two
+routes below.
+
 ## In the game — one tap
 
 Open **Settings → Legal → Delete my leaderboard data**, and confirm.
