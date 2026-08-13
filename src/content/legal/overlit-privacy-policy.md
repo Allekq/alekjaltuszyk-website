@@ -216,7 +216,9 @@ To identify authorised sellers of OverLit's ad inventory, this site publishes an
 
 When no network ad is available — including on Android, where there is no ad network at all — OverLit may show a **house ad** instead: a panel promoting one of the developer's own apps. These are bundled into the app. Showing one sends nothing to any ad network, and no data about you is used to choose it beyond whether you are being treated as an adult.
 
-The current house ads are for **PlanKept** and **AudioChoices**, plus **Voice of Self**, which is shown only to players treated as adults. Tapping one opens the app store or a page on this website, and from that point the destination's own policies apply. Rewarded ads are never replaced by a house ad, and Full Version suppresses house-ad fallback along with everything else.
+Which apps are promoted differs by platform, for the same reason the rest of section 3 does. On **iPhone** they are **PlanKept** and **AudioChoices**, plus **Voice of Self**, which is shown only to players treated as adults. On **Android** there is a single house ad, for **AudioChoices**, shown to everyone — the other two have no Android listing to send anyone to.
+
+Tapping one opens the app store or a page on this website, and from that point the destination's own policies apply. Rewarded ads are never replaced by a house ad, and Full Version suppresses house-ad fallback along with everything else.
 
 ### Full Version removes ads
 
@@ -370,7 +372,7 @@ A player treated as a minor gets non-personalised, Teen-rated ads, is never show
 | **India** | The Digital Personal Data Protection Act treats everyone under 18 as a child and prohibits tracking, behavioural monitoring and targeted advertising directed at children | Every player is given the minor treatment above, whichever band they picked |
 | **South Korea** | PIPA sets the guardian-consent threshold at 14, above OverLit's minimum of 13 | The same |
 
-The app determines this from the device's own region — its SIM country where there is one, otherwise its language and region settings. That is a hint rather than a verified location, and it is deliberately only ever used to **restrict**: a wrong guess can give someone the minor treatment who did not need it, never the reverse.
+The app determines this from the device's own region settings — on Android, the SIM's country where there is one, otherwise the device's language and region; on iPhone, the device's language and region. Nothing is sent anywhere to work it out. That is a hint rather than a verified location, and it is deliberately only ever used to **restrict**: a wrong guess can give someone the minor treatment who did not need it, never the reverse.
 
 Elsewhere, the position is: in the EEA the age at which someone can consent on their own to services like advertising is set nationally, between 13 and 16. In the UK, the Information Commissioner's children's code treats everyone under 18 as a child and expects marketing profiling to be off by default for them, which is what the 13-to-17 configuration is. OverLit does not operate a parental-consent system and cannot verify anyone's age.
 
