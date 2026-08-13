@@ -96,7 +96,9 @@ Nothing in these terms limits any mandatory consumer rights or any right to a re
 
 Purchases are made through Apple or Google. Their checkout, terms and policies, together with applicable law, govern cancellation, withdrawal and refund rights for those purchases.
 
-Nothing in these terms limits any mandatory rights that apply to you, including rights concerning content that is faulty, unavailable or not as described. See section 15.
+**About the 14-day right to withdraw.** For digital content bought online in the EU, the EEA and the UK there is normally a 14-day right to withdraw from the purchase for any reason. That right is lost once the content starts being supplied, if you agreed to immediate supply and acknowledged that you were giving the right up — which is what the store's checkout asks you before it takes payment, and what starting a download does. Because Apple and Google are the sellers for these purchases, their checkout is where that agreement is taken and their refund process is where a withdrawal or refund request is made; section 8 says how to reach each of them.
+
+None of that limits your rights when something is wrong with a book rather than simply unwanted. Nothing in these terms limits any mandatory rights that apply to you, including rights concerning content that is faulty, unavailable or not as described. See section 15.
 
 ## 10. Ratings
 
@@ -150,7 +152,9 @@ You agree not to:
 
 We may add, change, suspend, remove, limit or discontinue AudioChoices, individual books, features, prices or the related website pages, where reasonably needed to operate the service, comply with law or platform rules, protect users, or manage cost.
 
-If a book you bought outright is removed from the catalogue, we will make reasonable efforts to keep it available to you within the app, but a rights, legal or technical issue can make that impossible. If a book you bought outright becomes permanently unavailable to you shortly after purchase and you have not substantially listened to it, contact us and we will help you seek a refund from the store.
+If a book you bought outright is removed from the catalogue, we will make reasonable efforts to keep it available to you within the app, but a rights, legal or technical issue can make that impossible. **If a book you bought outright becomes permanently unavailable to you, that is a failure to supply what you paid for.** Tell us and you are entitled, under your statutory rights, to have it put right, to a proportionate reduction of what you paid, or to end the contract for that book and be reimbursed. We will help you obtain that from the store, which holds the payment, and we will not treat it as a favour or condition it on how much of the book you had already heard.
+
+**If we change All Access itself** — beyond what is needed to keep it working — in a way that negatively affects your access to it or your use of it, we will tell you a reasonable time in advance, on a durable medium, and you may end the subscription free of charge within 30 days of being told or of the change taking effect, whichever is later.
 
 We do not guarantee uninterrupted availability. The app needs an internet connection to fetch books, verify entitlements and refresh the catalogue; sections already downloaded continue to play offline.
 
@@ -175,8 +179,8 @@ Nothing in this section limits, and nothing is intended to limit, any warranty, 
 
 Subject to the above, and to the maximum extent permitted by applicable law:
 
-- our total aggregate liability for all claims arising out of or relating to AudioChoices in any twelve-month period is limited to the greater of the amount you paid for AudioChoices purchases in the twelve months before the claim, or EUR 50
-- we are not liable for loss that was not reasonably foreseeable at the time you accepted these terms, or for indirect or consequential loss
+- for loss caused by our failure to supply a book, or by a book that does not conform to what was described, you have the statutory remedies set out in section 15, and we do not cap them
+- for any other loss, our liability is limited to loss that was a reasonably foreseeable consequence of our breach at the time you accepted these terms; we are not liable for loss that was not reasonably foreseeable, or for indirect or consequential loss
 - we are not liable for loss of profits, loss of business, or loss arising from your use of the app for any business purpose, since AudioChoices is supplied for personal use
 
 If you are a consumer, these limits apply only to the extent that they are permitted by the consumer-protection law of your country of residence, and they do not affect it where it says otherwise.
@@ -207,9 +211,11 @@ These terms are governed by the law of Poland.
 
 **If you are a consumer, that choice of law does not deprive you of the protection of the mandatory consumer-protection rules of the country where you habitually live.** Those rules continue to apply to you in full and may give you more rights than these terms do.
 
-If you are a consumer resident in the EU, the EEA or the UK, you may bring proceedings against us in the courts of your own country of residence, and we may bring proceedings against you only in the courts of your country of residence.
+If you are a consumer resident in the EU, the EEA, the United Kingdom or Switzerland, you may bring proceedings against us in the courts of your own country of residence, and we may bring proceedings against you only in the courts of your country of residence.
 
-For users who are not consumers, and for consumers outside the EU, EEA and UK, disputes will be heard in the courts of Poland, again without prejudice to any mandatory consumer-protection rights under your local law.
+If you are a consumer resident anywhere else, the same principle applies wherever your own law provides it — including in Canada, and in Quebec in particular, where a consumer cannot be required to bring or defend a claim outside their own province. Where your law provides no such rule, disputes will be heard in the courts of Poland.
+
+For users who are not consumers, disputes will be heard in the courts of Poland.
 
 **We do not require arbitration, and we do not ask you to waive any right to participate in a class or collective action.**
 
@@ -240,3 +246,5 @@ We aim to answer support and complaint emails within a few working days.
 For privacy complaints you can also contact Poland's data protection authority, the Urząd Ochrony Danych Osobowych (UODO), at [https://uodo.gov.pl/en](https://uodo.gov.pl/en), or your own national authority.
 
 For refunds, billing and subscription problems, contact Apple or Google first, as explained in section 8 — those are the only parties who can act on them.
+
+**If we reject your complaint and you are a consumer**, Polish law requires us to tell you where you stand on out-of-court dispute resolution. We consent to resolving consumer disputes through the Trade Inspection (Inspekcja Handlowa), whose permanent consumer arbitration courts and mediation are free to use; you can find the route through the Office of Competition and Consumer Protection at [uokik.gov.pl](https://uokik.gov.pl). Using it is your choice, not a condition of anything, and it does not stop you going to court instead.

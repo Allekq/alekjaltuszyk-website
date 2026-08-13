@@ -192,9 +192,17 @@ export const legalDocuments = {
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },
+  // 2.2.0 rather than a patch: it discloses rights that were not stated before
+  // (the 14-day withdrawal position, the Digital Content Directive remedies for
+  // a withdrawn book, a free exit from a materially changed subscription, and
+  // the Polish out-of-court route), and it corrects the forum for Swiss and
+  // Canadian consumers, who were being told the wrong court. It also drops the
+  // EUR 50 aggregate cap, which was a strong candidate for unfairness under
+  // Directive 93/13 and art. 385(3) k.c. No LEGAL_VERSION bump is needed —
+  // in-app version 8 has not shipped yet, so nobody has accepted the old text.
   audioBookChoicesTerms: {
-    version: "2.1.3",
-    effectiveDate: "2026-08-09",
+    version: "2.2.0",
+    effectiveDate: "2026-08-13",
     path: "/apps/AudioBookChoices/terms-of-use/",
     sourcePath: "src/content/legal/audio-book-choices-terms-of-use.md",
   },
