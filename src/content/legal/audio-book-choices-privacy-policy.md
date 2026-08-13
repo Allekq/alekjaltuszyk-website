@@ -18,7 +18,7 @@ Contact:
 
 Full trader identification details, including the registered address required for consumer and Digital Services Act purposes, are published on the AudioChoices listings in the Apple App Store and Google Play.
 
-No Data Protection Officer has been appointed, and none is required: this is a one-person business with no large-scale monitoring and no processing of special categories of data. No EU representative is required either, because the controller is established inside the EU.
+Data protection questions, and any of the requests in section 17, go to the address above. There is no separate department to route them through — this is a one-person business, and the person who reads that inbox is the one who wrote the app.
 
 ## 2. Quick Summary
 
