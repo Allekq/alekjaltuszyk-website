@@ -134,7 +134,7 @@ listener.
 
 **Nothing is asked until somebody taps.** The app never consults Apple or Google on its own — not at
 launch, not in the background, not on a schedule. During setup, the age step shows a button reading
-"Check my age range" with "I'd rather set it myself" underneath it, and both are live. A listener who
+"Share my age range" with "I'd rather pick it myself" underneath it, and both are live. A listener who
 does not want their store account consulted can take the second one, and no request is ever made.
 
 **From the platform, where the listener asks for it and the phone offers one.** On iPhones and iPads
