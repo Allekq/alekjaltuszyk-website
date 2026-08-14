@@ -88,6 +88,9 @@ export const siteRoutes = {
     /* Same role as `overLitDataDeletion`: the Play listing's data deletion URL. */
     audioBookChoicesDataDeletion: createInternalRoute(`${audioBookChoicesBasePath}delete-data/`),
     audioBookChoicesTermsOfUse: createInternalRoute(`${audioBookChoicesBasePath}terms-of-use/`),
+    /* Given to Apple in App Store Connect's "Age Suitability URL" field. Informational, like the
+       deletion page above: it must never gain a `legalDocuments` entry, a version or a masthead. */
+    audioBookChoicesAgeSuitability: createInternalRoute(`${audioBookChoicesBasePath}age-suitability/`),
     audioBookChoicesSupport: createInternalRoute(`${audioBookChoicesBasePath}support/`),
   },
   support: createInternalRoute("/support/"),

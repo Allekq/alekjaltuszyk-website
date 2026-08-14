@@ -15,7 +15,14 @@ It deletes the deletable server-side records held against your installation's an
 you having to describe or match anything.
 
 Data on the device is separate. The **clear data on this device** control sits beside it, and
-deleting the app removes that data too.
+deleting the app removes that data too — including the listener age the app holds, where it came
+from, and the range your phone confirmed. **One thing the clear-data control deliberately keeps:**
+the yes-or-no answer about whether your app store says an age check is required where you are. That
+stays, so that clearing data is never a way around the content limit it sets, and only your app
+store saying otherwise removes it — though deleting the app removes it along with everything else.
+One thing neither control can remove: if your phone shared an **age range** with the app, that
+range belongs to your phone rather than to this app, so it is still there to be shared again if you
+ask the app to check. Section 14 of the Privacy Policy sets this out in full.
 
 ## By email
 

@@ -647,6 +647,7 @@ export const audioBookChoicesConfig = {
     { label: "Support", href: siteRoutes.apps.audioBookChoicesSupport.href },
     { label: "Privacy Policy", href: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href },
     { label: "Delete Your Data", href: siteRoutes.apps.audioBookChoicesDataDeletion.href },
+    { label: "Age Suitability", href: siteRoutes.apps.audioBookChoicesAgeSuitability.href },
     { label: "Terms of Use", href: siteRoutes.apps.audioBookChoicesTermsOfUse.href },
     { label: "App Store Terms of Use", href: appleStandardEulaHref, external: true },
     { label: "Legal Manifest", href: siteRoutes.apps.audioBookChoicesLegalManifest.href },

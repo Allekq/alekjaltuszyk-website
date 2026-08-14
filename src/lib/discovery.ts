@@ -323,6 +323,7 @@ export const sitemapPagePaths = [
   siteRoutes.apps.audioBookChoicesSupport.path,
   siteRoutes.apps.audioBookChoicesPrivacyPolicy.path,
   siteRoutes.apps.audioBookChoicesDataDeletion.path,
+  siteRoutes.apps.audioBookChoicesAgeSuitability.path,
   siteRoutes.apps.audioBookChoicesTermsOfUse.path,
   siteRoutes.apps.audioBookChoicesLegalManifest.path,
   siteRoutes.apps.planKeptSupport.path,

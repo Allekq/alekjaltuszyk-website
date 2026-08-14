@@ -1,0 +1,16 @@
+---
+import AudioBookChoicesAgeSuitabilityContent from "../../../../components/legal/AudioBookChoicesAgeSuitabilityContent.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import { audioBookChoicesConfig } from "../../../../config/site";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Age Suitability | AudioChoices"
+  description="What AudioChoices stories contain, why the age badge differs by country, how the app gets a listener's age and why that is advisory curation rather than a parental control."
+  pageType="legal"
+>
+  <AudioBookChoicesAgeSuitabilityContent />
+
+  <SiteFooter links={audioBookChoicesConfig.footerLinks} showBrand={false} showSocials={false} />
+</SiteLayout>
