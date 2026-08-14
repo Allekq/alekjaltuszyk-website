@@ -39,8 +39,10 @@ what it means.
 
 Twelve books, about 370,000 words of narration: four survival stories, four contemporary dramas, two
 Greek myths retold, one fantasy siege and one detective story. Most of it is written for teenagers
-and adults. One book — a drama about an underpaid school band teacher, with nothing frightening in
-it at all — carries an advisory minimum age of 10, and five others carry 12.
+and adults. Two books carry an advisory minimum age of **16**; eight carry **13**; two carry none at
+all — one of those a drama about an underpaid school band teacher, with nothing frightening in it
+anywhere. Those four values (0, 13, 16, 18) are the only ones we use, because they are the only
+ranges an age signal can describe a listener with.
 
 What a listener will actually meet:
 
@@ -115,7 +117,7 @@ therefore unlocks nothing more mature than what the 13+ rating already describes
 ceiling over the entire catalogue, and no age setting lifts it.
 
 **What that filter is doing today.** Of the twelve books on the shelf, two carry an advisory age of
-**16**, nine carry **13**, and one carries none at all. A listener the app has as 13 is therefore
+**16**, eight carry **13**, and two carry none at all. A listener the app has as 13 is therefore
 offered ten of the twelve; a listener it has as 16 or over is offered all of them. Where the app
 knows nothing about a listener it assumes 13, so the two 16s are hidden by default and have to be
 reached rather than avoided.
