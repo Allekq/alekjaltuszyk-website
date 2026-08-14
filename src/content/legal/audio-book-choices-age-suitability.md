@@ -143,27 +143,34 @@ name, no identity document, no account details, and nothing about how they use a
 keeps the **bottom** of the range, so somebody reported as 13–15 is treated as 13, and it shows on
 screen which range it received and where that range came from.
 
-**A slider, in every other case.** The listener sets an age themselves, and nothing checks it. That
-covers a phone with no such feature at all (every iPhone below iOS 26), a phone that had nothing to
-share, a lookup that failed or timed out, and a listener who simply preferred the slider. Two details
-worth knowing: it starts at **18**, so somebody tapping straight through without reading declares 18;
-and it does not go below 13.
+**A range the listener picks, in every other case.** Three buttons — **13–15**, **16–17**, **18 or
+over** — and nothing checks the answer. That covers a phone with no such feature at all (every iPhone
+below iOS 26), a phone that had nothing to share, a lookup that failed or timed out, and a listener
+who simply preferred not to be looked up. Two details worth knowing: **18 or over** is pre-selected,
+so somebody tapping straight through without reading declares 18; and there is no option below 13.
 
-**One answer skips the slider, and only one.** If a listener raises the phone's own prompt and then
-declines to share, the app assumes 13 and moves on, rather than turning round and putting a slider in
-front of somebody who has just said no. The same applies where a store reports that age verification
-is required and has not been completed. Every other outcome — nothing shared, no such feature,
-a failure — leads to the slider at 18. **If the app has no age at all, it assumes 13.**
+This replaced an age slider on 14 August 2026, and it collects **less** than the slider did. Nothing
+in the app has ever needed an exact age — every decision compares the listener against 13, 16 or 18
+and nothing else — so asking for 27 or 41 was gathering a more precise fact than any purpose used.
+The three ranges are the same three the platform answers with, so both routes now produce the same
+kind of answer and the app cannot tell them apart except by asking where it came from.
+
+**One answer skips the picker, and only one.** If a listener raises the phone's own prompt and then
+declines to share, the app assumes 13 and moves on, rather than turning round and putting the picker
+in front of somebody who has just said no. The same applies where a store reports that age
+verification is required and has not been completed. Every other outcome — nothing shared, no such
+feature, a failure — leads to the picker with 18 or over pre-selected. **If the app has no age at
+all, it assumes 13.**
 
 **A range can be below 13**, and the app takes that at face value rather than rounding it up.
 In practice that is a Google Play behaviour: Play's lowest band is 0–12, while the lowest gate Apple
 is asked about is 13. On an iPhone or iPad, a listener under 13 produces no range at all and lands on
-the slider, whose floor is 13. Since the App Store listing is the only one live today, this is a
-property of the Android build rather than one to rely on now.
+the picker, whose lowest option is 13–15. Since the App Store listing is the only one live today,
+this is a property of the Android build rather than one to rely on now.
 
 **Where the phone gave a range, the app goes by the range.** Settings has a "Listener age" row that
 names the range and the account it came from — and on those devices it is not an editor. There is no
-slider over a shared range, and a number typed before the phone ever answered does not raise what the
+picker over a shared range, and a range set before the phone ever answered does not raise what the
 app acts on. A range that looks wrong is corrected in the phone's own account (on iOS: Settings ›
 [your name] › Personal Information › Age Range for Apps), then re-read with the "Check my age range"
 control in AudioChoices' Settings.

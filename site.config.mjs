@@ -348,6 +348,28 @@ export const legalDocuments = {
   //  says all three, and the one new control (adopt the range) can only ever
   //  move in the direction the platform already attested.
   //
+  // AND A FIFTH CORRECTION, ALSO ON THE 14TH AND ALSO BEFORE PUBLICATION, WHICH
+  // NARROWS: the self-declared age is no longer a slider. It is three buttons —
+  // 13-15, 16-17, 18 or over — the same three ranges a platform answers with.
+  //
+  //  WHY IT IS A PRIVACY IMPROVEMENT RATHER THAN A UI CHANGE, and why section 14
+  //  says so outright: nothing in the app has ever consulted an exact age. Every
+  //  reader compares the listener against 13, 16 or 18 (a book's minAge, which may
+  //  only be 0/13/16/18, and MIN_AGE_TO_CONSENT_TO_ANALYTICS). So a slider asking
+  //  for 27 or 41 was collecting a more precise fact than any purpose used, which
+  //  is a data-minimisation point (GDPR art. 5(1)(c)) as much as a design one.
+  //  Collecting strictly less needs no version step.
+  //
+  //  It also retires a divergence that ran through both documents: the app had two
+  //  sources for the same fact with two different shapes, so every sentence had to
+  //  describe a number OR a range depending on which route the reader was on. Both
+  //  routes now produce a range and the documents can say one thing.
+  //
+  //  Ages already stored from the old slider are NOT rewritten — 41 stays 41 on
+  //  disk and is displayed as "18+". Section 14's "an age from a slider you set
+  //  before your phone ever answered is still stored and still shown to you" is
+  //  the sentence that covers them, and it stays true for those installs.
+  //
   // AppConfig.LEGAL_VERSION IS bumped for this (8 -> 9), on the owner's explicit
   // instruction. ORDER, and it is the same rule as 2.3.0: publish this document
   // first — it reaches nobody, because AudioChoices is binary-pinned — and ship
