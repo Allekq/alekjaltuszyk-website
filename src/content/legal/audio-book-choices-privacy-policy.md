@@ -445,7 +445,7 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 ## 19. Support Emails And Website Pages
 
-The app has a **Send feedback and ideas** button in Settings, and offers the same thing after you rate a book. Both simply open your own email app at a blank message addressed to the developer, with the app version and your platform written at the foot of it where you can see and delete them. The app sends nothing itself, keeps no copy, and has no way to know whether you sent the message. Your installation identifier is deliberately not included; Settings shows it if you ever want to quote it.
+The app has a **Send feedback and ideas** button in Settings, and offers the same thing after you rate a book. Both simply open your own email app at a message addressed to the developer, with the app version and your platform written at the foot of it where you can see and delete them. The app sends nothing itself, keeps no copy, and has no way to know whether you sent the message. Your installation identifier is deliberately not included; Settings shows it if you ever want to quote it.
 
 If you do email, the developer receives your email address, your message, and anything you choose to include. Please do not send sensitive personal information in a support message unless your request genuinely needs it.
 
