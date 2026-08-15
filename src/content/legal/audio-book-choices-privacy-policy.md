@@ -274,7 +274,13 @@ That motion data is used in the moment to recognise the gesture, on your device.
 
 ## 13. Notifications
 
-Notifications are **off unless you turn them on.** The app asks once, after you have finished a story or listened for a while — deliberately not during setup, when you would have nothing to judge the offer on. **If you answer at all, either way, you are never asked again.** Only if you dismiss the question without answering it does the app try once more, a fortnight later, and then never again. **Settings → Notifications** turns them on or off at any time, and lets you silence either of the two groups described below on its own.
+Notifications are **off unless you allow them.** Where the app asks depends on when you arrived.
+
+**Setting the app up for the first time**, the last page tells you your phone is about to ask about notifications, and then your phone asks — the system's own permission dialog, which is the thing that decides it. Allowing is what turns them on; declining, or dismissing it, leaves them off. It is your phone's question, so it looks and behaves exactly as it does for any other app, and on iOS it is the one time the system will show it.
+
+**If you already had the app before notifications existed in it**, there is no setup page left to ask on, so the app asks later instead — once you have finished a story or listened for about half an hour, at a moment when nothing is playing. It asks in its own dialog first, and only raises your phone's permission dialog if you say yes. Dismissing that question without answering it gets you one more attempt, a fortnight later, and then never again.
+
+**Either way, an answer is final.** The app does not ask twice, and it does not ask again after a no. **Settings → Notifications** turns them on or off at any time, and lets you silence either of the two groups described below on its own.
 
 Three kinds exist, in two groups. **New stories** is one kind and one group: that a new story has been published. **Your books** holds the other two: that a story you started is unfinished or has endings you never reached, and — built but not switched on — a reminder that you have free unlocks you have not spent. Grouping them is what stops the app's settings from turning into a list that grows every time a kind is added, and it means silencing a group silences everything in it, including anything added to it later.
 

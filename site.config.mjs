@@ -377,9 +377,22 @@ export const legalDocuments = {
   // before this text is live, or the gate asks people to accept a document that
   // does not exist yet. Note that version 8 itself has never shipped, so for most
   // readers 9 will be the first gate they see since 2.3.0.
+  // 2.7.0 rather than a patch, and the reason is worth keeping. Section 13 said
+  // the notification question is put "after you have finished a story or listened
+  // for a while — deliberately not during setup". The app moved that ask to the
+  // last page of setup on 2026-08-12, and this document was revised three times
+  // afterwards without catching it. Where and how a consent is obtained is
+  // substance rather than wording — for the on-device note, the notification
+  // permission IS the ePrivacy consent — so this is a minor bump, not a typo fix.
+  //
+  // It now describes BOTH routes, because both are live. A new install is asked on
+  // the last page of setup; an install that predates the feature has no setup left
+  // to ask on and is asked at an earned moment instead. AppConfig.LEGAL_VERSION
+  // stays at 9 — 9 has never shipped, so the single re-gate that build already
+  // carries covers this revision too, at no extra cost to anybody.
   audioBookChoicesPrivacy: {
-    version: "2.6.0",
-    effectiveDate: "2026-08-14",
+    version: "2.7.0",
+    effectiveDate: "2026-08-15",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },
