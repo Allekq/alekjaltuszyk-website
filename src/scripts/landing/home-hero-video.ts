@@ -18,7 +18,15 @@ const loadHeroVideo = () => {
     return;
   }
 
-  source.src = source.dataset.src;
+  /*
+   * A phone gets the 720p cut. The hero is a full-bleed background behind a
+   * heavy gradient, so the smaller encode is indistinguishable there and costs
+   * a fraction of the bytes.
+   */
+  const narrowSrc = source.dataset.srcNarrow;
+  const prefersNarrow = window.matchMedia("(max-width: 48rem)").matches;
+
+  source.src = prefersNarrow && narrowSrc ? narrowSrc : source.dataset.src;
   heroVideo.load();
   void heroVideo.play().catch(() => {
     /* Autoplay can be denied; the poster still carries the hero. */

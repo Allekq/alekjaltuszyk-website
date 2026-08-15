@@ -1,9 +1,10 @@
 /*
  * Scroll-driven app showcase, plus the plain grid it hands off to.
  *
- * Shared by the homepage and /apps. Every moving part reads `--item-progress`
- * from the scroll-scene engine, so this file is the whole animation — there is
- * no showcase JavaScript.
+ * Shared by the homepage and /apps. Every moving part reads `--item-progress`,
+ * which `scripts/landing/app-showcase.ts` sets per beat from that beat's
+ * position relative to the pinned panel. This file owns what the value looks
+ * like; the script owns when it changes.
  */
 
 .app-showcase {
@@ -11,7 +12,13 @@
   position: relative;
 }
 
+/*
+ * `--showcase-stacked` is the contract with `scripts/landing/app-showcase.ts`:
+ * CSS owns the breakpoint, the script only asks whether the panel currently
+ * sits above the beats or beside them.
+ */
 .app-showcase__scene {
+  --showcase-stacked: 0;
   align-items: start;
   display: grid;
   gap: clamp(1.5rem, 5vw, 4rem);
@@ -29,13 +36,20 @@
   padding-block: clamp(2.5rem, 12vh, 6rem) clamp(5rem, 24vh, 11rem);
 }
 
+/*
+ * Reveal is driven per beat, against the pinned panel — see the script. Without
+ * JavaScript `--item-progress` stays at 1 and every beat simply reads.
+ */
 .app-showcase__beat {
   --beat-accent: var(--color-coral);
+  --item-progress: 1;
   border-inline-start: 2px solid
     color-mix(in srgb, var(--beat-accent) 42%, transparent);
   display: grid;
   gap: 0.7rem;
+  opacity: calc(0.08 + var(--item-progress) * 0.92);
   padding-inline-start: clamp(1rem, 2.4vw, 1.6rem);
+  transform: translate3d(0, calc((1 - var(--item-progress)) * 1.25rem), 0);
 }
 
 .app-showcase__beat--mint {
@@ -186,10 +200,11 @@
 
 /*
  * Layers stack in source order with a rising z-index, so the newest active app
- * simply paints over the last one. Opacity is the scene progress, which makes
- * the crossfade track the scrollbar exactly rather than running on a timer.
+ * simply paints over the last one. Opacity tracks how far its beat has entered,
+ * so the crossfade follows the scrollbar exactly rather than running on a timer.
  */
 .app-showcase__art-layer {
+  --item-progress: 1;
   --layer-accent: var(--color-coral);
   display: grid;
   inset: 0;
@@ -235,6 +250,7 @@
 }
 
 .app-showcase__tick {
+  --item-progress: 1;
   align-items: center;
   color: var(--color-text-soft);
   display: flex;
@@ -441,6 +457,10 @@
 /* ---- Narrow viewports ---------------------------------------------------- */
 
 @media (max-width: 64rem) {
+  .app-showcase__scene {
+    --showcase-stacked: 1;
+  }
+
   /*
    * One column, stage on top. It stays pinned while the beats scroll under it,
    * so the phone keeps the same "the app changes as you scroll" reading the

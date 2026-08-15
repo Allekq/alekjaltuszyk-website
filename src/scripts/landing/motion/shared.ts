@@ -6,9 +6,25 @@ export const clamp = (value: number, min: number, max: number) =>
 export const lerp = (start: number, end: number, amount: number) =>
   start + (end - start) * amount;
 
-/** Maps `value` from the [start, end] range onto 0..1, clamped at both ends. */
-export const normalize = (value: number, start: number, end: number) =>
-  clamp((value - start) / Math.max(end - start, 0.0001), 0, 1);
+/**
+ * Maps `value` from the [start, end] range onto 0..1, clamped at both ends.
+ *
+ * `end` may be lower than `start`; a scroll ramp that counts a shrinking
+ * distance down is as ordinary as one that counts up. This used to floor the
+ * denominator at a tiny positive number, which turned every descending range
+ * into a step function — 0 below `start`, 1 above it, nothing in between — and
+ * quietly inverted it. `scroll-scene`'s "through" mode is written that way, so
+ * its beats were snapping rather than easing.
+ */
+export const normalize = (value: number, start: number, end: number) => {
+  const span = end - start;
+
+  if (Math.abs(span) < 0.0001) {
+    return value >= end ? 1 : 0;
+  }
+
+  return clamp((value - start) / span, 0, 1);
+};
 
 export const readNumber = (value: string | undefined, fallback: number) => {
   const parsed = Number.parseFloat(value ?? "");

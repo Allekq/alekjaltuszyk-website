@@ -168,6 +168,13 @@
 
 /* ---- Answer buttons ------------------------------------------------------ */
 
+/* iOS paints its own grey box over a tapped control, which lands on top of the
+   button's own pressed state and reads as a rendering fault. */
+.abc-answer,
+.abc-player__control {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .abc-answer {
   align-items: flex-start;
   background: rgb(253 242 228 / 5%);

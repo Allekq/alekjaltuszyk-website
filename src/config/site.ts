@@ -89,9 +89,9 @@ const planKeptInstagramHref =
   "https://www.instagram.com/plankeptapp?igsh=cWV3azJ4bXNwZXF1&utm_source=qr";
 const logoImagePath = "/favicon.svg";
 const defaultSocialImagePath = "/favicon.svg";
-const planKeptIconPath = "/media/apps/plankept/app-icon-light.png";
-const overLitIconPath = "/media/apps/overlit/app-icon-light.png";
-const takeMeSomewhereIconPath = "/media/apps/take-me-somewhere/app-icon-light.png";
+const planKeptIconPath = "/media/apps/plankept/app-icon-180.png";
+const overLitIconPath = "/media/apps/overlit/app-icon-180.png";
+const takeMeSomewhereIconPath = "/media/apps/take-me-somewhere/app-icon-180.png";
 const preferredName = "Alek Jałtuszyk";
 const legalName = "Aleksander Jałtuszyk";
 const asciiNameVariants = ["Alek Jaltuszyk", "Aleksander Jaltuszyk"] as const;
@@ -376,7 +376,7 @@ export const overLitConfig = {
   origin: siteOrigin,
   faviconHref: withBase(overLitIconPath),
   faviconType: "image/png",
-  iconHref: withBase("/media/overlit/app-icon-light-320.png"),
+  iconHref: withBase(overLitIconPath),
   navigation: [
     { label: "Play", href: "#play" },
     { label: "Pressure", href: "#pressure" },
@@ -566,7 +566,7 @@ const audioBookChoicesSupportBody = audioBookChoicesSupportDraftLines.join("\r\n
  * `iosApp/Assets.xcassets/AppIcon.appiconset/icon_any.png`. Re-copy it here
  * when the app's icon changes; nothing on this site draws its own.
  */
-const audioBookChoicesIconPath = "/media/apps/audio-book-choices/app-icon-light.png";
+const audioBookChoicesIconPath = "/media/apps/audio-book-choices/app-icon-180.png";
 
 export const audioBookChoicesConfig = {
   /*
@@ -596,7 +596,7 @@ export const audioBookChoicesConfig = {
   faviconType: "image/png",
   /* Header renders this at 40px, so it gets the small copy rather than the
      1024 master — same split as OverLit. */
-  iconHref: withBase("/media/apps/audio-book-choices/app-icon-light-320.png"),
+  iconHref: withBase(audioBookChoicesIconPath),
   /*
    * The book the landing page leads with. `nodeCount` is the book's real node
    * count and is the ONLY place the site states a size for it — change it here
@@ -620,6 +620,7 @@ export const audioBookChoicesConfig = {
   privacyHref: siteRoutes.apps.audioBookChoicesPrivacyPolicy.href,
   dataDeletionHref: siteRoutes.apps.audioBookChoicesDataDeletion.href,
   termsHref: siteRoutes.apps.audioBookChoicesTermsOfUse.href,
+  ageSuitabilityHref: siteRoutes.apps.audioBookChoicesAgeSuitability.href,
   // The app software's licence on iOS. AudioChoices ships no custom EULA in App
   // Store Connect, so Apple's Standard EULA governs the app itself and the Terms of Use
   // above govern the service and the books — see section 20 of the Terms. Same pairing as

@@ -1,14 +1,26 @@
 ---
+import { audioBookChoicesConfig } from "../../../../config/site";
+
 /*
- * Covers are deliberately abstract placeholders: the catalogue is still small,
- * so the shelf shows genre and shape rather than naming titles that would date
- * the page the moment a fourth book ships.
+ * The shelf shows the spread, not the inventory.
+ *
+ * It used to pair three abstract covers with a genre and an age each, plus an
+ * "in production" tile. All of that was a standing claim about how many books
+ * exist and how old you have to be for them, and all of it went stale: the
+ * catalogue has grown, and advisory ages now come from a fixed set the app
+ * enforces rather than from per-book guesses. Genres are the part that stays
+ * true as books are added, so genres are what this says — with the ages left to
+ * the age-suitability page, which is the one place that states them.
  */
-const shelf = [
-  { id: "ember", genre: "Science-fantasy", meta: "Ages 12+", tone: "ember" },
-  { id: "case", genre: "Detective mystery", meta: "Ages 13+", tone: "tide" },
-  { id: "chair", genre: "Drama", meta: "Ages 10+", tone: "dusk" },
-  { id: "next", genre: "In production", meta: "Added over time", tone: "blank" },
+const genres = [
+  "Thriller",
+  "Drama",
+  "Crime",
+  "Survival",
+  "Science-fiction",
+  "Mythology",
+  "Comedy",
+  "Adventure",
 ] as const;
 
 const promises = [
@@ -31,29 +43,26 @@ const promises = [
   <div class="app-shell">
     <header class="app-section__head app-section__head--centre" data-rise>
       <p class="app-eyebrow">The shelf</p>
-      <h2 class="app-title">A small catalogue, made properly.</h2>
+      <h2 class="app-title">Whole books, finished before they ship.</h2>
       <p class="app-lead">
-        Launching with a handful of complete books rather than a wall of half-finished ones.
+        Every branch written, narrated and checked before a book goes on the shelf — across a
+        widening spread of genres rather than one house style.
       </p>
     </header>
 
-    <ul class="abc-library__shelf" data-scene data-scene-start="0.95" data-scene-end="0.3">
-      {shelf.map((book, index) => (
-        <li
-          class:list={["abc-library__slot", `abc-library__slot--${book.tone}`]}
-          data-scene-item
-          data-parallax
-          data-parallax-speed={index % 2 === 0 ? 22 : -18}
-        >
-          <div class="abc-library__cover tilt-surface" data-tilt data-tilt-strength="0.7">
-            <span class="abc-library__cover-art" aria-hidden="true"></span>
-            <span class="abc-library__cover-spine" aria-hidden="true"></span>
-            <span class="abc-library__cover-genre">{book.genre}</span>
-          </div>
-          <p class="abc-library__meta">{book.meta}</p>
-        </li>
+    <ul class="abc-library__genres" data-rise>
+      {genres.map((genre) => (
+        <li class="app-chip">{genre}</li>
       ))}
+      <li class="app-chip abc-library__genres-more">and more</li>
     </ul>
+
+    <p class="abc-library__ages" data-rise>
+      Books carry their own advisory minimum age, and the shelf offers a listener only what fits
+      the age the app has for them.
+      <a href={audioBookChoicesConfig.ageSuitabilityHref}>What the stories contain</a>
+      sets out exactly what that means.
+    </p>
 
     <ul class="abc-library__promises">
       {promises.map((promise, index) => (

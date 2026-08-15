@@ -2,8 +2,16 @@
 import { siteConfig } from "../../../config/site";
 import { withBase } from "../../../lib/paths";
 
-const heroVideoPath = withBase("/media/home/hero-energy-loop.mp4");
-const heroPosterPath = withBase("/media/home/hero-energy-poster.jpg");
+/*
+ * Two encodes of the same decorative loop. The source master was 4K at 70
+ * Mbit/s — 87 MB for ten seconds of background texture, which is most of a
+ * phone's patience spent on something sitting behind a near-opaque gradient.
+ * The script picks by viewport width and never loads either one on a
+ * reduced-motion or data-saver visit.
+ */
+const heroVideoWidePath = withBase("/media/home/hero-energy-loop-1080.mp4");
+const heroVideoNarrowPath = withBase("/media/home/hero-energy-loop-720.mp4");
+const heroPosterPath = withBase("/media/home/hero-energy-poster-1280.jpg");
 const heroNameLines = siteConfig.preferredName.split(" ");
 ---
 
@@ -19,7 +27,11 @@ const heroNameLines = siteConfig.preferredName.split(" ");
       preload="none"
       data-hero-video
     >
-      <source data-src={heroVideoPath} type="video/mp4" />
+      <source
+        data-src={heroVideoWidePath}
+        data-src-narrow={heroVideoNarrowPath}
+        type="video/mp4"
+      />
     </video>
   </div>
 

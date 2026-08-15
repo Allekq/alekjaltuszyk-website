@@ -136,7 +136,11 @@ export interface AppDirectoryItem {
   theme?: AppCardTheme;
   chips: readonly string[];
   href: string;
-  /** App icon, base-path safe. Carried here so the showcase needs no lookup table. */
+  /**
+   * App icon, base-path safe. Carried here so the showcase needs no lookup
+   * table. Point it at the 480px derivative, not the 1024 master — the showcase
+   * never draws it larger than ~150 CSS pixels.
+   */
   iconHref: string;
   external: boolean;
   releaseStage: AppReleaseStage;
@@ -187,7 +191,7 @@ export const appDirectory = [
       "No subscription",
     ],
     href: siteRoutes.apps.planKept.href,
-    iconHref: withBase("/media/apps/plankept/app-icon-light.png"),
+    iconHref: withBase("/media/apps/plankept/app-icon-480.jpg"),
     external: false,
     releaseStage: "released",
     platforms: ["iOS"],
@@ -208,7 +212,7 @@ export const appDirectory = [
       "Ad-supported free play",
     ],
     href: siteRoutes.apps.overLit.href,
-    iconHref: withBase("/media/apps/overlit/app-icon-light.png"),
+    iconHref: withBase("/media/apps/overlit/app-icon-480.jpg"),
     external: false,
     releaseStage: "released",
     platforms: ["iOS"],
@@ -228,7 +232,7 @@ export const appDirectory = [
       "Reflection memory",
     ],
     href: siteRoutes.apps.voiceOfSelf.href,
-    iconHref: withBase("/media/apps/voice-of-self/app-icon-light.png"),
+    iconHref: withBase("/media/apps/voice-of-self/app-icon-480.jpg"),
     external: false,
     releaseStage: "released",
     platforms: ["iOS"],
@@ -249,7 +253,7 @@ export const appDirectory = [
       "Compass Mode",
     ],
     href: takeMeSomewhereAppStoreHref,
-    iconHref: withBase("/media/apps/take-me-somewhere/app-icon-light.png"),
+    iconHref: withBase("/media/apps/take-me-somewhere/app-icon-480.jpg"),
     external: true,
     releaseStage: "released",
     platforms: ["iOS"],
@@ -270,7 +274,7 @@ export const appDirectory = [
       "Many free unlocks",
     ],
     href: siteRoutes.apps.audioBookChoices.href,
-    iconHref: withBase("/media/apps/audio-book-choices/app-icon-light.png"),
+    iconHref: withBase("/media/apps/audio-book-choices/app-icon-480.jpg"),
     external: false,
     releaseStage: "released",
     /* iOS only for now. The Android build is real but unlisted, and claiming

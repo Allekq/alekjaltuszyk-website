@@ -69,10 +69,6 @@
 }
 
 @media (max-width: 52rem) {
-  .abc-library__shelf {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .abc-library__promises {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -136,13 +132,6 @@
     padding: 0.85rem;
   }
 
-  .abc-library__shelf {
-    gap: 0.8rem;
-  }
-
-  .abc-library__cover {
-    padding: 0.65rem;
-  }
 }
 
 /*

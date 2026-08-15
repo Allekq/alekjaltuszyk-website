@@ -1,4 +1,5 @@
 import { setupActiveSectionNav } from "./active-section-nav";
+import { setupAppShowcase } from "./app-showcase";
 import { setupFaqAccordion } from "./faq-accordion";
 import { setupHistoryJumps } from "./history-jumps";
 import { setupAppLandingMotion } from "./motion";
@@ -21,6 +22,7 @@ const boot = () => {
   // a no-op without its markup hook, so the home and /apps pages pay for it
   // only where they actually use `[data-scene]` or `[data-rise]`.
   safeSetup("app-landing-motion", setupAppLandingMotion);
+  safeSetup("app-showcase", setupAppShowcase);
   safeSetup("reveal-on-scroll", setupRevealOnScroll);
   safeSetup("sticky-header", setupStickyHeader);
   safeSetup("active-section-nav", setupActiveSectionNav);

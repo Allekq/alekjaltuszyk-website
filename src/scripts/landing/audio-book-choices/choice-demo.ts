@@ -65,6 +65,14 @@ const setupDemo = (elements: DemoElements) => {
   let currentId = rootPanelId;
   let gestureTimer = 0;
   let hasInteracted = false;
+  /*
+   * Whether the last activation came from a keyboard or assistive technology
+   * rather than a finger. Both of those send a click with `detail === 0`.
+   * Only they get focus moved into the new beat: a pointer tap that moves
+   * focus onto a `tabindex="-1"` heading makes Safari paint a focus ring
+   * around the question, which reads as an accidental text selection.
+   */
+  let activatedWithoutPointer = false;
 
   const showPanel = (id: string) => {
     const next = panels.get(id);
@@ -98,8 +106,9 @@ const setupDemo = (elements: DemoElements) => {
     }
 
     // Move focus into the new beat so keyboard and screen-reader users land on
-    // it — but never on first paint, where that would yank the page around.
-    if (hasInteracted) {
+    // it — but never on first paint, where that would yank the page around,
+    // and never for a plain tap, which does not need it and shows a ring.
+    if (hasInteracted && activatedWithoutPointer) {
       next.querySelector<HTMLElement>("[data-demo-focus]")?.focus({ preventScroll: true });
     }
   };
@@ -151,6 +160,7 @@ const setupDemo = (elements: DemoElements) => {
     const answerButton = target.closest<HTMLElement>("[data-demo-answer]");
 
     hasInteracted = true;
+    activatedWithoutPointer = event.detail === 0;
 
     if (answerButton) {
       const answer = answerButton.dataset.demoAnswer === "no" ? "no" : "yes";
