@@ -445,7 +445,9 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 ## 19. Support Emails And Website Pages
 
-If you email support, the developer receives your email address, your message, and anything you choose to include, such as your device model, OS version, app version, or your installation identifier. Please do not send sensitive personal information in a support message unless your request genuinely needs it.
+The app has a **Send feedback and ideas** button in Settings, and offers the same thing after you rate a book. Both simply open your own email app at a blank message addressed to the developer, with the app version and your platform written at the foot of it where you can see and delete them. The app sends nothing itself, keeps no copy, and has no way to know whether you sent the message. Your installation identifier is deliberately not included; Settings shows it if you ever want to quote it.
+
+If you do email, the developer receives your email address, your message, and anything you choose to include. Please do not send sensitive personal information in a support message unless your request genuinely needs it.
 
 The AudioChoices pages on `alekjaltuszyk.xyz` are static informational pages. They set no analytics cookies, no advertising cookies and no tracking storage of the developer's own. Ordinary hosting and security infrastructure processes technical information such as IP address, browser type, requested URL, referring URL and timestamps, in order to serve and protect the site.
 
