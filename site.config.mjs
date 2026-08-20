@@ -390,9 +390,25 @@ export const legalDocuments = {
   // to ask on and is asked at an earned moment instead. AppConfig.LEGAL_VERSION
   // stays at 9 — 9 has never shipped, so the single re-gate that build already
   // carries covers this revision too, at no extra cost to anybody.
+  //
+  // 2.8.0, MINOR: the "Write to the developer" / "Tell me more" buttons now
+  // prefill two more lines into the mailto draft, below the app-version/platform
+  // signature — which screen the message started from, and the listener's
+  // installation identifier (Support ID), labelled and with a one-line note that
+  // it can be deleted. That is a new disclosed practice (a recipient the
+  // identifier now reaches by default, where section 19 previously said it was
+  // "deliberately not included"), so it is not a wording-only patch, even though
+  // nothing is transmitted by the app, no new recipient or processing is added,
+  // and the line is fully visible and removable before the listener sends
+  // anything. Section 6's support-email row and section 15's deletion-route
+  // paragraph were also touched, both narrowly. AppConfig.LEGAL_VERSION in the
+  // app repo is deliberately NOT bumped for this one — the owner decided
+  // against re-walling every existing listener behind the acceptance gate for a
+  // change that grants nothing new, adds no recipient, and is visible and
+  // reversible at the point of use.
   audioBookChoicesPrivacy: {
-    version: "2.7.0",
-    effectiveDate: "2026-08-15",
+    version: "2.8.0",
+    effectiveDate: "2026-08-20",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },

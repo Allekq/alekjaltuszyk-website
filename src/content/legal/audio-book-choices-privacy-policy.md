@@ -114,7 +114,7 @@ Under the GDPR, every purpose needs a lawful basis. These are the ones relied on
 | Keep the service secure, diagnose faults, and prevent abuse of the backend | Operational logs, which can include the anonymous identifier and the IP address of a request | Art. 6(1)(f) — legitimate interests in network and information security |
 | Check that a request really comes from a genuine, unmodified copy of the app rather than a script, so that paid books cannot be pulled out of the service in bulk | A short-lived attestation token issued by Apple's App Attest on iOS or Google's Play Integrity on Android, and the app-integrity signals those services use to produce it. On Android that includes whether the installed app matches the one published on Google Play, and whether the device passes Google's integrity checks. It contains no name, no account and no advertising identifier, and it tells the developer nothing about you | Art. 6(1)(f) — legitimate interests in preventing fraud, unauthorised copying and abuse of the service |
 | Measure whether money spent advertising the app produces installs and purchases, so that advertising can be stopped, changed or continued on evidence | The two events in section 10, a random per-installation identifier created by Google's analytics library, and coarse device and country information | Consent — the "Share anonymous usage data" switch. Not legitimate interests: this is a third-party analytics library placed on your device for the developer's commercial benefit, and that is not something to be assumed |
-| Answer a support email you send | Your email address and whatever you choose to write | Art. 6(1)(b) and Art. 6(1)(f) — responding to your request and maintaining support records |
+| Answer a support email you send | Your email address and whatever you choose to write, including the app version, platform, originating screen and installation identifier the app can prefill into the draft — each shown to you before anything is sent and removable with one edit | Art. 6(1)(b) and Art. 6(1)(f) — responding to your request and maintaining support records |
 
 On the milestone row specifically, legitimate interests are relied on rather than consent because of how narrow the processing is: the facts recorded are a fixed list of yes-or-no thresholds, each recorded once; nothing is recorded about which choices you made or when you listened; the result is a set of per-book totals, not a profile; and none of it is shared, sold, or used for advertising or to decide anything about you as an individual. You can object to it under Art. 21 at the address in section 22, and you can switch it off entirely at any time in **Settings**, under "Share anonymous usage data" — which stops the app sending anything further, immediately and without asking you to justify it.
 
@@ -383,7 +383,11 @@ There is no account to delete, so deletion works differently here. There are two
 data-deletion control in the app's **Settings**, and an email to `alekgameshelp2@gmail.com` with the
 subject "Delete my data" carrying your installation's anonymous identifier, which Settings shows so
 that you can copy it. Without that identifier there is no way to tell which records are yours, and
-the request cannot be actioned.
+the request cannot be actioned. The **Write to the developer** buttons described in section 19 now
+carry that same identifier into their draft for you, so a message started that way already has it —
+but a deletion request still needs the subject line above, so start one by writing to the address
+directly rather than through one of those buttons, and keep the identifier line if the draft already
+carries it.
 
 **The steps for both routes are on their own page:
 [Delete your AudioChoices data](https://alekjaltuszyk.xyz/apps/AudioBookChoices/delete-data/).**
@@ -451,7 +455,7 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 ## 19. Support Emails And Website Pages
 
-The app has a **Send feedback and ideas** button in Settings, and offers the same thing after you rate a book. Both simply open your own email app at a message addressed to the developer, with the app version and your platform written at the foot of it where you can see and delete them. The app sends nothing itself, keeps no copy, and has no way to know whether you sent the message. Your installation identifier is deliberately not included; Settings shows it if you ever want to quote it.
+The app offers several ways to write to the developer — **Write to the developer** or **Tell me more**, depending on where you are: in Settings, after you rate a book, and from a book's own page. All of them work the same way: they open your own email app at a message addressed to the developer, and write a short footer under your own words, below a line that sets it apart from what you typed. That footer always names the app version and your platform. **It now also names which screen you wrote from** — for example "Settings", or "book page — Emberfall (emberfall)" — **and, on its own last line, carries your installation identifier**, labelled "Support ID" with a note that it identifies your installation rather than you and that deleting the line is one gesture. That identifier is the one described in section 3 and already shown in **Settings → Support ID**; putting it in the draft for you is a convenience, not a new use of it — this policy already asked you to quote it by hand when writing about a data right (section 15), and prefilling it only saves that trip. Every line the app writes into the draft, old or new, is visible before you send anything, exactly as if you had typed it yourself, and you can edit or delete any of it, including that one. The app sends nothing itself, keeps no copy of what you send, and has no way to know whether you sent the message, changed it, or deleted every line it wrote.
 
 If you do email, the developer receives your email address, your message, and anything you choose to include. Please do not send sensitive personal information in a support message unless your request genuinely needs it.
 
