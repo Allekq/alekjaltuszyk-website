@@ -29,7 +29,7 @@ OverLit is a short-session arcade/reflex game. A grid of cells lights up, heats 
 
 Some versions of the app also offer **online leaderboards**, which publish a score and a randomly generated nickname on a shared board. Section 7 covers those.
 
-**The two platforms do not offer identical features.** Most visibly, the iPhone app shows network ads and the Android app currently does not. Section 3 of the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/) lists which components exist on which platform, and it is kept current. Features, visuals, copy, ad behavior, leaderboard availability, and app availability may change over time, and may change on one platform before the other.
+**The two platforms do not offer identical features.** They now carry the same advertising, consent and analytics components; what differs is each platform's own technologies — Apple's tracking prompt and attribution on iPhone, Google's advertising ID on Android — and the store each one purchases through. Section 3 of the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/) lists which components exist on which platform, and it is kept current. Features, visuals, copy, ad behavior, leaderboard availability, and app availability may change over time, and may change on one platform before the other.
 
 ## 4. Eligibility
 

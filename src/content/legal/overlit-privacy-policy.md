@@ -48,13 +48,14 @@ Everything that can send data off your phone is a third-party component, so the 
 | Firebase App Check | yes | yes | Confirms a request came from a genuine copy of the app. Apple **App Attest** on iPhone, Google **Play Integrity** on Android |
 | Google Analytics for Firebase | yes | yes | The events listed in section 7, and nothing else |
 | Google User Messaging Platform | yes | yes | Google's privacy message, which is what gathers consent where the law requires it (section 12) |
-| Google Mobile Ads SDK (AdMob) | yes | **no** | Serves the ads in section 6 |
-| App Tracking Transparency, advertising identifier, SKAdNetwork | yes | **no** | Apple's tracking permission and attribution (section 6) |
+| Google Mobile Ads SDK (AdMob) | yes | yes | Serves the ads in section 6 |
+| App Tracking Transparency, Apple advertising identifier, SKAdNetwork | yes | **no** | Apple's tracking permission and attribution. These are Apple technologies and exist only on iPhone (section 6) |
+| Google advertising ID | **no** | yes | Android's own resettable advertising identifier, used by the ads SDK for the same purposes (section 6) |
 | Apple StoreKit | yes | no | The Full Version purchase (section 8) |
 | Google Play Billing | no | yes | The Full Version purchase (section 8) |
 | House ads bundled into the app | yes | yes | Panels promoting the developer's own apps. Send nothing anywhere (section 6) |
 
-**The Android app therefore serves no ads today.** That is a fact about the current build, not a promise about future ones: advertising on Android is planned, and when it ships this table and section 6 change together, and you will be asked to accept the updated documents before continuing to play.
+**Both apps now carry the same advertising and consent components.** Section 6 applies to both. The differences that remain in the table above are Apple's and Google's own technologies rather than choices about you: App Tracking Transparency, the Apple advertising identifier and SKAdNetwork exist only on iPhone, and the Google advertising ID only on Android. The two stores also each have their own purchase component.
 
 Not present on either platform: Firebase Crashlytics, Performance Monitoring, Remote Config or Cloud Messaging; any third-party crash-reporting or product-analytics tool; any Meta or TikTok SDK or pixel; any conversion API, attribution SDK other than Apple's SKAdNetwork, mediation partner, or customer-list upload.
 
@@ -160,15 +161,15 @@ The whole feature can be switched off remotely, for everyone, without an app upd
 
 ## 6. Advertising
 
-*Applies to iPhone only. The Android app contains no advertising SDK — see section 3.*
+*Applies to both platforms.*
 
-The free version of OverLit on iPhone is paid for by ads, served through Google's Mobile Ads SDK from Google AdMob. There are three kinds:
+The free version of OverLit is paid for by ads, served through Google's Mobile Ads SDK from Google AdMob. There are three kinds:
 
-- **rewarded** ads, which you choose to watch in exchange for a theme unlock or a level skip
-- **interstitial** ads, shown only at breaks outside active play — returning to a menu, replaying, advancing a level
-- **footer banner** ads, shown outside the playable grid
+- **rewarded** ads, which you choose to watch in exchange for a cosmetic unlock, a level skip, or a new leaderboard name
+- **interstitial** ads, full-screen, shown only at breaks outside active play — returning to a menu, replaying, advancing a level, or rolling a new leaderboard name
+- a **banner**, a strip shown above the board while you play
 
-No ad is ever placed on the playable grid itself, and no ad is shown during a run.
+The banner is the one ad that is on screen during a run. It sits in the empty space above the grid; it is never placed on the grid itself, it does not move or shrink the board, and it does not take taps meant for a cell. Where a device leaves no room above the board, no banner is shown at all. No full-screen ad ever interrupts a run in progress.
 
 ### What Google receives
 
@@ -365,12 +366,12 @@ A player treated as a minor gets non-personalised, Teen-rated ads, is never show
 
 ### Countries where everyone is treated as a minor
 
-**The age at which a person counts as a child varies by country, and in several places it is higher than 13.** Where a country both sets that age above 13 and restricts advertising to those below it, a self-declared "18 or older" is not something OverLit can responsibly rely on. So it does not:
+**The age at which a person counts as a child varies by country, and in several places it is higher than 13.** Where that is so, a self-declared "18 or older" is not always something OverLit can responsibly rely on. The two countries below are handled differently, because what their law actually asks for differs — so this table names what each one narrows rather than treating them as one rule.
 
 | Country | Why | What OverLit does |
 | --- | --- | --- |
-| **India** | The Digital Personal Data Protection Act treats everyone under 18 as a child and prohibits tracking, behavioural monitoring and targeted advertising directed at children | Every player is given the minor treatment above, whichever band they picked |
-| **South Korea** | PIPA sets the guardian-consent threshold at 14, above OverLit's minimum of 13 | The same |
+| **India** | The Digital Personal Data Protection Act treats everyone under 18 as a child, but the section that would restrict tracking and targeted advertising to them has not been brought into force | A player who has never been asked is **not published to a leaderboard by default**. Beyond that, a player who declared 18 or older is treated as an adult; a player who declared 13 to 17 keeps the full minor treatment described above, as everywhere else |
+| **South Korea** | PIPA sets the guardian-consent threshold at 14, above OverLit's minimum of 13, and a Korean consent cannot be signalled through the available consent mechanisms | **Every player is given the full minor treatment above, whichever band they picked**, and is not published to a leaderboard by default |
 
 The app determines this from the device's own region settings — on Android, the SIM's country where there is one, otherwise the device's language and region; on iPhone, the device's language and region. Nothing is sent anywhere to work it out. That is a hint rather than a verified location, and it is deliberately only ever used to **restrict**: a wrong guess can give someone the minor treatment who did not need it, never the reverse.
 
