@@ -91,7 +91,7 @@ export const legalDocuments = {
   },
   overLitPrivacy: {
     version: "3.1.0",
-    effectiveDate: "2026-08-22",
+    effectiveDate: "2026-08-23",
     path: "/apps/OverLit/privacy-policy/",
     sourcePath: "src/content/legal/overlit-privacy-policy.md",
   },
