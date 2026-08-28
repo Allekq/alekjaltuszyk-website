@@ -24,8 +24,8 @@ export interface AppSchemaInput {
   /** Store age rating, e.g. "13+". Omit unless it is actually set. */
   contentRating?: string;
   description: string;
-  /** Store URL, when the app is released. */
-  downloadUrl?: string;
+  /** Store URL, when the app is released. A list when it ships on more than one store. */
+  downloadUrl?: string | readonly string[];
   /** Short, checkable capability statements. */
   featureList: readonly string[];
   /** True only when the app is genuinely free to install and start using. */
@@ -87,9 +87,10 @@ export const buildAppStructuredData = ({
     application.contentRating = contentRating;
   }
 
-  if (downloadUrl) {
-    application.downloadUrl = downloadUrl;
-    application.installUrl = downloadUrl;
+  if (downloadUrl && (typeof downloadUrl === "string" || downloadUrl.length > 0)) {
+    const urls = typeof downloadUrl === "string" ? downloadUrl : [...downloadUrl];
+    application.downloadUrl = urls;
+    application.installUrl = urls;
   }
 
   if (isAccessibleForFree !== undefined) {

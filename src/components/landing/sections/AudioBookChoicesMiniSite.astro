@@ -12,10 +12,14 @@ const structuredData = buildAppStructuredData({
   description: audioBookChoicesConfig.defaultDescription,
   applicationCategory: "BooksApplication",
   applicationSubCategory: "Interactive audiobooks",
-  /* iOS only until the Play listing exists — this is a machine-readable claim
-     about what someone can install today, not about what is being built. */
-  operatingSystem: "iOS",
-  downloadUrl: audioBookChoicesConfig.primaryCtaHref ?? undefined,
+  /* Both stores are live, so both are claimed. This is a machine-readable
+     statement about what someone can install today, not about what is being
+     built — keep it in step with `platforms` in `routes.ts`. */
+  operatingSystem: "iOS, Android",
+  downloadUrl: [
+    audioBookChoicesConfig.appStoreHref,
+    audioBookChoicesConfig.playStoreHref,
+  ],
   contentRating: "13+",
   isAccessibleForFree: true,
   featureList: audioBookChoicesConfig.aiDiscovery.featureList,

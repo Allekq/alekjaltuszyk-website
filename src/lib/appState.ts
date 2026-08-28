@@ -160,13 +160,28 @@ export const directoryChips = (item: AppDirectoryItem): readonly string[] =>
     ? item.chips
     : [...item.chips, "Not released yet"];
 
+/*
+ * Named here rather than folded into the sentence below because "live on the
+ * App Store" stopped being the whole truth the moment an app reached a second
+ * store. The clause is empty while everything is iOS-only, so the sentence
+ * reads exactly as it always did until an `appDirectory` entry says otherwise.
+ *
+ * This still leads with the App Store, which holds while every released app is
+ * on it. An Android-only app would need this rewritten, not extended.
+ */
+const androidApps = releasedApps.filter((item) => item.platforms.includes("Android"));
+const playStoreClause =
+  androidApps.length === 0
+    ? ""
+    : `, and ${formatNameList(toNames(androidApps))} ${pluralize(androidApps.length, "is", "are")} on Google Play too`;
+
 /**
  * Honest one-sentence description of the released/unreleased split, e.g.
  * "Four are live on the App Store, and AudioChoices is not released yet."
  */
 export const releaseStatusSentence = (() => {
   if (unreleasedAppCount === 0) {
-    return `All ${appCountWord} are live on the App Store.`;
+    return `All ${appCountWord} are live on the App Store${playStoreClause}.`;
   }
 
   const releasedPart =
@@ -174,5 +189,5 @@ export const releaseStatusSentence = (() => {
       ? "None are released yet"
       : `${capitalizeFirst(releasedAppCountWord)} ${pluralize(releasedAppCount, "is", "are")} live on the App Store`;
 
-  return `${releasedPart}, and ${unreleasedAppNameList} ${pluralize(unreleasedAppCount, "is", "are")} not released yet.`;
+  return `${releasedPart}${playStoreClause}, and ${unreleasedAppNameList} ${pluralize(unreleasedAppCount, "is", "are")} not released yet.`;
 })();

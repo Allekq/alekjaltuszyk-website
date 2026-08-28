@@ -23,6 +23,13 @@ interface Props {
   ctaHref?: string;
   ctaLabel?: string;
   ctaNote?: string;
+  /*
+   * Play link for an app that ships on both stores. The bar has room for one
+   * pill, so `ctaHref` stays the static href and `store-cta.ts` retargets this
+   * anchor on Android. The page's own store sections carry both buttons in
+   * static markup, so nothing depends on this swap having run.
+   */
+  ctaPlayHref?: string;
 }
 
 const {
@@ -34,6 +41,7 @@ const {
   ctaHref,
   ctaLabel,
   ctaNote,
+  ctaPlayHref,
 } = Astro.props as Props;
 
 const getSectionId = (href: string) => (href.startsWith("#") ? href.slice(1) : undefined);
@@ -79,6 +87,8 @@ const isExternalCta = ctaHref ? isExternalHref(ctaHref) && !ctaHref.startsWith("
         className="landing-header__cta app-header__cta"
         href={ctaHref}
         target={isExternalCta ? "_blank" : undefined}
+        data-store-cta={ctaPlayHref ? "" : undefined}
+        data-play-href={ctaPlayHref}
       >
         {ctaLabel}
       </ActionButton>

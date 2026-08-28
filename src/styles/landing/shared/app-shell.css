@@ -360,6 +360,73 @@ body:has(.app-page) .site-backdrop {
   gap: var(--space-sm) var(--space-md);
 }
 
+/* ---- Multi-store call to action ----------------------------------------- */
+
+/*
+ * `StoreActions.astro` renders one button per store, always both, always in
+ * the same source order. Everything below is ordering and emphasis: no rule
+ * here hides a store, so a no-JS visitor, a crawler, or a user agent nobody
+ * recognised still sees every way to install the app — they just see the two
+ * buttons weighted equally, which is the honest answer when the platform is
+ * unknown.
+ *
+ * `SiteLayout` sets `data-platform` on `<html>` from an inline head script, so
+ * the winning button is already in front on first paint and nothing reshuffles
+ * under the reader.
+ */
+.store-action {
+  /* Store buttons lead the row, ahead of any on-page button beside them. */
+  order: -1;
+}
+
+:root[data-platform="ios"] .store-action[data-store="ios"],
+:root[data-platform="android"] .store-action[data-store="android"] {
+  order: -2;
+}
+
+/*
+ * The store the visitor cannot use keeps its place and its link, and gives up
+ * the gradient. These restate `.action-button--ghost` rather than reusing the
+ * class, because the buttons are emitted as `--primary` so that the
+ * unknown-platform case renders two equal buttons with no script involved —
+ * which store gets demoted is not known until the head script has run.
+ */
+:root[data-platform="ios"] .store-action[data-store="android"],
+:root[data-platform="android"] .store-action[data-store="ios"] {
+  background: color-mix(in srgb, var(--color-bg-shell) 86%, transparent);
+  border: 1px solid var(--color-line-strong);
+  box-shadow: none;
+  color: var(--color-text);
+}
+
+:root[data-platform="ios"] .store-action[data-store="android"]:hover,
+:root[data-platform="ios"] .store-action[data-store="android"]:focus-visible,
+:root[data-platform="android"] .store-action[data-store="ios"]:hover,
+:root[data-platform="android"] .store-action[data-store="ios"]:focus-visible {
+  background: color-mix(in srgb, var(--color-bg-card) 92%, transparent);
+  border-color: color-mix(in srgb, var(--color-coral) 30%, transparent);
+}
+
+/*
+ * Inside an app landing page the palette is the page's own `--app-*` skin, so
+ * the demoted button takes the same tokens `.app-page .action-button--ghost`
+ * uses. Without this it keeps the global `--color-*` tokens and sits next to
+ * the page's real ghost buttons wearing a different ink.
+ */
+:root[data-platform="ios"] .app-page .store-action[data-store="android"],
+:root[data-platform="android"] .app-page .store-action[data-store="ios"] {
+  background: color-mix(in srgb, var(--app-panel) 62%, transparent);
+  border-color: var(--app-line);
+  color: var(--app-ink);
+}
+
+:root[data-platform="ios"] .app-page .store-action[data-store="android"]:hover,
+:root[data-platform="ios"] .app-page .store-action[data-store="android"]:focus-visible,
+:root[data-platform="android"] .app-page .store-action[data-store="ios"]:hover,
+:root[data-platform="android"] .app-page .store-action[data-store="ios"]:focus-visible {
+  border-color: color-mix(in srgb, var(--app-accent) 45%, transparent);
+}
+
 /* ---- Scroll cue ---------------------------------------------------------- */
 
 .app-scroll-cue {

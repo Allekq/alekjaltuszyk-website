@@ -1,5 +1,6 @@
 ---
 import ActionButton from "../../ui/ActionButton.astro";
+import StoreActions from "../../ui/StoreActions.astro";
 import StoryTreeFigure from "./StoryTreeFigure.astro";
 import { audioBookChoicesConfig } from "../../../../config/site";
 import { heroBranchEdgeIds, heroBranchPathD, heroStoryTree } from "./story-tree.data";
@@ -10,7 +11,7 @@ const heroChips = [
   "No ads",
   "No account",
   "Offline replay",
-  "On iPhone",
+  "On iPhone and Android",
 ] as const;
 ---
 
@@ -36,15 +37,17 @@ const heroChips = [
         {audioBookChoicesConfig.heroDescription}
       </p>
 
-      {/* Once there is a store link it leads, but the playable sample is the
-          thing that actually sells this page, so it keeps a button either way. */}
+      {/* Once there are store links they lead, but the playable sample is the
+          thing that actually sells this page, so it keeps a button either way.
+          Both stores are in the markup unconditionally — `StoreActions` orders
+          and emphasises them, and never drops one. */}
       <div class="app-actions" data-rise style="--rise-index:3">
-        {isLive && audioBookChoicesConfig.primaryCtaHref ? (
+        {isLive ? (
           <>
-            <ActionButton
-              href={audioBookChoicesConfig.primaryCtaHref}
-              label={audioBookChoicesConfig.primaryCtaLabel}
-              target="_blank"
+            <StoreActions
+              appName={audioBookChoicesConfig.shortName}
+              appStoreHref={audioBookChoicesConfig.appStoreHref}
+              playStoreHref={audioBookChoicesConfig.playStoreHref}
             />
             <ActionButton href="#choice" variant="ghost" label="Make a choice" />
           </>

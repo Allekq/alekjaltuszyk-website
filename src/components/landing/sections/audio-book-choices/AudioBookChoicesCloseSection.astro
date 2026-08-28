@@ -1,5 +1,6 @@
 ---
 import ActionButton from "../../ui/ActionButton.astro";
+import StoreActions from "../../ui/StoreActions.astro";
 import AppLandingFooter from "../../ui/AppLandingFooter.astro";
 import { audioBookChoicesConfig } from "../../../../config/site";
 import { siteRoutes } from "../../../../config/routes";
@@ -24,16 +25,16 @@ const footerLinks = [
       <h2 class="abc-close__title">Find out where choosing differently takes you.</h2>
       <p class="app-lead">
         {isLive
-          ? "On the App Store now. The Android build is still on its way, and this page gains a second button the day it lands."
+          ? "On the App Store and on Google Play. Both buttons are always here — whichever store your phone uses is the one that leads."
           : "AudioChoices is finishing up. Support and the legal pages are already live if you want to read exactly how it handles your data first."}
       </p>
 
       <div class="app-actions">
-        {isLive && audioBookChoicesConfig.primaryCtaHref ? (
-          <ActionButton
-            href={audioBookChoicesConfig.primaryCtaHref}
-            label={audioBookChoicesConfig.primaryCtaLabel}
-            target="_blank"
+        {isLive ? (
+          <StoreActions
+            appName={audioBookChoicesConfig.shortName}
+            appStoreHref={audioBookChoicesConfig.appStoreHref}
+            playStoreHref={audioBookChoicesConfig.playStoreHref}
           />
         ) : (
           <ActionButton href={audioBookChoicesConfig.privacyHref} label="Read the privacy policy" />
@@ -49,7 +50,7 @@ const footerLinks = [
     <AppLandingFooter
       ariaLabel="AudioChoices links"
       links={footerLinks}
-      note="AudioChoices is made by Alek Jałtuszyk. Purchases and subscriptions are handled by the App Store and Google Play; Apple's Standard EULA licenses the app software on iOS, and the Terms of Use govern the books and the service."
+      note="AudioChoices is made by Alek Jałtuszyk. Purchases and subscriptions are handled by the App Store and Google Play; Apple's Standard EULA licenses the app software on iOS, Google Play's terms cover the Android download, and the Terms of Use govern the books and the service."
     />
   </div>
 </section>

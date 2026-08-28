@@ -133,6 +133,28 @@ const resolvedStructuredData = [
     ))}
     <script is:inline>
       document.documentElement.classList.add("js");
+      /*
+       * Platform hint for store links, set here in the head so the markup is
+       * already correct on first paint — a store button that reshuffles after
+       * the page has drawn is worse than one that never moved.
+       *
+       * This is a hint, never a gate: pages render every store button in
+       * static HTML and use `[data-platform]` only to order and emphasise
+       * them, so a crawler, a no-JS visitor, or an unrecognised user agent
+       * still sees every way to install the app.
+       *
+       * iPadOS 13+ reports itself as "Macintosh", so a Mac user agent with a
+       * touch screen is an iPad. A real Mac has maxTouchPoints of 0 and falls
+       * through to the unknown case, which is the honest answer for it.
+       */
+      var ua = navigator.userAgent || "";
+      var platformHint = /android/i.test(ua)
+        ? "android"
+        : /iPad|iPhone|iPod/.test(ua) ||
+            (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)
+          ? "ios"
+          : "";
+      if (platformHint) document.documentElement.setAttribute("data-platform", platformHint);
     </script>
     <title>{title}</title>
   </head>

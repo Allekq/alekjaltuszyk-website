@@ -1,0 +1,61 @@
+---
+/**
+ * The store call to action for an app that ships on more than one store.
+ *
+ * Both buttons are always in the static HTML, in a fixed source order, with
+ * real store hrefs. Nothing here is rendered by script and nothing is hidden:
+ * a crawler, a no-JS visitor and an unrecognised user agent all get every way
+ * to install the app. `SiteLayout` sets `data-platform` on `<html>` in the
+ * head, and `app-shell.css` uses it to move the matching store to the front
+ * and give it the primary treatment — ordering and emphasis only, which is why
+ * a wrong guess costs a visitor nothing but a swapped pair of buttons.
+ *
+ * Drop it straight inside an `.app-actions` row. It renders two sibling
+ * anchors rather than its own wrapper so it shares that row's flex/grid
+ * ordering with whatever other buttons the section already has.
+ *
+ * The single-button pages keep using `ActionButton` with their own
+ * `appStoreHref`; this is for the two-store case, and every app that reaches
+ * a second store should come here rather than growing its own pair.
+ */
+import ActionButton from "./ActionButton.astro";
+
+interface Props {
+  appStoreHref: string;
+  playStoreHref: string;
+  /** Defaults read as store names because they sit next to each other. */
+  appStoreLabel?: string;
+  playStoreLabel?: string;
+  /** Names the app in the link text read out to assistive technology. */
+  appName: string;
+}
+
+const {
+  appStoreHref,
+  playStoreHref,
+  appStoreLabel = "App Store",
+  playStoreLabel = "Google Play",
+  appName,
+} = Astro.props as Props;
+---
+
+<ActionButton
+  className="store-action"
+  variant="primary"
+  data-store="ios"
+  href={appStoreHref}
+  target="_blank"
+  aria-label={`Get ${appName} on the App Store`}
+>
+  {appStoreLabel}
+</ActionButton>
+<ActionButton
+  className="store-action"
+  variant="primary"
+  data-store="android"
+  href={playStoreHref}
+  target="_blank"
+  aria-label={`Get ${appName} on Google Play`}
+>
+  {playStoreLabel}
+</ActionButton>

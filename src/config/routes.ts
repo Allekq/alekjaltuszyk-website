@@ -12,6 +12,19 @@ const voiceOfSelfBasePath = "/apps/VoiceOfSelf/";
 const audioBookChoicesBasePath = "/apps/AudioBookChoices/";
 const takeMeSomewhereAppStoreHref =
   "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
+/*
+ * AudioChoices ships on both stores, so its two store links sit together here
+ * and are exported rather than re-typed in `site.ts`. A store URL written down
+ * twice is a store URL that drifts once.
+ *
+ * `com.audiobookchoices` is the Android `applicationId` from the app repo's
+ * `androidApp/build.gradle.kts` — it is the Play listing's identity, not a
+ * label, so it must match the shipped build exactly.
+ */
+export const audioBookChoicesAppStoreHref =
+  "https://apps.apple.com/us/app/audiochoices-audiobooks/id6793583108";
+export const audioBookChoicesPlayStoreHref =
+  "https://play.google.com/store/apps/details?id=com.audiobookchoices";
 
 export const planKeptContentPaths = {
   answersIndex: `${planKeptBasePath}answers/`,
@@ -277,9 +290,10 @@ export const appDirectory = [
     iconHref: withBase("/media/apps/audio-book-choices/app-icon-480.jpg"),
     external: false,
     releaseStage: "released",
-    /* iOS only for now. The Android build is real but unlisted, and claiming
-       Android here would widen "iPhone apps" to "mobile apps" across the whole
-       site for a store page nobody can open yet. */
-    platforms: ["iOS"],
+    /* Live on the App Store and on Google Play. This is the entry that widens
+       "iPhone apps" to "mobile apps" and `platformNameList` to "iOS and
+       Android" everywhere the site derives that copy — see
+       `src/lib/appState.ts`. Nothing else needs a prose edit for it. */
+    platforms: ["iOS", "Android"],
   },
 ] as const satisfies readonly AppDirectoryItem[];
