@@ -17,6 +17,7 @@
   --app-ink-mute: rgb(226 239 250 / 46%);
   --app-line: rgb(141 243 255 / 16%);
   --app-panel: rgb(22 29 42 / 82%);
+  --app-header-base: #1b2330;
   --app-accent: var(--ol-cyan);
   --app-accent-alt: var(--ol-amber);
 

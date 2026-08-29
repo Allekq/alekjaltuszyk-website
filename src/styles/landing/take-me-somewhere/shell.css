@@ -15,6 +15,7 @@
   --app-ink-mute: rgb(238 248 242 / 46%);
   --app-line: rgb(143 224 192 / 16%);
   --app-panel: rgb(12 30 25 / 82%);
+  --app-header-base: var(--tms-moss);
   --app-accent: var(--tms-sun);
   --app-accent-alt: var(--tms-sage);
 

@@ -225,7 +225,7 @@ export const appDirectory = [
       "Ad-supported free play",
     ],
     href: siteRoutes.apps.overLit.href,
-    iconHref: withBase("/media/apps/overlit/app-icon-480.jpg"),
+    iconHref: withBase("/media/apps/overlit/app-icon-512.png"),
     external: false,
     releaseStage: "released",
     platforms: ["iOS"],

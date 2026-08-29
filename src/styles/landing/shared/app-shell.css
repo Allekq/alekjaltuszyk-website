@@ -34,6 +34,14 @@ body:has(.app-page) .site-backdrop {
   --app-ink-mute: var(--color-text-soft);
   --app-line: var(--color-line);
   --app-panel: var(--color-bg-card);
+  /*
+   * Opaque base painted under the sticky header. The panel fill is deliberately
+   * translucent everywhere else, but a header that content scrolls beneath has
+   * to actually hide it — at 65% the page read straight through the bar and the
+   * scroll-drawn figures appeared to collide with it. Each page overrides this
+   * with the colour its own background starts on.
+   */
+  --app-header-base: var(--color-bg);
   --app-accent: var(--color-coral);
   --app-accent-alt: var(--color-mint);
   --app-gutter: clamp(1.1rem, 4vw, 2.5rem);
@@ -163,6 +171,28 @@ body:has(.app-page) .site-backdrop {
 
 .app-header {
   padding-block: clamp(0.85rem, 2.5vw, 1.5rem) var(--space-md);
+  position: relative;
+}
+
+/*
+ * The bar floats inset, so a strip of page still runs past it above and to the
+ * sides. Left alone a heading slides through that strip and reads as if it were
+ * colliding with the header. This blurs whatever passes behind and fades out
+ * below the bar — blur rather than a solid fill, because the page background is
+ * a long gradient and a flat scrim would band against it.
+ */
+.app-header::before {
+  backdrop-filter: blur(14px);
+  content: "";
+  /* Extends past the bar so copy dissolves on the way in rather than being
+     sliced along its bottom edge. */
+  inset: 0 0 -2.75rem;
+  mask-image: linear-gradient(180deg, #000 0 72%, transparent 100%);
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  -webkit-backdrop-filter: blur(14px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0 72%, transparent 100%);
 }
 
 .app-header__inner {
@@ -173,13 +203,16 @@ body:has(.app-page) .site-backdrop {
 }
 
 .app-header__bar {
-  background: color-mix(in srgb, var(--app-panel) 84%, transparent);
+  /* Panel tint over an opaque base, so the bar keeps its colour without
+     letting the section underneath show through it. */
+  background:
+    linear-gradient(var(--app-panel), var(--app-panel)),
+    var(--app-header-base);
   border-color: var(--app-line);
   gap: 0.75rem;
 }
 
 .app-header.is-scrolled .app-header__bar {
-  background: color-mix(in srgb, var(--app-panel) 95%, transparent);
   border-color: color-mix(in srgb, var(--app-accent) 26%, var(--app-line) 74%);
 }
 
