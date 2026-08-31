@@ -96,8 +96,8 @@ export const legalDocuments = {
     sourcePath: "src/content/legal/overlit-privacy-policy.md",
   },
   overLitTerms: {
-    version: "3.1.0",
-    effectiveDate: "2026-08-22",
+    version: "3.1.1",
+    effectiveDate: "2026-08-31",
     path: "/apps/OverLit/terms-of-use/",
     sourcePath: "src/content/legal/overlit-terms-of-use.md",
   },
