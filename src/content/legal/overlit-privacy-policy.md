@@ -49,6 +49,7 @@ Everything that can send data off your phone is a third-party component, so the 
 | Firebase App Check | yes | yes | Confirms a request came from a genuine copy of the app. Apple **App Attest** on iPhone, Google **Play Integrity** on Android |
 | Google Analytics for Firebase | yes | yes | The events listed in section 7, and nothing else |
 | Google User Messaging Platform | yes | yes | Google's privacy message, which is what gathers consent where the law requires it (section 12) |
+| Store review prompt (Apple **StoreKit**, Google **Play In-App Review**) | yes | yes | Asks the store to show its own "rate this app" card. The request carries nothing about you, and the app is never told whether the card appeared or what you did with it |
 | Google Mobile Ads SDK (AdMob) | yes | yes | Serves the ads in section 6 |
 | App Tracking Transparency, Apple advertising identifier, SKAdNetwork | yes | **no** | Apple's tracking permission and attribution. These are Apple technologies and exist only on iPhone (section 6) |
 | Google advertising ID | **no** | yes | Android's own resettable advertising identifier, used by the ads SDK for the same purposes (section 6) |
@@ -162,7 +163,7 @@ The whole feature can be switched off remotely, for everyone, without an app upd
 - A leaderboard entry is **published**. Its nickname and score are visible to any other player who reaches that board.
 - Board entries have **no automatic expiry**. When a board's scoring rules change the board is archived rather than deleted, and archived boards stay readable indefinitely. An entry stays until you ask for it to be erased. Section 15 explains how.
 - Because a leaderboard identity is anonymous, there is no name or email address attached to it. That is good for your privacy and awkward for your rights — see section 15 and section 17.
-- The copies of board rows held in **other players'** de-duplication ledgers expire on their own within 30 days, but erasing your data does not reach into them. They are not shown to anybody; they are a cached response.
+- The copies of board rows held in **other players'** de-duplication ledgers expire on their own within 30 days, but erasing your data does not reach into them. They are never shown on a board or to a new viewer; they are a cached response, and the only way one resurfaces is if that player's own app repeats the identical submission.
 
 ## 6. Advertising
 
@@ -246,7 +247,7 @@ To identify authorised sellers of OverLit's ad inventory, this site publishes an
 
 *Applies to both platforms.*
 
-When no network ad is available — including on Android, where there is no ad network at all — OverLit may show a **house ad** instead: a panel promoting one of the developer's own apps. These are bundled into the app. Showing one sends nothing to any ad network, and no data about you is used to choose it beyond whether you are being treated as an adult.
+When no network ad is available, OverLit may show a **house ad** instead: a panel promoting one of the developer's own apps. These are bundled into the app. Showing one sends nothing to any ad network, and no data about you is used to choose it beyond whether you are being treated as an adult.
 
 Which apps are promoted differs by platform, for the same reason the rest of section 3 does. On **iPhone** they are **PlanKept** and **AudioChoices**, plus **Voice of Self**, which is shown only to players treated as adults. On **Android** there is a single house ad, for **AudioChoices**, shown to everyone — the other two have no Android listing to send anyone to.
 
@@ -333,8 +334,8 @@ There is **no automated decision-making that produces legal effects or similarly
 | **Google** (Google AdMob and the Mobile Ads SDK, User Messaging Platform) | Ad requests and interactions, IP address, device and SDK signals, consent state, and where applicable a Google publisher first-party identifier | Google acts as an **independent controller** for advertising — it decides how it uses this data under its own terms, and is not simply following the developer's instructions. Google LLC is a **United States** company operating globally |
 | **Google** (Google Analytics for Firebase) | The 16 one-time milestone events, the repeatable `overlit_mode_play` run-start event, and the standard analytics metadata described in section 7 | Processor for the developer's analytics, on Google's Firebase terms |
 | **Google** (Firebase Authentication, Cloud Functions, Cloud Firestore, App Check, Cloud Logging) | The anonymous leaderboard identifier, the submission fields listed in section 5, the stored board records, App Check attestations, and operational logs including request IP addresses | Processor. The functions and the database run in `europe-west1` in **Belgium**; Firebase Authentication and App Check are global Google services |
-| **Apple** (App Store, StoreKit, DeviceCheck / App Attest, SKAdNetwork) | Purchase, refund and restore information; device attestation; aggregated install attribution | Independent controller for the store relationship and for its own platform services. Card numbers and billing details stay between you and Apple |
-| **Google** (Google Play Store, Play Billing, Play Integrity) | Purchase, refund and restore information; device and app integrity attestation | Independent controller for the store relationship and for its own platform services. Card numbers and billing details stay between you and Google |
+| **Apple** (App Store, StoreKit, DeviceCheck / App Attest, SKAdNetwork) | Purchase, refund and restore information; device attestation; aggregated install attribution; a request to show the store's own review card, which carries nothing about you | Independent controller for the store relationship and for its own platform services. Card numbers and billing details stay between you and Apple |
+| **Google** (Google Play Store, Play Billing, Play Integrity, Play In-App Review) | Purchase, refund and restore information; device and app integrity attestation; a request to show the store's own review card, which carries nothing about you | Independent controller for the store relationship and for its own platform services. Card numbers and billing details stay between you and Google |
 | **Tenjin Inc.** (attribution partner) | The 16 milestone names, the device advertising identifier where one is available, IP address, device and app information, the Google Play Install Referrer on Android, and a copy of the SKAdNetwork postback on iPhone | Processor for the developer's install measurement, on Tenjin's data processing terms. A **United States** company. Not started at all for a player treated as a minor |
 | **Meta Platforms**, **TikTok** (ad platforms the developer buys adverts from) | From Tenjin, not from the app: that an install attributed to one of their adverts reached a given milestone, and the aggregate SKAdNetwork postback Apple sends them directly | **Independent controllers** for their own advertising systems. **No Meta or TikTok software runs inside OverLit** and neither receives anything directly from it |
 | **Other players** | Your generated nickname and your score, on any board you appear on | Publication, as described in section 5 |
@@ -447,7 +448,7 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 The leaderboard service has a single function whose only job is deletion. It hard-deletes **everything** held against your anonymous identity: every board entry on every board, the private player record and its rate counters, the rating record, the de-duplication ledger, and the anonymous Firebase Authentication user itself. Your entries come off the live boards, not merely out of an internal table — a published score is public, so erasing it has to mean erasing what other people can see. The function is deliberately never blocked by the feature's kill switch, because deletion has to keep working even when everything else is switched off.
 
-The one thing it cannot reach is the cached copy of board rows held in **other players'** de-duplication ledgers, described in section 5. Those are not shown to anybody and expire on their own within 30 days.
+The one thing it cannot reach is the cached copy of board rows held in **other players'** de-duplication ledgers, described in section 5. Those are never shown on a board or to anybody else; the only way one can resurface is as the replayed result of that player's own earlier submission, and they expire on their own within 30 days.
 
 **The route in the app is one tap**, on both platforms. Open **Settings → Legal → Delete my leaderboard data**. It acts on your own identity directly, so nothing has to be matched and nothing has to be described. It is available whenever leaderboards are available to you, it asks you to confirm, and it cannot be undone. Your local progress, levels and unlocks are not touched — only what the leaderboard service holds.
 
