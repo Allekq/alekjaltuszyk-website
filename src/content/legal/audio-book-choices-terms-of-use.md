@@ -26,7 +26,11 @@ Features, books, narration, artwork, input methods, prices and supported platfor
 
 ## 4. Your Licence To Listen
 
-The books, story text, narration, audio, artwork, branding, and the app itself are owned by or licensed to the Developer.
+The books, story text, narration, audio, artwork, branding, and the app itself are owned by or licensed to the Developer. Books are published under the imprint **AudioChoices Originals**, which is the name shown as the author of every book in the app. That imprint is the Developer — not a separate publisher, and not a third party whose permission was obtained.
+
+The story text is written by the Developer, and a book's narration is a recording of that text (section 11). Copying the audio therefore also copies the writing underneath it, whatever produced the voice reading it aloud.
+
+© 2026 Aleksander Jałtuszyk. All rights reserved.
 
 On iOS, the licence to the app *software* is Apple's Standard EULA, not this section — see section 20. This section is your licence to the **content**: the books, their narration and their artwork. On Android, where no store licence exists, this section licenses the app as well.
 
@@ -118,7 +122,7 @@ Stories in AudioChoices are narrated by an AI text-to-speech model, Kokoro-82M, 
 
 No listening data, no voice recording, no choice you make and no personal information is ever sent to an AI service or a text-to-speech service. There is no runtime AI in the app.
 
-The story text is written by a human author.
+The story text is written by a human author — the Developer. Section 4 says who owns it, and what your licence to the narration made from it allows.
 
 AI narration is good but not perfect: it can occasionally mispronounce a name, misplace an emphasis or read a line in an unexpected tone. AudioChoices is entertainment. It is not a source of factual, professional, medical, legal, financial or safety advice, and nothing in a story should be treated as such.
 

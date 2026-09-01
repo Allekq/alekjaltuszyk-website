@@ -489,9 +489,31 @@ export const legalDocuments = {
   // what is OFFERED, and that a lower number of the listener's own still stands,
   // are unchanged and are what keep this from being a restriction on the
   // product they paid for. 2.3.0 still stands.
+  //
+  // 2.3.1 — PATCH, and deliberately not a minor. Section 4 gains three things and
+  // not one of them is a new obligation, a new right, or a new recipient: the
+  // imprint AudioChoices Originals is named as the Developer rather than left to
+  // look like a separate publisher (the app shows it as the author of every book
+  // and no document said who it was); a sentence saying that a book's narration is
+  // a recording of its story text, so a copy of the audio is also a copy of the
+  // writing underneath it; and a copyright notice. Section 11's "written by a human
+  // author" now names that author and points at section 4. All of this describes
+  // ownership that has existed under Berne since the prose was written — the
+  // contract was simply silent about it, and silence is what lets a listener argue
+  // that machine-read narration belongs to nobody.
+  //
+  // AppConfig.LEGAL_VERSION STAYS AT 9 and must not be bumped for this. 9 is staged
+  // and has not shipped in any build, so it is still the first version anybody will
+  // ever be asked to accept: this text rides through the gate 9 already fires and
+  // reaches every existing listener at no extra cost. Bumping to 10 would wall the
+  // same people twice for one acceptance and buy nothing. The owner asked for the
+  // ownership statement to be something a listener has to accept — at 9 it is.
+  //
+  // ORDERING, with the same teeth it had for 6, 8 and 9: this revision must be live
+  // on the website before the build carrying LEGAL_VERSION 9 reaches one device.
   audioBookChoicesTerms: {
-    version: "2.3.0",
-    effectiveDate: "2026-08-14",
+    version: "2.3.1",
+    effectiveDate: "2026-09-01",
     path: "/apps/AudioBookChoices/terms-of-use/",
     sourcePath: "src/content/legal/audio-book-choices-terms-of-use.md",
   },
