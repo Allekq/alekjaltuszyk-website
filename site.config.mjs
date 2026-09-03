@@ -121,8 +121,8 @@ export const legalDocuments = {
     sourcePath: "src/pages/apps/VoiceOfSelf/how-voice-of-self-uses-ai/index.astro",
   },
   overLitPrivacy: {
-    version: "3.1.1",
-    effectiveDate: "2026-08-31",
+    version: "3.2.0",
+    effectiveDate: "2026-09-03",
     path: "/apps/OverLit/privacy-policy/",
     sourcePath: "src/content/legal/overlit-privacy-policy.md",
   },
