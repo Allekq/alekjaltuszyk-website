@@ -33,7 +33,7 @@ This policy covers the OverLit app on both platforms and the OverLit pages on `a
 - Because the free game is paid for by advertising, OverLit advertises itself. To know which of those adverts actually work, the app sends the **same 16 milestone events** to one **measurement partner, Tenjin**, which reports them back to the ad platforms the developer buys from — currently **Meta (Facebook and Instagram)**, **TikTok** and **Google**. It receives no score, no nickname, no age answer and nothing you typed, because there is nothing in OverLit to type. A player treated as **13 to 17** is not measured this way at all: the partner's software is never started for them. **No Meta or TikTok software runs inside OverLit**; only the partner's does.
 - Analytics is limited to **16 one-time milestone events** — things like "finished onboarding" and "completed level 10" — plus **one repeatable event that counts each run you start, labelled only with which of seven game modes it was**. They carry no identifier you would recognise, no score, no age answer and no message content. A player who declares **13 to 17** sends none of them. For a player who declares **18 or older**, analytics starts only after Google's privacy message has run, on **both** platforms. Accepting these documents is not analytics consent.
 - The app asks you to pick an age range, **13 to 17** or **18 or older**. That answer stays on your device and is never transmitted. It changes how ads and analytics are configured, and whether your scores are published by default.
-- **In India and South Korea every player is given the 13-to-17 treatment**, whichever age they picked, because those countries set the age of a child above OverLit's minimum of 13. Section 14 explains.
+- **In South Korea every player is given the 13-to-17 treatment**, whichever age they picked, because no privacy-consent mechanism this app can use reaches Korea. **In India, a player who chose 18 or older is treated as an adult**, and a player who chose 13 to 17 gets the 13-to-17 treatment as they do everywhere. In both countries scores are not published to a leaderboard unless the player turns it on, and a player who chose 13 to 17 cannot turn it on. Section 14 explains.
 - There is **one optional purchase**, Full Version. It is handled by Apple or Google Play, it removes ads, and no payment-card details ever reach the developer.
 - Nothing is sold to data brokers. Some privacy laws nonetheless treat personalised advertising as "sharing" or "targeted advertising" — section 12 explains how to turn that off.
 - There is no chat, no social feed, no friend list, no multiplayer, no cloud save, no camera or photo access, no microphone access and no precise location.
@@ -94,7 +94,7 @@ There is **no cloud save**. OverLit does not use iCloud, Game Center, Google Pla
 
 **Settings → Legal → Post my scores to leaderboards** turns publication off while you keep playing. With it off, nothing about a run leaves your device; you can still open a board and see where everybody else stands.
 
-For a player who chose the **13 to 17** band the switch starts **off**, and stays off until they turn it on. For a player who chose 18 or older it starts on. That difference is deliberate: several regulators expect a service not to make a child public by default.
+For a player who chose the **13 to 17** band the switch starts **off**, and stays off until they turn it on. For a player who chose 18 or older it starts on — except in the two countries named in section 14, where it starts off for everybody, and where a player who chose 13 to 17 cannot turn it on at all. That difference is deliberate: several regulators expect a service not to make a child public by default.
 
 Turning it off does not retract what is already published. Section 15 is how you remove that.
 
@@ -197,7 +197,7 @@ Apple requires your permission before an app may link what it learns about you w
 
 **Adults.** If you chose the **18 or older** band, OverLit shows that prompt once the legal documents have been accepted and the app is on screen. If you choose *Allow*, Google's advertising SDK may read your device's **advertising identifier** and use it to personalise the ads you see and to measure them across other apps and websites. If you choose *Ask App Not to Track*, or dismiss the prompt without answering, iOS does not make the identifier available and it is not used. You can change this at any time in **iOS Settings → Privacy & Security → Tracking**; the change takes effect without reinstalling.
 
-**Minors.** If you chose the **13 to 17** band — or you are in a country listed in section 14 — OverLit **never shows the prompt and never reads the advertising identifier**. Cross-app tracking is not asked for and is not performed. This is deliberate: several laws restrict targeted advertising to people a service knows to be minors, and OverLit knows, because it asked.
+**Minors.** If you chose the **13 to 17** band — or you are in South Korea, whichever band you chose (section 14) — OverLit **never shows the prompt and never reads the advertising identifier**. Cross-app tracking is not asked for and is not performed. This is deliberate: several laws restrict targeted advertising to people a service knows to be minors, and OverLit knows, because it asked.
 
 **Refusing costs you nothing but relevance.** Ads still appear either way — they are what pays for the free game. What changes is whether they are chosen using an identifier that follows you between apps. The only way to remove ads entirely is the Full Version purchase.
 
@@ -227,7 +227,7 @@ The free game is paid for by advertising, so OverLit advertises itself — on **
 
 It does **not** receive your score, your rank, your board nickname, your leaderboard identity, your age answer, your purchase card details, or anything you typed — there is nothing in OverLit to type.
 
-**Nothing runs for a player treated as a minor.** For the 13-to-17 band, and for everyone in the countries in section 14, the Tenjin SDK is **not started at all**. This is deliberately stronger than switching it off: an attribution SDK exists to measure across apps, so for a player who should not be measured across apps the honest state is that it never runs.
+**Nothing runs for a player treated as a minor.** For the 13-to-17 band, and for everyone in South Korea (section 14), the Tenjin SDK is **not started at all**. This is deliberately stronger than switching it off: an attribution SDK exists to measure across apps, so for a player who should not be measured across apps the honest state is that it never runs.
 
 **Consent still governs it for everyone else.** Where Google's privacy message applies, the SDK is not started until that message reports that advertising may proceed, in exactly the way section 7 describes for analytics.
 
@@ -263,7 +263,7 @@ While the Full Version entitlement is active, OverLit makes no banner, interstit
 
 OverLit uses Google Analytics for Firebase, in a deliberately narrow way.
 
-**It starts switched off, and it stays off for minors.** Analytics collection is disabled in the app's configuration before any code runs. A player treated as a minor — the 13-to-17 band, or a country in section 14 — sends no OverLit Firebase milestone, purchase, conversion or gameplay events. Events that occur before the privacy process is complete, or while analytics is disabled, are not queued and are not replayed later.
+**It starts switched off, and it stays off for minors.** Analytics collection is disabled in the app's configuration before any code runs. A player treated as a minor — the 13-to-17 band, or any player in South Korea (section 14) — sends no OverLit Firebase milestone, purchase, conversion or gameplay events. Events that occur before the privacy process is complete, or while analytics is disabled, are not queued and are not replayed later.
 
 **For everyone else it is Google's privacy message that turns it on, not a checkbox in these documents.** For a player treated as an adult, the app first runs Google User Messaging Platform. Where Google's message applies, UMP maps that player's current privacy choice into Google Consent Mode, including the `analytics_storage` signal. The app then allows Firebase Analytics to operate under those Google-managed signals; it does not turn analytics on because the player accepted these documents, and on iPhone it does not use Apple's App Tracking Transparency answer as analytics consent either. UMP and Firebase determine the resulting behaviour for the player's region and choice, including any limited measurement Google provides when storage consent is denied. **If the privacy message does not complete successfully, analytics stays off.** This is the same mechanism on both platforms.
 
@@ -407,7 +407,7 @@ That answer is **stored on your device and never transmitted**. It is not attach
 
 A player treated as a minor gets non-personalised, Teen-rated ads, is never shown Apple's tracking prompt, is kept away from the adult-only house ad, sends no OverLit Firebase analytics events of either kind, and is not published to a leaderboard unless they switch it on themselves. In the two countries in the table below, a player who declared 13 to 17 cannot switch it on at all.
 
-### Countries where everyone is treated as a minor
+### Countries with extra restrictions
 
 **The age at which a person counts as a child varies by country, and in several places it is higher than 13.** Where that is so, a self-declared "18 or older" is not always something OverLit can responsibly rely on. The two countries below are handled differently, because what their law actually asks for differs — so this table names what each one narrows rather than treating them as one rule.
 
@@ -538,7 +538,7 @@ OverLit is an app rather than a website, so there is no browser-level opt-out pr
 
 **Canada, including Quebec.** Quebec's Law 25 requires that the person responsible for the protection of personal information be identified: that is Aleksander Jałtuszyk, reachable at `alekgameshelp2@gmail.com`. Technology capable of identifying, locating or profiling a user is disclosed in sections 5, 6 and 7, and the means of deactivating it are in section 12. There is no automated decision made about you.
 
-**India and South Korea.** See section 14: every player in these countries is given the minor treatment, whichever age band they chose.
+**India and South Korea.** See section 14. In South Korea every player is given the minor treatment whichever age band they chose. In India a player who chose 18 or older is treated as an adult; a player who chose 13 to 17 gets the 13-to-17 treatment as everywhere. In both countries scores are not published to a leaderboard by default, and a player who chose 13 to 17 cannot publish there at all.
 
 **Brazil.** Under the LGPD the controller is a small-scale processing agent with no Data Protection Officer appointed; the communication channel for data subjects is the contact in section 21.
 
