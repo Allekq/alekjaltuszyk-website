@@ -406,9 +406,41 @@ export const legalDocuments = {
   // against re-walling every existing listener behind the acceptance gate for a
   // change that grants nothing new, adds no recipient, and is visible and
   // reversible at the point of use.
+  //
+  // 2.9.0 — MINOR. It discloses two things that were true and unstated, and an
+  // unstated retention in a document this detailed (30-day Cloud Logging,
+  // 400-day Google audit logs, 31-day R2 metrics, 13-month GA) reads as an
+  // absence rather than an omission.
+  //
+  // (1) `(default)` has point-in-time recovery enabled, 7-day version retention.
+  // A record erased on request leaves the live database at once but stays inside
+  // that rolling window until it ages out. PITR stays ON deliberately: an
+  // erasure never touches entitlements, unlockTransactions or freeUnlocks, so
+  // the records that cannot be reconstructed are exactly the ones erasure leaves
+  // alone, and this is the only way back from an incident that damages them. The
+  // window is bounded, auto-expiring, never read, and closes well inside the one
+  // month section 15 already allows for answering a request — which is the
+  // shape regulators accept for backups, but only if it is disclosed.
+  //
+  // (2) The erasure log that makes a restore safe: `deleteMyData` now writes
+  // sha256(uid) to a SEPARATE Firestore database before erasing, and
+  // `envctl replay-erasures` re-runs every erasure it names after any restore.
+  // Separate database because a restore of `(default)` would otherwise roll back
+  // the log too, destroying the record of what to re-erase at the exact moment
+  // it is needed. The hash is never reversed — replay hashes the uids the
+  // restored data already supplies and tests membership — so the log is not a
+  // register of who exercised the right. Retained indefinitely, minimal, on
+  // legitimate interests: a restore can happen at any time.
+  //
+  // The Play-linked deletion page moves in the SAME commit, not after it — it is
+  // on a live store listing, and a stale one is a false statement where a
+  // reviewer looks.
+  //
+  // AppConfig.LEGAL_VERSION stays at 9, same reasoning as terms 2.3.1: 9 has
+  // never shipped, so this rides the gate it already fires.
   audioBookChoicesPrivacy: {
-    version: "2.8.0",
-    effectiveDate: "2026-08-20",
+    version: "2.9.0",
+    effectiveDate: "2026-09-03",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },
@@ -513,7 +545,7 @@ export const legalDocuments = {
   // on the website before the build carrying LEGAL_VERSION 9 reaches one device.
   audioBookChoicesTerms: {
     version: "2.3.1",
-    effectiveDate: "2026-09-01",
+    effectiveDate: "2026-09-03",
     path: "/apps/AudioBookChoices/terms-of-use/",
     sourcePath: "src/content/legal/audio-book-choices-terms-of-use.md",
   },
