@@ -57,6 +57,11 @@ Contact:
   app interaction signals such as touch, idle, swipe, and recording state. These
   signals are used to trigger the local animation experience and are not
   intended to create new backend account records.
+- Deleting your account signs you out and removes most backend records right
+  away, but keeps your account identifier and your billing-period usage counters
+  for 30 days. That lets you undo an accidental deletion by signing back in, and
+  stops a paid AI allowance from being reset by deleting and re-registering.
+  Those retained records are used for nothing else in the meantime.
 - We do not sell personal data, and we do not use your personal content to
   train our own models.
 - Voice of Self is not an ad-supported app. We do not display third-party ads,
@@ -355,8 +360,11 @@ following:
 - Consent: where you choose to provide sensitive content or use optional
   features that depend on consent, such as device permissions
 - Legitimate interests: to secure the service, prevent abuse, manage cost,
-  enforce usage limits, route requests, handle failures, and improve reliability
-  without overriding your rights
+  enforce usage limits, route requests, handle failures, improve reliability,
+  and retain an account identifier and billing-period usage counters for a
+  limited period after account deletion so that a paid allowance cannot be reset
+  by repeated deletion and re-registration and so that an accidental deletion can
+  be undone — in each case without overriding your rights
 - Legal obligations: to comply with tax, accounting, fraud, consumer, safety,
   or other legal requirements
 - Vital interests: where needed to protect someone's safety
@@ -546,6 +554,64 @@ or service-operation reasons. These records may include:
 - Extra usage grants
 - Usage aggregates and usage-event records tied to your account
 - User-owned Cloud Storage objects stored under your user prefix
+
+When you delete your account, most of these are removed straight away. Two are
+kept for a 30-day grace period before being removed. See
+[Section 8.3.1](#831-the-30-day-account-deletion-grace-period).
+
+### 8.3.1 The 30-day account deletion grace period
+
+Deleting your account starts a 30-day grace period. During it, we keep exactly
+two things:
+
+- Your Firebase Authentication account record, so that the account identifier
+  attached to your sign-in stays the same
+- Your usage-accounting totals for the current billing period, which are
+  counters of tokens, calls, timestamps, and derived cost
+
+Everything else listed in Section 8.3 is deleted immediately when you complete
+the delete-account flow, including your profile record, entitlement overrides,
+extra usage grants, per-request usage-event records, your RevenueCat customer
+record, and any files stored under your user prefix. Your existing sign-in
+sessions are ended immediately, so the app signs you out and the account stops
+working like an active account.
+
+We keep those two things for two reasons.
+
+The first is recovery. If you deleted your account by mistake, or changed your
+mind, signing back in with the same Apple or Google identity during the 30 days
+returns you to the same account rather than a stranger's blank one. This is the
+behaviour Apple and Google use for their own account deletions.
+
+The second is abuse prevention. Managed AI usage is metered per account per
+billing period, and each request costs us real money at our AI providers. If
+deleting an account issued a brand-new account identifier immediately, anyone
+could spend a period's AI allowance, delete, sign back in, restore their
+subscription, and receive a fresh allowance — repeatedly, and at our cost.
+Keeping the account identifier and the period counters for the grace period is
+what prevents that. Thirty days is not arbitrary: it is slightly longer than the
+longest billing period we sell, so waiting the grace period out gains nothing
+that simply waiting for your billing period to renew would not already give you.
+
+During the grace period, the retained records are used for nothing else. They
+are not used to contact you, to profile you, to advertise to you, to train
+models, or for analytics. The retained usage totals are counters, not content:
+they contain no entries, transcripts, audio, or AI output, because we do not
+retain that content in the first place (see
+[Section 8.5](#85-zero-retention-for-managed-ai-content)).
+
+When the 30 days end, an automated job removes the usage totals and then the
+Firebase Authentication account record. After that, signing in with the same
+Apple or Google identity creates a genuinely new account.
+
+If you are in a jurisdiction that requires us to identify a legal basis, we rely
+on legitimate interests for this retention: preventing fraud and abuse of a
+paid, metered service, keeping that service financially viable, and allowing
+people to undo an accidental deletion. Thirty days also aligns with the one-month
+deadline for responding to data subject requests under Article 12(3) GDPR. You
+can object to this processing, or ask us to complete the removal sooner, using
+the contact details in
+[Section 15](#15-how-can-you-contact-us-about-this-policy).
 
 ### 8.4 Diagnostic, security, and platform log records
 
@@ -805,24 +871,38 @@ backups.
 
 ### 16.2 Backend-linked account data
 
-The app includes an in-app delete-account flow. When completed, it is intended
-to immediately remove backend-linked records we control:
+The app includes an in-app delete-account flow. When completed, it immediately
+ends your existing sign-in sessions and removes these backend-linked records we
+control:
 
-- Your Firebase Authentication account
 - Your RevenueCat customer record associated with your app user ID
 - Backend-linked account records such as `customers/{uid}`
 - RevenueCat extension event records associated with your user
 - Manual entitlement overrides
 - Extra usage grants
-- Usage records and usage-event records tied to your account
+- Per-request usage-event records tied to your account
 - Any user-owned Cloud Storage objects stored under your user prefix, if such
   objects exist
 
+Two records are kept for a 30-day grace period and then removed automatically:
+your Firebase Authentication account record and your usage-accounting totals for
+the current billing period.
+[Section 8.3.1](#831-the-30-day-account-deletion-grace-period) explains what
+that means, why it exists, and what those records are used for in the meantime
+— which is nothing else.
+
+If you change your mind during those 30 days, signing back in with the same
+Apple or Google identity returns you to the same account. Note that the records
+deleted immediately are not restored by signing back in: your subscription
+status is re-established by restoring your purchase, and extra usage grants and
+stored files are gone.
+
 If a backend, storage, or provider deletion step cannot be completed after
-retrying, the app may leave your sign-in account in place, tell you which
-cleanup steps still need a retry, and let you try the delete-account flow
-again later instead of silently finalizing account removal while cleanup is
-still incomplete.
+retrying, the app leaves your sign-in account in place and fully usable, tells
+you which cleanup steps still need a retry, and lets you try the delete-account
+flow again later instead of silently finalizing account removal while cleanup is
+still incomplete. In that case no grace period starts, because the deletion did
+not take effect.
 
 Deleting your account does not remove journals, transcripts, recordings, or
 other content that already exists only on your device. Deleting your account

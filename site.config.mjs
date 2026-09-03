@@ -69,17 +69,48 @@ export const legalDocuments = {
     path: "/apps/PlanKept/terms-of-service/",
     sourcePath: "src/content/legal/plankept-terms-of-service.md",
   },
-  // Live-gated (VoiceOfSelf fetches this): version and date deliberately
-  // unchanged by the masthead addition.
+  // Live-gated (VoiceOfSelf fetches this). Both bumped for the account-deletion
+  // grace period, and both are substantive rather than cosmetic, so the
+  // re-gate is deserved.
+  //
+  // Account deletion used to destroy the Firebase Auth identity immediately.
+  // Because the managed-AI allowance is metered per account per billing period,
+  // that meant deleting an account minted a new account identifier and with it a
+  // fresh allowance — spend the month, delete, sign back in, restore the
+  // purchase, spend it again, at real cost to us. Deletion is now a soft delete:
+  // most backend records still go immediately, but the auth account record and
+  // the billing-period usage counters are held for 30 days and then removed by a
+  // scheduled job. That closes the loop and gives people the accidental-deletion
+  // recovery Apple and Google offer.
+  //
+  // Privacy 1.2.22 -> 1.3.0. Sections 8.3 and 16.2 previously stated that
+  // deletion removes the auth account and usage records immediately, which as of
+  // this change is false. New section 8.3.1 discloses the retention, its
+  // duration, its two purposes, the legitimate-interests basis, and that the
+  // retained records are used for nothing else. This is a new retention
+  // practice, not a clarification, so a minor step rather than a patch.
+  //
+  // Terms 1.2.16 -> 1.3.0. New section 18.1 sets out the deletion and
+  // reinstatement mechanics, states that reinstating does not restore what was
+  // already deleted, and states that usage carries over rather than resetting.
+  // Section 9 names delete-and-re-register allowance resetting explicitly; that
+  // was already prohibited as circumventing usage limits, but it now says so.
+  // New user-facing contract behaviour, so a minor step.
+  //
+  // 30 days is load-bearing, not a round number. It exceeds the longest billing
+  // cadence we sell (monthly), so waiting the grace period out is never faster
+  // than waiting for the billing period to renew. Shortening it below a month
+  // would reopen the abuse loop AND make the published text false. It also lines
+  // up with the Art. 12(3) GDPR one-month response deadline.
   voiceOfSelfPrivacy: {
-    version: "1.2.22",
-    effectiveDate: "2026-06-20",
+    version: "1.3.0",
+    effectiveDate: "2026-09-03",
     path: "/apps/VoiceOfSelf/privacy-policy/",
     sourcePath: "src/content/legal/voice-of-self-privacy-policy.md",
   },
   voiceOfSelfTerms: {
-    version: "1.2.16",
-    effectiveDate: "2026-06-08",
+    version: "1.3.0",
+    effectiveDate: "2026-09-03",
     path: "/apps/VoiceOfSelf/terms-of-service/",
     sourcePath: "src/content/legal/voice-of-self-terms-of-service.md",
   },

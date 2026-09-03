@@ -238,6 +238,9 @@ You agree not to, and not to help others to:
   security, integrity, moderation, rate limiting, or access-control systems.
 - Circumvent usage limits, safety systems, account restrictions, pricing,
   entitlement checks, or other technical or business controls.
+- Create, delete, or re-register accounts in order to reset a metered usage
+  allowance, obtain repeated trials, or otherwise obtain paid access you have
+  not paid for.
 - Reverse engineer, decompile, disassemble, decode, adapt, scrape, benchmark,
   mirror, or extract the Service, except where applicable law clearly permits
   that activity despite this restriction.
@@ -451,6 +454,36 @@ Upon termination, your license to use the Service ends immediately. Sections
 that by their nature should survive termination will survive, including
 sections on intellectual property, disclaimers, liability, indemnification,
 disputes, and miscellaneous terms.
+
+### 18.1 Deleting your account, and the 30-day grace period
+
+You may delete your account at any time using the in-app delete-account flow.
+Completing it ends your existing sign-in sessions and removes most of your
+backend account records immediately.
+
+Two records are retained for 30 days and then deleted automatically: your
+authentication account record and your usage-accounting counters for the current
+billing period. During those 30 days:
+
+- You may reinstate the account by signing back in with the same Apple or Google
+  identity. You keep the same account identifier.
+- Reinstating does not restore what was already deleted. Your subscription status
+  is re-established by restoring your purchase, and any extra usage grants and
+  stored files are gone.
+- Your metered AI usage for the current billing period carries over rather than
+  resetting. Deleting and re-registering is not a way to obtain a further
+  allowance within the same billing period.
+
+We retain those two records for that period to allow recovery from an accidental
+deletion and to prevent repeated deletion and re-registration from being used to
+reset a paid, metered allowance. The privacy policy describes this retention and
+its legal basis in more detail.
+
+Deleting your account does not cancel an App Store subscription. Cancel or
+manage that through your Apple account, as described in
+[Section 8](#8-subscriptions-billing-and-paid-access). Deleting your account
+does not entitle you to a refund of amounts already paid, except where
+applicable law provides otherwise.
 
 ## 19. Governing Law And Disputes
 
