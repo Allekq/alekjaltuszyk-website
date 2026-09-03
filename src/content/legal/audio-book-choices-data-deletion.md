@@ -59,6 +59,8 @@ is nothing in those totals that could be traced back to you, and nothing to subt
 
 **Operational logs** at Google and Cloudflare, for the periods those providers apply.
 
+**An irreversible hash of your ID, in a separate erasure log.** The database keeps a rolling seven-day history so it can be repaired after an incident, which means a restore could otherwise bring back records you had deleted. The log is what prevents that: it records that an ID asked for erasure, as a hash, with nothing else and not the ID itself, and after any restore every erasure it names is carried out again. Your deleted records also fall out of that seven-day window on their own, and nothing reads them while they are in it.
+
 ## Two things people expect this to do, and it does not
 
 **Deleting your data does not cancel a subscription.** Subscriptions are managed by Apple or Google
