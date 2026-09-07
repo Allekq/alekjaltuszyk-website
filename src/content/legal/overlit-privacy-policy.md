@@ -27,11 +27,12 @@ This policy covers the OverLit app on both platforms and the OverLit pages on `a
 - There is no OverLit account, no sign-in, no password, and no name, email address or phone number is ever requested by the app.
 - Your scores, level progress, theme unlocks, settings, play counters, age answer and purchase state are stored **on your device**.
 - **Online leaderboards**, where enabled, send a score and a small set of technical fields to a server run by the developer on Google Cloud in **Belgium**, under an anonymous identifier. Your board nickname is picked at random by the server from a fixed list of words written by the developer. You can ask for a different one at any time, but you cannot type your own, and nobody can put their own text on a board.
-- **You can turn publication off** and keep playing: **Settings → Legal → Post my scores to leaderboards**. For players who told the app they are 13 to 17 it is **off unless they turn it on**.
+- **You can turn leaderboards off entirely** and keep playing: **Settings → Legal → Use leaderboards**. Off means no boards, no nickname, and every run stays on your device. For players who told the app they are 13 to 17, scores are **not published unless they turn publication on** — they can read every board in the meantime.
 - OverLit shows **Google AdMob ads** in the free version on **both iPhone and Android** — a banner above the board while you play, interstitials between runs, and opt-in rewarded ads. Google's advertising SDK processes ad-request and ad-interaction data, and your IP address, which can be used to estimate a coarse location. Section 6 has the detail; section 3 lists which components each platform carries.
 - On iPhone, if you told the app you are **18 or older**, OverLit shows Apple's **App Tracking Transparency** prompt. If you allow tracking there, Google's advertising SDK may read your device's **advertising identifier** and use it to personalise ads and measure them across other companies' apps. If you say no, or never answer, the identifier is not available and is not used. Players in the **13 to 17** band are **never shown the prompt**.
-- Because the free game is paid for by advertising, OverLit advertises itself. To know which of those adverts actually work, the app sends the **same 16 milestone events** to one **measurement partner, Tenjin**, which reports them back to the ad platforms the developer buys from — currently **Meta (Facebook and Instagram)**, **TikTok** and **Google**. It receives no score, no nickname, no age answer and nothing you typed, because there is nothing in OverLit to type. A player treated as **13 to 17** is not measured this way at all: the partner's software is never started for them. **No Meta or TikTok software runs inside OverLit**; only the partner's does.
-- Analytics is limited to **16 one-time milestone events** — things like "finished onboarding" and "completed level 10" — plus **one repeatable event that counts each run you start, labelled only with which of seven game modes it was**. They carry no identifier you would recognise, no score, no age answer and no message content. A player who declares **13 to 17** sends none of them. For a player who declares **18 or older**, analytics starts only after Google's privacy message has run, on **both** platforms. Accepting these documents is not analytics consent.
+- Because the free game is paid for by advertising, OverLit advertises itself. To know which of those adverts actually work, the app sends the **same 16 milestone events** to one **measurement partner, Tenjin**, which reports them back to the ad platforms the developer buys from — currently **Meta (Facebook and Instagram)**, **TikTok** and **Google**. It receives no score, no nickname, no age answer, no price and nothing you typed, because there is nothing in OverLit to type. A player treated as **13 to 17** is not measured this way at all: the partner's software is never started for them. **No Meta or TikTok software runs inside OverLit**; only the partner's does.
+- Analytics is limited to **16 one-time milestone events** — things like "finished onboarding" and "completed level 10" — plus **six repeatable events**, which count each run you start, each time the Full Version screen is shown to you, each purchase you begin, each purchase you restore, each rewarded ad you finish, and each full-screen ad shown between runs. They carry no identifier you would recognise, no score, no age answer, **no price** and no message content. A player who declares **13 to 17** sends none of them. For a player who declares **18 or older**, analytics starts only after Google's privacy message has run, on **both** platforms. Accepting these documents is not analytics consent.
+- When the app crashes, a **crash report** is sent to **Firebase Crashlytics** on both platforms — the stack trace, your device model, operating system version and app version, and two identifiers Firebase generates for this installation. It carries no user identifier, no score and nothing about your play, and it is not collected until you have accepted this version of these documents. Section 7 has the detail.
 - The app asks you to pick an age range, **13 to 17** or **18 or older**. That answer stays on your device and is never transmitted. It changes how ads and analytics are configured, and whether your scores are published by default.
 - **In South Korea every player is given the 13-to-17 treatment**, whichever age they picked, because no privacy-consent mechanism this app can use reaches Korea. **In India, a player who chose 18 or older is treated as an adult**, and a player who chose 13 to 17 gets the 13-to-17 treatment as they do everywhere. In both countries scores are not published to a leaderboard unless the player turns it on, and a player who chose 13 to 17 cannot turn it on. Section 14 explains.
 - There is **one optional purchase**, Full Version. It is handled by Apple or Google Play, it removes ads, and no payment-card details ever reach the developer.
@@ -48,6 +49,7 @@ Everything that can send data off your phone is a third-party component, so the 
 | Cloud Functions and Cloud Firestore | yes | yes | Hold and serve the leaderboards (section 5) |
 | Firebase App Check | yes | yes | Confirms a request came from a genuine copy of the app. Apple **App Attest** on iPhone, Google **Play Integrity** on Android |
 | Google Analytics for Firebase | yes | yes | The events listed in section 7, and nothing else |
+| Firebase Crashlytics | yes | yes | Reports a crash after the fact, so the fault can be found and fixed (section 7) |
 | Google User Messaging Platform | yes | yes | Google's privacy message, which is what gathers consent where the law requires it (section 12) |
 | Store review prompt (Apple **StoreKit**, Google **Play In-App Review**) | yes | yes | Asks the store to show its own "rate this app" card. The request carries nothing about you, and the app is never told whether the card appeared or what you did with it |
 | Google Mobile Ads SDK (AdMob) | yes | yes | Serves the ads in section 6 |
@@ -63,7 +65,7 @@ Everything that can send data off your phone is a third-party component, so the 
 
 **There is exactly one attribution partner, and it is not Meta or TikTok.** OverLit advertises itself on Meta and TikTok, but no Meta or TikTok software runs inside the app. Both platforms instead carry a single measurement partner, **Tenjin**, which is what reports back to them. That is a deliberate choice and not merely a tidy one: Apple allows only one component in an app to own the SKAdNetwork conversion value described in section 6, so integrating each ad platform separately would mean one of them measuring properly and the rest not. One partner also means one set of software reading your device, instead of three.
 
-Not present on either platform: Firebase Crashlytics, Performance Monitoring, Remote Config or Cloud Messaging; any third-party crash-reporting or product-analytics tool; **any Meta or TikTok SDK or pixel**; any conversion API sending events from the developer's own servers; any mediation partner; or any customer-list, contact-list or email upload to an advertising platform.
+Not present on either platform: Firebase Performance Monitoring, Remote Config or Cloud Messaging; any crash-reporting or product-analytics tool other than the two Google products named in the table above; **any Meta or TikTok SDK or pixel**; any conversion API sending events from the developer's own servers; any mediation partner; or any customer-list, contact-list or email upload to an advertising platform.
 
 ## 4. What Stays Only On Your Device
 
@@ -71,12 +73,12 @@ The following is stored in your phone's app storage and is not transmitted to th
 
 - your local high-score records, level progress, stars, campaign and arcade state, and local run history
 - theme unlocks, menu position, and gameplay preferences such as haptics and accessibility settings
-- whether you have chosen to publish scores to leaderboards
+- whether you have leaderboards switched on at all, and whether your scores are published
 - play counters, ad-pressure counters, ad-attempt records and timing values that decide when an ad or an unlock offer may appear
 - your Full Version entitlement state, plus the store transaction identifiers needed to recognise a restored purchase
 - which version of the legal documents you accepted, and when
 - your age-band answer
-- a record of which of the 16 one-time analytics milestone events have already been sent, so that none is ever sent twice. The repeatable run-start event described in section 7 is deliberately not recorded here, because it is meant to repeat
+- a record of which of the 16 one-time analytics milestone events have already been sent, so that none is ever sent twice. The six repeatable events described in section 7 are deliberately not recorded here, because they are meant to repeat
 
 Deleting the app removes this local data from the device, subject to the platform's normal backup and restore behaviour.
 
@@ -84,17 +86,19 @@ OverLit includes a **Copy Progress** option that copies a plain-text summary of 
 
 There is **no cloud save**. OverLit does not use iCloud, Game Center, Google Play Games, or any progress-sync service. A leaderboard entry is a published score, not a backup: if you delete the app, your progress is gone even if your score is still on a board.
 
+**Reminders.** OverLit can send you an occasional reminder — at most one, roughly three days after you last played — that there is a new daily challenge waiting. It is created and scheduled **entirely on your device**: no reminder is sent from a server, there is no push service and no registration token, nothing about you is transmitted in order to schedule one, and the words in the reminder are compiled into the app and contain nothing about your play — no streak, no score, no level name. The app asks for notification permission only after you have played for a while, never during setup, and you can refuse or turn reminders off at any time in your device's settings without affecting anything else in the game. Reminders are sent only to players treated as adults for advertising purposes, so a player who told the app they are 13 to 17 never receives one, and neither does anyone in South Korea (section 14) — India does not restrict them. Buying the Full Version removes ads; it does not switch reminders off.
+
 ## 5. Online Leaderboards
 
 *Applies to both platforms.*
 
 **Leaderboards are not switched on in every version of the app**, and where the feature is switched on, a board becomes available to you only after you complete campaign **Level 5**. Until both of those are true, no leaderboard data leaves your device and none of what follows happens.
 
-### Choosing not to be published
+### Choosing not to take part
 
-**Settings → Legal → Post my scores to leaderboards** turns publication off while you keep playing. With it off, nothing about a run leaves your device; you can still open a board and see where everybody else stands.
+**Settings → Legal → Use leaderboards** turns the feature off. With it off, nothing about a run leaves your device, no nickname is created for you, and the boards are not shown to you at all. That is deliberate: a switch that leaves the feature visibly running is a hidden flag rather than a choice.
 
-For a player who chose the **13 to 17** band the switch starts **off**, and stays off until they turn it on. For a player who chose 18 or older it starts on — except in the two countries named in section 14, where it starts off for everybody, and where a player who chose 13 to 17 cannot turn it on at all. That difference is deliberate: several regulators expect a service not to make a child public by default.
+There is a middle state as well, and it is where a player who chose the **13 to 17** band starts: they can **read** every board, but nothing of theirs is published until they turn publication on themselves. For a player who chose 18 or older publication starts on — except in the two countries named in section 14, where it starts off for everybody, and where a player who chose 13 to 17 cannot turn it on at all. That difference is deliberate: several regulators expect a service not to make a child public by default.
 
 Turning it off does not retract what is already published. Section 15 is how you remove that.
 
@@ -126,6 +130,7 @@ A submission carries exactly these fields, and nothing else:
 - a **de-duplication key** built from the run, so that a retry after a dropped connection cannot create a second entry
 - the fixed word `STANDARD`, marking an ordinary run
 - the **platform** (`IOS` or `ANDROID`), the **app version**, and the **content version**
+- a **schema version number** — the fixed value `1`, which tells the server which submission format the app is speaking. It is a constant compiled into the app and says nothing about you
 
 That list is complete. No name, no age band, no advertising identifier, no device identifier, no location, no email address and no free text is ever sent to the leaderboard service.
 
@@ -247,17 +252,17 @@ To identify authorised sellers of OverLit's ad inventory, this site publishes an
 
 *Applies to both platforms.*
 
-When no network ad is available, OverLit may show a **house ad** instead: a panel promoting one of the developer's own apps. These are bundled into the app. Showing one sends nothing to any ad network, and no data about you is used to choose it beyond whether you are being treated as an adult.
+When no network ad is available, OverLit may show a **house ad** instead: a panel promoting one of the developer's own apps, or OverLit's own Full Version purchase. These are bundled into the app. Showing one sends nothing to any ad network, and no data about you is used to choose it beyond whether you are being treated as an adult and, for the Full Version panel, whether you already own it.
 
-Which apps are promoted differs by platform, for the same reason the rest of section 3 does. On **iPhone** they are **PlanKept** and **AudioChoices**, plus **Voice of Self**, which is shown only to players treated as adults. On **Android** there is a single house ad, for **AudioChoices**, shown to everyone — the other two have no Android listing to send anyone to.
+Which apps are promoted differs by platform, for the same reason the rest of section 3 does. On **iPhone** they are **PlanKept** and **AudioChoices**, plus **Voice of Self**, which is shown only to players treated as adults. On **Android** there is a single house ad, for **AudioChoices**, shown to everyone — the other two have no Android listing to send anyone to. On both platforms OverLit may also show a house ad for **its own Full Version purchase**, which opens the purchase screen inside the app rather than a store listing; it sends nothing anywhere and is never shown to a player who already owns it.
 
-Tapping one opens the app store or a page on this website, and from that point the destination's own policies apply. Rewarded ads are never replaced by a house ad, and Full Version suppresses house-ad fallback along with everything else.
+Tapping one opens the app store or a page on this website — or, for the Full Version panel, the purchase screen inside OverLit, which leaves nothing about you anywhere. Where it opens something outside the app, from that point the destination's own policies apply. Rewarded ads are never replaced by a house ad, and Full Version suppresses house-ad fallback along with everything else.
 
 ### Full Version removes ads
 
 While the Full Version entitlement is active, OverLit makes no banner, interstitial or rewarded ad request and shows no house-ad fallback. If you have the "Help the Dev" setting on, you get a thank-you panel where an ad would have been.
 
-## 7. Analytics And Measurement
+## 7. Analytics, Measurement And Crash Reports
 
 *Applies to both platforms, identically.*
 
@@ -275,22 +280,42 @@ OverLit uses Google Analytics for Firebase, in a deliberately narrow way.
 
 `overlit_onboarding_complete`, `overlit_first_run_started`, `overlit_first_run_complete`, `overlit_level_1_complete`, `overlit_level_3_complete`, `overlit_level_5_complete`, `overlit_level_7_complete`, `overlit_level_10_complete`, `overlit_level_20_complete`, `overlit_level_30_complete`, `overlit_level_40_complete`, `overlit_level_50_complete`, `overlit_level_60_complete`, `overlit_level_70_complete`, `overlit_campaign_complete`, and `overlit_full_version_purchase`.
 
-The only parameters they carry are the milestone level number, the campaign's level count, and the Full Version product identifier.
+The only parameters they carry are the milestone level number, the campaign's level count, and the Full Version product identifier. **No price, no currency, no order number and no store account detail is attached to any of them** — the store does not hand the app those in a form it could pass on, and they would not be passed on if it did.
 
-**One repeatable event, `overlit_mode_play`, sent each time a run starts.** This is the one event that is not deduplicated, because the question it exists to answer — how often each way of playing is actually played — is unanswerable if the second play is discarded. It is behavioural data about how the app is used, and it is described plainly here rather than folded into the milestone list, because it repeats and the others do not.
+**Six repeatable events, sent each time the thing happens.** These are the events that are not deduplicated, because the questions they exist to answer — how often each way of playing is actually played, how often an offer is seen, how often an ad is finished — are unanswerable if the second occurrence is discarded. They are behavioural data about how the app is used, and they are described plainly here rather than folded into the milestone list, because they repeat and the others do not.
 
-It carries two parameters, each drawn from a fixed short list rather than from anything about you or about the run:
+- **`overlit_mode_play`**, when a run starts. Two parameters, each drawn from a fixed short list rather than from anything about you or about the run:
+  - `mode` — exactly one of `campaign`, `daily`, `random`, `pattern`, `snake`, `classic`, `other`
+  - `ruleset` — exactly one of `survival`, `time-attack`, `none`
+- **`overlit_paywall_view`**, when the Full Version screen is opened. One parameter, `source`, saying which of four places opened it — exactly one of `menu_button` (the main menu's Full Version button), `settings` (the Settings screen's Full Version row), `customize` (the Customize screen's Full Version offer) or `house_ad` (the house ad for the Full Version purchase described in section 6).
+- **`overlit_purchase_start`**, when a Full Version purchase is actually begun at the store, and **`overlit_purchase_restore`**, when the store's restore flow returns an existing Full Version entitlement. Neither carries a price, a currency, an order number or anything about your payment method — the developer never receives those (section 8).
+- **`overlit_rewarded_ad_complete`**, when a rewarded ad finishes and its reward is granted. One parameter, `placement`, naming the kind of ad slot it was shown in. Today the only value it can carry is `REWARDED`, because a rewarded slot is the only kind that pays out.
+- **`overlit_interstitial_shown`**, when an automatic full-screen ad between runs is actually displayed.
 
-- `mode` — exactly one of `campaign`, `daily`, `random`, `pattern`, `snake`, `classic`, `other`
-- `ruleset` — exactly one of `survival`, `time-attack`, `none`
+None of the six carries a level number, a score, a result, a duration, a timing, an amount of money, or any identifier you would recognise. They record which of a fixed set of things happened, and nothing else. Tutorial runs and developer-forced runs are excluded throughout, because they are not a player's choice of what to play.
 
-It carries **no level number, no score, no result, no duration and no timing**. It records which of seven surfaces a run was started on, and nothing else. Tutorial runs and developer-forced runs are excluded, because they are not a player's choice of what to play.
-
-**The sixteen milestones have a second recipient; the repeatable event does not.** The same sixteen names, and only the names, are also sent to the measurement partner described in section 6, so that advertising OverLit can be measured. The parameters above are not sent there, and `overlit_mode_play` is not sent there at all — it is behavioural data about how the game is played, which no ad platform needs and which would be a far larger disclosure than the milestones. A player treated as a minor sends neither, to either recipient.
+**The sixteen milestones have a second recipient; the repeatable events do not.** The same sixteen names, and only the names, are also sent to the measurement partner described in section 6, so that advertising OverLit can be measured. The parameters above are not sent there, and **none of the six repeatable events is sent there at all** — they are behavioural data about how the game is played and how it is paid for, which no ad platform needs and which would be a far larger disclosure than the milestones. A player treated as a minor sends neither kind, to either recipient.
 
 Across both kinds: no score, no leaderboard identity, no age answer and no store transaction identifier is ever attached. The app sets no user identifier and no user properties.
 
 Alongside those events, while Firebase Analytics is enabled, Google and Firebase process the standard app-instance identifier, session and app-launch information, app version, device and platform information, an approximate region derived from the network, and diagnostic metadata that Firebase Analytics needs in order to function at all.
+
+### Crash reports
+
+*Applies to both platforms.*
+
+When OverLit crashes, **Firebase Crashlytics** sends a report so that the fault can be found and fixed. A report contains the **stack trace** — the list of functions the app was inside when it stopped — together with your **device model**, **operating system version** and **app version**, and two identifiers Firebase generates for this installation: a Crashlytics installation identifier and the Firebase installations identifier.
+
+**Be clear about what that second identifier means.** The Firebase installations identifier is the same one Google Analytics for Firebase uses in this app, so a crash report is **linkable to the analytics events above** rather than isolated from them. It would be untrue to call it an anonymous, crash-only identifier, so this document does not. Both identifiers belong to the installation rather than to you, and both are replaced if you delete and reinstall the app. Neither is the advertising identifier and neither is your leaderboard identity.
+
+**A report carries no user identifier and nothing the developer adds to it.** Your anonymous leaderboard identity is not attached, your board nickname is not attached, your age answer is not attached, and your score and progress are not attached. The app sets no custom keys, writes no log messages into a report, and never tells Crashlytics who you are. There is nothing you typed, because there is nothing in OverLit to type.
+
+**Collection starts switched off.** It is disabled in the app's configuration before any code runs, and it is not switched on until you have accepted **this version** of these documents — the version shown at the top of this page. Because a later version has to be accepted in turn, a future update to these documents switches crash reporting back off until you accept that one. Crash reporting is **not** governed by Google's privacy message: it is disclosed here, under this policy, rather than through Google's advertising and analytics consent form, and the **Privacy and cookie settings** row described in section 12 does not withdraw it.
+
+A report is written on your device at the moment of the crash and uploaded on the next launch. There is no periodic beacon and no session ping — nothing is sent unless the app actually crashes. Google acts as a **processor** for crash reports on the Firebase terms, and, unlike the leaderboard records in section 11, they carry **no regional restriction**: they are processed wherever Google or its agents maintain facilities. Google keeps them for **90 days** (section 15).
+
+<!-- OWNER: teen crash reports — confirm -->
+**Which age range you chose does not change this.** A player who declared **13 to 17** does send crash reports, and it is the one thing in this document that a player treated as a minor does send. That is deliberate, and it rests on legitimate interests rather than consent: a crash is a fault in the app rather than a fact about you, an app that crashes for teenagers and cannot be told so is worse for them, and nothing in a report describes their play. A crash report is never used for advertising, is never sent to the measurement partner in section 6, and is never combined with anything in section 6 or with the events above. The regional restriction in section 14 does still apply: in **South Korea** no crash reports are sent at all, whichever band the player chose.
 
 ## 8. The Full Version Purchase
 
@@ -312,7 +337,7 @@ Under the GDPR, every purpose needs a lawful basis. These are the ones relied on
 | --- | --- | --- |
 | Run the game and remember your progress, settings and unlocks | On-device data only, which never reaches the developer | Art. 6(1)(b) — performance of the contract with you. No transmission, so nothing is disclosed |
 | Show and measure advertising, including personalised advertising where it is allowed | Ad request and interaction data, IP address, device and SDK signals, where applicable Google's publisher first-party identifier, and — only for adults who allowed tracking through Apple's prompt — the device advertising identifier | Art. 6(1)(a) — consent, collected through the Google privacy message described in section 12, together with ePrivacy consent for storing and reading information on your device. Where you refuse, ads may still be served on a non-personalised, contextual basis |
-| Understand whether players get through onboarding and how far they get, which game modes are actually played, and measure app-install advertising | The 16 one-time milestone events and the repeatable `overlit_mode_play` run-start event in section 7, plus the standard Firebase Analytics metadata | Art. 6(1)(a) — consent, collected through Google's privacy message where that is required. Accepting these documents is not analytics consent. Players treated as minors do not send these events |
+| Understand whether players get through onboarding and how far they get, which game modes are actually played, and how often offers and ads are seen | The 16 one-time milestone events and the six repeatable events in section 7, plus the standard Firebase Analytics metadata | Art. 6(1)(a) — consent, collected through Google's privacy message where that is required. Accepting these documents is not analytics consent. Players treated as minors do not send these events |
 | Measure which advert brought a player to OverLit, and how far they then got | The 16 milestone names in section 7, the device advertising identifier where one is available, IP address, ordinary device and app information, the Google Play Install Referrer on Android, and the SKAdNetwork conversion value on iPhone | Art. 6(1)(a) — consent, collected through the same Google privacy message, together with ePrivacy consent for reading information on your device. Players treated as minors are excluded entirely: the partner's SDK is never started for them. Where you decline Apple's tracking prompt, no advertising identifier is used and what remains is aggregate measurement |
 | Show house ads for the developer's own apps | Nothing leaves the device to show one | Art. 6(1)(f) — legitimate interests in promoting the developer's own products, in a way that involves no third party and no profiling |
 | Publish a score and a generated nickname on a leaderboard, and show you your rank | Anonymous identifier, generated nickname, score, board and week identifiers, platform, app and content version, server timestamp | Art. 6(1)(f) — legitimate interests in running a competitive board that is worth competing on. Being honest about why this is not "contract": a qualifying score is submitted automatically rather than by you asking each time. That means **you have the right to object under Art. 21**, and the switch in section 5 is how you exercise it without writing to anybody. Because the balance is weighed more strictly where the player is a child, publication is **off by default for the 13-to-17 band and starts only if they turn it on themselves**, the choice is described in plain language where it is offered, and it can be reversed in one tap or erased outright under section 15. Two countries go further and do not offer that choice at all — see section 14 |
@@ -320,6 +345,7 @@ Under the GDPR, every purpose needs a lawful basis. These are the ones relied on
 | Recognise a Full Version purchase and restore it | Store transaction identifiers held on the device | Art. 6(1)(b) — performance of the contract |
 | Answer a support email you send | Your email address and whatever you choose to write | Art. 6(1)(b) and Art. 6(1)(f) — responding to your request and keeping a support record |
 | Keep the service secure and diagnose faults | Operational logs at Google, which can include a request IP address and the anonymous leaderboard identifier | Art. 6(1)(f) — legitimate interests in network and information security |
+| Find and fix crashes | The stack trace, device model, operating system version, app version, and the two per-installation Firebase identifiers described in section 7 — never a user identifier, a score or an age answer | Art. 6(1)(f) — legitimate interests in a game that works. Nothing in a crash report is used for advertising, none of it reaches the measurement partner, and none of it is combined with section 6 or with the events in section 7 |
 
 Where consent is the basis, you can withdraw it at any time — section 12 explains how — and withdrawing it does not affect processing that already happened.
 
@@ -332,7 +358,8 @@ There is **no automated decision-making that produces legal effects or similarly
 | Recipient | What it receives | Role |
 | --- | --- | --- |
 | **Google** (Google AdMob and the Mobile Ads SDK, User Messaging Platform) | Ad requests and interactions, IP address, device and SDK signals, consent state, and where applicable a Google publisher first-party identifier | Google acts as an **independent controller** for advertising — it decides how it uses this data under its own terms, and is not simply following the developer's instructions. Google LLC is a **United States** company operating globally |
-| **Google** (Google Analytics for Firebase) | The 16 one-time milestone events, the repeatable `overlit_mode_play` run-start event, and the standard analytics metadata described in section 7 | Processor for the developer's analytics, on Google's Firebase terms |
+| **Google** (Google Analytics for Firebase) | The 16 one-time milestone events, the six repeatable events, and the standard analytics metadata described in section 7 | Processor for the developer's analytics, on Google's Firebase terms |
+| **Google** (Firebase Crashlytics) | Crash reports: the stack trace, device model, operating system version, app version, and the two per-installation Firebase identifiers described in section 7 | Processor for the developer's fault diagnosis, on Google's Firebase terms. A global Google service rather than a regional one |
 | **Google** (Firebase Authentication, Cloud Functions, Cloud Firestore, App Check, Cloud Logging) | The anonymous leaderboard identifier, the submission fields listed in section 5, the stored board records, App Check attestations, and operational logs including request IP addresses | Processor. The functions and the database run in `europe-west1` in **Belgium**; Firebase Authentication and App Check are global Google services |
 | **Apple** (App Store, StoreKit, DeviceCheck / App Attest, SKAdNetwork) | Purchase, refund and restore information; device attestation; aggregated install attribution; a request to show the store's own review card, which carries nothing about you | Independent controller for the store relationship and for its own platform services. Card numbers and billing details stay between you and Apple |
 | **Google** (Google Play Store, Play Billing, Play Integrity, Play In-App Review) | Purchase, refund and restore information; device and app integrity attestation; a request to show the store's own review card, which carries nothing about you | Independent controller for the store relationship and for its own platform services. Card numbers and billing details stay between you and Google |
@@ -355,6 +382,7 @@ Information may additionally be disclosed where genuinely necessary to comply wi
 - **Google LLC**, which operates the EU-hosted infrastructure above, is itself a United States company. Some administrative access and some of Google's own operational logging can still involve the United States.
 - **Google's advertising and analytics services** — AdMob, the Mobile Ads SDK, the User Messaging Platform and Google Analytics for Firebase — are global services, and the data described in sections 6 and 7 is processed outside the EU, including in the United States.
 - **Firebase Authentication and App Check** are global Google services rather than regional ones.
+- **Firebase Crashlytics** is likewise a global Google service. Crash reports carry no regional restriction and are processed wherever Google or its agents maintain facilities; they are **not** held in the EU region that holds the leaderboard records.
 - **Tenjin Inc.**, the attribution partner in section 6, is a United States company, and the data it receives is processed there.
 - **Meta and TikTok** receive attribution reporting about their own adverts and operate internationally under their own terms.
 - **Apple and Google Play** process purchases, platform services and attribution under their own terms, internationally.
@@ -375,21 +403,23 @@ A copy of the safeguards relied on can be requested at `alekgameshelp2@gmail.com
 
 **Removing ads entirely.** The Full Version purchase stops OverLit requesting ads at all.
 
-**Leaderboards.** **Settings → Legal → Post my scores to leaderboards** stops your scores being published while you keep playing. Section 5 describes the switch and section 15 how to erase what was published before you used it.
+**Leaderboards.** **Settings → Legal → Use leaderboards** turns the feature off — no scores published, no boards shown, no nickname — while you keep playing. Section 5 describes the switch and the read-only middle state, and section 15 explains how to erase what was published before you used it.
 
 **Install measurement.** The same Google privacy message governs whether the attribution partner in section 6 starts at all, so refusing there stops it too. On iPhone, declining Apple's tracking prompt additionally means no advertising identifier is available to it, and what remains is aggregate measurement that cannot follow you between apps — that is a real reduction, but it is not zero, and section 6 says so plainly rather than implying otherwise. Buying the Full Version does **not** switch install measurement off: it is about which advert brought you here, not about serving you ads. Players treated as minors are excluded from it entirely.
 
 **Analytics.** A player treated as a minor sends no OverLit Firebase analytics events of either kind. For everyone else the Google privacy message described above carries the `analytics_storage` choice where it applies. There is no second OverLit checkbox because it would not replace or override that Google consent mechanism. Accepting these documents is not analytics consent.
 
+**Crash reports.** Crash reporting is not analytics and is not governed by Google's privacy message, so the **Privacy and cookie settings** row does not switch it off. It is disclosed under this policy instead, it is collected only once you have accepted the current version of these documents, and section 7 sets out exactly what a report contains.
+
 ## 13. Store Privacy Labels
 
 Apple's App Privacy labels and Google Play's Data safety section use each store's own categories, which are broader and blunter than plain language. They are meant to describe the same practices as this policy, and because each store asks its own questions about its own platform's identifiers (section 3), **the two stores' answers are not word for word the same**.
 
-On the **App Store**, the labels cover advertising data and product interaction from the AdMob SDK, the app's own product-interaction events described in section 7, coarse location derived from IP address, device and SDK identifiers used for ad delivery, attribution and fraud prevention, the Full Version purchase event, and the diagnostic and performance data Google's SDK reports. The attribution partner in section 6 is part of why device identifiers and product interaction are marked as used for third-party advertising.
+On the **App Store**, the labels cover advertising data and product interaction from the AdMob SDK, the app's own product-interaction events described in section 7 — including the events recording that an offer was shown, that a purchase was begun or restored, and that an ad was shown or finished — coarse location derived from IP address, device and SDK identifiers used for ad delivery, attribution and fraud prevention, the Full Version purchase event, and the diagnostic, crash and performance data reported by **Google's advertising SDK and by Firebase Crashlytics**. The attribution partner in section 6 is part of why device identifiers and product interaction are marked as used for third-party advertising. The crash and performance rows are marked as **not** linked to you, because a crash report carries no user identifier.
 
 Apple gives **tracking** a specific meaning: linking data from this app with data from other companies' apps, websites or offline sources for advertising or advertising measurement, or sharing it with a data broker. Doing that requires permission through the App Tracking Transparency framework. The iPhone app does use that framework, for players treated as adults, so the App Store label does show **Data Used to Track You**. The label describes what may happen if you allow tracking; it does not mean tracking happens without your permission, and it never happens for a player treated as a minor.
 
-On **Google Play**, the Data safety answers cover the same ground: the advertising data and device or other identifiers the AdMob SDK and the attribution partner handle, including the Google advertising ID; the coarse location derived from IP address; the app-activity and device information Firebase Analytics, the attribution partner and the leaderboard service handle; and the purchase state Play Billing handles. Play's form also asks whether data is *shared* with third parties, and OverLit answers yes for the advertising categories, because AdMob is an independent controller rather than a processor acting only on the developer's instructions.
+On **Google Play**, the Data safety answers cover the same ground: the advertising data and device or other identifiers the AdMob SDK and the attribution partner handle, including the Google advertising ID; the coarse location derived from IP address; the app-activity and device information Firebase Analytics, the attribution partner and the leaderboard service handle; **the crash logs and diagnostics Google's advertising SDK and Firebase Crashlytics produce**; and the purchase state Play Billing handles. Play's form also asks whether data is *shared* with third parties, and OverLit answers yes for the advertising categories, because AdMob is an independent controller rather than a processor acting only on the developer's instructions. Crash reports are answered as collected but **not** shared: Google receives them as the developer's processor, not as an ad network.
 
 What differs between the two forms is not the advertising, which is now the same on both, and not the attribution partner, which is also on both. It is Apple's tracking question and the identifiers each platform provides: Apple's advertising identifier and SKAdNetwork exist only on iPhone, and the Google advertising ID and Play Install Referrer only on Android.
 
@@ -405,7 +435,10 @@ During onboarding the app asks you to choose an age range: **13 to 17** or **18 
 
 That answer is **stored on your device and never transmitted**. It is not attached to any leaderboard record, is not sent as an analytics parameter, and no copy of it exists on any server. What it does is change three things: how the advertising SDK is configured, whether Firebase Analytics runs at all, and whether your scores are published to leaderboards by default.
 
-A player treated as a minor gets non-personalised, Teen-rated ads, is never shown Apple's tracking prompt, is kept away from the adult-only house ad, sends no OverLit Firebase analytics events of either kind, and is not published to a leaderboard unless they switch it on themselves. In the two countries in the table below, a player who declared 13 to 17 cannot switch it on at all.
+A player treated as a minor gets non-personalised, Teen-rated ads, is never shown Apple's tracking prompt, is kept away from the adult-only house ad, receives no reminders, sends no OverLit Firebase analytics events of either kind, and is not published to a leaderboard unless they switch it on themselves. In the two countries in the table below, a player who declared 13 to 17 cannot switch it on at all.
+
+<!-- OWNER: teen crash reports — confirm -->
+**Crash reports are the one exception**, and section 7 explains why: a player who declared 13 to 17 does send them, on the basis of legitimate interests rather than consent, because a crash is a fault in the app rather than a fact about the player. In **South Korea** no crash reports are sent at all, whichever band the player chose.
 
 ### Countries with extra restrictions
 
@@ -441,6 +474,8 @@ If you believe a child under 13 has provided personal information, write to `ale
 **There are no backups of the leaderboard database, and that is deliberate.** Point-in-time recovery is switched off and no backup schedule exists, which was verified against the live project on 3 September 2026. It means erasure under section 15 is final the moment it completes: there is no copy of your entries anywhere to restore, and nothing of yours survives the request. The trade is accepted knowingly — it also means a serious operator mistake could not be undone — because an erasure promise that quietly depended on a backup window would be worth less than the recovery would be. If that ever changes, this section changes with it and says how long a backup could still hold your entries.
 
 **Advertising and analytics data** held by Google is retained under Google's own policies and the retention settings of the Firebase and AdMob products.
+
+**Crash reports** are kept by Firebase Crashlytics for **90 days**. Google's own published position is that it holds crash stack traces, extracted minidump data and the associated identifiers for 90 days before it begins removing them from live and backup systems. That period is set by Google rather than configured by the developer.
 
 **Support emails** are kept for as long as reasonably needed to answer the request and keep a record of it.
 
@@ -489,7 +524,7 @@ If you are in the EEA, the UK or Switzerland you have the rights below. They are
 - **Erasure** — ask for data to be deleted. Section 15 explains the routes and the one real limitation.
 - **Restriction** — ask that processing be limited while a dispute about accuracy or lawfulness is resolved.
 - **Portability** — receive data you provided in a structured, machine-readable format.
-- **Objection** — object to processing based on legitimate interests. That includes the anti-cheating measures in section 9 and, importantly, **the publication of your score on a leaderboard**. You do not have to write to anybody to exercise that one: **Settings → Legal → Post my scores to leaderboards** stops it, immediately and for good, while you keep playing. If you also want what was already published removed, section 15 is the route.
+- **Objection** — object to processing based on legitimate interests. That includes the anti-cheating measures in section 9 and, importantly, **the publication of your score on a leaderboard**. You do not have to write to anybody to exercise that one: **Settings → Legal → Use leaderboards** stops it, immediately and for good, while you keep playing. If you also want what was already published removed, section 15 is the route.
 - **Withdraw consent** — for advertising and analytics, at any time, through the routes in section 12.
 
 Two practical notes. First, most of what OverLit knows about you is on your phone and never reaches the developer, so for that data the fastest "access request" is to open the app. Second, for leaderboard data the anonymity cuts both ways: without something that identifies your entry, a request cannot be matched to it. Section 15 explains what to include.
