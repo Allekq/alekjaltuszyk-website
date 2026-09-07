@@ -136,7 +136,7 @@ export const legalDocuments = {
   // so there are still sixteen milestones and the SKAdNetwork fine-value
   // ceiling in privacy section 6 is unchanged at 16. Do not "fix" it to 17.
   overLitPrivacy: {
-    version: "3.3.0",
+    version: "3.4.0",
     effectiveDate: "2026-09-07",
     path: "/apps/OverLit/privacy-policy/",
     sourcePath: "src/content/legal/overlit-privacy-policy.md",
