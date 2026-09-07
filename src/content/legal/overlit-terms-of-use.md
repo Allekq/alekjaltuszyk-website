@@ -35,7 +35,7 @@ Some versions of the app also offer **online leaderboards**, which publish a sco
 
 OverLit is not directed to children under 13, and children under 13 should not use OverLit. If you are 13 or older but under the age of majority where you live, use OverLit only with parent or guardian permission where required.
 
-In some countries the law treats everyone under 18 as a child. Where that is so, OverLit applies its more restrictive settings to every player in that country regardless of the age range they chose; section 14 of the Privacy Policy lists which countries and what changes.
+In some countries the law treats everyone under 18 as a child, and OverLit narrows what it does for players there. What it narrows is not the same in every such country: in South Korea every player is given the more restrictive settings whichever age range they chose, while in India a player who chose 18 or older is treated as an adult and only the leaderboard default changes. Section 14 of the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/) lists which countries and exactly what changes in each; it governs where these terms summarise.
 
 ## 5. Gameplay Safety
 
@@ -45,11 +45,11 @@ Use device accessibility settings where they are helpful for your comfort and sa
 
 ## 6. Ads, Full Version, And Rewarded Unlocks
 
-Where the app serves ads, the free experience may show Google AdMob rewarded ads, Google AdMob interstitial ads, footer banner ads, and local developer house ads for the Developer's own apps. Rewarded ads are opt-in value trades for eligible theme unlocks or level-skip offers. Interstitial ads may appear only at safe breaks outside active gameplay, such as menu, replay, or level-advance breaks. Local developer house ads may include PlanKept and AudioChoices, and may include Voice of Self only for players treated as adults.
+Where the app serves ads, the free experience may show Google AdMob rewarded ads, Google AdMob interstitial ads, a banner strip shown above the board during gameplay, and local developer house ads for the Developer's own apps and for the Full Version purchase. Rewarded ads are opt-in value trades for eligible theme unlocks, cosmetic unlocks, level-skip offers, or a new leaderboard nickname. Interstitial ads may appear only at safe breaks outside active gameplay, such as menu, replay, level-advance, or nickname-reroll breaks. Local developer house ads may include PlanKept and AudioChoices, may include Voice of Self only for players treated as adults, and may include a panel for OverLit's own Full Version purchase, which opens the purchase screen inside the app.
 
 OverLit uses Google's privacy messages (User Messaging Platform) where required, including European regulations messages and U.S. state privacy regulation messages. On iPhone, for players treated as adults, OverLit may show Apple's App Tracking Transparency prompt after the legal gate is complete; if that player allows tracking, the Google advertising SDK may access the device advertising identifier for personalised advertising and advertising measurement. Players treated as minors are not shown that prompt and are configured for non-personalised ads.
 
-The app uses Google Analytics for Firebase, on both platforms, for the small set of events listed in the Privacy Policy, and only for players treated as adults, under Google's privacy-message and Consent Mode settings. **Accepting the Terms or Privacy Policy does not itself enable analytics or advertising consent.** Players treated as minors send no OverLit Firebase events.
+The app uses Google Analytics for Firebase, on both platforms, for the small set of events listed in the Privacy Policy, and only for players treated as adults, under Google's privacy-message and Consent Mode settings. **Accepting the Terms or Privacy Policy does not itself enable analytics or advertising consent.** Players treated as minors send no OverLit Firebase analytics events. Crash reporting is separate from analytics, is not governed by Google's privacy message, and is described in section 7 of the Privacy Policy.
 
 If you decline consent or use device settings that restrict advertising technologies, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google, Apple, and applicable law.
 
@@ -77,7 +77,7 @@ Leaderboards are free entertainment, not a service you buy. They are provided al
 
 ### Choosing not to take part
 
-**Settings → Legal → Post my scores to leaderboards** turns publication off while you keep playing, on either platform. With it off nothing about a run is sent, and you can still read the boards. For players who chose the 13-to-17 age range it starts off.
+**Settings → Legal → Use leaderboards** turns the feature off on either platform. With it off nothing about a run is sent, no nickname is created for you, and boards are not shown. Players who chose the 13-to-17 age range start in a read-only state instead: they can see every board, and nothing of theirs is published unless they turn publication on.
 
 Turning it off stops future submissions. It does not remove scores you have already published; the Privacy Policy explains how to erase those.
 

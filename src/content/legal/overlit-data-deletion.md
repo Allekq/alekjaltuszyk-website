@@ -7,9 +7,10 @@ what the online leaderboards need, and there is a button in the game that erases
 
 ## Before that: you can stop new scores being posted
 
-**Settings → Legal → Post my scores to leaderboards.** Off keeps your runs on this device while you
-keep playing, and you can still read the boards. For players who chose the 13-to-17 age range it
-starts off.
+**Settings → Legal → Use leaderboards.** Off turns the feature off entirely — no scores published,
+no boards shown, no nickname — while you keep playing. Players who chose the 13-to-17 age range
+start in a read-only state instead: they can see every board, and nothing of theirs is published
+unless they turn publication on.
 
 That stops anything *new* being published. To remove what is already there, use one of the two
 routes below.

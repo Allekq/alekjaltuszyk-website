@@ -120,15 +120,39 @@ export const legalDocuments = {
     path: "/apps/VoiceOfSelf/how-voice-of-self-uses-ai/",
     sourcePath: "src/pages/apps/VoiceOfSelf/how-voice-of-self-uses-ai/index.astro",
   },
+  // 3.3.0 adds Firebase Crashlytics on BOTH platforms -- a new category of
+  // processing (diagnostics) with a new retention period (90 days, Google's),
+  // no regional restriction, and an installation identifier that is SHARED with
+  // Firebase Analytics, so a crash report is linkable to the analytics events
+  // rather than isolated from them. It also adds five repeatable measurement
+  // events (paywall view, purchase start, purchase restore, rewarded-ad
+  // complete, interstitial shown) and publishes the local-reminder paragraph
+  // that 3.1.0's record claimed to carry and did not. Minor, not major, on this
+  // repo's own precedent: 3.1.0 was a minor and it added an entire new
+  // third-party component (Tenjin) with a new US recipient.
+  //
+  // The milestone count does NOT move. `overlit_purchase_complete` was drafted
+  // and then dropped because `overlit_full_version_purchase` already means it,
+  // so there are still sixteen milestones and the SKAdNetwork fine-value
+  // ceiling in privacy section 6 is unchanged at 16. Do not "fix" it to 17.
   overLitPrivacy: {
-    version: "3.2.0",
-    effectiveDate: "2026-09-03",
+    version: "3.3.0",
+    effectiveDate: "2026-09-07",
     path: "/apps/OverLit/privacy-policy/",
     sourcePath: "src/content/legal/overlit-privacy-policy.md",
   },
+  // 3.1.2 is a patch: two corrections and one addition, no new obligation on
+  // the player. Section 4 claimed a guarded country's restrictions applied to
+  // every player there regardless of band -- untrue of India since the region
+  // posture was split into independent axes, and privacy 3.2.0 already said so
+  // in the document this one points at. Section 6 called the banner a footer;
+  // it has been a strip above the board since 2026-08-16 and appears on no
+  // menu. Section 7 described the leaderboard switch as an opt-out of
+  // publication that left the boards readable; it now turns the whole feature
+  // off. Plus the Full Version house ad.
   overLitTerms: {
-    version: "3.1.1",
-    effectiveDate: "2026-08-31",
+    version: "3.1.2",
+    effectiveDate: "2026-09-07",
     path: "/apps/OverLit/terms-of-use/",
     sourcePath: "src/content/legal/overlit-terms-of-use.md",
   },
