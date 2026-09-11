@@ -493,11 +493,15 @@ export const legalDocuments = {
   //
   // AppConfig.LEGAL_VERSION stays at 9, same reasoning as terms 2.3.1: 9 has
   // never shipped, so this rides the gate it already fires.
-  // 2.10.0 rather than a patch: it discloses a new notification kind and group
-  // ("New stories in testing") and the setting it is gated on. Wording only
-  // beyond that.
+  // 2.10.0 disclosed the third notification group ("New stories in testing")
+  // and the setting it is gated on. 2.11.0, the same day: a new local marker
+  // (the once-ever offer of the testing books, which survives clearing local
+  // data), the testing group's separate seen-list, and section 13 corrected to
+  // say setup no longer asks about notifications — the app stopped doing that
+  // some time ago and the sentence had been wrong in the harmless direction.
+  // Both ride the app's LEGAL_VERSION 10, which has not shipped.
   audioBookChoicesPrivacy: {
-    version: "2.10.0",
+    version: "2.11.0",
     effectiveDate: "2026-09-11",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
@@ -601,9 +605,12 @@ export const legalDocuments = {
   //
   // ORDERING, with the same teeth it had for 6, 8 and 9: this revision must be live
   // on the website before the build carrying LEGAL_VERSION 9 reaches one device.
+  // 2.4.0: section 10 now says a free book can be rated without an unlock, and
+  // that a book in testing takes no ratings until it is released — a new rule
+  // about a listed feature, so minor rather than patch. Rides LEGAL_VERSION 10.
   audioBookChoicesTerms: {
-    version: "2.3.1",
-    effectiveDate: "2026-09-03",
+    version: "2.4.0",
+    effectiveDate: "2026-09-11",
     path: "/apps/AudioBookChoices/terms-of-use/",
     sourcePath: "src/content/legal/audio-book-choices-terms-of-use.md",
   },

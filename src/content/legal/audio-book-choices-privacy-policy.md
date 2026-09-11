@@ -59,10 +59,11 @@ The following is stored on your device and is never transmitted to the developer
 - app settings and preferences, including playback speed, theme, and whether the head-nod input is enabled
 - which books you have marked as favourites
 - which of the milestones in section 9 have already been reported for each book, so the same one is never sent twice. This is the whole of the de-duplication mechanism, and it lives only here — there is no matching record on the server
-- while notifications are switched on, the small note described in section 13: which books your device has seen in the catalogue, which you have been told about, which categories you appear to enjoy, which books you left unfinished, and when the app was last opened. Switching notifications off deletes it
+- while notifications are switched on, the small note described in section 13: which books your device has seen in the catalogue (and, kept separately, which books in testing it had seen when you joined testing), which you have been told about, which categories you appear to enjoy, which books you left unfinished, and when the app was last opened. Switching notifications off deletes it
 - whether you have left the "Share anonymous usage data" setting on
 - while that setting is on, the random per-installation identifier Google's analytics library creates and keeps on your device (section 10). It is not the anonymous identifier in section 3 and is not connected to it
 - which story you finished most recently, how many you have finished, and which ones the app has already asked you to rate — so that it asks about a book at most once, and does not ask again for a fortnight. This is kept whatever your notification settings say, and is cleared with the rest of your local data
+- whether the app has already offered you the books in testing once your free unlocks were used up, so that it offers once and never again. Like your notification answer below, this survives clearing local data: a housekeeping control that forgot it would put the same offer to you a second time
 - whether you said yes or no to notifications, and which kinds you have left switched on. This is your answer rather than part of the note above, so it deliberately outlasts both: it survives switching notifications off, and it survives clearing local data in Settings. An answer that a housekeeping control could quietly forget would mean asking you again, which is the opposite of respecting it
 - which version of the legal documents you accepted, and when
 - your age, where it came from — a range you picked or a range your phone shared — when it was last checked, and the range itself where there was one
@@ -274,13 +275,11 @@ That motion data is used in the moment to recognise the gesture, on your device.
 
 ## 13. Notifications
 
-Notifications are **off unless you allow them.** Where the app asks depends on when you arrived.
+Notifications are **off unless you allow them.** Setting the app up does not ask about them: the question would come before you had heard a single story, and on iOS your phone shows its own permission dialog only once, so it is not spent on a stranger.
 
-**Setting the app up for the first time**, the last page tells you your phone is about to ask about notifications, and then your phone asks — the system's own permission dialog, which is the thing that decides it. Allowing is what turns them on; declining, or dismissing it, leaves them off. It is your phone's question, so it looks and behaves exactly as it does for any other app, and on iOS it is the one time the system will show it.
+**The app asks later instead**, at a moment when nothing is playing — once you have finished a story, listened for about half an hour in total, or come back to the app a second time having started one. It asks in its own dialog first, and only raises your phone's permission dialog — the system's own, which is the thing that decides it — if you say yes. Dismissing that question without answering it gets you one more attempt, a fortnight later, and then never again. Earlier versions of the app asked on the last page of setup; that page no longer does.
 
-**If you already had the app before notifications existed in it**, there is no setup page left to ask on, so the app asks later instead — once you have finished a story or listened for about half an hour, at a moment when nothing is playing. It asks in its own dialog first, and only raises your phone's permission dialog if you say yes. Dismissing that question without answering it gets you one more attempt, a fortnight later, and then never again.
-
-**Either way, an answer is final.** The app does not ask twice, and it does not ask again after a no. **Settings → Notifications** turns them on or off at any time, and lets you silence any of the three groups described below on its own.
+**An answer is final.** The app does not ask twice, and it does not ask again after a no. **Settings → Notifications** turns them on or off at any time, and lets you silence any of the three groups described below on its own.
 
 Four kinds exist, in three groups. **New stories** is one kind and one group: that a new story has been published. **Your books** holds two: that a story you started is unfinished or has endings you never reached, and — built but not switched on — a reminder that you have free unlocks you have not spent. **New stories in testing** is the third group and the fourth kind: that a finished-but-unreleased story has entered testing, where it is free to hear. That last group is different from the other two in one way, and it is worth stating: it can only ever fire while **Books in testing** is switched on in Settings, which is off unless you turn it on. Its own switch defaults on like the others, but until you have joined testing it is shown as waiting and sends nothing — so it is not a decision put to anyone who has not opted in, and joining testing starts it without a second one. Grouping kinds is what stops the app's settings from turning into a list that grows every time a kind is added, and it means silencing a group silences everything in it, including anything added to it later.
 
@@ -292,7 +291,7 @@ One honest caveat, in the same spirit as the one in section 9. That catalogue fi
 
 While notifications are on, the app keeps a small note on your device so it can make those decisions:
 
-- which books your device has seen in the catalogue, starting from the moment you switched notifications on, so that only genuinely new ones are announced. Books already there when you opted in are never announced, and the list grows as the library does
+- which books your device has seen in the catalogue, starting from the moment you switched notifications on, so that only genuinely new ones are announced. Books already there when you opted in are never announced, and the list grows as the library does. The testing group keeps a separate list of its own, started the moment you join testing, for the same reason: the testing books already there when you joined are never announced either
 - which books you have already been told about
 - a short summary of which categories you appear to enjoy, worked out from your own listening, and which books you started and left unfinished
 - a copy of the handful of facts a decision needs, taken from what the app already knows: the age the app has for you (section 14 — the single number the app acts on, which is the bottom of the range you picked, the bottom of a range your phone shared, or the lower of the two where both exist; never the range itself and never where it came from), whether you subscribe, and how many free unlocks you have not spent
