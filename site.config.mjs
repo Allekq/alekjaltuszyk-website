@@ -493,9 +493,12 @@ export const legalDocuments = {
   //
   // AppConfig.LEGAL_VERSION stays at 9, same reasoning as terms 2.3.1: 9 has
   // never shipped, so this rides the gate it already fires.
+  // 2.10.0 rather than a patch: it discloses a new notification kind and group
+  // ("New stories in testing") and the setting it is gated on. Wording only
+  // beyond that.
   audioBookChoicesPrivacy: {
-    version: "2.9.0",
-    effectiveDate: "2026-09-03",
+    version: "2.10.0",
+    effectiveDate: "2026-09-11",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },
