@@ -1,0 +1,38 @@
+---
+/* AudioChoices' store router — see the OverLit one for what these pages are
+   for. This is the two-store case, so both buttons are real links. */
+import "../../../../styles/get-app.css";
+import SimpleSiteHeader from "../../../../components/landing/sections/SimpleSiteHeader.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import StoreRedirect from "../../../../components/landing/ui/StoreRedirect.astro";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import { audioBookChoicesConfig } from "../../../../config/site";
+---
+
+<SiteLayout
+  title={`Get ${audioBookChoicesConfig.shortName}`}
+  description={`Open ${audioBookChoicesConfig.shortName} in the store your device can install it from.`}
+  pageType="landing"
+  robotsContent="noindex,follow"
+  faviconHref={audioBookChoicesConfig.faviconHref}
+  faviconType={audioBookChoicesConfig.faviconType}
+>
+  <SimpleSiteHeader
+    brand={audioBookChoicesConfig.shortName}
+    brandHref={audioBookChoicesConfig.homeHref}
+  />
+
+  <StoreRedirect
+    appName={audioBookChoicesConfig.shortName}
+    appStoreHref={audioBookChoicesConfig.appStoreHref}
+    playStoreHref={audioBookChoicesConfig.playStoreHref}
+    iconHref={audioBookChoicesConfig.iconHref}
+    appHref={audioBookChoicesConfig.homeHref}
+  />
+
+  <SiteFooter
+    links={audioBookChoicesConfig.footerLinks}
+    showBrand={false}
+    showSocials={false}
+  />
+</SiteLayout>

@@ -1,0 +1,99 @@
+/*
+ * The store router page (`StoreRedirect.astro`).
+ *
+ * One centred card and nothing else: most visitors never read it, because the
+ * inline script has already sent them to a store. It is styled for the ones
+ * who stay — a desktop browser, a no-JS visitor, an unrecognised device — so
+ * it has to be a complete, calm page rather than a spinner.
+ */
+
+.store-redirect {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-md) var(--space-3xl);
+}
+
+.store-redirect__card {
+  display: grid;
+  gap: var(--space-md);
+  justify-items: center;
+  max-width: 30rem;
+  padding: clamp(var(--space-xl), 6vw, var(--space-2xl));
+  text-align: center;
+  width: 100%;
+}
+
+.store-redirect__icon {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  height: auto;
+  width: clamp(4rem, 18vw, 5.5rem);
+}
+
+.store-redirect__kicker {
+  color: var(--color-coral-strong);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.store-redirect__title {
+  color: var(--color-text-strong);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.store-redirect__lead {
+  color: var(--color-text-muted);
+  font-size: var(--text-body);
+  line-height: 1.7;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/*
+ * Only ever shown in the moment between the decision and the jump, and on
+ * iOS it is what stays behind on screen once the App Store app takes over.
+ */
+.store-redirect__status {
+  color: var(--color-text-soft);
+  font-size: var(--text-caption);
+  font-weight: 650;
+  letter-spacing: var(--tracking-label);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.store-redirect__actions {
+  justify-content: center;
+  margin-top: var(--space-xs);
+  width: 100%;
+}
+
+.store-redirect__pending,
+.store-redirect__back {
+  color: var(--color-text-soft);
+  font-size: var(--text-caption);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.store-redirect__back {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text-soft) 40%, transparent);
+  padding-bottom: 0.1rem;
+  text-decoration: none;
+  transition: color var(--motion-quick), border-color var(--motion-quick);
+}
+
+.store-redirect__back:hover,
+.store-redirect__back:focus-visible {
+  border-color: var(--color-coral-strong);
+  color: var(--color-text-strong);
+}

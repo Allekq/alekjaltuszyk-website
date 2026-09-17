@@ -74,6 +74,16 @@ const takeMeSomewhereSupportDraftLines = [
 const takeMeSomewhereSupportBody = takeMeSomewhereSupportDraftLines.join("\r\n");
 const planKeptAppStoreHref = "https://apps.apple.com/pl/app/plankept/id6762317618";
 const overLitAppStoreHref = "https://apps.apple.com/pl/app/overlit/id6771103256";
+/*
+ * OverLit is iOS-only today, so there is no Play listing to link to and the
+ * store router at `/apps/OverLit/get/` says so instead of guessing.
+ *
+ * When the Android build ships, put the Play URL here and that page starts
+ * routing Android devices on its own — no markup or copy changes. Widen
+ * `platforms` for the `overlit` entry in `routes.ts` in the same commit, or
+ * the site will be routing to a store it still claims not to be on.
+ */
+const overLitPlayStoreHref: string | null = null;
 const takeMeSomewhereAppStoreHref =
   "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
 const planKeptPrimaryCta = {
@@ -81,8 +91,14 @@ const planKeptPrimaryCta = {
   label: "Get the app",
   stage: "app-store" as const,
 };
+/*
+ * "Get the app" points at the store router, not at a store. One button cannot
+ * name two stores, and a visitor on the wrong platform should not have to
+ * notice that. Buttons that name a store ("App Store", "Google Play") keep
+ * linking straight to it — see `StoreActions.astro`.
+ */
 const overLitPrimaryCta = {
-  href: overLitAppStoreHref,
+  href: siteRoutes.apps.overLitGet.href,
   label: "Get the app",
   stage: "app-store" as const,
 };
@@ -409,6 +425,8 @@ export const overLitConfig = {
   primaryCtaLabel: overLitPrimaryCta.label,
   launchStage: overLitPrimaryCta.stage,
   appStoreHref: overLitAppStoreHref,
+  playStoreHref: overLitPlayStoreHref,
+  getAppHref: siteRoutes.apps.overLitGet.href,
   supportHref: siteRoutes.apps.overLitSupport.href,
   privacyHref: siteRoutes.apps.overLitPrivacyPolicy.href,
   dataDeletionHref: siteRoutes.apps.overLitDataDeletion.href,
@@ -629,16 +647,17 @@ export const audioBookChoicesConfig = {
    * Live on the App Store and on Google Play, so the page carries two store
    * buttons and `platforms` in `routes.ts` names both.
    *
-   * `primaryCtaHref` is the single-slot fallback: the sticky header has room
-   * for one pill, and structured data still wants one canonical download URL.
-   * It stays the App Store link, and `store-cta.ts` retargets the header pill
-   * to Play on Android. Anywhere with room for two buttons should render
+   * `primaryCtaHref` is the single-slot CTA: the sticky header has room for one
+   * pill, and one pill cannot name two stores. It points at the store router at
+   * `/apps/AudioBookChoices/get/`, which is correct on both platforms with no
+   * script involved. Anywhere with room for two buttons should render
    * `StoreActions` instead of reaching for this.
    */
   launchStage: "app-store" as "app-store" | "coming-soon",
   statusLabel: "On the App Store and Google Play",
-  primaryCtaHref: audioBookChoicesAppStoreHref as string | null,
+  primaryCtaHref: siteRoutes.apps.audioBookChoicesGet.href as string | null,
   primaryCtaLabel: "Get the app",
+  getAppHref: siteRoutes.apps.audioBookChoicesGet.href,
   appStoreHref: audioBookChoicesAppStoreHref,
   playStoreHref: audioBookChoicesPlayStoreHref,
   faviconHref: withBase(audioBookChoicesIconPath),

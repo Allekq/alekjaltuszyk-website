@@ -1,0 +1,177 @@
+---
+/**
+ * The store router: one URL that ends at the store the visitor can install
+ * from.
+ *
+ * Every store link is in the static HTML, with a real href, before any script
+ * runs — a no-JS visitor, a crawler, and an unrecognised device all get a
+ * working page with every store on it. The inline script below is an
+ * accelerator on top of that markup, never the thing that makes it work.
+ *
+ * Why this exists rather than a store link in the ad or the bio: the
+ * destination stops being a guess. One link stays right across platforms,
+ * survives a second store opening, and can carry campaign tokens (see
+ * `FORWARDED_PARAMS` in the script) so the install is attributable.
+ *
+ * An app with only one store passes `playStoreHref` as null and says so in
+ * one derived sentence. Nothing here hardcodes which stores an app is on.
+ */
+import ActionButton from "./ActionButton.astro";
+import StoreActions from "./StoreActions.astro";
+
+interface Props {
+  /** Short, spoken name — this sits in sentences, not in a store title. */
+  appName: string;
+  appStoreHref: string;
+  /** Null while the app has no Play listing. */
+  playStoreHref?: string | null;
+  iconHref?: string;
+  /** The app's own product page, for anyone who landed here by mistake. */
+  appHref: string;
+}
+
+const { appName, appStoreHref, playStoreHref = null, iconHref, appHref } =
+  Astro.props as Props;
+
+const hasBothStores = Boolean(playStoreHref);
+const lead = hasBothStores
+  ? `Taking you to the right store for your device. Pick one yourself if it does not.`
+  : `Taking you to the App Store. Open it yourself if it does not.`;
+---
+
+<section
+  class="store-redirect"
+  data-store-redirect
+  data-ios={appStoreHref}
+  data-android={playStoreHref ?? undefined}
+>
+  <div class="store-redirect__card landing-surface">
+    {iconHref && (
+      <img
+        class="store-redirect__icon"
+        src={iconHref}
+        alt=""
+        width="88"
+        height="88"
+        decoding="async"
+      />
+    )}
+
+    <p class="store-redirect__kicker">Get the app</p>
+    <h1 class="store-redirect__title">{appName}</h1>
+    <p class="store-redirect__lead">{lead}</p>
+
+    <p class="store-redirect__status" data-store-redirect-status hidden>
+      Opening the store…
+    </p>
+
+    <div class="store-redirect__actions app-actions">
+      {hasBothStores ? (
+        <StoreActions
+          appStoreHref={appStoreHref}
+          playStoreHref={playStoreHref as string}
+          appName={appName}
+        />
+      ) : (
+        <ActionButton
+          className="store-action"
+          variant="primary"
+          data-store="ios"
+          href={appStoreHref}
+          target="_blank"
+          aria-label={`Get ${appName} on the App Store`}
+        >
+          App Store
+        </ActionButton>
+      )}
+    </div>
+
+    {!hasBothStores && (
+      <p class="store-redirect__pending">
+        {appName} is not on Google Play yet. When it is, this page will send
+        Android devices there on its own.
+      </p>
+    )}
+
+    <a class="store-redirect__back" href={appHref}>What {appName} is</a>
+  </div>
+</section>
+
+<script is:inline>
+  /*
+   * Runs in the body, right under the markup it accelerates, so the jump
+   * happens before the card has a chance to settle on screen. Inline and
+   * synchronous on purpose: a redirect that waits for a bundle is a redirect
+   * the visitor watches happen.
+   *
+   * Everything below fails open. Any branch that cannot answer confidently
+   * returns and leaves the visitor on a page that already shows every store.
+   */
+  (function () {
+    var root = document.querySelector("[data-store-redirect]");
+
+    if (!root) return;
+
+    /* `?choose` or `#choose` holds the page still: for checking the card, and
+       for anyone who wants the store this device is not. */
+    if (/(^|[?&])choose(=|&|$)/.test(location.search) || location.hash === "#choose") {
+      return;
+    }
+
+    var ua = navigator.userAgent || "";
+
+    /*
+     * Crawlers first, and this order is load-bearing. Googlebot Smartphone
+     * identifies as Android and AdsBot-Google-Mobile as an iPhone, so a
+     * platform test that ran first would bounce Google's own ad review off to
+     * a store instead of letting it read the landing page.
+     */
+    if (/bot|crawler|spider|slurp|adsbot|mediapartners|headless|lighthouse|preview/i.test(ua)) {
+      return;
+    }
+
+    /* iPadOS 13+ reports itself as "Macintosh". A Mac with a touch screen is an
+       iPad; a real Mac has no touch points and falls through to the chooser,
+       which is the honest answer for it. */
+    var isAndroid = /android/i.test(ua);
+    var isApple =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var target = isAndroid ? root.dataset.android : isApple ? root.dataset.ios : "";
+
+    if (!target) return;
+
+    /*
+     * Campaign tokens ride along so an ad click stays attributable through the
+     * hop. Each store is handed only the parameters it actually understands —
+     * Apple's provider/campaign trio, Google Play's install referrer — and
+     * anything else on the URL is dropped rather than forwarded blindly.
+     */
+    var FORWARDED_PARAMS = isAndroid ? ["referrer"] : ["pt", "ct", "mt"];
+
+    try {
+      var url = new URL(target);
+      var incoming = new URLSearchParams(location.search);
+
+      for (var i = 0; i < FORWARDED_PARAMS.length; i += 1) {
+        var key = FORWARDED_PARAMS[i];
+        var value = incoming.get(key);
+
+        if (value) url.searchParams.set(key, value);
+      }
+
+      target = url.toString();
+    } catch (error) {
+      /* Keep the plain store URL. A missing campaign token costs a report
+         line; a thrown error would cost the install. */
+    }
+
+    var status = root.querySelector("[data-store-redirect-status]");
+
+    if (status) status.hidden = false;
+
+    /* `replace`, not `assign`: Back should return to wherever the visitor came
+       from, not to a page that immediately forwards them again. */
+    location.replace(target);
+  })();
+</script>

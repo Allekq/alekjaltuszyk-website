@@ -26,7 +26,6 @@ const isLive = audioBookChoicesConfig.launchStage !== "coming-soon";
     navigation={audioBookChoicesConfig.navigation}
     ctaHref={isLive ? audioBookChoicesConfig.primaryCtaHref ?? undefined : undefined}
     ctaLabel={isLive ? audioBookChoicesConfig.primaryCtaLabel : undefined}
-    ctaPlayHref={isLive ? audioBookChoicesConfig.playStoreHref : undefined}
     ctaNote={isLive ? undefined : "Coming soon"}
   />
 
@@ -41,17 +40,10 @@ const isLive = audioBookChoicesConfig.launchStage !== "coming-soon";
 
 <script>
   import { setupAppLandingMotion } from "../../../scripts/landing/motion";
-  import { setupStoreCtas } from "../../../scripts/landing/store-cta";
   import { setupChoiceDemo } from "../../../scripts/landing/audio-book-choices/choice-demo";
 
   const boot = () => {
     setupAppLandingMotion();
-
-    try {
-      setupStoreCtas();
-    } catch (error) {
-      console.error("[audio-book-choices] store cta failed", error);
-    }
 
     try {
       setupChoiceDemo();

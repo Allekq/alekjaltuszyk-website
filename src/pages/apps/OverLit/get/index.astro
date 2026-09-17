@@ -1,0 +1,35 @@
+---
+/*
+ * The link to hand out for OverLit: ads, QR codes, a bio, a support reply.
+ * It ends at whichever store the visitor's device can install from, and shows
+ * the stores when it cannot tell. `noindex` because it is a doorway, not a
+ * page anyone should find in search — the product page is the one to rank.
+ */
+import "../../../../styles/get-app.css";
+import SimpleSiteHeader from "../../../../components/landing/sections/SimpleSiteHeader.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import StoreRedirect from "../../../../components/landing/ui/StoreRedirect.astro";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import { overLitConfig } from "../../../../config/site";
+---
+
+<SiteLayout
+  title="Get OverLit"
+  description="Open OverLit in the store your device can install it from."
+  pageType="landing"
+  robotsContent="noindex,follow"
+  faviconHref={overLitConfig.faviconHref}
+  faviconType={overLitConfig.faviconType}
+>
+  <SimpleSiteHeader brand={overLitConfig.name} brandHref={overLitConfig.homeHref} />
+
+  <StoreRedirect
+    appName={overLitConfig.name}
+    appStoreHref={overLitConfig.appStoreHref}
+    playStoreHref={overLitConfig.playStoreHref}
+    iconHref={overLitConfig.iconHref}
+    appHref={overLitConfig.homeHref}
+  />
+
+  <SiteFooter links={overLitConfig.footerLinks} showBrand={false} showSocials={false} />
+</SiteLayout>

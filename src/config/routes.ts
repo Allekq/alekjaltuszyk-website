@@ -75,6 +75,13 @@ export const siteRoutes = {
     planKeptUpdates: createInternalRoute(planKeptContentPaths.updatesIndex),
     planKeptUpdatesFeed: createInternalRoute(planKeptContentPaths.updatesFeed),
     overLit: createInternalRoute(overLitBasePath),
+    /*
+     * The store router: one link that sends a visitor to the store their
+     * device can actually install from, and shows every store when it cannot
+     * tell. This is the link to put in an ad, a bio, or a QR code, because it
+     * stays correct when a second store opens — see `StoreRedirect.astro`.
+     */
+    overLitGet: createInternalRoute(`${overLitBasePath}get/`),
     overLitLegalManifest: createInternalRoute(`${overLitBasePath}legal-manifest.json`),
     overLitPrivacyPolicy: createInternalRoute(`${overLitBasePath}privacy-policy/`),
     /* Linked from the Google Play store listing as the data deletion URL. Must stay reachable
@@ -96,6 +103,8 @@ export const siteRoutes = {
     voiceOfSelfHowUsesAI: createInternalRoute(voiceOfSelfContentPaths.howVoiceOfSelfUsesAI),
     voiceOfSelfLegalManifest: createInternalRoute(voiceOfSelfContentPaths.legalManifest),
     audioBookChoices: createInternalRoute(audioBookChoicesBasePath),
+    /* Same store router as `overLitGet`, for the two-store case. */
+    audioBookChoicesGet: createInternalRoute(`${audioBookChoicesBasePath}get/`),
     audioBookChoicesLegalManifest: createInternalRoute(`${audioBookChoicesBasePath}legal-manifest.json`),
     audioBookChoicesPrivacyPolicy: createInternalRoute(`${audioBookChoicesBasePath}privacy-policy/`),
     /* Same role as `overLitDataDeletion`: the Play listing's data deletion URL. */
