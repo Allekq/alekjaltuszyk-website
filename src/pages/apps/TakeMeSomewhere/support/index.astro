@@ -1,5 +1,5 @@
 ---
-import TakeMeSomewhereSupportGuide from "../../../../components/support/TakeMeSomewhereSupportGuide.astro";
+import SupportGuide from "../../../../components/support/SupportGuide.astro";
 import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
 import { takeMeSomewhereConfig } from "../../../../config/site";
 import SiteLayout from "../../../../layouts/SiteLayout.astro";
@@ -10,7 +10,7 @@ import SiteLayout from "../../../../layouts/SiteLayout.astro";
   description="Email-based Take Me Somewhere support for route issues, device details, troubleshooting notes, and direct contact with Alek Jałtuszyk."
   pageType="content"
 >
-  <TakeMeSomewhereSupportGuide />
+  <SupportGuide config={takeMeSomewhereConfig} />
 
   <SiteFooter links={takeMeSomewhereConfig.footerLinks} showBrand={false} showSocials={false} />
 

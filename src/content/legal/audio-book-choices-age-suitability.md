@@ -283,7 +283,7 @@ to make it, including the parts that do not flatter the app.
 
 Tell us, and we will look at it. The
 [AudioChoices support page](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/) has the ways
-to get in touch, or write directly to **alekgameshelp2@gmail.com**.
+to get in touch, or write directly to **audiochoicesaudiobooks@gmail.com**.
 
 ---
 

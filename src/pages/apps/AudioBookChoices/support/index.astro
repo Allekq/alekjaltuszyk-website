@@ -1,5 +1,5 @@
 ---
-import AudioBookChoicesSupportGuide from "../../../../components/support/AudioBookChoicesSupportGuide.astro";
+import SupportGuide from "../../../../components/support/SupportGuide.astro";
 import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
 import { audioBookChoicesConfig } from "../../../../config/site";
 import SiteLayout from "../../../../layouts/SiteLayout.astro";
@@ -10,7 +10,7 @@ import SiteLayout from "../../../../layouts/SiteLayout.astro";
   description="Email-based AudioChoices support for playback, choices, head-nod, unlocks, device details, and direct contact with Alek Jałtuszyk."
   pageType="content"
 >
-  <AudioBookChoicesSupportGuide />
+  <SupportGuide config={audioBookChoicesConfig} />
 
   <SiteFooter links={audioBookChoicesConfig.footerLinks} showBrand={false} showSocials={false} />
 

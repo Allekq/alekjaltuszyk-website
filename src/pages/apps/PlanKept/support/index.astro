@@ -1,6 +1,6 @@
 ---
 import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
-import PlanKeptSupportGuide from "../../../../components/support/PlanKeptSupportGuide.astro";
+import SupportGuide from "../../../../components/support/SupportGuide.astro";
 import { planKeptConfig } from "../../../../config/site";
 import SiteLayout from "../../../../layouts/SiteLayout.astro";
 import { siteRoutes } from "../../../../config/routes";
@@ -12,6 +12,6 @@ import { siteRoutes } from "../../../../config/routes";
   pageType="content"
   canonicalHref={siteRoutes.apps.planKeptSupport.href}
 >
-  <PlanKeptSupportGuide />
+  <SupportGuide config={planKeptConfig} />
   <SiteFooter links={planKeptConfig.footerLinks} showBrand={false} showSocials={false} />
 </SiteLayout>

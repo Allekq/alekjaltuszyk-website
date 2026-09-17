@@ -1,0 +1,100 @@
+---
+/*
+ * The one support guide. Every app's support page renders this; the app's own
+ * words live in its config's `support` block in `src/config/site.ts`, which is
+ * the author of every string on this page that differs between apps. Anything
+ * written literally below is copy all four apps share — change it here and it
+ * changes for all of them, which is the point.
+ */
+import "../../styles/support.css";
+import "../../styles/waitlist-guide.css";
+import ActionButton from "../landing/ui/ActionButton.astro";
+
+interface SupportGuideCopy {
+  readonly title: string;
+  readonly includeTitle: string;
+  readonly includeItems: readonly string[];
+  readonly privacyNote: string;
+}
+
+/*
+ * Structural, not nominal: any app config carrying these fields fits, so the
+ * `as const` objects in site.ts pass without being widened or re-typed.
+ */
+interface SupportGuideConfig {
+  readonly supportEmail: string;
+  readonly supportGmailHref: string;
+  readonly supportMailtoHref: string;
+  readonly supportDraft: { readonly subject: string; readonly body: string };
+  readonly support: SupportGuideCopy;
+}
+
+interface Props {
+  config: SupportGuideConfig;
+}
+
+const { config } = Astro.props as Props;
+const copy = config.support;
+---
+
+<div class="waitlist-guide">
+  <section class="waitlist-guide__hero landing-surface">
+    <p class="waitlist-guide__eyebrow">Support</p>
+    <h1 class="waitlist-guide__title">{copy.title}</h1>
+    <p class="waitlist-guide__lead">Your email goes straight to the developer.</p>
+
+    <div class="waitlist-guide__actions">
+      <ActionButton href={config.supportGmailHref}>Open Gmail in browser</ActionButton>
+      <ActionButton href={config.supportMailtoHref} variant="secondary">
+        Open your email app
+      </ActionButton>
+    </div>
+  </section>
+
+  <div class="waitlist-guide__grid">
+    <section class="waitlist-guide__card landing-surface">
+      <div class="waitlist-guide__card-head">
+        <div class="waitlist-guide__detail waitlist-guide__detail--email">
+          <p class="waitlist-guide__detail-label">Send it to</p>
+          <p class="waitlist-guide__detail-value waitlist-guide__detail-value--email">
+            {config.supportEmail}
+          </p>
+        </div>
+        <button class="waitlist-guide__copy" type="button" data-copy-value={config.supportEmail}>
+          Copy email
+        </button>
+      </div>
+
+      <div class="waitlist-guide__detail">
+        <p class="waitlist-guide__detail-label">Suggested subject</p>
+        <p class="waitlist-guide__pill">{config.supportDraft.subject}</p>
+      </div>
+    </section>
+
+    <section class="waitlist-guide__card landing-surface">
+      <p class="waitlist-guide__kicker">What to include</p>
+      <h2 class="waitlist-guide__card-title">{copy.includeTitle}</h2>
+
+      <ul class="waitlist-guide__list">
+        {copy.includeItems.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <p class="waitlist-guide__body">{copy.privacyNote}</p>
+    </section>
+  </div>
+
+  <section class="waitlist-guide__card landing-surface">
+    <div class="waitlist-guide__card-head">
+      <p class="waitlist-guide__kicker">Ready-made draft</p>
+      <button
+        class="waitlist-guide__copy"
+        type="button"
+        data-copy-value={config.supportDraft.body}
+      >
+        Copy draft
+      </button>
+    </div>
+
+    <pre class="waitlist-guide__template">{config.supportDraft.body}</pre>
+  </section>
+</div>

@@ -1,5 +1,5 @@
 ---
-import OverLitSupportGuide from "../../../../components/support/OverLitSupportGuide.astro";
+import SupportGuide from "../../../../components/support/SupportGuide.astro";
 import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
 import { overLitConfig } from "../../../../config/site";
 import SiteLayout from "../../../../layouts/SiteLayout.astro";
@@ -10,7 +10,7 @@ import SiteLayout from "../../../../layouts/SiteLayout.astro";
   description="Email-based OverLit support for gameplay issues, device details, and direct contact with Alek Jałtuszyk."
   pageType="content"
 >
-  <OverLitSupportGuide />
+  <SupportGuide config={overLitConfig} />
 
   <SiteFooter links={overLitConfig.footerLinks} showBrand={false} showSocials={false} />
 

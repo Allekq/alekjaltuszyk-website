@@ -8,13 +8,14 @@ import {
 import { appNameList, appNames, releaseStatusSentence } from "../lib/appState";
 import { withBase } from "../lib/paths";
 import {
+  contactEmails,
   legalDocuments,
   siteDomain,
   siteOrigin,
 } from "../../site.config.mjs";
 
-const contactEmail = "alekgameshelp2@gmail.com";
-const supportEmail = "plankeptapp@gmail.com";
+const contactEmail = contactEmails.owner;
+const supportEmail = contactEmails.planKept;
 const supportSubject = "PlanKept support";
 const supportDraftLines = [
   "Hi,",
@@ -32,8 +33,8 @@ const supportDraftLines = [
   "",
 ];
 const supportBody = supportDraftLines.join("\r\n");
-const overLitSupportEmail = contactEmail;
-const takeMeSomewhereSupportEmail = contactEmail;
+const overLitSupportEmail = contactEmails.overLit;
+const takeMeSomewhereSupportEmail = contactEmails.takeMeSomewhere;
 const overLitSupportSubject = "OverLit support";
 const takeMeSomewhereSupportSubject = "Take Me Somewhere support";
 const overLitSupportDraftLines = [
@@ -325,6 +326,21 @@ export const planKeptConfig = {
     body: supportBody,
     lines: supportDraftLines,
   },
+  /*
+   * Every string on the support page that is PlanKept's rather than the shared
+   * chrome. `SupportGuide.astro` renders these; nothing else reads them.
+   */
+  support: {
+    title: "Need help with PlanKept?",
+    includeTitle: "A quick note gets the conversation moving.",
+    includeItems: [
+      "What you were trying to do.",
+      "What happened instead.",
+      "Your device and OS version, if you know them.",
+    ],
+    privacyNote:
+      "Please avoid sending sensitive plans, proof, photos, Health details, Screen Time details, AI conversation text, screenshots, or another person's personal information unless it is needed for the support request.",
+  },
   navigation: [
     { label: "Identity", href: "#identity" },
     { label: "Flow", href: "#flow" },
@@ -413,6 +429,17 @@ export const overLitConfig = {
     body: overLitSupportBody,
     lines: overLitSupportDraftLines,
   },
+  support: {
+    title: "Need help with OverLit?",
+    includeTitle: "A quick note gets the conversation moving.",
+    includeItems: [
+      "What you were trying to do.",
+      "What happened instead.",
+      "Your device and OS version, if you know them.",
+    ],
+    privacyNote:
+      "Please avoid sending sensitive personal information, screenshots with private data, or another person's information unless it is needed for the support request.",
+  },
   footerLinks: [
     { label: "Apps", href: siteRoutes.apps.index.href },
     { label: "Support", href: siteRoutes.apps.overLitSupport.href },
@@ -496,6 +523,18 @@ export const takeMeSomewhereConfig = {
     body: takeMeSomewhereSupportBody,
     lines: takeMeSomewhereSupportDraftLines,
   },
+  support: {
+    title: "Need help with Take Me Somewhere?",
+    includeTitle: "A useful note gets the issue grounded quickly.",
+    includeItems: [
+      "What you were trying to do.",
+      "What happened instead.",
+      "The route type, vibe, or rough area if relevant.",
+      "Your device and OS version, if you know them.",
+    ],
+    privacyNote:
+      "Please avoid sending precise location history, screenshots with private data, health or safety details, or another person's information unless it is needed for the support request.",
+  },
   homeHref: siteRoutes.apps.takeMeSomewhere.href,
   directoryHref: siteRoutes.apps.index.href,
   legalManifestHref: buildAbsoluteSiteHref(siteRoutes.apps.takeMeSomewhereLegalManifest.path),
@@ -546,7 +585,7 @@ export const takeMeSomewhereConfig = {
   },
 } as const;
 
-const audioBookChoicesSupportEmail = contactEmail;
+const audioBookChoicesSupportEmail = contactEmails.audioBookChoices;
 const audioBookChoicesSupportSubject = "AudioChoices support";
 const audioBookChoicesSupportDraftLines = [
   "Hi,",
@@ -652,6 +691,18 @@ export const audioBookChoicesConfig = {
     subject: audioBookChoicesSupportSubject,
     body: audioBookChoicesSupportBody,
     lines: audioBookChoicesSupportDraftLines,
+  },
+  support: {
+    title: "Need help with AudioChoices?",
+    includeTitle: "A useful note gets the issue grounded quickly.",
+    includeItems: [
+      "What you were trying to do.",
+      "What happened instead.",
+      "The book or story point, and whether you were tapping or using head-nod.",
+      "Your device and OS version, if you know them.",
+    ],
+    privacyNote:
+      "AudioChoices has no account and no login, and your listening progress stays on your device, so there is no profile to look up. If your question is about a purchase, a subscription, a rating or deleting your data, include the anonymous installation identifier shown in the app's Settings screen — without it there is no way to find your records. Please avoid sending sensitive personal information or another person's information unless it is needed for the support request.",
   },
   footerLinks: [
     { label: "Apps", href: siteRoutes.apps.index.href },

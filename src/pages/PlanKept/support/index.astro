@@ -1,5 +1,5 @@
 ---
-import PlanKeptSupportGuide from "../../../components/support/PlanKeptSupportGuide.astro";
+import SupportGuide from "../../../components/support/SupportGuide.astro";
 import SiteFooter from "../../../components/landing/sections/SiteFooter.astro";
 import { planKeptConfig } from "../../../config/site";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
@@ -13,7 +13,7 @@ import { siteRoutes } from "../../../config/routes";
   canonicalHref={siteRoutes.apps.planKeptSupport.href}
   robotsContent="noindex,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
 >
-  <PlanKeptSupportGuide />
+  <SupportGuide config={planKeptConfig} />
 
   <SiteFooter links={planKeptConfig.footerLinks} showBrand={false} showSocials={false} />
 

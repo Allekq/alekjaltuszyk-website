@@ -27,7 +27,7 @@ ask the app to check. Section 14 of the Privacy Policy sets this out in full.
 ## By email
 
 Your anonymous ID is shown at the top of **Settings → Privacy & Legal**, with a **Copy** button
-next to it. Email **alekgameshelp2@gmail.com** with the subject **"Delete my data"** and paste it in.
+next to it. Email **audiochoicesaudiobooks@gmail.com** with the subject **"Delete my data"** and paste it in.
 
 Because no name or email address is attached to your data, that ID is the only thing that says
 which records are yours. Without it the request cannot be actioned.

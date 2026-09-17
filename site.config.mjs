@@ -615,3 +615,40 @@ export const legalDocuments = {
     sourcePath: "src/content/legal/audio-book-choices-terms-of-use.md",
   },
 };
+
+/**
+ * Published contact addresses, one per app.
+ *
+ * **This object is the only place an address is typed.** `src/config/site.ts`
+ * reads it for every mailto and support block, and
+ * `scripts/check-contact-emails.mjs` asserts that the legal documents under
+ * `src/content/legal/` agree with it. Change a value here, run
+ * `npm run check:contact`, and it names every Markdown line still carrying the
+ * old address.
+ *
+ * Only *published* addresses belong here — the ones a reader writes to. The
+ * accounts that own App Store Connect, Play Console, Firebase, Ads or Tenjin
+ * are logins, not contacts; they are never published, never read from here, and
+ * moving one is an account migration rather than an edit.
+ *
+ * The legal documents deliberately keep the literal address inline rather than
+ * a placeholder: this repo is public and each document's own file history *is*
+ * its archive, so a template token would make the archive stop showing what was
+ * actually published on a given date. The checker is what keeps the copies
+ * honest instead.
+ *
+ * Swapping an address is not finished in this repo. The store listings carry
+ * their own support/marketing contact (App Store Connect, Play Console), and an
+ * app that shows the address in its own UI has its own constant — AudioChoices
+ * keeps it in `AppConfig.SUPPORT_EMAIL`.
+ */
+export const contactEmails = {
+  /** The owner's business address. Default for anything without its own. */
+  owner: "alekgameshelp2@gmail.com",
+  site: "alekgameshelp2@gmail.com",
+  planKept: "plankeptapp@gmail.com",
+  voiceOfSelf: "voiceofselfapp@gmail.com",
+  audioBookChoices: "audiochoicesaudiobooks@gmail.com",
+  overLit: "alekgameshelp2@gmail.com",
+  takeMeSomewhere: "alekgameshelp2@gmail.com",
+};

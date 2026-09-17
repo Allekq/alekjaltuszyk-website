@@ -10,7 +10,7 @@ AudioChoices is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk, an i
 
 Contact:
 
-- Email: `alekgameshelp2@gmail.com`
+- Email: `audiochoicesaudiobooks@gmail.com`
 - Support page: [`https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/`](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/)
 - Privacy Policy: [`https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/`](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/)
 - Terms of Use: [`https://alekjaltuszyk.xyz/apps/AudioBookChoices/terms-of-use/`](https://alekjaltuszyk.xyz/apps/AudioBookChoices/terms-of-use/)
@@ -176,7 +176,7 @@ Information may additionally be disclosed where it is genuinely necessary to com
 - **Cloudflare** (United States) processes personal data under a data processing agreement incorporating the **EU Standard Contractual Clauses**.
 - **Apple** and **Google Play** transfer purchase and payment data internationally under their own published safeguards, as independent controllers for that relationship.
 
-A copy of the safeguards relied on for any of these transfers can be requested at `alekgameshelp2@gmail.com`, and the position stated here is the position as at the effective date at the top of this page.
+A copy of the safeguards relied on for any of these transfers can be requested at `audiochoicesaudiobooks@gmail.com`, and the position stated here is the position as at the effective date at the top of this page.
 
 Data Privacy Framework adequacy has been challenged repeatedly in the past. If it were invalidated, transfers to Google would continue to rely on the Standard Contractual Clauses, and this policy would be reviewed and updated.
 
@@ -383,7 +383,7 @@ The filter is advisory content curation. It is not a security control, it does n
 ### How to request deletion
 
 There is no account to delete, so deletion works differently here. There are two routes: the
-data-deletion control in the app's **Settings**, and an email to `alekgameshelp2@gmail.com` with the
+data-deletion control in the app's **Settings**, and an email to `audiochoicesaudiobooks@gmail.com` with the
 subject "Delete my data" carrying your installation's anonymous identifier, which Settings shows so
 that you can copy it. Without that identifier there is no way to tell which records are yours, and
 the request cannot be actioned. The **Write to the developer** buttons described in section 19 now
@@ -414,7 +414,7 @@ Requests also carry an app-integrity check, so that the server can tell a genuin
 
 Backend administrative access is limited to the developer, and is protected by the account security of the underlying platform providers.
 
-No app, network, device or provider can be guaranteed to be perfectly secure. If you believe you have found a privacy or security problem, please write to `alekgameshelp2@gmail.com` before disclosing it publicly.
+No app, network, device or provider can be guaranteed to be perfectly secure. If you believe you have found a privacy or security problem, please write to `audiochoicesaudiobooks@gmail.com` before disclosing it publicly.
 
 ## 17. Your Rights
 
@@ -428,7 +428,7 @@ If you are in the EEA, the UK or Switzerland, you have the following rights over
 - **Objection** — object to processing based on legitimate interests, including the abuse-prevention retention. The objection will be considered on its merits, and the processing stopped unless there are compelling grounds to continue.
 - **Withdraw consent** — where consent applies. There are three such places. The first is **"Share anonymous usage data"**, one switch covering both the milestone reporting in section 9 and the advertising measurement in section 10, asked for outright in the European Economic Area, the United Kingdom, Switzerland and Canada; turn it off in **Settings**, at any time, and both stop immediately — the app stops sending milestones and Google's analytics library stops collecting. Withdrawing it does not affect milestones reported before you withdrew, because those events were added to per-book totals that hold no record of who caused them; for the two analytics events, section 15 gives the retention. The second is notifications, in section 13, which are off everywhere until you switch them on; switching them off stops them at once and deletes what the app stored on your device to produce them. The third is the iOS motion permission for the head-nod feature in section 12; turn it off in the app or in iOS Settings. None of these withdrawals costs you access to anything you have bought.
 
-To exercise any of these, write to `alekgameshelp2@gmail.com` and include your installation's anonymous identifier, which the app shows in Settings. There is no name, email address or account to look you up by, so without that identifier the records cannot be matched to you. There is no charge, and no requirement to give a reason.
+To exercise any of these, write to `audiochoicesaudiobooks@gmail.com` and include your installation's anonymous identifier, which the app shows in Settings. There is no name, email address or account to look you up by, so without that identifier the records cannot be matched to you. There is no charge, and no requirement to give a reason.
 
 If you are unhappy with how a request was handled, you can complain to a data protection supervisory authority. The developer's supervisory authority is Poland's:
 
@@ -454,7 +454,7 @@ Books carry advisory minimum ages set by their authors, and some are written for
 
 Where a younger listener's own yes is what the app relies on for the note it keeps on their device, that is acceptable for the same reason it is unremarkable: nothing reaches the developer, nothing is shared with anyone, and the whole of what turns on it is whether their own phone reminds them about a story.
 
-If you believe a child under 13 has provided personal information, write to `alekgameshelp2@gmail.com` and it will be dealt with.
+If you believe a child under 13 has provided personal information, write to `audiochoicesaudiobooks@gmail.com` and it will be dealt with.
 
 ## 19. Support Emails And Website Pages
 
@@ -490,6 +490,6 @@ The practices described above are applied globally. This section covers a few re
 
 Privacy questions, data-subject requests and deletion requests:
 
-- Email: `alekgameshelp2@gmail.com`
+- Email: `audiochoicesaudiobooks@gmail.com`
 - Support page: [`https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/`](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/)
 - Country: Poland

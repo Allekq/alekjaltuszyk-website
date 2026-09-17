@@ -1,6 +1,6 @@
 These Terms of Use govern your use of the AudioChoices app for iOS and Android and the AudioChoices pages on `alekjaltuszyk.xyz`.
 
-AudioChoices is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk ("Developer", "we", "us", or "our"), an individual sole trader established in Poland. Contact: `alekgameshelp2@gmail.com`. Support page: [https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/). Full trader identification details, including the registered address, are published on the AudioChoices listings in the Apple App Store and Google Play.
+AudioChoices is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk ("Developer", "we", "us", or "our"), an individual sole trader established in Poland. Contact: `audiochoicesaudiobooks@gmail.com`. Support page: [https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/). Full trader identification details, including the registered address, are published on the AudioChoices listings in the Apple App Store and Google Play.
 
 ## 1. Acceptance
 
@@ -143,7 +143,7 @@ Please understand what this is and is not:
 
 Books may include tension, peril, violence, frightening scenes, mature themes or strong language. Parents and guardians who want a firmer boundary should use the device's own parental controls and screen-time features alongside the app's age rating on the App Store and Google Play.
 
-If you find content in a book that seems wrongly rated, tell us at `alekgameshelp2@gmail.com`.
+If you find content in a book that seems wrongly rated, tell us at `audiochoicesaudiobooks@gmail.com`.
 
 ## 13. Acceptable Use
 
@@ -171,7 +171,7 @@ If the service were to be discontinued altogether, reasonable advance notice wou
 
 ## 15. Conformity And Disclaimers
 
-We must supply content that matches its description and is fit for its purpose, and we do not exclude that obligation. If a book does not conform — for example, if audio is missing, corrupted or does not match what was described — tell us at `alekgameshelp2@gmail.com`. Depending on the circumstances you may be entitled to have it put right, to a price reduction, or to terminate the contract for that content, in line with your statutory rights.
+We must supply content that matches its description and is fit for its purpose, and we do not exclude that obligation. If a book does not conform — for example, if audio is missing, corrupted or does not match what was described — tell us at `audiochoicesaudiobooks@gmail.com`. Depending on the circumstances you may be entitled to have it put right, to a price reduction, or to terminate the contract for that content, in line with your statutory rights.
 
 Subject to that, and to the extent permitted by law, the app and the website pages are provided without any additional warranties beyond those given here and those implied by law that cannot be excluded. In particular we do not warrant that the app will be free of every error, that it will be compatible with every device or every pair of headphones, that any specific book will remain available, or that AI narration will match every listener's expectations.
 
@@ -246,7 +246,7 @@ If any part of these terms is found to be invalid or unenforceable, that part is
 
 Questions, complaints and problems:
 
-- Email: `alekgameshelp2@gmail.com`
+- Email: `audiochoicesaudiobooks@gmail.com`
 - Support page: [https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/](https://alekjaltuszyk.xyz/apps/AudioBookChoices/support/)
 - Country: Poland
 
