@@ -2,10 +2,11 @@
 import "../../../styles/plankept.css";
 import PlanKeptPageOrchestrator from "../../../components/landing/orchestrator/PlanKeptPageOrchestrator.astro";
 import { planKeptHomeFaqEntries } from "../../../config/planKeptContent";
-import { planKeptConfig } from "../../../config/site";
+import { planKeptConfig, siteConfig } from "../../../config/site";
 import { siteRoutes } from "../../../config/routes";
 import { toAbsoluteSiteUrl } from "../../../lib/discovery";
 import {
+  buildPlanKeptBreadcrumbData,
   buildPlanKeptFaqData,
   planKeptApplicationStructuredData,
   websiteId,
@@ -14,6 +15,13 @@ import SiteLayout from "../../../layouts/SiteLayout.astro";
 
 const planKeptPageStructuredData = [
   planKeptApplicationStructuredData,
+  /* Every other app page carries a breadcrumb and PlanKept's own sub-pages
+     already do; only its landing page was missing one. */
+  buildPlanKeptBreadcrumbData([
+    { name: siteConfig.identity.preferredName, path: siteRoutes.home.path },
+    { name: "Apps", path: siteRoutes.apps.index.path },
+    { name: planKeptConfig.name, path: siteRoutes.apps.planKept.path },
+  ]),
   {
     "@context": "https://schema.org",
     "@type": "WebPage",

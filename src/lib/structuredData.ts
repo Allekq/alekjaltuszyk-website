@@ -103,6 +103,10 @@ export const planKeptApplicationStructuredData = {
   ],
   keywords:
     "app blocker, achievement-gated app blocker, goal-based app blocker, plan enforcement app, step goal app blocker, workout app blocker, habit quota app blocker, screen time, productivity analytics",
+  /* PlanKept was the last app whose store link lived only in the markup, so
+     nothing reading the graph could tell where it installs from. */
+  downloadUrl: planKeptConfig.appStoreHref,
+  installUrl: planKeptConfig.appStoreHref,
   publisher: { "@id": personId },
   creator: { "@id": personId },
 };

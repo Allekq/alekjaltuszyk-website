@@ -11,7 +11,11 @@ const organizationId = `${siteConfig.origin}#organization`;
 const homePageStructuredData = [
   {
     "@context": "https://schema.org",
-    "@type": "MobileApplication",
+    /* Dual-typed the way PlanKept's node is: MobileApplication alone is a valid
+       subtype, but a consumer keying on SoftwareApplication -- which is what the
+       other four apps here declare -- would not match it. */
+    "@type": ["SoftwareApplication", "MobileApplication"],
+    "@id": `${siteConfig.origin}#app`,
     name: siteConfig.name,
     alternateName: "Closure",
     operatingSystem: "iOS",
@@ -19,9 +23,22 @@ const homePageStructuredData = [
     url: siteConfig.origin,
     image: siteConfig.defaultSocialImageUrl,
     description: siteConfig.aiDiscovery.summary,
+    /* The App Store link was reachable only from the markup, so nothing reading
+       the graph could tell where the app installs from. */
+    downloadUrl: siteConfig.appStoreHref,
+    installUrl: siteConfig.appStoreHref,
     publisher: {
       "@id": organizationId,
     },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Alek Jałtuszyk", item: toAbsoluteSiteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Apps", item: toAbsoluteSiteUrl("/apps/") },
+      { "@type": "ListItem", position: 3, name: siteConfig.name, item: siteConfig.origin },
+    ],
   },
   {
     "@context": "https://schema.org",
