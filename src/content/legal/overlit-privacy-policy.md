@@ -72,7 +72,8 @@ Not present on either platform: Firebase Performance Monitoring, Remote Config o
 The following is stored in your phone's app storage and is not transmitted to the developer, except that an eligible personal-best score and the technical submission fields listed in section 5 can be sent to the leaderboard service:
 
 - your local high-score records, level progress, stars, campaign and arcade state, and local run history
-- theme unlocks, menu position, and gameplay preferences such as haptics and accessibility settings
+- theme unlocks, menu position, and gameplay preferences such as haptics, accessibility, and notification choices
+- a small on-device reminder summary: your last visit and Daily attempt, current same-level or same-mode loss sequence, and reminders already planned or used
 - whether you have leaderboards switched on at all, and whether your scores are published
 - play counters, ad-pressure counters, ad-attempt records and timing values that decide when an ad or an unlock offer may appear
 - your Full Version entitlement state, plus the store transaction identifiers needed to recognise a restored purchase
@@ -86,7 +87,9 @@ OverLit includes a **Copy Progress** option that copies a plain-text summary of 
 
 There is **no cloud save**. OverLit does not use iCloud, Game Center, Google Play Games, or any progress-sync service. A leaderboard entry is a published score, not a backup: if you delete the app, your progress is gone even if your score is still on a board.
 
-**Reminders.** OverLit can send you an occasional reminder — at most one, roughly three days after you last played — that there is a new daily challenge waiting. It is created and scheduled **entirely on your device**: no reminder is sent from a server, there is no push service and no registration token, nothing about you is transmitted in order to schedule one, and the words in the reminder are compiled into the app and contain nothing about your play — no streak, no score, no level name. The app asks for notification permission only after you have played for a while, never during setup, and you can refuse or turn reminders off at any time in your device's settings without affecting anything else in the game. Reminders are sent only to players treated as adults for advertising purposes, so a player who told the app they are 13 to 17 never receives one, and neither does anyone in South Korea (section 14) — India does not restrict them. Buying the Full Version removes ads; it does not switch reminders off.
+**Reminders.** If you have played a Daily challenge, OverLit may remind you when the next one is ready. That message may include your current Daily streak when it can still be continued. After repeated unsuccessful tries on the same non-Daily level or mode, it may send one encouraging reminder naming that level or mode. It may also invite you back after several days away. These are occasional **local notifications**, planned from the small on-device summary above: no reminder is sent from a server, there is no push service or registration token, and nothing about your play is transmitted to schedule one. OverLit plans at most one reminder for a local day and at most two before you next open the app.
+
+The Notifications section in OverLit Settings has a master switch and separate Daily, encouragement and return switches, all on by default. You can turn any of them off; your phone's notification settings also control whether delivery is allowed. The app asks for notification permission only after relevant play and at a suitable menu moment, never during setup or over a live run. Reminders are available only to players treated as adults for advertising purposes, so a player who told the app they are 13 to 17 never receives one, and neither does anyone in South Korea (section 14) — India does not restrict them. Buying the Full Version removes ads; it does not switch reminders off.
 
 ## 5. Online Leaderboards
 
