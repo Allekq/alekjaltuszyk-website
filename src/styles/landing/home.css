@@ -704,6 +704,19 @@
   margin: 0;
 }
 
+.home-history__external-link {
+  color: var(--color-coral-strong);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  width: fit-content;
+}
+
+.home-history__external-link:hover,
+.home-history__external-link:focus-visible {
+  color: var(--color-text-strong);
+}
+
 @keyframes home-history-panel-in {
   from {
     opacity: 0;

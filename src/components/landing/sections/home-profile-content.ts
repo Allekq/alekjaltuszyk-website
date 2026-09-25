@@ -31,6 +31,7 @@ export interface HomeTimelineEntry {
   role: string;
   summary: string;
   highlights: readonly HomeTimelineHighlight[];
+  href?: string;
 }
 
 export type HomeTimelineHighlight = string | HomeTimelineProjectHighlight;
@@ -209,7 +210,8 @@ export const homeTimeline = [
     title: "Unity asset development",
     role: "Unity programmer and tool builder",
     summary:
-      "Before the current AI-heavy phase, I spent years building Unity assets and frameworks that reached a large audience of developers.",
+      "Building these Unity assets and their earlier versions is how I learned programming. They remain on the Asset Store, though I no longer develop them.",
+    href: "https://assetstore.unity.com/publishers/58188",
     highlights: [
       "Created 5-star Unity assets, including tools for procedural level design and physics-reactive VR NPCs.",
       "Learned how to package advanced systems so they are understandable, documented, and genuinely useful.",

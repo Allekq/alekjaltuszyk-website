@@ -75,6 +75,12 @@ const newestEntry = homeTimeline[homeTimeline.length - 1];
                 </li>
               ))}
             </ul>
+            {entry.href && (
+              <a class="home-history__external-link" href={entry.href} target="_blank" rel="noopener noreferrer">
+                View Alek Games on the Unity Asset Store
+                <span aria-hidden="true">↗</span>
+              </a>
+            )}
           </article>
         ))}
       </div>
