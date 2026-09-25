@@ -154,7 +154,7 @@ Per board, not per person, the server keeps the board's registry entry and its s
 
 ### What other players see
 
-A board page shows at most ten rows. Each row is a rank, a nickname and a score — your own row is shown as **You**. If you are outside the top ten, the page shows the top seven plus the rows immediately above and below you, so you can see where you stand. Ranks are calculated on the server; the app never computes them.
+A board first shows a small leading group and, when you are farther down, a group of players around you. You can scroll to load more scores beyond those initial groups. Each row is a rank, a nickname and a score — your own row is shown as **You**. Ranks are calculated on the server; the app never computes them.
 
 The stored platform value is **not displayed**, and the underlying identifier never leaves the server at all. No timestamps, no progress, no purchase state and nothing else about another player is ever shown to you, or about you to them.
 
