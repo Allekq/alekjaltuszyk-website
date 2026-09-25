@@ -1,11 +1,13 @@
 ---
 import ActionButton from "../../ui/ActionButton.astro";
 import AppLandingFooter from "../../ui/AppLandingFooter.astro";
+import StoreActions from "../../ui/StoreActions.astro";
 import { overLitConfig } from "../../../../config/site";
 import { siteRoutes } from "../../../../config/routes";
 
 const footerLinks = [
   { label: "App Store", href: overLitConfig.appStoreHref, external: true },
+  { label: "Google Play", href: overLitConfig.playStoreHref, external: true },
   { label: "Support", href: overLitConfig.supportHref },
   { label: "Privacy Policy", href: overLitConfig.privacyHref },
   { label: "Terms of Use", href: overLitConfig.termsHref },
@@ -27,10 +29,10 @@ const footerLinks = [
         random nickname you pick from a list.
       </p>
       <div class="app-actions">
-        <ActionButton
-          href={overLitConfig.primaryCtaHref}
-          label={overLitConfig.primaryCtaLabel}
-          target="_blank"
+        <StoreActions
+          appStoreHref={overLitConfig.appStoreHref}
+          playStoreHref={overLitConfig.playStoreHref}
+          appName={overLitConfig.name}
         />
         <ActionButton href="#play" variant="ghost" label="Play the demo again" />
       </div>

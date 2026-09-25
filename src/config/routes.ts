@@ -12,6 +12,10 @@ const voiceOfSelfBasePath = "/apps/VoiceOfSelf/";
 const audioBookChoicesBasePath = "/apps/AudioBookChoices/";
 const takeMeSomewhereAppStoreHref =
   "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
+export const overLitAppStoreHref =
+  "https://apps.apple.com/pl/app/overlit/id6771103256";
+export const overLitPlayStoreHref =
+  "https://play.google.com/store/apps/details?id=com.overlit";
 /*
  * AudioChoices ships on both stores, so its two store links sit together here
  * and are exported rather than re-typed in `site.ts`. A store URL written down
@@ -223,7 +227,7 @@ export const appDirectory = [
     name: "OverLit",
     shortName: "OverLit",
     description:
-      "A fast reflex arcade game for iPhone about keeping a pressure-filled grid alive.",
+      "A fast reflex arcade game for iPhone and Android about keeping a pressure-filled grid alive.",
     focus:
       "OverLit is a compact game-design project with ad-supported play.",
     pitch: "Keep the grid alive.",
@@ -237,7 +241,7 @@ export const appDirectory = [
     iconHref: withBase("/media/apps/overlit/app-icon-512.png"),
     external: false,
     releaseStage: "released",
-    platforms: ["iOS"],
+    platforms: ["iOS", "Android"],
   },
   {
     id: "voice-of-self",

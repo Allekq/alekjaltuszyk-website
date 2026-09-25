@@ -13,8 +13,8 @@ const overLitStructuredData = buildAppStructuredData({
   description: overLitConfig.defaultDescription,
   applicationCategory: "GameApplication",
   applicationSubCategory: "Arcade",
-  operatingSystem: "iOS",
-  downloadUrl: overLitConfig.appStoreHref,
+  operatingSystem: "iOS, Android",
+  downloadUrl: [overLitConfig.appStoreHref, overLitConfig.playStoreHref],
   isAccessibleForFree: true,
   featureList: overLitConfig.aiDiscovery.featureList,
   screenshots: [

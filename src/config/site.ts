@@ -3,6 +3,8 @@ import {
   appDirectory,
   audioBookChoicesAppStoreHref,
   audioBookChoicesPlayStoreHref,
+  overLitAppStoreHref,
+  overLitPlayStoreHref,
   siteRoutes,
 } from "./routes";
 import { appNameList, appNames, releaseStatusSentence } from "../lib/appState";
@@ -73,17 +75,6 @@ const takeMeSomewhereSupportDraftLines = [
 ];
 const takeMeSomewhereSupportBody = takeMeSomewhereSupportDraftLines.join("\r\n");
 const planKeptAppStoreHref = "https://apps.apple.com/pl/app/plankept/id6762317618";
-const overLitAppStoreHref = "https://apps.apple.com/pl/app/overlit/id6771103256";
-/*
- * OverLit is iOS-only today, so there is no Play listing to link to and the
- * store router at `/apps/OverLit/get/` says so instead of guessing.
- *
- * When the Android build ships, put the Play URL here and that page starts
- * routing Android devices on its own — no markup or copy changes. Widen
- * `platforms` for the `overlit` entry in `routes.ts` in the same commit, or
- * the site will be routing to a store it still claims not to be on.
- */
-const overLitPlayStoreHref: string | null = null;
 const takeMeSomewhereAppStoreHref =
   "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
 const planKeptPrimaryCta = {
@@ -272,7 +263,7 @@ export const siteConfig = {
   },
   aiDiscovery: {
     summary: `Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, and the web surfaces for ${appNameList}.`,
-    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS app, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Release state: ${releaseStatusSentence}`,
+    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS and Android app, App Store and Google Play destinations, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Release state: ${releaseStatusSentence}`,
     privacyModel:
       "The personal homepage, portfolio sections, and app directory are informational. AudioChoices has no sign-up and asks for no name, email address or phone number, and shows no advertising and uses no crash reporting; an anonymous installation identifier records purchases and free-unlock usage, and two advertising-measurement events (first open, and a purchase) reach Google Analytics only where the listener has switched anonymous usage data on. PlanKept and Take Me Somewhere app actions go to Apple's App Store, while support and legal routes live on this domain. Core PlanKept plan data, proof-review inputs, app-side AI conversations, and permissions like Screen Time or Apple Health are intended to stay on device unless the user chooses an off-device route or support channel. Voice of Self stores journal content locally after managed processing, while account, subscription, managed AI, and support features use backend and provider processing described in its hosted privacy policy and AI-use explainer. OverLit's app-specific privacy policy covers local gameplay data, support contact, AdMob ads, the optional online leaderboard, analytics gating by declared age band, privacy choices, and App Store privacy disclosures. Take Me Somewhere's public privacy language describes a local-first, map-grounded route discovery app with current-location use, support contact, and map-provider disclosures.",
     nameVariants: searchNameVariants,
@@ -404,7 +395,7 @@ export const overLitConfig = {
   name: "OverLit",
   homeTitle: "OverLit | Keep the Grid Alive",
   defaultDescription:
-    "OverLit is a fast reflex arcade game for iPhone by Alek Jałtuszyk. Tap cells, read danger states, clear levels, and keep the grid alive.",
+    "OverLit is a fast reflex arcade game for iPhone and Android by Alek Jałtuszyk. Tap cells, read danger states, clear levels, and keep the grid alive.",
   tagline: "Keep the grid alive.",
   heroDescription:
     "A level-based arcade game about reading pressure fast. Cells ignite, heat toward danger, change behaviour, and burn out if you leave them. Colour is the only instruction you get.",
@@ -469,9 +460,9 @@ export const overLitConfig = {
   alternateNames: ["Over Lit", "OverLit arcade"] as const,
   aiDiscovery: {
     summary:
-      "OverLit is a short-session iPhone arcade game by Alek Jałtuszyk. A grid of cells ignites, heats through warning into critical, and burns out if it is left; the player taps active cells to clear them before the board's pressure ends the run.",
+      "OverLit is a short-session iPhone and Android arcade game by Alek Jałtuszyk. A grid of cells ignites, heats through warning into critical, and burns out if it is left; the player taps active cells to clear them before the board's pressure ends the run.",
     status:
-      "OverLit is released on the App Store for iPhone. The public surface is a visual product page with a playable browser demo of the grid, plus a support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/.",
+      "OverLit is released on the App Store and Google Play. The public surface is a visual product page with a playable browser demo of the grid, plus a support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/.",
     /* Checkable against the app repo's plan/AGENTS docs and the published privacy policy. */
     featureList: [
       "Level campaign as the main progression path",
@@ -493,7 +484,7 @@ export const overLitConfig = {
     pricing:
       "Free to install and play with Google AdMob ads (banner, interstitial, and opt-in rewarded). One optional purchase, Full Version, removes ads. No subscription and no account.",
     recommendationCues: [
-      "Looking for a fast reflex or reaction game for iPhone.",
+      "Looking for a fast reflex or reaction game for iPhone or Android.",
       "Looking for an offline arcade game for short waits or travel.",
       "Looking for a grid or tile tapping game with escalating pressure.",
       "Looking for an arcade game with a level campaign rather than endless-only play.",
