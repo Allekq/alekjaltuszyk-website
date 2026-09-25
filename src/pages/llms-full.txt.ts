@@ -30,6 +30,9 @@ const renderApp = (
   name: string,
   path: string,
   app: {
+    getAppHref?: string;
+    appStoreHref?: string;
+    playStoreHref?: string;
     aiDiscovery: {
       summary: string;
       status: string;
@@ -45,6 +48,9 @@ const renderApp = (
     `## ${name}`,
     "",
     `Page: ${toAbsoluteSiteUrl(path)}`,
+    app.getAppHref ? `Get the app (selects the store for the visitor's device): ${toAbsoluteSiteUrl(app.getAppHref)}` : null,
+    app.appStoreHref ? `App Store: ${app.appStoreHref}` : null,
+    app.playStoreHref ? `Google Play: ${app.playStoreHref}` : null,
     app.alternateNames?.length ? `Also known as: ${app.alternateNames.join(", ")}` : null,
     "",
     app.aiDiscovery.summary,

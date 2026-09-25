@@ -7,16 +7,15 @@ including a store reviewer or a regulator — checking that its age rating is an
 It says what the stories contain, what the app's age setting does, and, just as plainly, what that
 setting does not do.
 
-**Last updated 14 August 2026.** The description of the stories below was checked against the
-published books on that date, by reading them rather than by recalling them.
+**Last updated 25 September 2026.** The examples and advisory ages below were checked against the
+current public catalogue. The app's library and each store listing are the current sources for what
+is available and for the rating shown in your country.
 
 ## Where the app is, and what that means for this page
 
-AudioChoices is on the **App Store**, for iPhone and iPad. There is an Android build, and it is not
-listed on Google Play. Everything below about Google, Google Play or Family Link describes how the
-app behaves and what a parent could use **once that listing exists**; none of it can be acted on
-today, and it is marked where it applies rather than quietly dropped. Where the two platforms differ
-in what the app can know about a listener, both are described, because the difference is the point.
+AudioChoices is on the **App Store** for iPhone and iPad and on **Google Play** for Android. Where
+the two platforms differ in what the app can know about a listener, both are described, because the
+difference is the point.
 
 ## The rating, and why the number moves between countries
 
@@ -37,52 +36,26 @@ what it means.
 
 ## What the stories actually contain
 
-Twelve books, about 370,000 words of narration: four survival stories, four contemporary dramas, two
-Greek myths retold, one fantasy siege and one detective story. Most of it is written for teenagers
-and adults. Two books carry an advisory minimum age of **16**; eight carry **13**; two carry none at
-all — one of those a drama about an underpaid school band teacher, with nothing frightening in it
-anywhere. Those four values (0, 13, 16, 18) are the only ones we use, because they are the only
-ranges an age signal can describe a listener with.
+The published catalogue includes survival stories, contemporary dramas, action stories and retold
+myths. Most are written for teenagers and adults. Each book carries its own advisory minimum age,
+which the library shows beside the book; that age can differ from the store's rating for the app as
+a whole. The catalogue changes, so the app's library is the current list of books and their ages.
 
 What a listener will actually meet:
 
-- **Confinement, and dread that lasts.** The four survival books are built on being trapped with a
-  clock running: a cave tour cut off by a collapse with the water rising, a decommissioned missile
-  silo that turns out not to be empty, a crippled spacecraft with two people aboard and no help
-  within reach, a prison. Characters are injured, exhausted, frightened and out of options for long
-  stretches. This is the register a listener meets most often, and it is the strongest reason the
-  app is rated 13+.
-- **Violence, mostly fantasy and myth.** The fantasy siege is a night-long battle — spears, blades,
-  a dragon, named characters killed. The two Greek myths carry the violence those myths carry: in one,
-  a king swallows his own children whole and keeps them alive inside him; in the other, a young woman
-  is taken down into the land of the dead to be married, with nobody having asked her. Ten of the
-  twelve books contain no battle at all.
-- **Real-world grief and illness, treated seriously.** A mother with dementia and six weeks of funded
-  care. Two parents dead on a Tuesday and a nineteen-year-old deciding whether he can raise his
-  eight-year-old brother. An archivist found at the bottom of a stairwell, and an investigator asked
-  to prove it was not an accident. These are the quietest books on the shelf and the most likely to
-  upset a younger listener, which is not the same thing as frightening one.
+- **Confinement, and dread that lasts.** In *Deep Dark*, a cave tour is cut off by a collapse and
+  rising water. *Substrata* sends a group into a decommissioned missile silo, and *Slingshot* leaves
+  two people in a damaged spacecraft. These stories put people under pressure for long stretches.
+- **Violence, mostly fantasy and myth.** *Emberfall* opens with a city under attack by a dragonlord's
+  army. *The Swallowed God* retells the myth of a father who swallows his children, while *The
+  Stolen Spring* begins with Persephone being taken into the underworld. The app also has other
+  Greek and Norse retellings; their content differs by book.
+- **Real-world grief and illness, treated seriously.** *Best Interests* follows a daughter deciding
+  how to care for her mother after a hospital stay. The quieter stories can still upset a younger
+  listener without relying on frightening scenes.
 - **Coercion, and choices with a cost.** Adults use position, money and information against people
   with less of all three. Every book puts a decision to the listener at intervals and then holds them
   to it; several have endings in which the right-seeming choice still costs somebody something.
-- **One power tool used as a threat.** A captive-bolt stunner, in the missile-silo book. It is
-  pointed at a man, fired into a workbench, and used on an animal.
-- **Alcohol and tobacco, in passing.** A restaurant's wine list, tobacco used as currency in a
-  prison, a witness smoking outside a loading dock, a village pub as somebody's workplace. In one
-  Greek myth a man is given a drugged drink and loses several hours to it. None of these is a scene
-  about drinking, and no character is shown drunk.
-
-What is **not** in the books as they stand — searched for across all twelve rather than assumed:
-
-- **No swearing.** Not one of the usual words, in about 370,000 words.
-- **No sexual or romantic content.** No sex, no undressing, no seduction, and not a single kiss
-  anywhere in the catalogue.
-- **No drug use.** The drugged drink in the myth above, and a prison sniffer dog mentioned in
-  passing, are the whole of it. No recreational drug appears anywhere.
-- **No firearms.** The only two objects a search turns up are the captive-bolt stunner above and a
-  nail gun that somebody is wrongly accused of stealing.
-- **No gore and no torture.** The word "blood" appears about twenty times in the whole catalogue, and
-  every use is restrained. There is no dwelling on injury and nothing sadistic.
 
 And what is ruled out by policy, whatever gets written next:
 
@@ -95,11 +68,8 @@ And what is ruled out by policy, whatever gets written next:
   contributes, and there is no free text anywhere for anyone to write into.
 - **No open web browsing.**
 
-One point worth making, since it is where a description like this usually goes wrong in the generous
-direction: frequent swearing and frequent weapon use are both permitted inside a 13+ rating, so
-their absence is not what is holding the number down and their arrival would not push it up. The app
-is 13+ for sustained dread and confinement, for realistic peril, and for adult subject matter handled
-seriously. Those are the things to weigh.
+The app's age rating reflects the catalogue as a whole. Sustained dread, peril and serious subjects
+may matter more to an individual child than the number on a store badge suggests.
 
 AudioChoices does sell books and a subscription through the store's own purchase system. The section
 on parental controls below covers how to put an approval step in front of that.
@@ -116,16 +86,9 @@ age would raise the rating of the whole app for everybody. Sharing an age with A
 therefore unlocks nothing more mature than what the 13+ rating already describes. The rating is a
 ceiling over the entire catalogue, and no age setting lifts it.
 
-**What that filter is doing today.** Of the twelve books on the shelf, two carry an advisory age of
-**16**, eight carry **13**, and two carry none at all. A listener the app has as 13 is therefore
-offered ten of the twelve; a listener it has as 16 or over is offered all of them. Where the app
-knows nothing about a listener it assumes 13, so the two 16s are hidden by default and have to be
-reached rather than avoided.
-
-Both 16s are there because of what the books are *about* rather than because of anything a store
-made us do — captivity and experimentation on teenagers in one, a cycle of parental violence and an
-attempted assault in the other. Apple's own descriptors would allow both at 13+. We would rather not
-hand them to a thirteen-year-old, so we do not.
+For example, *Substrata* and *The Swallowed God* carry an advisory minimum age of **16** in the
+public catalogue. A listener the app has as 13 is not offered those books. Where the app knows
+nothing about a listener, it assumes 13, so books above that age are hidden by default.
 
 ## How the app gets a listener's age
 
@@ -167,8 +130,8 @@ all, it assumes 13.**
 **A range can be below 13**, and the app takes that at face value rather than rounding it up.
 In practice that is a Google Play behaviour: Play's lowest band is 0–12, while the lowest gate Apple
 is asked about is 13. On an iPhone or iPad, a listener under 13 produces no range at all and lands on
-the picker, whose lowest option is 13–15. Since the App Store listing is the only one live today,
-this is a property of the Android build rather than one to rely on now.
+the picker, whose lowest option is 13–15. On Android, a lower range shared by Google Play can
+therefore narrow the shelf beyond the choices offered by the in-app picker.
 
 **Where the phone gave a range, the app goes by the range.** Settings has a "Listener age" row that
 names the range and the account it came from — and on those devices it is not an editor. There is no
@@ -264,9 +227,9 @@ The real controls belong to the platforms, and unlike an in-app setting they are
   Apple's own Family Sharing and Screen Time documentation rather than taking this page's word for
   it. What is worth knowing in general is that an app's rating and a parent's approval are separate
   mechanisms — a rating on its own does not always stop a download.
-- **Google — Family Link.** *Applies only once AudioChoices is listed on Google Play, which it is not
-  today.* Family Link can set content-rating limits for Google Play and can be configured to require
-  a parent's approval for downloads and for purchases. As above, the details are Google's, and its
+- **Google — Family Link.** Family Link can set content-rating limits for Google Play and can be
+  configured to require a parent's approval for downloads and for purchases. As above, the details
+  are Google's, and its
   own documentation is the place to confirm them.
 - **Purchase approval.** AudioChoices has in-app purchases. If you do not want a child spending, turn
   on purchase approval in the store account — the app's age setting has no effect on purchases

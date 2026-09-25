@@ -176,8 +176,8 @@ const playStoreClause =
     : `, and ${formatNameList(toNames(androidApps))} ${pluralize(androidApps.length, "is", "are")} on Google Play too`;
 
 /**
- * Honest one-sentence description of the released/unreleased split, e.g.
- * "Four are live on the App Store, and AudioChoices is not released yet."
+ * Honest one-sentence description of the released/unreleased split, derived
+ * from the current app directory rather than a hand-maintained platform list.
  */
 export const releaseStatusSentence = (() => {
   if (unreleasedAppCount === 0) {

@@ -284,8 +284,8 @@ export const homeTimeline = [
         description: "Interactive 'choose your story' audiobook app.",
         details: [
           "Designed branching story trees where Yes or No choices open new paths through a book.",
-          "Built choice input that works by tapping the screen or nodding with AirPods.",
-          "Kept listening progress, settings, and the self-declared age on the device, with no sign-up and no analytics.",
+          "Built choice input for screen taps, head motion with supported iPhone headphones, and Android headphone buttons.",
+          "Kept listening progress, settings, and listener age on the device, with no sign-up and optional usage measurement.",
         ],
       },
     ],

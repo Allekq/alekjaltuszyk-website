@@ -82,7 +82,7 @@ export const discoveryPages = {
       title: "AudioChoices",
       path: siteRoutes.apps.audioBookChoices.path,
       description:
-        "AudioChoices product page from Alek Jałtuszyk for the interactive 'choose your story' audiobook app on the App Store, with a playable sample of the Yes/No choice moment, the branching story tree, hands-free answering, access tiers, and legal links.",
+        "AudioChoices product page from Alek Jałtuszyk for the interactive 'choose your story' audiobook app on the App Store and Google Play, with a playable sample of the Yes/No choice moment, the branching story tree, hands-free answering, access tiers, and legal links.",
     },
     {
       title: "OverLit Support",
@@ -218,7 +218,12 @@ export const discoveryPages = {
       title: "OverLit Privacy Policy",
       path: siteRoutes.apps.overLitPrivacyPolicy.path,
       description:
-        "How OverLit handles local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store privacy disclosures.",
+        "How OverLit handles local gameplay data, support contact, AdMob ads, local developer house ads, privacy choices, and App Store and Google Play privacy disclosures.",
+    },
+    {
+      title: "Delete Your OverLit Data",
+      path: siteRoutes.apps.overLitDataDeletion.path,
+      description: "Steps for deleting OverLit leaderboard data through the app or by email with a copied leaderboard ID.",
     },
     {
       title: "OverLit Terms of Use",
@@ -254,7 +259,17 @@ export const discoveryPages = {
       title: "AudioChoices Privacy Policy",
       path: siteRoutes.apps.audioBookChoicesPrivacyPolicy.path,
       description:
-        "How AudioChoices handles data: no account and no name, email address or phone number, but an anonymous installation identifier that purchases and ratings are stored against; progress, settings and self-declared age stay on the device; no third-party analytics, advertising, crash reporting or cross-app tracking, and a short list of anonymous per-book milestones sent to the developer's own server that Settings turns off; optional on-device headphone motion for the head-nod feature.",
+        "How AudioChoices handles data: no account and no name, email address or phone number, but an anonymous installation identifier that purchases and ratings are stored against; progress, settings and age stay on the device; Google Analytics measures first opens and purchases through a Settings-controlled usage switch; no in-app advertising, crash reporting or cross-app tracking; and a short list of anonymous per-book milestones goes to the developer's own server. Optional headphone motion stays on the device.",
+    },
+    {
+      title: "Delete Your AudioChoices Data",
+      path: siteRoutes.apps.audioBookChoicesDataDeletion.path,
+      description: "Steps for deleting eligible AudioChoices server records through the app or by email with a copied installation ID.",
+    },
+    {
+      title: "AudioChoices Age Suitability",
+      path: siteRoutes.apps.audioBookChoicesAgeSuitability.path,
+      description: "Story content, App Store and Google Play age ratings, listener age settings, and parental controls for AudioChoices.",
     },
     {
       title: "AudioChoices Terms of Use",

@@ -37,8 +37,10 @@ Important notes:
 - PlanKept lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
 - Voice of Self lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
 - OverLit lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
+- Get OverLit on the store for your device: ${toAbsoluteSiteUrl(siteRoutes.apps.overLitGet.path)}
 - Take Me Somewhere lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
 - AudioChoices lives on this domain at ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
+- Get AudioChoices on the store for your device: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoicesGet.path)}
 - Release state: ${releaseStatusSentence}
 - PlanKept summary: ${planKeptConfig.aiDiscovery.summary}
 - OverLit summary: ${overLitConfig.aiDiscovery.summary}
