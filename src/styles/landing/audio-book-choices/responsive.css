@@ -31,17 +31,16 @@
 }
 
 /*
- * Below this width the pinned tree stacks: the stage sticks to the top of the
- * viewport and the beats scroll underneath it, which is the same scene read as
- * a phone story rather than a two-column one.
+ * Compact screens use a finished tree followed by readable explanations.
+ * Pinning the figure here covered the copy and consumed most of the viewport.
  */
-@media (max-width: 62rem) {
+@media (max-width: 64rem) {
   .abc-tree-scene {
     display: block;
   }
 
   .abc-tree-scene__stage {
-    top: clamp(4.2rem, 12vh, 5.6rem);
+    position: static;
   }
 
   /*
@@ -59,12 +58,35 @@
   }
 
   .abc-tree-scene__beats {
-    gap: clamp(6rem, 34vh, 11rem);
-    padding-block: clamp(3rem, 12vh, 5rem) clamp(5rem, 24vh, 9rem);
+    gap: var(--space-xl);
+    padding-block: var(--space-xl) 0;
   }
 
   .abc-tree-scene__beat-body {
     max-width: none;
+  }
+
+  .abc-hero__aura,
+  .abc-page__weave,
+  .abc-tree__runner {
+    display: none;
+  }
+
+  .abc-page :is(.abc-hero__panel, .abc-hero__now, .abc-player, .abc-tree-scene__frame) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .abc-wave__bar,
+  .abc-tree--hero .abc-tree__edge,
+  .abc-tree--hero :is(.abc-tree__node-core, .abc-tree__node-halo),
+  .abc-head--loop :is(.abc-head__pivot, .abc-head__pulse),
+  .abc-hands__ring-arc {
+    animation: none;
+  }
+
+  .abc-tree--hero .abc-tree__edge {
+    stroke-dashoffset: 0;
   }
 }
 

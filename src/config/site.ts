@@ -101,7 +101,7 @@ const planKeptInstagramHref =
 const logoImagePath = "/favicon.svg";
 const defaultSocialImagePath = "/favicon.svg";
 const planKeptIconPath = "/media/apps/plankept/app-icon-180.png";
-const overLitIconPath = "/media/apps/overlit/app-icon-512.png";
+const overLitIconPath = "/media/apps/overlit/app-icon-180.png";
 const takeMeSomewhereIconPath = "/media/apps/take-me-somewhere/app-icon-180.png";
 const preferredName = "Alek Jałtuszyk";
 const legalName = "Aleksander Jałtuszyk";
@@ -398,7 +398,7 @@ export const overLitConfig = {
     "OverLit is a fast reflex arcade game for iPhone and Android by Alek Jałtuszyk. Tap cells, read danger states, clear levels, and keep the grid alive.",
   tagline: "Keep the grid alive.",
   heroDescription:
-    "A level-based arcade game about reading pressure fast. Cells ignite, heat toward danger, change behaviour, and burn out if you leave them. Colour is the only instruction you get.",
+    "Cells light up, heat up, then burn out. Tap them in time, clear levels, and take on boards that keep changing the rules.",
   origin: siteOrigin,
   faviconHref: withBase(overLitIconPath),
   faviconType: "image/png",
@@ -463,14 +463,15 @@ export const overLitConfig = {
       "OverLit is a short-session iPhone and Android arcade game by Alek Jałtuszyk. A grid of cells ignites, heats through warning into critical, and burns out if it is left; the player taps active cells to clear them before the board's pressure ends the run.",
     status:
       "OverLit is released on the App Store and Google Play. The public surface is a visual product page with a playable browser demo of the grid, plus a support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/.",
-    /* Checkable against the app repo's plan/AGENTS docs and the published privacy policy. */
+    /* Check against the app's shared catalogs/daily presentation and the public privacy policy. */
     featureList: [
       "Level campaign as the main progression path",
       "Cell states: fresh, warning, critical, burnout",
       "Level goals include score targets, survival timers, deadlines, and no-miss rules",
       "Level twists include line and diagonal waves, Shape Shifter formations, Ember Snake crawlers, mirror pairs, and echo trails",
       "Unlockable arcade families: Classic, Random, Pattern, and Snake",
-      "A Daily Challenge alongside the campaign and the arcade families",
+      "Daily challenges generated on-device and playable offline, with star targets and daily streaks",
+      "Earn visual themes by completing daily challenges on different days",
       "Survival and Time Attack rulesets where they fit",
       "4x4, 5x5, and 6x6 grid sizes",
       "Three star tiers per level",
@@ -492,7 +493,7 @@ export const overLitConfig = {
     ],
     notFor: [
       "A puzzle game with a solvable board.",
-      "A multiplayer, social, or online-competitive game.",
+      "Real-time multiplayer or social chat.",
     ],
   },
 } as const;
@@ -635,14 +636,9 @@ export const audioBookChoicesConfig = {
     "An interactive audiobook that branches on your answer. Yes or no at every turning point, by tap or by nodding your head, and the story genuinely goes somewhere else.",
   origin: siteOrigin,
   /*
-   * Live on the App Store and on Google Play, so the page carries two store
-   * buttons and `platforms` in `routes.ts` names both.
-   *
-   * `primaryCtaHref` is the single-slot CTA: the sticky header has room for one
-   * pill, and one pill cannot name two stores. It points at the store router at
-   * `/apps/AudioBookChoices/get/`, which is correct on both platforms with no
-   * script involved. Anywhere with room for two buttons should render
-   * `StoreActions` instead of reaching for this.
+   * `platforms` in `routes.ts` names both stores. Download buttons use the
+   * store router at `/apps/AudioBookChoices/get/`, which uses a progressive
+   * device redirect and keeps both store links available as a fallback.
    */
   launchStage: "app-store" as "app-store" | "coming-soon",
   statusLabel: "On the App Store and Google Play",

@@ -34,6 +34,11 @@ export const readNumber = (value: string | undefined, fallback: number) => {
 export const prefersReducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/** These two product pages use plain content flow on compact screens. */
+export const usesStaticAppMotion = () =>
+  window.matchMedia("(max-width: 64rem)").matches &&
+  document.querySelector(".overlit-page, .abc-page") !== null;
+
 export const isCoarsePointer = () =>
   window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 

@@ -5,13 +5,11 @@
  *                                  --pointer-x/--pointer-y (%), --tilt-strength (0..1)
  *     data-tilt-strength="1"       multiplier for the rotation
  *
- * Touch devices get a softer version on drag rather than nothing at all, so the
- * surface still reacts when someone runs a finger across it. Everything eases
- * back to rest when the pointer leaves, and every value is a CSS custom property
- * so the visual decision stays in the stylesheet.
+ * OverLit and AudioChoices stay still on compact screens, so scrolling does
+ * not repaint glows. Other surfaces ease back to rest when the pointer leaves.
  */
 
-import { clamp, lerp, prefersReducedMotion, readNumber, setVar } from "./shared";
+import { clamp, lerp, prefersReducedMotion, readNumber, setVar, usesStaticAppMotion } from "./shared";
 
 interface TiltState {
   currentGlowX: number;
@@ -77,7 +75,10 @@ const isSettled = (state: TiltState) =>
   Math.abs(state.targetStrength - state.currentStrength) < 0.001;
 
 export const setupPointerTilt = () => {
-  if (prefersReducedMotion()) {
+  if (
+    prefersReducedMotion() ||
+    usesStaticAppMotion()
+  ) {
     return;
   }
 

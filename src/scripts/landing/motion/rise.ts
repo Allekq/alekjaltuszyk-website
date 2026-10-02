@@ -7,7 +7,7 @@
  * instead. Stagger comes from `--rise-index` set in the markup.
  */
 
-import { prefersReducedMotion } from "./shared";
+import { prefersReducedMotion, usesStaticAppMotion } from "./shared";
 
 const RISEN_CLASS = "is-risen";
 
@@ -18,7 +18,11 @@ export const setupRise = () => {
     return;
   }
 
-  if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+  if (
+    prefersReducedMotion() ||
+    usesStaticAppMotion() ||
+    !("IntersectionObserver" in window)
+  ) {
     items.forEach((item) => item.classList.add(RISEN_CLASS));
     return;
   }

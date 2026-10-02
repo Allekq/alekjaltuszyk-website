@@ -39,12 +39,9 @@ const isLive = audioBookChoicesConfig.launchStage !== "coming-soon";
 </div>
 
 <script>
-  import { setupAppLandingMotion } from "../../../scripts/landing/motion";
   import { setupChoiceDemo } from "../../../scripts/landing/audio-book-choices/choice-demo";
 
   const boot = () => {
-    setupAppLandingMotion();
-
     try {
       setupChoiceDemo();
     } catch (error) {

@@ -13,7 +13,7 @@
 
   --app-ink: var(--abc-paper);
   --app-ink-soft: rgb(253 242 228 / 74%);
-  --app-ink-mute: rgb(253 242 228 / 48%);
+  --app-ink-mute: rgb(253 242 228 / 68%);
   --app-line: rgb(255 224 190 / 14%);
   --app-panel: rgb(24 16 40 / 78%);
   --app-header-base: var(--abc-plum);
@@ -107,6 +107,15 @@
   display: grid;
   gap: clamp(1rem, 2.4vw, 1.6rem);
   justify-items: start;
+}
+
+/* The first screen must not wait for the motion bundle to become readable. */
+.js .abc-hero [data-rise] {
+  filter: none;
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto;
 }
 
 .abc-hero__title {

@@ -9,13 +9,13 @@ const screenshots = [
     alt: "OverLit Classic survival on a six by six grid, one cell critical red and two amber.",
     label: "Mid-run pressure",
     caption: "Classic on 6 × 6, seven seconds in: one cell already critical, two heating.",
-    loading: "eager" as const,
+    loading: "lazy" as const,
   },
   {
     src: withBase("/media/overlit/iphone-levels-campaign.jpg"),
     alt: "OverLit level select screen showing the Novice levels and a locked Intermediate tier.",
     label: "Stars, not just clears",
-    caption: "Three tiers per level, and the next tier stays shut until the stars arrive.",
+    caption: "Earn stars for stronger clears and unlock the next campaign area.",
     loading: "lazy" as const,
   },
   {
@@ -30,21 +30,16 @@ const screenshots = [
 
 <section class="app-section overlit-screens" id="screens">
   <div class="app-shell">
-    <header class="app-section__head app-section__head--centre" data-rise>
+    <header class="app-section__head app-section__head--centre">
       <p class="app-eyebrow">On the phone</p>
       <h2 class="app-title">Built to be readable with one thumb.</h2>
     </header>
 
     <ul class="overlit-screens__rail">
-      {screenshots.map((shot, index) => (
-        <li
-          class="overlit-screens__slide"
-          data-parallax
-          data-parallax-speed={index === 1 ? 40 : -26}
-          data-rise="scale"
-        >
+      {screenshots.map((shot) => (
+        <li class="overlit-screens__slide">
           <figure class="overlit-screens__figure">
-            <div class="overlit-screens__phone tilt-surface" data-tilt data-tilt-strength="0.8">
+            <div class="overlit-screens__phone">
               <img
                 src={shot.src}
                 alt={shot.alt}
@@ -53,7 +48,6 @@ const screenshots = [
                 loading={shot.loading}
                 decoding="async"
               />
-              <span class="overlit-screens__glare" aria-hidden="true"></span>
             </div>
             <figcaption class="overlit-screens__caption">
               <span class="overlit-screens__label">{shot.label}</span>

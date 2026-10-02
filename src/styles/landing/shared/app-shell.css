@@ -526,6 +526,31 @@ body:has(.app-page) .site-backdrop {
  * well before that happens: brand and CTA on the first row, nav underneath.
  */
 @media (max-width: 64rem) {
+  /* A solid header avoids repainting a masked blur over scrolling content. */
+  .app-header {
+    background: var(--app-header-base);
+  }
+
+  .app-header::before {
+    content: none;
+  }
+
+  .app-header__bar {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transform: none;
+  }
+
+  .app-header.is-scrolled .app-header__bar {
+    background: var(--app-header-base);
+  }
+
+  .app-section,
+  .overlit-hero,
+  .abc-hero {
+    scroll-margin-top: 9.5rem;
+  }
+
   .app-header__bar {
     align-items: center;
     gap: 0.6rem 0.9rem;
@@ -597,6 +622,8 @@ body:has(.app-page) .site-backdrop {
 
   .app-actions {
     display: grid;
+    justify-self: stretch;
+    width: 100%;
   }
 
   .app-actions .action-button {

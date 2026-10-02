@@ -1,35 +1,22 @@
 ---
-import { arcadeModes, gridSizes, pressureStyles } from "./overlit.data";
+import { arcadeModes, gridSizes } from "./overlit.data";
 ---
 
 <section class="app-section overlit-modes" id="modes">
   <div class="app-shell">
-    <header class="app-section__head app-section__head--centre" data-rise>
+    <header class="app-section__head app-section__head--centre">
       <p class="app-eyebrow">Arcade families</p>
       <h2 class="app-title">Many ways for the board to come at you.</h2>
       <p class="app-lead">
-        Unlockable free-play spaces that reuse the same grid language differently, with Survival
-        and Time Attack rulesets where they fit — and the campaign and Daily Challenge alongside
-        them.
+        Unlock arcade families as you progress. Each brings its own kind of pressure,
+        with Survival and Time Attack rulesets.
       </p>
     </header>
 
     <ul class="overlit-modes__grid">
-      {arcadeModes.map((mode, index) => (
-        <li class="overlit-modes__card" data-rise="scale" style={`--rise-index:${index}`}>
-          <div class="overlit-modes__card-inner tilt-surface" data-tilt data-tilt-strength="0.6">
-            <div
-              class:list={["overlit-mini", `overlit-mini--${mode.id}`]}
-              aria-hidden="true"
-            >
-              {mode.cellOrder.map((order) => (
-                <span
-                  class="overlit-mini__cell"
-                  style={`--cell-order:${order}`}
-                ></span>
-              ))}
-            </div>
-
+      {arcadeModes.map((mode) => (
+        <li class="overlit-modes__card">
+          <div class="overlit-modes__card-inner">
             <h3 class="overlit-modes__name">{mode.name}</h3>
             <p class="overlit-modes__description">{mode.description}</p>
             <ul class="overlit-modes__rulesets">
@@ -42,26 +29,24 @@ import { arcadeModes, gridSizes, pressureStyles } from "./overlit.data";
       ))}
     </ul>
 
-    <div class="overlit-modes__styles" data-rise>
-      <p class="overlit-modes__footer-title">And the pressure styles they are built from</p>
-      <ul class="overlit-modes__style-list">
-        {pressureStyles.map((style) => (
-          <li class="app-chip">{style}</li>
-        ))}
-        <li class="app-chip overlit-modes__style-more">and more</li>
-      </ul>
-    </div>
+    <aside class="overlit-modes__daily" aria-labelledby="daily-title">
+      <h3 class="overlit-modes__name" id="daily-title">Daily challenges</h3>
+      <p class="overlit-modes__description">
+        Fresh challenges each day, generated on your device and playable offline.
+        Replay for more stars, keep a daily streak, and earn themes by completing challenges
+        on different days.
+      </p>
+    </aside>
 
-    <div class="overlit-modes__footer" data-rise>
-      <p class="overlit-modes__footer-title">On every board size</p>
+    <div class="overlit-modes__footer">
+      <p class="overlit-modes__footer-title">Board sizes</p>
       <ul class="overlit-modes__sizes">
         {gridSizes.map((size) => (
           <li class="app-chip">{size}</li>
         ))}
       </ul>
       <p class="overlit-modes__footer-note">
-        Grid size is a surface, not the point. Bigger boards mean more to read, not smaller
-        targets — cells stay thumb-sized.
+        Try a different grid size in arcade play for a different amount of pressure to read.
       </p>
     </div>
   </div>

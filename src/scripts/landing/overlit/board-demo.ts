@@ -79,11 +79,13 @@ const ATTRACT: { at: number; phase: Exclude<CellPhase, "idle"> }[] = [
 /** Builds the cell buttons and returns them, without wiring any behaviour. */
 const buildCells = (grid: HTMLElement, total: number) => {
   const cells: Cell[] = [];
+  grid.replaceChildren();
 
   for (let index = 0; index < total; index += 1) {
     const button = document.createElement("button");
 
     button.type = "button";
+    button.disabled = true;
     button.className = "overlit-board__cell";
     button.dataset.phase = "idle";
     button.setAttribute("aria-label", `Cell ${index + 1}`);
@@ -131,6 +133,7 @@ const setupBoard = (root: HTMLElement) => {
 
   const paint = (cell: Cell) => {
     cell.button.dataset.phase = cell.phase;
+    cell.button.setAttribute("aria-label", `Cell ${cell.index + 1}, ${cell.phase}`);
   };
 
   const setPhase = (cell: Cell, phase: CellPhase) => {
@@ -158,6 +161,7 @@ const setupBoard = (root: HTMLElement) => {
   const stop = (reason: "time" | "burnout") => {
     running = false;
     root.dataset.boardState = "over";
+    cells.forEach(({ button }) => { button.disabled = true; });
     cells.forEach((cell) => setPhase(cell, "idle"));
 
     if (resultOut) {
@@ -252,6 +256,7 @@ const setupBoard = (root: HTMLElement) => {
     remaining = CONFIG.runMs;
     sinceSpawn = 0;
     lastFrame = performance.now();
+    cells.forEach(({ button }) => { button.disabled = false; });
     cells.forEach((cell) => setPhase(cell, "idle"));
     root.dataset.boardState = "playing";
     startButton.textContent = "Restart";
@@ -325,7 +330,9 @@ const setupStaticBoard = (root: HTMLElement) => {
   const size = Number.parseInt(root.dataset.boardSize ?? "5", 10) || 5;
   const total = size * size;
 
-  applyAttract(buildCells(grid, total), total);
+  const cells = buildCells(grid, total);
+  applyAttract(cells, total);
+  cells.forEach(({ button }) => { button.disabled = true; });
   root.dataset.boardState = "static";
 };
 

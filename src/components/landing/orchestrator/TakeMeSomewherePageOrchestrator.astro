@@ -30,12 +30,10 @@ import { takeMeSomewhereConfig } from "../../../config/site";
 </div>
 
 <script>
-  import { setupAppLandingMotion } from "../../../scripts/landing/motion";
   import { setupCompassNeedle } from "../../../scripts/landing/take-me-somewhere/compass";
   import { setupPlanPicker } from "../../../scripts/landing/take-me-somewhere/plan-picker";
 
   const boot = () => {
-    setupAppLandingMotion();
 
     try {
       setupCompassNeedle();

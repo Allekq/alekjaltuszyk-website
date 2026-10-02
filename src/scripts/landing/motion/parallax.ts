@@ -14,6 +14,7 @@ import {
   prefersReducedMotion,
   readNumber,
   setVar,
+  usesStaticAppMotion,
 } from "./shared";
 
 interface ParallaxLayer {
@@ -22,7 +23,7 @@ interface ParallaxLayer {
 }
 
 export const setupParallax = () => {
-  if (prefersReducedMotion()) {
+  if (prefersReducedMotion() || usesStaticAppMotion()) {
     return;
   }
 

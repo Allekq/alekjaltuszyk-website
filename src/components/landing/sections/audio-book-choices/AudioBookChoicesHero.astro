@@ -1,6 +1,5 @@
 ---
 import ActionButton from "../../ui/ActionButton.astro";
-import StoreActions from "../../ui/StoreActions.astro";
 import StoryTreeFigure from "./StoryTreeFigure.astro";
 import { audioBookChoicesConfig } from "../../../../config/site";
 import { heroBranchEdgeIds, heroBranchPathD, heroStoryTree } from "./story-tree.data";
@@ -23,9 +22,8 @@ const heroChips = [
 
   <div class="app-shell abc-hero__grid">
     <div class="abc-hero__copy">
-      <p class="app-status" data-rise style="--rise-index:0">
-        <span class="app-status__dot"></span>
-        {isLive ? "Out now" : audioBookChoicesConfig.statusLabel}
+      <p class="app-eyebrow" data-rise style="--rise-index:0">
+        Interactive audiobooks
       </p>
 
       <h1 class="abc-hero__title" data-rise style="--rise-index:1">
@@ -37,18 +35,11 @@ const heroChips = [
         {audioBookChoicesConfig.heroDescription}
       </p>
 
-      {/* Once there are store links they lead, but the playable sample is the
-          thing that actually sells this page, so it keeps a button either way.
-          Both stores are in the markup unconditionally — `StoreActions` orders
-          and emphasises them, and never drops one. */}
+      {/* The shared download route chooses the store; the sample stays playable here. */}
       <div class="app-actions" data-rise style="--rise-index:3">
         {isLive ? (
           <>
-            <StoreActions
-              appName={audioBookChoicesConfig.shortName}
-              appStoreHref={audioBookChoicesConfig.appStoreHref}
-              playStoreHref={audioBookChoicesConfig.playStoreHref}
-            />
+            <ActionButton href={audioBookChoicesConfig.getAppHref} label="Get the app" />
             <ActionButton href="#choice" variant="ghost" label="Make a choice" />
           </>
         ) : (

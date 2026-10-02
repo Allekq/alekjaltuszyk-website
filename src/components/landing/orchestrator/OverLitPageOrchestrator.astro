@@ -11,8 +11,6 @@ import { overLitConfig } from "../../../config/site";
 ---
 
 <div class="app-page overlit-page">
-  <div class="app-page__texture overlit-page__mesh" aria-hidden="true"></div>
-
   <AppLandingHeader
     brand={overLitConfig.name}
     brandHref="#play"
@@ -32,12 +30,9 @@ import { overLitConfig } from "../../../config/site";
 </div>
 
 <script>
-  import { setupAppLandingMotion } from "../../../scripts/landing/motion";
   import { setupBoardDemo } from "../../../scripts/landing/overlit/board-demo";
 
   const boot = () => {
-    setupAppLandingMotion();
-
     try {
       setupBoardDemo();
     } catch (error) {

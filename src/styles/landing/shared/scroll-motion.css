@@ -117,6 +117,33 @@
 
 /* ---- Reduced motion ------------------------------------------------------ */
 
+/* Mobile copy is readable immediately, even while the script is downloading.
+   These declarations also win over a desktop scene's inline progress after a
+   viewport resize. */
+@media (max-width: 64rem) {
+  :is(.overlit-page, .abc-page) [data-scene],
+  :is(.overlit-page, .abc-page) [data-scene-item] {
+    --scene-progress: 1 !important;
+    --item-progress: 1 !important;
+  }
+
+  .js :is(.overlit-page, .abc-page) [data-rise],
+  :is(.overlit-page, .abc-page) .scene-beat {
+    filter: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  :is(.overlit-page, .abc-page) .tilt-surface,
+  :is(.overlit-page, .abc-page) .parallax-layer {
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .js [data-rise] {
     opacity: 1;

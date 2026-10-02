@@ -1,69 +1,45 @@
 ---
 import ActionButton from "../../ui/ActionButton.astro";
-import StoreActions from "../../ui/StoreActions.astro";
 import { heroBadges } from "./overlit.data";
 import { overLitConfig } from "../../../../config/site";
 ---
 
 <section class="overlit-hero" id="play">
-  <div class="overlit-hero__field" aria-hidden="true">
-    <span class="overlit-hero__scan"></span>
-    <span class="overlit-hero__bloom overlit-hero__bloom--cyan"></span>
-    <span class="overlit-hero__bloom overlit-hero__bloom--amber"></span>
-  </div>
-
   <div class="app-shell overlit-hero__grid">
     <div class="overlit-hero__copy">
-      <div class="overlit-hero__identity" data-rise style="--rise-index:0">
-        <img
-          class="overlit-hero__icon"
-          src={overLitConfig.iconHref}
-          alt="OverLit app icon"
-          width="96"
-          height="96"
-          decoding="async"
-        />
-        <p class="app-status app-status--live">
-          <span class="app-status__dot"></span>
-          On the App Store and Google Play
-        </p>
+      <div class="overlit-hero__identity">
+        <p class="app-eyebrow">Reflex arcade · iPhone &amp; Android</p>
       </div>
 
-      <h1 class="overlit-hero__title" data-rise style="--rise-index:1">
+      <h1 class="overlit-hero__title">
         Keep the grid alive.
       </h1>
 
-      <p class="app-lead overlit-hero__lead" data-rise style="--rise-index:2">
+      <p class="app-lead overlit-hero__lead">
         {overLitConfig.heroDescription}
       </p>
 
-      <div class="app-actions" data-rise style="--rise-index:3">
-        <StoreActions
-          appStoreHref={overLitConfig.appStoreHref}
-          playStoreHref={overLitConfig.playStoreHref}
-          appName={overLitConfig.name}
-        />
+      <div class="app-actions">
+        <ActionButton href={overLitConfig.getAppHref} label="Get the app" />
         <ActionButton href="#pressure" variant="ghost" label="How it plays" />
       </div>
 
-      <ul class="app-chip-row overlit-hero__badges" data-rise style="--rise-index:4">
+      <ul class="app-chip-row overlit-hero__badges">
         {heroBadges.map((badge) => <li class="app-chip">{badge}</li>)}
       </ul>
     </div>
 
-    <div class="overlit-hero__stage" data-rise="scale" style="--rise-index:1">
+    <div class="overlit-hero__stage">
       {/*
         The HUD mirrors the app's real gameplay chrome — level, goal, score,
         time, board size — rather than inventing a scoring model. Failure is the
         app's: let a cell burn out and the run is over.
       */}
       <div
-        class="overlit-board tilt-surface"
+        class="overlit-board"
         data-board-demo
         data-board-size="5"
-        data-board-state="idle"
-        data-tilt
-        data-tilt-strength="0.55"
+        data-board-state="static"
       >
         <div class="overlit-board__hud">
           <span class="overlit-board__hud-run">
@@ -82,7 +58,11 @@ import { overLitConfig } from "../../../../config/site";
           </span>
         </div>
 
-        <div class="overlit-board__grid" data-board-grid role="group" aria-label="Playable demo board"></div>
+        <div class="overlit-board__grid" data-board-grid role="group" aria-label="OverLit demo board">
+          {Array.from({ length: 25 }, (_, index) => (
+            <span class="overlit-board__cell" data-phase={index === 2 ? "critical" : index === 11 ? "warning" : index === 16 ? "lit" : "idle"} aria-hidden="true"></span>
+          ))}
+        </div>
 
         <div class="overlit-board__foot">
           <span class="overlit-board__size">5x5</span>
@@ -104,9 +84,9 @@ import { overLitConfig } from "../../../../config/site";
       </div>
 
       <p class="overlit-hero__stage-note">
-        A stripped-down taste of the loop, not a slice of the real thing. The app has a level
-        campaign, arcade families, stars, themes, and boards that change the rules on you.
+        A quick taste of the game. The app adds a campaign, daily challenges and arcade modes.
       </p>
+      <noscript><p class="overlit-hero__stage-note">Enable JavaScript to play the demo, or get the app to play.</p></noscript>
     </div>
   </div>
 </section>

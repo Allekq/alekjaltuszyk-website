@@ -24,6 +24,7 @@ import {
   prefersReducedMotion,
   readNumber,
   setVar,
+  usesStaticAppMotion,
 } from "./shared";
 
 interface SceneItem {
@@ -116,7 +117,7 @@ export const setupScrollScenes = () => {
     endFactor: readNumber(root.dataset.sceneEnd, 0.42),
   }));
 
-  if (prefersReducedMotion()) {
+  if (prefersReducedMotion() || usesStaticAppMotion()) {
     // Reduced motion still needs the *end state*, otherwise scroll-revealed
     // content would never appear at all.
     scenes.forEach((scene) => applyScene(scene, 1));
