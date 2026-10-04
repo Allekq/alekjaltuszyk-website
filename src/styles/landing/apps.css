@@ -1,4 +1,4 @@
-/* App directory, simple app shells, and reusable app-card surfaces. */
+/* App directory and simple app headers. */
 
 @import "./app-showcase.css";
 
@@ -23,152 +23,18 @@
   padding-inline: var(--space-sm);
 }
 
-.app-card-grid,
-.apps-directory__grid {
-  display: grid;
-  gap: var(--space-lg);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.app-card {
-  display: grid;
-  gap: 0.9rem;
-  overflow: hidden;
-  padding: 1.35rem;
-  position: relative;
-  text-decoration: none;
-  transition:
-    transform var(--motion-standard),
-    border-color var(--motion-standard),
-    box-shadow var(--motion-standard);
-}
-
-.app-card:hover,
-.app-card:focus-visible {
-  border-color: rgba(24, 48, 56, 0.2);
-  box-shadow: var(--shadow-deep);
-  outline: none;
-  transform: translateY(-4px);
-}
-
-.app-card__glow {
-  border-radius: 999px;
-  filter: blur(26px);
-  height: 9rem;
-  opacity: 0.38;
-  pointer-events: none;
-  position: absolute;
-  right: -1.5rem;
-  top: -1.5rem;
-  width: 9rem;
-}
-
-.app-card--coral .app-card__glow {
-  background: radial-gradient(circle, rgba(255, 140, 102, 0.72), transparent 70%);
-}
-
-.app-card--mint .app-card__glow {
-  background: radial-gradient(circle, rgba(45, 185, 163, 0.68), transparent 70%);
-}
-
-.app-card__title {
-  color: var(--color-text-strong);
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2rem);
-  letter-spacing: -0.04em;
-  margin: 0;
-}
-
-.app-card__description {
-  margin: 0;
-}
-
-.app-card__description {
-  color: var(--color-text-muted);
-  line-height: 1.75;
-}
-
-.app-card__chips {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.15rem;
-  scrollbar-width: none;
-}
-
-.app-card__chips span {
-  background: rgba(255, 251, 245, 0.7);
-  border: 1px solid rgba(24, 48, 56, 0.08);
-  border-radius: var(--radius-pill);
-  color: var(--color-text-muted);
-  flex: 0 0 auto;
-  font-size: 0.74rem;
-  padding: 0.45rem 0.66rem;
-}
-
-.apps-directory__hero {
-  padding: 1.35rem;
-}
-
-.apps-directory {
-  display: grid;
-  gap: var(--space-xl);
-}
-
-.apps-directory__hero {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.apps-directory__eyebrow {
-  color: var(--color-coral-strong);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.apps-directory__title {
-  color: var(--color-text-strong);
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4.4rem);
-  letter-spacing: -0.06em;
-  line-height: 0.95;
-  margin: 0;
-}
-
-.apps-directory__lead {
-  color: var(--color-text-muted);
-  font-size: var(--text-body-lg);
-  line-height: 1.8;
-  margin: 0;
-  max-width: 44rem;
-}
-
-@media (max-width: 64rem) {
-.app-card-grid,
-.apps-directory__grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-
 @media (max-width: 40rem) {
-.simple-site-header__bar {
+  .simple-site-header__bar {
     padding: 0.72rem;
   }
 
-.simple-site-header__brand {
+  .simple-site-header__brand {
     padding-inline: 0.4rem;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
-.app-card,
-.app-grid__link {
+  .app-grid__link {
     transition: none;
   }
 }

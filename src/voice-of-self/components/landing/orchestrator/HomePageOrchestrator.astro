@@ -1,48 +1,44 @@
 ---
 import type { NavPillLink } from "../types";
 import LandingHeader from "../sections/LandingHeader.astro";
-import FaqTabSection from "../tabs/FaqTabSection.astro";
-import HowItWorksTabSection from "../tabs/HowItWorksTabSection.astro";
-import MainTabSection from "../tabs/MainTabSection.astro";
-import WhyItMattersTabSection from "../tabs/WhyItMattersTabSection.astro";
+import HeroSection from "../sections/HeroSection.astro";
+import WhyItMattersSection from "../sections/WhyItMattersSection.astro";
+import PositioningSection from "../sections/PositioningSection.astro";
+import HowItWorksSection from "../sections/HowItWorksSection.astro";
+import FeatureGridSection from "../sections/FeatureGridSection.astro";
+import FaqSection from "../sections/FaqSection.astro";
+import DownloadSection from "../sections/DownloadSection.astro";
 
-const tabSections = [
+const navTabs: NavPillLink[] = [
   {
     label: "Main",
     href: "#main",
     sectionId: "main",
-    component: MainTabSection,
   },
   {
     label: "Why it matters",
     href: "#why-it-matters",
     sectionId: "why-it-matters",
-    component: WhyItMattersTabSection,
   },
   {
     label: "How it works",
     href: "#how-it-works",
     sectionId: "how-it-works",
-    component: HowItWorksTabSection,
   },
   {
     label: "FAQ",
     href: "#faq",
     sectionId: "faq",
-    component: FaqTabSection,
   },
-] as const;
-
-const navTabs: NavPillLink[] = tabSections.map(({ label, href, sectionId }) => ({
-  label,
-  href,
-  sectionId,
-}));
+];
 ---
 
 <LandingHeader tabs={navTabs} />
 
-{tabSections.map((tab) => {
-  const Component = tab.component;
-  return <Component />;
-})}
+<HeroSection />
+<WhyItMattersSection />
+<PositioningSection />
+<HowItWorksSection />
+<FeatureGridSection />
+<FaqSection />
+<DownloadSection />

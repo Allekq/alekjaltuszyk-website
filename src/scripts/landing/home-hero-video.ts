@@ -1,10 +1,26 @@
 const heroVideo = document.querySelector<HTMLVideoElement>("[data-hero-video]");
+let isHeroVisible = true;
 
 const shouldSkipVideo = () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
 
   return prefersReducedMotion || connection?.saveData === true;
+};
+
+const syncPlayback = () => {
+  if (!heroVideo?.querySelector("source[src]")) {
+    return;
+  }
+
+  if (!isHeroVisible || document.hidden || shouldSkipVideo()) {
+    heroVideo.pause();
+    return;
+  }
+
+  void heroVideo.play().catch(() => {
+    /* Autoplay can be denied; the poster still carries the hero. */
+  });
 };
 
 const loadHeroVideo = () => {
@@ -28,10 +44,21 @@ const loadHeroVideo = () => {
 
   source.src = prefersNarrow && narrowSrc ? narrowSrc : source.dataset.src;
   heroVideo.load();
-  void heroVideo.play().catch(() => {
-    /* Autoplay can be denied; the poster still carries the hero. */
-  });
+  syncPlayback();
 };
+
+if (heroVideo && !shouldSkipVideo()) {
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      isHeroVisible = entry.isIntersecting;
+      syncPlayback();
+    });
+    observer.observe(heroVideo);
+  }
+
+  document.addEventListener("visibilitychange", syncPlayback);
+  window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", syncPlayback);
+}
 
 const scheduler = window as Window & {
   requestIdleCallback?: (callback: () => void, options?: { timeout?: number }) => number;

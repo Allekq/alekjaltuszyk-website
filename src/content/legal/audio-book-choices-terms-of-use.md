@@ -100,7 +100,7 @@ Nothing in these terms limits any mandatory consumer rights or any right to a re
 
 Purchases are made through Apple or Google. Their checkout, terms and policies, together with applicable law, govern cancellation, withdrawal and refund rights for those purchases.
 
-**About the 14-day right to withdraw.** For digital content bought online in the EU, the EEA and the UK there is normally a 14-day right to withdraw from the purchase for any reason. That right is lost once the content starts being supplied, if you agreed to immediate supply and acknowledged that you were giving the right up — which is what the store's checkout asks you before it takes payment, and what starting a download does. Because Apple and Google are the sellers for these purchases, their checkout is where that agreement is taken and their refund process is where a withdrawal or refund request is made; section 8 says how to reach each of them.
+**About the right to withdraw.** Distance purchases generally carry a 14-day withdrawal right in the EU, the EEA and the UK, subject to the law and contract that apply. For paid digital content supplied without a physical medium, loss of that right requires the conditions in applicable law to be satisfied, including prior express agreement to immediate supply, acknowledgement of the loss of the right, and any required confirmation. Starting a download, accepting these terms or opening the app alone does not supply those conditions. Rules for an ongoing digital service can differ from rules for a content download. Consult the checkout and purchase confirmation for your particular store and transaction; we do not assume that every storefront uses the same seller or obtains the same agreement. Section 8 links to store refund routes, and you may also contact us about statutory remedies.
 
 None of that limits your rights when something is wrong with a book rather than simply unwanted. Nothing in these terms limits any mandatory rights that apply to you, including rights concerning content that is faulty, unavailable or not as described. See section 15.
 
@@ -186,13 +186,13 @@ Nothing in this section limits, and nothing is intended to limit, any warranty, 
 - **gross negligence or wilful misconduct**
 - **any other liability that cannot lawfully be excluded or limited**, including your mandatory rights as a consumer under the law of your country of residence
 
-Subject to the above, and to the maximum extent permitted by applicable law:
+The additional exclusions below apply only to users acting wholly for business purposes. They do not apply to consumers or claims under data-protection law. Subject to the above, and to the maximum extent permitted by applicable law:
 
 - for loss caused by our failure to supply a book, or by a book that does not conform to what was described, you have the statutory remedies set out in section 15, and we do not cap them
 - for any other loss, our liability is limited to loss that was a reasonably foreseeable consequence of our breach at the time you accepted these terms; we are not liable for loss that was not reasonably foreseeable, or for indirect or consequential loss
 - we are not liable for loss of profits, loss of business, or loss arising from your use of the app for any business purpose, since AudioChoices is supplied for personal use
 
-If you are a consumer, these limits apply only to the extent that they are permitted by the consumer-protection law of your country of residence, and they do not affect it where it says otherwise.
+If you are a consumer, your applicable statutory rights and remedies apply without these additional exclusions.
 
 ## 17. Changes To These Terms
 
@@ -200,7 +200,7 @@ We may update these terms, and the Privacy Policy, as the app changes, as the la
 
 The version and effective date appear at the top of each document and in the hosted legal manifest at [https://alekjaltuszyk.xyz/apps/AudioBookChoices/legal-manifest.json](https://alekjaltuszyk.xyz/apps/AudioBookChoices/legal-manifest.json).
 
-When a change is material, the app presents the updated documents again before you continue listening, and asks you to accept the new version. You are free not to accept, in which case you should stop using the app; that does not take away rights you already have in respect of purchases you have already made. Non-material changes are published here with a new version and effective date.
+Required notices and agreement accompany material changes. AudioChoices compiles its legal acceptance version into the app; a website-only change does not re-gate an older installed build. A build carrying a changed acceptance version can ask you to review the updated documents; existing acceptance may defer that gate while offline. Refusal does not remove accrued purchase or consumer rights. Clarifications without a substantive change may retain an acceptance version and appear in public revision history.
 
 Changes that are materially adverse to you are not applied retroactively to purchases you already made.
 
@@ -254,6 +254,6 @@ We aim to answer support and complaint emails within a few working days.
 
 For privacy complaints you can also contact Poland's data protection authority, the Urząd Ochrony Danych Osobowych (UODO), at [https://uodo.gov.pl/en](https://uodo.gov.pl/en), or your own national authority.
 
-For refunds, billing and subscription problems, contact Apple or Google first, as explained in section 8 — those are the only parties who can act on them.
+For store refunds, billing and subscription controls, use the Apple or Google routes in section 8. You can also contact us about supply, conformity and other statutory remedies; a store procedure does not remove obligations we have under applicable law.
 
 **If we reject your complaint and you are a consumer**, Polish law requires us to tell you where you stand on out-of-court dispute resolution. We consent to resolving consumer disputes through the Trade Inspection (Inspekcja Handlowa), whose permanent consumer arbitration courts and mediation are free to use; you can find the route through the Office of Competition and Consumer Protection at [uokik.gov.pl](https://uokik.gov.pl). Using it is your choice, not a condition of anything, and it does not stop you going to court instead.

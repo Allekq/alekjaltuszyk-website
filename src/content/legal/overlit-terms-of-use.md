@@ -49,7 +49,7 @@ Where the app serves ads, the free experience may show Google AdMob rewarded ads
 
 OverLit uses Google's privacy messages (User Messaging Platform) where required, including European regulations messages and U.S. state privacy regulation messages. On iPhone, for players treated as adults, OverLit may show Apple's App Tracking Transparency prompt after the legal gate is complete; if that player allows tracking, the Google advertising SDK may access the device advertising identifier for personalised advertising and advertising measurement. Players treated as minors are not shown that prompt and are configured for non-personalised ads.
 
-The app uses Google Analytics for Firebase, on both platforms, for the small set of events listed in the Privacy Policy, and only for players treated as adults, under Google's privacy-message and Consent Mode settings. **Accepting the Terms or Privacy Policy does not itself enable analytics or advertising consent.** Players treated as minors send no OverLit Firebase analytics events. Crash reporting is separate from analytics, is not governed by Google's privacy message, and is described in section 7 of the Privacy Policy.
+Remediation builds with privacy version 3.6.0 deactivate Firebase Analytics, keep Tenjin measurement inactive and remove Crashlytics. Older builds have the measurement and diagnostic processing described in the Privacy Policy; their advertising-eligibility result did not itself prove optional-purpose consent. **Accepting the Terms or acknowledging the Privacy Policy is not analytics, attribution or advertising consent.** Removing an SDK does not erase its earlier provider records.
 
 If you decline consent or use device settings that restrict advertising technologies, ads may still be unavailable, contextual, non-personalized, limited, or replaced by local house ads according to Google, Apple, and applicable law.
 
@@ -59,7 +59,7 @@ The app may also **lend** a cosmetic rather than sell it. Where an item can be u
 
 OverLit may offer an optional one-time non-consumable in-app purchase called Full Version. It is processed by Apple through the App Store or by Google Play Billing, depending on where you installed the app. It is not a subscription and does not require a custom OverLit account.
 
-When active, Full Version removes normal in-app ads, unlocks ad-gated themes, and lets existing level-skip offers complete without watching an ad, subject to the app's normal daily skip limits. Full Version does not automatically unlock progression-only rewards, arcade modes, or other non-ad content that still requires normal gameplay. Full Version does not change leaderboard eligibility, ranking, or scoring in any way.
+When active, Full Version removes normal in-app ads, unlocks ad-gated themes and cosmetic slots, and lets existing level-skip offers complete without watching an ad, subject to the app's normal daily skip limits. Full Version does not automatically unlock progression-only rewards, arcade modes, or other non-ad content that still requires normal gameplay. Full Version does not change leaderboard eligibility, ranking, or scoring in any way.
 
 Purchases, restorations, refunds, billing, and payment methods are handled by the store you bought from, under its own terms and policies. The app may store local entitlement state and limited transaction metadata so it can remember and restore a verified purchase. A purchase made on one platform is a purchase in that store's account, and does not transfer to the other platform.
 
@@ -91,7 +91,7 @@ The developer may change the word lists, or the nickname attached to any entry, 
 
 ### What gets submitted
 
-Qualifying runs are submitted automatically at the end of the run, and only when the score beats your own previous accepted best on that board. When leaderboards first become available after campaign Level 5, OverLit may also submit eligible personal bests already stored on your device, including genuine played progress that you later import. It sends one best per eligible board under the same rules as a live run; it does not upload your progress file or run history. Nothing is submitted while publication is switched off, and tutorial runs, your first onboarding run, abandoned runs, runs played with Developer Mode enabled, skipped levels, records created by developer tools, and scores from an obsolete scoring version are never submitted.
+Qualifying runs are submitted automatically at the end of the run, and only when the score beats your own previous accepted best on that board. When leaderboards first become available after campaign Level 5, OverLit may also submit eligible personal bests already stored on your device, including genuine played progress that you later import. Builds with automatic gameplay-revision boards may also repeat this check when an update changes the available boards, using only stored results whose recorded gameplay revision matches the destination board. It sends one best per eligible board under the same rules as a live run; it does not upload your progress file or run history. Nothing is submitted while publication is switched off, and tutorial runs, your first onboarding run, abandoned runs, runs played with Developer Mode enabled, skipped levels, records created by developer tools, and scores from an obsolete scoring version are never submitted.
 
 Exactly what is sent, what is stored, how long it is kept, and how to have it erased are set out in the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/).
 
@@ -112,7 +112,7 @@ The service applies plausibility ceilings, per-player rate limits, de-duplicatio
 We may, without notice:
 
 - remove or correct any leaderboard entry we reasonably believe is not a genuine score, or that resulted from a bug, an exploit, or a scoring error
-- reset, rebuild, archive, or retire a board — for example when a level's scoring rules change, which retires the old board and starts a new one
+- reset, rebuild, archive, or retire a board. Builds with automatic gameplay-revision boards separate changed gameplay automatically, while older and newer app versions can continue submitting to their respective boards; a level change alone does not retire the older board
 - block a player identity from submitting further scores where fair play has been broken
 - switch leaderboards off entirely, for everyone or for a region, temporarily or permanently
 
@@ -149,7 +149,7 @@ You agree not to:
 
 ## 11. Suspension, Termination, And Availability
 
-OverLit has no user account, so there is usually no account to suspend. Where leaderboards are enabled, we may block a player identity from submitting scores and remove its entries, as described in section 7.
+OverLit has no interactive registration or sign-in account. The leaderboard service uses a pseudonymous Firebase identity. Where leaderboards are enabled, we may block a player identity from submitting scores and remove its entries, as described in section 7.
 
 We may also stop providing, update, remove, block, or limit access to OverLit, related website surfaces, the leaderboard service, support channels, ad placements, or features where reasonably needed to operate the app, comply with law or platform rules, protect the app or its players, respond to misuse, or end support for a feature.
 
@@ -177,6 +177,8 @@ To the fullest extent permitted by law, OverLit and related surfaces are provide
 
 ## 16. Limitation Of Liability
 
+The exclusions and monetary cap in this section apply only to users acting wholly for business purposes. They do not apply to consumers, claims under data-protection law, death or personal injury, fraud, intentional misconduct, gross negligence, or liability that cannot lawfully be limited.
+
 To the fullest extent permitted by law, the Developer will not be liable for indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of OverLit, the website, ads, leaderboards, support, or third-party services.
 
 To the fullest extent permitted by law, our total aggregate liability for all claims arising out of or related to OverLit, the website, ads, rewarded unlocks, leaderboards, Full Version purchases, support, third-party services, or these Terms will be limited to the greater of:
@@ -200,7 +202,7 @@ You may not transfer your rights or obligations under these Terms unless applica
 
 ## 20. Changes To These Terms
 
-We may update these terms from time to time. When we do, we will update the effective date and version above, and the app will ask you to accept the current documents before you continue playing.
+We may update these terms for valid reasons, including changes in law, security, the service or platform requirements. Changes apply prospectively and do not remove accrued purchase or consumer rights. We publish the current version and date here. OverLit's acceptance versions are bundled in each build: a website edit alone does not prompt an installed build to accept again. A build carrying materially updated terms asks you to review them before continuing, subject to applicable notice and agreement requirements.
 
 ## 21. Contact
 

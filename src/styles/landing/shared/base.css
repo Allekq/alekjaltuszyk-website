@@ -114,6 +114,15 @@
   transform: translateX(14%) scale(1);
 }
 
+.action-button:active {
+  transform: translateY(0) scale(0.985);
+}
+
+.action-button:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 4px;
+}
+
 .action-button--primary {
   background: linear-gradient(135deg, var(--color-coral), var(--color-mint));
   box-shadow: 0 16px 34px color-mix(in srgb, var(--color-coral) 26%, transparent);

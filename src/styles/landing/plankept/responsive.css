@@ -106,14 +106,6 @@
     width: 100%;
   }
 
-.plan-kept-legal-scaffold {
-    padding: 3rem 0 2rem;
-  }
-
-.plan-kept-legal-scaffold__actions {
-    grid-template-columns: 1fr;
-  }
-
 .plan-kept-stage {
     gap: 0.65rem;
     padding: 0.65rem;

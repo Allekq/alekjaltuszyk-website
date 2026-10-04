@@ -259,7 +259,7 @@ export const discoveryPages = {
       title: "AudioChoices Privacy Policy",
       path: siteRoutes.apps.audioBookChoicesPrivacyPolicy.path,
       description:
-        "How AudioChoices handles data: no account and no name, email address or phone number, but an anonymous installation identifier that purchases and ratings are stored against; progress, settings and age stay on the device; Google Analytics measures first opens and purchases through a Settings-controlled usage switch; no in-app advertising, crash reporting or cross-app tracking; and a short list of anonymous per-book milestones goes to the developer's own server. Optional headphone motion stays on the device.",
+        "AudioChoices privacy covers local listening data, pseudonymous operational identities, purchases and ratings, optional story milestone reporting and separate older-release Google Analytics processing. Remediation builds with legal version 11 deactivate Analytics and age-gate story reporting. Optional headphone motion stays local.",
     },
     {
       title: "Delete Your AudioChoices Data",

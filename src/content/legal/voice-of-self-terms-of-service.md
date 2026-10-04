@@ -2,8 +2,8 @@ These Terms of Service ("Terms") govern your use of Voice of Self, including
 the iOS app, the public website, direct contact channels, and other related
 services that link to these Terms (collectively, the "Service").
 
-Voice of Self is provided by Aleksander Jałtuszyk ("Developer", "we", "us", or
-"our").
+Voice of Self is provided by Aleksander Jałtuszyk, an individual sole trader
+established in Poland ("Developer", "we", "us", or "our").
 
 Contact:
 
@@ -23,7 +23,11 @@ Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/).
 
 ## 1. Eligibility And Authority
 
-You must be at least 16 years old to use the Service.
+Voice of Self is intended for adults. You must be at least 18 years old to use the Service.
+
+An app-store content rating is separate from this eligibility rule and does not
+verify your age. This rule does not erase existing records, cancel a store
+subscription or remove accrued consumer remedies or data-protection rights.
 
 By using the Service, you represent and warrant that:
 
@@ -57,8 +61,10 @@ If you access the app through Apple, you acknowledge and agree that:
 
 ## 4. What The Service Does
 
-Voice of Self is an account-based, subscription-based voice journal and
-AI-assisted reflection tool.
+Voice of Self is a subscription-based voice journal and AI-assisted reflection
+tool. Older releases use signed-in accounts; newer releases use a pseudonymous
+installation/session identity without asking you to sign in. Features and data
+request paths differ between those releases as described in the Privacy Policy.
 Depending on the features you choose to use, you may record audio, generate
 transcripts, request AI-assisted reflections, use live questions, interact with
 local companion animations, sign in for managed account and subscription-based
@@ -130,12 +136,15 @@ real-world safety information.
 
 You may be able to open the app, view limited screens, or contact us without
 completing onboarding or creating an account. The app's managed AI features,
-including AI-assisted reflections and live questions, require sign-in and an
-active free-trial, subscription, entitlement, or other access grant. Voice of
+including AI-assisted reflections and live questions, require a backend identity
+and an active free-trial, subscription, entitlement, or other access grant. Voice of
 Self does not currently offer a user-selected custom AI provider or
 bring-your-own API key mode.
 
-Supported sign-in methods may include:
+The prepared Kotlin/KMP release creates a persistent Firebase anonymous-authentication
+identity without interactive sign-in. This identifier can be linked to subscription
+and usage records and remains personal data, as described in the Privacy Policy.
+Older releases with interactive sign-in may support:
 
 - Email and password
 - Google Sign-In
@@ -159,7 +168,7 @@ limits.
 
 If you use managed account AI features, transcript text and related request
 data needed to fulfill an AI feature may pass through our backend and to the
-configured AI provider. These managed AI features require sign-in and an active
+configured AI provider. These managed AI features require a backend identity and an active
 free-trial, subscription, entitlement, or other access grant.
 
 Managed AI features may process the current entry, current transcript, live
@@ -203,10 +212,10 @@ Apple.
 Billing, entitlement, and access states can occasionally be delayed,
 inconsistent, unavailable, or incorrect due to platform, provider, network, or
 system faults (for example, webhook delays, provider outages, malformed
-responses, temporary backend failures, or app/client sync issues). To the
-fullest extent permitted by law, we are not liable for temporary
-misclassification of subscription or feature access, delayed status updates, or
-temporary inability to use paid features while such issues are being resolved.
+responses, temporary backend failures, or app/client sync issues). Contact
+support if paid access is missing or incorrect. These technical risks do not
+exclude our obligation to supply the paid service or your applicable remedies
+for failure to supply or lack of conformity.
 
 To the fullest extent permitted by law:
 
@@ -218,6 +227,11 @@ To the fullest extent permitted by law:
   product changes, or commercial viability.
 - Promotional access, credits, manual overrides, or goodwill exceptions are
   discretionary, may be revoked, and do not create an ongoing entitlement.
+
+For a material change to an ongoing paid service beyond what is necessary to
+maintain conformity, applicable advance notice, durable-medium information and
+consumer termination or reimbursement rights remain available. A technical
+restriction or provider cost change does not remove those rights.
 
 If Apple, RevenueCat, or our systems indicate that you are not entitled to paid
 access, we may limit or disable the affected features until the entitlement
@@ -387,6 +401,11 @@ WITHOUT LIMITING THE ABOVE, WE DO NOT WARRANT THAT:
 
 ## 16. Limitation Of Liability
 
+The exclusions and monetary cap in this section apply only to users acting
+wholly for business purposes. They do not apply to consumers, claims under
+data-protection law, death or personal injury, fraud, intentional misconduct,
+gross negligence, or liability that cannot lawfully be limited.
+
 TO THE FULLEST EXTENT PERMITTED BY LAW, WE WILL NOT BE LIABLE FOR ANY INDIRECT,
 INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY
 LOSS OF PROFITS, REVENUE, DATA, GOODWILL, BUSINESS INTERRUPTION, DEVICE DAMAGE,
@@ -415,7 +434,8 @@ MANDATORY CONSUMER PROTECTIONS.
 
 ## 17. Indemnification
 
-To the fullest extent permitted by law, if your unlawful use of the Service,
+This section applies only to users acting wholly for business purposes; it
+does not apply to consumers. To the extent permitted by law, if your unlawful use of the Service,
 Your Content, or your breach of these Terms causes a third party to bring a
 claim against us, you agree to reimburse us for the losses, damages,
 liabilities, and reasonable costs we incur as a result, including reasonable
@@ -440,15 +460,12 @@ reasonably believe:
 - Continuing to offer the Service or a feature is no longer commercially,
   technically, or operationally viable.
 
-We may also discontinue all or part of the Service at any time.
-
-To the fullest extent permitted by law, we are not liable for any suspension,
-restriction, termination, or discontinuation carried out under these Terms.
-
-The sentence above does not limit any non-waivable refund, reimbursement,
-termination, price-reduction, or other remedy you may have under applicable law
-if we fail to supply paid digital content or digital services as required by
-law.
+We may discontinue a service for valid operational, legal, security or
+commercial reasons. Where paid service is affected, we provide the notice and
+remedies required by law. Suspension, restriction, termination or
+discontinuation does not exclude liability for our own conduct or remove your
+applicable refund, reimbursement, termination, price-reduction or other rights
+if we fail to supply paid digital content or services as required by law.
 
 Upon termination, your license to use the Service ends immediately. Sections
 that by their nature should survive termination will survive, including
@@ -456,6 +473,14 @@ sections on intellectual property, disclaimers, liability, indemnification,
 disputes, and miscellaneous terms.
 
 ### 18.1 Deleting your account, and the 30-day grace period
+
+This subsection describes legacy signed-in releases that provide this flow.
+Newer installation-identity releases do not provide the same sign-in recovery
+mechanism. If your build has no deletion button, use the support request route
+and Support ID where available as described in the Privacy Policy. An update or
+purchase restore does not by itself erase records under an older identity.
+This clarification does not withdraw earlier deletion commitments for legacy
+users or any statutory data rights.
 
 You may delete your account at any time using the in-app delete-account flow.
 Completing it ends your existing sign-in sessions and removes most of your
@@ -491,19 +516,17 @@ These Terms are governed by the laws of Poland, excluding conflict-of-laws
 rules, except to the extent mandatory law in your place of residence gives you
 additional non-waivable protections.
 
-Before starting a formal legal claim, each party agrees to try in good faith to
-resolve the dispute informally by providing written notice and allowing at least
-30 days for discussion.
+You may contact us to try to resolve a dispute informally. This is optional and
+does not delay legal deadlines, access to a court, a regulator, a complaint
+process or urgent relief.
 
 To the fullest extent permitted by law, disputes arising out of or relating to
 these Terms or the Service will be brought in the competent courts of Poland,
 unless applicable consumer-protection law allows or requires you to bring a
 claim in your country or place of residence.
 
-To the fullest extent permitted by law, each party will bring claims only in an
-individual capacity and not as a plaintiff or class member in any purported
-class, collective, coordinated, representative, or mass action, unless
-applicable law does not allow that restriction.
+These Terms do not require you to waive participation in a class, collective,
+representative or other action available under applicable law.
 
 Nothing in this section prevents either party from seeking urgent injunctive or
 protective relief where needed to protect intellectual property, confidential

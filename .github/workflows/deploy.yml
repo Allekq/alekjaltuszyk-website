@@ -31,6 +31,9 @@ jobs:
         with:
           node-version: 24
 
+      - name: Verify legal sources and built manifests
+        run: npm run check:legal
+
   deploy:
     needs: build
     runs-on: ubuntu-latest

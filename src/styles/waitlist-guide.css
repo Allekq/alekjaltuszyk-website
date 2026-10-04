@@ -227,7 +227,6 @@
   }
 
   .waitlist-guide__copy {
-    color: var(--color-text-strong);
     width: 100%;
   }
 }

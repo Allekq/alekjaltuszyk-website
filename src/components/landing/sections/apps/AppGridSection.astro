@@ -29,26 +29,31 @@ const Heading = headingLevel;
       <p class="app-grid-section__body">{releaseStatusSentence}</p>
     </div>
 
-    <div class="app-grid">
-      {apps.map((item) => {
+    <ul class="app-grid" role="list">
+      {apps.map((item, index) => {
         const rel =
           item.external && isExternalHref(item.href) ? "noreferrer" : undefined;
 
         return (
-          <a
-            class:list={["app-grid__link", `app-grid__link--${item.theme}`]}
-            href={item.href}
-            target={item.external ? "_blank" : undefined}
-            rel={rel}
-          >
-            <span class="app-grid__name">{item.name}</span>
-            <span class="app-grid__description">{item.description}</span>
-            <span class="app-grid__chips" aria-hidden="true">
-              {directoryChips(item).map((chip) => <span>{chip}</span>)}
-            </span>
-          </a>
+          <li class="app-grid__item" data-rise style={`--rise-index:${index % 2}`}>
+            <a
+              class:list={["app-grid__link", `app-grid__link--${item.theme}`]}
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={rel}
+            >
+              <span class="app-grid__heading">
+                <img src={item.iconHref} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                <span class="app-grid__name">{item.name}</span>
+              </span>
+              <span class="app-grid__description">{item.description}</span>
+              <span class="app-grid__chips" aria-hidden="true">
+                {directoryChips(item).map((chip) => <span>{chip}</span>)}
+              </span>
+            </a>
+          </li>
         );
       })}
-    </div>
+    </ul>
   </div>
 </section>

@@ -1,6 +1,6 @@
 This Privacy Policy explains how the personal website and app directory at `alekjaltuszyk.xyz` handles information. It covers the root homepage, `/apps/` directory, general support/legal pages, and other general website surfaces that link to this policy.
 
-This policy does not replace the app-specific privacy policies for PlanKept, OverLit, Voice of Self, or Take Me Somewhere. Each app has its own privacy policy and terms linked from the [Legal hub](/legal/).
+This policy does not replace the app-specific privacy policies and terms linked from the [Legal hub](/legal/).
 
 The site is operated by Aleksander Jałtuszyk ("Developer", "we", "us", or "our"). Country: Poland.
 
@@ -26,6 +26,8 @@ We may process:
 
 Please avoid sending sensitive information in support messages unless it is needed for your request.
 
+Providing support details is voluntary. An ordinary enquiry can usually be answered without journal entries, health information or precise location. Contact us first if sensitive information is necessary so the appropriate handling can be agreed; merely sending it does not replace any additional legal condition required for sensitive data.
+
 ## 3. Cookies, Analytics, And Tracking
 
 The current general website is static and does not intentionally set our own non-essential analytics cookies, advertising cookies, browser local storage, or session storage.
@@ -43,6 +45,17 @@ We use information to:
 - respond to support, privacy, legal, or other contact messages
 - maintain records needed for support, security, legal compliance, or rights protection
 - understand ordinary website reliability and abuse risks through hosting/provider logs where available
+
+For processing we control under the GDPR, the purpose and basis are:
+
+| Purpose | Basis |
+| --- | --- |
+| Deliver and protect the informational site | Article 6(1)(f): legitimate interests in providing a reliable public site and preventing abuse, balanced against visitors' rights |
+| Answer general enquiries and provide support | Article 6(1)(f): legitimate interests in answering requested contact; Article 6(1)(b) where the request is necessary for an app contract or requested pre-contract steps |
+| Handle privacy requests or other duties imposed by law | Article 6(1)(c), where the applicable duty requires the processing |
+| Establish, exercise or defend legal claims | Article 6(1)(f): legitimate interests in resolving disputes, limited to relevant records |
+
+A visit, email or acknowledgement of this notice is not blanket consent. We do not use optional website analytics or advertising tags. If a future optional purpose requires consent, it needs its own informed choice before that processing begins.
 
 ## 5. App-Specific Data
 
@@ -62,6 +75,8 @@ Information may be processed or made available to:
 - professional advisers, authorities, or other parties where reasonably necessary for legal compliance, security, rights protection, disputes, or enforceable legal process
 - successors if a website, app, or related asset is transferred, reorganized, or discontinued
 
+The public site is hosted through **GitHub Pages**. GitHub receives request metadata needed to deliver the site; its [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) describes its own processing. Public contact addresses use **Google Gmail**, so Google processes messages and mail-delivery metadata under the terms and settings for that service. Opening an external link takes you to the named destination; it does not mean we receive all information that destination collects. Provider roles and any international-transfer safeguards depend on the particular service and processing, rather than every provider being our processor for every purpose.
+
 Third-party services are governed by their own terms and privacy policies.
 
 ## 7. Retention
@@ -74,7 +89,7 @@ When information is no longer needed, we aim to delete, anonymize, or aggregate 
 
 ## 8. International Processing
 
-We are based in Poland. Website hosting, email, App Store, social-media, map, platform, and other providers may process information in other countries. Where applicable law requires transfer safeguards, we rely on appropriate mechanisms offered by the relevant provider or available under applicable law.
+We are based in Poland. Website hosting, email and external services you choose to use may process information in other countries. Where the law requires a transfer safeguard, the actual service, recipient and applicable agreement must be covered; a provider's general certification or template is not proof of coverage for every flow. Contact us for information about the safeguards applicable to your request. App-specific international processing is described in each app's policy.
 
 ## 9. Your Rights
 
@@ -83,6 +98,8 @@ Depending on where you live, you may have rights to access, correct, delete, res
 For users in the EEA, United Kingdom, or Switzerland, Aleksander Jałtuszyk is the controller for personal data we control directly. You may also have the right to lodge a complaint with a data-protection authority. For users in Poland, the relevant authority is the President of the Personal Data Protection Office (UODO).
 
 To exercise rights for information we control directly, contact `alekgameshelp2@gmail.com`. We may need to verify your request. Privacy rights are not absolute, and we may keep limited information where required or permitted by law.
+
+For GDPR requests, we respond without undue delay and ordinarily within one month. If the permitted extension is necessary because of complexity or number of requests, we notify you within that first month with the reason. Verification is limited to what is proportionate for the request. You may object to processing based on legitimate interests; relevant processing must stop unless a lawful overriding ground or legal-claims exception applies. The site does not make solely automated decisions producing legal or similarly significant effects on visitors.
 
 ## 10. Children
 

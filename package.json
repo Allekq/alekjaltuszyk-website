@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "check:contact": "node scripts/check-contact-emails.mjs"
+    "check:contact": "node scripts/check-contact-emails.mjs",
+    "check:legal": "node scripts/check-legal-consistency.mjs"
   },
   "dependencies": {
     "astro": "^6.1.1"

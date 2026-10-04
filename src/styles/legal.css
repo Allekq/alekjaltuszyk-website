@@ -1,0 +1,55 @@
+/* Readable documents across the site and Voice of Self palettes. */
+.legal-article {
+  --legal-line: var(--color-line, var(--color-divider));
+  --legal-accent: var(--color-coral, var(--color-accent));
+  --legal-panel: var(--color-bg-shell, rgba(11, 17, 28, 0.52));
+  overflow-wrap: anywhere;
+}
+
+.legal-article a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.legal-table-scroll {
+  border: 1px solid var(--legal-line);
+  border-radius: var(--radius-sm);
+  margin-block: var(--space-lg);
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.legal-table-scroll:focus-visible {
+  outline: 2px solid var(--legal-accent);
+  outline-offset: 3px;
+}
+
+.legal-table-scroll table {
+  border-collapse: collapse;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  overflow-wrap: normal;
+  width: 100%;
+}
+
+.legal-table-scroll :is(th, td) {
+  border-bottom: 1px solid var(--legal-line);
+  min-width: 8rem;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.legal-table-scroll th {
+  background: var(--legal-panel);
+  color: var(--color-text-strong);
+}
+
+.legal-table-scroll td {
+  color: var(--color-text-muted);
+}
+
+.legal-table-scroll tbody tr:last-child td {
+  border-bottom: 0;
+}

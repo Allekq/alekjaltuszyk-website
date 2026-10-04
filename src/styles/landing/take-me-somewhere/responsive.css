@@ -23,22 +23,20 @@
 }
 
 /*
- * The route scene stacks: the map sticks under the header and the four beats
- * scroll beneath it, so the walk still reads as a walk on a phone.
+ * Compact screens show the finished map followed by readable explanations.
+ * A pinned map overlaps the header and leaves too little room for the beats.
  */
-@media (max-width: 62rem) {
+@media (max-width: 64rem) {
   .tms-route__scene {
     display: block;
   }
 
   .tms-route__stage {
-    top: clamp(4.2rem, 12vh, 5.6rem);
+    position: static;
   }
 
   /*
-   * The frame spans the same width as the beats sliding under it and drops its
-   * translucency, so nothing shows through or pokes out at the sides. The map
-   * letterboxes inside a shorter box to leave the beats room on screen.
+   * The map uses a shorter frame to leave the explanations room on screen.
    */
   .tms-route__frame {
     background: linear-gradient(168deg, #12332a, #04100e);
@@ -50,8 +48,8 @@
   }
 
   .tms-route__beats {
-    gap: clamp(6rem, 32vh, 11rem);
-    padding-block: clamp(2.5rem, 10vh, 4.5rem) clamp(4.5rem, 22vh, 8rem);
+    gap: var(--space-xl);
+    padding-block: var(--space-xl) 0;
   }
 
   .tms-route__beat-body {

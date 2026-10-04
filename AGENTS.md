@@ -137,3 +137,12 @@ The domain is now split on purpose:
 - `skills/landing-page-workflow/SKILL.md`
 - `skills/legal-update-sync/SKILL.md`
 - `skills/roam-timeline-variants/SKILL.md`
+
+## Required legal-impact review receipt
+
+For added, removed or changed networking/SDKs, permissions, local/remote data,
+logs, ads/analytics/attribution, age, AI, retention/deletion, export/backup/support,
+purchases or public promises, use `skills/legal-update-sync/SKILL.md` before
+implementation and before closing. Record the receipt from its
+`CHANGE-REVIEW.md`, synchronize affected surfaces and identify unresolved release
+blockers. Purely visual changes with none of these effects are exempt.

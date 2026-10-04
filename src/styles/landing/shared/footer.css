@@ -46,7 +46,7 @@
 
 .site-footer__social-link {
   align-items: center;
-  background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+  background: color-mix(in srgb, var(--color-bg-shell) 82%, transparent);
   border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
   border-radius: var(--radius-pill);
   color: var(--color-text-strong);
@@ -63,10 +63,16 @@
 
 .site-footer__social-link:hover,
 .site-footer__social-link:focus-visible {
-  border-color: color-mix(in srgb, var(--color-accent) 42%, transparent);
-  color: var(--color-accent-strong);
+  border-color: color-mix(in srgb, var(--color-coral) 42%, transparent);
+  color: var(--color-coral-strong);
   outline: none;
   transform: translateY(-1px);
+}
+
+.site-footer__links a:focus-visible,
+.site-footer__social-link:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 4px;
 }
 
 .site-footer__copy {

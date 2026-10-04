@@ -11,6 +11,13 @@ local storage, backup behavior, location/map providers, AI/model routing, or
 other legal-facing claims for PlanKept, Voice of Self, OverLit, Take Me
 Somewhere, or Audio Book Choices.
 
+## Required change review
+
+Before implementing and before closing a legal-impact change, read
+`skills/legal-update-sync/CHANGE-REVIEW.md` and record its review receipt.
+This includes removed flows, SDK startup/dependencies, permissions and
+local data changes affecting retention, exports, backups or public promises.
+
 ## Required reads
 
 - `AGENTS.md`
@@ -32,13 +39,12 @@ last-updated date, and the scope paragraph. It is produced by
 document component must use. Do not hand-roll a version block, and do not remove
 the revision-history link.
 
-The scope paragraph is what lets one document be true for everybody at once.
-Apps ship features dark and switch them on later, so at any moment some readers
-are on a build that does not have what the document describes. Rather than
-partitioning documents by app version — which multiplies maintenance and works
-against Google Play's expectation that a disclosure covers "all versions and
-variations" of an app — one document covers everything and tells the reader that
-feature sections apply only where the feature exists.
+The scope paragraph does not repair inaccurate statements. One notice can cover
+multiple releases only when it accurately identifies their different processing,
+recipients, controls and deletion paths. Mark planned controls explicitly; do not
+describe them as operating in installed builds. Privacy acknowledgement is not
+optional-purpose consent. Updated terms remain subject to required notice,
+agreement and accrued consumer rights.
 
 This repo is public, so each document's own file history **is** its archive.
 Nothing needs snapshotting. That is why every entry in `legalDocuments` carries a
@@ -46,10 +52,12 @@ Nothing needs snapshotting. That is why every entry in `legalDocuments` carries 
 link. A new document must add its `sourcePath`, and a moved document must update
 it, or the archive link silently points at nothing.
 
-Voice of Self's pages are plain Markdown under `src/pages/apps/VoiceOfSelf/` and
-carry the same prose inline instead of using the component. Keep the two wordings
-aligned, and mirror any change into the source copies in
-`/Users/alekj/Documents/GitHub/closure-app/external/legal/`.
+Voice of Self's public Privacy and Terms bodies are Markdown under
+`src/content/legal/`, rendered by Astro wrappers with the same header.
+Keep the rendered text aligned with bundled source copies in
+`/Users/alekj/Documents/GitHub/closure-app/external/legal/`. Its AI-use body is
+`src/content/legal/voice-of-self-ai-use.md`; the Astro page under
+`src/pages/apps/VoiceOfSelf/` renders that canonical body.
 
 ## Version bumps do NOT behave the same for every app
 
@@ -58,24 +66,26 @@ version in `site.config.mjs` has opposite consequences depending on the app:
 
 | App | Where its accepted version comes from | Effect of bumping `site.config.mjs` and deploying |
 |---|---|---|
-| PlanKept | hosted `legal-manifest.json` | **Blocks every existing user** behind the acceptance gate on next launch |
-| Take Me Somewhere | hosted `legal-manifest.json`, merged over a bundled fallback | **Blocks every existing user** behind the acceptance gate on next launch |
-| Voice of Self | hosted `legal-manifest.json` | **Blocks every existing user** behind the acceptance gate on next launch |
-| Audio Book Choices | compiled into the binary (`AppConfig.LEGAL_VERSION`) | Nothing, until a new build ships |
-| OverLit | compiled into the binary (`PlayableLegalDocumentCatalog`) | Nothing, until a new build ships |
-| Website itself (`site*`) | nothing consumes it | Nothing; bookkeeping only |
+| PlanKept | hosted `legal-manifest.json` | Can re-prompt after the app obtains and applies the newer manifest; check cache/offline behavior |
+| Take Me Somewhere | hosted `legal-manifest.json`, merged over a bundled fallback | Can re-prompt after the app obtains and applies the newer manifest; check cache/offline behavior |
+| Voice of Self | hosted `legal-manifest.json` | Can re-prompt after the app obtains and applies the newer manifest; check cache/offline behavior |
+| Audio Book Choices | compiled into the binary (`AppConfig.LEGAL_VERSION`) | Hosted notice changes; installed gate does not change without a binary update |
+| OverLit | compiled into the binary (`PlayableLegalDocumentCatalog`) | Hosted notice changes; installed gate does not change without a binary update |
+| Website itself (`site*`) | no app gate consumes it | Updated website notice/terms; assess notice and agreement duties |
 
-For the three live-gated apps, a version bump is a product decision as much as a
-legal one, it takes effect the moment the site deploys, and it cannot be undone.
-Only bump them for a substantive change — a new practice, recipient, or right —
-and surface it to the owner rather than deciding it inside a task. It also means
-their policies cannot be staged ahead of a release: publishing *is* activation.
-Write new practices with the scope paragraph's "may not yet be available to you"
-framing and bump when the feature is genuinely reachable.
+For hosted-manifest apps, publishing a version can trigger re-acceptance when
+installed clients fetch it; cached manifests and merge rules affect timing and
+rollback. Stage source changes locally and record that publication has a product
+effect. Only bump for a substantive practice, recipient, obligation or right
+change, and synchronize the appropriate notice before activation. Existing user
+authorization to fix and synchronize legal content permits the local work; the
+review itself does not authorize deployment. Mark planned practices and legacy
+release differences explicitly instead of relying on a blanket scope paragraph.
 
-For the two binary-pinned apps the public document can safely be published on the
-day of store submission — the reviewer sees an accurate document while nobody on
-the old build is disturbed. The wall for those lives in the app repo.
+For binary-pinned apps coordinate the public document before submission/release,
+while retaining accurate older-release disclosures. A website change still
+affects readers and notice duties even though it does not change the old binary's
+gate. Check the actual new-build online/offline re-prompt behavior.
 
 A clarification that adds no new obligation — wording, a masthead, a typo — must
 not bump anything, for any app. It is recorded in the public revision history.
@@ -97,11 +107,12 @@ deliberately unlike every other legal page here:
   the store listing shows them, prominently feature the steps, and state what is
   deleted, what is kept, and any additional retention. Every edit must leave all
   three intact.
-- Both must stay usable **without the app installed** — that is the entire point.
-  Watch the email route especially: if it asks for an identifier the app only
-  shows in Settings, that route is useless to exactly the person the URL exists
-  for. OverLit asks for the public leaderboard nickname, which survives an
-  uninstall; Audio Book Choices has no equivalent and says so plainly.
+- Both must explain a usable request route **without the app installed**.
+  A saved pseudonymous ID can be emailed after uninstall. A non-unique OverLit
+  nickname does not establish ownership. Do not promise recovery that the
+  service cannot perform or acquire unnecessary identity data. Verify current
+  identification and deletion controls; disclose any inability to locate records
+  and accept other proportionate evidence that the requester can provide.
 
 Canonical files:
 
@@ -152,7 +163,9 @@ and App Store-facing disclosures for consistency.
 - Canonical manifest route: `src/pages/apps/OverLit/legal-manifest.json.ts`
 - App repo: `/Users/alekj/Documents/GitHub/OverLit-app`
 - App sync skill: `/Users/alekj/Documents/GitHub/OverLit-app/.agents/skills/legal-update-sync/SKILL.md`
-- App legal catalog: `/Users/alekj/Documents/GitHub/OverLit-app/Sources/OverLitPlayableUI/Storage/PlayableAppGateState.swift`
+- App legal version author: `LegalAgePolicyV1.launchV1` under
+  `/Users/alekj/Documents/GitHub/OverLit-app/shared/policy/`; Swift catalog reads
+  injected versions. Run `Tools/legal_version_parity.py` in the app repo.
 - App Store privacy manifest: `/Users/alekj/Documents/GitHub/OverLit-app/App/OverLit/PrivacyInfo.xcprivacy`
 - App ads file: `public/app-ads.txt`
 
@@ -162,11 +175,11 @@ public documents.
 
 ## Voice of Self Canonical Files
 
-- Privacy copy: `src/pages/apps/VoiceOfSelf/privacy-policy/index.md`
-- Mirror copy used by the Voice static subtree:
-  `src/voice-of-self/pages/privacy-policy.md`
-- Terms copy: `src/pages/apps/VoiceOfSelf/terms-of-service/index.md`
-- Mirror terms copy: `src/voice-of-self/pages/terms-of-service.md`
+- Privacy copy: `src/content/legal/voice-of-self-privacy-policy.md`
+- Privacy wrapper: `src/components/legal/VoiceOfSelfPrivacyPolicyContent.astro`
+- Terms copy: `src/content/legal/voice-of-self-terms-of-service.md`
+- Terms wrapper: `src/components/legal/VoiceOfSelfTermsOfServiceContent.astro`
+- AI-use copy: `src/content/legal/voice-of-self-ai-use.md`
 - App repo: `/Users/alekj/Documents/GitHub/closure-app`
 - App sync skill:
   `/Users/alekj/Documents/GitHub/closure-app/.codex/skills/claude-legal-doc-sync/SKILL.md`
@@ -176,14 +189,16 @@ public documents.
   and `/Users/alekj/Documents/GitHub/closure-app/external/legal/legal-manifest.json`
 - App Store privacy manifest:
   `/Users/alekj/Documents/GitHub/closure-app/ios_app/Resources/PrivacyInfo.xcprivacy`
-- Backend deletion registry:
-  `/Users/alekj/Documents/GitHub/closure-app/backend/functions/src/services/userDataDeletionService.ts`
+- Backend deletion/retention: inspect tracked callables and maintenance jobs
+  under `/Users/alekj/Documents/GitHub/closure-app/backend/functions/src/`;
+  compare legacy deployed functions separately. Do not assume the removed
+  `userDataDeletionService` still exists in the current source.
 
 When Voice privacy or terms versions change, update the app-bundled legal
 files and manifest so in-app/legal-review surfaces stay aligned with the
 public site. If auth, RevenueCat, Firebase, managed AI routing, provider data
 retention, usage accounting, local storage, export/import, deletion, support,
-or App Store privacy labels change, check the policy and the deletion registry
+or App Store privacy labels change, check the policy and current deletion coverage
 before closing the task.
 
 ## Take Me Somewhere Canonical Files
@@ -236,11 +251,11 @@ privacy labels, and `PrivacyInfo.xcprivacy`.
   `AppConfig.LEGAL_VERSION` in
   `shared/src/commonMain/kotlin/com/audiobookchoices/shared/AppConfig.kt`
 
-Audio Book Choices is the one product here that is **not** local-only: it uses
+Audio Book Choices is **not** local-only: it uses
 Firebase anonymous authentication (a pseudonymous device identifier), Firestore
 for entitlement and rating records, RevenueCat in front of Apple/Google
 purchases, and Cloudflare R2 for audio delivery. Do not copy the "everything
-stays on your device" framing used by the other apps into this app's documents —
+stays on your device" framing into this app's documents —
 that framing was published here in 1.0.0 and was already false by launch.
 
 When its privacy or terms versions change, bump `AppConfig.LEGAL_VERSION` in the

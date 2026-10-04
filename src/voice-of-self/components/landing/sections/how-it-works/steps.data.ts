@@ -1,4 +1,4 @@
-import { withBase } from "../../../../lib/paths";
+import { withBase } from "../../../../../lib/paths";
 import type { StepItem } from "../../types";
 
 export const steps: StepItem[] = [

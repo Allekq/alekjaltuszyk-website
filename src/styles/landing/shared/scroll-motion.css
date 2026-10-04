@@ -121,14 +121,14 @@
    These declarations also win over a desktop scene's inline progress after a
    viewport resize. */
 @media (max-width: 64rem) {
-  :is(.overlit-page, .abc-page) [data-scene],
-  :is(.overlit-page, .abc-page) [data-scene-item] {
+  :is(.overlit-page, .abc-page, .tms-page) [data-scene],
+  :is(.overlit-page, .abc-page, .tms-page) [data-scene-item] {
     --scene-progress: 1 !important;
     --item-progress: 1 !important;
   }
 
-  .js :is(.overlit-page, .abc-page) [data-rise],
-  :is(.overlit-page, .abc-page) .scene-beat {
+  .js :is(.overlit-page, .abc-page, .tms-page) [data-rise],
+  :is(.overlit-page, .abc-page, .tms-page) .scene-beat {
     filter: none;
     opacity: 1;
     transform: none;
@@ -136,8 +136,8 @@
     will-change: auto;
   }
 
-  :is(.overlit-page, .abc-page) .tilt-surface,
-  :is(.overlit-page, .abc-page) .parallax-layer {
+  :is(.overlit-page, .abc-page, .tms-page) .tilt-surface,
+  :is(.overlit-page, .abc-page, .tms-page) .parallax-layer {
     transform: none;
     transition: none;
     will-change: auto;

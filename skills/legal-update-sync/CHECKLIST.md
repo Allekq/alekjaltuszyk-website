@@ -14,10 +14,10 @@ Use this checklist before finishing any task that touches:
 - `src/content/legal/overlit-privacy-policy.md`
 - `src/content/legal/overlit-terms-of-use.md`
 - `src/pages/apps/OverLit/legal-manifest.json.ts`
-- `src/pages/apps/VoiceOfSelf/privacy-policy/index.md`
-- `src/pages/apps/VoiceOfSelf/terms-of-service/index.md`
-- `src/voice-of-self/pages/privacy-policy.md`
-- `src/voice-of-self/pages/terms-of-service.md`
+- `src/content/legal/voice-of-self-privacy-policy.md`
+- `src/content/legal/voice-of-self-terms-of-service.md`
+- `src/components/legal/VoiceOfSelfPrivacyPolicyContent.astro`
+- `src/components/legal/VoiceOfSelfTermsOfServiceContent.astro`
 - `src/content/legal/take-me-somewhere-privacy-policy.md`
 - `src/content/legal/take-me-somewhere-terms-of-service.md`
 - `src/components/legal/TakeMeSomewherePrivacyPolicyContent.astro`
@@ -44,8 +44,9 @@ Use this checklist before finishing any task that touches:
 
 1. Confirm whether the visible public behavior changed.
 2. If yes, check whether privacy policy or terms need updated wording.
-3. If a legal document changed, bump only the affected document version and
-   effective date in `site.config.mjs`.
+3. Classify the change using `SKILL.md`: update only affected versions/dates
+   in `site.config.mjs` for substantive changes; factual clarifications do not
+   bump acceptance. Record the receipt from `CHANGE-REVIEW.md` and gate effects.
 4. Make sure app-specific manifest routes and the temporary compatibility route
    `src/pages/legal-manifest.json.ts` still reflect the latest values through
    `src/config/site.ts`.
@@ -62,13 +63,15 @@ Use this checklist before finishing any task that touches:
    consistency.
 9. If Audio Book Choices legal versions changed, bump `AppConfig.LEGAL_VERSION`
    in `/Users/alekj/Documents/GitHub/AudioBookChoices` so the in-app acceptance
-   gate re-prompts, and check the paywall/buy-sheet/licences copy. Unlike the
-   other apps here, it has a backend, purchases, and third-party processors —
+   gate re-prompts, and check the paywall/buy-sheet/licences copy. It has a
+   backend, purchases, and third-party processors —
    never describe it as local-only.
 10. Rebuild the site so generated legal/discovery output is refreshed.
+11. Run `npm run check:legal` after the build. It checks paths and manifest
+    values, not substantive accuracy, lawful processing or installed behavior.
 
 ## Reminder rule
 
-If a task changes legal-facing behavior but the legal docs are intentionally not
-being updated in the same pass, pause and flag that explicitly before closing
-the task.
+If affected disclosures remain unresolved, identify the exact release blocker
+and cause. Continue authorized local work; do not report release readiness or
+repeatedly ask permission for an already authorized review.

@@ -6,7 +6,7 @@ This policy is intended to support transparency obligations under applicable pri
 
 ## 1. Who Is Responsible For Take Me Somewhere
 
-Take Me Somewhere is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk.
+Take Me Somewhere is provided by Alek Jałtuszyk, legally Aleksander Jałtuszyk, a sole trader based in Poland, publishing personally.
 
 Contact:
 
@@ -50,7 +50,7 @@ The current app permission model is intended to use iOS "while using" location a
 
 The app may store settings locally on your device, such as default time budget, default travel mode, destination visibility preference, route-picking preference, guidance mode preference, place-memory depth, and legal-document acceptance state.
 
-Recent destination memory is intended to help avoid repeating nearby places. It stores a small local list of recent provider destination identifiers, not a full GPS trail. It is local-first and can be disabled. If disabled, the app should stop saving recent destination identifiers and clear the local recent-destination list.
+Recent-destination memory is on by default. The app keeps at most ten recent destination identifiers locally and uses the selected memory depth to avoid repeats. Apple-derived identifiers include a destination name and coordinates; OpenStreetMap identifiers identify map objects. These identifiers can reveal recent destinations and are not anonymous. Setting destination memory to Off clears the list and stops new saves. The app does not store a full GPS trail.
 
 ### Support And Contact Information
 
@@ -77,6 +77,8 @@ Provider roles may include:
 - Apple MapKit, Apple Local Search, Apple Maps, and related Apple services for map display, destination search, place fallback, route geometry, ETA, distance, route steps, and external navigation handoff.
 - OpenStreetMap-derived services or Overpass endpoints for nearby place discovery. These requests may include a current-location-derived start coordinate or nearby search region, search radius, route filters, destination search text if used with that provider, and ordinary request metadata such as IP address and user agent.
 
+The currently configured discovery endpoint is **`https://overpass-api.de/api/interpreter`**. It receives the location-derived coordinate and search parameters in the request, together with network metadata such as your IP address. It is an Overpass API service using OpenStreetMap data; OpenStreetMap contributors are not, merely by contributing map data, the operator receiving that request. Endpoint information is available at [overpass-api.de](https://overpass-api.de/).
+
 Those providers may process information under their own terms and privacy policies. Take Me Somewhere should send only what is reasonably needed for the selected feature, such as a current-location-derived start coordinate or nearby search region, destination or candidate places, destination query, travel mode, and route request parameters.
 
 The default app direction is OpenStreetMap-derived discovery with Apple fallback for app-selected place discovery when OpenStreetMap search is unavailable or returns no usable places, Apple destination search, Apple routing, Apple map display, and Apple Maps handoff. Provider configuration may change by build, region, feature, or future version. The Privacy Policy explains what data may be processed. The Terms of Service explain that app routes, maps, compass direction, and progress are suggestions only and that you remain responsible for real-world route decisions.
@@ -96,7 +98,7 @@ We may use information for the following purposes:
 - comply with law, platform rules, App Store review requirements, security obligations, and enforceable legal requests
 - protect the app, users, support channels, and website from misuse, fraud, abuse, or security incidents
 
-Where applicable law requires a legal basis, the basis may include performance of the service you request, consent for location permission or optional features, legitimate interests in operating and securing the app and website, legal compliance, and, where needed, your explicit consent.
+For processing we control under the GDPR: requested route and place features use Article 6(1)(b), where necessary to provide the service you request; general support and security use Article 6(1)(f), limited to the interests in responding and preventing abuse; duties imposed by law use Article 6(1)(c); and any optional consent-based purpose uses Article 6(1)(a). iOS location permission controls access on your device. It does not supply blanket GDPR consent for other purposes or recipients.
 
 ## 6. Sharing And Disclosure
 
@@ -120,6 +122,8 @@ Hosting providers, browsers, operating systems, App Store links, map providers, 
 ## 8. Retention
 
 Local app preferences, legal acceptance state, and local recent-destination memory remain on your device until you change settings, clear local data where available, or delete the app.
+
+Local preferences, legal acceptance and recent-destination memory may be included in iOS backups and restored with them. Turning destination memory off clears the current installation's list; it does not erase earlier operating-system backups or provider records. Nearby place results are also cached in app memory for reuse, with a five-minute freshness window checked when the cache is used; platform networking caches may apply. The app does not provide a route-history export or developer-hosted backup service.
 
 Support messages may be kept for as long as reasonably needed to respond, maintain support records, resolve disputes, improve reliability, protect against abuse, and comply with legal obligations.
 
@@ -165,13 +169,13 @@ If you believe a child provided personal information to us through support or an
 
 ## 13. International Processing
 
-Take Me Somewhere may be operated from Poland and may use providers in other countries. Support, hosting, platform, map, routing, and App Store providers may process information in countries different from where you live. Where applicable law requires safeguards for international transfers, we rely on appropriate legal mechanisms provided by the relevant provider or available under applicable law.
+Take Me Somewhere is operated from Poland and may use providers in other countries. Support, hosting, platform, map, routing, and App Store providers may process information in countries different from where you live. Where applicable law requires safeguards for international transfers, we rely on appropriate legal mechanisms provided by the relevant provider or available under applicable law.
 
 ## 14. Changes To This Policy
 
 We may update this Privacy Policy as Take Me Somewhere changes. The policy version and effective date appear at the top of the page. If changes are material or if an app version needs renewed acceptance, the app may require you to review and accept the current legal documents before continuing.
 
-Your continued use of Take Me Somewhere after an updated policy becomes effective means you acknowledge the updated policy, unless applicable law requires a different form of notice or consent.
+Updates describe the applicable processing; continued use or acknowledgement does not supply consent for a new optional purpose. Required notices and choices must accompany the affected processing.
 
 ## 15. Contact
 

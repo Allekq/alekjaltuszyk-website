@@ -2,48 +2,6 @@
 
 /* PlanKept landing and content hub styles. */
 
-.plan-kept-legal-scaffold {
-  display: grid;
-  padding: clamp(4.5rem, 12vw, 9rem) 0 clamp(3rem, 10vw, 7rem);
-  position: relative;
-}
-
-.plan-kept-legal-scaffold__panel {
-  display: grid;
-  gap: clamp(1.5rem, 4vw, 2.4rem);
-  justify-items: center;
-  margin: 0 auto;
-  max-width: 52rem;
-  padding: clamp(2rem, 6vw, 4.5rem);
-  text-align: center;
-  width: 100%;
-}
-
-.plan-kept-legal-scaffold__title {
-  color: var(--color-text-strong);
-  font-family: var(--font-display);
-  letter-spacing: -0.06em;
-  line-height: 0.94;
-  margin: 0;
-  text-wrap: balance;
-}
-
-.plan-kept-legal-scaffold__title {
-  font-size: clamp(2.7rem, 8vw, 5rem);
-}
-
-.plan-kept-legal-scaffold__actions {
-  display: grid;
-  gap: var(--space-md);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: 100%;
-}
-
-.plan-kept-legal-scaffold__button {
-  min-height: 4.2rem;
-  width: 100%;
-}
-
 .plan-kept-hero__inner {
   align-items: center;
   display: grid;
@@ -308,15 +266,13 @@
 .plan-kept-stage__card p,
 .plan-kept-step p,
 .plan-kept-mode-card p,
-.plan-kept-faq__answer,
-.plan-kept-close__links a {
+.plan-kept-faq__answer {
   color: var(--color-text-muted);
   line-height: 1.75;
   min-width: 0;
 }
 
-.plan-kept-stage__badges,
-.plan-kept-close__links {
+.plan-kept-stage__badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;

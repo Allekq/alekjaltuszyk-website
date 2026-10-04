@@ -9,7 +9,7 @@ import {
   visibilityUpdateHub,
   visibilityUpdatePosts,
 } from "../config/visibility";
-import { withBase } from "./paths";
+import { withBase } from "../../lib/paths";
 
 export interface DiscoveryPage {
   title: string;

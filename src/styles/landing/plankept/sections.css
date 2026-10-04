@@ -304,22 +304,11 @@
   height: 0;
   opacity: 0;
   overflow: hidden;
-  transform: translateY(-0.35rem) scaleY(0.985);
-  transform-origin: top;
-  will-change: height, opacity, transform;
 }
 
 .plan-kept-faq:not(.is-enhanced)[open] .plan-kept-faq__content {
   height: auto;
   opacity: 1;
-  transform: translateY(0) scaleY(1);
-}
-
-.plan-kept-faq.is-enhanced .plan-kept-faq__content {
-  transition:
-    height var(--motion-standard),
-    opacity var(--motion-standard),
-    transform var(--motion-standard);
 }
 
 .plan-kept-faq__panel {
@@ -387,17 +376,6 @@
   flex-wrap: wrap;
   gap: var(--space-sm);
   justify-content: center;
-}
-
-.plan-kept-close__links a {
-  font-size: 0.94rem;
-  transition: color var(--motion-standard);
-}
-
-.plan-kept-close__links a:hover,
-.plan-kept-close__links a:focus-visible {
-  color: var(--color-text);
-  outline: none;
 }
 
 .plan-kept-discovery__heading {

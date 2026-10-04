@@ -1,4 +1,5 @@
 @import "./tokens.css";
+@import "../../styles/legal.css";
 
 * {
   box-sizing: border-box;

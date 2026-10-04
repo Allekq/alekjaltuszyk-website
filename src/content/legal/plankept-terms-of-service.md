@@ -69,7 +69,7 @@ When you choose to process content through an Apple-managed, external, or user-c
 
 Support routes are link-based, and the primary app action routes to Apple's App Store. Some features may also rely on Apple or other third-party services.
 
-We may change, suspend, or remove features, providers, or routes at any time.
+We may change, suspend, or remove features, providers, or routes for valid operational, security, legal or compatibility reasons. This does not remove our obligations to supply paid content or services as agreed. Where a change negatively affects paid access beyond what is minor or necessary to maintain conformity, we will give the notice and termination or other remedies required by applicable law.
 
 ## 9. AI, Automation, And Enforcement Disclaimer
 
@@ -109,6 +109,8 @@ We do not guarantee that PlanKept will prevent distraction, enforce a plan, remi
 
 ## 13. Limitation Of Liability
 
+The exclusions and monetary cap in this section apply only to users acting wholly for business purposes. They do not apply to consumers, claims under data-protection law, death or personal injury, fraud, intentional misconduct, gross negligence, or liability that cannot lawfully be limited.
+
 To the fullest extent permitted by law, PlanKept will not be liable for indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the service.
 
 To the fullest extent permitted by law, our total aggregate liability for all claims arising out of or related to PlanKept, the website, support, purchases, app blocking, app limits, reminders, Health integrations, Screen Time integrations, proof review, AI/model routes, or these terms will be limited to the greater of:
@@ -116,7 +118,7 @@ To the fullest extent permitted by law, our total aggregate liability for all cl
 - the amount you paid for PlanKept app or in-app purchases in the 12 months before the claim; or
 - EUR 25
 
-Nothing in these terms limits or excludes liability that cannot legally be limited or excluded, including liability for intentional misconduct, fraud, mandatory consumer rights, statutory refund rights handled by Apple or another platform provider, or other categories that applicable law does not allow contracts to limit.
+Nothing in these terms limits mandatory rights or remedies, including for failure to supply or lack of conformity. Store refund procedures do not replace obligations we have to you under applicable law.
 
 ## 14. Termination
 

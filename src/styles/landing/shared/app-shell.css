@@ -228,6 +228,7 @@ body:has(.app-page) .site-backdrop {
   border-radius: 0.7rem;
   box-shadow: 0 6px 16px rgb(0 0 0 / 28%);
   height: 2.1rem;
+  flex-shrink: 0;
   width: 2.1rem;
 }
 
@@ -612,6 +613,17 @@ body:has(.app-page) .site-backdrop {
 }
 
 @media (max-width: 40rem) {
+  .app-header__brand {
+    gap: 0.45rem;
+    padding-inline: 0;
+  }
+
+  .app-header__brand span {
+    line-height: 1.2;
+    overflow: visible;
+    white-space: normal;
+  }
+
   /* `.app-page .action-button` outranks the shared header rule, so shrink the
      header CTA here or it crowds the brand off the bar. */
   .app-page .app-header__cta {

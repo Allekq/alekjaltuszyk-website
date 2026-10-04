@@ -7,6 +7,8 @@ import {
 } from "../../../../voice-of-self/config/site";
 import SiteLayout from "../../../../voice-of-self/layouts/SiteLayout.astro";
 import ActionButton from "../../../../voice-of-self/components/landing/ui/ActionButton.astro";
+import LegalDocumentHeader from "../../../../components/legal/LegalDocumentHeader.astro";
+import { legalDocuments } from "../../../../../site.config.mjs";
 
 const paragraphs = voiceOfSelfAIUsageBody
   .split("\n\n")
@@ -17,27 +19,15 @@ const paragraphs = voiceOfSelfAIUsageBody
   title="How Voice of Self Uses AI | Voice of Self"
   description="A short explanation of how Voice of Self uses managed AI for entries, transcripts, reflections, and live questions."
 >
-  <p><strong>Effective Date:</strong> {legalManifest.aiUsage.effectiveDate}</p>
-  <p><strong>Version:</strong> {legalManifest.aiUsage.version}</p>
-
-  <h1>How Voice of Self Uses AI</h1>
-
-  <p>
-    This document covers every version of Voice of Self. Some features described
-    here may not be present in your version of the app, may not yet be switched
-    on for you, or may describe functionality that has not been released yet;
-    where a feature is not available to you, the sections describing it do not
-    apply to you until it is. Where a
-    later version of this document conflicts with an earlier one, the later
-    version governs from its date onward — it does not change how information
-    was handled before then. Previous versions of this document remain publicly
-    available in its{" "}
-    <a
-      href="https://github.com/Allekq/alekjaltuszyk-website/commits/main/src/pages/apps/VoiceOfSelf/how-voice-of-self-uses-ai/index.astro"
-      rel="noopener noreferrer"
-      target="_blank">revision history</a
-    >.
-  </p>
+  <LegalDocumentHeader
+    heading="How Voice of Self Uses AI"
+    documentName="AI-use notice"
+    version={legalManifest.aiUsage.version}
+    effectiveDate={legalManifest.aiUsage.effectiveDate}
+    sourcePath={legalDocuments.voiceOfSelfAIUsage.sourcePath}
+    appName="Voice of Self"
+    kind="privacy"
+  />
 
   {paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
 

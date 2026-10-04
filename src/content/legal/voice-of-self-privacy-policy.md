@@ -2,8 +2,8 @@ This Privacy Policy explains how Voice of Self processes personal information
 when you use the Voice of Self iOS app, the public website, direct contact
 channels, and other services that link to this policy.
 
-Voice of Self is provided by Aleksander Jałtuszyk ("Developer", "we", "us", or
-"our").
+Voice of Self is provided by Aleksander Jałtuszyk, an individual sole trader
+established in Poland ("Developer", "we", "us", or "our").
 
 Contact:
 
@@ -13,11 +13,19 @@ Contact:
 - Support page: `/apps/VoiceOfSelf/support/`
 - Country: Poland
 
+**Prepared Kotlin/KMP release.** The next release replaces the older Swift app and
+uses Firebase anonymous authentication, described in section 1.2. It adds the
+separate Managed AI choice and withdrawal controls described in section 1.5.1.
+These controls apply only to releases that contain them; this notice does not
+update an installed older app. At preparation of this version, Voice of Self
+has not yet been released on Android.
+
 ## Summary Of Key Points
 
-- Voice of Self is an account-based, subscription-based reflection app. Managed
-  AI features require a Voice of Self account, an active subscription or access
-  grant, and our backend.
+- Voice of Self is a subscription-based reflection app. Older releases use
+  signed-in accounts; newer releases use a pseudonymous installation/session
+  identity without asking you to sign in. Managed AI needs an active subscription
+  or access grant and our backend. A pseudonymous identity is still personal data.
 - Voice of Self is a self-reflection and journaling tool. It is not healthcare,
   therapy, diagnosis, treatment, crisis monitoring, emergency response, or a
   substitute for a licensed professional.
@@ -33,10 +41,10 @@ Contact:
   opinions, sexual orientation, race, or other personal information. Some
   content may be blocked, hidden, or left unanalyzed under safety or acceptable
   use rules.
-- For normal managed AI requests, transcript text, selected context, prompts,
-  and AI output are handled on a zero-retention basis by our backend and
-  configured provider routes: they are transmitted only to service the request
-  and are not retained as readable backend content after fulfillment. Raw audio
+- For normal managed AI requests, the backend is designed not to keep transcript
+  text, selected context, prompts or AI output as persistent readable journal
+  records after fulfillment. Provider retention and technical logs are separate
+  and depend on the route and configuration described in section 8.5. Raw audio
   is handled locally or by Apple speech/transcription services where those
   services are used, not stored as a readable backend account record. We do
   retain limited account, subscription, security, diagnostic, and
@@ -51,17 +59,19 @@ Contact:
   reminders, including reminders before an account-mode free trial ends or
   before a paid App Store subscription period ends. These reminders are
   generated on your device.
-- We do not receive journal content unless you directly send it to us, for
-  example by writing it into an email, copying text, or sending a screenshot.
+- Managed AI sends the content needed for your request through our backend and
+  configured provider. The developer does not routinely review your journal
+  content. If you include it in an email, copied text or screenshot sent to
+  support, it is also handled as direct-contact information.
 - Companion animations and playful on-screen interactions are driven by local
   app interaction signals such as touch, idle, swipe, and recording state. These
   signals are used to trigger the local animation experience and are not
   intended to create new backend account records.
-- Deleting your account signs you out and removes most backend records right
-  away, but keeps your account identifier and your billing-period usage counters
-  for 30 days. That lets you undo an accidental deletion by signing back in, and
-  stops a paid AI allowance from being reset by deleting and re-registering.
-  Those retained records are used for nothing else in the meantime.
+- The signed-in account deletion/grace-period flow described in sections 8 and
+  16 belongs to legacy releases that offer that flow. Newer installation-identity
+  releases do not offer the same account recovery. If your build has no deletion
+  button, contact support with its Support ID where available; do not assume
+  uninstalling erases backend records or cancels a subscription.
 - We do not sell personal data, and we do not use your personal content to
   train our own models.
 - Voice of Self is not an ad-supported app. We do not display third-party ads,
@@ -124,13 +134,44 @@ following on your device:
 - App settings, reminder preferences, and other preferences
 - Local export and import files you create or use
 
+When a newer release imports the older local store, migration can retain original
+database, settings or recording files with a `.migrated` suffix. Those originals
+can be plaintext even when the new store uses application encryption. Exported
+files and system backups also have their own protection and retention. Migration
+does not itself prove that every old copy was encrypted or erased.
+
+**Prepared Kotlin/KMP iOS releases with the protected migration importer:** retained legacy SQLite
+files and sidecars, settings JSON and individual recording originals remain plaintext
+at the application layer. The importer requests iOS file protection and excludes those
+originals and temporary recovery copies from backup. It preserves originals and can
+recover after an interrupted rename. Completion is blocked if any row or expected
+recording cannot be recovered; imported recordings are verified after encryption.
+This does not erase older exports or backups already made. Migration does not delete
+the new encrypted recordings that share the recordings directory.
+
 Depending on your Apple or device settings, local app data may also appear in
 device backups, Finder/iTunes backups, iCloud backups, or other storage
 locations you choose when exporting or sharing files.
 
 ### 1.2 Account and sign-in information
 
-If you create or use an account, we may process:
+Older releases may keep an existing signed-in identity after an update. Newer
+releases may create a new Firebase identity for a different backend and restore
+subscriptions through RevenueCat. Restoring a purchase does not transfer or erase
+every record associated with an older backend identity. In installation-identity
+releases, authentication/session identifiers are processed without asking for
+your email or an interactive sign-in; Settings may expose a Support ID so the
+relevant records can be located. These identifiers are pseudonymous, not anonymous.
+
+**The prepared Kotlin/KMP release uses Firebase anonymous authentication.** Firebase
+issues a persistent user identifier and session credentials, stored in the platform's
+secure identity storage. The Support ID uses that existing identifier. It can link
+backend access and usage records with RevenueCat subscription, purchase and customer
+alias records. Authentication, network and app-attestation metadata can also be
+personal data. Not asking for an email or a manual sign-in does not make this data
+anonymous.
+
+In older releases with interactive sign-in, we may process:
 
 - Your email address
 - Your Firebase Authentication user ID
@@ -220,23 +261,29 @@ text, and selected past entries, transcripts, summaries, relics, milestones, or
 related local context depending on the feature, account state, app settings,
 and workflow.
 
-Where applicable law requires explicit consent for processing entries,
-transcripts, or sensitive information you choose to include for managed AI
-features, Voice of Self relies on the consent and instructions you give through
-the app's legal acceptance, device permission prompts, feature prompts,
-settings, or other consent surfaces available in the app version you use. The
-app may ask for that consent during onboarding, before first managed AI use,
-when legal documents change, or before a feature that needs this processing.
+Managed AI is an optional purpose separate from acknowledging the Terms and Privacy
+Policy. Where explicit consent is required for sensitive journal information, it must
+cover the submitted content, purpose and recipients described here; accepting documents
+or granting an OS speech/microphone permission alone is insufficient.
 
-You can withdraw consent by disabling or avoiding managed AI features, deleting
-backend-linked account data where available, deleting local entries you no
-longer want processed, or contacting support at `voiceofselfapp@gmail.com`.
-If you withdraw consent or disable managed AI processing, features that require
-entries, transcripts, or selected context to be processed by managed AI may stop
-working or become limited. Withdrawal does not affect processing that happened
-before withdrawal or processing we must retain where another legal basis
-applies, such as security, legal compliance, dispute handling, or support
-records.
+**Releases with the Managed AI choice in Settings > Legal:** the choice starts off.
+You may continue to local journals without enabling managed AI. An explicit choice
+covers submitted entries, transcripts, live excerpts and selected past context sent
+through Firebase to the described managed providers. You can withdraw in Settings >
+Legal, including while offline. Withdrawal on that installation stops new requests,
+retries and queued/resumed AI work and prevents older replies from being applied.
+A request already received by the backend or provider may finish; withdrawing cannot
+recall content already sent. A new explicit choice is required to enable managed AI
+again or after a material consent-copy change. Restoring app settings does not restore
+an AI opt-in. Local journal access, export and purchase recovery remain available.
+
+**Older releases without that control:** the newer control is not added to an older
+installation by this policy. Stop submitting managed-AI requests and contact
+`voiceofselfapp@gmail.com` for withdrawal or rights assistance, identifying the older
+release/account where possible. Deleting entries or avoiding a feature alone does not
+prove that previously queued or forwarded processing has stopped. Withdrawal does
+not by itself delete earlier records, cancel a store subscription or remove accrued
+purchase rights. Any retention after withdrawal needs its own applicable legal basis.
 
 Voice of Self does not use journal content, raw audio, transcripts, live
 question content, or AI outputs for ads, retargeting, custom audiences, or
@@ -306,11 +353,13 @@ service, including:
 
 ### 1.9 Children
 
-Voice of Self is not intended for children under 16, and we do not knowingly
-seek to collect personal data from children under 16. If you believe a child
-under 16 has provided personal information through the app or direct contact
-channels, contact us and we will investigate and, where appropriate,
-delete the information.
+Voice of Self is intended only for adults aged 18 and over. We do not seek to
+provide the app or managed journal processing to users under 18. An age declaration
+or store content rating does not verify age or prove that younger people never use
+the app. If you believe an under-18 user has provided personal information through
+the app or direct contact channels, contact us. We will investigate eligibility,
+further managed-AI processing and applicable erasure or other privacy rights.
+Existing data rights and mandatory consumer remedies remain available.
 
 ## 2. How Do We Process Your Information?
 
@@ -431,8 +480,8 @@ routing, model choices, and infrastructure settings may change over time.
 | Provider | Purpose | Data handled for the request or service | Retention and training notes | Region / transfer note |
 | --- | --- | --- | --- | --- |
 | Firebase / Google | Authentication, callable backend, App Check, security, account records, usage/accounting metadata, and backend infrastructure | Account identifiers, authentication/session metadata, request metadata, App Check or integrity signals, token/cost/workflow metadata, performance metadata, and limited operational logs | Backend records are designed not to store raw journal text, transcript text, raw audio, or AI output as persistent account records. Platform logs may retain limited technical metadata under Google/Firebase settings. | May process in regions used by Firebase / Google infrastructure. |
-| Amazon Bedrock / AWS | Managed analysis, live-question, and related AI processing | Transcript text, live transcript excerpts, selected entry/context needed for the requested workflow, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. Bedrock model invocation logging for raw request or response bodies is disabled for these managed requests, and our backend is designed not to retain raw Bedrock request or response bodies as persistent account records. | May process in AWS regions used for managed AI processing. |
-| Groq | Optional managed AI processing only when backend routing is explicitly configured to use Groq | Transcript text, live transcript excerpts, selected context needed for the requested workflow, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. If used, the provider route is configured for zero data retention for normal requests, and our backend is designed not to retain raw Groq request or response bodies as persistent account records. | May process in regions used by Groq and its infrastructure providers. |
+| Amazon Bedrock / AWS | Managed analysis, live-question, and related AI processing | Transcript text, live transcript excerpts, selected entry/context needed for the requested workflow, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. Our backend is designed not to retain raw request or response bodies as persistent journal records. Model/region retention and invocation logging are separate provider configuration, as described in section 8.5. | May process in AWS regions used for managed AI processing. |
+| Groq | Optional managed AI processing only when backend routing is explicitly configured to use Groq | Transcript text, live transcript excerpts, selected context needed for the requested workflow, prompts, outputs, and technical request metadata while servicing the request | We do not use your content to train our own models. Our backend is designed not to retain raw request or response bodies as persistent journal records. Groq reliability/abuse-monitoring exceptions depend on its zero-retention controls, as described in section 8.5. | May process in regions used by Groq and its infrastructure providers. |
 | Apple | App Store billing, Sign in with Apple, DeviceCheck / App Attest, local device permissions, and Apple transcription or Apple-assisted features where used | Apple account/platform data, entitlement and transaction status, device integrity signals, microphone/speech data where Apple services are used, and device permission state | Apple handles platform data under Apple's own policies. Local app records remain under local app/device behavior unless you export, back up, share, or send them elsewhere. | Depends on Apple services, your device settings, and Apple's infrastructure. |
 
 ### 5.1 Managed account-mode AI
@@ -447,11 +496,11 @@ if backend workflow routing is explicitly configured for a Groq model. This may
 include transcript text and, in some flows, live transcript excerpts while a
 recording session is still in progress.
 
-For normal managed AI requests, transcript text, selected context, prompts,
-and AI output are handled on a zero-retention basis for readable request
-content by our backend and configured provider routes. That means the content
-is transmitted only to service the request and is not retained as readable
-backend content after fulfillment. Raw audio is handled locally or by Apple
+For normal managed AI requests, our backend is designed not to keep transcript
+text, selected context, prompts or AI output as persistent readable journal
+records after fulfillment. That design does not establish all provider or
+technical-log retention settings. Section 8.5 explains the distinction.
+Raw audio is handled locally or by Apple
 speech/transcription services where those services are used; it is not stored
 by our backend as a readable account record. We do, however, retain limited
 security, subscription, diagnostic, performance, and usage/accounting metadata
@@ -459,10 +508,11 @@ such as token counts, workflow labels, timestamps, processing duration, and
 derived cost.
 
 Our app and backend code do not add Bedrock prompt cache checkpoints for these
-managed requests, and Bedrock model invocation logging for raw request or
-response bodies is disabled for these managed requests. If a Groq route is
-explicitly configured, it is configured for zero data retention for normal
-managed requests.
+managed requests. Zero-retention use also requires verified model and regional
+retention settings, disabled raw invocation logging and, for Groq routes, the
+relevant zero-retention controls. An earlier zero-retention commitment is not
+withdrawn by this clarification; a route must be checked against the applicable
+commitment before activation.
 
 ### 5.2 On-device and Apple-assisted processing
 
@@ -561,6 +611,12 @@ kept for a 30-day grace period before being removed. See
 
 ### 8.3.1 The 30-day account deletion grace period
 
+**Legacy signed-in flow.** This subsection describes releases that provide the
+signed-in deletion and recovery mechanism. It does not describe the newer
+installation-identity releases or imply that a missing deletion button exists.
+Earlier commitments for those legacy users are not withdrawn by this scope
+clarification. Contact support if the flow is missing or fails in your release.
+
 Deleting your account starts a 30-day grace period. During it, we keep exactly
 two things:
 
@@ -598,7 +654,7 @@ are not used to contact you, to profile you, to advertise to you, to train
 models, or for analytics. The retained usage totals are counters, not content:
 they contain no entries, transcripts, audio, or AI output, because we do not
 retain that content in the first place (see
-[Section 8.5](#85-zero-retention-for-managed-ai-content)).
+[Section 8.5](#85-managed-ai-content-retention)).
 
 When the 30 days end, an automated job removes the usage totals and then the
 Firebase Authentication account record. After that, signing in with the same
@@ -629,13 +685,20 @@ Firebase logs are automatically deleted after 30 days unless custom retention or
 export settings are configured. Our backend code is designed not to log raw
 journal text, raw audio, or raw AI output.
 
-### 8.5 Zero retention for managed-AI content
+### 8.5 Managed-AI content retention
 
-For normal managed account-mode AI requests, transcript text, selected
-context, prompts, and AI response content are handled on a zero-retention basis
-for readable request content by our backend and configured provider routes.
-They are transmitted only to service the request and are not retained as
-readable backend content after fulfillment. Raw audio is handled locally or by
+For normal managed AI requests, our backend is designed not to keep transcript
+text, selected context, prompts or AI output as persistent readable journal
+records after fulfillment. Provider retention is separate: Amazon Bedrock's
+retention can depend on the model, region and account configuration, and raw
+invocation logging can retain request/response bodies if enabled. Groq's ordinary
+inference behavior has reliability and abuse-monitoring exceptions unless its
+applicable zero-retention controls are enabled. A provider's general default
+does not prove a particular route's configuration. Ask support about the
+provider and settings applicable to your release and request. Earlier
+zero-retention commitments remain applicable to requests made under them;
+this clarification does not authorize retaining those requests contrary to
+that commitment. Raw audio is handled locally or by
 Apple speech/transcription services where those services are used, not stored
 by our backend as a readable account record.
 
@@ -786,7 +849,8 @@ Depending on how you use the service, we may process categories such as:
 
 These content categories are included here for privacy-law transparency. They
 do not mean that we retain a backend archive of what you said; normal managed
-AI request content is handled on a zero-retention basis as described above.
+AI request content is handled as described in section 8.5, separately from
+operational metadata and provider logging/retention.
 
 Audio recordings may contain your voice, but we do not use recordings,
 transcripts, photos, images, or other content to identify people, create
@@ -871,7 +935,23 @@ backups.
 
 ### 16.2 Backend-linked account data
 
-The app includes an in-app delete-account flow. When completed, it immediately
+**Newer installation-identity releases:** use the Support ID shown in Settings,
+where available, when emailing `voiceofselfapp@gmail.com` to request access or
+deletion of records tied to that identity. Save it before uninstalling. If you
+also used an older signed-in release, explain that so the older identity and
+backend can be reviewed separately. Do not send journal content or identity
+documents merely to open a request. We use proportionate verification and tell
+you if the information supplied cannot locate or establish control of records.
+These releases do not offer the legacy 30-day sign-in recovery procedure.
+
+Where the app offers “Request access, correction or deletion,” it opens a draft that
+you review and send; it does not send a request automatically. It uses an existing
+or saved Support ID rather than creating an identity. If the ID is unavailable,
+contact support and explain the older account/release. Knowing an ID or restoring a
+purchase alone does not prove control of the older account. We request proportionate
+verification, not journal contents, passwords or identity documents by default.
+
+**Legacy releases with the in-app signed-in deletion flow:** when completed, it immediately
 ends your existing sign-in sessions and removes these backend-linked records we
 control:
 

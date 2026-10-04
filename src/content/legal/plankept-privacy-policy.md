@@ -1,6 +1,6 @@
 This Privacy Policy explains how PlanKept handles personal information when you use the PlanKept app, the public app page under `/apps/PlanKept/`, the support and legal pages under `/apps/PlanKept/`, the App Store download and purchase flows, and related surfaces that link to this policy. Temporary `/PlanKept/` support and legal aliases may remain available during the app's manifest migration.
 
-PlanKept is provided by Aleksander Jałtuszyk ("Developer", "we", "us", or "our"). Country: Poland.
+PlanKept is provided by Aleksander Jałtuszyk, a sole trader based in Poland, publishing personally ("Developer", "we", "us", or "our").
 
 PlanKept is designed to be local-first. That means the core product is intended to keep most user content on your device by default. Because features, providers, and platform capabilities can change over time, this policy describes our data practices by category and principle instead of by trying to freeze every implementation detail.
 
@@ -98,7 +98,9 @@ Examples can include:
 
 Those providers operate under their own terms, notices, and privacy policies. Because available providers and routes may change, this policy describes the categories of outside processing rather than attempting to maintain an exhaustive provider inventory here.
 
-When PlanKept uses an on-device route, the selected content is intended to stay on your device. If you intentionally choose an Apple-managed, external, or user-configured AI/model route, PlanKept may send only the content and context needed for that selected request to the selected route or provider. That provider may process the content under its own terms, privacy settings, and technical limits. Do not choose an off-device route for content you do not want processed by that route or provider.
+Downloaded on-device models and the current Apple Foundation Models route process selected content on your device. Voice transcription is a separate service: PlanKept tries Apple's on-device speech service where available, but can fall back to Apple's speech-recognition service, which may send audio to Apple. A configured Ollama server or cloud-backed model may process text, images, transcripts, proof context, or related metadata outside your device and may forward it to another provider. The endpoint operator and downstream providers have their own terms, privacy practices, and eligibility requirements. Do not choose an external route for content you do not want that route or provider to process.
+
+The prepared remediation release removes known cloud presets from selection and blocks recognised Ollama hosted model tags and endpoints, including saved settings, while service eligibility is reviewed. This does not erase local data or remove paid access. A configured server can still process content outside your device or forward it to another provider. Older releases may still offer cloud presets; updating this notice alone does not disable them in an installed app.
 
 ## 3.1 Apple Health And Screen Time Data
 
@@ -114,10 +116,12 @@ If you attach a photo or screenshot to an AI conversation or proof flow, treat t
 
 Where applicable, we rely on one or more of these grounds:
 
-- your consent, such as when you contact us, grant a device permission, choose an optional feature, or where consent is required for advertising cookies, pixels, SDKs, tracking, custom-audience uploads, or similar measurement tools
+- purpose-specific consent where required for an optional feature or processing, including any future advertising or measurement integration; an OS permission, support email or acceptance of this notice is not blanket consent
 - performance of a requested service, such as support or purchase restoration
 - legitimate interests, such as operating, securing, and improving PlanKept, and using non-sensitive campaign links, referral information, and aggregated ad-platform reports to understand whether our own advertising is working
 - compliance with legal obligations
+
+For information we control, requested contractual app features and necessary purchase support use Article 6(1)(b); general enquiries and security use Article 6(1)(f), limited to the legitimate interests in responding and protecting the service; statutory requests and records use Article 6(1)(c) where a law requires them. Consent-based processing uses Article 6(1)(a). Health or other special-category information also requires an applicable Article 9 condition; a general device permission or these documents alone does not establish that condition. Local permission controls and a selected external provider's terms must be checked separately for the feature you use.
 
 ## 5. Advertising, Tracking, Cookies, And Campaign Measurement
 

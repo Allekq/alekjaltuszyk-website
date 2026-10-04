@@ -1,9 +1,7 @@
 import { setupActiveSectionNav } from "./active-section-nav";
-import { setupFaqAccordion } from "./faq-accordion";
+import { setupFaqAccordion } from "../../../scripts/landing/faq-accordion";
 import { setupDesktopHowItWorks } from "./how-it-works/desktop-stepper";
 import { setupMobileHowItWorks } from "./how-it-works/mobile-stepper";
-import { setupNoiseDrift } from "./motion/apply-drift";
-import { setupHeroParallax } from "./motion/hero-parallax";
 import { setupSurfaceDepth } from "./motion/surface-depth";
 import { setupReflectionStoryToggle } from "./reflection-story-toggle";
 import { setupRevealOnScroll } from "./reveal-on-scroll";
@@ -23,8 +21,6 @@ const boot = () => {
   safeSetup("sticky-header", setupStickyHeader);
   safeSetup("active-section-nav", setupActiveSectionNav);
   safeSetup("faq-accordion", setupFaqAccordion);
-  safeSetup("noise-drift", setupNoiseDrift);
-  safeSetup("hero-parallax", setupHeroParallax);
   safeSetup("reflection-story-toggle", setupReflectionStoryToggle);
   safeSetup("surface-depth", setupSurfaceDepth);
   safeSetup("desktop-stepper", setupDesktopHowItWorks);

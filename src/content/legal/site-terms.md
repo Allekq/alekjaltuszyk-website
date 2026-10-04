@@ -1,6 +1,6 @@
 These Terms explain the rules for using the general `alekjaltuszyk.xyz` website, including the personal homepage, app directory, general support/legal pages, legal hub, and public legal-manifest surfaces.
 
-These general website terms do not replace the app-specific terms for PlanKept, OverLit, Voice of Self, or Take Me Somewhere. Each app has its own terms linked from the [Legal hub](/legal/).
+These general website terms do not replace the app-specific terms linked from the [Legal hub](/legal/).
 
 The website is operated by Aleksander Jałtuszyk ("Developer", "we", "us", or "our"). Country: Poland. Contact: `alekgameshelp2@gmail.com`.
 
@@ -18,14 +18,7 @@ The website is informational. It does not provide professional advice, emergency
 
 ## 3. App-Specific Terms
 
-Each app has its own legal documents:
-
-- PlanKept: app-specific privacy policy, terms, support, and legal manifest
-- OverLit: app-specific privacy policy, terms of use, and support
-- Voice of Self: app-specific privacy policy, terms of service, support, and legal manifest
-- Take Me Somewhere: app-specific privacy policy, terms of service, support, and legal manifest
-
-Use the [Legal hub](/legal/) to find the current app-specific links.
+Use the [Legal hub](/legal/) to find the privacy policy, terms and support links for the app you use. App-specific documents govern the relevant app and its related services.
 
 ## 4. External Links And Third-Party Services
 
@@ -73,6 +66,8 @@ Nothing in these Terms limits rights, warranties, remedies, or liabilities that 
 
 ## 10. Limitation Of Liability
 
+The exclusions and monetary cap in this section apply only to users acting wholly for business purposes. They do not apply to consumers, claims under data-protection law, death or personal injury, fraud, intentional misconduct, gross negligence, or liability that cannot lawfully be limited.
+
 To the fullest extent permitted by law, the Developer will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages arising out of or related to use of the general website, external links, support channels, legal manifests, or third-party services.
 
 To the fullest extent permitted by law, our total aggregate liability for claims arising out of or related to the general website will be limited to EUR 25.
@@ -88,6 +83,8 @@ If you are a consumer, you may have rights to bring claims in the courts and for
 ## 12. Changes To These Terms
 
 We may update these Terms from time to time. When we do, we will update the effective date and version shown on this page.
+
+Changes apply prospectively, subject to any notice or agreement required by law. They do not remove accrued rights or change the terms of an app purchase; app purchases are governed by the relevant app and store documents.
 
 ## 13. Contact
 

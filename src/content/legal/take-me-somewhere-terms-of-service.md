@@ -23,7 +23,7 @@ These Terms of Service are supplemental product terms for Take Me Somewhere-spec
 
 Take Me Somewhere is a lightweight local exploration companion. It helps you choose a time budget, choose a vibe or destination, and receive a nearby suggested route, destination, map view, or compass-guided outing.
 
-Features, visuals, copy, route behavior, provider availability, supported regions, and supported travel modes may change over time. Walking is the first intended travel mode, with riding and driving possible in future versions.
+Features, visuals, copy, route behavior, provider availability, supported regions, and supported travel modes may change over time. The current app supports walking and riding/cycling routes; driving route generation is not currently enabled.
 
 ## 4. Eligibility
 
@@ -137,6 +137,8 @@ Nothing in these terms limits rights, warranties, remedies, or liabilities that 
 
 ## 18. Limitation Of Liability
 
+The exclusions and monetary cap in this section apply only to users acting wholly for business purposes. They do not apply to consumers, claims under data-protection law, death or personal injury, fraud, intentional misconduct, gross negligence, or liability that cannot lawfully be limited. The route-safety warnings describe limitations of the service; they do not transfer responsibility for our own conduct to you.
+
 To the fullest extent permitted by law, the Developer will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages arising out of or related to your use of Take Me Somewhere, route suggestions, maps, Compass Mode, Route Mode, provider data, website surfaces, support, or third-party services.
 
 To the fullest extent permitted by law, our total aggregate liability for claims arising out of or related to Take Me Somewhere will be limited to the greater of the amount you paid us directly for Take Me Somewhere in the 12 months before the claim or EUR 25.
@@ -145,9 +147,7 @@ Nothing in these terms limits or excludes liability that cannot legally be limit
 
 ## 19. Indemnity
 
-To the extent permitted by law, you agree to defend, indemnify, and hold us harmless from claims, damages, losses, liabilities, costs, and expenses arising out of or related to your misuse of Take Me Somewhere, your breach of these terms, your violation of law or third-party rights, your route decisions, or content you send through support or related channels.
-
-This section does not apply where prohibited by applicable consumer-protection law.
+This section applies only to users acting wholly for business purposes. If your unlawful use of the service or infringement of third-party rights causes a third-party claim against us, you must reimburse reasonably incurred losses and costs to the extent caused by that conduct and permitted by law. It does not require you to defend us, cover ordinary route decisions, or reimburse losses caused by our own conduct. It does not apply to consumers.
 
 ## 20. Governing Law And Consumer Rights
 
