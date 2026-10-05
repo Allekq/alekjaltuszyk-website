@@ -233,15 +233,15 @@ Older releases use a combined usage control with regional defaults. Where its sw
 
 **Provider and retention:** Google Analytics and any configured Google Ads integration have their own purposes, settings, service terms and international processing. The existence of a dependency does not prove which dashboard exports or links are active. Section 8 describes transfers and section 15 explains retention/request routes. The developer must verify those settings before future measurement is enabled; no new recipient or purpose is authorized just by this notice.
 
-## 11. AI Narration
+## 11. AI-Assisted Writing And Narration
 
-Stories in AudioChoices are narrated by an AI text-to-speech model, Kokoro-82M, which is released under the Apache 2.0 licence.
+Stories in AudioChoices use pre-recorded AI narration. The narration models used include Kokoro-82M (Apache 2.0 licence) and Chatterbox (MIT licence). The model and voice used for a book, with applicable credits, are listed in the app’s narration and licence information.
 
 That narration is produced by the developer, offline, on the developer's own equipment, before a book is published. The finished audio files are then uploaded and delivered to your device like any other audio file.
 
 This means no listener data of any kind is ever sent to an AI service, an AI provider or a text-to-speech service. Not your voice, not your choices, not your progress, not your identifier. There is no runtime AI in this app.
 
-The story text itself is written by a human author.
+The developer creates and reviews the story text with the help of generative AI, which may be used to draft and revise passages. This editorial work happens before publication; the app does not generate stories from your listening choices.
 
 ## 12. Headphone Motion, iOS Head-Nod Feature, Optional
 
