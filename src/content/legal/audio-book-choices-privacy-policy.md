@@ -235,7 +235,7 @@ Older releases use a combined usage control with regional defaults. Where its sw
 
 ## 11. AI-Assisted Writing And Narration
 
-Stories in AudioChoices use pre-recorded AI narration. The narration models used include Kokoro-82M (Apache 2.0 licence) and Chatterbox (MIT licence). The model and voice used for a book, with applicable credits, are listed in the app’s narration and licence information.
+Stories in AudioChoices use pre-recorded AI narration. The narration models used include Kokoro-82M (Apache 2.0 licence) and Chatterbox (MIT licence). Applicable model and reference-voice credits and licence information are available in the app.
 
 That narration is produced by the developer, offline, on the developer's own equipment, before a book is published. The finished audio files are then uploaded and delivered to your device like any other audio file.
 
