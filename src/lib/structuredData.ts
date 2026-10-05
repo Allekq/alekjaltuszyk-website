@@ -88,7 +88,7 @@ export const planKeptApplicationStructuredData = {
   applicationCategory: "UtilitiesApplication",
   applicationSubCategory: "Achievement-gated app blocker",
   url: toAbsoluteSiteUrl("/apps/PlanKept/"),
-  image: siteConfig.defaultSocialImageUrl,
+  image: planKeptConfig.socialImageUrl,
   description: planKeptConfig.aiDiscovery.summary,
   featureList: [
     "Achievement-gated app blocking",

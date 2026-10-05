@@ -28,7 +28,8 @@ const supportDraftLines = [
 const supportBody = supportDraftLines.join("\r\n");
 const appStoreHref = "https://apps.apple.com/us/app/voice-of-self/id6760653378";
 const logoImagePath = "/media/apps/voice-of-self/app-icon-light.png";
-const defaultSocialImagePath = "/images/how-it-works/see-what-changed.png";
+const defaultSocialImagePath = "/media/apps/voice-of-self/app-icon-480.jpg";
+const appleTouchIconHref = withBase("/media/apps/voice-of-self/app-icon-180.png");
 export const voiceOfSelfAIUsageBody = aiUsageBody.trim();
 
 const buildMailtoHref = (email: string, subject: string, body: string) => {
@@ -82,6 +83,12 @@ export const siteConfig = {
   logoImageUrl: buildAbsoluteSiteHref(logoImagePath),
   defaultSocialImagePath,
   defaultSocialImageUrl: buildAbsoluteSiteHref(defaultSocialImagePath),
+  socialImagePath: defaultSocialImagePath,
+  socialImageUrl: buildAbsoluteSiteHref(defaultSocialImagePath),
+  socialImageWidth: 480,
+  socialImageHeight: 480,
+  socialImageType: "image/jpeg",
+  appleTouchIconHref,
   faviconHref: withBase(logoImagePath),
   faviconType: "image/png",
   homeHref: siteRoutes.apps.voiceOfSelf.href,

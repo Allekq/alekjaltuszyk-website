@@ -34,6 +34,8 @@ export interface AppSchemaInput {
   operatingSystem: string;
   /** Absolute or base-safe image URLs of real screenshots. */
   screenshots?: readonly string[];
+  /** App icon or social image URL */
+  image?: string;
   /** Site-relative path of this app's page, e.g. "/apps/OverLit/". */
   path: string;
 }
@@ -54,6 +56,7 @@ export const buildAppStructuredData = ({
   name,
   operatingSystem,
   screenshots,
+  image,
   path,
 }: AppSchemaInput): Record<string, unknown>[] => {
   const url = toAbsoluteSiteUrl(path);
@@ -74,6 +77,10 @@ export const buildAppStructuredData = ({
     publisher: { "@id": personId },
     isPartOf: { "@id": websiteId },
   };
+
+  if (image) {
+    application.image = image;
+  }
 
   if (alternateNames?.length) {
     application.alternateName = [...alternateNames];

@@ -1,6 +1,12 @@
 ---
 import "../styles/global.css";
-import { siteConfig } from "../config/site";
+import {
+  siteConfig,
+  planKeptConfig,
+  overLitConfig,
+  takeMeSomewhereConfig,
+  audioBookChoicesConfig,
+} from "../config/site";
 import { basePath, withBase } from "../lib/paths";
 
 interface Frontmatter {
@@ -20,6 +26,12 @@ interface Props {
   alternateLinks?: readonly { type: string; title: string; href: string }[];
   faviconHref?: string;
   faviconType?: string;
+  appleTouchIconHref?: string;
+  socialImageUrl?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
+  socialImageType?: string;
+  siteName?: string;
 }
 
 const {
@@ -31,7 +43,13 @@ const {
   robotsContent,
   alternateLinks = [],
   faviconHref,
-  faviconType = "image/svg+xml",
+  faviconType,
+  appleTouchIconHref,
+  socialImageUrl,
+  socialImageWidth,
+  socialImageHeight,
+  socialImageType,
+  siteName,
 } = Astro.props as Props;
 const pageTitle = Astro.props.title ?? frontmatter?.title ?? siteConfig.homeTitle;
 const description =
@@ -55,7 +73,38 @@ const title =
     : `${pageTitle} | ${siteConfig.name}`;
 const personId = `${siteConfig.origin}#person`;
 const websiteId = `${siteConfig.origin}#website`;
-const imageUrl = siteConfig.defaultSocialImageUrl;
+const isPlanKept =
+  normalizedPathname.startsWith("/apps/PlanKept/") ||
+  normalizedPathname.startsWith("/PlanKept/");
+const isOverLit = normalizedPathname.startsWith("/apps/OverLit/");
+const isTakeMeSomewhere = normalizedPathname.startsWith("/apps/TakeMeSomewhere/");
+const isAudioBookChoices = normalizedPathname.startsWith("/apps/AudioBookChoices/");
+
+const appDefault = isPlanKept
+  ? planKeptConfig
+  : isOverLit
+  ? overLitConfig
+  : isTakeMeSomewhere
+  ? takeMeSomewhereConfig
+  : isAudioBookChoices
+  ? audioBookChoicesConfig
+  : null;
+
+const resolvedFaviconHref = faviconHref ?? appDefault?.faviconHref ?? withBase("/favicon.svg");
+const resolvedFaviconType =
+  faviconType ?? appDefault?.faviconType ?? (faviconHref ? "image/png" : "image/svg+xml");
+const resolvedAppleTouchIconHref =
+  appleTouchIconHref ?? appDefault?.appleTouchIconHref ?? siteConfig.appleTouchIconHref;
+const resolvedSocialImageUrl =
+  socialImageUrl ?? appDefault?.socialImageUrl ?? siteConfig.defaultSocialImageUrl;
+const resolvedSocialImageWidth =
+  socialImageWidth ?? appDefault?.socialImageWidth ?? siteConfig.defaultSocialImageWidth;
+const resolvedSocialImageHeight =
+  socialImageHeight ?? appDefault?.socialImageHeight ?? siteConfig.defaultSocialImageHeight;
+const resolvedSocialImageType =
+  socialImageType ?? appDefault?.socialImageType ?? siteConfig.defaultSocialImageType;
+const resolvedSiteName = siteName ?? appDefault?.name ?? siteConfig.name;
+
 const resolvedStructuredData = [
   {
     "@context": "https://schema.org",
@@ -66,7 +115,7 @@ const resolvedStructuredData = [
     givenName: "Aleksander",
     familyName: "Jałtuszyk",
     url: siteConfig.origin,
-    image: imageUrl,
+    image: siteConfig.defaultSocialImageUrl,
     description: siteConfig.aiDiscovery.summary,
     jobTitle: "Software Engineer",
     knowsAbout: siteConfig.identity.focusAreas,
@@ -100,17 +149,21 @@ const resolvedStructuredData = [
     <meta name="theme-color" content="#020406" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="author" href={homeHref} />
-    <link rel="icon" type={faviconType} href={faviconHref ?? withBase("/favicon.svg")} />
-    <meta property="og:site_name" content={siteConfig.name} />
+    <link rel="icon" type={resolvedFaviconType} href={resolvedFaviconHref} />
+    {resolvedAppleTouchIconHref && <link rel="apple-touch-icon" href={resolvedAppleTouchIconHref} />}
+    <meta property="og:site_name" content={resolvedSiteName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={isLandingPage ? "website" : "article"} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image" content={resolvedSocialImageUrl} />
+    {resolvedSocialImageWidth && <meta property="og:image:width" content={String(resolvedSocialImageWidth)} />}
+    {resolvedSocialImageHeight && <meta property="og:image:height" content={String(resolvedSocialImageHeight)} />}
+    {resolvedSocialImageType && <meta property="og:image:type" content={resolvedSocialImageType} />}
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image" content={resolvedSocialImageUrl} />
     <meta
       name="robots"
       content={

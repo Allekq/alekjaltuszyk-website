@@ -90,12 +90,16 @@ const resolvedStructuredData = [
     <meta name="theme-color" content="#0c1019" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type={faviconType} href={faviconHref ?? withBase(siteConfig.logoImagePath)} />
+    <link rel="apple-touch-icon" href={siteConfig.appleTouchIconHref} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={isHomePage ? "website" : "article"} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content={String(siteConfig.socialImageWidth)} />
+    <meta property="og:image:height" content={String(siteConfig.socialImageHeight)} />
+    <meta property="og:image:type" content={siteConfig.socialImageType} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

@@ -99,7 +99,7 @@ const personalLinkedInHref = "https://www.linkedin.com/in/alek-jaltuszyk/";
 const planKeptInstagramHref =
   "https://www.instagram.com/plankeptapp?igsh=cWV3azJ4bXNwZXF1&utm_source=qr";
 const logoImagePath = "/favicon.svg";
-const defaultSocialImagePath = "/favicon.svg";
+const defaultSocialImagePath = "/media/home/aj-logo-512.png";
 const planKeptIconPath = "/media/apps/plankept/app-icon-180.png";
 const overLitIconPath = "/media/apps/overlit/app-icon-180.png";
 const takeMeSomewhereIconPath = "/media/apps/take-me-somewhere/app-icon-180.png";
@@ -219,6 +219,10 @@ export const siteConfig = {
   logoImageUrl: buildAbsoluteSiteHref(logoImagePath),
   defaultSocialImagePath,
   defaultSocialImageUrl: buildAbsoluteSiteHref(defaultSocialImagePath),
+  defaultSocialImageWidth: 512,
+  defaultSocialImageHeight: 512,
+  defaultSocialImageType: "image/png",
+  appleTouchIconHref: withBase(defaultSocialImagePath),
   homeHref: siteRoutes.home.href,
   appsHref: siteRoutes.apps.index.href,
   planKeptHref: siteRoutes.apps.planKept.href,
@@ -309,6 +313,12 @@ export const planKeptConfig = {
   origin: siteOrigin,
   faviconHref: withBase(planKeptIconPath),
   faviconType: "image/png",
+  appleTouchIconHref: withBase(planKeptIconPath),
+  socialImagePath: "/media/apps/plankept/app-icon-480.jpg",
+  socialImageUrl: buildAbsoluteSiteHref("/media/apps/plankept/app-icon-480.jpg"),
+  socialImageWidth: 480,
+  socialImageHeight: 480,
+  socialImageType: "image/jpeg",
   instagramHref: planKeptInstagramHref,
   supportEmail,
   homeHref: siteRoutes.apps.planKept.href,
@@ -402,7 +412,13 @@ export const overLitConfig = {
   origin: siteOrigin,
   faviconHref: withBase(overLitIconPath),
   faviconType: "image/png",
+  appleTouchIconHref: withBase(overLitIconPath),
   iconHref: withBase(overLitIconPath),
+  socialImagePath: "/media/apps/overlit/app-icon-512.png",
+  socialImageUrl: buildAbsoluteSiteHref("/media/apps/overlit/app-icon-512.png"),
+  socialImageWidth: 512,
+  socialImageHeight: 512,
+  socialImageType: "image/png",
   navigation: [
     { label: "Play", href: "#play" },
     { label: "Pressure", href: "#pressure" },
@@ -509,7 +525,13 @@ export const takeMeSomewhereConfig = {
   origin: siteOrigin,
   faviconHref: withBase(takeMeSomewhereIconPath),
   faviconType: "image/png",
+  appleTouchIconHref: withBase(takeMeSomewhereIconPath),
   iconHref: withBase(takeMeSomewhereIconPath),
+  socialImagePath: "/media/apps/take-me-somewhere/app-icon-480.jpg",
+  socialImageUrl: buildAbsoluteSiteHref("/media/apps/take-me-somewhere/app-icon-480.jpg"),
+  socialImageWidth: 480,
+  socialImageHeight: 480,
+  socialImageType: "image/jpeg",
   navigation: [
     { label: "Plan it", href: "#plan" },
     { label: "The walk", href: "#path" },
@@ -649,9 +671,15 @@ export const audioBookChoicesConfig = {
   playStoreHref: audioBookChoicesPlayStoreHref,
   faviconHref: withBase(audioBookChoicesIconPath),
   faviconType: "image/png",
+  appleTouchIconHref: withBase(audioBookChoicesIconPath),
   /* Header renders this at 40px, so it gets the small copy rather than the
      1024 master — same split as OverLit. */
   iconHref: withBase(audioBookChoicesIconPath),
+  socialImagePath: "/media/apps/audio-book-choices/app-icon-480.jpg",
+  socialImageUrl: buildAbsoluteSiteHref("/media/apps/audio-book-choices/app-icon-480.jpg"),
+  socialImageWidth: 480,
+  socialImageHeight: 480,
+  socialImageType: "image/jpeg",
   /*
    * The book the landing page leads with. `nodeCount` is the book's real node
    * count and is the ONLY place the site states a size for it — change it here
