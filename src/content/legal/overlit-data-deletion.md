@@ -78,13 +78,22 @@ or score and is not used for advertising or profiling. It remains personal data.
 expiry is configured while safe removal conditions are unverified; necessity and removal
 conditions require review. This does not justify indefinite retention of other records.
 
+**Temporary cleanup work records in the prepared service.** While cleanup is pending, protected
+work records may hold board identifiers and document references, which can include pseudonymous
+identifiers, so cleanup can resume without repeating completed batches. They contain no nickname
+or score and are removed when their tasks finish. The separate suppression record above remains
+subject to its retention review.
+
 **Operational logs and provider-held data.** These have their own retention periods and
 rights-request processes described in the Privacy Policy. The leaderboard control does not
 erase advertising, attribution, analytics or crash-report records.
 
-**Copies already delivered to other players.** Removing an entry from the live board does not
-recall a cached response already delivered to another player. Section 15 of the Privacy Policy
-explains this exception and the applicable retention.
+**Legacy backend response copies and copies already delivered to other players.** Older backend
+versions stored copies of returned board rows in submission ledgers. The prepared backend stops
+adding those copies and removes legacy response fields during erasure in resumable batches,
+while preserving other players' acceptance metadata and scores. That cleanup requires the matching
+backend to be active. It cannot recall a response already delivered to another device. Section 15
+of the Privacy Policy explains these distinctions and the applicable retention.
 
 ## Retention if you do nothing
 
