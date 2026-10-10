@@ -155,13 +155,16 @@ Submission happens automatically at the end of a qualifying run, and only when t
 Against your pseudonymous identifier:
 
 - a **private player record** holding your current nickname, the time it last changed, and per-identity rate counters used to stop automated flooding
-- **one board entry per board**, holding the score, the server time at which that score was first accepted (earliest submission wins a tie), a copy of your nickname, the platform, the `STANDARD` marker and the identifier itself. Rolling a new nickname updates that copy on every board you are already on
+- **one board entry per board**, holding the score, the server-authored acceptance time used to order tied scores, a copy of your nickname, the platform, the `STANDARD` marker and the identifier itself. Rolling a new nickname updates that copy on every board you are already on
 - a **de-duplication ledger** of recent submissions, so retrying a request does not accept the same submission again. Each ledger record is scheduled to expire **30 days** after it is written. Database TTL deletion is asynchronous and can occur after that timestamp. Older backend versions also stored the returned board rows, including other players' nicknames and scores. The prepared backend instead retains acceptance metadata and builds a current response on retry; it does not add new cached copies of other players' rows to those ledgers
 - a **rating record**, holding a percentile-based score derived from your best placements. One is written for every player who submits, whether or not the overall board is showing them
+- in the prepared rank-index backend, a **private derived ranking index** containing the same identifier, score, acceptance timestamp and platform, plus structural links and group counts. It lets the server calculate positions without recounting the whole board; it adds no information to public rows and sends nothing to a new provider. Temporary migration checkpoints can contain a pseudonymous identifier until migration completes or that identity is erased
 
 The prepared deletion service also uses temporary cleanup work records and retains a separate private suppression record after an erasure request, as described in section 15. These records remain personal data and are not public leaderboard entries.
 
-Per board, not per person, the server keeps the board's registry entry and its size.
+Per board, the server keeps the registry and, in the prepared rank-index backend, index version/readiness information, shard roots, population counts and change counters. These structural records can reference identity-linked index nodes.
+
+Earlier backend versions timestamped acceptance at the database commit. The prepared rank-index backend uses Firestore's timestamp for the successful transaction snapshot, so the entry and its index can be stored atomically. This can change the order of future otherwise tied submissions processed concurrently. Existing timestamps are preserved, including the original timestamp on an overall-rating entry. Publication of this notice does not itself activate the new backend.
 
 ### What other players see
 
@@ -466,7 +469,7 @@ If you believe a child under 13 has provided personal information, write to `ale
 
 **On-device data** stays on your device until you change it, use an in-app reset where one exists, or delete the app.
 
-**Leaderboard board entries have no automatic expiry.** One entry per player per board is kept for as long as the board exists, and boards are archived rather than deleted when scoring rules change — an archived board stays readable indefinitely. An entry is removed when the board's underlying record is erased on request.
+**Leaderboard board entries have no automatic expiry.** One entry per player per board is kept for as long as the board exists, and boards are archived rather than deleted when scoring rules change — an archived board stays readable indefinitely. An entry is removed when the board's underlying record is erased on request. In the prepared rank-index backend, its derived identity-linked ranking node follows the same lifecycle and is removed by the erasure process; it has no separate retention period.
 
 **The leaderboard de-duplication ledger is scheduled to expire after 30 days.** Each record carries an expiry timestamp. Firestore TTL deletion is asynchronous and may occur after the timestamp; it is not an exact deletion deadline.
 
@@ -490,7 +493,7 @@ While cleanup is pending, protected work records may hold board identifiers and 
 
 **The steps are on their own page: [Delete your OverLit data](https://alekjaltuszyk.xyz/apps/OverLit/delete-data/).** That page is a plain-language summary; where the two differ, this document governs.
 
-The leaderboard erasure process is intended to remove every active board entry associated with your identity, the nickname and private player record with its rate counters, rating record, submission ledger and anonymous Firebase Authentication account. Published entries are removed from the live boards. Ordinary feature kill switches do not block the deletion route.
+The leaderboard erasure process is intended to remove every active board entry associated with your identity, derived rank-index nodes and migration checkpoints containing that identity where the prepared index is active, the nickname and private player record with its rate counters, rating record, submission ledger and anonymous Firebase Authentication account. Published entries are removed from the live boards. Ordinary feature kill switches do not block the deletion route.
 
 **Prepared deletion service:** a verified request first establishes the private suppression record and blocks further use of that identity for writes. Cleanup then removes the active records. Interrupted cleanup remains pending and a server process retries it; it is marked complete only after the defined cleanup succeeds. A lost connection or failed app response can occur before later server completion. This behavior requires the guarded writers and recovery process to be deployed together; older sequential deletion implementations do not provide the same protection.
 

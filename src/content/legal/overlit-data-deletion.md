@@ -59,7 +59,7 @@ months and tell you why within the first month.
 
 The leaderboard erasure process removes the active board entries, nickname, private player
 record, rating record, submission ledger and Firebase anonymous-auth identity associated
-with the ID. Published entries are removed from the live boards. The retained copies and
+with the ID. Where the prepared rank-index backend is active, it also removes derived ranking nodes and temporary migration checkpoints containing that ID. Published entries are removed from the live boards. The retained copies and
 provider processing described below are separate.
 
 ## What is kept
