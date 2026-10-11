@@ -14,7 +14,7 @@ It deletes the deletable server-side records held against your installation's ps
 you having to describe or match anything.
 
 Data on the device is separate. The **clear data on this device** control sits beside it, and
-uninstalling generally removes app-container data, subject to platform backups. iOS Keychain identity can survive reinstall. Clearing removes the listener age and range but retains the limited preferences described in the Privacy Policy. **One thing the clear-data control deliberately keeps:**
+uninstalling generally removes app-container data, subject to platform backups. iOS Keychain identity can survive reinstall. Clearing removes the listener age and range but retains the limited preferences described in the Privacy Policy. **Age safeguards the clear-data control deliberately keeps:** the known-under-13 restriction flag, until a new eligible platform range resolves it, and
 the yes-or-no answer about whether your app store says an age check is required where you are. That
 stays, so that clearing data is never a way around the content limit it sets, and only your app
 store saying otherwise removes it — uninstall/restore behavior is controlled by the platform and is not universal identity erasure.
@@ -70,3 +70,5 @@ and must be cancelled there. See the
 The binding text is section 15 of the
 [AudioChoices Privacy Policy](https://alekjaltuszyk.xyz/apps/AudioBookChoices/privacy-policy/).
 This page is a plain-language summary of it and adds nothing to it.
+
+In the planned under-13 access-screen builds, the blocked screen also offers server deletion, a saved Support ID and contact support. Deletion does not lift the age restriction. Existing subscriptions can be managed through the store link on that screen.

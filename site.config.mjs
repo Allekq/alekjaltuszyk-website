@@ -102,14 +102,14 @@ export const legalDocuments = {
     sourcePath: "src/content/legal/take-me-somewhere-terms-of-service.md",
   },
   audioBookChoicesPrivacy: {
-    version: "2.12.0",
-    effectiveDate: "2026-10-03",
+    version: "2.13.0",
+    effectiveDate: "2026-10-11",
     path: "/apps/AudioBookChoices/privacy-policy/",
     sourcePath: "src/content/legal/audio-book-choices-privacy-policy.md",
   },
   audioBookChoicesTerms: {
-    version: "2.5.0",
-    effectiveDate: "2026-10-03",
+    version: "2.6.0",
+    effectiveDate: "2026-10-11",
     path: "/apps/AudioBookChoices/terms-of-use/",
     sourcePath: "src/content/legal/audio-book-choices-terms-of-use.md",
   },

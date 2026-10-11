@@ -108,42 +108,22 @@ name, no identity document, no account details, and nothing about how they use a
 keeps the **bottom** of the range, so somebody reported as 13–15 is treated as 13, and it shows on
 screen which range it received and where that range came from.
 
-**A range the listener picks, in every other case.** Three buttons — **13–15**, **16–17**, **18 or
-over** — and nothing checks the answer. That covers a phone with no such feature at all (every iPhone
-below iOS 26), a phone that had nothing to share, a lookup that failed or timed out, and a listener
-who simply preferred not to be looked up. Two details worth knowing: **18 or over** is pre-selected,
-so somebody tapping straight through without reading declares 18; and there is no option below 13.
+**A range the listener picks.** Earlier releases offered only 13–15, 16–17 and 18 or over, with the adult band pre-selected. The planned builds carrying legal acceptance version 13 include **Under 13** and require an explicit initial choice. Where no platform range is held, an unrestricted listener can use this route instead of requesting a platform answer, or after an unavailable lookup. Confirming Under 13 blocks ordinary app access; it does not advance onboarding.
 
-This replaced an age slider on 14 August 2026, and it collects **less** than the slider did. Nothing
-in the app has ever needed an exact age — every decision compares the listener against 13, 16 or 18
-and nothing else — so asking for 27 or 41 was gathering a more precise fact than any purpose used.
-The three ranges are the same three the platform answers with, so both routes now produce the same
-kind of answer and the app cannot tell them apart except by asking where it came from.
+**Declining a platform request is different from declaring Under 13.** An initial decline or verification-required result supplies no eligible processing answer. Existing conservative content defaults apply, but that result cannot remove a previously known-under-13 restriction. An unavailable or unsupported API is likewise never evidence that a restricted listener is old enough.
 
-**One answer skips the picker, and only one.** If a listener raises the phone's own prompt and then
-declines to share, the app assumes 13 and moves on, rather than turning round and putting the picker
-in front of somebody who has just said no. The same applies where a store reports that age
-verification is required and has not been completed. Every other outcome — nothing shared, no such
-feature, a failure — leads to the picker with 18 or over pre-selected. **If the app has no age at
-all, it assumes 13.**
+**Apple and Google can both report the youngest band.** Apple represents a range below the first requested gate with a missing lower bound; it does not mean no information was shared. The planned update corrects the earlier mapping, normalizes this to the youngest band and blocks access. Google's normalized child range also blocks access. The app never rounds a child range up to its minimum audience age.
 
-**A range can be below 13**, and the app takes that at face value rather than rounding it up.
-In practice that is a Google Play behaviour: Play's lowest band is 0–12, while the lowest gate Apple
-is asked about is 13. On an iPhone or iPad, a listener under 13 produces no range at all and lands on
-the picker, whose lowest option is 13–15. On Android, a lower range shared by Google Play can
-therefore narrow the shelf beyond the choices offered by the in-app picker.
+**Correction after a restriction requires the platform.** There is no manual re-pick or cached-band bypass. Use the access screen's check button after correcting account information or completing a store verification. A fresh range starting at 13 or above resumes unfinished onboarding or the remaining steps before app access. Declined, unsupported, unavailable and still-under-13 results leave the restriction in place. On a device without a supported age API, this means no in-app correction route. Support, data-deletion requests and subscription management remain available; saved progress and purchase records are retained. These are planned binary changes, not protections retroactively added to older installs.
 
 **Where the phone gave a range, the app goes by the range.** Settings has a "Listener age" row that
 names the range and the account it came from — and on those devices it is not an editor. There is no
 picker over a shared range, and a range set before the phone ever answered does not raise what the
 app acts on. A range that looks wrong is corrected in the phone's own account (on iOS: Settings ›
 [your name] › Personal Information › Age Range for Apps), then re-read with the "Check my age range"
-control in AudioChoices' Settings.
+control in AudioChoices' Settings or on the access screen.
 
-**Where no range was shared, the age is the listener's to set**, in the same "Listener age" row,
-at any time. That is every iPhone below iOS 26 and every Android where Google Play has nothing to
-share — most devices in use today. Checking again never overwrites a number somebody set by hand; if
-they would rather the phone's range were used, Settings offers one control that adopts it.
+**Where no range was shared and access is unrestricted**, Settings can offer a manual age editor. Ordinary rechecks preserve a narrower manual choice. Recovery from an under-13 restriction instead adopts the new eligible platform range, replacing the earlier choice so it cannot re-block the app after restart.
 
 ### Two limits, stated rather than left out
 
