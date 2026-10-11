@@ -57,28 +57,30 @@ const skillsPhotoSrc = withBase("/media/home/skills-climbing-photo.png");
             aria-hidden="true"
             data-skill-details
           >
-            <p class="home-skills__summary-text">{skill.summary}</p>
+            <div class="home-skills__details-inner">
+              <p class="home-skills__summary-text">{skill.summary}</p>
 
-            <ul class="home-skills__highlights">
-              {skill.highlights.map((highlight) => (
-                <li>{highlight}</li>
-              ))}
-            </ul>
-
-            {skill.related.length > 0 && (
-              <div class="home-skills__related" aria-label="Related history">
-                {skill.related.map((relatedItem) => (
-                  <a
-                    class="home-skills__related-link"
-                    href="#history"
-                    data-history-jump
-                    data-history-target={relatedItem.historyId}
-                  >
-                    {relatedItem.label}
-                  </a>
+              <ul class="home-skills__highlights">
+                {skill.highlights.map((highlight) => (
+                  <li>{highlight}</li>
                 ))}
-              </div>
-            )}
+              </ul>
+
+              {skill.related.length > 0 && (
+                <div class="home-skills__related" aria-label="Related history">
+                  {skill.related.map((relatedItem) => (
+                    <a
+                      class="home-skills__related-link"
+                      href="#history"
+                      data-history-jump
+                      data-history-target={relatedItem.historyId}
+                    >
+                      {relatedItem.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </article>
       ))}

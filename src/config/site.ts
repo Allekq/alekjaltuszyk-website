@@ -109,13 +109,19 @@ const asciiNameVariants = ["Alek Jaltuszyk", "Aleksander Jaltuszyk"] as const;
 const searchNameVariants = [preferredName, legalName, ...asciiNameVariants] as const;
 const focusAreas = [
   "Software engineering",
-  "AI systems",
+  "AI model integration",
   "Product engineering",
   "Unity engineering",
   "C#",
   "Python",
   "Behavior-aware product design",
 ] as const;
+const education =
+  "Computer Science student at Warsaw University of Technology, Faculty of Electronics and Information Technology (WEiTI).";
+const shortBio =
+  "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder who learned programming by building and selling Unity tools. His strongest language is C#, and he also works in Python, integrating existing AI models into application logic, memory, and interaction.";
+const cursorRecognition =
+  "While working at Roam AI, Cursor recognized me among its top Tab autocomplete users and sent me a custom physical Tab key award.";
 const appleStandardEulaHref =
   "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
 
@@ -210,7 +216,8 @@ export const siteConfig = {
   preferredName,
   legalName,
   homeTitle: `${preferredName} | ${legalName}`,
-  defaultDescription: `Alek Jałtuszyk's personal site for software engineering, AI systems, Unity work, and current apps: ${appNameList}.`,
+  defaultDescription:
+    "Alek Jałtuszyk is a software engineer working with C#, Python, Unity, and AI model integration. Explore his experience and independent apps.",
   origin: siteOrigin,
   domain: siteDomain,
   contactEmail,
@@ -261,12 +268,13 @@ export const siteConfig = {
     asciiNameVariants,
     searchNameVariants,
     focusAreas,
-    shortBio:
-      "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design.",
+    shortBio,
+    education,
+    cursorRecognition,
     currentProducts: appNames,
   },
   aiDiscovery: {
-    summary: `Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and product builder focused on AI systems, Unity engineering, and behavior-aware product design. This site is the public home for his profile, app directory, and the web surfaces for ${appNameList}.`,
+    summary: `${shortBio} This site is the public home for his work experience, education, app directory, and the web surfaces for ${appNameList}.`,
     status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS and Android app, App Store and Google Play destinations, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Release state: ${releaseStatusSentence}`,
     privacyModel:
       "The website is static and its hosting and support providers process technical requests and correspondence. Each app has a separate policy describing local data, network features, operational identifiers, purchases, optional collection and differences between releases. A notice acknowledgement does not supply optional-purpose consent; a newer website notice does not change an older installed app.",

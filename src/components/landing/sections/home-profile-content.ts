@@ -7,6 +7,7 @@ import {
   platformNameList,
   releaseStatusSentence,
 } from "../../../lib/appState";
+import { siteConfig } from "../../../config/site";
 
 export interface HomeSkill {
   id: string;
@@ -86,22 +87,20 @@ export const homeMilestones = [
     id: "boulder",
     value: "7c",
     label: "max boulder grade",
-    detail: "Two regional wins, plus a one-arm pull-up and a front lever.",
+    detail: "Two regional competition wins and multiple podium finishes.",
   },
 ] satisfies readonly HomeMilestone[];
 
 /**
  * The stack, said plainly. `siteConfig.focusAreas` is the canonical list for
- * metadata; this is the same story in the order a reader wants it, with the two
- * mobile toolchains the shipped apps are actually written in.
+ * metadata; this list describes personal strengths rather than every toolchain
+ * used by the apps.
  */
 export const homeStack = [
-  "Swift & SwiftUI",
-  "Unity",
   "C#",
-  "Kotlin Multiplatform",
   "Python",
-  "AI product systems",
+  "Unity",
+  "AI model integration",
 ] as const;
 
 export const homeSkills = [
@@ -128,7 +127,7 @@ export const homeSkills = [
     title: "C# Systems",
     strap: "Modular architecture with performance and clarity in mind.",
     summary:
-      "C# is the language I return to for real production systems: gameplay logic, internal frameworks, and integrations that need to hold up.",
+      "C# is my strongest language. I use it for production systems: gameplay logic, internal frameworks, and integrations that need to hold up.",
     highlights: [
       "Used C# as the backbone for production Unity tools, interactive systems, and gameplay architecture.",
       "Integrated third-party systems into internal frameworks without breaking performance or workflow.",
@@ -143,13 +142,15 @@ export const homeSkills = [
     id: "ai",
     offset: "1.15rem",
     title: "AI Product Systems",
-    strap: "Memory, structured outputs, and product behavior that feels reliable.",
+    strap: "Integrating models into useful products, with memory and structured outputs.",
     summary:
-      "My AI work is strongest when the model output becomes real product state: remembered context, validated structure, and useful behavior inside the app.",
+      "My strength is integrating existing models, including LLMs, into working systems: connecting their outputs to application logic, remembered context, and validated product state.",
     highlights: [
       "Built Voice of Self around reflection memory: recurring worries, resolved worries, personal growth, and AI outputs that remain useful over time.",
       "Built PlanKept flows where AI-assisted plan creation becomes durable reminders, app rules, quotas, and proof-review state.",
       "Prefer schema-validated outputs, deterministic persistence, and product-specific memory over loose chatbot text.",
+      siteConfig.identity.cursorRecognition,
+      "Combine hands-on coding and autocomplete with AI chat for faster prototyping, debugging, and iteration.",
     ],
     related: [
       { label: "Current products", historyId: "current-products" },
@@ -160,14 +161,14 @@ export const homeSkills = [
     id: "climber",
     offset: "6.4rem",
     title: "Climber",
-    strap: "I stay motivated by pushing my body as hard as I push my mind.",
+    strap: "Bouldering, competition, and patient practice.",
     summary:
       "Climbing is a big part of how I stay sharp outside of software. My max boulder grade is 7c, I like slopers, and I have won two regional competitions alongside many more podium finishes.",
     highlights: [
       "Max boulder grade: 7c.",
       "Preferred climbing style: slopers.",
       "Won two regional competitions and placed on the podium in many others.",
-      "Strength achievements include a one-arm pull-up, a front lever, and 42 pull-ups in a row.",
+      "Strength milestones: a one-arm pull-up, a front lever, and 42 consecutive pull-ups.",
     ],
     related: [],
   },
@@ -247,10 +248,10 @@ export const homeTimeline = [
       },
       {
         title: "AudioChoices",
-        description: "Interactive 'choose your story' audiobook app.",
+        description: "Branching audiobooks you can steer by nodding or shaking your head with supported iPhone headphones.",
         details: [
           "Designed branching story trees where Yes or No choices open new paths through a book.",
-          "Built choice input for screen taps, head motion with supported iPhone headphones, and Android headphone buttons.",
+          "Built hands-free Yes/No choices with AirPods or motion-capable Beats on iPhone, alongside screen taps and Android headphone buttons.",
           "Kept listening progress, settings, and listener age on the device, with no sign-up and optional usage measurement.",
         ],
       },

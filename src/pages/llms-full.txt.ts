@@ -9,6 +9,7 @@ import {
 import { siteRoutes } from "../config/routes";
 import { appNameList, releaseStatusSentence } from "../lib/appState";
 import { discoveryPages, toAbsoluteSiteUrl } from "../lib/discovery";
+import { homeTimeline } from "../components/landing/sections/home-profile-content";
 
 export const prerender = true;
 
@@ -21,6 +22,16 @@ const planKeptPath = siteRoutes.apps.planKept.path;
 const voiceOfSelfPath = siteRoutes.apps.voiceOfSelf.path;
 const takeMeSomewherePath = siteRoutes.apps.takeMeSomewhere.path;
 const audioBookChoicesPath = siteRoutes.apps.audioBookChoices.path;
+const workExperience = homeTimeline
+  .filter((entry) => entry.id !== "current-products")
+  .map((entry) => [
+    `### ${entry.label} ${entry.period}`,
+    entry.role,
+    entry.summary,
+    ...entry.highlights.filter((highlight) => typeof highlight === "string")
+      .map((highlight) => `- ${highlight}`),
+  ].join("\n\n"))
+  .join("\n\n");
 
 /**
  * Renders one app as a self-contained block: what it is, where it stands, what
@@ -98,6 +109,20 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 
 ${siteConfig.identity.shortBio}
 
+## Work Experience
+
+${workExperience}
+
+## Education
+
+${siteConfig.identity.education}
+
+## Recognition
+
+${siteConfig.identity.cursorRecognition}
+
+## Current Products
+
 Current products on or from this site:
 ${siteConfig.identity.currentProducts.map((product) => `- ${product}`).join("\n")}
 
@@ -120,7 +145,7 @@ the chooser for products. App pages can live under this domain without taking
 over the root personal site.
 
 The current app split is:
-- ${homePath}: personal homepage with profile, current products, skills, and history
+- ${homePath}: personal homepage with work experience, a separate compact education section, skills, and current products
 - ${appsDirectoryPath}: directory of apps and product sites
 - ${planKeptPath}: internal PlanKept page on this domain
 - ${voiceOfSelfPath}: internal Voice of Self page with answers, updates, support, and legal pages

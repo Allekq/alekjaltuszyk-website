@@ -85,6 +85,8 @@ behind Voice of Self. OverLit App is the app repo behind OverLit.
   repo under `/apps/VoiceOfSelf/`.
 - Do not add secrets to this repo.
 - Keep public contact details easy to swap in `src/config/site.ts`.
+- Follow AGENTS.md's Private Career Context rules. CV-only local facts must
+  never enter public code, website output, comments, logs or online searches.
 
 ## Legal Workflow
 

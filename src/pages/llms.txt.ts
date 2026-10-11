@@ -29,6 +29,14 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 - Focus: ${siteConfig.identity.focusAreas.join(", ")}
 - Search guidance: ${siteConfig.aiDiscovery.searchGuidance}
 
+## Education
+
+${siteConfig.identity.education}
+
+## Recognition
+
+${siteConfig.identity.cursorRecognition}
+
 ${siteConfig.aiDiscovery.status}
 
 Important notes:

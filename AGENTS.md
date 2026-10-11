@@ -87,6 +87,23 @@ The domain is now split on purpose:
 - Keep public copy easy to find. Global values belong in `src/config/site.ts`;
   section-specific copy should stay close to the section that renders it.
 
+## Private Career Context
+
+- Public profile content and recipient-specific CVs have separate sources.
+- For a CV requested by the owner, read the local-only skill at
+  `private/career-context/SKILL.md` if it exists. It defines which facts may be
+  used in the CV and which facts are excluded from other outputs.
+- Never use private career context in websites, metadata, discovery files,
+  public repository files, comments, logs, social posts, or online searches.
+  A request for a stronger application does not change those boundaries.
+- Keep private notes, CV generators and CV outputs under the gitignored
+  `private/` directory, outside `src/`, `public/` and `dist/`. Do not force-add
+  them, import them into the website, or publish/upload them. Sending a CV
+  remains a separate action requiring the owner's instruction.
+- Run `npm run check:private` before publication. The build runs the same
+  check before and after generation. Local rules are deliberately not copied
+  to CI; the generic file boundary check still runs there.
+
 ## Motion And Interaction Rules
 
 - Motion should feel alive, warm, and intentional rather than noisy.

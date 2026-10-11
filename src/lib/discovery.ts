@@ -32,7 +32,7 @@ export const discoveryPages = {
       title: "Home",
       path: siteRoutes.home.path,
       description:
-        "Personal site for Alek Jałtuszyk (Aleksander Jałtuszyk), a software engineer building AI systems, Unity tools, and current products.",
+        "Personal site for Alek Jałtuszyk (Aleksander Jałtuszyk), a C# and Python developer integrating AI models, building Unity tools and products, and studying Computer Science at Warsaw University of Technology.",
     },
     {
       title: "Apps",

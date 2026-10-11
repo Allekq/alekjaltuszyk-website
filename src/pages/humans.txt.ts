@@ -21,6 +21,12 @@ Alternate search names: ${siteConfig.aiDiscovery.nameVariants.join(", ")}
 Bio:
 ${siteConfig.identity.shortBio}
 
+Education:
+${siteConfig.identity.education}
+
+Recognition:
+${siteConfig.identity.cursorRecognition}
+
 Current products (${releaseStatusSentence}):
 ${currentProductLines}
 

@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/check-private-boundary.mjs && astro build && node scripts/check-private-boundary.mjs --include-dist",
     "preview": "astro preview",
     "check": "astro check",
+    "check:private": "node scripts/check-private-boundary.mjs --include-dist",
+    "test:private": "node --test scripts/check-private-boundary.test.mjs",
     "check:contact": "node scripts/check-contact-emails.mjs",
     "check:legal": "node scripts/check-legal-consistency.mjs"
   },
