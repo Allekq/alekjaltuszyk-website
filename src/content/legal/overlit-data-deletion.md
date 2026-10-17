@@ -8,6 +8,21 @@ analytics and crash-reporting providers also process data as described in the
 [Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/); the leaderboard control
 does not erase all information held by those providers.
 
+## Stop optional measurement or request provider-data deletion
+
+In builds with privacy version **3.9.0**, open **Settings → Legal** and turn off
+**Gameplay analytics** (Google Firebase) or **Advertising measurement** (Tenjin), independently.
+Withdrawal stops new delivery and discards pending app measurement; Firebase local analytics is
+reset. It does not erase data already received by providers or remove your leaderboard records.
+
+For access or erasure of provider-held analytics, experiment, attribution or older crash data,
+email **alekgameshelp2@gmail.com**, including which service your request concerns and any
+relevant identifier you already have. This route also works after uninstalling. A leaderboard ID
+is not a Firebase Analytics, Remote Config installation or Tenjin identifier and cannot by itself
+locate all such records. Explain if you lack an identifier; we will assess proportionate ways to
+identify the data without requesting unrelated identity documents. Provider retention and deletion
+limits are described in section 15 of the Privacy Policy.
+
 ## Before that: you can stop new scores being posted
 
 **Settings → Legal → Use leaderboards.** Off turns the feature off entirely — no scores published,
@@ -25,12 +40,12 @@ Open **Settings → Legal → Delete my leaderboard data**, and confirm.
 It acts on your own identity directly, so nothing has to be matched or described. It cannot be
 undone.
 
-Remediation builds with privacy version 3.6.0 make deletion and ID copying available independently
+Builds with privacy versions 3.6.0 through 3.9.0 make deletion and ID copying available independently
 of gameplay progress, using an existing identity. Deletion does not create a new identity just to
 delete it. Older builds may hide the row until the leaderboard feature unlocks, even where an
 earlier installation created an identity; use the email route if it is unavailable.
 
-Prepared version 3.7.0 retains these controls and adds server-side protection against delayed
+Versions 3.7.0 through 3.9.0 retain these controls and the prepared server-side protection against delayed
 requests recreating the deleted identity. Once the matching backend is active, a verified
 request blocks further writes first; interrupted cleanup stays pending and is retried by a
 server process. A lost connection or failed response in the app can precede later completion.
@@ -64,8 +79,10 @@ provider processing described below are separate.
 
 ## What is kept
 
-**Your game progress, levels, stars, unlocks and settings.** These are not on a server at all —
-they are on your phone. Deleting the app removes them. Erasing a score does not cost you your
+**Your saved game progress, levels, stars, unlocks and settings.** These records remain on your
+phone and are not erased by the leaderboard control. Gameplay events derived from play may
+separately have reached measurement providers under the Privacy Policy; those provider records
+are addressed above. Deleting the app removes its local game data. Erasing a score does not cost you your
 campaign, deliberately.
 
 **Purchase records**, which belong to Apple or Google Play and are handled by their support

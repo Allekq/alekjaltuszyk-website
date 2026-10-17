@@ -78,14 +78,14 @@ export const legalDocuments = {
     sourcePath: "src/content/legal/voice-of-self-ai-use.md",
   },
   overLitPrivacy: {
-    version: "3.7.0",
-    effectiveDate: "2026-10-04",
+    version: "3.9.0",
+    effectiveDate: "2026-10-17",
     path: "/apps/OverLit/privacy-policy/",
     sourcePath: "src/content/legal/overlit-privacy-policy.md",
   },
   overLitTerms: {
-    version: "3.2.0",
-    effectiveDate: "2026-10-03",
+    version: "3.3.0",
+    effectiveDate: "2026-10-14",
     path: "/apps/OverLit/terms-of-use/",
     sourcePath: "src/content/legal/overlit-terms-of-use.md",
   },

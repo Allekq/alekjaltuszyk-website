@@ -71,13 +71,13 @@ Full Version is intended to remove normal in-app ads from OverLit while the enti
 
 ### What they are
 
-Where the feature is switched on in your version of the app, and once you have completed campaign Level 5, OverLit can publish your scores to shared online leaderboards: all-time boards per level or challenge, weekly boards, and an overall rating board.
+Where the feature is switched on in your version of the app, OverLit offers shared online leaderboards: all-time boards per level or challenge, weekly boards, and an overall rating board. Builds with completion-count unlocking require five different completed campaign levels across any areas; repeating a completed level does not add to this count. Older builds require Novice · Level 5. Updating preserves already-earned access. Score publication follows the choices and restrictions below.
 
 Leaderboards are free entertainment, not a service you buy. They are provided alongside the paid Full Version, and buying Full Version gives you no leaderboard advantage.
 
 ### Choosing not to take part
 
-**Settings → Legal → Use leaderboards** turns the feature off on either platform. With it off nothing about a run is sent, no nickname is created for you, and boards are not shown. Players who chose the 13-to-17 age range start in a read-only state instead: they can see every board, and nothing of theirs is published unless they turn publication on.
+**Settings → Legal → Use leaderboards** turns the feature off on either platform. With it off no run is submitted to the leaderboard service, no leaderboard nickname is created for you, and boards are not shown. Separate optional gameplay analytics and advertising measurement remain governed by their own choices, as explained in the Privacy Policy. Players who chose the 13-to-17 age range start in a read-only state instead: they can see every board, and nothing of theirs is published unless they turn publication on.
 
 Turning it off stops future submissions. It does not remove scores you have already published; the Privacy Policy explains how to erase those.
 
@@ -91,7 +91,7 @@ The developer may change the word lists, or the nickname attached to any entry, 
 
 ### What gets submitted
 
-Qualifying runs are submitted automatically at the end of the run, and only when the score beats your own previous accepted best on that board. When leaderboards first become available after campaign Level 5, OverLit may also submit eligible personal bests already stored on your device, including genuine played progress that you later import. Builds with automatic gameplay-revision boards may also repeat this check when an update changes the available boards, using only stored results whose recorded gameplay revision matches the destination board. It sends one best per eligible board under the same rules as a live run; it does not upload your progress file or run history. Nothing is submitted while publication is switched off, and tutorial runs, your first onboarding run, abandoned runs, runs played with Developer Mode enabled, skipped levels, records created by developer tools, and scores from an obsolete scoring version are never submitted.
+Qualifying runs are submitted automatically at the end of the run, and only when the score beats your own previous accepted best on that board. When the applicable campaign requirement first makes leaderboards available, OverLit may also submit eligible personal bests already stored on your device, including genuine played progress that you later import. Builds with automatic gameplay-revision boards may also repeat this check when an update changes the available boards, using only stored results whose recorded gameplay revision matches the destination board. It sends one best per eligible board under the same rules as a live run; it does not upload your progress file or run history. Nothing is submitted while publication is switched off, and tutorial runs, your first onboarding run, abandoned runs, runs played with Developer Mode enabled, skipped levels, records created by developer tools, and scores from an obsolete scoring version are never submitted.
 
 Exactly what is sent, what is stored, how long it is kept, and how to have it erased are set out in the [OverLit Privacy Policy](https://alekjaltuszyk.xyz/apps/OverLit/privacy-policy/).
 
