@@ -1,11 +1,13 @@
 import { setupProjectMotion } from "./project-motion";
 import { setupWorkshopGallery } from "./gallery";
 import { setupChoreography } from "./choreography";
+import { setupScrollFilm } from "./scroll-film";
 
 if (document.querySelector(".workshop")) {
   setupWorkshopGallery();
   setupProjectMotion();
   setupChoreography();
+  setupScrollFilm();
   // Keep WebGL out of the app directory and keep all content independent of it.
   const saveData = (
     navigator as Navigator & { connection?: { saveData?: boolean } }

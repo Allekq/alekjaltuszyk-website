@@ -126,11 +126,14 @@ export const homeSkills = [
     title: "C# Systems",
     strap: "Reusable components, readable code and practical optimization.",
     summary:
-      "My C# experience comes from published Unity assets and gameplay work at Roam AI. I enjoy taking a working system and making it easier to understand, extend and maintain.",
+      "My C# experience spans published Unity assets and the game-management systems I worked on at Roam AI. I enjoy building the connections between systems, then making the code easier to understand, extend and maintain.",
     highlights: [
-      "Built reusable gameplay components and editor tools for my Unity assets.",
-      "Reviewed, refactored and optimized existing systems at Roam AI, including AI-generated code.",
-      "Focus on clear responsibilities between components and code that teammates can follow.",
+      "Built game managers and connected gameplay systems to backend services.",
+      "Worked on networking, anti-cheat checks, and synchronized player and health state.",
+      "Built physics-driven player and driving systems, including collision handling.",
+      "Developed camera systems and tuned game feel.",
+      "Worked on shaders and procedural world generation.",
+      "Built reusable Unity tools and refactored and optimized existing systems, including AI-generated code.",
     ],
     related: [
       { label: "Alek Games", historyId: "alek-games" },
@@ -141,13 +144,15 @@ export const homeSkills = [
     id: "ai",
     offset: "1.15rem",
     title: "AI Product Systems",
-    strap: "Python backend work and practical AI integration.",
+    strap: "Agentic workflows, Python backends and practical AI integration.",
     summary:
       "At Roam AI, I worked on agentic workflows and the gameplay systems that use their output. I enjoy making AI features useful within a larger product.",
     highlights: [
-      "Contributed to Python backend development and LLM integration alongside my C# and Unity work at Roam AI.",
-      "In my own apps, connected AI-assisted plan creation to reminders and app limits in PlanKept.",
-      "Built voice-entry and AI reflection flows in Voice of Self, with earlier notes providing context.",
+      "Built Python backend features and agentic workflows at Roam AI.",
+      "Worked with semantic databases and retrieval-augmented generation (RAG) to assemble large amounts of context for models.",
+      "Built coding-agent harnesses and optimized agents used in a user-facing product.",
+      "Developed a custom long-term memory system for small models in Voice of Self.",
+      "Worked on small-model management in PlanKept, including on-device model handling and AI-assisted plan creation.",
     ],
     related: [
       { label: "Roam AI", historyId: "roam-ai" },
@@ -199,6 +204,7 @@ export const homeTimeline = [
       "Contributed to Python backend development and agentic workflows.",
       "Built player, camera, enemy, networking and physics systems with the team.",
       "Reviewed and optimized existing code, including AI-generated systems, to improve clarity and maintainability.",
+      "Worked alongside AI researchers and educators, including researchers from Stanford University and a teacher at LaSalle College in Montréal.",
     ],
   },
   {
@@ -214,6 +220,7 @@ export const homeTimeline = [
         description: "Voice-first reflection app.",
         details: [
           "Built voice-entry capture, AI reflections and ways to revisit earlier notes.",
+          "Developed a custom long-term memory system for small models.",
           "Connected AI features with subscription access and identity handling.",
         ],
       },
@@ -223,6 +230,7 @@ export const homeTimeline = [
         details: [
           "Built plan creation, recurring reminders, app limits and proof-review flows.",
           "Connected those flows to iOS system integrations and persisted plan state.",
+          "Worked on small-model management and on-device model handling.",
         ],
       },
       {

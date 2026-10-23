@@ -120,7 +120,7 @@ const focusAreas = [
 const education =
   "Computer Science student at Warsaw University of Technology, Faculty of Electronics and Information Technology (WEiTI).";
 const shortBio =
-  "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a junior software engineer and independent app developer who learned programming by building and selling Unity tools. His experience includes C# gameplay systems, Python backend contributions and AI integration at Roam AI, alongside his own mobile products.";
+  "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and independent app developer who learned programming by building and selling Unity tools. His experience includes C# gameplay systems, Python backend contributions and AI integration at Roam AI, alongside his own mobile products.";
 const cursorRecognition =
   "While working at Roam AI, Cursor recognized me among its top Tab autocomplete users and sent me a custom physical Tab key award.";
 const appleStandardEulaHref =

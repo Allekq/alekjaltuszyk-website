@@ -1,0 +1,51 @@
+---
+import { withBase } from "../../../../lib/paths";
+import "../../../../styles/landing/workshop/personal-motion.css";
+---
+
+<section
+  class="workshop-practice w-container"
+  data-scroll-film
+  aria-labelledby="practice-title"
+>
+  <div class="workshop-practice__copy">
+    <p class="w-eyebrow">Off the keyboard</p>
+    <h2 id="practice-title">
+      Hold that <em>thought.</em>
+    </h2>
+    <p>
+      A little strength.
+      <br />A lot of patient practice.
+    </p>
+    <span class="workshop-practice__hint">
+      Scroll to lift and hold <span aria-hidden="true">↓</span>
+    </span>
+  </div>
+  <figure class="workshop-practice__film">
+    <div class="workshop-practice__frame">
+      <img
+        src={withBase("/media/home/personal/front-lever-hold.webp")}
+        alt="Alek holding a front lever on a poolside rail."
+        width="960"
+        height="540"
+        loading="lazy"
+        decoding="async"
+      />
+      <video
+        data-src={withBase("/media/home/personal/front-lever.mp4")}
+        muted
+        playsinline
+        preload="none"
+        disablepictureinpicture
+        aria-hidden="true"
+        tabindex="-1"
+      ></video>
+    </div>
+    <figcaption>
+      <span>A front lever, frame by frame.</span>
+      <span class="workshop-practice__track" aria-hidden="true">
+        <i></i>
+      </span>
+    </figcaption>
+  </figure>
+</section>

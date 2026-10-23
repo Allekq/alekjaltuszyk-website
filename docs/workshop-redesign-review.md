@@ -247,8 +247,8 @@ permissions, purchases or legal-facing product promises.
 The skills now distinguish Unity gameplay, C# maintenance and optimization,
 and Python/AI integration. Career contributions use the owner's confirmed
 responsibilities, without internal implementation details or a claim of sole
-ownership. The introduction and shared biography identify a junior software
-engineer. Unverified adoption, revenue and absolute performance claims were
+ownership. The introduction and shared biography use software engineer;
+responsibilities and published work convey experience. Unverified adoption, revenue and absolute performance claims were
 removed. The five-star milestone explicitly refers to customer reviews.
 
 Unity examples were checked against the public
@@ -266,3 +266,36 @@ Shared profile data also feeds the LLM discovery output.
 | Public promises | Portfolio summaries narrowed to existing features and confirmed contributions. PlanKept privacy, Voice of Self AI-use and AudioChoices privacy text remain consistent; no new capability or processing claim. |
 | Release | Copy only; no data flow, dependency, permission, purchase, retention or app acceptance change. No legal version bump. |
 | Result | No disclosure change. This is a factual copy review, not an assessment of an employment agreement. |
+
+## Authentic media and clearer detail links — 2026-10-24
+
+- The introduction includes an owner-supplied evening work photograph. Only
+  640/1280 px WebP derivatives are public; the original stays outside the repo.
+- A compact front-lever recording follows scroll below the climbing section.
+  The 4.5-second H.264 extract is about 1 MB, has no audio or auxiliary tracks,
+  and is loaded only near the section. The still remains for reduced motion,
+  data-saving, unavailable video or disabled JavaScript. There is no autoplay
+  or new motion-control button. Media provenance is beside the exports.
+- Timeline details have larger, labelled native disclosure buttons. Asset
+  details link to Placer 3 PRO, PRPC, HoverCraft System and Alek AI Framework,
+  with four individually attributed reviews and their version context.
+- Expanded C# and AI examples use newly confirmed owner contributions.
+  Collaboration wording says worked alongside researchers and educators;
+  it does not imply institutional employment or endorsement. LaSalle's public
+  [institution name](https://lasallecollege.lcieducation.com/en/about) was checked;
+  the collaboration itself is owner-confirmed.
+
+| Review item | Evidence and decision |
+| --- | --- |
+| Data and media | Same-origin static image/video assets only; no upload, tracking, embed, SDK, permission or storage flow added. Media exports omit original metadata; originals and unused portraits are excluded. |
+| Public promises | The owner confirmed the memory and model-management contributions. Existing Voice of Self AI-use text describes selected historical context; its lane-context tests cover notes/relics. PlanKept's existing local-model catalogue and privacy text cover on-device model handling. No new app behavior or retention promise is introduced. |
+| Release | No legal text, version or acceptance-gate change. The clip is a progressive visual enhancement with a still-image fallback. |
+| Result | No disclosure change required; public career wording stays at the contribution level. |
+
+Validation: `npm run check` and `npm run build` pass, including the legal and
+publication-boundary checks. Production previews have no horizontal overflow
+at 320, 390, 768, 1024, 1366 or 1440 px. Native keyboard disclosures work with
+and without JavaScript. The recording advances with scroll, stays paused,
+and performs no seeks while idle. Reduced motion, data-saving mode, disabled
+JavaScript and a failed video request all retain the real still photograph.
+Final phone and laptop previews were visually inspected.
