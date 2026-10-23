@@ -52,7 +52,7 @@ export interface HomeMilestone {
 }
 
 /**
- * The CV in four numbers, for the top of the homepage.
+ * Selected milestones for the top of the homepage.
  *
  * Every one of these is a restatement of something already in `homeTimeline` or
  * `homeSkills` below — nothing new is claimed here. The app count is derived so
@@ -77,9 +77,9 @@ export const homeMilestones = [
   {
     id: "assets",
     value: "5★",
-    label: "Unity assets on the Asset Store",
+    label: "Asset Store customer reviews",
     detail:
-      "Procedural placement systems and VR-oriented frameworks, used by thousands of developers.",
+      "Published Unity tools including Placer for level design and PRPC for parkour movement, with linked customer reviews.",
     historyId: "alek-games",
   },
   {
@@ -107,13 +107,13 @@ export const homeSkills = [
     id: "unity",
     offset: "2.2rem",
     title: "Unity Programmer",
-    strap: "Gameplay, tools, physics, and systems built to ship.",
+    strap: "Gameplay systems and tools for building worlds.",
     summary:
-      "Unity is still a major part of my work, from polished developer tools to fast-moving gameplay systems.",
+      "I learned programming by making Unity assets, then applied that experience to gameplay work at Roam AI.",
     highlights: [
-      "Built highly rated Unity assets used by thousands of developers, including procedural placement systems and VR-oriented frameworks.",
-      "Contributed across player mechanics, enemy AI, networking, physics, shaders, and world-building as part of a small text-to-game startup team.",
-      "Care deeply about making complex systems feel intuitive, reusable, and pleasant to work with.",
+      "Published Placer for level design, PRPC for physics-based parkour movement, and other Unity tools.",
+      "Built player, camera, enemy, networking and physics systems as part of the Roam AI team.",
+      "Enjoy making controls and tools that let people build and experiment.",
     ],
     related: [
       { label: "Alek Games", historyId: "alek-games" },
@@ -124,13 +124,13 @@ export const homeSkills = [
     id: "csharp",
     offset: "5rem",
     title: "C# Systems",
-    strap: "Modular architecture with performance and clarity in mind.",
+    strap: "Reusable components, readable code and practical optimization.",
     summary:
-      "C# is my strongest language. I use it for production systems: gameplay logic, internal frameworks, and integrations that need to hold up.",
+      "My C# experience comes from published Unity assets and gameplay work at Roam AI. I enjoy taking a working system and making it easier to understand, extend and maintain.",
     highlights: [
-      "Used C# as the backbone for production Unity tools, interactive systems, and gameplay architecture.",
-      "Integrated third-party systems into internal frameworks without breaking performance or workflow.",
-      "Prefer structural, modular designs that stay understandable as projects become more ambitious.",
+      "Built reusable gameplay components and editor tools for my Unity assets.",
+      "Reviewed, refactored and optimized existing systems at Roam AI, including AI-generated code.",
+      "Focus on clear responsibilities between components and code that teammates can follow.",
     ],
     related: [
       { label: "Alek Games", historyId: "alek-games" },
@@ -141,14 +141,13 @@ export const homeSkills = [
     id: "ai",
     offset: "1.15rem",
     title: "AI Product Systems",
-    strap: "Large agentic workflows, grounded in working software.",
+    strap: "Python backend work and practical AI integration.",
     summary:
-      "At Roam AI, a San Francisco–based text-to-game startup, I built large agentic workflows connecting LLMs with C# and Unity systems. I bring that same systems thinking to the workflows in my own apps.",
+      "At Roam AI, I worked on agentic workflows and the gameplay systems that use their output. I enjoy making AI features useful within a larger product.",
     highlights: [
-      "At Roam AI, worked across agentic workflows, LLM integration, and the C# systems behind the text-to-game experience.",
-      "Built Voice of Self around reflection memory: recurring worries, resolved worries, personal growth, and AI outputs that remain useful over time.",
-      "Built PlanKept flows where AI-assisted plan creation becomes durable reminders, app rules, quotas, and proof-review state.",
-      "Prefer schema-validated outputs, deterministic persistence, and product-specific memory over loose chatbot text.",
+      "Contributed to Python backend development and LLM integration alongside my C# and Unity work at Roam AI.",
+      "In my own apps, connected AI-assisted plan creation to reminders and app limits in PlanKept.",
+      "Built voice-entry and AI reflection flows in Voice of Self, with earlier notes providing context.",
     ],
     related: [
       { label: "Roam AI", historyId: "roam-ai" },
@@ -183,9 +182,9 @@ export const homeTimeline = [
       "Building these Unity assets and their earlier versions is how I learned programming. They remain on the Asset Store, though I no longer develop them.",
     href: "https://assetstore.unity.com/publishers/58188",
     highlights: [
-      "Created 5-star Unity assets, including tools for procedural level design and physics-reactive VR NPCs.",
-      "Learned how to package advanced systems so they are understandable, documented, and genuinely useful.",
-      "Turned the Asset Store from a learning platform into a profitable technical business with strong user feedback.",
+      "Published level-design tools, a parkour player controller and character-AI tools under Alek Games.",
+      "Learned to package reusable systems and expose useful controls in the Unity editor.",
+      "Customer reviews highlight ease of use and developer support; selected examples are linked below.",
     ],
   },
   {
@@ -197,9 +196,9 @@ export const homeTimeline = [
     summary:
       "I joined San Francisco–based Roam AI as a core contractor on a small team building a text-to-game experience, working across gameplay engineering and large agentic workflows.",
     highlights: [
-      "Built large agentic workflows connecting LLMs with C# and Unity systems.",
-      "Built player mechanics, enemy AI, networking, physics interactions, and world-building systems with the team.",
-      "Worked closely with teammates across gameplay development, internal tooling, product context, and urgent AI-driven problem solving.",
+      "Contributed to Python backend development and agentic workflows.",
+      "Built player, camera, enemy, networking and physics systems with the team.",
+      "Reviewed and optimized existing code, including AI-generated systems, to improve clarity and maintainability.",
     ],
   },
   {
@@ -214,35 +213,32 @@ export const homeTimeline = [
         title: "Voice of Self",
         description: "Voice-first reflection app.",
         details: [
-          "Built staged AI analysis and reflection memory for recurring worries, resolved worries, and personal growth.",
-          "Built managed subscription services and account flows.",
-          "Designed voice-first UX for capturing, processing, and reviewing reflections.",
+          "Built voice-entry capture, AI reflections and ways to revisit earlier notes.",
+          "Connected AI features with subscription access and identity handling.",
         ],
       },
       {
         title: "PlanKept",
         description: "Plan-enforcement and app-blocker product.",
         details: [
-          "Shaped careful UX for reminders, app limits or blocks, recurrence, quotas, and proof review.",
-          "Solved local image-processing and memory-management issues for proof review.",
-          "Worked on on-device model handling, durable state machines, and Apple/iOS integrations.",
+          "Built plan creation, recurring reminders, app limits and proof-review flows.",
+          "Connected those flows to iOS system integrations and persisted plan state.",
         ],
       },
       {
         title: "OverLit",
         description: "Fast reflex arcade game.",
         details: [
-          "Designed easy-to-learn, hard-to-master gameplay around simple mechanics with large gameplay impact.",
-          "Tuned variable difficulty, pressure states, level pacing, and easing so runs stayed fun without becoming too easy or too punishing.",
-          "Built an ad-supported monetization path.",
+          "Built grid-based reflex gameplay with cell pressure and level progression.",
+          "Worked on difficulty, timing and feedback across different level patterns.",
         ],
       },
       {
         title: "Take Me Somewhere",
         description: "Route-discovery app for spontaneous outings.",
         details: [
-          "Shipped a smooth UX around quick decisions and time-boxed local exploration.",
-          "Built Compass Mode and a low-friction route-discovery flow.",
+          "Built route discovery around a time budget and outing preferences.",
+          "Added Compass Mode and map-based route views.",
         ],
       },
       {
@@ -250,9 +246,8 @@ export const homeTimeline = [
         description:
           "Branching audiobooks you can steer by nodding or shaking your head with supported iPhone headphones.",
         details: [
-          "Designed branching story trees where Yes or No choices open new paths through a book.",
+          "Built branching narration and a story tree that shows the listener's choices.",
           "Built hands-free Yes/No choices with AirPods or motion-capable Beats on iPhone, alongside screen taps and Android headphone buttons.",
-          "Kept listening progress, settings, and listener age on the device, with no sign-up and optional usage measurement.",
         ],
       },
     ],
