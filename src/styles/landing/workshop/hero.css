@@ -18,6 +18,32 @@
 .workshop-intro__body .w-text-link {
   margin-top: 1rem;
 }
+.workshop-intro__moment {
+  margin: 3rem 0 0;
+}
+.workshop-intro__moment img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 10;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border-radius: 3px;
+}
+.workshop-intro__moment figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  color: var(--w-muted);
+  font:
+    italic 0.83rem/1.6 Georgia,
+    serif;
+}
+.workshop-intro__moment .w-eyebrow {
+  font: 0.55rem/1.6 var(--w-mono);
+}
 .workshop-milestones {
   list-style: none;
   padding: 0;
@@ -78,6 +104,16 @@
   }
 }
 @media (max-width: 48rem) {
+  .workshop-intro__moment {
+    margin-top: 2rem;
+  }
+  .workshop-intro__moment img {
+    aspect-ratio: 4 / 3;
+  }
+  .workshop-intro__moment figcaption {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
   .workshop-intro__grid {
     grid-template-columns: 1fr;
     gap: 1.6rem;

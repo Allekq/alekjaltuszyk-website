@@ -31,3 +31,17 @@ rating, review count or cross-version review total is displayed.
   [PRPC reviews tab](https://assetstore.unity.com/packages/tools/physics/prpc-parkour-rigidbody-player-controller-229619#reviews).
 
 Neither selected review was marked as a gifted package in the source.
+
+Additional reviews verified on 24 October 2026:
+
+- Phobeaphobe: “Really amazing” — HoverCraft System, version 2.1.2,
+  individual rating 5/5, from the
+  [HoverCraft reviews tab](https://assetstore.unity.com/packages/tools/physics/hovercraft-system-212594#reviews).
+- Hitmonsashi: “Powerful and easy to use” — Alek AI Framework, previous
+  version 1.0, individual rating 5/5, from the
+  [Alek AI Framework reviews tab](https://assetstore.unity.com/packages/tools/behavior-ai/alek-ai-framework-263561#reviews).
+
+Neither additional selection had a gifted-package label. The portfolio's
+product callout now links to Placer 3 PRO; the older Light artwork is not used
+in that callout. Reviews remain attributed individually with their version
+context, without implying a combined rating or review count.
