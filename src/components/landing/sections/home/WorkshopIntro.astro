@@ -1,6 +1,7 @@
 ---
 import { homeMilestones } from "../home-profile-content";
 import { platformNameList } from "../../../../lib/appState";
+import { withBase } from "../../../../lib/paths";
 ---
 
 <section
@@ -21,9 +22,9 @@ import { platformNameList } from "../../../../lib/appState";
     </h2>
     <div class="workshop-intro__body">
       <p>
-        I’m Alek, a junior software engineer who learned to program by building
-        and selling Unity tools. That curiosity took me into gameplay and AI
-        systems at Roam AI, and into making products of my own.
+        I’m Alek, a software engineer who learned to program by building and
+        selling Unity tools. That curiosity took me into gameplay and AI systems
+        at Roam AI, and into making products of my own.
       </p>
       <p>
         Today, I build for {platformNameList}, connect AI to useful product
@@ -36,6 +37,22 @@ import { platformNameList } from "../../../../lib/appState";
       </a>
     </div>
   </div>
+  <figure class="workshop-intro__moment">
+    <img
+      src={withBase("/media/home/personal/work-evening-1280.webp")}
+      srcset={`${withBase("/media/home/personal/work-evening-640.webp")} 640w, ${withBase("/media/home/personal/work-evening-1280.webp")} 1280w`}
+      sizes="(max-width: 48rem) 90vw, 80vw"
+      width="1280"
+      height="960"
+      alt="Alek working on his laptop beside a pool in the evening."
+      loading="lazy"
+      decoding="async"
+    />
+    <figcaption>
+      <span class="w-eyebrow">Away from the desk</span>
+      <span>A laptop, an evening, something to build.</span>
+    </figcaption>
+  </figure>
   <ul class="workshop-milestones">
     {homeMilestones.map((item) => (
       <li>

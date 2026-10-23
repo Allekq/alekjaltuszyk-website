@@ -87,28 +87,33 @@ const captions = [
               ) : (
                 <details class="workshop-details">
                   <summary>
-                    The details <span aria-hidden="true">+</span>
+                    {entry.id === "alek-games"
+                      ? "See the work & reviews"
+                      : "See my contributions"}
+                    <span aria-hidden="true">↓</span>
                   </summary>
-                  <ul>
-                    {entry.highlights.map((highlight) => (
-                      <li>
-                        {typeof highlight === "string" ? (
-                          highlight
-                        ) : (
-                          <>
-                            <strong>{highlight.title}</strong>
-                            <p>{highlight.description}</p>
-                            <ul>
-                              {highlight.details.map((detail) => (
-                                <li>{detail}</li>
-                              ))}
-                            </ul>
-                          </>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                  {entry.id === "alek-games" && <AssetProof />}
+                  <div class="workshop-details__content">
+                    <ul>
+                      {entry.highlights.map((highlight) => (
+                        <li>
+                          {typeof highlight === "string" ? (
+                            highlight
+                          ) : (
+                            <>
+                              <strong>{highlight.title}</strong>
+                              <p>{highlight.description}</p>
+                              <ul>
+                                {highlight.details.map((detail) => (
+                                  <li>{detail}</li>
+                                ))}
+                              </ul>
+                            </>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                    {entry.id === "alek-games" && <AssetProof />}
+                  </div>
                 </details>
               )}
               {entry.href && (

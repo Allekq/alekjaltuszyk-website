@@ -60,7 +60,7 @@
 .asset-proof a:hover {
   color: var(--w-accent);
 }
-.asset-proof__light {
+.asset-proof__product {
   display: flex;
   align-items: center;
   gap: 0.85rem;
@@ -69,21 +69,21 @@
   border: 1px solid var(--w-line);
   border-radius: 4px;
 }
-.asset-proof__light img {
+.asset-proof__product img {
   width: 5rem;
   height: auto;
   flex: 0 0 auto;
   border-radius: 2px;
 }
-.asset-proof__light strong,
-.asset-proof__light small {
+.asset-proof__product strong,
+.asset-proof__product small {
   display: block;
 }
-.asset-proof__light strong {
+.asset-proof__product strong {
   font-size: 0.76rem;
   font-weight: 500;
 }
-.asset-proof__light small {
+.asset-proof__product small {
   margin-top: 0.1rem;
   font-size: 0.63rem;
   line-height: 1.5;
@@ -141,10 +141,17 @@
   .asset-proof__image-link img {
     aspect-ratio: 16 / 9;
   }
-  .asset-proof__light {
+  .asset-proof__product {
     gap: 0.65rem;
   }
-  .asset-proof__light img {
+  .asset-proof__product img {
     width: 4.5rem;
   }
+}
+
+.asset-proof .asset-proof__intro {
+  margin: -0.2rem 0 1rem;
+  color: var(--w-muted);
+  font-size: 0.73rem;
+  line-height: 1.7;
 }

@@ -102,16 +102,55 @@
   gap: 2rem;
   align-items: center;
   width: fit-content;
-  padding: 0.45rem 0;
+  min-height: 48px;
+  padding: 0.65rem 1rem;
   font-weight: 500;
-  border-bottom: 1px solid var(--w-line);
+  border: 1px solid #adb49f;
+  border-radius: 4px;
+  background: #e7ebdf;
+  color: var(--w-ink);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+  list-style: none;
+}
+.workshop-details summary::-webkit-details-marker {
+  display: none;
+}
+.workshop-details summary:hover {
+  background: #dce3d1;
+  border-color: #7a866c;
+}
+.workshop-details summary:focus-visible {
+  outline: 2px solid var(--w-accent);
+  outline-offset: 4px;
 }
 .workshop-details summary > span {
   color: var(--w-accent);
   font-size: 1.2rem;
+  transition: transform 0.25s;
 }
 .workshop-details[open] summary > span {
-  transform: rotate(45deg);
+  transform: rotate(180deg);
+}
+.workshop-details__content {
+  padding-top: 0.5rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .workshop-details[open] .workshop-details__content {
+    animation: details-unfold 0.3s ease-out;
+  }
+  @keyframes details-unfold {
+    from {
+      opacity: 0.4;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 .workshop-details ul {
   padding-left: 1.2rem;
@@ -127,6 +166,13 @@
 .workshop-chapter__body > .w-text-link {
   font-size: 0.73rem;
   margin-top: 0.8rem;
+}
+@media (min-width: 48.001rem) {
+  .workshop-chapter:has(.workshop-details[open]) .workshop-chapter__art {
+    align-self: start;
+    position: sticky;
+    top: 4rem;
+  }
 }
 @media (max-width: 62rem) {
   .workshop-chapter__art {
