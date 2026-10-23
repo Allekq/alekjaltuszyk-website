@@ -130,17 +130,54 @@ const { id } = Astro.props;
             <circle cx="236" cy="27" r="9" />
           </g>
           <g class="map-object__place">
-            <path class="map-park" d="M0 0H300V240H0Z" />
+            <path class="map-water" d="M90 0h32v240H90zM0 110h300v24H0z" />
             <path
-              class="map-contours"
-              d="M-20 70Q90-40 170 55T320 35M-20 95Q85-10 163 78T320 65M-20 123Q80 14 155 101T320 95M-20 153Q75 45 150 128T320 125M-20 183Q70 75 145 157T320 155M-20 213Q65 105 140 188T320 185"
+              class="map-streets"
+              d="M0 40H300M0 190H300M42 0V240M170 0V240M260 0V240M0 120H300"
+            />
+            <path
+              class="map-blocks"
+              d="M181 50h62v46h-62zM181 145h62v30h-62zM10 54h20v42H10zM132 145h24v30h-24z"
+            />
+            <path class="map-park" d="M180 200h62v30h-62z" />
+            <path class="map-route" d="M42 205V120H170V40H260V78" />
+            <circle cx="42" cy="205" r="6" />
+            <circle cx="260" cy="78" r="9" />
+          </g>
+          <g class="map-object__place">
+            <path
+              class="map-streets"
+              d="M150 0V240M0 120H300M0 15L300 225M0 225L300 15M30 0Q155 210 280 0M30 240Q155 30 280 240"
+            />
+            <circle class="map-plaza" cx="150" cy="120" r="35" />
+            <path
+              class="map-blocks"
+              d="M42 75l24-26 34 24-19 18zM208 163l20-21 28 24-21 20zM168 20h35v26h-35z"
             />
             <path
               class="map-route"
-              d="M40 200Q120 180 85 130T155 95Q220 110 240 40"
+              d="M40 197L125 137Q105 95 150 85Q180 84 183 115L258 120"
             />
-            <circle cx="40" cy="200" r="6" />
-            <circle cx="240" cy="40" r="9" />
+            <circle cx="40" cy="197" r="6" />
+            <circle cx="258" cy="120" r="9" />
+          </g>
+          <g class="map-object__place">
+            <path
+              class="map-water"
+              d="M0 152Q75 80 150 140T300 120V155Q225 220 150 175T0 190Z"
+            />
+            <path
+              class="map-streets"
+              d="M40 0V240M120 0V240M215 0V240M280 0V240M0 35H300M0 90H300M0 220H300"
+            />
+            <path
+              class="map-blocks"
+              d="M53 48h54v29H53zM136 48h64v29h-64zM232 48h32v29h-32zM54 195h50v14H54z"
+            />
+            <path class="map-park" d="M136 4h63v20h-63zM228 174h38v29h-38z" />
+            <path class="map-route" d="M280 220H215V90H120V35H40" />
+            <circle cx="280" cy="220" r="6" />
+            <circle cx="40" cy="35" r="9" />
           </g>
         </svg>
         <i></i>

@@ -119,26 +119,31 @@ export function objectAnimations(object: HTMLElement) {
       });
   }
   if (id === "take-me-somewhere") {
-    object
-      .querySelectorAll<SVGElement>(".map-object__place")
-      .forEach((map, i) => {
-        const animation = map.animate(
-          [
-            { opacity: 1, offset: 0 },
-            { opacity: 1, offset: 0.28 },
-            { opacity: 0, offset: 0.33 },
-            { opacity: 0, offset: 0.95 },
-            { opacity: 1, offset: 1 },
-          ],
-          { duration: 27000, delay: -i * 9000, iterations: Infinity },
-        );
-        animation.pause();
-        animations.push(animation);
-      });
+    const maps = object.querySelectorAll<SVGElement>(".map-object__place");
+    const stop = 5500,
+      duration = maps.length * stop;
+    maps.forEach((map, i) => {
+      const animation = map.animate(
+        [
+          { opacity: 1, offset: 0 },
+          { opacity: 1, offset: (stop - 600) / duration },
+          { opacity: 0, offset: stop / duration },
+          { opacity: 0, offset: 1 - 600 / duration },
+          { opacity: 1, offset: 1 },
+        ],
+        {
+          duration,
+          delay: i === 0 ? 0 : -(maps.length - i) * stop,
+          iterations: Infinity,
+        },
+      );
+      animation.pause();
+      animations.push(animation);
+    });
     animate(
       ".map-route",
       [{ strokeDashoffset: "0" }, { strokeDashoffset: "-54" }],
-      9,
+      5.5,
     );
     animate(
       ".map-object__pin",
@@ -148,7 +153,7 @@ export function objectAnimations(object: HTMLElement) {
         { translate: "0 -9px", offset: 0.89 },
         { translate: "0 0" },
       ],
-      9,
+      5.5,
     );
   }
   if (id === "audio-book-choices") animations.push(createStoryTree(object));
@@ -175,15 +180,27 @@ export function objectAnimations(object: HTMLElement) {
       };
       const frames: Keyframe[] = [{ ...dark, offset: 0 }];
       order.forEach((index, step) => {
-        if (index !== cell) return;
+        // A small cluster appears before the staggered taps clear it.
+        const cluster = [index, (index + 7) % 16, (index + 11) % 16];
+        const position = cluster.indexOf(cell);
+        if (position < 0) return;
         const at = 1 + step * 2.6;
+        const lag = position * 0.16;
         frames.push(
-          { ...dark, offset: at / 88 },
-          { ...lit, offset: (at + 0.3) / 88 },
-          { ...lit, offset: (at + 1.5) / 88 },
-          { ...lit, transform: "translateZ(0px)", offset: (at + 1.68) / 88 },
-          { ...dark, transform: "translateZ(1px)", offset: (at + 1.85) / 88 },
-          { ...dark, offset: (at + 2.1) / 88 },
+          { ...dark, offset: (at + lag) / 88 },
+          { ...lit, offset: (at + lag + 0.22) / 88 },
+          { ...lit, offset: (at + 1.25 + lag) / 88 },
+          {
+            ...lit,
+            transform: "translateZ(0px)",
+            offset: (at + 1.43 + lag) / 88,
+          },
+          {
+            ...dark,
+            transform: "translateZ(1px)",
+            offset: (at + 1.62 + lag) / 88,
+          },
+          { ...dark, offset: (at + 1.85 + lag) / 88 },
         );
       });
       frames.push({ ...dark, offset: 1 });

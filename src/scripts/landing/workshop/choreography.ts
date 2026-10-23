@@ -32,6 +32,18 @@ export function setupChoreography() {
       hint.textContent = key.open
         ? "A little less mystery"
         : "Press to find out";
+    if (key.open)
+      requestAnimationFrame(() => {
+        const story = key.querySelector<HTMLElement>(".workshop-key__story");
+        if (!story) return;
+        const top = story.getBoundingClientRect().top;
+        // Keep the pressed key in view while bringing its answer into the viewport.
+        if (top > innerHeight * 0.55)
+          scrollBy({
+            top: top - innerHeight * 0.35,
+            behavior: motion.matches ? "instant" : "smooth",
+          });
+      });
     if (motion.matches) return;
     key
       .querySelector(".workshop-key__cap")

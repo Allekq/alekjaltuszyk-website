@@ -48,6 +48,25 @@ test("restricted source and built text fail without printing the matched content
   assert.ok(!result.stderr.includes(token));
 });
 
+test("exact public exceptions keep other restricted text blocked in source and builds", (t) => {
+  const f = fixture(t);
+  const token = "PRIVATE_FACT_SENTINEL";
+  const approved = `The public company is named ${token}.`;
+  f.write("private/career-context/publication-rules.json", JSON.stringify({
+    forbiddenPatterns: [token], approvedPublicText: [approved, ""],
+  }));
+  f.write("src/index.astro", `<p>${approved}</p>`);
+  f.write("dist/index.html", `<p>${approved}</p>`);
+  assert.equal(f.run("--include-dist").status, 0);
+  f.write("src/index.astro", `<p>${approved}</p><p>${token}</p>`);
+  assert.equal(f.run().status, 1);
+  f.write("src/index.astro", `<p>${approved}</p>`);
+  f.write("dist/index.html", `<p>${approved}</p><p>${token}</p>`);
+  const result = f.run("--include-dist");
+  assert.equal(result.status, 1);
+  assert.ok(!result.stderr.includes(token));
+});
+
 test("a copied private binary fails in public and generated output", (t) => {
   const f = fixture(t);
   const content = Buffer.from([0, 1, 2, 3, 255]);

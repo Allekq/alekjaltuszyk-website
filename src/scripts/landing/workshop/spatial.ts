@@ -120,6 +120,12 @@ export function setupSpatialScenes() {
   }
   function render(now: number) {
     frame = 0;
+    // Small decorative scenes do not need to consume a 120/144 Hz display's
+    // full frame budget. Keep motion time-based and let the GPU rest between draws.
+    if (last && now - last < 1000 / 60 - 0.5) {
+      request();
+      return;
+    }
     const dt = Math.min((now - last) / 1000 || 1 / 60, 0.05);
     last = now;
     let unsettled = false;
@@ -134,7 +140,14 @@ export function setupSpatialScenes() {
       )
         continue;
       try {
-        if (!view.model) view.model = builders[view.name](environment.texture);
+        if (!view.model)
+          view.model =
+            view.name === "products"
+              ? createProducts(
+                  environment.texture,
+                  view.element.dataset.productIds!.split(","),
+                )
+              : builders[view.name](environment.texture);
         const progress =
           view.story?.progress() ??
           sceneProgress(rect.top, rect.height, innerHeight);
@@ -255,8 +268,16 @@ export function setupSpatialScenes() {
     button?.addEventListener(
       "click",
       () => {
+        if (button.disabled) return;
         view.action += 1;
         view.current.elapsed = 0;
+        // Lock immediately, before the next frame, so a fast double tap cannot
+        // restart an encounter or confuse the completion state.
+        if (view.model?.actionDuration && !media.matches) {
+          button.disabled = true;
+          button.querySelector("[data-action-label]")!.textContent =
+            "Watch this…";
+        }
         request();
       },
       { signal },

@@ -181,3 +181,63 @@ This pass adds local illustrations and verified historical review excerpts only.
 No dependency, visitor-data flow, storage, permission, analytics, purchase flow or
 app capability changed. The existing legal-impact receipt remains applicable;
 no legal document or acceptance version changes are needed for this visual work.
+
+## Portfolio motion refinement — 2026-10-23
+
+- The Roam scene uses two simple beans with heads: the walking player and one
+  arriving challenger. A random choice avoids the immediately previous move.
+  The bump, airborne attack and hip throw have distinct anticipation, contact,
+  recoil/flight, landing and recovery beats. The throw begins with the beans
+  close together and uses a small depth offset to keep their heads clear.
+  The ground marker stays flat during jumps; the extra spectator is removed.
+- The phone scene derives its model count and identities from the app directory.
+  Rounded frames, camera islands, side buttons and separate original interface
+  studies replace the previous three slabs. A rigid formation rises, completes
+  a circle around the middle phone's top edge, then returns to its exact pose.
+  An oriented-bounds check across 277 samples found no phone-body intersections.
+- The Tab key title is above the key. Opening the native details brings the
+  story into view directly below it. The opening text is preserved, followed by
+  the owner's new reflection and a real, cropped photograph of the keepsake.
+  The 840 px WebP is about 40 KB, lazy-loaded and stripped of camera metadata.
+- The map cycles between a city grid, coast, canals, an old-town plaza and a
+  riverside neighbourhood, with a distinct route every 5.5 seconds. OverLit
+  lights a small cluster of cells before staggered taps clear them.
+- Removed the showcase motion buttons at the owner's request. Motion still
+  respects the system reduced-motion preference and pauses outside the viewport
+  or when the page is hidden. App navigation and the intentional scene actions
+  remain. AI Product Systems now leads with Roam AI's agentic workflows, with
+  app workflows as supporting examples, using owner-approved public context.
+
+### Performance scan
+
+Local production build in Chromium 155 on this Mac. The phone run used a
+390 × 844 viewport, device scale 2, touch emulation, 4× CPU slowdown, 1.6 Mbps
+download and 150 ms latency with the cache disabled. These are lab samples,
+not deployed-site field measurements or physical-device Safari results.
+
+| Measurement | Laptop, 1366 × 768 | Simulated phone |
+| --- | --- | --- |
+| First contentful paint | 112 ms | 688 ms |
+| Largest contentful paint | 112 ms | 724 ms |
+| Initial layout shift | 0 | 0 |
+| Initial resource transfers, excluding HTML | ~224 KB | ~224 KB |
+| WebGL contexts | 1 | 1 |
+| Scene frame interval, median | 16.7 ms | 16.9–17.0 ms |
+| Scene frame interval, 95th percentile | ≤25 ms | ≤25.3 ms |
+| Scene frames after the action settles | 0 | 0 |
+
+The scan found unnecessary 120 fps scene rendering on this display. A 60 fps
+cap roughly halves active rendering work; elapsed-time choreography preserves
+movement speed. Action buttons now lock synchronously on press to prevent
+rapid taps restarting a move before the next frame. The two initial phone
+long tasks measured 94 and 120 ms. The key photo was not requested at initial
+load and decoded successfully when its story opened. Offscreen showcase
+objects had no running animations. No production browser errors or failed
+resource requests were recorded.
+
+Validation: no horizontal overflow at 320, 390, 768, 844 (landscape), 1024,
+1366 or 1440 px. Checked native keyboard disclosure, real-photo loading,
+reduced motion, disabled JavaScript, unavailable WebGL and data-saving mode.
+The existing geometry tests pass. This pass changes presentation and public
+career wording, with no new app capabilities, data practices, dependencies,
+permissions, purchases or legal-facing product promises.
