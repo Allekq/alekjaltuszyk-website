@@ -25,9 +25,13 @@
 .map-water {
   fill: #a8c6c5;
 }
-.map-contours {
-  fill: none;
-  stroke: #94a581;
+.map-blocks {
+  fill: #c8baa2;
+  opacity: 0.62;
+}
+.map-object__sheet .map-plaza {
+  fill: #e8d2a8;
+  stroke: #c1ab89;
   stroke-width: 2;
 }
 .voice-object__speech {
@@ -50,19 +54,6 @@
   height: 5px;
   border-radius: 50%;
   background: #698c7d;
-}
-.workshop-motion-toggle {
-  border: 0;
-  border-bottom: 1px solid var(--w-line);
-  background: transparent;
-  padding: 0.5rem 0;
-  color: var(--w-muted);
-  font: 0.64rem var(--w-mono);
-  min-height: 44px;
-  cursor: pointer;
-}
-.workshop-motion-toggle:hover {
-  color: var(--w-accent);
 }
 .workshop-projects__foot {
   flex-wrap: wrap;

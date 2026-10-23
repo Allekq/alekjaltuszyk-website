@@ -1,123 +1,147 @@
 import * as THREE from "three";
-import { canvasTexture, line, smoothstep } from "./shared";
+import { canvasTexture } from "./shared";
 
-/** Original interface studies. Scroll changes their state; no timer or remote content. */
-export function interfaceStudy(phone: THREE.Group, index: number) {
-  const style = [
-    { paper: "#e2ead0", ink: "#4e6848" },
-    { paper: "#d9e8df", ink: "#507d6d" },
-    { paper: "#263c2c", ink: "#cde28a" },
-  ][index];
-  const texture = canvasTexture(400, 800, (ctx) => {
-    ctx.fillStyle = style.paper;
-    ctx.fillRect(0, 0, 400, 800);
-    ctx.fillStyle = style.ink;
-    ctx.font = "22px monospace";
-    ctx.fillText("A LITTLE EVERYDAY", 32, 110);
-    ctx.font = "55px Georgia";
-    ctx.fillText(
-      index === 0
-        ? "Follow through."
-        : index === 1
-          ? "Make space."
-          : "Keep going.",
-      26,
-      190,
-      350,
-    );
-    if (index === 0)
-      for (let n = 0; n < 4; n++) {
-        ctx.strokeStyle = style.ink;
-        ctx.lineWidth = 2;
-        ctx.strokeRect(32, 270 + n * 90, 35, 35);
-        ctx.fillRect(95, 282 + n * 90, 220 - n * 30, 5);
+/** Original interface studies, deliberately simpler than real app screenshots. */
+export function interfaceStudy(
+  phone: THREE.Group,
+  id: string,
+  geometry: THREE.BufferGeometry,
+) {
+  const styles: Record<string, [string, string, string, string]> = {
+    plankept: ["#e8ecd9", "#50654a", "PLANKEPT", "Follow through."],
+    "audio-book-choices": [
+      "#e7deef",
+      "#65527b",
+      "AUDIOCHOICES",
+      "Choose a path.",
+    ],
+    overlit: ["#24372e", "#c8e898", "OVERLIT", "Keep it alive."],
+    "voice-of-self": ["#dfebe3", "#4c7968", "VOICE OF SELF", "Make space."],
+    "take-me-somewhere": [
+      "#eee5d4",
+      "#826748",
+      "TAKE ME SOMEWHERE",
+      "Go a little further.",
+    ],
+  };
+  const [paper, ink, name, title] = styles[id] ?? [
+    "#e8ecd9",
+    "#50654a",
+    "AN EVERYDAY IDEA",
+    "Make it useful.",
+  ];
+  const texture = canvasTexture(400, 800, (c) => {
+    c.fillStyle = paper;
+    c.fillRect(0, 0, 400, 800);
+    c.fillStyle = ink;
+    c.font = "19px monospace";
+    c.fillText("9:41", 28, 44);
+    c.fillRect(331, 31, 24, 11);
+    c.fillRect(359, 34, 3, 5);
+    c.font = "17px monospace";
+    c.fillText(name, 28, 123);
+    c.font = "45px Georgia";
+    c.fillText(title, 27, 185, 350);
+    c.strokeStyle = ink;
+    c.lineWidth = 3;
+    if (id === "plankept") {
+      for (let i = 0; i < 4; i++) {
+        c.strokeRect(32, 270 + i * 91, 32, 32);
+        if (i < 2) {
+          c.beginPath();
+          c.moveTo(38, 284 + i * 91);
+          c.lineTo(46, 294 + i * 91);
+          c.lineTo(61, 272 + i * 91);
+          c.stroke();
+        }
+        c.fillRect(94, 280 + i * 91, 218 - i * 24, 5);
       }
-    ctx.fillRect(140, 753, 120, 5);
+      c.globalAlpha = 0.2;
+      c.fillRect(32, 687, 336, 9);
+      c.globalAlpha = 1;
+      c.fillRect(32, 687, 198, 9);
+    } else if (id === "audio-book-choices") {
+      c.lineWidth = 4;
+      for (const [x, y, d] of [
+        [200, 620, 100],
+        [100, 490, 55],
+        [300, 490, 55],
+      ]) {
+        c.beginPath();
+        c.moveTo(x, y);
+        c.lineTo(x, y - 55);
+        c.lineTo(x - d, y - 130);
+        c.moveTo(x, y - 55);
+        c.lineTo(x + d, y - 130);
+        c.stroke();
+        c.beginPath();
+        c.arc(x, y, 7, 0, Math.PI * 2);
+        c.fill();
+      }
+      c.font = "18px monospace";
+      c.fillText("YOUR NEXT CHAPTER", 75, 702);
+    } else if (id === "overlit") {
+      for (let i = 0; i < 25; i++) {
+        c.fillStyle = [2, 6, 9, 12, 18, 20].includes(i) ? ink : "#3c5342";
+        c.beginPath();
+        c.roundRect(32 + (i % 5) * 69, 280 + Math.floor(i / 5) * 69, 58, 58, 9);
+        c.fill();
+      }
+      c.fillStyle = ink;
+    } else if (id === "voice-of-self") {
+      for (let i = 0; i < 19; i++) {
+        const h = 28 + Math.abs(Math.sin(i * 1.8)) * 150;
+        c.beginPath();
+        c.roundRect(32 + i * 18, 440 - h / 2, 8, h, 4);
+        c.fill();
+      }
+      c.beginPath();
+      c.arc(200, 650, 32, 0, Math.PI * 2);
+      c.stroke();
+      c.beginPath();
+      c.arc(200, 650, 12, 0, Math.PI * 2);
+      c.fill();
+    } else {
+      c.strokeStyle = "#d0c7b7";
+      c.lineWidth = 11;
+      for (const x of [60, 160, 290]) {
+        c.beginPath();
+        c.moveTo(x, 260);
+        c.lineTo(x, 680);
+        c.stroke();
+      }
+      for (const y of [310, 450, 590]) {
+        c.beginPath();
+        c.moveTo(20, y);
+        c.lineTo(380, y);
+        c.stroke();
+      }
+      c.strokeStyle = ink;
+      c.lineWidth = 6;
+      c.setLineDash([9, 8]);
+      c.beginPath();
+      c.moveTo(60, 640);
+      c.lineTo(60, 450);
+      c.lineTo(290, 450);
+      c.lineTo(290, 310);
+      c.stroke();
+      c.setLineDash([]);
+      for (const [x, y] of [
+        [60, 640],
+        [290, 310],
+      ]) {
+        c.beginPath();
+        c.arc(x, y, 12, 0, Math.PI * 2);
+        c.fill();
+      }
+    }
+    c.fillRect(147, 766, 106, 5);
   });
   const screen = new THREE.Mesh(
-    new THREE.PlaneGeometry(1.58, 3.17),
+    geometry,
     new THREE.MeshBasicMaterial({ map: texture }),
   );
   screen.rotation.x = -Math.PI / 2;
-  screen.position.y = 0.145;
+  screen.position.y = 0.116;
   phone.add(screen);
-  const sx = 1.58 / 400,
-    sz = 3.17 / 800;
-  const point = (x: number, y: number) =>
-    new THREE.Vector3((x - 200) * sx, 0.15, (y - 400) * sz);
-  function rect(x: number, y: number, w: number, h: number, color: string) {
-    const mesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(w * sx, h * sz),
-      new THREE.MeshBasicMaterial({ color }),
-    );
-    mesh.rotation.x = -Math.PI / 2;
-    mesh.position.copy(point(x + w / 2, y + h / 2));
-    phone.add(mesh);
-    return mesh;
-  }
-  const checks: THREE.Mesh[] = [];
-  let fill: THREE.Mesh | undefined;
-  const bars: THREE.Mesh[] = [];
-  const cells: THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial>[] = [];
-  if (index === 0) {
-    for (let n = 0; n < 4; n++)
-      checks.push(
-        line(
-          phone,
-          [
-            point(38, 288 + n * 90),
-            point(45, 296 + n * 90),
-            point(61, 278 + n * 90),
-          ],
-          new THREE.Color(style.ink).getHex(),
-          0.007,
-        ),
-      );
-    rect(32, 690, 310, 8, "#c4d0ae");
-    fill = rect(32, 690, 310, 8, style.ink);
-    // Keep the filling bar above its track without coplanar flicker.
-    fill.position.y += 0.002;
-  }
-  if (index === 1)
-    for (let n = 0; n < 16; n++)
-      bars.push(rect(28 + n * 22, 420 - 50, 10, 100, style.ink));
-  if (index === 2)
-    for (let n = 0; n < 16; n++)
-      cells.push(
-        rect(
-          35 + (n % 4) * 85,
-          280 + Math.floor(n / 4) * 85,
-          65,
-          65,
-          "#436144",
-        ),
-      );
-  const bright = new THREE.Color(style.ink),
-    dim = new THREE.Color("#436144");
-  return (progress: number, variant = 0) => {
-    checks.forEach((check, n) => {
-      check.visible = progress >= n * 0.22;
-    });
-    if (fill) {
-      const amount = 0.15 + progress * 0.85;
-      fill.scale.x = amount;
-      fill.position.x = (32 + (310 * amount) / 2 - 200) * sx;
-    }
-    bars.forEach((bar, n) => {
-      bar.scale.y =
-        0.3 + Math.abs(Math.sin(n * 2.4 + progress * 5 + variant * 1.7)) * 1.4;
-    });
-    const beat = progress * 3,
-      step = Math.floor(beat),
-      blend = smoothstep(0, 1, beat - step);
-    cells.forEach((cell, n) => {
-      const lit = (offset: number) =>
-        [2, 5, 9, 14].includes((n + offset * 3 + variant * 5) % 16) ? 1 : 0;
-      cell.material.color.lerpColors(
-        dim,
-        bright,
-        THREE.MathUtils.lerp(lit(step), lit(step + 1), blend),
-      );
-    });
-  };
 }

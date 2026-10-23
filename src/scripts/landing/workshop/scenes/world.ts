@@ -1,5 +1,6 @@
 import * as THREE from "three";
-import { createEncounter } from "./encounter";
+import { createEncounter, encounterDuration } from "./encounter";
+import { createFighter } from "./fighter";
 import {
   block,
   cylinder,
@@ -99,7 +100,7 @@ export function createWorld(environment: THREE.Texture): SpatialModel {
   const crate = block(
     root,
     [0.5, 0.5, 0.5],
-    [0.2, 0.57, 1.85],
+    [-2.6, 0.57, 1.75],
     material(0xb18959),
     0.035,
   );
@@ -113,43 +114,26 @@ export function createWorld(environment: THREE.Texture): SpatialModel {
     0x6a805e,
     0.025,
   );
-  const player = new THREE.Group();
+  const fighter = createFighter(palette.red, "player");
+  const player = fighter.group;
   root.add(player);
-  const body = new THREE.Mesh(
-    new THREE.CapsuleGeometry(0.12, 0.27, 4, 12),
-    red,
-  );
-  body.position.y = 0.32;
-  body.castShadow = true;
-  player.add(body);
-  const head = new THREE.Mesh(
-    new THREE.SphereGeometry(0.15, 16, 12),
-    material(0xf3dfb5),
-  );
-  head.position.y = 0.69;
-  head.castShadow = true;
-  player.add(head);
   const ring = new THREE.Mesh(
     new THREE.TorusGeometry(0.26, 0.022, 6, 32),
     material(palette.red),
   );
   ring.rotation.x = -Math.PI / 2;
   ring.position.y = 0.02;
-  player.add(ring);
+  root.add(ring);
   const flag = new THREE.Group();
   flag.position.set(1.95, 2.3, -1.5);
   root.add(flag);
   cylinder(flag, 0.018, 1, [0, 0.4, 0], dark);
   block(flag, [0.47, 0.28, 0.025], [0.23, 0.76, 0], red, 0.01);
-  const encounter = createEncounter(root, player);
+  const encounter = createEncounter(root, fighter);
   return {
     ...model,
-    actionDuration: 6.6,
-    actionLabels: [
-      "Start a tiny showdown",
-      "Try a flying kick",
-      "Try a judo throw",
-    ],
+    actionDuration: encounterDuration,
+    actionLabels: ["Start a tiny showdown", "Roll another move"],
     update({ progress, pointerX, pointerY, action, elapsed, reduced }) {
       const p = reduced
         ? 0.35
@@ -161,12 +145,12 @@ export function createWorld(environment: THREE.Texture): SpatialModel {
       const point = path.getPoint(p);
       player.position.copy(point);
       const tangent = path.getTangent(p);
-      player.rotation.y = Math.atan2(tangent.x, tangent.z);
+      player.rotation.set(0, Math.atan2(tangent.x, tangent.z) - Math.PI / 2, 0);
       const stride = reduced ? 0 : Math.sin(p * 48);
-      body.position.y = 0.32 + Math.abs(stride) * 0.018;
-      head.position.y = 0.69 + Math.abs(stride) * 0.018;
-      body.rotation.z = stride * 0.025;
+      fighter.pose(1, 0, 0, 0, stride * 0.5);
+      player.position.y += Math.abs(stride) * 0.015;
       encounter(action, elapsed, reduced);
+      ring.position.set(player.position.x, 0.355, player.position.z);
       flag.rotation.y = reduced ? 0 : Math.sin(progress * 7) * 0.045;
       crate.rotation.y = reduced ? 0.3 : progress;
       crate.rotation.z = reduced ? 0 : 0;

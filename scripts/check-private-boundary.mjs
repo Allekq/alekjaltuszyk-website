@@ -13,9 +13,13 @@ const candidates = execFileSync("git", ["ls-files", "--cached", "--others", "--e
 const violations = new Set();
 const textFile = /\.(?:astro|[cm]?js|[cm]?ts|tsx|jsx|json|md|txt|ya?ml|html|xml|css|csv)$/i;
 const localRules = join(root, "private", "career-context", "publication-rules.json");
-const patterns = existsSync(localRules)
-  ? JSON.parse(readFileSync(localRules, "utf8")).forbiddenPatterns.map((pattern) => new RegExp(pattern, "i"))
-  : [];
+const rules = existsSync(localRules) ? JSON.parse(readFileSync(localRules, "utf8")) : {};
+const patterns = (rules.forbiddenPatterns ?? []).map((pattern) => new RegExp(pattern, "i"));
+// Exact, locally approved public sentences may share words with a broad rule.
+// Keep exceptions out of public source and continue scanning all remaining text.
+const approvedPublicText = (rules.approvedPublicText ?? []).filter(
+  (text) => typeof text === "string" && text.trim().length > 0,
+);
 const privateHashes = new Set();
 const privatePaths = [];
 function rememberPrivateFiles(directory) {
@@ -63,7 +67,10 @@ function inspect(path, websiteFile = false) {
   }
   if (!textFile.test(path)) return;
   const content = readFileSync(absolute, "utf8");
-  if (patterns.some((pattern) => pattern.test(content))) violations.add(path);
+  const unapprovedContent = approvedPublicText.reduce(
+    (text, approved) => text.replaceAll(approved, ""), content,
+  );
+  if (patterns.some((pattern) => pattern.test(unapprovedContent))) violations.add(path);
   if (websiteFile && /(?:\.\.\/|\/|\b)private[\\/]/i.test(content)) violations.add(path);
 }
 

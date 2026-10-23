@@ -7,7 +7,6 @@ import {
   platformNameList,
   releaseStatusSentence,
 } from "../../../lib/appState";
-import { siteConfig } from "../../../config/site";
 
 export interface HomeSkill {
   id: string;
@@ -142,19 +141,18 @@ export const homeSkills = [
     id: "ai",
     offset: "1.15rem",
     title: "AI Product Systems",
-    strap: "Integrating models into useful products, with memory and structured outputs.",
+    strap: "Large agentic workflows, grounded in working software.",
     summary:
-      "My strength is integrating existing models, including LLMs, into working systems: connecting their outputs to application logic, remembered context, and validated product state.",
+      "At Roam AI, a San Francisco–based text-to-game startup, I built large agentic workflows connecting LLMs with C# and Unity systems. I bring that same systems thinking to the workflows in my own apps.",
     highlights: [
+      "At Roam AI, worked across agentic workflows, LLM integration, and the C# systems behind the text-to-game experience.",
       "Built Voice of Self around reflection memory: recurring worries, resolved worries, personal growth, and AI outputs that remain useful over time.",
       "Built PlanKept flows where AI-assisted plan creation becomes durable reminders, app rules, quotas, and proof-review state.",
       "Prefer schema-validated outputs, deterministic persistence, and product-specific memory over loose chatbot text.",
-      siteConfig.identity.cursorRecognition,
-      "Combine hands-on coding and autocomplete with AI chat for faster prototyping, debugging, and iteration.",
     ],
     related: [
-      { label: "Current products", historyId: "current-products" },
       { label: "Roam AI", historyId: "roam-ai" },
+      { label: "Current products", historyId: "current-products" },
     ],
   },
   {
@@ -197,8 +195,9 @@ export const homeTimeline = [
     title: "Roam AI text-to-game startup",
     role: "Core gameplay and AI systems contractor",
     summary:
-      "I joined Roam as a core contractor on a small team building a text-to-game experience at the level where gameplay engineering and AI systems start overlapping.",
+      "I joined San Francisco–based Roam AI as a core contractor on a small team building a text-to-game experience, working across gameplay engineering and large agentic workflows.",
     highlights: [
+      "Built large agentic workflows connecting LLMs with C# and Unity systems.",
       "Built player mechanics, enemy AI, networking, physics interactions, and world-building systems with the team.",
       "Worked closely with teammates across gameplay development, internal tooling, product context, and urgent AI-driven problem solving.",
     ],
@@ -248,7 +247,8 @@ export const homeTimeline = [
       },
       {
         title: "AudioChoices",
-        description: "Branching audiobooks you can steer by nodding or shaking your head with supported iPhone headphones.",
+        description:
+          "Branching audiobooks you can steer by nodding or shaking your head with supported iPhone headphones.",
         details: [
           "Designed branching story trees where Yes or No choices open new paths through a book.",
           "Built hands-free Yes/No choices with AirPods or motion-capable Beats on iPhone, alongside screen taps and Android headphone buttons.",

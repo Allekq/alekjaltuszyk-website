@@ -1,5 +1,6 @@
 ---
 import { withBase } from "../../../../lib/paths";
+import { apps } from "../../../../lib/appState";
 interface Props {
   scene: "island" | "terrain" | "world" | "products";
   caption: string;
@@ -11,6 +12,9 @@ const { scene, caption, action } = Astro.props;
 <div
   class:list={["w-spatial", `w-spatial--${scene}`]}
   data-spatial-scene={scene}
+  data-product-ids={
+    scene === "products" ? apps.map((app) => app.id).join(",") : undefined
+  }
 >
   <div class="w-spatial__drawing" aria-hidden="true">
     <img
