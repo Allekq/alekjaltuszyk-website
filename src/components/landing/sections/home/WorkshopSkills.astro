@@ -1,6 +1,7 @@
 ---
 import { homeSkills, homeStack } from "../home-profile-content";
 import { siteConfig } from "../../../../config/site";
+import { withBase } from "../../../../lib/paths";
 import SkillObject from "../../ui/workshop/SkillObject.astro";
 ---
 
@@ -84,10 +85,21 @@ import SkillObject from "../../ui/workshop/SkillObject.astro";
 </section>
 <section
   class="workshop-keystory w-container"
+  id="tab-key"
   aria-label="The story behind a Tab key"
 >
   <details class="workshop-key" data-key-story>
     <summary>
+      <span class="workshop-key__invitation">
+        <span class="w-eyebrow">A small, very specific honour</span>
+        <strong>
+          There’s a story behind this <em>key.</em>
+        </strong>
+        <span class="workshop-key__hint">
+          <span data-key-hint>Press to find out</span>
+          <span aria-hidden="true">↓</span>
+        </span>
+      </span>
       <span class="workshop-key__stage" aria-hidden="true">
         <span class="workshop-key__shadow"></span>
         <span class="workshop-key__switch">
@@ -108,30 +120,41 @@ import SkillObject from "../../ui/workshop/SkillObject.astro";
         </span>
         <span class="workshop-key__measurement">ONE VERY WELL-USED KEY</span>
       </span>
-      <span class="workshop-key__invitation">
-        <span class="w-eyebrow">A small, very specific honour</span>
-        <strong>
-          There’s a story
-          <br />
-          behind this <em>key.</em>
-        </strong>
-        <span class="workshop-key__hint">
-          <span data-key-hint>Press to find out</span>
-          <span aria-hidden="true">↘</span>
-        </span>
-      </span>
     </summary>
     <div class="workshop-key__story">
-      <span class="workshop-key__story-mark" aria-hidden="true">
-        ↳
-      </span>
       <div>
         <p class="w-eyebrow">From autocomplete to a physical keepsake</p>
         <p>{siteConfig.identity.cursorRecognition}</p>
+        <p>
+          All that semi-manual code writing taught me a lot.
+          <br />
+          It also got me a tiny trophy for my desk.
+        </p>
         <span class="workshop-key__footnote">
-          An illustrated tribute to that little key.
+          And here’s the actual little key.
         </span>
       </div>
+      <figure class="workshop-key__photo">
+        <a
+          href={withBase("/media/home/key/cursor-tab-award.webp")}
+          target="_blank"
+          rel="noopener"
+          aria-label="Enlarge the photograph of my Cursor Tab key award"
+        >
+          <img
+            src={withBase("/media/home/key/cursor-tab-award.webp")}
+            width="840"
+            height="840"
+            loading="lazy"
+            decoding="async"
+            alt="My white Tab key award on its metal Cursor base, held in my hand."
+          />
+        </a>
+        <figcaption>
+          A very small trophy. A lot of keystrokes.{" "}
+          <span aria-hidden="true">↗</span>
+        </figcaption>
+      </figure>
     </div>
   </details>
 </section>

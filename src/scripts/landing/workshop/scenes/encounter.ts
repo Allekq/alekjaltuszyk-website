@@ -1,177 +1,205 @@
 import * as THREE from "three";
-import { cylinder, material, palette, smoothstep } from "./shared";
+import { material, smoothstep } from "./shared";
+import { createFighter, type Fighter } from "./fighter";
 
-type Pose = [number, number, number, number]; // x, height, z, side tilt
+type Pose = [number, number, number, number, number, number, number]; // x, height, z, tilt, crouch, strike, kick
+// The easing belongs to the arrival: fast strikes, held anticipation, soft recovery.
+type Frame = [number, Pose, "linear"?];
+export const encounterDuration = 6.2;
 const ground = 0.34;
-function actor(color: number) {
-  const group = new THREE.Group();
-  const body = new THREE.Mesh(
-    new THREE.CapsuleGeometry(0.13, 0.28, 4, 12),
-    material(color),
-  );
-  body.position.y = 0.31;
-  body.castShadow = true;
-  const head = new THREE.Mesh(
-    new THREE.SphereGeometry(0.15, 16, 12),
-    material(0xf3dfb5),
-  );
-  head.position.y = 0.69;
-  head.castShadow = true;
-  group.add(body, head);
-  return group;
-}
-function poseAt(frames: [number, Pose][], time: number): Pose {
-  const next = frames.findIndex(([at]) => at > time);
+const at = (
+  x: number,
+  y = 0,
+  tilt = 0,
+  crouch = 0,
+  strike = 0,
+  kick = 0,
+  z = 1.05,
+): Pose => [x, y, z, tilt, crouch, strike, kick];
+function sample(frames: Frame[], time: number): Pose {
+  const next = frames.findIndex(([t]) => t > time);
   if (next < 0) return frames.at(-1)![1];
   if (next === 0) return frames[0][1];
   const [a, from] = frames[next - 1],
-    [b, to] = frames[next];
-  const p = smoothstep(a, b, time);
-  return from.map((v, i) => THREE.MathUtils.lerp(v, to[i], p)) as Pose;
+    [b, to, easing] = frames[next];
+  const u = (time - a) / (b - a),
+    p = easing === "linear" ? u : smoothstep(0, 1, u);
+  return from.map((value, i) => THREE.MathUtils.lerp(value, to[i], p)) as Pose;
 }
-function place(group: THREE.Group, pose: Pose) {
-  group.position.set(pose[0], pose[1], pose[2]);
-  group.rotation.set(0, 0, pose[3]);
+function place(actor: Fighter, p: Pose, facing: number, stride: number) {
+  actor.group.position.set(p[0], ground + p[1], p[2]);
+  actor.group.rotation.set(0, 0, p[3]);
+  actor.pose(facing, p[4], p[5], p[6], stride);
 }
 
-/** Short, deliberately toy-like choreography. Nobody is hurt; everyone gets back up. */
-export function createEncounter(root: THREE.Group, player: THREE.Group) {
-  const challenger = actor(0x557f91),
-    spectator = actor(0xbba263);
-  root.add(challenger, spectator);
-  challenger.visible = spectator.visible = false;
+export function createEncounter(root: THREE.Group, player: Fighter) {
+  const challenger = createFighter(0x557f91, "challenger");
+  root.add(challenger.group);
+  challenger.group.visible = false;
   const dust = new THREE.Group();
   root.add(dust);
   const dustMat = material(0xe6d9b3);
-  const puffs = Array.from({ length: 8 }, () => {
+  const puffs = Array.from({ length: 6 }, () => {
     const puff = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(0.09, 0),
+      new THREE.IcosahedronGeometry(0.055, 0),
       dustMat,
     );
     dust.add(puff);
     return puff;
   });
-  const spark = new THREE.Group();
-  root.add(spark);
+  const impact = new THREE.Group();
+  root.add(impact);
   for (let i = 0; i < 5; i++) {
-    const ray = cylinder(
-      spark,
-      0.018,
-      0.16,
-      [Math.cos(i * 1.256) * 0.23, Math.sin(i * 1.256) * 0.23, 0],
-      material(palette.red),
+    const ray = new THREE.Mesh(
+      new THREE.BoxGeometry(0.025, 0.15, 0.025),
+      material(0xf5de9b),
     );
-    ray.rotation.z = i * 1.256 - Math.PI / 2;
+    const angle = (i * Math.PI * 2) / 5;
+    ray.position.set(Math.cos(angle) * 0.19, Math.sin(angle) * 0.19, 0);
+    ray.rotation.z = angle - Math.PI / 2;
+    impact.add(ray);
   }
-  let previous = 0;
-  const start = new THREE.Vector3();
+  let previous = 0,
+    kind = -1,
+    red: Frame[] = [],
+    blue: Frame[] = [],
+    impacts: number[] = [];
+  let returnX = 0,
+    returnZ = 0;
   return (action: number, elapsed: number, reduced: boolean) => {
-    dust.visible = spark.visible = false;
-    challenger.visible = spectator.visible =
-      action > 0 && (elapsed < 6.6 || reduced);
-    if (!action || (elapsed >= 6.6 && !reduced)) return;
+    dust.visible = impact.visible = false;
+    challenger.group.visible =
+      action > 0 && (elapsed < encounterDuration || reduced);
+    if (!challenger.group.visible) return;
     if (action !== previous) {
-      start.copy(player.position);
       previous = action;
-    }
-    const t = reduced ? 3 : elapsed;
-    const kind = (action - 1) % 3;
-    const red: [number, Pose][] = [
-      [0, [start.x, ground, start.z, 0]],
-      [1.25, [-0.65, ground, 0.95, 0]],
-      [1.65, [-0.5, 0.55, 0.95, -0.12]],
-      [2, [-0.65, ground, 0.95, 0]],
-    ];
-    const blue: [number, Pose][] = [
-      [0, [1.6, ground, -1.1, 0]],
-      [1.25, [0.65, ground, 0.95, 0]],
-      [1.75, [0.5, 0.55, 0.95, 0.12]],
-      [2.1, [0.65, ground, 0.95, 0]],
-    ];
-    if (kind === 0) {
-      red.push(
-        [2.55, [-0.15, 1, 0.95, -0.35]],
-        [2.9, [0.1, ground, 0.95, 0]],
-        [3.25, [-0.55, ground, 0.95, 0]],
-        [3.55, [-1.1, 0.6, 0.95, 0.45]],
-        [3.95, [-0.7, ground, 0.95, 0]],
-      );
-      blue.push(
-        [2.55, [0.65, ground, 0.95, 0]],
-        [2.9, [1.05, 0.55, 0.95, -0.35]],
-        [3.25, [0.25, 1, 0.95, 0.35]],
-        [3.55, [-0.15, ground, 0.95, 0]],
-        [3.95, [0.6, ground, 0.95, 0]],
-      );
-    } else if (kind === 1) {
-      red.push(
-        [2.3, [-0.85, 0.3, 0.95, 0.25]],
-        [2.75, [0, 1.25, 0.95, -1.35]],
-        [3, [0.55, 0.7, 0.95, -1.5]],
-        [3.5, [0.2, ground, 0.95, 0]],
-        [4.1, [-0.7, ground, 0.95, 0]],
-      );
-      blue.push(
-        [2.85, [0.65, ground, 0.95, 0]],
-        [3.2, [1.6, 0.75, 0.95, -1.3]],
-        [3.55, [1.9, ground, 0.95, -1.5]],
-        [4.1, [0.7, ground, 0.95, 0]],
-      );
-    } else {
-      red.push(
-        [2.55, [-0.3, ground, 0.95, 0.2]],
-        [2.95, [-0.3, 0.3, 0.95, -0.5]],
-        [3.3, [-0.3, ground, 0.95, 0.2]],
-        [4.1, [-0.7, ground, 0.95, 0]],
-      );
-      blue.push(
-        [2.55, [0.05, ground, 0.95, 0.2]],
-        [2.95, [-0.25, 1.35, 0.95, 1.5]],
-        [3.3, [-1.2, 0.8, 0.95, 3.3]],
-        [3.55, [-1.65, ground, 0.95, 4.7]],
-        [4.1, [0.7, ground, 0.95, Math.PI * 2]],
-      );
-    }
-    red.push(
-      [4.5, [-0.65, 0.6, 0.95, 0]],
-      [4.8, [-0.65, ground, 0.95, 0]],
-      [5.1, [-0.65, ground, 0.95, 0]],
-      [6.6, [player.position.x, ground, player.position.z, 0]],
-    );
-    blue.push(
-      [4.5, [0.65, 0.6, 0.95, Math.PI * 2 * (kind === 2 ? 1 : 0)]],
-      [4.8, [0.65, ground, 0.95, Math.PI * 2 * (kind === 2 ? 1 : 0)]],
-      [5.1, [0.65, ground, 0.95, 0]],
-      [6.6, [1.6, ground, -1.1, 0]],
-    );
-    place(player, poseAt(red, t));
-    place(challenger, poseAt(blue, t));
-    const entrance = smoothstep(0, 1.25, t) * (1 - smoothstep(5.25, 6.6, t));
-    challenger.scale.setScalar(Math.max(0.001, entrance));
-    spectator.scale.setScalar(Math.max(0.001, entrance * 0.85));
-    spectator.position.set(
-      -1.8,
-      ground + (reduced ? 0 : Math.abs(Math.sin(t * 5)) * 0.1),
-      1.45,
-    );
-    spectator.rotation.z = reduced ? 0.1 : Math.sin(t * 4) * 0.1;
-    const impact = kind === 0 ? (t < 3.3 ? 2.85 : 3.5) : kind === 1 ? 3 : 3.45;
-    const burst = (t - impact) / 0.55;
-    if (burst >= 0 && burst < 1) {
-      dust.visible = spark.visible = true;
-      const x = kind === 2 ? -1.5 : kind === 1 ? 1.4 : t < 3.3 ? 0.6 : -0.6;
-      dust.position.set(x, 0.37, 0.95);
-      puffs.forEach((puff, i) => {
-        const angle = (i * Math.PI) / 4;
-        puff.position.set(
-          Math.cos(angle) * burst * 0.7,
-          Math.sin(burst * Math.PI) * 0.2,
-          Math.sin(angle) * burst * 0.5,
+      // Pick randomly from the other moves, so a second press always brings a new beat.
+      kind =
+        kind < 0
+          ? Math.floor(Math.random() * 3)
+          : (kind + 1 + Math.floor(Math.random() * 2)) % 3;
+      returnX = player.group.position.x;
+      returnZ = player.group.position.z;
+      red = [
+        [0, at(returnX, 0, 0, 0, 0, 0, returnZ)],
+        [1.1, at(-0.72)],
+        [1.45, at(-0.78, 0, 0.12, 0.5)],
+      ];
+      blue = [
+        [0, at(1.65, 0, 0, 0, 0, 0, -1.1)],
+        [1.1, at(0.72)],
+        [1.45, at(0.72, 0, -0.06, 0.15)],
+      ];
+      if (kind === 0) {
+        // A springing bean bump, recoil, then a reply that the player ducks.
+        red.push(
+          [1.72, at(-0.86, 0, 0.18, 0.6)],
+          [1.94, at(0.07, 0.02, -0.4, 0.05, 1), "linear"],
+          [2.03, at(0.07, 0.02, -0.4, 0.05, 1)],
+          [2.35, at(-0.6, 0, 0, 0.1)],
+          [2.72, at(-0.72, 0, 0.3, 1)],
+          [3.04, at(-0.92, 0, 0.18, 0.75)],
+          [3.5, at(-0.76)],
+          [4.3, at(-0.76)],
         );
-        puff.scale.setScalar(1 - burst);
+        blue.push(
+          [1.94, at(0.62, 0, 0, 0.15)],
+          [2.15, at(1.05, 0.06, -0.48, 0, 0), "linear"],
+          [2.43, at(0.76, 0, -0.12, 0.6)],
+          [2.82, at(0.12, 0, 0.2, 0.05, 1), "linear"],
+          [3.02, at(0.12, 0, 0.15, 0.15, 0.6)],
+          [3.5, at(0.72)],
+          [4.3, at(0.72)],
+        );
+        impacts = [1.96];
+      } else if (kind === 1) {
+        // A low wind-up, a clean airborne kick, then separate landings and recovery.
+        red.push(
+          [1.68, at(-0.92, 0, 0.25, 0.85)],
+          [1.98, at(-0.52, 0.72, 0.35, 0, 0.2, 0.4), "linear"],
+          [2.15, at(0.2, 0.6, 0.85, 0, 0, 0.8), "linear"],
+          [2.26, at(0.62, 0.28, 1.05, 0, 0, 1), "linear"],
+          [2.32, at(0.64, 0.26, 1.05, 0, 0, 1)],
+          [2.68, at(0.3, 0.08, 0.25, 0, 0, 0.4), "linear"],
+          [2.8, at(0.2, 0, 0.08, 0.95)],
+          [3.25, at(-0.36)],
+          [4.3, at(-0.55)],
+        );
+        blue.push(
+          [2.26, at(0.67, 0, -0.1, 0.3)],
+          [2.48, at(1.28, 0.18, -0.85), "linear"],
+          [2.76, at(1.55, 0.04, -1.25), "linear"],
+          [3.05, at(1.55, 0.04, -1.25)],
+          [3.38, at(1.4, 0, -0.55, 0.8)],
+          [3.8, at(1.05)],
+          [4.3, at(0.85)],
+        );
+        impacts = [2.26, 2.78];
+      } else {
+        // The attacker commits; the defender drops their hips, turns and throws.
+        red.push(
+          [1.8, at(-0.67, 0, 0, 0.1)],
+          [2.08, at(-0.27, 0, 0.45, 0.85, 0.7)],
+          [2.13, at(-0.27, 0, 0.45, 0.85, 0.7)],
+          [2.22, at(-0.27, 0, 0.6, 0.7, 0.7)],
+          [2.4, at(-0.32, 0, 0.4, 0.5, 0.75)],
+          [2.62, at(-0.25, 0, 0.26, 0.2, 0.4)],
+          [3.1, at(0.05)],
+          [4.3, at(0.35)],
+        );
+        blue.push(
+          [1.7, at(0.85, 0, -0.18, 0.6)],
+          [2.08, at(-0.21, 0, 0.32, 0, 0.7, 0, 0.81), "linear"],
+          [2.13, at(-0.21, 0, 0.32, 0, 0.7, 0, 0.81)],
+          [2.22, at(-0.4, 0.27, 0.9, 0.2, 0.4, 0, 0.72), "linear"],
+          [2.4, at(-0.65, 0.65, 1.8, 0.2, 0.4, 0, 0.72), "linear"],
+          [2.52, at(-0.95, 0.85, 2.65, 0.3), "linear"],
+          [2.8, at(-1.45, 0.14, 4.65, 0.4), "linear"],
+          [3.15, at(-1.5, 0.04, 4.78)],
+          [3.65, at(-1.3, 0, 5.9, 0.8)],
+          [4.05, at(-1.1, 0, Math.PI * 2)],
+          [4.3, at(-1.1, 0, Math.PI * 2)],
+        );
+        impacts = [2.82];
+      }
+      red.push(
+        [5, at(returnX, 0, 0, 0, 0, 0, returnZ)],
+        [encounterDuration, at(returnX, 0, 0, 0, 0, 0, returnZ)],
+      );
+      const endTilt = kind === 2 ? Math.PI * 2 : 0;
+      blue.push(
+        [5.6, at(1.5, 0, endTilt, 0, 0, 0, -0.9)],
+        [encounterDuration, at(1.65, 0, endTilt, 0, 0, 0, -1.1)],
+      );
+    }
+    const t = reduced ? 1.4 : elapsed;
+    const walking = t < 1.1 || t > 4.3;
+    const stride = walking && !reduced ? Math.sin(t * 18) * 0.6 : 0;
+    place(player, sample(red, t), 1, stride);
+    place(challenger, sample(blue, t), -1, -stride);
+    const entrance = smoothstep(0, 0.35, t) * (1 - smoothstep(5.6, 6.2, t));
+    challenger.group.scale.setScalar(Math.max(0.001, entrance));
+    for (const hit of impacts) {
+      const age = t - hit;
+      if (age < 0 || age > 0.44) continue;
+      const p = age / 0.44;
+      dust.visible = true;
+      dust.position.set(challenger.group.position.x, ground, 1.05);
+      puffs.forEach((puff, i) => {
+        const angle = (i * Math.PI) / 3;
+        puff.position.set(
+          Math.cos(angle) * (0.12 + p * 0.35),
+          Math.sin(p * Math.PI) * 0.14,
+          Math.sin(angle) * (0.12 + p * 0.35),
+        );
+        puff.scale.setScalar(1 - p);
       });
-      spark.position.set(x, 1.35, 0.95);
-      spark.scale.setScalar(Math.sin(burst * Math.PI));
+      if (age < 0.12) {
+        impact.visible = true;
+        impact.position.copy(challenger.group.position);
+        impact.position.y += 0.45;
+        impact.scale.setScalar(1 + age * 2);
+      }
     }
   };
 }

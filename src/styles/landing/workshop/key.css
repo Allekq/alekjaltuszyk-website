@@ -6,10 +6,10 @@
 }
 .workshop-key summary {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  min-height: 380px;
-  gap: 5%;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 0;
 }
 .workshop-key__stage {
   height: 320px;
@@ -110,7 +110,7 @@
 }
 .workshop-key__invitation {
   display: block;
-  padding-block: 2rem;
+  padding: 2.8rem 1rem 1.4rem;
 }
 .workshop-key strong {
   display: block;
@@ -127,7 +127,7 @@
   width: fit-content;
   border-bottom: 1px solid var(--w-line);
   font-size: 0.8rem;
-  margin-top: 1.8rem;
+  margin: 1.2rem auto 0;
   padding-bottom: 0.5rem;
 }
 .workshop-key__hint > span:last-child {
@@ -136,26 +136,20 @@
   transition: rotate 0.3s;
 }
 .workshop-key[open] .workshop-key__hint > span:last-child {
-  rotate: -90deg;
+  rotate: 180deg;
 }
 .workshop-key__story {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5%;
-  padding: 0 0 3rem;
-}
-.workshop-key__story-mark {
-  justify-self: center;
-  font:
-    5rem Georgia,
-    serif;
-  color: #c0c5b1;
-  line-height: 1;
+  grid-template-columns: 1.25fr 0.8fr;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 56rem;
+  margin: 1rem auto 0;
+  padding: 1rem 1rem 3rem;
 }
 .workshop-key__story > div {
   max-width: 32rem;
-  border-top: 1px solid var(--w-line);
-  padding-top: 1.7rem;
+  padding-top: 0;
 }
 .workshop-key__story p:not(.w-eyebrow) {
   margin-top: 1rem;
@@ -190,17 +184,16 @@
     scale: 0.87;
   }
   .workshop-key__invitation {
-    padding: 1.4rem 1rem 2.2rem;
+    padding: 2rem 0 1.8rem;
   }
   .workshop-key strong {
-    font-size: 2.7rem;
+    font-size: clamp(2rem, 8vw, 2.7rem);
   }
   .workshop-key__story {
     grid-template-columns: 1fr;
-    padding: 0 1rem 2rem;
-  }
-  .workshop-key__story-mark {
-    display: none;
+    margin-top: 0.5rem;
+    padding: 0 0 2rem;
+    gap: 1.4rem;
   }
   .workshop-key__story p:not(.w-eyebrow) {
     font-size: 0.9rem;
@@ -241,5 +234,32 @@
   .workshop-key__click-cue {
     top: 6px;
     left: calc(50% - 115px);
+  }
+}
+
+.workshop-key__photo {
+  margin: 0;
+}
+.workshop-key__photo a {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.workshop-key__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.workshop-key__photo figcaption {
+  margin-top: 0.8rem;
+  color: var(--w-muted);
+  font: 0.62rem/1.6 var(--w-mono);
+}
+.workshop-key__photo figcaption span {
+  float: right;
+}
+@media (max-width: 48rem) {
+  .workshop-key__photo {
+    max-width: 26rem;
   }
 }

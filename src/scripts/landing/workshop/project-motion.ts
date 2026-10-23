@@ -6,27 +6,16 @@ export function setupProjectMotion() {
   ];
   if (!objects.length) return;
   const media = matchMedia("(prefers-reduced-motion: reduce)");
-  const controls = [
-    ...document.querySelectorAll<HTMLButtonElement>("[data-object-motion]"),
-  ];
   const states = objects.map((element) => ({
     element,
     visible: false,
     animations: [] as ReturnType<typeof objectAnimations>,
   }));
-  let paused = false;
   const events = new AbortController(),
     { signal } = events;
   const update = () => {
-    controls.forEach((button) => {
-      button.hidden = media.matches;
-      button.textContent = paused
-        ? "Play showcase motion"
-        : "Pause showcase motion";
-    });
     states.forEach((state) => {
-      const playing =
-        state.visible && !document.hidden && !paused && !media.matches;
+      const playing = state.visible && !document.hidden && !media.matches;
       if (state.visible && !state.animations.length && !media.matches)
         state.animations = objectAnimations(state.element);
       state.animations.forEach((animation) => {
@@ -50,16 +39,6 @@ export function setupProjectMotion() {
     { threshold: 0.1 },
   );
   objects.forEach((element) => observer.observe(element));
-  controls.forEach((button) =>
-    button.addEventListener(
-      "click",
-      () => {
-        paused = !paused;
-        update();
-      },
-      { signal },
-    ),
-  );
   media.addEventListener("change", update, { signal });
   document.addEventListener("visibilitychange", update, { signal });
   addEventListener("pageshow", update, { signal });
