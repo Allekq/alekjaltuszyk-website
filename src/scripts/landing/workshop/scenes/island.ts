@@ -9,6 +9,7 @@ import {
   type SpatialModel,
 } from "./shared";
 import { buildProgress } from "../geometry";
+import { createButterflies } from "./island-butterflies";
 
 /** An original miniature game world. Everything is local geometry, including the river. */
 export function createIsland(environment: THREE.Texture): SpatialModel {
@@ -49,6 +50,7 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
     end: number;
     lift: number;
     y: number;
+    drop: boolean;
   };
   const parts: Part[] = [];
   function assemble(
@@ -56,8 +58,9 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
     start: number,
     end: number,
     lift = 1.2,
+    drop = false,
   ) {
-    parts.push({ object, start, end, lift, y: object.position.y });
+    parts.push({ object, start, end, lift, y: object.position.y, drop });
     return object;
   }
   function group(x = 0, y = 0, z = 0) {
@@ -268,6 +271,7 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
     assemble(stone, 0.08 + i * 0.008, 0.24 + i * 0.008, 0.55);
   }
   const bridge = group(-0.02, 0.45, 0.55);
+  bridge.name = "island-bridge";
   for (let i = 0; i < 11; i++) {
     const x = -0.92 + i * 0.18,
       y = 0.13 * Math.sin((i / 10) * Math.PI);
@@ -282,20 +286,27 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
   }
   for (const z of [-0.44, 0.44]) {
     const railing = new THREE.Group();
+    railing.name = "island-railing";
     bridge.add(railing);
     for (const x of [-0.95, 0, 0.95])
-      cylinder(railing, 0.034, 0.52, [x, 0.19, z], mats.wood);
+      cylinder(
+        railing,
+        0.034,
+        0.44,
+        [x, 0.27 + (x === 0 ? 0.13 : 0), z],
+        mats.wood,
+      );
     line(
       railing,
       [
-        new THREE.Vector3(-0.95, 0.45, z),
-        new THREE.Vector3(0, 0.5, z),
-        new THREE.Vector3(0.95, 0.45, z),
+        new THREE.Vector3(-0.95, 0.49, z),
+        new THREE.Vector3(0, 0.62, z),
+        new THREE.Vector3(0.95, 0.49, z),
       ],
       0x94744e,
       0.023,
     );
-    assemble(railing, 0.32, 0.48, 0.65);
+    assemble(railing, 0.45, 0.58, 0.65, true);
   }
   // A roof with a real gable and separate ridge/tiles, rather than a painted box.
   function roof(
@@ -339,6 +350,7 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
   );
   assemble(foundation, 0.24, 0.4, 0.6);
   const walls = new THREE.Group();
+  walls.name = "island-walls";
   home.add(walls);
   block(walls, [1.64, 1.15, 1.4], [0, 0.66, 0], mats.cream, 0.025);
   for (const x of [-0.75, 0.75])
@@ -358,12 +370,14 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
   block(walls, [0.035, 0.33, 0.4], [0.875, 0.8, -0.1], mats.gold, 0.02);
   assemble(walls, 0.34, 0.57, 1.4);
   const roofing = new THREE.Group();
+  roofing.name = "island-roof";
+  roofing.position.y = 1.27;
   home.add(roofing);
-  roof(roofing, 2.05, 1.85, 1.22);
-  block(roofing, [0.28, 0.67, 0.29], [-0.43, 1.8, -0.4], mats.stone, 0.035);
-  block(roofing, [0.35, 0.09, 0.35], [-0.43, 2.14, -0.4], mats.cream, 0.025);
-  block(roofing, [0.22, 0.015, 0.22], [-0.43, 2.19, -0.4], mats.ink, 0.015);
-  assemble(roofing, 0.49, 0.69, 1.8);
+  roof(roofing, 2.05, 1.85, 0);
+  block(roofing, [0.28, 0.67, 0.29], [-0.43, 0.58, -0.4], mats.stone, 0.035);
+  block(roofing, [0.35, 0.09, 0.35], [-0.43, 0.92, -0.4], mats.cream, 0.025);
+  block(roofing, [0.22, 0.015, 0.22], [-0.43, 0.97, -0.4], mats.ink, 0.015);
+  assemble(roofing, 0.58, 0.75, 1.4);
   const porch = new THREE.Group();
   home.add(porch);
   for (let i = 0; i < 3; i++)
@@ -502,16 +516,18 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
   pennant.rotation.set(0, 0, Math.PI / 2);
   pennant.position.set(0, 0.86, 0);
   assemble(flag, 0.81, 0.98, 0.8);
+  const butterflies = createButterflies(root);
   return {
     ...model,
-    update({ progress, pointerX, pointerY, reduced }) {
+    update({ progress, pointerX, pointerY, reduced, time }) {
       const p = buildProgress(progress, reduced);
       for (const part of parts) {
         const t = smoothstep(part.start, part.end, p);
         part.object.visible = t > 0.001;
-        part.object.scale.setScalar(Math.max(0.001, t));
+        part.object.scale.setScalar(part.drop ? 1 : Math.max(0.001, t));
         part.object.position.y = part.y + (1 - t) * (1 - t) * part.lift;
       }
+      butterflies(time, p, reduced);
       root.rotation.set(
         pointerY * 0.025,
         -0.18 + progress * 0.13 + pointerX * 0.065,

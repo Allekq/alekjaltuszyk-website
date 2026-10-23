@@ -1,9 +1,19 @@
-.workshop-practice {
+.workshop-practice__stage {
   display: grid;
   grid-template-columns: 0.7fr 1.6fr;
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
   padding-block: clamp(3rem, 7vw, 6rem);
+}
+.workshop-practice[data-film-active] {
+  height: calc(100svh + clamp(1400px, 240svh, 2600px));
+}
+.workshop-practice[data-film-active] .workshop-practice__pin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  align-items: center;
 }
 .workshop-practice h2 {
   font-size: clamp(2.6rem, 4vw, 4.5rem);
@@ -38,7 +48,7 @@
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 3px;
+  border-radius: 6px;
   background: #d1d5ca;
 }
 .workshop-practice__frame img,
@@ -56,21 +66,57 @@
 .workshop-practice[data-film-ready] video {
   opacity: 1;
 }
+.workshop-practice__clock {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  display: grid;
+  gap: 0.22rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 12px;
+  color: #fffdf5;
+  background: rgb(30 38 31 / 82%);
+  font: 0.52rem/1.4 var(--w-mono);
+  visibility: hidden;
+}
+.workshop-practice__clock strong {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+.workshop-practice__clock small {
+  font-size: 0.65rem;
+}
+.workshop-practice[data-film-ready] .workshop-practice__clock {
+  visibility: visible;
+}
 .workshop-practice__film figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem;
   margin-top: 0.7rem;
   color: var(--w-muted);
   font:
     italic 0.8rem/1.6 Georgia,
     serif;
 }
+.workshop-practice__phase {
+  font: 0.58rem/1.8 var(--w-mono);
+  visibility: hidden;
+}
 .workshop-practice__track {
   display: block;
   visibility: hidden;
+  flex: 0 0 100%;
   height: 2px;
-  margin-top: 0.8rem;
+  margin-top: 0.4rem;
   background: var(--w-line);
 }
-.workshop-practice[data-film-ready] .workshop-practice__track {
+.workshop-practice[data-film-ready]
+  :is(.workshop-practice__track, .workshop-practice__phase) {
   visibility: visible;
 }
 .workshop-practice__track i {
@@ -81,9 +127,9 @@
   transform: scaleX(var(--film-progress, 0));
 }
 @media (max-width: 48rem) {
-  .workshop-practice {
+  .workshop-practice__stage {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 1.5rem;
   }
   .workshop-practice h2 {
     font-size: 2.8rem;
@@ -94,5 +140,28 @@
   }
   .workshop-practice__hint {
     margin-top: 0.8rem;
+  }
+  .workshop-practice__clock {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.43rem;
+  }
+  .workshop-practice__clock strong {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 48.001rem) and (max-height: 760px) {
+  .workshop-practice[data-film-active] .workshop-practice__frame {
+    max-height: 68svh;
+  }
+}
+@media (max-width: 48rem) and (max-height: 700px) {
+  .workshop-practice[data-film-active] .workshop-practice__stage {
+    padding-block: 1.5rem;
+    gap: 1rem;
+  }
+  .workshop-practice[data-film-active] .workshop-practice__frame {
+    max-height: 42svh;
   }
 }

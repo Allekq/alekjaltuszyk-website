@@ -299,3 +299,39 @@ and without JavaScript. The recording advances with scroll, stays paused,
 and performs no seeks while idle. Reduced motion, data-saving mode, disabled
 JavaScript and a failed video request all retain the real still photograph.
 Final phone and laptop previews were visually inspected.
+
+## Pinned movement and final world details — 2026-10-24
+
+The front-lever section uses a native sticky stage through the complete lift,
+hold and return. Its first frame waits until the stage reaches the viewport;
+the page releases after the final frame. A compact corner timer follows the
+hold segment. The 960 × 540 video is about 2.5 MB, silent and
+loaded near the section. Reduced motion, data saving, short viewports and
+unavailable video retain a compact still; scrolling is never intercepted.
+
+The asset gallery scrolls horizontally through Placer 3 PRO, PRPC and a real
+Alek AI gameplay capture. Each image has a single name-and-arrow pill linking
+to its product. The duplicate product callout is removed. Native disclosures
+use rounded pills, plus/minus indicators and progressive expansion transitions; the app-directory
+link keeps its navigation styling. Roam's public site is linked directly.
+
+The owner confirmed the revised procedural-generation, networked-collision,
+VR/enemy/vehicle AI and DOTS contributions, plus collaboration with teachers,
+AI-app founders and people who built or led Voodoo teams. DOTS is not presented
+as an Asset Store package feature. The changes describe contributions and
+introduce no new app capability, privacy, purchase or performance promise.
+
+The roof now scales around its eaves after the walls settle; bridge rails
+descend at their final dimensions after the deck is complete. Three small
+butterflies animate only when the completed island is on screen, and remain
+still with reduced motion. A geometry scan across intermediate build states
+confirmed positive roof-to-wall clearance and constant rail dimensions.
+
+Validation: Astro check reports no errors, warnings or hints; production build,
+legal consistency, publication boundaries and all nine workshop geometry tests
+pass. Layouts have no horizontal overflow at 320, 390, 768, 1024, 1366 and
+1440 px. The phone/laptop film stays at the same viewport position from first
+to last frame, then releases. It performs no seeks while idle and requests no
+video on initial load. Reduced motion, data saving, disabled JavaScript,
+unavailable video and short-screen fallbacks were checked; native keyboard
+disclosures remain usable. Final asset, film and island previews were inspected.
