@@ -52,3 +52,28 @@ export const buildProgress = (
   action: number,
   reduced = false,
 ) => (reduced ? 1 : Math.max(0, Math.min(1, scroll + (1 - scroll) * action)));
+
+/** Chapter starts are measured afresh so expanded details never desynchronise the rail. */
+export function timelinePosition(starts: number[], readingLine: number) {
+  if (!starts.length) return { active: -1, progress: 0 };
+  let active = 0;
+  starts.forEach((top, i) => {
+    if (top <= readingLine) active = i;
+  });
+  const last = starts.length - 1;
+  const between =
+    active < last
+      ? Math.max(
+          0,
+          Math.min(
+            1,
+            (readingLine - starts[active]) /
+              Math.max(1, starts[active + 1] - starts[active]),
+          ),
+        )
+      : 0;
+  return {
+    active,
+    progress: last ? Math.min(1, (active + between) / last) : 1,
+  };
+}

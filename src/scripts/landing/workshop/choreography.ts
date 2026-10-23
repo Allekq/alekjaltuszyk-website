@@ -1,46 +1,14 @@
+import { setupTimeline } from "./timeline";
+
 /** Scroll is native. Only illustration transforms follow it; public copy is never hidden. */
 export function setupChoreography() {
+  setupTimeline();
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
-  const chapters = [
-    ...document.querySelectorAll<HTMLElement>("[data-chapter]"),
-  ];
-  const timeline = document.querySelector<HTMLElement>("[data-timeline]");
   const climbing = document.querySelector<HTMLElement>(".workshop-climbing");
   const key = document.querySelector<HTMLDetailsElement>("[data-key-story]");
   let frame = 0;
   function update() {
     frame = 0;
-    if (timeline) {
-      const rect = timeline.getBoundingClientRect();
-      timeline.style.setProperty(
-        "--thread-progress",
-        String(
-          Math.max(
-            0,
-            Math.min(1, (innerHeight * 0.55 - rect.top) / rect.height),
-          ),
-        ),
-      );
-    }
-    chapters.forEach((chapter) => {
-      const rect = chapter.getBoundingClientRect(),
-        p = Math.max(
-          -1,
-          Math.min(
-            1,
-            (rect.top + Math.min(rect.height, 600) / 2 - innerHeight / 2) /
-              innerHeight,
-          ),
-        );
-      chapter.style.setProperty(
-        "--chapter-shift",
-        motion.matches ? "0px" : `${p * 48}px`,
-      );
-      chapter.classList.toggle(
-        "is-current",
-        rect.top < innerHeight * 0.65 && rect.bottom > innerHeight * 0.4,
-      );
-    });
     if (climbing) {
       const rect = climbing.getBoundingClientRect();
       if (rect.top < innerHeight && rect.bottom > 0)
@@ -58,8 +26,6 @@ export function setupChoreography() {
   addEventListener("scroll", request, { passive: true });
   addEventListener("resize", request, { passive: true });
   motion.addEventListener("change", request);
-  const resize = new ResizeObserver(request);
-  if (timeline) resize.observe(timeline);
   key?.addEventListener("toggle", () => {
     const hint = key.querySelector("[data-key-hint]");
     if (hint)

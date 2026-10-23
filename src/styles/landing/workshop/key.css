@@ -206,3 +206,40 @@
     font-size: 0.9rem;
   }
 }
+
+.workshop-key__click-cue {
+  position: absolute;
+  top: 7px;
+  left: calc(50% - 132px);
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+  pointer-events: none;
+  color: var(--w-accent);
+  transform: rotate(-8deg);
+  transition: opacity 0.2s;
+}
+.workshop-key__click-cue > span {
+  font:
+    italic 0.95rem Georgia,
+    serif;
+  white-space: nowrap;
+}
+.workshop-key__click-cue svg {
+  width: 72px;
+  height: 36px;
+  margin-top: 0.45rem;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.workshop-key[open] .workshop-key__click-cue {
+  opacity: 0;
+}
+@media (max-width: 48rem) {
+  .workshop-key__click-cue {
+    top: 6px;
+    left: calc(50% - 115px);
+  }
+}

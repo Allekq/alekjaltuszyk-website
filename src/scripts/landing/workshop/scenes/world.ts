@@ -152,7 +152,13 @@ export function createWorld(environment: THREE.Texture): SpatialModel {
           );
       const point = path.getPoint(p);
       player.position.copy(point);
-      player.rotation.y = p * 3;
+      const tangent = path.getTangent(p);
+      player.rotation.y = Math.atan2(tangent.x, tangent.z);
+      const stride = reduced ? 0 : Math.sin(p * 48);
+      body.position.y = 0.32 + Math.abs(stride) * 0.018;
+      head.position.y = 0.69 + Math.abs(stride) * 0.018;
+      body.rotation.z = stride * 0.025;
+      flag.rotation.y = reduced ? 0 : Math.sin(progress * 7) * 0.045;
       crate.rotation.y = reduced ? 0.3 : progress + action * 0.8;
       crate.rotation.z = reduced ? 0 : Math.sin(action * Math.PI) * 0.25;
       root.rotation.set(

@@ -4,6 +4,7 @@ import {
   approach,
   buildScrollProgress,
   buildProgress,
+  timelinePosition,
   sceneProgress,
   landscapeHeight,
   galleryAvailability,
@@ -97,4 +98,28 @@ test("finishing the world works at every scroll position and reduced motion is c
     assert.equal(buildProgress(scroll, 0, true), 1);
     assert.ok(buildProgress(scroll, 0.5) >= scroll);
   }
+});
+
+test("timeline identifies one chapter and preserves progress when details change its length", () => {
+  assert.deepEqual(timelinePosition([100, 700, 1300], 40), {
+    active: 0,
+    progress: 0,
+  });
+  assert.deepEqual(timelinePosition([-300, 300, 900], 0), {
+    active: 0,
+    progress: 0.25,
+  });
+  assert.deepEqual(timelinePosition([-600, 0, 600], 0), {
+    active: 1,
+    progress: 0.5,
+  });
+  assert.deepEqual(timelinePosition([-1200, -600, 0], 300), {
+    active: 2,
+    progress: 1,
+  });
+  assert.deepEqual(timelinePosition([-300, 900, 1500], 0), {
+    active: 0,
+    progress: 0.125,
+  });
+  assert.deepEqual(timelinePosition([], 0), { active: -1, progress: 0 });
 });
