@@ -1,0 +1,101 @@
+.workshop-intro__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4.5rem;
+}
+.workshop-intro .w-heading {
+  font-size: clamp(2.2rem, 3.3vw, 3.3rem);
+}
+.workshop-intro__body {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  max-width: 34rem;
+}
+.workshop-intro__body p + p {
+  margin-top: 1rem;
+  color: var(--w-muted);
+}
+.workshop-intro__body .w-text-link {
+  margin-top: 1rem;
+}
+.workshop-milestones {
+  list-style: none;
+  padding: 0;
+  margin: 3.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--w-line);
+  border-bottom: 1px solid var(--w-line);
+}
+.workshop-milestones li {
+  min-width: 0;
+  border-right: 1px solid var(--w-line);
+}
+.workshop-milestones li:last-child {
+  border-right: 0;
+}
+.workshop-milestones a {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1.8rem 1.7rem;
+  height: 100%;
+  transition: background 0.2s;
+}
+.workshop-milestones li:first-child a {
+  padding-left: 0;
+}
+.workshop-milestones a:hover {
+  background: #eae9df;
+}
+.workshop-milestones__value {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  letter-spacing: -0.07em;
+  line-height: 1.2;
+}
+.workshop-milestones__label {
+  color: var(--w-muted);
+  font-size: 0.68rem;
+  margin-top: 0.5rem;
+  max-width: 10rem;
+}
+.workshop-milestones__arrow {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 62rem) {
+  .workshop-intro__grid {
+    gap: 2rem;
+  }
+  .workshop-milestones a {
+    padding-inline: 1rem;
+  }
+  .workshop-milestones__arrow {
+    display: none;
+  }
+}
+@media (max-width: 48rem) {
+  .workshop-intro__grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+  .workshop-milestones {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2.2rem;
+  }
+  .workshop-milestones li:nth-child(2) {
+    border-right: 0;
+  }
+  .workshop-milestones li:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--w-line);
+  }
+  .workshop-milestones li:nth-child(3) a {
+    padding-left: 0;
+  }
+  .workshop-milestones__value {
+    font-size: 2.2rem;
+  }
+}

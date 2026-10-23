@@ -1,0 +1,74 @@
+---
+import SpatialScene from "../../ui/workshop/SpatialScene.astro";
+---
+
+<section
+  class="workshop-hero"
+  aria-labelledby="workshop-title"
+  data-world-story
+>
+  <div class="workshop-hero__stage w-container">
+    <div class="workshop-hero__copy">
+      <p class="w-eyebrow">
+        <span class="w-status-dot" aria-hidden="true"></span> Software engineer
+        & product builder
+      </p>
+      <h1 id="workshop-title">
+        Built with
+        <br />
+        <span>curiosity.</span>
+      </h1>
+      <p class="workshop-hero__summary">
+        Intelligence, behaviour, and a little useful pressure.
+        <br class="w-desktop-break" /> I turn complex systems into things that
+        feel good to use.
+      </p>
+      <a class="w-button" href="#work">
+        Take a look around <span aria-hidden="true">↘</span>
+      </a>
+    </div>
+    <div class="workshop-hero__track" data-world-track>
+      <div class="workshop-hero__exhibit">
+        <div class="workshop-hero__annotation">
+          <span class="w-eyebrow">A small world, made from scratch</span>
+          <span>Good things take a little building.</span>
+        </div>
+        <SpatialScene
+          scene="island"
+          caption="A little world of possibility."
+          action="Finish the world"
+        />
+        <div class="workshop-world__guide" data-world-guide hidden>
+          <p>
+            <span data-world-status>Start with a little possibility.</span>
+            <span class="workshop-world__scroll">Scroll to build ↓</span>
+          </p>
+          <ol aria-label="The world takes shape">
+            <li data-build-step="0">
+              <span>01</span> Groundwork
+            </li>
+            <li data-build-step="1">
+              <span>02</span> Connect
+            </li>
+            <li data-build-step="2">
+              <span>03</span> Build
+            </li>
+            <li data-build-step="3">
+              <span>04</span> Bring to life
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="workshop-hero__bottom">
+      <span>Independent thinking. Hands-on building.</span>
+      <a href="#about">
+        <span class="workshop-scroll-mark" aria-hidden="true">
+          ↓
+        </span>{" "}
+        Keep exploring
+      </a>
+      <span class="workshop-hero__location">Warsaw, Poland</span>
+    </div>
+  </div>
+</section>

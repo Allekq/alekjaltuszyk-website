@@ -1,4 +1,14 @@
 :root {
+  /* Personal homepage: isolated palette, shared by its section modules. */
+  --workshop-paper: #f5f3ed;
+  --workshop-ink: #242622;
+  --workshop-muted: #73756d;
+  --workshop-line: #d8d8ce;
+  --workshop-accent: #c53f28;
+  --workshop-panel: #eeeee5;
+  --workshop-radius: 1.25rem;
+  --workshop-gutter: clamp(1.25rem, 4.5vw, 5rem);
+  --workshop-ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
 
   --font-sans:

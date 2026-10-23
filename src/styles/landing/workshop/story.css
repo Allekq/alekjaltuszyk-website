@@ -1,0 +1,236 @@
+.workshop-history {
+  background: var(--w-paper);
+}
+.workshop-history__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+.workshop-history__heading > p {
+  padding-right: 8%;
+}
+.workshop-history__chapters {
+  position: relative;
+}
+.workshop-history__thread {
+  position: absolute;
+  top: 1.2rem;
+  bottom: 1rem;
+  left: 50%;
+  width: 1px;
+  background: var(--w-line);
+}
+.workshop-history__thread i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--w-accent);
+  transform: scaleY(var(--thread-progress, 0));
+  transform-origin: top;
+}
+.workshop-chapter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8%;
+  padding-block: 4rem 7rem;
+  position: relative;
+  align-items: center;
+}
+.workshop-chapter__marker {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--w-line);
+  background: var(--w-paper);
+  font: 0.65rem var(--w-mono);
+  color: var(--w-muted);
+  transition:
+    border-color 0.4s,
+    color 0.4s,
+    background 0.4s;
+  z-index: 1;
+}
+.workshop-chapter.is-current .workshop-chapter__marker {
+  color: var(--w-paper);
+  background: var(--w-accent);
+  border-color: var(--w-accent);
+}
+.workshop-chapter__body {
+  grid-column: 2;
+  grid-row: 1;
+  max-width: 32rem;
+  padding-inline: 1rem 0;
+}
+.workshop-chapter:nth-of-type(even) .workshop-chapter__body {
+  grid-column: 1;
+  padding-inline: 0 1rem;
+}
+.workshop-chapter__period {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.7rem;
+  font: 0.65rem var(--w-mono);
+}
+.workshop-chapter__period > span:first-child {
+  color: var(--w-accent);
+}
+.workshop-chapter__period > span:last-child {
+  color: var(--w-muted);
+}
+.workshop-chapter__body .w-eyebrow {
+  font-size: 0.57rem;
+  color: var(--w-muted);
+  max-width: 24rem;
+}
+.workshop-chapter__body h3 {
+  font-size: clamp(2rem, 3.25vw, 3.1rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+  margin-block: 0.9rem 1.3rem;
+  max-width: 11em;
+  text-wrap: balance;
+}
+.workshop-chapter__body > p:not(.w-eyebrow) {
+  font-size: 0.9rem;
+  color: #606758;
+  line-height: 1.85;
+}
+.workshop-chapter__art {
+  grid-column: 1;
+  grid-row: 1;
+  height: 460px;
+  position: relative;
+  background: radial-gradient(ellipse, #e9ecde 20%, #eff0e7 70%);
+  border: 1px solid #e0e1d5;
+  border-radius: 50% 50% 4px 4px;
+  transform: translateY(var(--chapter-shift, 0px));
+}
+.workshop-chapter:nth-of-type(even) .workshop-chapter__art {
+  grid-column: 2;
+  background: radial-gradient(ellipse, #dce5d8, #e8ece1);
+}
+.workshop-chapter:nth-of-type(3) .workshop-chapter__art {
+  background: radial-gradient(ellipse, #e9e1ce, #f0eade);
+}
+.workshop-chapter__art-note {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2rem;
+  text-align: center;
+  font:
+    italic 0.82rem Georgia,
+    serif;
+  color: var(--w-muted);
+}
+.workshop-details {
+  margin-top: 1.1rem;
+  font-size: 0.8rem;
+  line-height: 1.85;
+}
+.workshop-details summary {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  width: fit-content;
+  padding: 0.45rem 0;
+  font-weight: 500;
+  border-bottom: 1px solid var(--w-line);
+}
+.workshop-details summary > span {
+  color: var(--w-accent);
+  font-size: 1.2rem;
+}
+.workshop-details[open] summary > span {
+  transform: rotate(45deg);
+}
+.workshop-details ul {
+  padding-left: 1.2rem;
+  color: #606758;
+  margin: 0.7rem 0;
+}
+.workshop-details li + li {
+  margin-top: 0.7rem;
+}
+.workshop-details strong {
+  color: var(--w-ink);
+}
+.workshop-chapter__body > .w-text-link {
+  font-size: 0.73rem;
+  margin-top: 0.8rem;
+}
+@media (max-width: 62rem) {
+  .workshop-chapter__art {
+    height: 380px;
+  }
+  .workshop-chapter {
+    column-gap: 7%;
+  }
+}
+@media (max-width: 48rem) {
+  .workshop-history__heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1.3rem;
+    margin-bottom: 2rem;
+  }
+  .workshop-history__thread {
+    left: 0.75rem;
+  }
+  .workshop-chapter {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0 3.5rem 2.5rem;
+  }
+  .workshop-chapter__marker {
+    top: 2.3rem;
+    left: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.55rem;
+  }
+  .workshop-chapter .workshop-chapter__body,
+  .workshop-chapter:nth-of-type(even) .workshop-chapter__body {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+  }
+  .workshop-chapter .workshop-chapter__art,
+  .workshop-chapter:nth-of-type(even) .workshop-chapter__art {
+    grid-column: 1;
+    grid-row: 2;
+    height: 320px;
+    transform: none;
+  }
+  .workshop-chapter__period {
+    margin-bottom: 1.5rem;
+    padding-top: 0.25rem;
+    font-size: 0.6rem;
+  }
+  .workshop-chapter__body h3 {
+    font-size: 2.2rem;
+  }
+  .workshop-chapter__body > p:not(.w-eyebrow) {
+    font-size: 0.85rem;
+  }
+  .workshop-chapter__art-note {
+    font-size: 0.7rem;
+    bottom: -2.2rem;
+    max-width: 16rem;
+    margin-inline: auto;
+  }
+  .workshop-chapter .w-spatial__caption {
+    bottom: 3.8rem;
+    font-size: 0.47rem;
+  }
+}

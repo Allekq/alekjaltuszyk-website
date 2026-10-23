@@ -1,0 +1,361 @@
+/* Small, tangible metaphors for the products. All geometry remains visible without JS. */
+.project-object {
+  position: absolute;
+  inset: 10% 0 20%;
+  display: grid;
+  place-items: center;
+  perspective: 900px;
+  transform: translateY(var(--object-rise, 0px));
+}
+.project-object > div {
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--w-ease);
+}
+.plan-stack {
+  position: relative;
+  width: 190px;
+  height: 235px;
+  transform: rotateX(24deg) rotateY(-25deg) rotateZ(-10deg);
+}
+.plan-sheet {
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #fcfff4;
+  box-shadow:
+    3px 4px 0 #bdc5af,
+    9px 12px 18px #30412320;
+  background: #e5ebda;
+  font: 11px var(--w-mono);
+}
+.plan-sheet--back {
+  transform: translate3d(26px, -26px, -50px);
+  background: #aebd9c;
+}
+.plan-sheet--middle {
+  transform: translate3d(13px, -13px, -25px);
+  background: #cad5bb;
+}
+.plan-sheet > i {
+  display: block;
+  width: 70%;
+  height: 4px;
+  background: #64745540;
+  margin-top: 16px;
+  border-radius: 3px;
+}
+.plan-sheet--front {
+  background: linear-gradient(135deg, #fcfff4, #e8eedb);
+}
+.plan-sheet--front > span {
+  font:
+    20px/1.1 Georgia,
+    serif;
+  letter-spacing: -0.03em;
+}
+.plan-check {
+  border: 1px solid #a3b88f;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin: 20px auto;
+  font:
+    35px Georgia,
+    serif;
+  color: #466d35;
+  box-shadow:
+    inset 0 0 0 5px #f3f7e9,
+    inset 0 0 0 6px #b8c9a5;
+}
+.plan-progress {
+  height: 5px;
+  background: #dbe3d0;
+  border-radius: 10px;
+  margin-bottom: 13px;
+}
+.plan-progress i {
+  display: block;
+  width: 72%;
+  height: 100%;
+  background: #799865;
+  border-radius: 10px;
+}
+.plan-sheet small {
+  font-size: 7px;
+  letter-spacing: 0.08em;
+}
+.workshop-project__link:is(:hover, :focus-visible) .plan-stack {
+  transform: rotateX(12deg) rotateY(-12deg) rotateZ(-5deg) translateY(-10px);
+}
+.audio-book {
+  width: 180px;
+  height: 230px;
+  position: relative;
+  transform: rotateX(20deg) rotateY(-32deg) rotateZ(-10deg);
+}
+.audio-book__cover {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, #6d6189, #4c4067);
+  color: #f2eaff;
+  border: 1px solid #9588ae;
+  border-radius: 2px 9px 9px 2px;
+  padding: 23px 16px 15px 22px;
+  transform: translateZ(18px);
+  box-shadow: 0 2px 0 #2c2342;
+}
+.audio-book__cover small {
+  font: 7px var(--w-mono);
+  letter-spacing: 0.13em;
+}
+.audio-book__cover > span {
+  display: block;
+  font:
+    30px/1.08 Georgia,
+    serif;
+  letter-spacing: -0.04em;
+  margin-top: 13px;
+}
+.audio-book__cover svg {
+  width: 115px;
+  height: 70px;
+  margin-top: 15px;
+  stroke: #d7b9a3;
+  stroke-width: 2;
+  fill: none;
+}
+.audio-book__cover circle {
+  fill: #e9c8ad;
+}
+.audio-book__cover b {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-weight: 400;
+}
+.audio-book__pages {
+  position: absolute;
+  inset: 4px -1px -6px 5px;
+  background: repeating-linear-gradient(
+    0deg,
+    #d1cbbc 0px,
+    #d1cbbc 1px,
+    #f4efdf 1px,
+    #f4efdf 3px
+  );
+  transform: translateZ(7px);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 15px 23px 30px #30233c30;
+}
+.audio-book__spine {
+  position: absolute;
+  left: -13px;
+  width: 22px;
+  top: 0;
+  height: 100%;
+  background: #413650;
+  transform: rotateY(90deg);
+}
+.audio-book__bookmark {
+  position: absolute;
+  background: #c77551;
+  width: 19px;
+  height: 38px;
+  bottom: -21px;
+  right: 25px;
+  transform: translateZ(10px);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+}
+.workshop-project__link:is(:hover, :focus-visible) .audio-book {
+  transform: rotateX(10deg) rotateY(-18deg) rotateZ(-6deg) translateY(-9px);
+}
+.arcade-board {
+  width: 232px;
+  height: 232px;
+  padding: 15px;
+  background: #17221e;
+  border-radius: 21px;
+  border: 1px solid #435448;
+  box-shadow:
+    4px 9px 0 #101a17,
+    18px 32px 30px #101a1770;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  transform: rotateX(35deg) rotateY(-12deg) rotateZ(-25deg);
+}
+.arcade-key {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, #455a49, #2a3c30);
+  border: 1px solid #526953;
+  border-radius: 8px;
+  box-shadow: 0 5px 0 #111c15;
+  transform: translateZ(6px);
+  transition:
+    transform 0.5s var(--w-ease),
+    background 0.5s;
+}
+.arcade-key i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: #8faa6e40;
+}
+.arcade-key--lit {
+  background: linear-gradient(130deg, #d9ed8c, #96bc55);
+  border-color: #d6eea2;
+  box-shadow:
+    0 5px 0 #63853f,
+    0 0 22px #c1e47522;
+}
+.arcade-key--lit i {
+  background: #efffc6;
+  box-shadow: 0 0 10px #eeffb7;
+}
+.workshop-project__link:is(:hover, :focus-visible) .arcade-board {
+  transform: rotateX(25deg) rotateY(0deg) rotateZ(-15deg) translateY(-5px);
+}
+.workshop-project__link:is(:hover, :focus-visible) .arcade-key--lit {
+  transform: translateZ(14px);
+  transition-delay: calc(var(--i) * 12ms);
+}
+.voice-object {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  transform: rotateX(28deg) rotateY(-20deg) rotateZ(-8deg);
+}
+.voice-object__ring {
+  position: absolute;
+  inset: 20px;
+  border: 17px solid #98b7aa;
+  border-radius: 50%;
+  transform: translateZ(-15px);
+  box-shadow:
+    2px 9px 0 #6f9686,
+    13px 24px 28px #396c5722,
+    inset 0 3px 2px #537d66;
+}
+.voice-object__ring--outer {
+  inset: -3px;
+  border: 1px solid #7a9c8d75;
+  box-shadow: none;
+  transform: translateZ(-25px);
+}
+.voice-object__bars {
+  position: absolute;
+  inset: 30px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transform-style: preserve-3d;
+}
+.voice-object__bars i {
+  width: 10px;
+  height: var(--bar);
+  background: linear-gradient(90deg, #e8f1d9, #a8bfa0);
+  border-radius: 8px;
+  box-shadow: 3px 4px 0 #66896d;
+  transform: translateZ(25px);
+  transition: transform 0.6s var(--w-ease);
+}
+.voice-object > span {
+  position: absolute;
+  bottom: -12px;
+  left: 45px;
+  font:
+    italic 17px Georgia,
+    serif;
+}
+.workshop-project__link:is(:hover, :focus-visible) .voice-object {
+  transform: rotateX(15deg) rotateY(-5deg) rotateZ(-3deg) translateY(-5px);
+}
+.workshop-project__link:is(:hover, :focus-visible) .voice-object__bars i {
+  transform: translateZ(calc(30px + var(--i) * 2px));
+}
+.map-object {
+  position: relative;
+  width: 260px;
+  height: 220px;
+  transform: rotateX(36deg) rotateY(-15deg) rotateZ(-20deg);
+}
+.map-object__sheet {
+  position: absolute;
+  inset: 0;
+  background: #f4efd9;
+  box-shadow:
+    2px 6px 0 #c2bca5,
+    14px 22px 30px #705a2e28;
+  transform-style: preserve-3d;
+}
+.map-object__sheet svg {
+  width: 100%;
+  height: 100%;
+  fill: #bc593e;
+}
+.map-streets {
+  stroke: #d7d1b8;
+  stroke-width: 9;
+  fill: none;
+}
+.map-park {
+  fill: #b7c4a0;
+}
+.map-route {
+  stroke: #b85c3b;
+  stroke-width: 4;
+  fill: none;
+  stroke-dasharray: 5 4;
+}
+.map-object__sheet i {
+  position: absolute;
+  inset: 0 auto 0 33%;
+  width: 33%;
+  background: linear-gradient(90deg, #b3a78028, transparent);
+  border-left: 1px solid #c0b79880;
+}
+.map-object__sheet i:last-child {
+  left: 66%;
+}
+.map-object__pin {
+  position: absolute;
+  right: 12px;
+  top: -12px;
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  background: #ba583b;
+  color: #fff3d6;
+  border-radius: 50% 50% 50% 8%;
+  transform: translateZ(30px) rotate(-45deg);
+  box-shadow:
+    -4px 4px 0 #7f3d2b,
+    -11px 13px 20px #65382620;
+}
+.map-object__pin span {
+  transform: rotate(45deg);
+  font-size: 32px;
+}
+.map-object__coordinate {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  font:
+    italic 15px Georgia,
+    serif;
+}
+.workshop-project__link:is(:hover, :focus-visible) .map-object {
+  transform: rotateX(20deg) rotateY(-5deg) rotateZ(-12deg) translateY(-8px);
+}
+@media (max-width: 48rem) {
+  .project-object {
+    scale: 0.9;
+  }
+}

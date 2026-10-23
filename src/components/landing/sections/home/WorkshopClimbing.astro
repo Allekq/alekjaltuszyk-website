@@ -1,0 +1,53 @@
+---
+import { withBase } from "../../../../lib/paths";
+import { homeSkills } from "../home-profile-content";
+const climbing = homeSkills.find(({ id }) => id === "climber");
+---
+
+<section class="workshop-climbing" id="beyond" aria-labelledby="beyond-title">
+  <img
+    class="workshop-climbing__photo"
+    src={withBase("/media/home/skills-climbing-photo.png")}
+    alt="Alek Jałtuszyk climbing beneath an overhanging rock face."
+    width="900"
+    height="600"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="workshop-climbing__inner w-container">
+    <div class="w-section-label">
+      <span class="w-section-number">05</span>
+      <p class="w-eyebrow">Beyond the screen</p>
+      <span class="w-rule"></span>
+    </div>
+    <div class="workshop-climbing__copy">
+      <span class="workshop-climbing__grade">
+        7c<span>MAX BOULDER GRADE</span>
+      </span>
+      <h2 id="beyond-title">
+        Different wall.
+        <br />
+        Same curiosity.
+      </h2>
+      <p>
+        Some problems are better solved
+        <br />
+        with chalk on your hands.
+      </p>
+    </div>
+    {climbing && (
+      <details class="workshop-climbing__details">
+        <summary>
+          Climbing, competition & patient practice{" "}
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>{climbing.summary}</p>
+        <ul>
+          {climbing.highlights.map((highlight) => (
+            <li>{highlight}</li>
+          ))}
+        </ul>
+      </details>
+    )}
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+import { apps, releaseStatusSentence } from "../../../../lib/appState";
+import { siteConfig } from "../../../../config/site";
+import ProjectCard from "../../ui/workshop/ProjectCard.astro";
+---
+
+<section
+  class="workshop-projects w-section"
+  id="work"
+  aria-labelledby="work-title"
+>
+  <div class="w-container">
+    <div class="w-section-label">
+      <span class="w-section-number">02</span>
+      <p class="w-eyebrow">Independent experiments. Real products.</p>
+      <span class="w-rule"></span>
+    </div>
+    <div class="workshop-projects__heading">
+      <div>
+        <h2 class="w-heading" id="work-title">
+          Curiosity, <em>shipped.</em>
+        </h2>
+        <p class="w-section-description">
+          Different problems. The same urge to make something useful.
+        </p>
+      </div>
+      <div class="workshop-projects__controls" data-gallery-controls hidden>
+        <button
+          class="w-round-button"
+          type="button"
+          aria-label="Previous projects"
+          data-gallery-previous
+        >
+          ←
+        </button>
+        <button
+          class="w-round-button"
+          type="button"
+          aria-label="Next projects"
+          data-gallery-next
+        >
+          →
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="workshop-gallery"
+    data-workshop-gallery
+    tabindex="0"
+    role="region"
+    aria-label="App projects; scroll horizontally to explore"
+  >
+    {apps.map((app, index) => (
+      <ProjectCard app={app} index={index} total={apps.length} />
+    ))}
+  </div>
+  <div class="workshop-projects__foot w-container">
+    <p>{releaseStatusSentence}</p>
+    <a class="w-text-link" href={siteConfig.appsHref}>
+      The app directory <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>

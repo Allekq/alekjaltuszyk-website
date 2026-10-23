@@ -1,0 +1,60 @@
+---
+import { homeMilestones } from "../home-profile-content";
+import { platformNameList } from "../../../../lib/appState";
+---
+
+<section
+  class="workshop-intro w-container w-section"
+  id="about"
+  aria-labelledby="about-title"
+>
+  <div class="w-section-label">
+    <span class="w-section-number">01</span>
+    <p class="w-eyebrow">A little introduction</p>
+    <span class="w-rule"></span>
+  </div>
+  <div class="workshop-intro__grid">
+    <h2 class="w-heading" id="about-title">
+      A builder by instinct.
+      <br />
+      <span class="w-muted">An explorer at heart.</span>
+    </h2>
+    <div class="workshop-intro__body">
+      <p>
+        I’m Alek. I learned to program by building and selling Unity tools. That
+        curiosity took me into gameplay and AI systems at Roam AI, and into
+        making products of my own.
+      </p>
+      <p>
+        Today, I build for {platformNameList}, connect AI to useful product
+        systems, and still love getting deep into Unity and C#. Away from the
+        screen, you’ll usually find me working out the next move on a climbing
+        wall.
+      </p>
+      <a class="w-text-link" href="#history">
+        Follow the thread <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+  <ul class="workshop-milestones">
+    {homeMilestones.map((item) => (
+      <li>
+        <a
+          href={
+            item.id === "apps"
+              ? "#work"
+              : item.historyId
+                ? `#${item.historyId}`
+                : "#beyond"
+          }
+        >
+          <span class="workshop-milestones__value">{item.value}</span>
+          <span class="workshop-milestones__label">{item.label}</span>
+          <span class="workshop-milestones__arrow" aria-hidden="true">
+            ↗
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>

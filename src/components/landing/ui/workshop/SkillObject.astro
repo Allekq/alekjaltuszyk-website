@@ -1,0 +1,47 @@
+---
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<div class:list={["skill-object", `skill-object--${id}`]} aria-hidden="true">
+  {id === "unity" && (
+    <div class="skill-terrain">
+      {Array.from({ length: 25 }, (_, i) => (
+        <i
+          style={`--x:${i % 5};--y:${Math.floor(i / 5)};--h:${[16, 32, 18, 40, 24, 25, 52, 68, 55, 30, 20, 38, 90, 60, 32, 16, 30, 45, 35, 22, 12, 18, 24, 20, 12][i]}px`}
+        ></i>
+      ))}
+    </div>
+  )}
+  {id === "csharp" && (
+    <div class="skill-modules">
+      <div>
+        <span>interface</span>
+        <b>IExperience</b>
+      </div>
+      <div>
+        <span>compose</span>
+        <b>Systems&lt;T&gt;</b>
+      </div>
+      <div>
+        <span>implement</span>
+        <b>MakeItWork()</b>
+      </div>
+    </div>
+  )}
+  {id === "ai" && (
+    <div class="skill-ai">
+      <div class="skill-ai__input">
+        an idea<span>↘</span>
+      </div>
+      <div class="skill-ai__core">
+        <span>{"{ }"}</span>
+      </div>
+      <div class="skill-ai__output">
+        <i>✓</i> validated state
+      </div>
+    </div>
+  )}
+</div>

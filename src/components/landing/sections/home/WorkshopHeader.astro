@@ -1,0 +1,34 @@
+---
+import { siteConfig } from "../../../../config/site";
+import { siteRoutes } from "../../../../config/routes";
+interface Props {
+  directory?: boolean;
+}
+const { directory = false } = Astro.props;
+const anchor = (id: string) =>
+  directory ? `${siteRoutes.home.href}#${id}` : `#${id}`;
+---
+
+<header class="workshop-header w-container">
+  <a
+    class="workshop-brand"
+    href={directory ? siteRoutes.home.href : "#top"}
+    aria-label={`${siteConfig.preferredName}, home`}
+  >
+    <span>
+      {siteConfig.preferredName}
+      <small>Engineer / Maker / Climber</small>
+    </span>
+  </a>
+  <nav class="workshop-nav" aria-label="Main navigation">
+    <a href={anchor("work")}>The work</a>
+    <a href={anchor("history")}>The story</a>
+    <a href={anchor("beyond")}>Beyond code</a>
+  </nav>
+  <a
+    class="workshop-header__contact"
+    href={directory ? siteRoutes.home.href : siteConfig.appsHref}
+  >
+    {directory ? "Back home" : "Explore apps"} <span aria-hidden="true">↗</span>
+  </a>
+</header>
