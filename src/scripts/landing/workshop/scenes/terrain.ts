@@ -28,7 +28,7 @@ export function createLandscape(environment: THREE.Texture): SpatialModel {
   const geo = new THREE.BoxGeometry(0.47, 1, 0.47);
   for (let x = -6; x <= 6; x++)
     for (let z = -6; z <= 6; z++) {
-      const mesh = new THREE.Mesh(geo, earth[0]);
+      const mesh = new THREE.Mesh(geo, earth[0].clone());
       mesh.castShadow = true;
       mesh.receiveShadow = true;
       mesh.position.set(x * 0.49, 0, z * 0.49);
@@ -69,41 +69,54 @@ export function createLandscape(environment: THREE.Texture): SpatialModel {
     0.01,
   );
   let seed = -1;
-  const heights = new Map<string, number>();
+  const heights = new Map<string, { from: number; to: number }>();
+  const appearance = (h: number) =>
+    h < 0.15 ? water : h > 1.5 ? rock : earth[Math.min(4, Math.floor(h * 2.7))];
   return {
     ...model,
     update({ progress, pointerX, pointerY, action, reduced }) {
-      const variant = Math.round(action);
+      const variant = Math.floor(action);
       if (seed !== variant) {
         seed = variant;
-        tiles.forEach(({ mesh, x, z }) => {
-          const h = landscapeHeight(x, z, seed);
-          heights.set(`${x},${z}`, h);
-          mesh.material =
-            h < 0.15
-              ? water
-              : h > 1.5
-                ? rock
-                : earth[Math.min(4, Math.floor(h * 2.7))];
+        tiles.forEach(({ x, z }) => {
+          heights.set(`${x},${z}`, {
+            from: landscapeHeight(x, z, seed),
+            to: landscapeHeight(x, z, seed + 1),
+          });
         });
       }
-      const growth = reduced
-        ? 1
-        : 0.35 + 0.65 * smoothstep(0.08, 0.6, progress);
+      const mix = smoothstep(0, 1, action - variant);
+      const heightAt = (x: number, z: number) => {
+        const h = heights.get(`${x},${z}`)!;
+        return THREE.MathUtils.lerp(h.from, h.to, mix);
+      };
+      const growthAt = (x: number, z: number) =>
+        reduced
+          ? 1
+          : 0.32 + 0.68 * smoothstep(0.08, 0.64, progress - (x + z) * 0.004);
       tiles.forEach(({ mesh, x, z }) => {
-        const h = heights.get(`${x},${z}`)! * growth;
-        mesh.scale.y = h;
-        mesh.position.y = h / 2;
+        const h = heights.get(`${x},${z}`)!;
+        const from = appearance(h.from),
+          to = appearance(h.to);
+        const mat = mesh.material as THREE.MeshStandardMaterial;
+        mat.color.lerpColors(from.color, to.color, mix);
+        mat.roughness = THREE.MathUtils.lerp(from.roughness, to.roughness, mix);
+        mat.metalness = THREE.MathUtils.lerp(from.metalness, to.metalness, mix);
+        const height = heightAt(x, z) * growthAt(x, z);
+        mesh.scale.y = height;
+        mesh.position.y = height / 2;
       });
       trees.forEach(({ group, x, z }) => {
-        const h = heights.get(`${x},${z}`)!;
+        const h = heightAt(x, z),
+          growth = growthAt(x, z);
         group.position.set(x * 0.49, h * growth, z * 0.49);
-        group.visible = h > 0.16;
-        group.scale.setScalar(0.8 + growth * 0.2);
+        const emergence = smoothstep(0.14, 0.3, h);
+        group.visible = emergence > 0.001;
+        group.scale.setScalar((0.8 + growth * 0.2) * emergence);
       });
-      marker.position.set(-2.45, heights.get("-5,1")! * growth, 0.49);
+      marker.position.set(-2.45, heightAt(-5, 1) * growthAt(-5, 1), 0.49);
       root.rotation.y =
-        -0.2 + (reduced ? 0 : (progress - 0.5) * 0.48) + pointerX * 0.12;
+        -0.2 + (reduced ? 0 : (progress - 0.5) * 0.66) + pointerX * 0.12;
       root.rotation.x = pointerY * 0.04;
     },
   };

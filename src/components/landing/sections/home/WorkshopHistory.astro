@@ -2,6 +2,7 @@
 import { homeTimeline } from "../home-profile-content";
 import SpatialScene from "../../ui/workshop/SpatialScene.astro";
 const scenes = ["terrain", "world", "products"] as const;
+const chapterNames = ["Tools", "Worlds", "Products"];
 const captions = [
   "01 / Build the tools",
   "02 / Bring a world to life",
@@ -34,81 +35,105 @@ const captions = [
         Still learning by making.
       </p>
     </div>
-    <div class="workshop-history__chapters" data-timeline>
-      <div class="workshop-history__thread" aria-hidden="true">
-        <i></i>
-      </div>
-      {homeTimeline.map((entry, index) => (
-        <article class="workshop-chapter" id={entry.id} data-chapter>
-          <div class="workshop-chapter__marker">
-            <span>{String(index + 1).padStart(2, "0")}</span>
-          </div>
-          <div class="workshop-chapter__body">
-            <div class="workshop-chapter__period">
-              <span>{entry.period}</span>
-              <span>{entry.label}</span>
+    <div class="workshop-history__layout" data-timeline>
+      <nav class="workshop-history__nav" aria-label="Timeline chapters">
+        <span class="workshop-history__nav-label" aria-hidden="true">
+          Follow the thread
+        </span>
+        <div class="workshop-history__stops">
+          <span class="workshop-history__rail" aria-hidden="true">
+            <i></i>
+            <b></b>
+          </span>
+          {homeTimeline.map((entry, index) => (
+            <a
+              href={`#${entry.id}`}
+              data-timeline-link
+              aria-label={`${chapterNames[index]}: ${entry.label}`}
+            >
+              <span class="workshop-history__stop-number" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span class="workshop-history__stop-label">
+                {chapterNames[index]}
+              </span>
+            </a>
+          ))}
+        </div>
+        <span class="workshop-history__nav-label" aria-hidden="true">
+          {homeTimeline[0].period.split("-")[0]} — now
+        </span>
+      </nav>
+      <div class="workshop-history__chapters">
+        {homeTimeline.map((entry, index) => (
+          <article class="workshop-chapter" id={entry.id} data-chapter>
+            <div class="workshop-chapter__body">
+              <div class="workshop-chapter__period">
+                <span>{entry.period}</span>
+                <span>{entry.label}</span>
+              </div>
+              <p class="w-eyebrow">{entry.role}</p>
+              <h3>{entry.title}</h3>
+              <p>{entry.summary}</p>
+              <details class="workshop-details">
+                <summary>
+                  The details <span aria-hidden="true">+</span>
+                </summary>
+                <ul>
+                  {entry.highlights.map((highlight) => (
+                    <li>
+                      {typeof highlight === "string" ? (
+                        highlight
+                      ) : (
+                        <>
+                          <strong>{highlight.title}</strong>
+                          <p>{highlight.description}</p>
+                          <ul>
+                            {highlight.details.map((detail) => (
+                              <li>{detail}</li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+              {entry.href && (
+                <a
+                  class="w-text-link"
+                  href={entry.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Explore Alek Games <span aria-hidden="true">↗</span>
+                  <span class="w-sr-only"> (opens in a new tab)</span>
+                </a>
+              )}
             </div>
-            <p class="w-eyebrow">{entry.role}</p>
-            <h3>{entry.title}</h3>
-            <p>{entry.summary}</p>
-            <details class="workshop-details">
-              <summary>
-                The details <span aria-hidden="true">+</span>
-              </summary>
-              <ul>
-                {entry.highlights.map((highlight) => (
-                  <li>
-                    {typeof highlight === "string" ? (
-                      highlight
-                    ) : (
-                      <>
-                        <strong>{highlight.title}</strong>
-                        <p>{highlight.description}</p>
-                        <ul>
-                          {highlight.details.map((detail) => (
-                            <li>{detail}</li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </details>
-            {entry.href && (
-              <a
-                class="w-text-link"
-                href={entry.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Explore Alek Games <span aria-hidden="true">↗</span>
-                <span class="w-sr-only"> (opens in a new tab)</span>
-              </a>
-            )}
-          </div>
-          <div class="workshop-chapter__art">
-            <SpatialScene
-              scene={scenes[index]}
-              caption={captions[index]}
-              action={
-                index === 0
-                  ? "Another landscape"
-                  : index === 1
-                    ? "Set it in motion"
-                    : "A different angle"
-              }
-            />
-            <span class="workshop-chapter__art-note">
-              {index === 1
-                ? "A world-building study, inspired by the work."
-                : index === 0
-                  ? "A procedural landscape. A different possibility every time."
-                  : "Small surfaces. Whole systems underneath."}
-            </span>
-          </div>
-        </article>
-      ))}
+            <div class="workshop-chapter__art">
+              <SpatialScene
+                scene={scenes[index]}
+                caption={captions[index]}
+                action={
+                  index === 0
+                    ? "Another landscape"
+                    : index === 1
+                      ? "Set it in motion"
+                      : "Set the apps in motion"
+                }
+              />
+              <span class="workshop-chapter__art-note">
+                {index === 1
+                  ? "A world-building study, inspired by the work."
+                  : index === 0
+                    ? "A procedural landscape. A different possibility every time."
+                    : "Small surfaces. Whole systems underneath."}
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   </div>
 </section>

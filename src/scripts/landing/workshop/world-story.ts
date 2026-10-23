@@ -21,9 +21,19 @@ export function worldStory(element: HTMLElement) {
     "Now it feels like a world.",
   ];
   let phase = -1;
+  function enhance(enabled: boolean) {
+    if (story.classList.contains("is-world-ready") === enabled) return;
+    const before = story.getBoundingClientRect();
+    story.classList.toggle("is-world-ready", enabled);
+    // A deferred renderer must not move a reader who arrived through a chapter link.
+    if (before.bottom <= 0) {
+      const shift = story.getBoundingClientRect().bottom - before.bottom;
+      if (shift) scrollBy({ top: shift, behavior: "instant" });
+    }
+  }
   return {
     enable() {
-      story.classList.add("is-world-ready");
+      enhance(true);
       guide.hidden = false;
     },
     progress() {
@@ -64,7 +74,7 @@ export function worldStory(element: HTMLElement) {
             : "Finish the world";
     },
     fallback() {
-      story.classList.remove("is-world-ready");
+      enhance(false);
       guide.hidden = true;
     },
   };
