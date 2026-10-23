@@ -1,7 +1,7 @@
 ---
 import { withBase } from "../../../../lib/paths";
 interface Props {
-  scene: "device" | "terrain" | "world" | "products";
+  scene: "island" | "terrain" | "world" | "products";
   caption: string;
   action?: string;
 }
@@ -19,7 +19,7 @@ const { scene, caption, action } = Astro.props;
       alt=""
       width="800"
       height="700"
-      loading={scene === "device" ? "eager" : "lazy"}
+      loading={scene === "island" ? "eager" : "lazy"}
     />
     <canvas class="w-spatial__canvas"></canvas>
   </div>

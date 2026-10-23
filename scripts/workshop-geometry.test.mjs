@@ -2,6 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   approach,
+  buildScrollProgress,
+  buildProgress,
   sceneProgress,
   landscapeHeight,
   galleryAvailability,
@@ -70,4 +72,29 @@ test("gallery controls account for ends, fractional scroll and fitting content",
     previous: false,
     next: false,
   });
+});
+
+test("world build spans the sticky travel on both phone and laptop without overshooting", () => {
+  for (const [track, scene] of [
+    [1570, 850],
+    [1072, 549],
+    [900, 450],
+  ]) {
+    const travel = track - scene;
+    assert.equal(buildScrollProgress(100, track, scene), 0);
+    assert.equal(buildScrollProgress(0, track, scene), 0);
+    assert.equal(buildScrollProgress(-travel / 2, track, scene), 0.5);
+    assert.equal(buildScrollProgress(-travel, track, scene), 1);
+    assert.equal(buildScrollProgress(-travel * 2, track, scene), 1);
+  }
+  assert.ok(Number.isFinite(buildScrollProgress(0, 500, 500)));
+});
+
+test("finishing the world works at every scroll position and reduced motion is complete", () => {
+  for (const scroll of [0, 0.2, 0.6, 1]) {
+    assert.equal(buildProgress(scroll, 1), 1);
+    assert.equal(buildProgress(scroll, 0), scroll);
+    assert.equal(buildProgress(scroll, 0, true), 1);
+    assert.ok(buildProgress(scroll, 0.5) >= scroll);
+  }
 });

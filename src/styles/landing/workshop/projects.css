@@ -38,6 +38,7 @@
   transform-origin: center;
 }
 .workshop-project__link {
+  position: relative;
   display: block;
 }
 .workshop-project__visual {

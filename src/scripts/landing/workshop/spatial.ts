@@ -1,14 +1,15 @@
 import * as THREE from "three";
 import { approach, sceneProgress } from "./geometry";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import { createDevice } from "./scenes/device";
+import { createIsland } from "./scenes/island";
+import { worldStory } from "./world-story";
 import { createLandscape } from "./scenes/terrain";
 import { createWorld } from "./scenes/world";
 import { createProducts } from "./scenes/products";
 import type { SceneInput, SpatialModel } from "./scenes/shared";
 
 const builders = {
-  device: createDevice,
+  island: createIsland,
   terrain: createLandscape,
   world: createWorld,
   products: createProducts,
@@ -19,6 +20,7 @@ interface View {
   canvas: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
   model?: SpatialModel;
+  story?: ReturnType<typeof worldStory>;
   name: SceneName;
   visible: boolean;
   action: number;
@@ -81,12 +83,16 @@ export function setupSpatialScenes() {
         canvas,
         context,
         name: element.dataset.spatialScene as SceneName,
+        story:
+          element.dataset.spatialScene === "island"
+            ? worldStory(element)
+            : undefined,
         visible: false,
         action: 0,
         x: 0,
         y: 0,
         current: {
-          progress: 0.25,
+          progress: element.dataset.spatialScene === "island" ? 0 : 0.25,
           pointerX: 0,
           pointerY: 0,
           action: 0,
@@ -104,7 +110,8 @@ export function setupSpatialScenes() {
     failed = true;
     cancelAnimationFrame(frame);
     frame = 0;
-    views.forEach(({ element }) => {
+    views.forEach(({ element, story }) => {
+      story?.fallback();
       element.classList.remove("is-rendered");
       const button = element.querySelector<HTMLButtonElement>("button");
       if (button) button.hidden = true;
@@ -117,6 +124,7 @@ export function setupSpatialScenes() {
     let unsettled = false;
     for (const view of views) {
       if (!view.visible) continue;
+      view.story?.enable();
       const rect = view.canvas.getBoundingClientRect();
       if (
         !rect.width ||
@@ -127,9 +135,11 @@ export function setupSpatialScenes() {
         continue;
       try {
         if (!view.model) view.model = builders[view.name](environment.texture);
-        const progress = sceneProgress(rect.top, rect.height, innerHeight);
+        const progress =
+          view.story?.progress() ??
+          sceneProgress(rect.top, rect.height, innerHeight);
         const target = {
-          progress: media.matches ? 0.6 : progress,
+          progress: media.matches && !view.story ? 0.6 : progress,
           pointerX: media.matches ? 0 : view.x,
           pointerY: media.matches ? 0 : view.y,
           action: view.action,
@@ -166,6 +176,11 @@ export function setupSpatialScenes() {
         if (size.x !== width || size.y !== height)
           renderer.setSize(width, height, false);
         view.model.camera.aspect = rect.width / rect.height;
+        // Keep the whole island inside tall phone canvases, including its shadows.
+        view.model.camera.zoom =
+          view.name === "island"
+            ? Math.min(1, view.model.camera.aspect / 1.02)
+            : 1;
         view.model.camera.updateProjectionMatrix();
         renderer.render(view.model.scene, view.model.camera);
         view.context.clearRect(0, 0, width, height);
@@ -173,6 +188,7 @@ export function setupSpatialScenes() {
         view.element.classList.add("is-rendered");
         const button = view.element.querySelector<HTMLButtonElement>("button");
         if (button) button.hidden = false;
+        view.story?.update(view.current.progress, view.current.action);
       } catch {
         showFallback();
         break;
@@ -218,13 +234,10 @@ export function setupSpatialScenes() {
     button?.addEventListener(
       "click",
       () => {
+        if (view.action === 0 && view.story?.replay()) return;
         view.action =
           view.name === "terrain" ? view.action + 1 : 1 - view.action;
         button.setAttribute("aria-pressed", String(view.action % 2 === 1));
-        if (view.name === "device")
-          button.querySelector("[data-action-label]")!.textContent = view.action
-            ? "Take it apart"
-            : "Put it together";
         request();
       },
       { signal },

@@ -38,3 +38,17 @@ export const galleryAvailability = (
   previous: left > 2,
   next: left + width < total - 2,
 });
+
+/** A short native scroll track, independent of viewport or sticky element position. */
+export const buildScrollProgress = (
+  top: number,
+  trackHeight: number,
+  sceneHeight: number,
+) => Math.max(0, Math.min(1, -top / Math.max(1, trackHeight - sceneHeight)));
+
+/** The accessible button can finish the world at any scroll position. */
+export const buildProgress = (
+  scroll: number,
+  action: number,
+  reduced = false,
+) => (reduced ? 1 : Math.max(0, Math.min(1, scroll + (1 - scroll) * action)));
