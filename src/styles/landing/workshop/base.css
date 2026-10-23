@@ -1,0 +1,305 @@
+.is-workshop-page:has(.workshop) {
+  background: var(--workshop-paper);
+}
+.is-workshop-page:has(.workshop) .site-frame {
+  padding: 0;
+  max-width: none;
+}
+.is-workshop-page .site-backdrop {
+  display: none;
+}
+.workshop {
+  background: var(--workshop-paper);
+  color: var(--workshop-ink);
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow: clip;
+  --w-paper: var(--workshop-paper);
+  --w-ink: var(--workshop-ink);
+  --w-muted: var(--workshop-muted);
+  --w-line: var(--workshop-line);
+  --w-accent: var(--workshop-accent);
+  --w-panel: var(--workshop-panel);
+  --w-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --w-ease: var(--workshop-ease);
+}
+.workshop ::selection {
+  background: #c7d4c4;
+  color: var(--w-ink);
+}
+.workshop :is(h1, h2, h3, h4, p) {
+  margin: 0;
+}
+.workshop :is(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--w-accent);
+  outline-offset: 6px;
+}
+.workshop :is(section, article, footer)[id] {
+  scroll-margin-top: 2rem;
+}
+.workshop button {
+  color: inherit;
+  cursor: pointer;
+}
+.workshop [hidden] {
+  display: none !important;
+}
+.workshop summary {
+  cursor: pointer;
+  list-style: none;
+}
+.workshop summary::-webkit-details-marker {
+  display: none;
+}
+.w-container {
+  width: calc(100% - var(--workshop-gutter) * 2);
+  max-width: 1320px;
+  margin-inline: auto;
+}
+.w-section {
+  padding-block: clamp(4.5rem, 8.5vw, 8rem);
+}
+.w-eyebrow {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+.w-status-dot {
+  background: var(--w-accent);
+  border-radius: 50%;
+  display: inline-block;
+  width: 0.42rem;
+  height: 0.42rem;
+  margin-right: 0.6rem;
+  vertical-align: 0.08em;
+}
+.w-heading {
+  font-size: clamp(2.3rem, 4.3vw, 4.4rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.w-muted {
+  color: var(--w-muted);
+}
+.w-accent {
+  color: var(--w-accent);
+}
+.w-section-label {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+}
+.w-section-number {
+  color: var(--w-accent);
+  font:
+    0.7rem "SFMono-Regular",
+    Consolas,
+    monospace;
+}
+.w-rule {
+  height: 1px;
+  flex: 1;
+  background: var(--w-line);
+  margin-left: 1rem;
+}
+.w-section-description {
+  font-size: 1rem;
+  color: var(--w-muted);
+  line-height: 1.7;
+}
+.w-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+  min-height: 3.3rem;
+  padding: 0.9rem 1.4rem;
+  border-radius: 3rem;
+  background: var(--w-ink);
+  color: var(--w-paper);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--w-ink);
+  transition:
+    background 0.2s,
+    transform 0.25s var(--w-ease);
+}
+.w-button:hover {
+  background: var(--w-accent);
+  border-color: var(--w-accent);
+  transform: translateY(-2px);
+}
+.w-button > span {
+  font-size: 1.1rem;
+}
+.w-button--small {
+  min-height: 2.7rem;
+  padding: 0.65rem 1.1rem;
+  font-size: 0.7rem;
+  gap: 1.2rem;
+}
+.w-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding-block: 0.5rem;
+  text-underline-offset: 0.3em;
+}
+.w-text-link:hover {
+  text-decoration: underline;
+}
+.w-round-button {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: 1px solid var(--w-line);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.w-round-button:hover {
+  background: var(--w-ink);
+  color: var(--w-paper);
+}
+.w-round-button:disabled {
+  opacity: 0.3;
+  cursor: default;
+  background: transparent;
+  color: inherit;
+}
+.w-sr-only {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.workshop-skip {
+  position: fixed;
+  top: 0.75rem;
+  left: 1rem;
+  transform: translateY(-180%);
+  z-index: 100;
+  background: var(--w-ink);
+  color: var(--w-paper);
+  padding: 0.8rem 1.3rem;
+  border-radius: 0.5rem;
+}
+.workshop-skip:focus {
+  transform: none;
+}
+.workshop-header {
+  min-height: 106px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid var(--w-line);
+}
+.workshop-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.workshop-brand__mark {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.15em;
+  line-height: 1;
+  padding-right: 0.25rem;
+}
+.workshop-brand__mark > span {
+  color: var(--w-accent);
+}
+.workshop-brand small {
+  display: block;
+  color: var(--w-muted);
+  font-size: 0.62rem;
+  font-weight: 400;
+  margin-top: 0.15rem;
+}
+.workshop-nav {
+  display: flex;
+  gap: 2.25rem;
+  font-size: 0.75rem;
+}
+.workshop-nav a {
+  position: relative;
+  padding-block: 1rem;
+}
+.workshop-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--w-accent);
+  transition: width 0.2s;
+}
+.workshop-nav a:hover::after {
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .workshop-header {
+    min-height: 88px;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-block: 1.1rem;
+  }
+  .workshop-nav {
+    order: 3;
+    width: 100%;
+    gap: 1.6rem;
+    border-top: 1px solid var(--w-line);
+    padding-top: 0.4rem;
+  }
+  .workshop-nav a {
+    padding-block: 0.5rem;
+  }
+  .w-section-label {
+    gap: 0.7rem;
+    margin-bottom: 2.2rem;
+  }
+  .w-section-label .w-eyebrow {
+    font-size: 0.6rem;
+  }
+  .w-rule {
+    margin-left: 0;
+  }
+  .w-desktop-break {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.workshop) {
+    scroll-behavior: auto;
+  }
+  .workshop *,
+  .workshop *::before,
+  .workshop *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

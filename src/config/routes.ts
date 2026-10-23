@@ -223,6 +223,31 @@ export const appDirectory = [
     platforms: ["iOS"],
   },
   {
+    id: "audio-book-choices",
+    name: "AudioChoices: Audiobooks",
+    shortName: "AudioChoices",
+    description:
+      "An interactive 'choose your story' audiobook app where you steer narrated stories with Yes/No choices.",
+    focus:
+      "AudioChoices is an interactive audiobook where the listener steers the story.",
+    pitch: "Every story here listens back.",
+    theme: "mint",
+    chips: [
+      "Branching story tree",
+      "Tap or nod to choose",
+      "Many free unlocks",
+    ],
+    href: siteRoutes.apps.audioBookChoices.href,
+    iconHref: withBase("/media/apps/audio-book-choices/app-icon-480.jpg"),
+    external: false,
+    releaseStage: "released",
+    /* Live on the App Store and on Google Play. This is the entry that widens
+       "iPhone apps" to "mobile apps" and `platformNameList` to "iOS and
+       Android" everywhere the site derives that copy — see
+       `src/lib/appState.ts`. Nothing else needs a prose edit for it. */
+    platforms: ["iOS", "Android"],
+  },
+  {
     id: "overlit",
     name: "OverLit",
     shortName: "OverLit",
@@ -283,30 +308,5 @@ export const appDirectory = [
     external: true,
     releaseStage: "released",
     platforms: ["iOS"],
-  },
-  {
-    id: "audio-book-choices",
-    name: "AudioChoices: Audiobooks",
-    shortName: "AudioChoices",
-    description:
-      "An interactive 'choose your story' audiobook app where you steer narrated stories with Yes/No choices.",
-    focus:
-      "AudioChoices is an interactive audiobook where the listener steers the story.",
-    pitch: "Every story here listens back.",
-    theme: "mint",
-    chips: [
-      "Branching story tree",
-      "Tap or nod to choose",
-      "Many free unlocks",
-    ],
-    href: siteRoutes.apps.audioBookChoices.href,
-    iconHref: withBase("/media/apps/audio-book-choices/app-icon-480.jpg"),
-    external: false,
-    releaseStage: "released",
-    /* Live on the App Store and on Google Play. This is the entry that widens
-       "iPhone apps" to "mobile apps" and `platformNameList` to "iOS and
-       Android" everywhere the site derives that copy — see
-       `src/lib/appState.ts`. Nothing else needs a prose edit for it. */
-    platforms: ["iOS", "Android"],
   },
 ] as const satisfies readonly AppDirectoryItem[];

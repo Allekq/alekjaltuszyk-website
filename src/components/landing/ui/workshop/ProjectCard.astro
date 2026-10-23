@@ -1,0 +1,62 @@
+---
+import type { AppEntry } from "../../../../lib/appState";
+import { directoryChips } from "../../../../lib/appState";
+import ProjectObject from "./ProjectObject.astro";
+interface Props {
+  app: AppEntry;
+  index: number;
+  total: number;
+}
+const { app, index, total } = Astro.props;
+---
+
+<article class:list={["workshop-project", `workshop-project--${app.id}`]}>
+  <a
+    class="workshop-project__link"
+    href={app.href}
+    target={app.external ? "_blank" : undefined}
+    rel={app.external ? "noopener noreferrer" : undefined}
+  >
+    <div class="workshop-project__visual">
+      <div class="workshop-project__topline">
+        <span>
+          {String(index + 1).padStart(2, "0")} /{" "}
+          {String(total).padStart(2, "0")}
+        </span>
+        <span>{app.platforms.join(" + ")}</span>
+      </div>
+      <ProjectObject id={app.id} />
+      <div class="workshop-project__visual-bottom">
+        <img
+          src={app.iconHref}
+          width="56"
+          height="56"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <span>{app.pitch}</span>
+        <span class="workshop-project__arrow" aria-hidden="true">
+          ↗
+        </span>
+      </div>
+    </div>
+    <div class="workshop-project__info">
+      <div class="workshop-project__name">
+        <h3>{app.shortName}</h3>
+        <span class="w-eyebrow">
+          Explore <span aria-hidden="true">↗</span>
+        </span>
+      </div>
+      <p>{app.description}</p>
+      <ul class="workshop-project__tags">
+        {directoryChips(app).map((chip) => (
+          <li>{chip}</li>
+        ))}
+      </ul>
+    </div>
+    {app.external && (
+      <span class="w-sr-only">Opens on the App Store in a new tab.</span>
+    )}
+  </a>
+</article>

@@ -1,13 +1,18 @@
 ---
-import "../../styles/apps.css";
-import AppGridSection from "../../components/landing/sections/apps/AppGridSection.astro";
-import AppShowcaseSection from "../../components/landing/sections/apps/AppShowcaseSection.astro";
-import AppsIntroSection from "../../components/landing/sections/apps/AppsIntroSection.astro";
-import SimpleSiteHeader from "../../components/landing/sections/SimpleSiteHeader.astro";
-import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
+import "../../styles/home.css";
+import WorkshopHeader from "../../components/landing/sections/home/WorkshopHeader.astro";
+import WorkshopFooter from "../../components/landing/sections/home/WorkshopFooter.astro";
+import ProjectCard from "../../components/landing/ui/workshop/ProjectCard.astro";
 import { siteRoutes } from "../../config/routes";
 import { siteConfig } from "../../config/site";
-import { appNameList } from "../../lib/appState";
+import {
+  appNameList,
+  appNoun,
+  apps,
+  platformAppCountPhrase,
+  capitalizeFirst,
+  releaseStatusSentence,
+} from "../../lib/appState";
 import { toAbsoluteSiteUrl } from "../../lib/discovery";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
@@ -35,13 +40,60 @@ const appsPageStructuredData = [
   pageType="landing"
   structuredData={appsPageStructuredData}
 >
-  <SimpleSiteHeader />
-  <AppsIntroSection
-    eyebrow="Current products"
-    headingLevel="h1"
-    body="One at a time as you scroll, or all at once in the grid at the bottom — whichever you came for."
-  />
-  <AppShowcaseSection gridHref="#grid" />
-  <AppGridSection />
-  <SiteFooter />
+  <div class="workshop workshop-directory" id="top">
+    <a class="workshop-skip" href="#grid">
+      Skip to apps
+    </a>
+    <WorkshopHeader directory />
+    <section
+      class="workshop-directory__intro w-container"
+      aria-labelledby="directory-title"
+    >
+      <div>
+        <p class="w-eyebrow">
+          <span class="w-status-dot" aria-hidden="true"></span> The independent
+          collection
+        </p>
+        <h1 id="directory-title">
+          Small {appNoun}.<br />
+          <em>Real intentions.</em>
+        </h1>
+      </div>
+      <div>
+        <p class="workshop-directory__count">
+          {capitalizeFirst(platformAppCountPhrase)}.<br />
+          Different corners of everyday life.
+        </p>
+        <p class="w-section-description">
+          Made with curiosity, care, and a reason to exist. Find something that
+          fits yours.
+        </p>
+        <a class="w-text-link" href="#grid">
+          Meet the collection <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+    <section
+      class="workshop-directory__collection w-container"
+      id="grid"
+      aria-label="App collection"
+    >
+      <div class="workshop-directory__rule">
+        <span class="w-eyebrow">Select a project to explore</span>
+        <span class="w-eyebrow">
+          {String(apps.length).padStart(2, "0")} / IN THE COLLECTION
+        </span>
+      </div>
+      <div class="workshop-directory__grid">
+        {apps.map((app, index) => (
+          <ProjectCard app={app} index={index} total={apps.length} />
+        ))}
+      </div>
+      <p class="workshop-directory__status">{releaseStatusSentence}</p>
+    </section>
+    <WorkshopFooter />
+  </div>
 </SiteLayout>
+<script>
+  import "../../scripts/landing/workshop";
+</script>

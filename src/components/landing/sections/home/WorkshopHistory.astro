@@ -1,0 +1,114 @@
+---
+import { homeTimeline } from "../home-profile-content";
+import SpatialScene from "../../ui/workshop/SpatialScene.astro";
+const scenes = ["terrain", "world", "products"] as const;
+const captions = [
+  "01 / Build the tools",
+  "02 / Bring a world to life",
+  "03 / Put it in someone’s hands",
+];
+---
+
+<section
+  class="workshop-history w-section"
+  id="history"
+  aria-labelledby="history-title"
+>
+  <div class="w-container">
+    <div class="w-section-label">
+      <span class="w-section-number">03</span>
+      <p class="w-eyebrow">A thread worth following</p>
+      <span class="w-rule"></span>
+    </div>
+    <div class="workshop-history__heading">
+      <h2 class="w-heading" id="history-title">
+        One thing
+        <br />
+        led to <em>another.</em>
+      </h2>
+      <p class="w-section-description">
+        Tools became worlds.
+        <br />
+        Worlds became products.
+        <br />
+        Still learning by making.
+      </p>
+    </div>
+    <div class="workshop-history__chapters" data-timeline>
+      <div class="workshop-history__thread" aria-hidden="true">
+        <i></i>
+      </div>
+      {homeTimeline.map((entry, index) => (
+        <article class="workshop-chapter" id={entry.id} data-chapter>
+          <div class="workshop-chapter__marker">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+          </div>
+          <div class="workshop-chapter__body">
+            <div class="workshop-chapter__period">
+              <span>{entry.period}</span>
+              <span>{entry.label}</span>
+            </div>
+            <p class="w-eyebrow">{entry.role}</p>
+            <h3>{entry.title}</h3>
+            <p>{entry.summary}</p>
+            <details class="workshop-details">
+              <summary>
+                The details <span aria-hidden="true">+</span>
+              </summary>
+              <ul>
+                {entry.highlights.map((highlight) => (
+                  <li>
+                    {typeof highlight === "string" ? (
+                      highlight
+                    ) : (
+                      <>
+                        <strong>{highlight.title}</strong>
+                        <p>{highlight.description}</p>
+                        <ul>
+                          {highlight.details.map((detail) => (
+                            <li>{detail}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </details>
+            {entry.href && (
+              <a
+                class="w-text-link"
+                href={entry.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Explore Alek Games <span aria-hidden="true">↗</span>
+                <span class="w-sr-only"> (opens in a new tab)</span>
+              </a>
+            )}
+          </div>
+          <div class="workshop-chapter__art">
+            <SpatialScene
+              scene={scenes[index]}
+              caption={captions[index]}
+              action={
+                index === 0
+                  ? "Another landscape"
+                  : index === 1
+                    ? "Set it in motion"
+                    : "A different angle"
+              }
+            />
+            <span class="workshop-chapter__art-note">
+              {index === 1
+                ? "A world-building study, inspired by the work."
+                : index === 0
+                  ? "A procedural landscape. A different possibility every time."
+                  : "Small surfaces. Whole systems underneath."}
+            </span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

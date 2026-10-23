@@ -1,31 +1,29 @@
 ---
-/**
- * Source of truth for the homepage section order.
- *
- * The shape is CV first, apps last: hero, the summary and the way out to
- * /apps, then the long-form history and skills, and only then the app showcase
- * — the same showcase /apps leads with, ending in the same plain grid.
- */
-import AppGridSection from "../sections/apps/AppGridSection.astro";
-import AppShowcaseSection from "../sections/apps/AppShowcaseSection.astro";
-import AppsIntroSection from "../sections/apps/AppsIntroSection.astro";
-import HomeHistorySection from "../sections/HomeHistorySection.astro";
-import HomeEducationSection from "../sections/HomeEducationSection.astro";
-import HomeIntroSection from "../sections/HomeIntroSection.astro";
-import HomeSkillsSection from "../sections/HomeSkillsSection.astro";
-import HomeVideoHeroSection from "../sections/HomeVideoHeroSection.astro";
-import SiteFooter from "../sections/SiteFooter.astro";
+/** Homepage section order. Product pages retain their existing shells. */
+import WorkshopHeader from "../sections/home/WorkshopHeader.astro";
+import WorkshopHero from "../sections/home/WorkshopHero.astro";
+import WorkshopIntro from "../sections/home/WorkshopIntro.astro";
+import WorkshopProjects from "../sections/home/WorkshopProjects.astro";
+import WorkshopHistory from "../sections/home/WorkshopHistory.astro";
+import WorkshopSkills from "../sections/home/WorkshopSkills.astro";
+import WorkshopClimbing from "../sections/home/WorkshopClimbing.astro";
+import WorkshopFooter from "../sections/home/WorkshopFooter.astro";
 ---
 
-<HomeVideoHeroSection />
-<HomeIntroSection />
-<HomeHistorySection />
-<HomeEducationSection />
-<HomeSkillsSection />
-<AppsIntroSection
-  eyebrow="What I am building"
-  body="The same scroll-through that opens the apps directory. Every one of them has its own page, or its own store listing."
-/>
-<AppShowcaseSection gridHref="#grid" />
-<AppGridSection />
-<SiteFooter />
+<div class="workshop" id="top">
+  <a class="workshop-skip" href="#about">
+    Skip to content
+  </a>
+  <WorkshopHeader />
+  <WorkshopHero />
+  <WorkshopIntro />
+  <WorkshopProjects />
+  <WorkshopHistory />
+  <WorkshopSkills />
+  <WorkshopClimbing />
+  <WorkshopFooter />
+</div>
+
+<script>
+  import "../../../scripts/landing/workshop";
+</script>
