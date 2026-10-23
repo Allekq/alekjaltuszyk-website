@@ -16,7 +16,7 @@ const screenshots = [
     image: "/media/home/assets/placer-level-design.png",
     width: 815,
     height: 455,
-    name: "Placer · level design",
+    name: "Placer 3 PRO",
     alt: "A fenced low-poly landscape from the Placer Asset Store gallery",
     url: placerUrl,
   },
@@ -24,9 +24,17 @@ const screenshots = [
     image: "/media/home/assets/prpc-inspector.jpg",
     width: 1259,
     height: 900,
-    name: "PRPC · inside the editor",
+    name: "PRPC · player controller",
     alt: "The real PRPC Unity inspector with movement settings and events",
     url: controllerUrl,
+  },
+  {
+    image: "/media/home/assets/alek-ai-gameplay.webp",
+    width: 960,
+    height: 540,
+    name: "Alek AI · enemy framework",
+    alt: "Enemy characters in the Unity editor, from the Alek AI Framework demo",
+    url: frameworkUrl,
   },
 ];
 
@@ -64,56 +72,38 @@ const reviews = [
 
 <div class="asset-proof">
   <p class="asset-proof__label">From the Asset Store</p>
-  <div class="asset-proof__screenshots">
+  <div
+    class="asset-proof__screenshots"
+    role="region"
+    aria-label="Unity tools; scroll horizontally to explore"
+    tabindex="0"
+  >
     {screenshots.map((shot) => (
-      <figure>
-        <a
-          class="asset-proof__image-link"
-          href={withBase(shot.image)}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Enlarge ${shot.name} screenshot (opens in a new tab)`}
-        >
-          <img
-            src={withBase(shot.image)}
-            alt={shot.alt}
-            width={shot.width}
-            height={shot.height}
-            loading="lazy"
-            decoding="async"
-          />
+      <a
+        class="asset-proof__image-link"
+        href={shot.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Explore ${shot.name} on the Asset Store (opens in a new tab)`}
+      >
+        <img
+          src={withBase(shot.image)}
+          alt={shot.alt}
+          width={shot.width}
+          height={shot.height}
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="asset-proof__pill">
+          {shot.name}
           <span aria-hidden="true">↗</span>
-        </a>
-        <figcaption>
-          <a href={shot.url} target="_blank" rel="noopener noreferrer">
-            {shot.name} <span aria-hidden="true">↗</span>
-          </a>
-        </figcaption>
-      </figure>
+        </span>
+      </a>
     ))}
   </div>
-  <a
-    class="asset-proof__product"
-    href={placerUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img
-      src={withBase("/media/home/assets/placer-level-design.png")}
-      alt="A level created with Placer 3 PRO"
-      width="815"
-      height="455"
-      loading="lazy"
-      decoding="async"
-    />
-    <span>
-      <strong>Explore Placer 3 PRO</strong>
-      <small>The level-design tool, with developer reviews</small>
-    </span>
-    <span class="asset-proof__arrow" aria-hidden="true">
-      ↗
-    </span>
-  </a>
+  <p class="asset-proof__swipe">
+    Scroll to explore the tools <span aria-hidden="true">→</span>
+  </p>
 
   <p class="asset-proof__label asset-proof__label--reviews">
     Selected developer reviews

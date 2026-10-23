@@ -32,6 +32,7 @@ export interface HomeTimelineEntry {
   summary: string;
   highlights: readonly HomeTimelineHighlight[];
   href?: string;
+  linkLabel?: string;
 }
 
 export type HomeTimelineHighlight = string | HomeTimelineProjectHighlight;
@@ -111,9 +112,11 @@ export const homeSkills = [
     summary:
       "I learned programming by making Unity assets, then applied that experience to gameplay work at Roam AI.",
     highlights: [
-      "Published Placer for level design, PRPC for physics-based parkour movement, and other Unity tools.",
-      "Built player, camera, enemy, networking and physics systems as part of the Roam AI team.",
-      "Enjoy making controls and tools that let people build and experiment.",
+      "Used Unity's scene and editor systems to build procedural worlds and level-design tools, including Placer.",
+      "Built physics-based player controllers, including PRPC for parkour movement.",
+      "Developed enemy and vehicle AI, including immersive enemy interactions for VR.",
+      "Built camera systems and tuned controls and game feel.",
+      "Used Unity DOTS in a separate enemy system to handle large groups efficiently.",
     ],
     related: [
       { label: "Alek Games", historyId: "alek-games" },
@@ -128,11 +131,11 @@ export const homeSkills = [
     summary:
       "My C# experience spans published Unity assets and the game-management systems I worked on at Roam AI. I enjoy building the connections between systems, then making the code easier to understand, extend and maintain.",
     highlights: [
+      "Built procedural world-generation tools in C#, including Placer, and contributed to Roam AI's generation systems.",
       "Built game managers and connected gameplay systems to backend services.",
-      "Worked on networking, anti-cheat checks, and synchronized player and health state.",
-      "Built physics-driven player and driving systems, including collision handling.",
-      "Developed camera systems and tuned game feel.",
-      "Worked on shaders and procedural world generation.",
+      "Worked on networked collision handling, anti-cheat checks, and synchronized player and health state.",
+      "Built physics-driven player and driving systems.",
+      "Worked on shaders alongside the gameplay systems.",
       "Built reusable Unity tools and refactored and optimized existing systems, including AI-generated code.",
     ],
     related: [
@@ -186,6 +189,7 @@ export const homeTimeline = [
     summary:
       "Building these Unity assets and their earlier versions is how I learned programming. They remain on the Asset Store, though I no longer develop them.",
     href: "https://assetstore.unity.com/publishers/58188",
+    linkLabel: "Explore Alek Games",
     highlights: [
       "Published level-design tools, a parkour player controller and character-AI tools under Alek Games.",
       "Learned to package reusable systems and expose useful controls in the Unity editor.",
@@ -198,13 +202,16 @@ export const homeTimeline = [
     period: "2025-2026",
     title: "Roam AI text-to-game startup",
     role: "Core gameplay and AI systems contractor",
+    href: "https://roam.gg/",
+    linkLabel: "Explore Roam",
     summary:
       "I joined San Francisco–based Roam AI as a core contractor on a small team building a text-to-game experience, working across gameplay engineering and large agentic workflows.",
     highlights: [
       "Contributed to Python backend development and agentic workflows.",
       "Built player, camera, enemy, networking and physics systems with the team.",
       "Reviewed and optimized existing code, including AI-generated systems, to improve clarity and maintainability.",
-      "Worked alongside AI researchers and educators, including researchers from Stanford University and a teacher at LaSalle College in Montréal.",
+      "Worked alongside AI researchers and educators, including researchers from Stanford University and teachers at LaSalle College in Montréal.",
+      "Collaborated with AI-app founders and people who had built or led teams at Voodoo.",
     ],
   },
   {

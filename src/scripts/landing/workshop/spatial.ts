@@ -186,6 +186,13 @@ export function setupSpatialScenes() {
           if (view.current.elapsed < duration) unsettled = true;
         }
         view.model.update(view.current);
+        // The finished island stays gently alive only while it is on screen.
+        if (
+          view.name === "island" &&
+          !media.matches &&
+          view.current.progress > 0.96
+        )
+          unsettled = true;
         const dpr = Math.min(
           devicePixelRatio || 1,
           coarse.matches ? 1.25 : 1.5,
