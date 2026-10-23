@@ -46,12 +46,9 @@ export const buildScrollProgress = (
   sceneHeight: number,
 ) => Math.max(0, Math.min(1, -top / Math.max(1, trackHeight - sceneHeight)));
 
-/** The accessible button can finish the world at any scroll position. */
-export const buildProgress = (
-  scroll: number,
-  action: number,
-  reduced = false,
-) => (reduced ? 1 : Math.max(0, Math.min(1, scroll + (1 - scroll) * action)));
+/** Reduced motion shows the complete world; scrolling stays bounded. */
+export const buildProgress = (scroll: number, reduced = false) =>
+  reduced ? 1 : Math.max(0, Math.min(1, scroll));
 
 /** Chapter starts are measured afresh so expanded details never desynchronise the rail. */
 export function timelinePosition(starts: number[], readingLine: number) {

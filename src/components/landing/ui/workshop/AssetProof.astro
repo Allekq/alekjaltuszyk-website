@@ -1,0 +1,126 @@
+---
+import { withBase } from "../../../../lib/paths";
+import "../../../../styles/landing/workshop/asset-proof.css";
+
+const placerUrl =
+  "https://assetstore.unity.com/packages/tools/level-design/placer-3-pro-level-designer-283376";
+const controllerUrl =
+  "https://assetstore.unity.com/packages/tools/physics/prpc-parkour-rigidbody-player-controller-229619";
+const lightUrl =
+  "https://assetstore.unity.com/packages/tools/level-design/placer-3-light-level-designer-284158";
+
+const screenshots = [
+  {
+    image: "/media/home/assets/placer-level-design.png",
+    width: 815,
+    height: 455,
+    name: "Placer · level design",
+    alt: "A fenced low-poly landscape from the Placer Asset Store gallery",
+    url: placerUrl,
+  },
+  {
+    image: "/media/home/assets/prpc-inspector.jpg",
+    width: 1259,
+    height: 900,
+    name: "PRPC · inside the editor",
+    alt: "The real PRPC Unity inspector with movement settings and events",
+    url: controllerUrl,
+  },
+];
+
+const reviews = [
+  {
+    quote: "Great asset and Incredible support!",
+    author: "JoelioRochon",
+    product: "Placer",
+    version: "previous version 1.1.0",
+    url: `${placerUrl}#reviews`,
+  },
+  {
+    quote: "Works out of the box and developer support is excellent",
+    author: "Hitmonsashi",
+    product: "PRPC",
+    version: "version 1.3",
+    url: `${controllerUrl}#reviews`,
+  },
+];
+---
+
+<div class="asset-proof">
+  <p class="asset-proof__label">From the Asset Store</p>
+  <div class="asset-proof__screenshots">
+    {screenshots.map((shot) => (
+      <figure>
+        <a
+          class="asset-proof__image-link"
+          href={withBase(shot.image)}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Enlarge ${shot.name} screenshot (opens in a new tab)`}
+        >
+          <img
+            src={withBase(shot.image)}
+            alt={shot.alt}
+            width={shot.width}
+            height={shot.height}
+            loading="lazy"
+            decoding="async"
+          />
+          <span aria-hidden="true">↗</span>
+        </a>
+        <figcaption>
+          <a href={shot.url} target="_blank" rel="noopener noreferrer">
+            {shot.name} <span aria-hidden="true">↗</span>
+          </a>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+  <a
+    class="asset-proof__light"
+    href={lightUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src={withBase("/media/home/assets/placer-light.jpg")}
+      alt="Placer 3 Light artwork"
+      width="1280"
+      height="853"
+      loading="lazy"
+      decoding="async"
+    />
+    <span>
+      <strong>Try Placer Light</strong>
+      <small>The free level-design tool</small>
+    </span>
+    <span class="asset-proof__arrow" aria-hidden="true">
+      ↗
+    </span>
+  </a>
+
+  <p class="asset-proof__label asset-proof__label--reviews">
+    Selected developer reviews
+  </p>
+  <div class="asset-proof__reviews">
+    {reviews.map((review) => (
+      <figure class="asset-proof__review">
+        <span
+          class="asset-proof__stars"
+          role="img"
+          aria-label="5 out of 5 stars"
+        >
+          ★★★★★
+        </span>
+        <blockquote cite={review.url}>“{review.quote}”</blockquote>
+        <figcaption>
+          <span>{review.author}</span>
+          <a href={review.url} target="_blank" rel="noopener noreferrer">
+            {review.product} · {review.version}{" "}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</div>

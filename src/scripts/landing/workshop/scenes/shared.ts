@@ -7,11 +7,14 @@ export interface SceneInput {
   pointerY: number;
   action: number;
   time: number;
+  elapsed: number;
   reduced: boolean;
 }
 export interface SpatialModel {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
+  actionDuration?: number;
+  actionLabels?: string[];
   update: (input: SceneInput) => void;
 }
 export const palette = {

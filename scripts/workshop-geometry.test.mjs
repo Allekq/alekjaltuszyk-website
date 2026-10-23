@@ -91,13 +91,11 @@ test("world build spans the sticky travel on both phone and laptop without overs
   assert.ok(Number.isFinite(buildScrollProgress(0, 500, 500)));
 });
 
-test("finishing the world works at every scroll position and reduced motion is complete", () => {
-  for (const scroll of [0, 0.2, 0.6, 1]) {
-    assert.equal(buildProgress(scroll, 1), 1);
-    assert.equal(buildProgress(scroll, 0), scroll);
-    assert.equal(buildProgress(scroll, 0, true), 1);
-    assert.ok(buildProgress(scroll, 0.5) >= scroll);
-  }
+test("scroll builds the world within bounds and reduced motion shows completion", () => {
+  assert.equal(buildProgress(-0.2), 0);
+  assert.equal(buildProgress(0.35), 0.35);
+  assert.equal(buildProgress(1.2), 1);
+  assert.equal(buildProgress(0, true), 1);
 });
 
 test("timeline identifies one chapter and preserves progress when details change its length", () => {
