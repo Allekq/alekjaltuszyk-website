@@ -80,6 +80,14 @@ const appsPageStructuredData = [
     >
       <div class="workshop-directory__rule">
         <span class="w-eyebrow">Select a project to explore</span>
+        <button
+          class="workshop-motion-toggle"
+          type="button"
+          data-object-motion
+          hidden
+        >
+          Pause showcase motion
+        </button>
         <span class="w-eyebrow">
           {String(apps.length).padStart(2, "0")} / IN THE COLLECTION
         </span>

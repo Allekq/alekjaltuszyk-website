@@ -42,15 +42,8 @@ export function worldStory(element: HTMLElement) {
       const scene = (compact.matches ? exhibit : stage).getBoundingClientRect();
       return buildScrollProgress(bounds.top, bounds.height, scene.height);
     },
-    replay() {
-      if (still.matches || this.progress() < 0.98) return false;
-      const start =
-        (compact.matches ? track : story).getBoundingClientRect().top + scrollY;
-      scrollTo({ top: start, behavior: "smooth" });
-      return true;
-    },
-    update(progress: number, action: number) {
-      const p = buildProgress(progress, action, still.matches);
+    update(progress: number) {
+      const p = buildProgress(progress, still.matches);
       const next = p < 0.16 ? 0 : p < 0.4 ? 1 : p < 0.78 ? 2 : 3;
       if (next !== phase) {
         phase = next;
@@ -60,18 +53,7 @@ export function worldStory(element: HTMLElement) {
           step.classList.toggle("is-current", index === phase);
         });
       }
-      const button = element.querySelector<HTMLButtonElement>("button")!;
-      button.hidden = still.matches;
       cue.textContent = p >= 0.98 ? "Keep exploring ↓" : "Scroll to build ↓";
-      const canReplay = progress >= 0.98 && action < 0.001;
-      if (canReplay) button.removeAttribute("aria-pressed");
-      else button.setAttribute("aria-pressed", String(action > 0.5));
-      button.querySelector("[data-action-label]")!.textContent =
-        action > 0.5
-          ? "Follow the scroll"
-          : canReplay
-            ? "Build it again"
-            : "Finish the world";
     },
     fallback() {
       enhance(false);

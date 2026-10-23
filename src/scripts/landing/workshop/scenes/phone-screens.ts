@@ -94,7 +94,7 @@ export function interfaceStudy(phone: THREE.Group, index: number) {
       );
   const bright = new THREE.Color(style.ink),
     dim = new THREE.Color("#436144");
-  return (progress: number) => {
+  return (progress: number, variant = 0) => {
     checks.forEach((check, n) => {
       check.visible = progress >= n * 0.22;
     });
@@ -104,14 +104,15 @@ export function interfaceStudy(phone: THREE.Group, index: number) {
       fill.position.x = (32 + (310 * amount) / 2 - 200) * sx;
     }
     bars.forEach((bar, n) => {
-      bar.scale.y = 0.3 + Math.abs(Math.sin(n * 2.4 + progress * 5)) * 1.4;
+      bar.scale.y =
+        0.3 + Math.abs(Math.sin(n * 2.4 + progress * 5 + variant * 1.7)) * 1.4;
     });
     const beat = progress * 3,
       step = Math.floor(beat),
       blend = smoothstep(0, 1, beat - step);
     cells.forEach((cell, n) => {
       const lit = (offset: number) =>
-        [2, 5, 9, 14].includes((n + offset * 3) % 16) ? 1 : 0;
+        [2, 5, 9, 14].includes((n + offset * 3 + variant * 5) % 16) ? 1 : 0;
       cell.material.color.lerpColors(
         dim,
         bright,

@@ -1,0 +1,82 @@
+.plan-progress i {
+  width: 100%;
+  transform-origin: left;
+}
+.audio-tree {
+  overflow: hidden;
+}
+.audio-tree__world {
+  transform-origin: 90px 80px;
+}
+.audio-book__cover .audio-tree__reader {
+  fill: #fff1cd;
+  stroke: #fff;
+  stroke-width: 1.5;
+  transform: translate(90px, 104px);
+  filter: drop-shadow(0 0 3px #ffebbd);
+}
+.audio-tree__world > path {
+  stroke: #d7b9a3;
+  opacity: 0.7;
+}
+.map-object__place:not(:first-child) {
+  opacity: 0;
+}
+.map-water {
+  fill: #a8c6c5;
+}
+.map-contours {
+  fill: none;
+  stroke: #94a581;
+  stroke-width: 2;
+}
+.voice-object__speech {
+  position: absolute;
+  top: -19px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #f4f7eb;
+  border: 1px solid #b3c4ae;
+  border-radius: 17px 17px 17px 3px;
+  padding: 18px 20px;
+  box-shadow: 3px 5px 0 #749784;
+  opacity: 0;
+  transform: translateZ(40px);
+}
+.voice-object__speech i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #698c7d;
+}
+.workshop-motion-toggle {
+  border: 0;
+  border-bottom: 1px solid var(--w-line);
+  background: transparent;
+  padding: 0.5rem 0;
+  color: var(--w-muted);
+  font: 0.64rem var(--w-mono);
+  min-height: 44px;
+  cursor: pointer;
+}
+.workshop-motion-toggle:hover {
+  color: var(--w-accent);
+}
+.workshop-projects__foot {
+  flex-wrap: wrap;
+}
+.workshop-chapter__directory {
+  margin-top: 1.5rem;
+}
+.w-spatial__action:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.audio-tree__world .audio-tree__trail {
+  stroke: #fff1cd;
+  stroke-width: 2.5;
+  opacity: 1;
+}

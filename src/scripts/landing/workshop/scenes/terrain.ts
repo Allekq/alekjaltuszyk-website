@@ -22,6 +22,14 @@ export function createLandscape(environment: THREE.Texture): SpatialModel {
     material(0xc7cca7),
     material(0xdce0bd),
   ];
+  const biomes = [
+    earth,
+    [0xbca87e, 0xc5b58c, 0xd5c49c, 0xe3d4b4, 0xeee4cb].map((c) => material(c)),
+    [0x698d7f, 0x84a096, 0xa4b8ae, 0xc4cfc4, 0xe1e4d7].map((c) => material(c)),
+  ];
+  const leafColors = [0x526b48, 0x8b8452, 0x3d6e60].map(
+    (c) => new THREE.Color(c),
+  );
   const water = material(0x6c9e98, 0.35, 0.22),
     rock = material(0xbcbca4);
   const tiles: { mesh: THREE.Mesh; x: number; z: number }[] = [];
@@ -70,8 +78,12 @@ export function createLandscape(environment: THREE.Texture): SpatialModel {
   );
   let seed = -1;
   const heights = new Map<string, { from: number; to: number }>();
-  const appearance = (h: number) =>
-    h < 0.15 ? water : h > 1.5 ? rock : earth[Math.min(4, Math.floor(h * 2.7))];
+  const appearance = (h: number, variant: number) =>
+    h < 0.15
+      ? water
+      : h > 1.5
+        ? rock
+        : biomes[variant % biomes.length][Math.min(4, Math.floor(h * 2.7))];
   return {
     ...model,
     update({ progress, pointerX, pointerY, action, reduced }) {
@@ -96,8 +108,8 @@ export function createLandscape(environment: THREE.Texture): SpatialModel {
           : 0.32 + 0.68 * smoothstep(0.08, 0.64, progress - (x + z) * 0.004);
       tiles.forEach(({ mesh, x, z }) => {
         const h = heights.get(`${x},${z}`)!;
-        const from = appearance(h.from),
-          to = appearance(h.to);
+        const from = appearance(h.from, seed),
+          to = appearance(h.to, seed + 1);
         const mat = mesh.material as THREE.MeshStandardMaterial;
         mat.color.lerpColors(from.color, to.color, mix);
         mat.roughness = THREE.MathUtils.lerp(from.roughness, to.roughness, mix);
@@ -106,6 +118,11 @@ export function createLandscape(environment: THREE.Texture): SpatialModel {
         mesh.scale.y = height;
         mesh.position.y = height / 2;
       });
+      leaf.color.lerpColors(
+        leafColors[seed % 3],
+        leafColors[(seed + 1) % 3],
+        mix,
+      );
       trees.forEach(({ group, x, z }) => {
         const h = heightAt(x, z),
           growth = growthAt(x, z);

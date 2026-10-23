@@ -1,5 +1,7 @@
 ---
 import { homeTimeline } from "../home-profile-content";
+import { siteRoutes } from "../../../../config/routes";
+import AssetProof from "../../ui/workshop/AssetProof.astro";
 import SpatialScene from "../../ui/workshop/SpatialScene.astro";
 const scenes = ["terrain", "world", "products"] as const;
 const chapterNames = ["Tools", "Worlds", "Products"];
@@ -75,30 +77,40 @@ const captions = [
               <p class="w-eyebrow">{entry.role}</p>
               <h3>{entry.title}</h3>
               <p>{entry.summary}</p>
-              <details class="workshop-details">
-                <summary>
-                  The details <span aria-hidden="true">+</span>
-                </summary>
-                <ul>
-                  {entry.highlights.map((highlight) => (
-                    <li>
-                      {typeof highlight === "string" ? (
-                        highlight
-                      ) : (
-                        <>
-                          <strong>{highlight.title}</strong>
-                          <p>{highlight.description}</p>
-                          <ul>
-                            {highlight.details.map((detail) => (
-                              <li>{detail}</li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </details>
+              {entry.id === "current-products" ? (
+                <a
+                  class="w-text-link workshop-chapter__directory"
+                  href={siteRoutes.apps.index.href}
+                >
+                  Explore the apps <span aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <details class="workshop-details">
+                  <summary>
+                    The details <span aria-hidden="true">+</span>
+                  </summary>
+                  <ul>
+                    {entry.highlights.map((highlight) => (
+                      <li>
+                        {typeof highlight === "string" ? (
+                          highlight
+                        ) : (
+                          <>
+                            <strong>{highlight.title}</strong>
+                            <p>{highlight.description}</p>
+                            <ul>
+                              {highlight.details.map((detail) => (
+                                <li>{detail}</li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  {entry.id === "alek-games" && <AssetProof />}
+                </details>
+              )}
               {entry.href && (
                 <a
                   class="w-text-link"
@@ -119,8 +131,8 @@ const captions = [
                   index === 0
                     ? "Another landscape"
                     : index === 1
-                      ? "Set it in motion"
-                      : "Set the apps in motion"
+                      ? "Start a tiny showdown"
+                      : "Shuffle the phones"
                 }
               />
               <span class="workshop-chapter__art-note">

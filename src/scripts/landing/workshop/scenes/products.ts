@@ -14,7 +14,7 @@ export function createProducts(environment: THREE.Texture): SpatialModel {
   const model = stage(environment, 0.8, 10),
     { root } = model;
   const bodies: THREE.Group[] = [];
-  const screens: ((progress: number) => void)[] = [];
+  const screens: ((progress: number, variant?: number) => void)[] = [];
   // Three original studies represent everyday interactions, not actual app screenshots.
   for (let i = 0; i < 3; i++) {
     const phone = new THREE.Group();
@@ -45,35 +45,50 @@ export function createProducts(environment: THREE.Texture): SpatialModel {
   }
   return {
     ...model,
-    update({ progress, pointerX, pointerY, action, reduced }) {
+    actionDuration: 3.8,
+    actionLabels: [
+      "Shuffle the phones",
+      "Deal another hand",
+      "One more shuffle",
+    ],
+    update({ progress, pointerX, pointerY, action, elapsed, reduced }) {
       const fan = reduced ? 0.8 : smoothstep(0.12, 0.76, progress);
-      const activity = THREE.MathUtils.clamp(
-        (progress - 0.12) / 0.76 + action * 0.4,
-        0,
-        1,
-      );
+      const turn = reduced ? 1 : smoothstep(0.15, 3.4, elapsed);
+      const playing = action > 0 && elapsed < 3.8 && !reduced;
       bodies.forEach((phone, i) => {
+        const previousLane = ((i + Math.max(0, action - 1)) % 3) - 1;
+        const lane = ((i + action) % 3) - 1;
+        const sweep = action
+          ? THREE.MathUtils.lerp(previousLane, lane, turn)
+          : i - 1;
+        const arc = playing ? Math.sin(turn * Math.PI) : 0;
         const rise = reduced
           ? 0
-          : Math.sin(progress * Math.PI + i * 0.65) * 0.28;
+          : Math.sin(progress * Math.PI + i * 0.65) * 0.2;
         phone.position.set(
-          (i - 1) * (1.5 + fan * 0.42),
-          0.25 + Math.sin(i * 1.7) * 0.4 + rise,
-          (i - 1) * (-0.25 - fan * 0.4),
+          sweep * (1.5 + fan * 0.42),
+          0.25 +
+            (Math.sin(i * 1.7) * 0.25 + rise) * (1 - arc) +
+            arc * (0.5 + i * 0.65),
+          sweep * (-0.25 - fan * 0.4) + arc * (i - 1) * 0.65,
         );
         phone.rotation.set(
-          reduced ? 0 : (i - 1) * 0.055 * fan,
-          (i - 1) * (0.12 + fan * 0.2),
-          reduced ? 0 : (i - 1) * 0.035 * fan,
+          (reduced ? 0 : lane * 0.055 * fan) + arc * (i - 1) * 0.15,
+          sweep * (0.12 + fan * 0.2) +
+            (playing ? Math.sin(turn * Math.PI * 2) * 0.45 : 0),
+          (reduced ? 0 : lane * 0.035 * fan) + arc * (i - 1) * 0.1,
         );
-        screens[i](reduced ? 0.6 + action * 0.4 : activity);
+        const activity = action
+          ? Math.min(
+              1,
+              reduced ? 0.8 : smoothstep(i * 0.35, 3 + i * 0.25, elapsed),
+            )
+          : THREE.MathUtils.clamp((progress - 0.12) / 0.76, 0, 1);
+        screens[i](activity, action);
       });
       root.rotation.set(
         pointerY * 0.05,
-        -0.3 +
-          pointerX * 0.15 +
-          (reduced ? 0 : (progress - 0.5) * 0.48) +
-          action * 0.3,
+        -0.3 + pointerX * 0.15 + (reduced ? 0 : (progress - 0.5) * 0.48),
         -0.05,
       );
     },
