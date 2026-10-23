@@ -99,14 +99,14 @@
 }
 .workshop-details summary {
   display: flex;
-  gap: 2rem;
+  gap: 1.25rem;
   align-items: center;
   width: fit-content;
   min-height: 48px;
-  padding: 0.65rem 1rem;
+  padding: 0.6rem 0.65rem 0.6rem 1.2rem;
   font-weight: 500;
   border: 1px solid #adb49f;
-  border-radius: 4px;
+  border-radius: 999px;
   background: #e7ebdf;
   color: var(--w-ink);
   cursor: pointer;
@@ -127,19 +127,63 @@
   outline-offset: 4px;
 }
 .workshop-details summary > span {
-  color: var(--w-accent);
-  font-size: 1.2rem;
-  transition: transform 0.25s;
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 65%);
+  position: relative;
 }
-.workshop-details[open] summary > span {
-  transform: rotate(180deg);
+.workshop-details__toggle::before,
+.workshop-details__toggle::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: var(--w-accent);
+}
+.workshop-details__toggle::after {
+  transform: rotate(90deg);
+  transition:
+    transform 0.25s,
+    opacity 0.25s;
+}
+.workshop-details[open] .workshop-details__toggle::after {
+  transform: rotate(0);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .workshop-details__toggle::after {
+    transition: none;
+  }
 }
 .workshop-details__content {
   padding-top: 0.5rem;
 }
 @media (prefers-reduced-motion: no-preference) {
   .workshop-details[open] .workshop-details__content {
-    animation: details-unfold 0.3s ease-out;
+    animation: details-unfold 0.42s cubic-bezier(0.2, 0.7, 0.25, 1);
+  }
+  @supports (interpolate-size: allow-keywords) {
+    .workshop-details {
+      interpolate-size: allow-keywords;
+    }
+    .workshop-details::details-content {
+      block-size: 0;
+      opacity: 0;
+      overflow: clip;
+      transition:
+        block-size 0.42s cubic-bezier(0.2, 0.7, 0.25, 1),
+        opacity 0.3s,
+        content-visibility 0.42s allow-discrete;
+    }
+    .workshop-details[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+    }
   }
   @keyframes details-unfold {
     from {

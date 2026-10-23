@@ -42,6 +42,14 @@ Additional reviews verified on 24 October 2026:
   [Alek AI Framework reviews tab](https://assetstore.unity.com/packages/tools/behavior-ai/alek-ai-framework-263561#reviews).
 
 Neither additional selection had a gifted-package label. The portfolio's
-product callout now links to Placer 3 PRO; the older Light artwork is not used
-in that callout. Reviews remain attributed individually with their version
+Placer card links to Placer 3 PRO; the older Light artwork is not used.
+Reviews remain attributed individually with their version
 context, without implying a combined rating or review count.
+
+The horizontal tool gallery also includes `alek-ai-gameplay.webp`, a browser
+capture of the publisher's real Unity gameplay at about 15 seconds in the
+[Alek AI Framework demo](https://www.youtube.com/watch?v=bNlcwnAsHcE), linked
+from the framework's Asset Store page. It shows the AI-versus-AI blocking
+sequence, not the illustrated cover art. The full trailer includes optional
+modules; the image does not claim that every demonstrated module is bundled.
+Only a local still is served; no third-party video player is embedded.
