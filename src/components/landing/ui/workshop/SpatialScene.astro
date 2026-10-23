@@ -30,7 +30,7 @@ const { scene, caption, action } = Astro.props;
       type="button"
       data-spatial-action
       hidden
-      aria-pressed="false"
+      aria-pressed={scene === "terrain" ? undefined : "false"}
     >
       <span data-action-label>{action}</span>
       <span aria-hidden="true">↗</span>

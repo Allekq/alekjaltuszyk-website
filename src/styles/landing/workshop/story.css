@@ -14,54 +14,13 @@
 .workshop-history__chapters {
   position: relative;
 }
-.workshop-history__thread {
-  position: absolute;
-  top: 1.2rem;
-  bottom: 1rem;
-  left: 50%;
-  width: 1px;
-  background: var(--w-line);
-}
-.workshop-history__thread i {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: var(--w-accent);
-  transform: scaleY(var(--thread-progress, 0));
-  transform-origin: top;
-}
 .workshop-chapter {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 8%;
-  padding-block: 4rem 7rem;
+  column-gap: 7%;
+  padding-block: 3rem 5.5rem;
   position: relative;
   align-items: center;
-}
-.workshop-chapter__marker {
-  position: absolute;
-  top: 4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--w-line);
-  background: var(--w-paper);
-  font: 0.65rem var(--w-mono);
-  color: var(--w-muted);
-  transition:
-    border-color 0.4s,
-    color 0.4s,
-    background 0.4s;
-  z-index: 1;
-}
-.workshop-chapter.is-current .workshop-chapter__marker {
-  color: var(--w-paper);
-  background: var(--w-accent);
-  border-color: var(--w-accent);
 }
 .workshop-chapter__body {
   grid-column: 2;
@@ -184,20 +143,10 @@
     gap: 1.3rem;
     margin-bottom: 2rem;
   }
-  .workshop-history__thread {
-    left: 0.75rem;
-  }
   .workshop-chapter {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 2.5rem 0 3.5rem 2.5rem;
-  }
-  .workshop-chapter__marker {
-    top: 2.3rem;
-    left: 0.75rem;
-    width: 2rem;
-    height: 2rem;
-    font-size: 0.55rem;
+    padding: 2rem 0 3.5rem;
   }
   .workshop-chapter .workshop-chapter__body,
   .workshop-chapter:nth-of-type(even) .workshop-chapter__body {
@@ -218,7 +167,7 @@
     font-size: 0.6rem;
   }
   .workshop-chapter__body h3 {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 8.2vw, 2.2rem);
   }
   .workshop-chapter__body > p:not(.w-eyebrow) {
     font-size: 0.85rem;
@@ -232,5 +181,153 @@
   .workshop-chapter .w-spatial__caption {
     bottom: 3.8rem;
     font-size: 0.47rem;
+  }
+}
+
+/* A native anchor navigator: reading progress and a useful way through the story. */
+.workshop-history__layout {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+.workshop-history__nav {
+  position: sticky;
+  top: clamp(2rem, 25svh, 14rem);
+  align-self: start;
+  padding-top: 3rem;
+  z-index: 3;
+}
+.workshop-history__nav-label {
+  display: block;
+  font: 0.52rem var(--w-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--w-muted);
+  line-height: 1.7;
+}
+.workshop-history__stops {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-block: 1.2rem;
+}
+.workshop-history__stops a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  color: var(--w-muted);
+  font: 0.61rem var(--w-mono);
+}
+.workshop-history__stop-number {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: 1px solid #d1d4c7;
+  border-radius: 50%;
+  background: var(--w-paper);
+  transition:
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+}
+.workshop-history__stops a[aria-current] {
+  color: var(--w-ink);
+}
+.workshop-history__stops a[aria-current] .workshop-history__stop-number {
+  background: var(--w-accent);
+  border-color: var(--w-accent);
+  color: var(--w-paper);
+  box-shadow: 0 0 0 4px var(--w-paper);
+}
+.workshop-history__stops a:hover .workshop-history__stop-number {
+  border-color: var(--w-accent);
+}
+.workshop-history__rail {
+  position: absolute;
+  top: 22px;
+  bottom: 22px;
+  left: 15px;
+  width: 2px;
+  background: var(--w-line);
+}
+.workshop-history__rail i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--w-accent);
+  transform-origin: top;
+  transform: scaleY(var(--thread-progress, 0));
+}
+.workshop-history__rail b {
+  position: absolute;
+  left: -2px;
+  top: calc(var(--thread-progress, 0) * 100%);
+  width: 6px;
+  height: 16px;
+  margin-top: -8px;
+  border-radius: 4px;
+  background: var(--w-accent);
+}
+.workshop-chapter {
+  scroll-margin-top: 2rem;
+}
+@media (max-width: 75rem) {
+  .workshop-history__layout {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 1.2rem;
+  }
+  .workshop-history__nav-label,
+  .workshop-history__stop-label {
+    display: none;
+  }
+  .workshop-history__stops {
+    margin-block: 0;
+  }
+  .workshop-history__stops a {
+    width: 44px;
+    justify-content: center;
+  }
+  .workshop-history__rail {
+    left: 21px;
+  }
+}
+@media (max-width: 48rem) {
+  .workshop-history__layout {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+  .workshop-history__nav {
+    padding-top: 1.5rem;
+    top: 4rem;
+  }
+  .workshop-history__stops {
+    gap: 1.1rem;
+  }
+  .workshop-history__stops a {
+    width: 44px;
+    margin-left: -6px;
+  }
+  .workshop-history__stop-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.58rem;
+  }
+  .workshop-history__rail {
+    left: 15px;
+  }
+  .workshop-chapter__art {
+    min-width: 0;
+  }
+}
+@media (max-height: 540px) {
+  .workshop-history__nav {
+    top: 1rem;
+    padding-top: 0;
   }
 }

@@ -124,7 +124,6 @@ export function setupSpatialScenes() {
     let unsettled = false;
     for (const view of views) {
       if (!view.visible) continue;
-      view.story?.enable();
       const rect = view.canvas.getBoundingClientRect();
       if (
         !rect.width ||
@@ -176,11 +175,11 @@ export function setupSpatialScenes() {
         if (size.x !== width || size.y !== height)
           renderer.setSize(width, height, false);
         view.model.camera.aspect = rect.width / rect.height;
-        // Keep the whole island inside tall phone canvases, including its shadows.
+        // Keep each scene inside tall phone canvases, including its shadows.
         view.model.camera.zoom =
           view.name === "island"
             ? Math.min(1, view.model.camera.aspect / 1.02)
-            : 1;
+            : Math.min(1, view.model.camera.aspect / 1.05);
         view.model.camera.updateProjectionMatrix();
         renderer.render(view.model.scene, view.model.camera);
         view.context.clearRect(0, 0, width, height);
@@ -208,6 +207,7 @@ export function setupSpatialScenes() {
   );
   const resize = new ResizeObserver(request);
   for (const view of views) {
+    view.story?.enable();
     observer.observe(view.element);
     resize.observe(view.element);
     view.element.addEventListener(
@@ -237,7 +237,8 @@ export function setupSpatialScenes() {
         if (view.action === 0 && view.story?.replay()) return;
         view.action =
           view.name === "terrain" ? view.action + 1 : 1 - view.action;
-        button.setAttribute("aria-pressed", String(view.action % 2 === 1));
+        if (view.name !== "terrain")
+          button.setAttribute("aria-pressed", String(view.action === 1));
         request();
       },
       { signal },

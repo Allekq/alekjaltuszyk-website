@@ -15,7 +15,7 @@ implements the subsequent feedback and supersedes their visual decisions.
   completed world without a sticky track. The island camera adapts to tall canvases.
 - A reduced-motion gallery overflow bug is fixed: project links now contain their
   absolutely positioned screen-reader labels without relying on a 3D transform.
-- Experience follows a central scroll thread with alternating chapters. A seeded
+- Experience follows a left-hand chapter rail with alternating chapters. A seeded
   terrain, gameplay diorama and mobile interface studies accompany the existing
   public text. The diorama is labelled as an illustration; team attribution stays
   in the Roam text.
@@ -101,3 +101,35 @@ not assets to publish.
 The island follow-up changes only visual geometry, interaction and layout. It adds
 no dependency, data flow, storage, network destination, permission or product claim;
 the earlier legal-impact receipt still describes the integration boundary.
+
+## Timeline refinement — 2026-10-23
+
+- Replaced the passive timeline thread with a sticky, keyboard/touch-accessible
+  chapter navigator. Its active stop and progress follow the reading position and
+  recalculate when native details expand. The narrow layout keeps 44px tap targets.
+- Terrain now grows in a gentle wave and blends between seeded landscapes. The
+  phone studies fan out with independent tilt; their checklist, waveform and game
+  tiles change with scrolling or the scene control. Roam keeps its existing path
+  with only a small walking sway, path-facing traveller and flag movement.
+- Added a small hand-drawn “Give it a press” cue to the Tab key. Refreshed all three
+  timeline fallback images from the same models and fitted tall phone canvases.
+- Fixed initial chapter links landing above their target when the sticky island
+  enhancement changes document height. Arrival correction yields to user input
+  and excludes browser history restoration; offscreen fallback changes preserve
+  the current reading position.
+
+Validation: Astro check reports zero errors/warnings/hints; the production build,
+publication-boundary checks, five boundary tests and nine workshop tests pass.
+Chromium checks cover 320×568, 390×844, 768×1024, 844×390, 1024×768, 1366×768 and
+1440×1000: no horizontal page overflow or clipped timeline controls. Initial
+chapter links land at their 32px scroll margin. Chapter taps, keyboard focus,
+native details and the key's Space/Tab behavior pass, including without JavaScript.
+Reduced motion has zero running animations and no chapter parallax. Missing WebGL
+and lost context retain the static illustrations and hide unavailable controls.
+Terrain and phone controls visibly update their canvases; one GPU context is used
+and no additional canvas draws occur after settling. No browser errors observed.
+Phone sizes use browser emulation, not physical-device Safari testing.
+
+This refinement changes visuals and local navigation only. It adds no dependency,
+network destination, data handling, permission, storage or public product claim;
+the earlier legal-impact receipt remains applicable.
