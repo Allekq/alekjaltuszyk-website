@@ -68,16 +68,11 @@
   color: var(--w-muted);
 }
 .w-spatial--island .w-spatial__drawing {
-  inset: 2.1rem 0 4.8rem;
+  inset: 3.4rem -2% 5.3rem;
 }
 .w-spatial--island .w-spatial__caption {
   left: 10%;
   bottom: 1.5rem;
-}
-.w-spatial--island .w-spatial__action {
-  right: 7%;
-  bottom: 6.6rem;
-  background: #f5f3edee;
 }
 .is-world-ready .w-spatial--island .w-spatial__caption {
   display: none;
@@ -217,7 +212,7 @@
     max-width: 26rem;
   }
   .workshop-hero__track {
-    --world-scene: clamp(380px, 65svh, 570px);
+    --world-scene: clamp(460px, calc(100vw + 180px), 680px);
     position: relative;
   }
   .is-world-ready .workshop-hero__track {
@@ -243,11 +238,7 @@
     font-size: 1rem;
   }
   .w-spatial--island .w-spatial__drawing {
-    inset: 2.1rem 0 5.7rem;
-  }
-  .w-spatial--island .w-spatial__action {
-    right: 6%;
-    bottom: 7rem;
+    inset: 3.6rem -3% 6.6rem;
   }
   .workshop-world__guide {
     left: 7%;
@@ -300,10 +291,6 @@
   }
 }
 
-.w-spatial--island .w-spatial__action:hover {
-  background: var(--w-ink);
-  color: var(--w-paper);
-}
 @media (max-height: 540px) {
   .workshop-hero__exhibit {
     height: 440px;

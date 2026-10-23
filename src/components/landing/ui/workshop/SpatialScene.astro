@@ -25,13 +25,7 @@ const { scene, caption, action } = Astro.props;
   </div>
   <span class="w-spatial__caption">{caption}</span>
   {action && (
-    <button
-      class="w-spatial__action"
-      type="button"
-      data-spatial-action
-      hidden
-      aria-pressed={scene === "terrain" ? undefined : "false"}
-    >
+    <button class="w-spatial__action" type="button" data-spatial-action hidden>
       <span data-action-label>{action}</span>
       <span aria-hidden="true">↗</span>
     </button>

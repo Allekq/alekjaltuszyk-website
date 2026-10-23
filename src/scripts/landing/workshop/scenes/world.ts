@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { createEncounter } from "./encounter";
 import {
   block,
   cylinder,
@@ -83,7 +84,7 @@ export function createWorld(environment: THREE.Texture): SpatialModel {
   [
     [-2.6, -1.4],
     [-0.9, -1.7],
-    [2.6, 1.65],
+    [2.7, -0.15],
   ].forEach(([x, z]) => {
     cylinder(root, 0.07, 0.8, [x, 0.65, z], material(0x6f7051));
     const foliage = new THREE.Mesh(
@@ -140,13 +141,20 @@ export function createWorld(environment: THREE.Texture): SpatialModel {
   root.add(flag);
   cylinder(flag, 0.018, 1, [0, 0.4, 0], dark);
   block(flag, [0.47, 0.28, 0.025], [0.23, 0.76, 0], red, 0.01);
+  const encounter = createEncounter(root, player);
   return {
     ...model,
-    update({ progress, pointerX, pointerY, action, reduced }) {
+    actionDuration: 6.6,
+    actionLabels: [
+      "Start a tiny showdown",
+      "Try a flying kick",
+      "Try a judo throw",
+    ],
+    update({ progress, pointerX, pointerY, action, elapsed, reduced }) {
       const p = reduced
-        ? 0.35 + action * 0.4
+        ? 0.35
         : THREE.MathUtils.clamp(
-            smoothstep(0.05, 0.9, progress) * 0.7 + action * 0.25,
+            smoothstep(0.05, 0.9, progress) * 0.7,
             0.02,
             0.95,
           );
@@ -158,9 +166,10 @@ export function createWorld(environment: THREE.Texture): SpatialModel {
       body.position.y = 0.32 + Math.abs(stride) * 0.018;
       head.position.y = 0.69 + Math.abs(stride) * 0.018;
       body.rotation.z = stride * 0.025;
+      encounter(action, elapsed, reduced);
       flag.rotation.y = reduced ? 0 : Math.sin(progress * 7) * 0.045;
-      crate.rotation.y = reduced ? 0.3 : progress + action * 0.8;
-      crate.rotation.z = reduced ? 0 : Math.sin(action * Math.PI) * 0.25;
+      crate.rotation.y = reduced ? 0.3 : progress;
+      crate.rotation.z = reduced ? 0 : 0;
       root.rotation.set(
         pointerY * 0.05,
         -0.3 + (reduced ? 0 : (progress - 0.5) * 0.3) + pointerX * 0.13,

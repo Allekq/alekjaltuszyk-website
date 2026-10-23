@@ -97,6 +97,7 @@ export function setupSpatialScenes() {
           pointerY: 0,
           action: 0,
           time: 0,
+          elapsed: 0,
           reduced: media.matches,
         },
       },
@@ -149,6 +150,10 @@ export function setupSpatialScenes() {
           "pointerY",
           "action",
         ] as const) {
+          if (key === "action" && view.model.actionDuration) {
+            view.current.action = view.action;
+            continue;
+          }
           const delta = target[key] - view.current[key];
           view.current[key] = approach(
             view.current[key],
@@ -160,6 +165,13 @@ export function setupSpatialScenes() {
         }
         view.current.reduced = media.matches;
         view.current.time = now / 1000;
+        const duration = view.model.actionDuration ?? 0;
+        if (view.action > 0 && view.current.elapsed < duration) {
+          view.current.elapsed = media.matches
+            ? duration
+            : Math.min(duration, view.current.elapsed + dt);
+          if (view.current.elapsed < duration) unsettled = true;
+        }
         view.model.update(view.current);
         const dpr = Math.min(
           devicePixelRatio || 1,
@@ -186,8 +198,17 @@ export function setupSpatialScenes() {
         view.context.drawImage(renderer.domElement, 0, 0);
         view.element.classList.add("is-rendered");
         const button = view.element.querySelector<HTMLButtonElement>("button");
-        if (button) button.hidden = false;
-        view.story?.update(view.current.progress, view.current.action);
+        if (button) {
+          button.hidden = false;
+          button.disabled = view.action > 0 && view.current.elapsed < duration;
+          const labels = view.model.actionLabels;
+          if (labels)
+            button.querySelector("[data-action-label]")!.textContent =
+              button.disabled
+                ? "Watch this…"
+                : labels[view.action % labels.length];
+        }
+        view.story?.update(view.current.progress);
       } catch {
         showFallback();
         break;
@@ -234,11 +255,8 @@ export function setupSpatialScenes() {
     button?.addEventListener(
       "click",
       () => {
-        if (view.action === 0 && view.story?.replay()) return;
-        view.action =
-          view.name === "terrain" ? view.action + 1 : 1 - view.action;
-        if (view.name !== "terrain")
-          button.setAttribute("aria-pressed", String(view.action === 1));
+        view.action += 1;
+        view.current.elapsed = 0;
         request();
       },
       { signal },

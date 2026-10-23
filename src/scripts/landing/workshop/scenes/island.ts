@@ -504,8 +504,8 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
   assemble(flag, 0.81, 0.98, 0.8);
   return {
     ...model,
-    update({ progress, pointerX, pointerY, action, reduced }) {
-      const p = buildProgress(progress, action, reduced);
+    update({ progress, pointerX, pointerY, reduced }) {
+      const p = buildProgress(progress, reduced);
       for (const part of parts) {
         const t = smoothstep(part.start, part.end, p);
         part.object.visible = t > 0.001;
