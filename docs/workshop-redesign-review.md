@@ -241,3 +241,28 @@ reduced motion, disabled JavaScript, unavailable WebGL and data-saving mode.
 The existing geometry tests pass. This pass changes presentation and public
 career wording, with no new app capabilities, data practices, dependencies,
 permissions, purchases or legal-facing product promises.
+
+## Portfolio copy accuracy review
+
+The skills now distinguish Unity gameplay, C# maintenance and optimization,
+and Python/AI integration. Career contributions use the owner's confirmed
+responsibilities, without internal implementation details or a claim of sole
+ownership. The introduction and shared biography identify a junior software
+engineer. Unverified adoption, revenue and absolute performance claims were
+removed. The five-star milestone explicitly refers to customer reviews.
+
+Unity examples were checked against the public
+[Alek Games catalogue](https://assetstore.unity.com/publishers/58188),
+[Placer listing](https://assetstore.unity.com/packages/tools/level-design/placer-3-pro-level-designer-283376)
+and [PRPC listing](https://assetstore.unity.com/packages/tools/physics/prpc-parkour-rigidbody-player-controller-229619).
+Review evidence remains in `public/media/home/assets/sources.md`.
+Product summaries were compared with the apps' reminder/plan systems,
+managed reflection flow, cell-pressure simulation, compass guidance and
+headphone-motion input, plus the existing public product and AI-use text.
+Shared profile data also feeds the LLM discovery output.
+
+| Review item | Evidence and decision |
+| --- | --- |
+| Public promises | Portfolio summaries narrowed to existing features and confirmed contributions. PlanKept privacy, Voice of Self AI-use and AudioChoices privacy text remain consistent; no new capability or processing claim. |
+| Release | Copy only; no data flow, dependency, permission, purchase, retention or app acceptance change. No legal version bump. |
+| Result | No disclosure change. This is a factual copy review, not an assessment of an employment agreement. |
