@@ -1,0 +1,131 @@
+---
+import { homeSkills, homeStack } from "../home-profile-content";
+import { siteConfig } from "../../../../config/site";
+import SkillObject from "../../ui/workshop/SkillObject.astro";
+---
+
+<section
+  class="workshop-skills w-container w-section"
+  id="skills"
+  aria-labelledby="skills-title"
+>
+  <div class="w-section-label">
+    <span class="w-section-number">04</span>
+    <p class="w-eyebrow">Inside the toolkit</p>
+    <span class="w-rule"></span>
+  </div>
+  <div class="workshop-skills__heading">
+    <h2 class="w-heading" id="skills-title">
+      Depth in
+      <br />
+      <em>the details.</em>
+    </h2>
+    <div>
+      <p class="w-section-description">
+        The part beneath the surface.
+        <br />
+        Open a tool to look closer.
+      </p>
+      <ul class="workshop-stack">
+        {homeStack.map((skill) => (
+          <li>{skill}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+  <div class="workshop-skills__grid">
+    {homeSkills
+      .filter(({ id }) => id !== "climber")
+      .map((skill, index) => (
+        <details class="workshop-skill">
+          <summary>
+            <div class="workshop-skill__visual">
+              <span class="workshop-skill__number">
+                0{index + 1} / FIELD NOTES
+              </span>
+              <SkillObject id={skill.id} />
+            </div>
+            <span class="workshop-skill__title">
+              <strong>{skill.title}</strong>
+              <span class="workshop-skill__plus" aria-hidden="true">
+                +
+              </span>
+            </span>
+            <span class="workshop-skill__strap">{skill.strap}</span>
+          </summary>
+          <div class="workshop-skill__body">
+            <p>{skill.summary}</p>
+            <ul>
+              {skill.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+            <div class="workshop-skill__links">
+              {skill.related.map((item) => (
+                <a class="w-text-link" href={`#${item.historyId}`}>
+                  {item.label} ↗
+                </a>
+              ))}
+            </div>
+          </div>
+        </details>
+      ))}
+  </div>
+  <details class="workshop-education">
+    <summary>
+      <span class="w-eyebrow">Always a student</span>
+      <strong>Warsaw University of Technology</strong>
+      <span>
+        Computer Science · WEiTI <span aria-hidden="true">+</span>
+      </span>
+    </summary>
+    <p>{siteConfig.identity.education} Studies in progress.</p>
+  </details>
+</section>
+<section
+  class="workshop-keystory w-container"
+  aria-label="The story behind a Tab key"
+>
+  <details class="workshop-key" data-key-story>
+    <summary>
+      <span class="workshop-key__stage" aria-hidden="true">
+        <span class="workshop-key__shadow"></span>
+        <span class="workshop-key__switch">
+          <i></i>
+        </span>
+        <span class="workshop-key__cap">
+          <span class="workshop-key__face">
+            <span>tab</span>
+            <span>⇥</span>
+          </span>
+          <span class="workshop-key__edge"></span>
+        </span>
+        <span class="workshop-key__measurement">ONE VERY WELL-USED KEY</span>
+      </span>
+      <span class="workshop-key__invitation">
+        <span class="w-eyebrow">A small, very specific honour</span>
+        <strong>
+          There’s a story
+          <br />
+          behind this <em>key.</em>
+        </strong>
+        <span class="workshop-key__hint">
+          <span data-key-hint>Press to find out</span>
+          <span aria-hidden="true">↘</span>
+        </span>
+      </span>
+    </summary>
+    <div class="workshop-key__story">
+      <span class="workshop-key__story-mark" aria-hidden="true">
+        ↳
+      </span>
+      <div>
+        <p class="w-eyebrow">From autocomplete to a physical keepsake</p>
+        <p>{siteConfig.identity.cursorRecognition}</p>
+        <span class="workshop-key__footnote">
+          An illustrated tribute to that little key.
+        </span>
+      </div>
+    </div>
+  </details>
+</section>

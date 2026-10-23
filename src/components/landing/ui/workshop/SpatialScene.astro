@@ -1,0 +1,39 @@
+---
+import { withBase } from "../../../../lib/paths";
+interface Props {
+  scene: "device" | "terrain" | "world" | "products";
+  caption: string;
+  action?: string;
+}
+const { scene, caption, action } = Astro.props;
+---
+
+<div
+  class:list={["w-spatial", `w-spatial--${scene}`]}
+  data-spatial-scene={scene}
+>
+  <div class="w-spatial__drawing" aria-hidden="true">
+    <img
+      class="w-spatial__fallback"
+      src={withBase(`/media/home/workshop-${scene}.webp`)}
+      alt=""
+      width="800"
+      height="700"
+      loading={scene === "device" ? "eager" : "lazy"}
+    />
+    <canvas class="w-spatial__canvas"></canvas>
+  </div>
+  <span class="w-spatial__caption">{caption}</span>
+  {action && (
+    <button
+      class="w-spatial__action"
+      type="button"
+      data-spatial-action
+      hidden
+      aria-pressed="false"
+    >
+      <span data-action-label>{action}</span>
+      <span aria-hidden="true">↗</span>
+    </button>
+  )}
+</div>

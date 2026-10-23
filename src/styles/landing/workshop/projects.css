@@ -1,0 +1,278 @@
+.workshop-projects {
+  background: #eaece3;
+  border-block: 1px solid var(--w-line);
+}
+.workshop-projects__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.workshop-projects__heading .w-section-description {
+  margin-top: 1rem;
+}
+.workshop-projects__controls {
+  display: flex;
+  gap: 0.5rem;
+}
+.workshop-gallery {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding: 1.4rem max(var(--workshop-gutter), calc((100vw - 1320px) / 2)) 2.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #9c9e91 transparent;
+  scroll-padding-inline: max(
+    var(--workshop-gutter),
+    calc((100vw - 1320px) / 2)
+  );
+}
+.workshop-project {
+  flex: 0 0 clamp(330px, 32vw, 440px);
+  scroll-snap-align: start;
+  min-width: 0;
+  transform: perspective(1400px) rotateY(var(--project-angle, 0deg));
+  transform-origin: center;
+}
+.workshop-project__link {
+  display: block;
+}
+.workshop-project__visual {
+  height: 440px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+  background: #d5ddcb;
+  color: #343f30;
+  perspective: 1000px;
+  isolation: isolate;
+}
+.workshop-project__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 30% 10%, #ffffff60, transparent 65%);
+  z-index: -1;
+}
+.workshop-project--audio-book-choices .workshop-project__visual {
+  background: #dad5e5;
+  color: #47405c;
+}
+.workshop-project--overlit .workshop-project__visual {
+  background: #242d2a;
+  color: #e0edba;
+}
+.workshop-project--voice-of-self .workshop-project__visual {
+  background: #d1dfda;
+  color: #2c554e;
+}
+.workshop-project--take-me-somewhere .workshop-project__visual {
+  background: #e5d9c4;
+  color: #69573c;
+}
+.workshop-project__topline {
+  position: absolute;
+  inset: 1.5rem 1.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  font: 0.6rem var(--w-mono);
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+.workshop-project__visual-bottom {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  z-index: 2;
+}
+.workshop-project__visual-bottom img {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  box-shadow: 0 3px 9px #15241818;
+}
+.workshop-project__visual-bottom > span:not(.workshop-project__arrow) {
+  font-size: 0.9rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  max-width: 13rem;
+}
+.workshop-project__arrow {
+  margin-left: auto;
+  font-size: 1.5rem;
+  transition: transform 0.4s var(--w-ease);
+}
+.workshop-project__link:hover .workshop-project__arrow {
+  transform: translate(3px, -3px);
+}
+.workshop-project__info {
+  padding: 1.5rem 0.15rem 0.1rem;
+}
+.workshop-project__name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.workshop-project__name h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.workshop-project__name .w-eyebrow {
+  font-size: 0.55rem;
+}
+.workshop-project__info > p {
+  color: #626859;
+  font-size: 0.83rem;
+  line-height: 1.8;
+  margin-top: 0.65rem;
+  min-height: 4.3em;
+  max-width: 96%;
+}
+.workshop-project__tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.workshop-project__tags li {
+  padding: 0.3rem 0.65rem;
+  border: 1px solid #c8cdbf;
+  border-radius: 2rem;
+  font-size: 0.6rem;
+  color: #56604d;
+}
+.workshop-projects__foot {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.7rem;
+}
+.workshop-projects__foot p {
+  color: #626859;
+  font: 0.62rem/1.8 var(--w-mono);
+  max-width: 37rem;
+}
+.workshop-projects__foot a {
+  white-space: nowrap;
+}
+.workshop-directory__intro {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: end;
+  padding-block: 5rem 5rem;
+}
+.workshop-directory__intro h1 {
+  font-size: clamp(3.5rem, 6.4vw, 6.5rem);
+  letter-spacing: -0.065em;
+  line-height: 1.04;
+  font-weight: 400;
+  margin-top: 1.5rem;
+}
+.workshop-directory__intro > div:last-child {
+  max-width: 25rem;
+  padding-bottom: 0.3rem;
+}
+.workshop-directory__count {
+  font-size: 1.3rem;
+  line-height: 1.45;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem !important;
+}
+.workshop-directory__intro .w-text-link {
+  margin-top: 1rem;
+}
+.workshop-directory__rule {
+  border-block: 1px solid var(--w-line);
+  padding-block: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.workshop-directory__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem 2rem;
+}
+.workshop-directory__grid .workshop-project__visual {
+  height: clamp(380px, 37vw, 530px);
+}
+.workshop-directory__grid .workshop-project:nth-child(even) {
+  margin-top: 6rem;
+}
+.workshop-directory__grid .project-object {
+  scale: 1.15;
+}
+.workshop-directory__status {
+  font: 0.7rem/1.8 var(--w-mono);
+  color: var(--w-muted);
+  border-bottom: 1px solid var(--w-line);
+  padding-block: 3rem;
+}
+@media (max-width: 48rem) {
+  .workshop-projects__heading {
+    align-items: center;
+    gap: 1rem;
+  }
+  .workshop-projects__heading .w-section-description {
+    font-size: 0.85rem;
+    max-width: 15rem;
+  }
+  .workshop-projects__controls {
+    flex-direction: column;
+  }
+  .workshop-project {
+    flex-basis: min(350px, 84vw);
+  }
+  .workshop-project__visual {
+    height: 380px;
+  }
+  .workshop-gallery {
+    gap: 1rem;
+  }
+  .workshop-projects__foot {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .workshop-directory__intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-block: 3rem;
+  }
+  .workshop-directory__intro h1 {
+    font-size: clamp(3.4rem, 13vw, 6rem);
+  }
+  .workshop-directory__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .workshop-directory__grid .workshop-project:nth-child(even) {
+    margin-top: 0;
+  }
+  .workshop-directory__grid .project-object {
+    scale: 1;
+  }
+  .workshop-directory__rule .w-eyebrow {
+    font-size: 0.52rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .workshop-project {
+    transform: none;
+  }
+}

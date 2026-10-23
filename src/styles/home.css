@@ -1,3 +1,9 @@
-@import "./landing/shared.css";
-@import "./landing/apps.css";
-@import "./landing/home.css";
+@import "./landing/workshop/base.css";
+@import "./landing/workshop/hero.css";
+@import "./landing/workshop/projects.css";
+@import "./landing/workshop/story.css";
+@import "./landing/workshop/beyond.css";
+@import "./landing/workshop/objects.css";
+@import "./landing/workshop/spatial.css";
+@import "./landing/workshop/skills.css";
+@import "./landing/workshop/key.css";

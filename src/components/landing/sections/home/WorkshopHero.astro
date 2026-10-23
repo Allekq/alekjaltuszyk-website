@@ -1,0 +1,49 @@
+---
+import SpatialScene from "../../ui/workshop/SpatialScene.astro";
+---
+
+<section class="workshop-hero w-container" aria-labelledby="workshop-title">
+  <div class="workshop-hero__copy">
+    <p class="w-eyebrow">
+      <span class="w-status-dot" aria-hidden="true"></span> Software engineer &
+      product builder
+    </p>
+    <h1 id="workshop-title">
+      Built with
+      <br />
+      <span>curiosity.</span>
+    </h1>
+    <p class="workshop-hero__summary">
+      Intelligence, behaviour, and a little useful pressure.
+      <br class="w-desktop-break" /> I turn complex systems into things that
+      feel good to use.
+    </p>
+    <a class="w-button" href="#work">
+      Take a look around <span aria-hidden="true">↘</span>
+    </a>
+  </div>
+  <div class="workshop-hero__exhibit">
+    <div class="workshop-hero__annotation">
+      <span class="w-eyebrow">On the workbench / 001</span>
+      <span>A little look inside.</span>
+    </div>
+    <SpatialScene
+      scene="device"
+      caption="An idea, taken apart."
+      action="Put it together"
+    />
+    <span class="workshop-hero__margin-note" aria-hidden="true">
+      THINK → BUILD → REFINE
+    </span>
+  </div>
+  <div class="workshop-hero__bottom">
+    <span>Independent thinking. Hands-on building.</span>
+    <a href="#about">
+      <span class="workshop-scroll-mark" aria-hidden="true">
+        ↓
+      </span>{" "}
+      Follow the curiosity
+    </a>
+    <span class="workshop-hero__location">Warsaw, Poland</span>
+  </div>
+</section>

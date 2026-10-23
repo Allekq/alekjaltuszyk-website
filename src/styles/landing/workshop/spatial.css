@@ -1,0 +1,242 @@
+.w-spatial {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+}
+.w-spatial__drawing {
+  position: absolute;
+  inset: 0;
+}
+.w-spatial__fallback,
+.w-spatial__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.w-spatial__canvas {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.w-spatial.is-rendered .w-spatial__canvas {
+  opacity: 1;
+}
+.w-spatial.is-rendered .w-spatial__fallback {
+  visibility: hidden;
+}
+.w-spatial__caption {
+  position: absolute;
+  bottom: 1.3rem;
+  left: 1.5rem;
+  font: 0.58rem var(--w-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #646e5a;
+}
+.w-spatial__action {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #bec4b3;
+  border-radius: 2rem;
+  background: #f6f5eddf;
+  font:
+    0.65rem "Helvetica Neue",
+    sans-serif;
+  transition: background 0.2s;
+}
+.w-spatial__action:hover {
+  background: var(--w-ink);
+  color: var(--w-paper);
+}
+.w-spatial--device .w-spatial__caption {
+  bottom: 1.8rem;
+  left: 7%;
+}
+.w-spatial--device .w-spatial__action {
+  bottom: 1.2rem;
+  right: 8%;
+}
+.workshop-hero {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.1fr);
+  gap: 0;
+  padding-top: 1rem;
+  min-height: min(850px, calc(100svh - 96px));
+}
+.workshop-hero__copy {
+  padding-block: 3rem 4.5rem;
+}
+.workshop-hero h1 {
+  font-size: clamp(4.6rem, 8.2vw, 8.3rem);
+  letter-spacing: -0.07em;
+  font-weight: 400;
+  z-index: 2;
+}
+.workshop-hero__exhibit {
+  width: 120%;
+  height: clamp(540px, 47vw, 700px);
+  margin-left: -10%;
+  align-self: center;
+  min-height: 0;
+  aspect-ratio: auto;
+  isolation: auto;
+}
+.workshop-hero__annotation {
+  position: absolute;
+  left: 19%;
+  top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 1;
+}
+.workshop-hero__annotation > span:last-child {
+  font:
+    italic 1.1rem Georgia,
+    serif;
+  color: var(--w-muted);
+}
+.workshop-hero__margin-note {
+  position: absolute;
+  right: 3%;
+  top: 38%;
+  font: 0.5rem var(--w-mono);
+  letter-spacing: 0.12em;
+  writing-mode: vertical-rl;
+  color: #8a8c7f;
+}
+.workshop-hero__bottom {
+  position: relative;
+  z-index: 1;
+  padding-block: 1.3rem;
+}
+.workshop-hero__bottom .workshop-scroll-mark {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--w-line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.workshop h1 em,
+.workshop .w-heading em,
+.workshop-key strong em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+}
+.workshop-header {
+  min-height: 96px;
+}
+.workshop-brand {
+  font-size: 1.12rem;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+}
+.workshop-brand small {
+  font: 0.52rem var(--w-mono);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+.workshop-header__contact {
+  font-size: 0.74rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  border-bottom: 1px solid var(--w-ink);
+  padding-block: 0.5rem;
+}
+.workshop-header__contact span {
+  color: var(--w-accent);
+  font-size: 1.2rem;
+}
+.workshop-climbing__photo {
+  transform: translateY(var(--photo-shift, 0px)) scale(1.06);
+}
+@media (max-width: 62rem) and (min-width: 48.01rem) {
+  .workshop-hero__exhibit {
+    width: 125%;
+    margin-left: -15%;
+    min-height: 510px;
+  }
+  .workshop-hero h1 {
+    font-size: 8.8vw;
+  }
+  .workshop-hero__location {
+    display: none;
+  }
+}
+@media (max-width: 48rem) {
+  .workshop-header {
+    min-height: 84px;
+  }
+  .workshop-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 0.5rem;
+  }
+  .workshop-hero__copy {
+    padding-block: 1.8rem 0;
+  }
+  .workshop-hero h1 {
+    font-size: clamp(4.3rem, 14.6vw, 7rem);
+  }
+  .workshop-hero__summary {
+    max-width: 25rem;
+  }
+  .workshop-hero__exhibit {
+    width: 113%;
+    margin: -0.5rem -6.5% 0;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 1/1.07;
+    max-width: none;
+  }
+  .workshop-hero__annotation {
+    left: 9%;
+    top: 1.8rem;
+  }
+  .workshop-hero__annotation .w-eyebrow {
+    font-size: 0.48rem;
+  }
+  .workshop-hero__annotation > span:last-child {
+    font-size: 0.9rem;
+  }
+  .workshop-hero__margin-note {
+    display: none;
+  }
+  .w-spatial {
+    min-height: 300px;
+  }
+  .w-spatial__caption {
+    font-size: 0.48rem;
+    left: 0.9rem;
+    bottom: 1.15rem;
+  }
+  .w-spatial__action {
+    padding: 0.65rem 0.8rem;
+    font-size: 0.58rem;
+    right: 0.8rem;
+    bottom: 0.65rem;
+    gap: 0.6rem;
+  }
+  .w-spatial--device .w-spatial__caption {
+    bottom: 1.6rem;
+  }
+  .workshop-hero__bottom {
+    align-items: center;
+  }
+  .workshop-hero__location {
+    display: none;
+  }
+  .workshop-hero__bottom a {
+    max-width: none;
+  }
+}

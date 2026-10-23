@@ -1,0 +1,110 @@
+---
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<div
+  class:list={["project-object", `project-object--${id}`]}
+  aria-hidden="true"
+>
+  {id === "plankept" && (
+    <div class="plan-stack">
+      <div class="plan-sheet plan-sheet--back">
+        <span>01</span>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <div class="plan-sheet plan-sheet--middle">
+        <span>02</span>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <div class="plan-sheet plan-sheet--front">
+        <span>
+          A little more
+          <br />
+          follow-through.
+        </span>
+        <div class="plan-check">✓</div>
+        <div class="plan-progress">
+          <i></i>
+        </div>
+        <small>PLAN → DO → DONE</small>
+      </div>
+    </div>
+  )}
+  {id === "audio-book-choices" && (
+    <div class="audio-book">
+      <div class="audio-book__spine"></div>
+      <div class="audio-book__pages"></div>
+      <div class="audio-book__cover">
+        <small>A STORY WITH</small>
+        <span>
+          more than
+          <br />
+          <em>one way.</em>
+        </span>
+        <svg viewBox="0 0 180 100">
+          <path d="M90 100V70Q90 50 60 50H45Q20 50 20 25V0M90 70Q90 50 120 50H135Q160 50 160 25V0" />
+          <circle cx="20" cy="15" r="7" />
+          <circle cx="160" cy="15" r="7" />
+        </svg>
+        <b>↗</b>
+      </div>
+      <div class="audio-book__bookmark"></div>
+    </div>
+  )}
+  {id === "overlit" && (
+    <div class="arcade-board">
+      {Array.from({ length: 16 }, (_, i) => (
+        <span
+          class:list={[
+            "arcade-key",
+            [2, 5, 7, 10, 13].includes(i) && "arcade-key--lit",
+          ]}
+          style={`--i:${i}`}
+        >
+          <i></i>
+        </span>
+      ))}
+    </div>
+  )}
+  {id === "voice-of-self" && (
+    <div class="voice-object">
+      <div class="voice-object__ring"></div>
+      <div class="voice-object__ring voice-object__ring--outer"></div>
+      <div class="voice-object__bars">
+        {[24, 44, 68, 100, 74, 48, 84, 112, 62, 38, 24].map((h, i) => (
+          <i style={`--bar:${h}px;--i:${i}`}></i>
+        ))}
+      </div>
+      <span>A little perspective.</span>
+    </div>
+  )}
+  {id === "take-me-somewhere" && (
+    <div class="map-object">
+      <div class="map-object__sheet">
+        <svg viewBox="0 0 300 240">
+          <path
+            class="map-streets"
+            d="M0 40H300M0 90H300M0 170H300M60 0V240M140 0V240M240 0V240M0 220L300 10"
+          />
+          <path class="map-park" d="M161 108h55v40h-55zM12 110h30v44H12z" />
+          <path class="map-route" d="M60 190V90H140V40H240" />
+          <circle cx="60" cy="190" r="6" />
+          <circle cx="240" cy="40" r="9" />
+        </svg>
+        <i></i>
+        <i></i>
+      </div>
+      <div class="map-object__pin">
+        <span>↗</span>
+      </div>
+      <span class="map-object__coordinate">A little further.</span>
+    </div>
+  )}
+</div>

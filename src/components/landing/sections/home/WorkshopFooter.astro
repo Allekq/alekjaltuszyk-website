@@ -1,0 +1,51 @@
+---
+import { siteConfig } from "../../../../config/site";
+import { siteRoutes } from "../../../../config/routes";
+---
+
+<footer class="workshop-footer w-container" id="contact">
+  <div class="workshop-footer__invitation">
+    <div>
+      <p class="w-eyebrow">
+        <span class="w-status-dot" aria-hidden="true"></span> The next
+        interesting thing starts somewhere.
+      </p>
+      <h2>
+        Let’s make
+        <br />
+        <span class="w-muted">something matter.</span>
+      </h2>
+    </div>
+    <a
+      class="workshop-footer__contact"
+      href={`mailto:${siteConfig.contactEmail}`}
+      aria-label="Email Alek"
+    >
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+  <div class="workshop-footer__links">
+    <a class="w-text-link" href={`mailto:${siteConfig.contactEmail}`}>
+      {siteConfig.contactEmail} ↗
+    </a>
+    <nav aria-label="Social links">
+      {siteConfig.socialLinks.map((link) => (
+        <a href={link.href} target="_blank" rel="noopener noreferrer">
+          {link.label} <span aria-hidden="true">↗</span>
+          <span class="w-sr-only"> (opens in a new tab)</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+  <div class="workshop-footer__bottom">
+    <p>{siteConfig.footerText}</p>
+    <nav aria-label="Footer">
+      <a href={siteConfig.appsHref}>Apps</a>
+      <a href={siteRoutes.support.href}>Support</a>
+      <a href={siteRoutes.legal.href}>Legal</a>
+      <a href={siteRoutes.privacyPolicy.href}>Privacy</a>
+      <a href={siteRoutes.terms.href}>Terms</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
+  </div>
+</footer>
