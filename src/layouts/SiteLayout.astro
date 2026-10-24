@@ -116,6 +116,7 @@ const resolvedStructuredData = [
     givenName: "Aleksander",
     familyName: "Jałtuszyk",
     url: siteConfig.origin,
+    sameAs: siteConfig.socialLinks.map((profile) => profile.href),
     image: siteConfig.defaultSocialImageUrl,
     description: siteConfig.aiDiscovery.summary,
     jobTitle: "Software Engineer",

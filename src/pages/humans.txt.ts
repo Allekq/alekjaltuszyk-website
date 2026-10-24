@@ -1,12 +1,12 @@
 import type { APIRoute } from "astro";
 import { siteConfig } from "../config/site";
-import { appDirectory, siteRoutes } from "../config/routes";
-import { releaseStatusSentence } from "../lib/appState";
+import { siteRoutes } from "../config/routes";
+import { apps, releaseStatusSentence } from "../lib/appState";
 import { toAbsoluteSiteUrl } from "../lib/discovery";
 
 export const prerender = true;
 
-const currentProductLines = appDirectory
+const currentProductLines = apps
   .map(
     (item) =>
       `- ${item.name} (${item.releaseStage === "released" ? "released" : "not released yet"}): ${item.description}`,
@@ -20,6 +20,9 @@ Alternate search names: ${siteConfig.aiDiscovery.nameVariants.join(", ")}
 
 Bio:
 ${siteConfig.identity.shortBio}
+
+Engineering focus:
+${siteConfig.identity.focusAreas.join(", ")}
 
 Education:
 ${siteConfig.identity.education}

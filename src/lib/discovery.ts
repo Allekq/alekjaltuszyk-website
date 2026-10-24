@@ -31,8 +31,7 @@ export const discoveryPages = {
     {
       title: "Home",
       path: siteRoutes.home.path,
-      description:
-        "Personal site for Alek Jałtuszyk (Aleksander Jałtuszyk), a C# and Python developer integrating AI models, building Unity tools and products, and studying Computer Science at Warsaw University of Technology.",
+      description: siteConfig.defaultDescription,
     },
     {
       title: "Apps",
@@ -294,7 +293,7 @@ export const discoveryPages = {
       title: "Expanded LLM Context",
       path: siteRoutes.llmsFull.path,
       description:
-        "A fuller LLM-oriented overview with site structure, current app routing, and PlanKept context.",
+        "Detailed public profile, engineering skills, work experience, product contributions and current app pages for Alek Jałtuszyk.",
     },
     {
       title: "Humans Summary",

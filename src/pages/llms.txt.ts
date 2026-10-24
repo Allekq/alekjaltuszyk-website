@@ -9,6 +9,7 @@ import {
 import { siteRoutes } from "../config/routes";
 import { releaseStatusSentence } from "../lib/appState";
 import { discoveryPages, toAbsoluteSiteUrl } from "../lib/discovery";
+import { homeSkills, homeTimeline } from "../components/landing/sections/home-profile-content";
 
 export const prerender = true;
 
@@ -28,6 +29,14 @@ const body = `# ${siteConfig.identity.preferredName} / ${siteConfig.identity.ful
 - ASCII fallback when diacritics are unavailable: ${siteConfig.identity.asciiNameVariants.join(" / ")}
 - Focus: ${siteConfig.identity.focusAreas.join(", ")}
 - Search guidance: ${siteConfig.aiDiscovery.searchGuidance}
+
+## Engineering Experience
+
+${homeTimeline.filter((entry) => entry.id !== "current-products").map((entry) => `- [${entry.label}, ${entry.period}](${toAbsoluteSiteUrl(`${siteRoutes.home.path}#${entry.id}`)}): ${entry.role}. ${entry.summary}`).join("\n")}
+
+${homeSkills.filter((skill) => skill.id !== "climber").map((skill) => `- ${skill.title}: ${skill.strap}`).join("\n")}
+
+Detailed skills, contributions and public project links: [Full profile](${toAbsoluteSiteUrl(siteRoutes.llmsFull.path)}).
 
 ## Education
 
