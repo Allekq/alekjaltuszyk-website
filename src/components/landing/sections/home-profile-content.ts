@@ -149,9 +149,9 @@ export const homeSkills = [
     title: "AI Product Systems",
     strap: "Agentic workflows, Python backends and practical AI integration.",
     summary:
-      "At Roam AI, I worked on agentic workflows and the gameplay systems that use their output. I enjoy making AI features useful within a larger product.",
+      "At Roam AI, my work was split between Unity gameplay engineering and building agentic AI workflows. I enjoy making AI features useful within a larger product.",
     highlights: [
-      "Built Python backend features and agentic workflows at Roam AI.",
+      "Built multiple agentic AI workflows from the ground up and contributed to the Python backend at Roam AI.",
       "Worked with semantic databases and retrieval-augmented generation (RAG) to assemble large amounts of context for models.",
       "Built coding-agent harnesses and optimized agents used in a user-facing product.",
       "Developed a custom long-term memory system for small models in Voice of Self.",
@@ -207,7 +207,7 @@ export const homeTimeline = [
     summary:
       "I joined San Francisco–based Roam AI as a core contractor on a small team building a text-to-game experience, working across gameplay engineering and large agentic workflows.",
     highlights: [
-      "Contributed to Python backend development and agentic workflows.",
+      "Built multiple agentic AI workflows from the ground up and contributed to the Python backend.",
       "Built player, camera, enemy, networking and physics systems with the team.",
       "Reviewed and optimized existing code, including AI-generated systems, to improve clarity and maintainability.",
       "Worked alongside AI researchers and educators, including researchers from Stanford University and teachers at LaSalle College in Montréal.",
