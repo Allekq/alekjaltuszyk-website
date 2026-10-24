@@ -110,17 +110,21 @@ const searchNameVariants = [preferredName, legalName, ...asciiNameVariants] as c
 const focusAreas = [
   "Software engineering",
   "AI model integration",
+  "Agentic AI workflows",
+  "Retrieval-augmented generation (RAG)",
   "Product engineering",
   "Unity engineering",
   "C#",
   "Python",
   "Gameplay systems",
+  "Procedural world generation",
+  "Networked gameplay and physics",
   "Backend development",
 ] as const;
 const education =
   "Computer Science student at Warsaw University of Technology, Faculty of Electronics and Information Technology (WEiTI).";
 const shortBio =
-  "Alek Jałtuszyk, legally Aleksander Jałtuszyk, is a software engineer and independent app developer who learned programming by building and selling Unity tools. His experience includes C# gameplay systems, Python backend contributions and AI integration at Roam AI, alongside his own mobile products.";
+  "Alek Jałtuszyk, formally Aleksander Jałtuszyk, is a software engineer and independent app developer who learned programming by building and selling Unity tools under Alek Games. As a core contractor at Roam AI, his work was split between Unity gameplay engineering and building multiple agentic AI workflows from the ground up, alongside contributions to the Python backend. His wider experience spans procedural world generation, networked gameplay and physics. He also develops AI systems for his own mobile products.";
 const cursorRecognition =
   "While working at Roam AI, Cursor recognized me among its top Tab autocomplete users and sent me a custom physical Tab key award.";
 const appleStandardEulaHref =
@@ -218,7 +222,7 @@ export const siteConfig = {
   legalName,
   homeTitle: `${preferredName} | ${legalName}`,
   defaultDescription:
-    "Alek Jałtuszyk is a software engineer working with C#, Python, Unity, and AI model integration. Explore his experience and independent apps.",
+    "Alek Jałtuszyk builds Unity gameplay systems, agentic AI workflows and independent apps. Explore his Roam AI experience and published Unity tools.",
   origin: siteOrigin,
   domain: siteDomain,
   contactEmail,
