@@ -66,7 +66,7 @@
   color: var(--w-accent);
 }
 .asset-proof__image-link:hover .asset-proof__pill {
-  background: #e7ebdf;
+  background: var(--workshop-detail);
 }
 .asset-proof .asset-proof__swipe {
   margin-top: 0.35rem;
@@ -83,10 +83,10 @@
 .asset-proof .asset-proof__review {
   padding: 0.8rem 1rem;
   border-left: 2px solid #b8c3ae;
-  background: rgb(255 255 255 / 30%);
+  background: light-dark(rgb(255 255 255 / 30%), rgb(255 255 255 / 5%));
 }
 .asset-proof__stars {
-  color: #747349;
+  color: light-dark(#747349, #d2cc93);
   font-size: 0.7rem;
   letter-spacing: 0.13em;
 }

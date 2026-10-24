@@ -21,7 +21,7 @@ body {
   background:
     radial-gradient(circle at top left, rgba(214, 180, 122, 0.18), transparent 34%),
     radial-gradient(circle at top right, rgba(142, 207, 243, 0.16), transparent 30%),
-    linear-gradient(180deg, #111625 0%, #0c1019 50%, #080c14 100%);
+    linear-gradient(180deg, light-dark(var(--color-surface-light), #111625) 0%, light-dark(var(--color-surface-light), #0c1019) 50%, light-dark(var(--color-surface-light), #080c14) 100%);
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -102,7 +102,7 @@ svg {
 
 .site-header__home-link {
   backdrop-filter: blur(14px);
-  background: rgba(11, 17, 28, 0.52);
+  background: light-dark(var(--color-surface-light), rgba(11, 17, 28, 0.52));
   border: 1px solid var(--color-divider);
   border-radius: var(--radius-pill);
   color: var(--color-text-muted);
@@ -142,7 +142,7 @@ svg {
 
 .legal-article {
   backdrop-filter: blur(18px);
-  background: rgba(9, 15, 27, 0.78);
+  background: light-dark(var(--color-surface-light), rgba(9, 15, 27, 0.78));
   border: 1px solid var(--color-divider);
   border-radius: 1.75rem;
   box-shadow: var(--shadow-soft);
@@ -241,10 +241,10 @@ svg {
   }
 
   .site-header__home-link {
-    background: rgba(11, 17, 28, 0.82);
+    background: light-dark(var(--color-surface-light), rgba(11, 17, 28, 0.82));
   }
 
   .legal-article {
-    background: rgba(9, 15, 27, 0.92);
+    background: light-dark(var(--color-surface-light), rgba(9, 15, 27, 0.92));
   }
 }

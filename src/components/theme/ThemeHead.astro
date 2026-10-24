@@ -1,0 +1,16 @@
+---
+import themeScript from "../../scripts/theme.js?raw";
+import "../../styles/theme.css";
+
+interface Props {
+  light?: string;
+  dark?: string;
+}
+const { light = "#eefbfd", dark = "#071016" } = Astro.props;
+---
+
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content={light} media="(prefers-color-scheme: light)" data-theme-light={light} data-theme-dark={dark} />
+<meta name="theme-color" content={dark} media="(prefers-color-scheme: dark)" data-theme-light={light} data-theme-dark={dark} />
+<!-- Apply a saved choice before the first paint; CSS handles System without JS. -->
+<script is:inline set:html={themeScript} />

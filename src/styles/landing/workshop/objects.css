@@ -27,6 +27,7 @@
     3px 4px 0 #bdc5af,
     9px 12px 18px #30412320;
   background: #e5ebda;
+  color: #343f30;
   font: 11px var(--w-mono);
 }
 .plan-sheet--back {

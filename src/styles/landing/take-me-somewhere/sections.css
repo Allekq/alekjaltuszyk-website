@@ -5,10 +5,10 @@
 .tms-plan__panel {
   --plan-spread: 0.56;
   align-items: start;
-  background: linear-gradient(168deg, rgb(18 44 36 / 74%), rgb(6 18 15 / 86%));
+  background: linear-gradient(168deg, light-dark(var(--app-surface-light), rgb(18 44 36 / 74%)), light-dark(var(--app-surface-light), rgb(6 18 15 / 86%)));
   border: 1px solid var(--app-line);
   border-radius: clamp(1.2rem, 2.6vw, 1.9rem);
-  box-shadow: 0 32px 74px rgb(0 0 0 / 40%);
+  box-shadow: 0 32px 74px light-dark(rgb(25 30 25 / 0.112), rgb(0 0 0 / 40%));
   display: grid;
   gap: clamp(1.4rem, 3.5vw, 2.6rem);
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -44,7 +44,7 @@
 }
 
 .tms-plan__option {
-  background: rgb(238 248 242 / 5%);
+  background: light-dark(rgb(32 60 48 / 5%), rgb(238 248 242 / 5%));
   border: 1px solid var(--app-line);
   border-radius: var(--radius-pill);
   color: var(--app-ink-soft);
@@ -88,7 +88,7 @@
       rgb(255 162 92 / calc(8% + var(--tilt-strength, 0) * 12%)),
       transparent 62%
     ),
-    linear-gradient(168deg, rgb(24 56 46 / 88%), rgb(5 16 13 / 94%));
+    linear-gradient(168deg, light-dark(var(--app-surface-light), rgb(24 56 46 / 88%)), light-dark(var(--app-surface-light), rgb(5 16 13 / 94%)));
   border: 1px solid color-mix(in srgb, var(--tms-sun) 24%, var(--app-line) 76%);
   border-radius: clamp(1rem, 2.2vw, 1.5rem);
   display: grid;
@@ -177,7 +177,7 @@
 }
 
 .tms-plan__teaser {
-  color: var(--tms-sun);
+  color: var(--tms-sun-ink);
 }
 
 .tms-plan__blurb {
@@ -216,10 +216,10 @@
 }
 
 .tms-route__frame {
-  background: linear-gradient(168deg, rgb(18 44 36 / 88%), rgb(5 16 13 / 94%));
+  background: linear-gradient(168deg, light-dark(var(--app-surface-light), rgb(18 44 36 / 88%)), light-dark(var(--app-surface-light), rgb(5 16 13 / 94%)));
   border: 1px solid var(--app-line);
   border-radius: clamp(1.1rem, 2.4vw, 1.6rem);
-  box-shadow: 0 34px 78px rgb(0 0 0 / 46%);
+  box-shadow: 0 34px 78px light-dark(rgb(25 30 25 / 0.129), rgb(0 0 0 / 46%));
   display: grid;
   gap: 0.9rem;
   overflow: hidden;
@@ -247,13 +247,13 @@
 
 .tms-map__streets path {
   fill: none;
-  stroke: rgb(238 248 242 / 11%);
+  stroke: light-dark(rgb(32 60 48 / 11%), rgb(238 248 242 / 11%));
   stroke-width: 8;
 }
 
 .tms-map__route-ghost {
   fill: none;
-  stroke: rgb(238 248 242 / 20%);
+  stroke: light-dark(rgb(32 60 48 / 20%), rgb(238 248 242 / 20%));
   stroke-dasharray: 0.012 0.02;
   stroke-linecap: round;
   stroke-width: 3;
@@ -308,7 +308,7 @@
 }
 
 .tms-map__destination-pin {
-  fill: #1c0d03;
+  fill: light-dark(var(--app-surface-light), #1c0d03);
 }
 
 .tms-map__walker {
@@ -359,7 +359,7 @@
 }
 
 .tms-route__hud-rail {
-  background: rgb(238 248 242 / 10%);
+  background: light-dark(rgb(32 60 48 / 10%), rgb(238 248 242 / 10%));
   border-radius: 999px;
   flex: 1 1 auto;
   height: 3px;
@@ -390,7 +390,7 @@
 }
 
 .tms-route__beat-kicker {
-  color: var(--tms-sun);
+  color: var(--tms-sun-ink);
   font-size: var(--text-label);
   font-weight: 900;
   letter-spacing: var(--tracking-label);
@@ -417,7 +417,7 @@
 }
 
 .tms-modes__card {
-  background: linear-gradient(168deg, rgb(18 44 36 / 76%), rgb(5 16 13 / 88%));
+  background: linear-gradient(168deg, light-dark(var(--app-surface-light), rgb(18 44 36 / 76%)), light-dark(var(--app-surface-light), rgb(5 16 13 / 88%)));
   border: 1px solid var(--app-line);
   border-radius: clamp(1.1rem, 2.4vw, 1.6rem);
   display: grid;
@@ -431,7 +431,7 @@
 .tms-modes__visual {
   align-items: center;
   aspect-ratio: 72 / 52;
-  background: rgb(4 12 10 / 62%);
+  background: light-dark(var(--app-surface-light), rgb(4 12 10 / 62%));
   border: 1px solid var(--app-line);
   border-radius: 0.9rem;
   display: grid;
@@ -471,7 +471,7 @@
 
 .tms-modes__hint {
   backdrop-filter: blur(8px);
-  background: rgb(4 12 10 / 82%);
+  background: light-dark(var(--app-surface-light), rgb(4 12 10 / 82%));
   border: 1px solid var(--app-line);
   border-radius: var(--radius-pill);
   bottom: 0.7rem;
@@ -491,7 +491,7 @@
 }
 
 .tms-modes__tagline {
-  color: var(--tms-sage);
+  color: var(--tms-sage-ink);
   font-size: 0.66rem;
   font-weight: 900;
   letter-spacing: 0.2em;
@@ -499,7 +499,7 @@
 }
 
 .tms-modes__card--route .tms-modes__tagline {
-  color: var(--tms-sky);
+  color: var(--tms-sky-ink);
 }
 
 .tms-modes__name {
@@ -527,7 +527,7 @@
 }
 
 .tms-modes__bullets li::before {
-  color: var(--tms-sun);
+  color: var(--tms-sun-ink);
   content: "→";
   font-weight: 900;
 }
@@ -572,10 +572,10 @@
 /* ---- Close --------------------------------------------------------------- */
 
 .tms-close__panel {
-  background: linear-gradient(160deg, rgb(26 62 50 / 92%), rgb(5 16 13 / 96%));
+  background: linear-gradient(160deg, light-dark(var(--app-surface-light), rgb(26 62 50 / 92%)), light-dark(var(--app-surface-light), rgb(5 16 13 / 96%)));
   border: 1px solid color-mix(in srgb, var(--tms-sun) 26%, transparent);
   border-radius: clamp(1.3rem, 3vw, 2.1rem);
-  box-shadow: 0 40px 90px rgb(0 0 0 / 46%);
+  box-shadow: 0 40px 90px light-dark(rgb(25 30 25 / 0.129), rgb(0 0 0 / 46%));
   display: grid;
   gap: clamp(0.85rem, 2vw, 1.25rem);
   justify-items: start;

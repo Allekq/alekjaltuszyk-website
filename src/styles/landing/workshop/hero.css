@@ -72,7 +72,7 @@
   padding-left: 0;
 }
 .workshop-milestones a:hover {
-  background: #eae9df;
+  background: var(--workshop-surface);
 }
 .workshop-milestones__value {
   font-size: clamp(1.8rem, 3vw, 3rem);

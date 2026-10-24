@@ -1,31 +1,47 @@
 /* OverLit: palette, page world, and hero. */
 
-.overlit-page {
-  --ol-void: #070a11;
-  --ol-deep: #0d121c;
-  --ol-slab: #161d2a;
+.overlit-page,
+body:has(.overlit-page) > .theme-picker {
+  --ol-void: light-dark(#e8eef5, #070a11);
+  --ol-deep: light-dark(#edf3f9, #0d121c);
+  --ol-slab: light-dark(#f5f8fc, #161d2a);
   --ol-cyan: #46d5f1;
   --ol-cyan-hot: #8df3ff;
   --ol-amber: #ffc356;
   --ol-amber-hot: #ffe0a0;
   --ol-critical: #ff5f6b;
   --ol-critical-hot: #ff9d8a;
-  --ol-paper: #f2f8ff;
+  --ol-paper: light-dark(#192b3c, #f2f8ff);
+
+  --app-surface-light: #f5f8fc;
+  --app-surface-deep-light: #e8eef5;
+  --ol-cyan-ink: light-dark(#00566b, var(--ol-cyan));
+  --ol-cyan-hot-ink: light-dark(#005c71, var(--ol-cyan-hot));
+  --ol-amber-ink: light-dark(#835400, var(--ol-amber));
+  --ol-critical-ink: light-dark(#b4263c, var(--ol-critical));
 
   --app-ink: var(--ol-paper);
-  --app-ink-soft: rgb(226 239 250 / 74%);
-  --app-ink-mute: rgb(226 239 250 / 68%);
-  --app-line: rgb(141 243 255 / 16%);
-  --app-panel: rgb(22 29 42 / 82%);
-  --app-header-base: #1b2330;
+  --app-ink-soft: light-dark(#435365, rgb(226 239 250 / 74%));
+  --app-ink-mute: light-dark(#435365, rgb(226 239 250 / 68%));
+  --app-line: light-dark(color-mix(in srgb, #192b3c 20%, transparent), rgb(141 243 255 / 16%));
+  --app-panel: light-dark(#f5f8fc, rgb(22 29 42 / 82%));
+  --app-header-base: light-dark(#f5f8fc, #1b2330);
+  --app-accent-ink: var(--ol-cyan-ink);
   --app-accent: var(--ol-cyan);
   --app-accent-alt: var(--ol-amber);
+}
 
+body:has(.overlit-page) > .theme-picker {
+  background: var(--ol-void);
+  color: var(--app-ink-soft);
+}
+
+.overlit-page {
   background:
     radial-gradient(90% 44% at 10% 0%, rgb(70 213 241 / 11%), transparent 60%),
     radial-gradient(86% 44% at 94% 26%, rgb(255 195 86 / 9%), transparent 58%),
     radial-gradient(130% 62% at 50% 106%, rgb(126 70 96 / 26%), transparent 68%),
-    linear-gradient(176deg, #1b2330 0%, #121824 44%, #0a0d14 100%);
+    linear-gradient(176deg, light-dark(var(--app-surface-light), #1b2330) 0%, light-dark(var(--app-surface-light), #121824) 44%, light-dark(var(--app-surface-deep-light), #0a0d14) 100%);
   color: var(--app-ink-soft);
 }
 
@@ -109,16 +125,17 @@
 /* ---- Playable board ------------------------------------------------------ */
 
 .overlit-board {
+  color-scheme: dark;
   --board-heat: 0;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--ol-critical) calc(var(--board-heat) * 7%), rgb(30 38 51 / 96%)),
-    rgb(16 21 31 / 97%)
+    color-mix(in srgb, var(--ol-critical) calc(var(--board-heat) * 7%), light-dark(var(--app-surface-light), rgb(30 38 51 / 96%))),
+    light-dark(var(--app-surface-light), rgb(16 21 31 / 97%))
   );
   border: 1px solid rgb(226 239 250 / 9%);
   border-radius: 1.15rem;
   box-shadow:
-    0 34px 80px rgb(0 0 0 / 48%),
+    0 34px 80px light-dark(rgb(25 30 25 / 0.134), rgb(0 0 0 / 48%)),
     inset 0 1px 0 rgb(255 255 255 / 5%);
   display: grid;
   gap: clamp(0.7rem, 1.8vw, 1.05rem);
@@ -212,7 +229,7 @@
 
 .overlit-board__cell {
   aspect-ratio: 1;
-  background: #222a37;
+  background: light-dark(var(--app-surface-light), #222a37);
   border: 1px solid rgb(226 239 250 / 5%);
   border-radius: 0.62rem;
   cursor: pointer;
@@ -300,7 +317,7 @@
 
 .overlit-board__overlay {
   align-content: center;
-  background: rgb(7 10 17 / 94%);
+  background: light-dark(var(--app-surface-light), rgb(7 10 17 / 94%));
   border-radius: inherit;
   display: grid;
   gap: 0.7rem;

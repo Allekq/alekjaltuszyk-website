@@ -1112,6 +1112,7 @@
 .home-intro__cta:hover,
 .home-intro__cta:focus-visible {
   background: var(--color-coral-strong);
+  color: var(--color-bg);
   outline: none;
   transform: translateY(-2px);
 }
@@ -1129,6 +1130,7 @@
 
 .home-intro__cta--ghost:hover,
 .home-intro__cta--ghost:focus-visible {
+  color: var(--color-text-strong);
   background: color-mix(in srgb, var(--color-coral) 12%, transparent);
   border-color: color-mix(in srgb, var(--color-coral) 46%, transparent);
 }

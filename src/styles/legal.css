@@ -2,7 +2,7 @@
 .legal-article {
   --legal-line: var(--color-line, var(--color-divider));
   --legal-accent: var(--color-coral, var(--color-accent));
-  --legal-panel: var(--color-bg-shell, rgba(11, 17, 28, 0.52));
+  --legal-panel: var(--color-bg-shell, var(--color-bg-card));
   overflow-wrap: anywhere;
 }
 

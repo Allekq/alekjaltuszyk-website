@@ -10,6 +10,7 @@
     "check": "astro check",
     "check:private": "node scripts/check-private-boundary.mjs --include-dist",
     "test:private": "node --test scripts/check-private-boundary.test.mjs",
+    "test:theme": "node --test scripts/theme.test.mjs",
     "test:workshop": "node --experimental-strip-types --test scripts/workshop-geometry.test.mjs",
     "check:contact": "node scripts/check-contact-emails.mjs",
     "check:legal": "node scripts/check-legal-consistency.mjs"

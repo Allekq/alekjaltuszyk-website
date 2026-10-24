@@ -30,7 +30,9 @@ Providing support details is voluntary. An ordinary enquiry can usually be answe
 
 ## 3. Cookies, Analytics, And Tracking
 
-The current general website is static and does not intentionally set our own non-essential analytics cookies, advertising cookies, browser local storage, or session storage.
+The website follows your device’s light or dark appearance by default. If you choose Light or Dark in the Appearance control, the website saves only that preference (`site-appearance`) in your browser’s local storage so it applies across pages and future visits. This setting stays in your browser; we do not transmit it or use it for tracking. Choosing System removes the saved preference. You can also remove it by clearing this site’s browser data.
+
+We do not set analytics or advertising cookies or use session storage. No appearance preference is saved unless you choose an override.
 
 Website hosting, browser, operating-system, App Store, email, social-media, map-provider, ad-platform, or other third-party destinations may use their own cookies, logs, pixels, local storage, sessions, or similar technologies under their own policies when you use those services or click external links.
 

@@ -1,4 +1,6 @@
 ---
+import ThemeHead from "../../components/theme/ThemeHead.astro";
+import ThemePicker from "../../components/theme/ThemePicker.astro";
 import "../styles/global.css";
 import { siteConfig } from "../config/site";
 import { withBase } from "../../lib/paths";
@@ -87,7 +89,7 @@ const resolvedStructuredData = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0c1019" />
+    <ThemeHead light="#faf6ee" dark="#0c1019" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type={faviconType} href={faviconHref ?? withBase(siteConfig.logoImagePath)} />
     <link rel="apple-touch-icon" href={siteConfig.appleTouchIconHref} />
@@ -147,5 +149,6 @@ const resolvedStructuredData = [
         </article>
       )}
     </main>
+    <ThemePicker />
   </body>
 </html>

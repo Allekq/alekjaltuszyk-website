@@ -10,10 +10,10 @@
 .abc-player {
   --demo-progress: 0;
   backdrop-filter: blur(22px);
-  background: linear-gradient(168deg, rgb(40 26 62 / 88%), rgb(13 9 24 / 94%));
+  background: linear-gradient(168deg, light-dark(var(--app-surface-light), rgb(40 26 62 / 88%)), light-dark(var(--app-surface-light), rgb(13 9 24 / 94%)));
   border: 1px solid var(--app-line);
   border-radius: clamp(1.2rem, 2.6vw, 1.8rem);
-  box-shadow: 0 34px 78px rgb(0 0 0 / 44%);
+  box-shadow: 0 34px 78px light-dark(rgb(25 30 25 / 0.123), rgb(0 0 0 / 44%));
   display: grid;
   gap: clamp(0.85rem, 2vw, 1.2rem);
   overflow: hidden;
@@ -251,11 +251,11 @@
 }
 
 .abc-answer--yes .abc-answer__key {
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
 }
 
 .abc-answer--no .abc-answer__key {
-  color: var(--abc-tide);
+  color: var(--abc-tide-ink);
 }
 
 .abc-answer__label {
@@ -279,15 +279,15 @@
 }
 
 .abc-player__panel--ending[data-demo-ending-kind="win"] .abc-player__ending-kind {
-  color: #ffd08a;
+  color: light-dark(#87521c, #ffd08a);
 }
 
 .abc-player__panel--ending[data-demo-ending-kind="death"] .abc-player__ending-kind {
-  color: #ff7b7b;
+  color: light-dark(#b92d3d, #ff7b7b);
 }
 
 .abc-player__panel--ending[data-demo-ending-kind="neutral"] .abc-player__ending-kind {
-  color: var(--abc-tide);
+  color: var(--abc-tide-ink);
 }
 
 .abc-ending-mark {
@@ -406,12 +406,12 @@
 
 .abc-player__token[data-answer="yes"] {
   background: color-mix(in srgb, var(--abc-ember) 22%, transparent);
-  color: #ffd7ab;
+  color: light-dark(#8c471d, #ffd7ab);
 }
 
 .abc-player__token[data-answer="no"] {
   background: color-mix(in srgb, var(--abc-tide) 20%, transparent);
-  color: #b6f6ef;
+  color: light-dark(#176861, #b6f6ef);
 }
 
 .abc-player__controls {
@@ -422,7 +422,7 @@
 /* ---- Aside --------------------------------------------------------------- */
 
 .abc-choice__aside {
-  background: linear-gradient(170deg, rgb(38 24 58 / 72%), rgb(14 10 26 / 82%));
+  background: linear-gradient(170deg, light-dark(var(--app-surface-light), rgb(38 24 58 / 72%)), light-dark(var(--app-surface-light), rgb(14 10 26 / 82%)));
   border: 1px solid var(--app-line);
   border-radius: clamp(1.2rem, 2.6vw, 1.8rem);
   display: grid;
@@ -461,7 +461,7 @@
 }
 
 .abc-choice__aside-list span {
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
   font-weight: 850;
 }
 

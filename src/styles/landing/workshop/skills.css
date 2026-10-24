@@ -41,23 +41,23 @@
 .workshop-skill__visual {
   position: relative;
   height: 280px;
-  background: #eaeae1;
+  background: light-dark(#eaeae1, #292f26);
   perspective: 900px;
-  border: 1px solid #dfdfd2;
+  border: 1px solid light-dark(#dfdfd2, #41493a);
   overflow: hidden;
 }
 .workshop-skill:nth-child(2) .workshop-skill__visual {
-  background: #e1e5db;
+  background: light-dark(#e1e5db, #29372b);
 }
 .workshop-skill:nth-child(3) .workshop-skill__visual {
-  background: #e9e0d5;
+  background: light-dark(#e9e0d5, #362e25);
 }
 .workshop-skill__number {
   position: absolute;
   top: 1.2rem;
   left: 1.2rem;
   font: 0.55rem var(--w-mono);
-  color: #6e7662;
+  color: var(--w-muted);
   z-index: 1;
 }
 .workshop-skill__title {
@@ -97,7 +97,7 @@
 .workshop-skill__body {
   padding: 0 0.3rem 1.4rem;
   font-size: 0.8rem;
-  color: #606758;
+  color: var(--w-muted);
   line-height: 1.85;
 }
 .workshop-skill__body ul {
@@ -206,6 +206,8 @@
   height: 70px;
   padding: 14px 18px;
   background: #f4f3e7;
+  /* These illustrated paper surfaces stay pale in either page appearance. */
+  color: #343f30;
   border: 1px solid #cdd2c2;
   border-radius: 7px;
   box-shadow:
@@ -226,7 +228,7 @@
 .skill-modules span {
   display: block;
   font: 8px var(--w-mono);
-  color: #57634b;
+  color: #3f4c35;
   margin-bottom: 5px;
 }
 .skill-modules b {
@@ -249,11 +251,11 @@
   font:
     italic 20px Georgia,
     serif;
-  color: #897663;
+  color: light-dark(#73614e, #c4b198);
 }
 .skill-ai__input span {
   margin-left: 35px;
-  color: #c15b3c;
+  color: var(--w-accent);
 }
 .skill-ai__core {
   position: absolute;
@@ -279,6 +281,7 @@
   left: 15px;
   padding: 15px 18px;
   background: #f8f2e3;
+  color: #51412e;
   border: 1px solid #ded2bc;
   border-radius: 6px;
   box-shadow: 2px 5px 0 #c1b49b;
@@ -287,7 +290,7 @@
 }
 .skill-ai__output i {
   font-style: normal;
-  color: #72905b;
+  color: #4f6a3d;
   margin-right: 10px;
 }
 .workshop-skill:is([open], :hover) .skill-ai {

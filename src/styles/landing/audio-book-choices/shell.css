@@ -1,25 +1,40 @@
 /* AudioChoices: palette, page world, header, and hero. */
 
-.abc-page {
-  --abc-night: #0a0714;
-  --abc-night-deep: #050409;
-  --abc-plum: #1b0f2b;
+.abc-page,
+body:has(.abc-page) > .theme-picker {
+  --abc-night: light-dark(#faf5ef, #0a0714);
+  --abc-night-deep: light-dark(#eee5f2, #050409);
+  --abc-plum: light-dark(#fff9f3, #1b0f2b);
   --abc-ember: #ff9d4d;
   --abc-ember-deep: #e0662a;
   --abc-tide: #56dfd4;
   --abc-tide-deep: #1f97a8;
   --abc-dusk: #a98cff;
-  --abc-paper: #fdf2e4;
+  --abc-paper: light-dark(#30213d, #fdf2e4);
+
+  --app-surface-light: #fff9f3;
+  --abc-ember-ink: light-dark(#9a481b, var(--abc-ember));
+  --abc-ember-deep-ink: light-dark(#984117, var(--abc-ember-deep));
+  --abc-tide-ink: light-dark(#116c69, var(--abc-tide));
+  --abc-dusk-ink: light-dark(#70529b, var(--abc-dusk));
 
   --app-ink: var(--abc-paper);
-  --app-ink-soft: rgb(253 242 228 / 74%);
-  --app-ink-mute: rgb(253 242 228 / 68%);
-  --app-line: rgb(255 224 190 / 14%);
-  --app-panel: rgb(24 16 40 / 78%);
+  --app-ink-soft: light-dark(#695772, rgb(253 242 228 / 74%));
+  --app-ink-mute: light-dark(#695772, rgb(253 242 228 / 68%));
+  --app-line: light-dark(color-mix(in srgb, #30213d 20%, transparent), rgb(255 224 190 / 14%));
+  --app-panel: light-dark(#fff9f3, rgb(24 16 40 / 78%));
   --app-header-base: var(--abc-plum);
+  --app-accent-ink: var(--abc-ember-ink);
   --app-accent: var(--abc-ember);
   --app-accent-alt: #ffcf8f;
+}
 
+body:has(.abc-page) > .theme-picker {
+  background: var(--abc-night-deep);
+  color: var(--app-ink-soft);
+}
+
+.abc-page {
   background:
     radial-gradient(120% 62% at 12% -6%, rgb(255 157 77 / 16%), transparent 62%),
     radial-gradient(90% 52% at 92% 12%, rgb(86 223 212 / 12%), transparent 60%),
@@ -50,7 +65,7 @@
 
 .abc-page .app-header__note {
   border-color: color-mix(in srgb, var(--abc-ember) 34%, transparent);
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
 }
 
 .abc-page .action-button--primary {
@@ -126,7 +141,7 @@
 }
 
 .abc-hero__title-line--accent {
-  background: linear-gradient(96deg, var(--abc-ember) 8%, #ffd9a4 46%, var(--abc-tide) 100%);
+  background: linear-gradient(96deg, var(--abc-ember-ink) 8%, light-dark(#935721, #ffd9a4) 46%, var(--abc-tide-ink) 100%);
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
@@ -155,11 +170,11 @@
       rgb(255 157 77 / calc(12% + var(--tilt-strength, 0) * 14%)),
       transparent 62%
     ),
-    linear-gradient(168deg, rgb(38 24 58 / 88%), rgb(14 10 26 / 92%));
+    linear-gradient(168deg, light-dark(var(--app-surface-light), rgb(38 24 58 / 88%)), light-dark(var(--app-surface-light), rgb(14 10 26 / 92%)));
   border: 1px solid var(--app-line);
   border-radius: clamp(1.4rem, 3vw, 2.1rem);
   box-shadow:
-    0 40px 90px rgb(0 0 0 / 46%),
+    0 40px 90px light-dark(rgb(25 30 25 / 0.129), rgb(0 0 0 / 46%)),
     inset 0 1px 0 rgb(255 240 220 / 10%);
   display: grid;
   gap: clamp(0.9rem, 2vw, 1.3rem);
@@ -213,7 +228,7 @@
 }
 
 .abc-hero__legend--yes {
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
 }
 
 .abc-hero__legend--yes::before {
@@ -222,7 +237,7 @@
 }
 
 .abc-hero__legend--no {
-  color: var(--abc-tide);
+  color: var(--abc-tide-ink);
 }
 
 .abc-hero__legend--no::before {
@@ -233,11 +248,11 @@
 /* Floating "now playing" card */
 .abc-hero__now {
   backdrop-filter: blur(18px);
-  background: linear-gradient(150deg, rgb(46 28 66 / 94%), rgb(16 11 28 / 94%));
+  background: linear-gradient(150deg, light-dark(var(--app-surface-light), rgb(46 28 66 / 94%)), light-dark(var(--app-surface-light), rgb(16 11 28 / 94%)));
   border: 1px solid color-mix(in srgb, var(--abc-ember) 26%, transparent);
   border-radius: 1.15rem;
   bottom: -1.6rem;
-  box-shadow: 0 26px 60px rgb(0 0 0 / 52%);
+  box-shadow: 0 26px 60px light-dark(rgb(25 30 25 / 0.146), rgb(0 0 0 / 52%));
   display: grid;
   gap: 0.55rem;
   left: -1.2rem;
@@ -247,7 +262,7 @@
 }
 
 .abc-hero__now-label {
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
   font-size: 0.68rem;
   font-weight: 850;
   letter-spacing: 0.18em;

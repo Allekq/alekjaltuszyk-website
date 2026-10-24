@@ -49,7 +49,7 @@
    * letterboxes inside a shorter box to leave the beats room on screen.
    */
   .abc-tree-scene__frame {
-    background: linear-gradient(165deg, #241738, #0b0716);
+    background: linear-gradient(165deg, light-dark(var(--app-surface-light), #241738), light-dark(var(--app-surface-light), #0b0716));
     max-width: none;
   }
 

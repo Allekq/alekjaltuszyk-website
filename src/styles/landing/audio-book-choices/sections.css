@@ -24,7 +24,7 @@
 }
 
 .abc-hands__card {
-  background: linear-gradient(150deg, rgb(40 26 62 / 62%), rgb(14 10 26 / 72%));
+  background: linear-gradient(150deg, light-dark(var(--app-surface-light), rgb(40 26 62 / 62%)), light-dark(var(--app-surface-light), rgb(14 10 26 / 72%)));
   border: 1px solid var(--app-line);
   border-left: 3px solid color-mix(in srgb, var(--abc-ember) 55%, transparent);
   border-radius: 0.95rem;
@@ -37,12 +37,12 @@
 }
 
 .abc-hands__card:hover {
-  border-left-color: var(--abc-ember);
+  border-left-color: var(--abc-ember-ink);
   transform: translateX(3px);
 }
 
 .abc-hands__badge {
-  color: var(--abc-tide);
+  color: var(--abc-tide-ink);
   font-size: 0.66rem;
   font-weight: 900;
   letter-spacing: 0.2em;
@@ -112,11 +112,11 @@
 }
 
 .abc-hands__caption-yes {
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
 }
 
 .abc-hands__caption-no {
-  color: var(--abc-tide);
+  color: var(--abc-tide-ink);
 }
 
 /* ---- Library ------------------------------------------------------------- */
@@ -193,8 +193,8 @@
 .abc-access__tier-inner {
   background: linear-gradient(
       165deg,
-      rgb(40 26 62 / 78%),
-      rgb(13 9 24 / 88%)
+      light-dark(var(--app-surface-light), rgb(40 26 62 / 78%)),
+      light-dark(var(--app-surface-light), rgb(13 9 24 / 88%))
     );
   border: 1px solid var(--app-line);
   border-radius: clamp(1.1rem, 2.4vw, 1.6rem);
@@ -294,13 +294,13 @@
 }
 
 .abc-access__tier-points li::before {
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
   content: "→";
   font-weight: 900;
 }
 
 .abc-access__included {
-  background: linear-gradient(160deg, rgb(40 26 62 / 58%), rgb(13 9 24 / 72%));
+  background: linear-gradient(160deg, light-dark(var(--app-surface-light), rgb(40 26 62 / 58%)), light-dark(var(--app-surface-light), rgb(13 9 24 / 72%)));
   border: 1px solid var(--app-line);
   border-radius: clamp(1.1rem, 2.4vw, 1.6rem);
   display: grid;
@@ -346,7 +346,7 @@
 }
 
 .abc-access__fineprint a {
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.25em;
@@ -355,10 +355,10 @@
 /* ---- Close --------------------------------------------------------------- */
 
 .abc-close__panel {
-  background: linear-gradient(158deg, rgb(48 30 72 / 88%), rgb(12 8 22 / 94%));
+  background: linear-gradient(158deg, light-dark(var(--app-surface-light), rgb(48 30 72 / 88%)), light-dark(var(--app-surface-light), rgb(12 8 22 / 94%)));
   border: 1px solid color-mix(in srgb, var(--abc-ember) 26%, transparent);
   border-radius: clamp(1.4rem, 3vw, 2.2rem);
-  box-shadow: 0 40px 96px rgb(0 0 0 / 48%);
+  box-shadow: 0 40px 96px light-dark(rgb(25 30 25 / 0.134), rgb(0 0 0 / 48%));
   display: grid;
   gap: clamp(0.9rem, 2.2vw, 1.3rem);
   justify-items: start;
