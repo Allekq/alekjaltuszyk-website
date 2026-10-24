@@ -343,3 +343,29 @@ heights. Longer text wraps inside its badge, so one item cannot create a partial
 second row. Checked 320, 390, 763, 1024 and 1366 px layouts for clipping and
 overflow. Roam copy now distinguishes workflows built from the ground up from
 contributions to the Python backend, as confirmed by the owner.
+
+## Performance and public discovery — 2026-10-24
+
+The live homepage returned HTTP 200 with compressed responses, no browser
+errors or horizontal overflow at phone and laptop sizes. In the sampled phone
+run with CPU/network throttling, the largest content paint was under one second
+and cumulative layout shift was zero. This is a browser simulation, not a
+physical-device benchmark or a guarantee for other connections. Local checks
+confirmed zero idle world draws, offscreen showcase animations pausing, and no
+initial request for the front-lever recording.
+
+The climbing image now uses lossless WebP: 598,913 to 411,764 bytes, with decoded
+RGBA pixels verified identical. The original remains available at its existing
+URL. Both image consumers use the smaller file; phone and laptop previews pass.
+
+The discovery summaries now describe workflow ownership alongside backend
+contributions. The full profile renders engineering skills and app contributions
+from the same public data as the homepage, with portfolio/project references.
+The concise profile, humans file, metadata and Person structured data share the
+updated identity and focus. Existing robots and sitemap routes remain valid.
+
+| Item | Before → after, evidence, and decision |
+| --- | --- |
+| Public promises | Existing owner-confirmed career and contribution descriptions are included in discovery output. Product capabilities, AI routing, privacy statements, prices and support terms are unchanged. Source: `home-profile-content.ts` and existing site identity data. |
+| Release | Static build only; no service, SDK, permission, visitor data practice or app legal-version change. The image uses the same host and pixels. Astro check, build/publication boundaries and legal consistency pass. |
+| Result | No disclosure synchronization required for this profile and media-encoding update; no new product promise or processing practice. |
