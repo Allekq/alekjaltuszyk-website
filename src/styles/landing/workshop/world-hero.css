@@ -36,7 +36,7 @@
   letter-spacing: -0.085em;
 }
 .workshop-hero__summary {
-  color: #686b62;
+  color: var(--w-muted);
   font-size: 0.92rem;
   max-width: 29rem;
   margin-bottom: 1.9rem !important;

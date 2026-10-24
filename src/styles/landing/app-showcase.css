@@ -58,7 +58,7 @@
 
 .app-showcase__index {
   align-items: baseline;
-  color: var(--beat-accent);
+  color: light-dark(var(--color-coral-strong), var(--beat-accent));
   display: flex;
   font-size: var(--text-label);
   font-weight: 800;
@@ -652,6 +652,7 @@
 .apps-intro__cue:hover,
 .apps-intro__cue:focus-visible {
   background: var(--color-coral-strong);
+  color: var(--color-bg);
   outline: none;
   transform: translateY(-2px);
 }
@@ -669,6 +670,7 @@
 
 .apps-intro__cue--ghost:hover,
 .apps-intro__cue--ghost:focus-visible {
+  color: var(--color-text-strong);
   background: color-mix(in srgb, var(--color-coral) 12%, transparent);
   border-color: color-mix(in srgb, var(--color-coral) 46%, transparent);
 }

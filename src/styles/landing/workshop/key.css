@@ -105,7 +105,7 @@
   text-align: center;
   left: 0;
   font: 0.52rem var(--w-mono);
-  color: #7c8271;
+  color: var(--w-muted);
   letter-spacing: 0.08em;
 }
 .workshop-key__invitation {
@@ -155,7 +155,7 @@
   margin-top: 1rem;
   font-size: 1rem;
   line-height: 1.85;
-  color: #555e4b;
+  color: var(--w-muted);
 }
 .workshop-key__footnote {
   display: block;

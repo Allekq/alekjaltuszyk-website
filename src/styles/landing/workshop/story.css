@@ -61,7 +61,7 @@
 }
 .workshop-chapter__body > p:not(.w-eyebrow) {
   font-size: 0.9rem;
-  color: #606758;
+  color: var(--w-muted);
   line-height: 1.85;
 }
 .workshop-chapter__art {
@@ -69,17 +69,17 @@
   grid-row: 1;
   height: 460px;
   position: relative;
-  background: radial-gradient(ellipse, #e9ecde 20%, #eff0e7 70%);
-  border: 1px solid #e0e1d5;
+  background: radial-gradient(ellipse, light-dark(#e9ecde, #303a2b) 20%, light-dark(#eff0e7, #252e22) 70%);
+  border: 1px solid var(--w-line);
   border-radius: 50% 50% 4px 4px;
   transform: translateY(var(--chapter-shift, 0px));
 }
 .workshop-chapter:nth-of-type(even) .workshop-chapter__art {
   grid-column: 2;
-  background: radial-gradient(ellipse, #dce5d8, #e8ece1);
+  background: radial-gradient(ellipse, light-dark(#dce5d8, #2d3d30), light-dark(#e8ece1, #253026));
 }
 .workshop-chapter:nth-of-type(3) .workshop-chapter__art {
-  background: radial-gradient(ellipse, #e9e1ce, #f0eade);
+  background: radial-gradient(ellipse, light-dark(#e9e1ce, #3c3628), light-dark(#f0eade, #2e2c23));
 }
 .workshop-chapter__art-note {
   position: absolute;
@@ -105,9 +105,9 @@
   min-height: 48px;
   padding: 0.6rem 0.65rem 0.6rem 1.2rem;
   font-weight: 500;
-  border: 1px solid #adb49f;
+  border: 1px solid var(--w-line);
   border-radius: 999px;
-  background: #e7ebdf;
+  background: var(--workshop-detail);
   color: var(--w-ink);
   cursor: pointer;
   transition:
@@ -119,7 +119,7 @@
   display: none;
 }
 .workshop-details summary:hover {
-  background: #dce3d1;
+  background: var(--workshop-detail-hover);
   border-color: #7a866c;
 }
 .workshop-details summary:focus-visible {
@@ -133,7 +133,7 @@
   height: 1.85rem;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: rgb(255 255 255 / 65%);
+  background: light-dark(rgb(255 255 255 / 65%), rgb(255 255 255 / 8%));
   position: relative;
 }
 .workshop-details__toggle::before,
@@ -198,7 +198,7 @@
 }
 .workshop-details ul {
   padding-left: 1.2rem;
-  color: #606758;
+  color: var(--w-muted);
   margin: 0.7rem 0;
 }
 .workshop-details li + li {
@@ -318,7 +318,7 @@
   width: 32px;
   height: 32px;
   flex-shrink: 0;
-  border: 1px solid #d1d4c7;
+  border: 1px solid var(--w-line);
   border-radius: 50%;
   background: var(--w-paper);
   transition:

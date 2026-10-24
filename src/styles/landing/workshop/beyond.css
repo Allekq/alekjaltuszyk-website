@@ -186,6 +186,10 @@
     right: 0;
     font-size: 4.5rem;
     text-align: right;
+    /* Keep the pale grade readable over every crop of the climbing photo. */
+    background: rgb(17 23 22 / 65%);
+    border-radius: 0.65rem;
+    padding: 0.4rem 0.65rem;
   }
   .workshop-climbing__grade > span {
     font-size: 0.46rem;

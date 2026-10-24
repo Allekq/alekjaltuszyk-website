@@ -25,7 +25,7 @@
   --w-ease: var(--workshop-ease);
 }
 .workshop ::selection {
-  background: #c7d4c4;
+  background: var(--workshop-selection);
   color: var(--w-ink);
 }
 .workshop :is(h1, h2, h3, h4, p) {

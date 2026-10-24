@@ -1,24 +1,39 @@
 /* Take Me Somewhere: palette, page world, hero, and the compass dial. */
 
-.tms-page {
-  --tms-night: #081512;
-  --tms-deep: #04100e;
-  --tms-moss: #0f2a22;
+.tms-page,
+body:has(.tms-page) > .theme-picker {
+  --tms-night: light-dark(#f3f7ee, #081512);
+  --tms-deep: light-dark(#e6eee2, #04100e);
+  --tms-moss: light-dark(#f5faf3, #0f2a22);
   --tms-sun: #ffa25c;
   --tms-sun-hot: #ffd0a4;
   --tms-sage: #8fe0c0;
   --tms-sky: #7cc9ff;
-  --tms-paper: #eef8f2;
+  --tms-paper: light-dark(#203c30, #eef8f2);
+
+  --app-surface-light: #f5faf3;
+  --tms-sun-ink: light-dark(#97491b, var(--tms-sun));
+  --tms-sun-hot-ink: light-dark(#894316, var(--tms-sun-hot));
+  --tms-sage-ink: light-dark(#216c50, var(--tms-sage));
+  --tms-sky-ink: light-dark(#206c96, var(--tms-sky));
 
   --app-ink: var(--tms-paper);
-  --app-ink-soft: rgb(238 248 242 / 74%);
-  --app-ink-mute: rgb(238 248 242 / 46%);
-  --app-line: rgb(143 224 192 / 16%);
-  --app-panel: rgb(12 30 25 / 82%);
+  --app-ink-soft: light-dark(#516b5b, rgb(238 248 242 / 74%));
+  --app-ink-mute: light-dark(#516b5b, rgb(238 248 242 / 70%));
+  --app-line: light-dark(color-mix(in srgb, #203c30 20%, transparent), rgb(143 224 192 / 16%));
+  --app-panel: light-dark(#f5faf3, rgb(12 30 25 / 82%));
   --app-header-base: var(--tms-moss);
+  --app-accent-ink: var(--tms-sun-ink);
   --app-accent: var(--tms-sun);
   --app-accent-alt: var(--tms-sage);
+}
 
+body:has(.tms-page) > .theme-picker {
+  background: var(--tms-deep);
+  color: var(--app-ink-soft);
+}
+
+.tms-page {
   background:
     radial-gradient(100% 52% at 82% -4%, rgb(255 162 92 / 20%), transparent 62%),
     radial-gradient(80% 44% at 6% 16%, rgb(143 224 192 / 12%), transparent 60%),
@@ -95,7 +110,7 @@
 
 /* A soft horizon behind the hero, so the page reads as "outside". */
 .tms-hero__ridge {
-  background: linear-gradient(180deg, transparent, rgb(15 42 34 / 62%));
+  background: linear-gradient(180deg, transparent, light-dark(var(--app-surface-light), rgb(15 42 34 / 62%)));
   bottom: 0;
   clip-path: polygon(
     0% 100%,
@@ -135,7 +150,7 @@
 }
 
 .tms-hero__title-accent {
-  background: linear-gradient(96deg, var(--tms-sun) 4%, var(--tms-sun-hot) 42%, var(--tms-sage) 100%);
+  background: linear-gradient(96deg, var(--tms-sun-ink) 4%, var(--tms-sun-hot-ink) 42%, var(--tms-sage-ink) 100%);
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
@@ -161,11 +176,11 @@
 
 .tms-hero__ticket {
   backdrop-filter: blur(16px);
-  background: linear-gradient(155deg, rgb(18 44 36 / 94%), rgb(6 18 15 / 94%));
+  background: linear-gradient(155deg, light-dark(var(--app-surface-light), rgb(18 44 36 / 94%)), light-dark(var(--app-surface-light), rgb(6 18 15 / 94%)));
   border: 1px solid color-mix(in srgb, var(--tms-sun) 30%, transparent);
   border-radius: 1rem;
   bottom: -0.5rem;
-  box-shadow: 0 24px 56px rgb(0 0 0 / 46%);
+  box-shadow: 0 24px 56px light-dark(rgb(25 30 25 / 0.129), rgb(0 0 0 / 46%));
   display: grid;
   gap: 0.3rem;
   left: 0;
@@ -175,7 +190,7 @@
 }
 
 .tms-hero__ticket-label {
-  color: var(--tms-sun);
+  color: var(--tms-sun-ink);
   font-size: 0.66rem;
   font-weight: 850;
   letter-spacing: 0.2em;
@@ -214,7 +229,7 @@
 }
 
 .tms-hero__ticket-bearing strong {
-  color: var(--tms-sage);
+  color: var(--tms-sage-ink);
   font-size: 0.9rem;
   font-variant-numeric: tabular-nums;
   font-weight: 800;
@@ -238,13 +253,13 @@
 .tms-compass__rim {
   background:
     radial-gradient(circle at 50% 34%, rgb(143 224 192 / 10%), transparent 62%),
-    linear-gradient(165deg, rgb(18 44 36 / 92%), rgb(5 16 13 / 96%));
+    linear-gradient(165deg, light-dark(var(--app-surface-light), rgb(18 44 36 / 92%)), light-dark(var(--app-surface-light), rgb(5 16 13 / 96%)));
   border: 1px solid var(--app-line);
   border-radius: 999px;
   box-shadow:
-    0 30px 70px rgb(0 0 0 / 46%),
-    inset 0 0 0 1px rgb(238 248 242 / 5%),
-    inset 0 12px 40px rgb(0 0 0 / 40%);
+    0 30px 70px light-dark(rgb(25 30 25 / 0.129), rgb(0 0 0 / 46%)),
+    inset 0 0 0 1px light-dark(rgb(32 60 48 / 5%), rgb(238 248 242 / 5%)),
+    inset 0 12px 40px light-dark(rgb(25 30 25 / 0.112), rgb(0 0 0 / 40%));
   inset: 0;
   position: absolute;
 }
@@ -270,7 +285,7 @@
  * and is 6% tall itself, so the centre is 46/6 = 766% of its own height away.
  */
 .tms-compass__tick {
-  background: rgb(238 248 242 / 20%);
+  background: light-dark(rgb(32 60 48 / 20%), rgb(238 248 242 / 20%));
   height: 6%;
   left: 50%;
   position: absolute;
@@ -281,7 +296,7 @@
 }
 
 .tms-compass__tick.is-major {
-  background: rgb(238 248 242 / 52%);
+  background: light-dark(rgb(32 60 48 / 52%), rgb(238 248 242 / 52%));
   width: 2px;
 }
 
@@ -295,7 +310,7 @@
 }
 
 .tms-compass__cardinal span {
-  color: var(--app-ink-mute);
+  color: var(--app-ink);
   font-size: clamp(0.62rem, 1.4vw, 0.8rem);
   font-weight: 900;
   left: 50%;
@@ -331,7 +346,7 @@
 }
 
 .tms-compass__needle-south {
-  background: linear-gradient(0deg, rgb(238 248 242 / 26%), rgb(238 248 242 / 12%));
+  background: linear-gradient(0deg, light-dark(rgb(32 60 48 / 26%), rgb(238 248 242 / 26%)), light-dark(rgb(32 60 48 / 12%), rgb(238 248 242 / 12%)));
   bottom: 0;
   clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
   height: 50%;
@@ -340,7 +355,7 @@
 .tms-compass__hub {
   background: var(--tms-paper);
   border-radius: 999px;
-  box-shadow: 0 0 14px rgb(238 248 242 / 60%);
+  box-shadow: 0 0 14px light-dark(rgb(32 60 48 / 60%), rgb(238 248 242 / 60%));
   height: 4.5%;
   position: absolute;
   width: 4.5%;

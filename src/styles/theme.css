@@ -1,0 +1,39 @@
+/* One preference contract for both site shells. Paired colors live with tokens
+   or their owning component. System mode also works with JavaScript disabled. */
+:root { color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
+.theme-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem max(1.25rem, env(safe-area-inset-bottom));
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font: 0.8rem/1.5 var(--font-sans);
+}
+.is-workshop-page .theme-picker {
+  background: var(--workshop-paper);
+  color: var(--workshop-muted);
+}
+.theme-picker[hidden] { display: none; }
+.theme-picker select {
+  min-height: 44px;
+  padding: 0.5rem 1.75rem 0.5rem 0.8rem;
+  border: 1px solid currentColor;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.theme-picker select:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+@media print {
+  :root, :root[data-theme] { color-scheme: light; }
+  .theme-picker { display: none; }
+}

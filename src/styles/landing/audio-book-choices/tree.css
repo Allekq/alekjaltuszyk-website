@@ -53,7 +53,7 @@
 }
 
 .abc-tree__ending-disc {
-  fill: rgb(10 7 20 / 88%);
+  fill: light-dark(var(--app-surface-light), rgb(10 7 20 / 88%));
   stroke: currentcolor;
   stroke-width: 1.4;
   transform-box: fill-box;
@@ -79,15 +79,15 @@
 }
 
 .abc-tree__ending--win {
-  color: #ffd08a;
+  color: light-dark(#87521c, #ffd08a);
 }
 
 .abc-tree__ending--death {
-  color: #ff7b7b;
+  color: light-dark(#b92d3d, #ff7b7b);
 }
 
 .abc-tree__ending--neutral {
-  color: var(--abc-tide);
+  color: var(--abc-tide-ink);
 }
 
 /* ---- Hero tree: draws itself once, on entry ------------------------------ */
@@ -159,10 +159,10 @@
 
 .abc-tree-scene__frame {
   backdrop-filter: blur(20px);
-  background: linear-gradient(165deg, rgb(38 24 58 / 80%), rgb(12 8 22 / 90%));
+  background: linear-gradient(165deg, light-dark(var(--app-surface-light), rgb(38 24 58 / 80%)), light-dark(var(--app-surface-light), rgb(12 8 22 / 90%)));
   border: 1px solid var(--app-line);
   border-radius: clamp(1.2rem, 2.6vw, 1.9rem);
-  box-shadow: 0 36px 84px rgb(0 0 0 / 44%);
+  box-shadow: 0 36px 84px light-dark(rgb(25 30 25 / 0.123), rgb(0 0 0 / 44%));
   display: grid;
   gap: clamp(0.9rem, 2vw, 1.3rem);
   padding: clamp(1rem, 2.4vw, 1.6rem);
@@ -245,7 +245,7 @@
 }
 
 .abc-tree-scene__beat-kicker {
-  color: var(--abc-ember);
+  color: var(--abc-ember-ink);
   font-size: var(--text-label);
   font-weight: 850;
   letter-spacing: var(--tracking-label);

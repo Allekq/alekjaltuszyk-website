@@ -39,7 +39,7 @@
    * The map uses a shorter frame to leave the explanations room on screen.
    */
   .tms-route__frame {
-    background: linear-gradient(168deg, #12332a, #04100e);
+    background: linear-gradient(168deg, light-dark(var(--app-surface-light), #12332a), light-dark(var(--app-surface-light), #04100e));
     max-width: none;
   }
 

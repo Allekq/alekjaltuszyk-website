@@ -33,7 +33,7 @@
   font: 0.58rem var(--w-mono);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #646e5a;
+  color: var(--w-muted);
 }
 .w-spatial__action {
   position: absolute;
@@ -44,9 +44,9 @@
   gap: 0.9rem;
   padding: 0.7rem 1rem;
   min-height: 44px;
-  border: 1px solid #bec4b3;
+  border: 1px solid var(--w-line);
   border-radius: 2rem;
-  background: #f6f5eddf;
+  background: light-dark(#f6f5eddf, #252d24ee);
   font:
     0.65rem "Helvetica Neue",
     sans-serif;

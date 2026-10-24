@@ -1,5 +1,4 @@
 :root {
-  color-scheme: dark;
 
   --font-sans: "Avenir Next", "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
@@ -34,36 +33,40 @@
   --border-thin: 1px;
   --border-strong: 1.5px;
 
-  --color-bg: #0c1019;
-  --color-bg-deep: #080c14;
-  --color-bg-elevated: rgba(18, 23, 38, 0.88);
-  --color-bg-surface: rgba(24, 30, 48, 0.88);
-  --color-bg-soft: rgba(232, 228, 219, 0.045);
-  --color-bg-card: rgba(20, 25, 40, 0.82);
+  --color-action-fill: #d6b47a;
+  --color-action-fill-end: #f0d8a9;
+  --color-surface-light: #fffaf2;
 
-  --color-text: #f5efe6;
-  --color-text-strong: #fff9f0;
-  --color-text-muted: rgba(245, 239, 230, 0.72);
-  --color-text-dim: rgba(245, 239, 230, 0.48);
+  --color-bg: light-dark(#faf6ee, #0c1019);
+  --color-bg-deep: light-dark(#eee9de, #080c14);
+  --color-bg-elevated: light-dark(rgb(255 252 246 / 94%), rgba(18, 23, 38, 0.88));
+  --color-bg-surface: light-dark(rgb(247 241 230 / 94%), rgba(24, 30, 48, 0.88));
+  --color-bg-soft: light-dark(rgb(65 49 30 / 5%), rgba(232, 228, 219, 0.045));
+  --color-bg-card: light-dark(rgb(255 252 246 / 90%), rgba(20, 25, 40, 0.82));
 
-  --color-accent: #d6b47a;
-  --color-accent-strong: #f0d8a9;
-  --color-accent-soft: rgba(214, 180, 122, 0.14);
-  --color-accent-border: rgba(214, 180, 122, 0.18);
-  --color-accent-border-strong: rgba(214, 180, 122, 0.34);
+  --color-text: light-dark(#37332c, #f5efe6);
+  --color-text-strong: light-dark(#25231f, #fff9f0);
+  --color-text-muted: light-dark(#625d53, rgba(245, 239, 230, 0.72));
+  --color-text-dim: light-dark(#6c665c, rgba(245, 239, 230, 0.68));
 
-  --color-blue: #8ecff3;
+  --color-accent: light-dark(#866029, #d6b47a);
+  --color-accent-strong: light-dark(#79531c, #f0d8a9);
+  --color-accent-soft: light-dark(rgb(134 96 41 / 10%), rgba(214, 180, 122, 0.14));
+  --color-accent-border: light-dark(rgb(134 96 41 / 22%), rgba(214, 180, 122, 0.18));
+  --color-accent-border-strong: light-dark(rgb(134 96 41 / 40%), rgba(214, 180, 122, 0.34));
+
+  --color-blue: light-dark(#296989, #8ecff3);
   --color-red: #cf6457;
   --color-purple: #7669d8;
   --color-cream: #f2eee5;
   --color-ink: #1f1d1c;
-  --color-divider: rgba(245, 239, 230, 0.1);
+  --color-divider: light-dark(rgb(55 51 44 / 18%), rgba(245, 239, 230, 0.1));
 
-  --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.28);
-  --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.25);
-  --shadow-deep: 0 30px 82px rgba(0, 0, 0, 0.34);
+  --shadow-soft: 0 24px 70px light-dark(rgb(25 30 25 / 0.078), rgba(0, 0, 0, 0.28));
+  --shadow-card: 0 20px 50px light-dark(rgb(25 30 25 / 0.07), rgba(0, 0, 0, 0.25));
+  --shadow-deep: 0 30px 82px light-dark(rgb(25 30 25 / 0.095), rgba(0, 0, 0, 0.34));
   --shadow-glow: 0 0 70px rgba(214, 180, 122, 0.12);
-  --shadow-device: 0 24px 64px rgba(0, 0, 0, 0.58);
+  --shadow-device: 0 24px 64px light-dark(rgb(25 30 25 / 0.162), rgba(0, 0, 0, 0.58));
 
   --motion-quick: 160ms ease;
   --motion-standard: 280ms cubic-bezier(0.23, 1, 0.32, 1);

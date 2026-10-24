@@ -36,8 +36,8 @@ export const legalSourceHistoryBase =
  */
 export const legalDocuments = {
   sitePrivacy: {
-    version: "1.1.0",
-    effectiveDate: "2026-10-03",
+    version: "1.2.0",
+    effectiveDate: "2026-10-24",
     path: "/privacy-policy/",
     sourcePath: "src/content/legal/site-privacy-policy.md",
   },

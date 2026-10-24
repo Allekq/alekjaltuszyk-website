@@ -42,6 +42,7 @@ body:has(.app-page) .site-backdrop {
    * with the colour its own background starts on.
    */
   --app-header-base: var(--color-bg);
+  --app-accent-ink: var(--color-coral-strong);
   --app-accent: var(--color-coral);
   --app-accent-alt: var(--color-mint);
   --app-gutter: clamp(1.1rem, 4vw, 2.5rem);
@@ -129,7 +130,7 @@ body:has(.app-page) .site-backdrop {
 
 .app-eyebrow {
   align-items: center;
-  color: var(--app-accent);
+  color: var(--app-accent-ink);
   display: inline-flex;
   font-size: var(--text-label);
   font-weight: 800;
