@@ -140,19 +140,31 @@
   max-width: 96%;
 }
 .workshop-project__tags {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.4rem;
-  flex-wrap: wrap;
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
 }
 .workshop-project__tags li {
-  padding: 0.3rem 0.65rem;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 2.65rem;
+  padding: 0.35rem 0.45rem;
   border: 1px solid #c8cdbf;
   border-radius: 2rem;
   font-size: 0.6rem;
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
   color: #56604d;
+}
+@media (max-width: 22.5rem) {
+  .workshop-project__tags li {
+    min-height: 3.45rem;
+  }
 }
 .workshop-projects__foot {
   display: flex;
