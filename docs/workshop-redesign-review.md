@@ -321,11 +321,13 @@ AI-app founders and people who built or led Voodoo teams. DOTS is not presented
 as an Asset Store package feature. The changes describe contributions and
 introduce no new app capability, privacy, purchase or performance promise.
 
-The roof now scales around its eaves after the walls settle; bridge rails
-descend at their final dimensions after the deck is complete. Three small
+The roof now scales around its eaves after the walls settle. Bridge posts grow
+vertically from fixed deck attachments, then the crossbars extend from the
+center post. Three small
 butterflies animate only when the completed island is on screen, and remain
 still with reduced motion. A geometry scan across intermediate build states
-confirmed positive roof-to-wall clearance and constant rail dimensions.
+confirmed positive roof-to-wall clearance and continuous rail growth above
+the deck, without a full-size appearance at the start.
 
 Validation: Astro check reports no errors, warnings or hints; production build,
 legal consistency, publication boundaries and all nine workshop geometry tests
@@ -335,3 +337,9 @@ to last frame, then releases. It performs no seeks while idle and requests no
 video on initial load. Reduced motion, data saving, disabled JavaScript,
 unavailable video and short-screen fallbacks were checked; native keyboard
 disclosures remain usable. Final asset, film and island previews were inspected.
+
+The app feature badges use equal-width grid columns with consistent minimum
+heights. Longer text wraps inside its badge, so one item cannot create a partial
+second row. Checked 320, 390, 763, 1024 and 1366 px layouts for clipping and
+overflow. Roam copy now distinguishes workflows built from the ground up from
+contributions to the Python backend, as confirmed by the owner.

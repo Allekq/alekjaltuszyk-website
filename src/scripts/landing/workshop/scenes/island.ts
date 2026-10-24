@@ -50,7 +50,7 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
     end: number;
     lift: number;
     y: number;
-    drop: boolean;
+    vertical: boolean;
   };
   const parts: Part[] = [];
   function assemble(
@@ -58,9 +58,9 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
     start: number,
     end: number,
     lift = 1.2,
-    drop = false,
+    vertical = false,
   ) {
-    parts.push({ object, start, end, lift, y: object.position.y, drop });
+    parts.push({ object, start, end, lift, y: object.position.y, vertical });
     return object;
   }
   function group(x = 0, y = 0, z = 0) {
@@ -288,25 +288,32 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
     const railing = new THREE.Group();
     railing.name = "island-railing";
     bridge.add(railing);
-    for (const x of [-0.95, 0, 0.95])
-      cylinder(
-        railing,
-        0.034,
-        0.44,
-        [x, 0.27 + (x === 0 ? 0.13 : 0), z],
-        mats.wood,
+    [-0.95, 0, 0.95].forEach((x, i) => {
+      const post = new THREE.Group();
+      post.name = "island-rail-post";
+      post.position.set(x, x === 0 ? 0.18 : 0.05, z);
+      railing.add(post);
+      cylinder(post, 0.034, 0.44, [0, 0.22, 0], mats.wood);
+      assemble(post, 0.45 + i * 0.015, 0.54 + i * 0.015, 0, true);
+    });
+    // Each half grows from the center post, keeping its entire path above the deck.
+    for (const side of [-1, 1]) {
+      const beam = new THREE.Group();
+      beam.name = "island-rail-beam";
+      beam.position.set(0, 0.62, z);
+      railing.add(beam);
+      line(
+        beam,
+        [
+          new THREE.Vector3(0, 0, 0),
+          new THREE.Vector3(side * 0.475, -0.035, 0),
+          new THREE.Vector3(side * 0.95, -0.13, 0),
+        ],
+        0x94744e,
+        0.023,
       );
-    line(
-      railing,
-      [
-        new THREE.Vector3(-0.95, 0.49, z),
-        new THREE.Vector3(0, 0.62, z),
-        new THREE.Vector3(0.95, 0.49, z),
-      ],
-      0x94744e,
-      0.023,
-    );
-    assemble(railing, 0.45, 0.58, 0.65, true);
+      assemble(beam, 0.57, 0.67, 0);
+    }
   }
   // A roof with a real gable and separate ridge/tiles, rather than a painted box.
   function roof(
@@ -524,7 +531,8 @@ export function createIsland(environment: THREE.Texture): SpatialModel {
       for (const part of parts) {
         const t = smoothstep(part.start, part.end, p);
         part.object.visible = t > 0.001;
-        part.object.scale.setScalar(part.drop ? 1 : Math.max(0.001, t));
+        if (part.vertical) part.object.scale.set(1, Math.max(0.001, t), 1);
+        else part.object.scale.setScalar(Math.max(0.001, t));
         part.object.position.y = part.y + (1 - t) * (1 - t) * part.lift;
       }
       butterflies(time, p, reduced);
