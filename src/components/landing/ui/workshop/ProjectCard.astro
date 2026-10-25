@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../ArrowIcon.astro";
 import type { AppEntry } from "../../../../lib/appState";
 import { directoryChips } from "../../../../lib/appState";
 import ProjectObject from "./ProjectObject.astro";
@@ -37,7 +38,7 @@ const { app, index, total } = Astro.props;
         />
         <span>{app.pitch}</span>
         <span class="workshop-project__arrow" aria-hidden="true">
-          ↗
+          <ArrowIcon direction="up-right" />
         </span>
       </div>
     </div>
@@ -45,7 +46,7 @@ const { app, index, total } = Astro.props;
       <div class="workshop-project__name">
         <h3>{app.shortName}</h3>
         <span class="w-eyebrow">
-          Explore <span aria-hidden="true">↗</span>
+          Explore <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
         </span>
       </div>
       <p>{app.description}</p>

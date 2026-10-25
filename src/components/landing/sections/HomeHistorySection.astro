@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../ui/ArrowIcon.astro";
 import { homeTimeline } from "./home-profile-content";
 
 const newestEntry = homeTimeline[homeTimeline.length - 1];
@@ -78,7 +79,7 @@ const newestEntry = homeTimeline[homeTimeline.length - 1];
             {entry.href && (
               <a class="home-history__external-link" href={entry.href} target="_blank" rel="noopener noreferrer">
                 View Alek Games on the Unity Asset Store
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
               </a>
             )}
           </article>

@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../ui/ArrowIcon.astro";
 /*
  * The CV, above the fold's fold: who I am, the four numbers behind it, the
  * stack, and the way out to the apps. Everything below this section is detail;
@@ -30,7 +31,7 @@ import {
       <div class="home-intro__actions">
         <a class="home-intro__cta" href={siteConfig.appsHref}>
           The apps
-          <span aria-hidden="true">→</span>
+          <span aria-hidden="true"><ArrowIcon direction="right" /></span>
         </a>
         <a class="home-intro__cta home-intro__cta--ghost" href="#history">
           How I got here

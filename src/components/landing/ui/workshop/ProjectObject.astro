@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../ArrowIcon.astro";
 interface Props {
   id: string;
 }
@@ -34,7 +35,7 @@ const { id } = Astro.props;
         <div class="plan-progress">
           <i></i>
         </div>
-        <small>PLAN → DO → DONE</small>
+        <small>PLAN <ArrowIcon direction="right" /> DO <ArrowIcon direction="right" /> DONE</small>
       </div>
     </div>
   )}
@@ -58,7 +59,7 @@ const { id } = Astro.props;
             <circle class="audio-tree__reader" cx="0" cy="0" r="4" />
           </g>
         </svg>
-        <b>↗</b>
+        <b><ArrowIcon direction="up-right" /></b>
       </div>
       <div class="audio-book__bookmark"></div>
     </div>
@@ -184,7 +185,7 @@ const { id } = Astro.props;
         <i></i>
       </div>
       <div class="map-object__pin">
-        <span>↗</span>
+        <span><ArrowIcon direction="up-right" /></span>
       </div>
       <span class="map-object__coordinate">A little further.</span>
     </div>

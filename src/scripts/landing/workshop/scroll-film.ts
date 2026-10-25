@@ -48,7 +48,7 @@ export function setupScrollFilm() {
           ? "Hold"
           : time < video.duration - 0.5
             ? "Lower"
-            : "Landed · keep exploring ↓";
+            : "Landed · keep exploring";
   };
   const seek = () => {
     if (

@@ -8,7 +8,7 @@ export function worldStory(element: HTMLElement) {
   const exhibit = story.querySelector<HTMLElement>(".workshop-hero__exhibit")!;
   const guide = story.querySelector<HTMLElement>("[data-world-guide]")!;
   const status = story.querySelector<HTMLElement>("[data-world-status]")!;
-  const cue = story.querySelector<HTMLElement>(".workshop-world__scroll")!;
+  const cue = story.querySelector<HTMLElement>("[data-world-cue]")!;
   const steps = [...story.querySelectorAll<HTMLElement>("[data-build-step]")];
   const compact = matchMedia("(max-width: 48rem)");
   const still = matchMedia(
@@ -53,7 +53,7 @@ export function worldStory(element: HTMLElement) {
           step.classList.toggle("is-current", index === phase);
         });
       }
-      cue.textContent = p >= 0.98 ? "Keep exploring ↓" : "Scroll to build ↓";
+      cue.textContent = p >= 0.98 ? "Keep exploring" : "Scroll to build";
     },
     fallback() {
       enhance(false);
