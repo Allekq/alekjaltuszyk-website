@@ -295,8 +295,13 @@
 
 .abc-access__tier-points li::before {
   color: var(--abc-ember-ink);
-  content: "→";
-  font-weight: 900;
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: none;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
 }
 
 .abc-access__included {

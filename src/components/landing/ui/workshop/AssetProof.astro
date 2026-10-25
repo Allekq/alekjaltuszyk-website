@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../ArrowIcon.astro";
 import { withBase } from "../../../../lib/paths";
 import "../../../../styles/landing/workshop/asset-proof.css";
 
@@ -96,13 +97,13 @@ const reviews = [
         />
         <span class="asset-proof__pill">
           {shot.name}
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
         </span>
       </a>
     ))}
   </div>
   <p class="asset-proof__swipe">
-    Scroll to explore the tools <span aria-hidden="true">→</span>
+    Scroll to explore the tools <span aria-hidden="true"><ArrowIcon direction="right" /></span>
   </p>
 
   <p class="asset-proof__label asset-proof__label--reviews">
@@ -126,7 +127,7 @@ const reviews = [
           <span>{review.author}</span>
           <a href={review.url} target="_blank" rel="noopener noreferrer">
             {review.product} · {review.version}{" "}
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
           </a>
         </figcaption>
       </figure>

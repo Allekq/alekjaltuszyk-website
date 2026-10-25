@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../../ui/ArrowIcon.astro";
 import { homeTimeline } from "../home-profile-content";
 import { siteRoutes } from "../../../../config/routes";
 import AssetProof from "../../ui/workshop/AssetProof.astro";
@@ -82,7 +83,7 @@ const captions = [
                   class="w-text-link workshop-chapter__directory"
                   href={siteRoutes.apps.index.href}
                 >
-                  Explore the apps <span aria-hidden="true">↗</span>
+                  Explore the apps <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
                 </a>
               ) : (
                 <details class="workshop-details">
@@ -126,7 +127,7 @@ const captions = [
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {entry.linkLabel} <span aria-hidden="true">↗</span>
+                  {entry.linkLabel} <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
                   <span class="w-sr-only"> (opens in a new tab)</span>
                 </a>
               )}
@@ -140,7 +141,7 @@ const captions = [
                     ? "Another landscape"
                     : index === 1
                       ? "Start a tiny showdown"
-                      : "Take them for a spin"
+                      : "Launch the squadron"
                 }
               />
               <span class="workshop-chapter__art-note">

@@ -151,49 +151,6 @@
   transform-style: preserve-3d;
   transition: transform 0.65s var(--w-ease);
 }
-.skill-terrain {
-  position: relative;
-  width: 170px;
-  height: 170px;
-  transform: rotateX(58deg) rotateZ(-35deg);
-}
-.skill-terrain i {
-  transform-style: preserve-3d;
-  position: absolute;
-  width: 31px;
-  height: 31px;
-  left: calc(var(--x) * 33px);
-  top: calc(var(--y) * 33px);
-  background: #b8c59f;
-  border: 1px solid #d6dec4;
-  transform: translateZ(calc(var(--h) * 0.45));
-  box-shadow: 3px 3px 0 #a2b18b;
-}
-.skill-terrain i::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: calc(var(--h) * 0.45);
-  left: -1px;
-  top: 30px;
-  background: #82946c;
-  transform-origin: top;
-  transform: rotateX(-90deg);
-}
-.skill-terrain i::after {
-  content: "";
-  position: absolute;
-  width: calc(var(--h) * 0.45);
-  height: 100%;
-  left: 30px;
-  top: -1px;
-  background: #9bad80;
-  transform-origin: left;
-  transform: rotateY(90deg);
-}
-.workshop-skill:is([open], :hover) .skill-terrain {
-  transform: rotateX(48deg) rotateZ(-22deg) translateY(-5px);
-}
 .skill-modules {
   width: 205px;
   height: 160px;

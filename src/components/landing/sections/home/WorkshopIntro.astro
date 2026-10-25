@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../../ui/ArrowIcon.astro";
 import { homeMilestones } from "../home-profile-content";
 import { platformNameList } from "../../../../lib/appState";
 import { withBase } from "../../../../lib/paths";
@@ -33,7 +34,7 @@ import { withBase } from "../../../../lib/paths";
         wall.
       </p>
       <a class="w-text-link" href="#history">
-        Follow the thread <span aria-hidden="true">↗</span>
+        Follow the thread <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
       </a>
     </div>
   </div>
@@ -68,7 +69,7 @@ import { withBase } from "../../../../lib/paths";
           <span class="workshop-milestones__value">{item.value}</span>
           <span class="workshop-milestones__label">{item.label}</span>
           <span class="workshop-milestones__arrow" aria-hidden="true">
-            ↗
+            <ArrowIcon direction="up-right" />
           </span>
         </a>
       </li>

@@ -1,0 +1,73 @@
+.skill-object--unity {
+  inset: 13% 0 3%;
+}
+.unity-study {
+  width: min(100%, 300px);
+  position: relative;
+}
+.unity-study > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.unity-study__caption {
+  display: block;
+  margin-top: -0.1rem;
+  text-align: center;
+  color: var(--w-muted);
+  font:
+    italic 0.75rem Georgia,
+    serif;
+}
+.workshop-skill:is(:hover, [open], :focus-within) .unity-study__player {
+  animation: unity-practice-jump 1.8s ease-in-out both;
+}
+.workshop-skill:is(:hover, [open], :focus-within) .unity-study__shadow {
+  animation: unity-practice-shadow 1.8s ease-in-out both;
+}
+@keyframes unity-practice-jump {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  12% {
+    transform: translate(0, 2px) scaleY(0.94);
+  }
+  30% {
+    transform: translate(35px, -66px) rotate(-8deg);
+  }
+  44%,
+  58% {
+    transform: translate(77px, -39px);
+  }
+  76% {
+    transform: translate(38px, -70px) rotate(8deg);
+  }
+  92% {
+    transform: translate(0, 2px) scaleY(0.94);
+  }
+}
+@keyframes unity-practice-shadow {
+  0%,
+  12%,
+  92%,
+  100% {
+    transform: translate(0, 0);
+  }
+  30% {
+    transform: translate(35px, -20px) scale(0.55);
+  }
+  44%,
+  58% {
+    transform: translate(77px, -39px);
+  }
+  76% {
+    transform: translate(38px, -20px) scale(0.55);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .unity-study__player,
+  .unity-study__shadow {
+    animation: none !important;
+  }
+}
