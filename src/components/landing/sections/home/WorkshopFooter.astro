@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../../ui/ArrowIcon.astro";
 import { siteConfig } from "../../../../config/site";
 import { siteRoutes } from "../../../../config/routes";
 ---
@@ -21,17 +22,17 @@ import { siteRoutes } from "../../../../config/routes";
       href={`mailto:${siteConfig.contactEmail}`}
       aria-label="Email Alek"
     >
-      <span aria-hidden="true">↗</span>
+      <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
     </a>
   </div>
   <div class="workshop-footer__links">
     <a class="w-text-link" href={`mailto:${siteConfig.contactEmail}`}>
-      {siteConfig.contactEmail} ↗
+      {siteConfig.contactEmail} <ArrowIcon direction="up-right" />
     </a>
     <nav aria-label="Social links">
       {siteConfig.socialLinks.map((link) => (
         <a href={link.href} target="_blank" rel="noopener noreferrer">
-          {link.label} <span aria-hidden="true">↗</span>
+          {link.label} <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
           <span class="w-sr-only"> (opens in a new tab)</span>
         </a>
       ))}
@@ -45,7 +46,7 @@ import { siteRoutes } from "../../../../config/routes";
       <a href={siteRoutes.legal.href}>Legal</a>
       <a href={siteRoutes.privacyPolicy.href}>Privacy</a>
       <a href={siteRoutes.terms.href}>Terms</a>
-      <a href="#top">Back to top ↑</a>
+      <a href="#top">Back to top <ArrowIcon direction="up" /></a>
     </nav>
   </div>
 </footer>

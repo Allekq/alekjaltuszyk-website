@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../../ui/ArrowIcon.astro";
 import { siteConfig } from "../../../../config/site";
 import { siteRoutes } from "../../../../config/routes";
 interface Props {
@@ -29,6 +30,6 @@ const anchor = (id: string) =>
     class="workshop-header__contact"
     href={directory ? siteRoutes.home.href : siteConfig.appsHref}
   >
-    {directory ? "Back home" : "Explore apps"} <span aria-hidden="true">↗</span>
+    {directory ? "Back home" : "Explore apps"} <span aria-hidden="true"><ArrowIcon direction="up-right" /></span>
   </a>
 </header>
