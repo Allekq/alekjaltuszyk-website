@@ -36,13 +36,13 @@ export const legalSourceHistoryBase =
  */
 export const legalDocuments = {
   logicGatesPrivacy: {
-    version: "1.1.0",
+    version: "1.2.0",
     effectiveDate: "2026-11-12",
     path: "/apps/LogicGates/privacy-policy/",
     sourcePath: "src/content/legal/logic-gates-privacy-policy.md",
   },
   logicGatesTerms: {
-    version: "1.1.0",
+    version: "1.2.0",
     effectiveDate: "2026-11-12",
     path: "/apps/LogicGates/terms-of-use/",
     sourcePath: "src/content/legal/logic-gates-terms-of-use.md",
