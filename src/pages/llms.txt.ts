@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import {
   audioBookChoicesConfig,
+  logicGatesConfig,
   overLitConfig,
   planKeptConfig,
   siteConfig,
@@ -62,6 +63,7 @@ Important notes:
 - PlanKept summary: ${planKeptConfig.aiDiscovery.summary}
 - OverLit summary: ${overLitConfig.aiDiscovery.summary}
 - Take Me Somewhere summary: ${takeMeSomewhereConfig.aiDiscovery.summary}
+- Logic Gates summary: ${logicGatesConfig.aiDiscovery.summary} ${logicGatesConfig.aiDiscovery.status}
 - AudioChoices summary: ${audioBookChoicesConfig.aiDiscovery.summary}
 - AudioChoices is also known as: ${audioBookChoicesConfig.alternateNames.join(", ")}
 

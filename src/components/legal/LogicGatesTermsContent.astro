@@ -1,0 +1,10 @@
+---
+import { legalDocuments } from "../../../site.config.mjs";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
+import Body from "../../content/legal/logic-gates-terms-of-use.md";
+import { logicGatesConfig } from "../../config/site";
+const doc = legalDocuments.logicGatesTerms;
+---
+<LegalDocumentHeader heading="Logic Gates Terms of Use" documentName="Terms of Use" version={doc.version} effectiveDate={doc.effectiveDate} sourcePath={doc.sourcePath} appName="Logic Gates" kind="terms" />
+<Body />
+<p><a href={logicGatesConfig.homeHref}>Logic Gates</a> · <a href={logicGatesConfig.supportHref}>Support</a> · <a href={logicGatesConfig.privacyHref}>Privacy Policy</a></p>

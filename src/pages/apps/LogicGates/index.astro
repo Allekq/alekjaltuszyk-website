@@ -1,0 +1,9 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import LogicGatesPageOrchestrator from "../../../components/landing/orchestrator/LogicGatesPageOrchestrator.astro";
+import { logicGatesConfig } from "../../../config/site";
+import "../../../styles/landing/logic-gates.css";
+---
+<SiteLayout title="Logic Gates — Make logic click" description={logicGatesConfig.defaultDescription} pageType="landing" siteName={logicGatesConfig.name} canonicalHref={logicGatesConfig.homeHref}>
+  <LogicGatesPageOrchestrator />
+</SiteLayout>

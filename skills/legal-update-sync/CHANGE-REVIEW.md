@@ -69,7 +69,8 @@ outcome when the existing disclosure already accurately covers the final impleme
 
 Update affected public text and bundled mirrors in the same authorized work. Classify a
 substantive practice/recipient/right/obligation change separately from a factual clarification.
-Follow the website version rule: clarifications do not bump acceptance; substantive changes
+Follow the website version rule, including the Logic Gates published-body exception:
+ordinary clarifications do not bump acceptance; substantive changes
 need affected document versions and dates plus app gate/fallback alignment. Explain which
 existing users will be blocked and when. Publishing a disclosure must precede activating the
 practice, including a server-side flag. Feature-scope prose never cures undisclosed past

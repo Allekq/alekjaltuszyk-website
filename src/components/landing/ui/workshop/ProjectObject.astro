@@ -1,5 +1,6 @@
 ---
 import ArrowIcon from "../ArrowIcon.astro";
+import LogicCircuit from "../LogicCircuit.astro";
 interface Props {
   id: string;
 }
@@ -11,6 +12,7 @@ const { id } = Astro.props;
   aria-hidden="true"
   data-project-object={id}
 >
+  {id === "logic-gates" && <LogicCircuit compact />}
   {id === "plankept" && (
     <div class="plan-stack">
       <div class="plan-sheet plan-sheet--back">

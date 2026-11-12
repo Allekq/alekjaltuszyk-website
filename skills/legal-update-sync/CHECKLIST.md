@@ -36,6 +36,8 @@ Use this checklist before finishing any task that touches:
 - `src/pages/apps/AudioBookChoices/terms-of-use/index.astro`
 - `src/pages/apps/AudioBookChoices/legal-manifest.json.ts`
 - support/contact routes
+- Logic Gates Privacy Policy, Terms of Use, support and legal-manifest routes under
+  `src/pages/apps/LogicGates/`, plus the bodies under `src/content/legal/`
 - wish-list routes
 - product claims about privacy, retention, reminders, accounts, purchases, lifetime
   unlocks, ads, model terms, AI, backups, or legal acceptance
@@ -46,7 +48,8 @@ Use this checklist before finishing any task that touches:
 2. If yes, check whether privacy policy or terms need updated wording.
 3. Classify the change using `SKILL.md`: update only affected versions/dates
    in `site.config.mjs` for substantive changes; factual clarifications do not
-   bump acceptance. Record the receipt from `CHANGE-REVIEW.md` and gate effects.
+   bump acceptance, except the Logic Gates published-body version/digest rule.
+   Record the receipt from `CHANGE-REVIEW.md` and gate effects.
 4. Make sure app-specific manifest routes and the temporary compatibility route
    `src/pages/legal-manifest.json.ts` still reflect the latest values through
    `src/config/site.ts`.
@@ -69,6 +72,13 @@ Use this checklist before finishing any task that touches:
 10. Rebuild the site so generated legal/discovery output is refreshed.
 11. Run `npm run check:legal` after the build. It checks paths and manifest
     values, not substantive accuracy, lawful processing or installed behavior.
+12. For Logic Gates, coordinate document bodies and versions with app-side
+    `ReleasePolicies`, bundled text, verified cache and local version/digest
+    acceptance. Check schema 1, exact canonical content and SHA-256, same-origin
+    HTTPS URLs and online/offline re-prompt behavior. Compare against the last
+    published manifest: no rollback or changed bytes under a reused version.
+    A website-only task does not authorize app edits; record outstanding app
+    verification and publication steps explicitly.
 
 ## Reminder rule
 

@@ -1,4 +1,11 @@
 :root {
+  /* Logic Gates: shared by its product page and portfolio circuit study. */
+  --logic-paper: light-dark(#f8f8f2, #15252c);
+  --logic-panel: light-dark(#e3ece7, #21373e);
+  --logic-ink: light-dark(#203b42, #e7f3ed);
+  --logic-muted: light-dark(#536c6d, #a5bdb9);
+  --logic-line: light-dark(#c3d5ce, #3f5b60);
+  --logic-teal: light-dark(#087c6c, #6cdec0);
   /* Personal homepage: isolated palette, shared by its section modules. */
   --workshop-paper: light-dark(#f5f3ed, #181c19);
   --workshop-ink: light-dark(#242622, #eeefe5);

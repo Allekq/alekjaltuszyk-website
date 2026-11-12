@@ -2,7 +2,8 @@
 import { readFile, access } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { legalDocuments } from '../site.config.mjs';
+import { createHash } from 'node:crypto';
+import { legalDocuments, siteOrigin } from '../site.config.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const errors = [];
@@ -38,10 +39,20 @@ if (!process.argv.includes('--source-only')) {
     if (!(await exists(manifestPath))) continue;
     try {
       const manifest = JSON.parse(await readFile(path.join(root, manifestPath), 'utf8'));
+      if (appRoot === '/apps/LogicGates' && manifest.schemaVersion !== 1) errors.push('Logic Gates: expected manifest schemaVersion 1');
       for (const { key, type, doc } of entries) {
         const generated = manifest[type];
         if (generated?.version !== doc.version || generated?.effectiveDate !== doc.effectiveDate) errors.push(`${key}: generated manifest version/date differs from source`);
         if (!generated?.url || new URL(generated.url).pathname !== doc.path) errors.push(`${key}: generated manifest document URL differs from source`);
+        if (appRoot === '/apps/LogicGates') {
+          const source = await readFile(path.join(root, doc.sourcePath), 'utf8');
+          const digest = createHash('sha256').update(source, 'utf8').digest('hex');
+          if (generated?.content !== source) errors.push(`${key}: manifest content differs from canonical Markdown`);
+          if (!/^[a-f0-9]{64}$/.test(generated?.sha256 ?? '') || generated.sha256 !== digest) errors.push(`${key}: incorrect canonical UTF-8 SHA-256`);
+          if (!/^(0|[1-9]\d{0,6})\.(0|[1-9]\d{0,6})\.(0|[1-9]\d{0,6})$/.test(doc.version)) errors.push(`${key}: expected numeric major.minor.patch version`);
+          const url = new URL(generated.url);
+          if (url.protocol !== 'https:' || url.origin !== new URL(siteOrigin).origin || url.search || url.hash || url.username || url.password) errors.push(`${key}: expected same-origin HTTPS document URL`);
+        }
         await exists(`dist${doc.path}index.html`);
       }
     } catch (error) { errors.push(`${manifestPath}: ${error.message}`); }

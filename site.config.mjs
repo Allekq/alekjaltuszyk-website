@@ -35,6 +35,18 @@ export const legalSourceHistoryBase =
  * or retroactively authorize earlier processing. Prior text is in Git history.
  */
 export const legalDocuments = {
+  logicGatesPrivacy: {
+    version: "1.1.0",
+    effectiveDate: "2026-11-12",
+    path: "/apps/LogicGates/privacy-policy/",
+    sourcePath: "src/content/legal/logic-gates-privacy-policy.md",
+  },
+  logicGatesTerms: {
+    version: "1.1.0",
+    effectiveDate: "2026-11-12",
+    path: "/apps/LogicGates/terms-of-use/",
+    sourcePath: "src/content/legal/logic-gates-terms-of-use.md",
+  },
   sitePrivacy: {
     version: "1.2.0",
     effectiveDate: "2026-10-24",
@@ -149,5 +161,6 @@ export const contactEmails = {
   voiceOfSelf: "voiceofselfapp@gmail.com",
   audioBookChoices: "audiochoicesaudiobooks@gmail.com",
   overLit: "alekgameshelp2@gmail.com",
+  logicGates: "alekgameshelp2@gmail.com",
   takeMeSomewhere: "alekgameshelp2@gmail.com",
 };

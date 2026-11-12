@@ -1,0 +1,10 @@
+---
+import { legalDocuments } from "../../../site.config.mjs";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
+import Body from "../../content/legal/logic-gates-privacy-policy.md";
+import { logicGatesConfig } from "../../config/site";
+const doc = legalDocuments.logicGatesPrivacy;
+---
+<LegalDocumentHeader heading="Logic Gates Privacy Policy" documentName="Privacy Policy" version={doc.version} effectiveDate={doc.effectiveDate} sourcePath={doc.sourcePath} appName="Logic Gates" kind="privacy" />
+<Body />
+<p><a href={logicGatesConfig.homeHref}>Logic Gates</a> · <a href={logicGatesConfig.supportHref}>Support</a> · <a href={logicGatesConfig.termsHref}>Terms of Use</a></p>

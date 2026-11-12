@@ -2,6 +2,7 @@
 import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
 import {
   audioBookChoicesConfig,
+  logicGatesConfig,
   overLitConfig,
   planKeptConfig,
   siteConfig,
@@ -12,6 +13,12 @@ import { siteConfig as voiceOfSelfConfig } from "../../voice-of-self/config/site
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
 const supportItems = [
+  {
+    name: logicGatesConfig.name,
+    description: "Support for circuits, wiring, simulation, local saves and recovery, and privacy questions.",
+    href: logicGatesConfig.supportHref,
+    email: logicGatesConfig.supportEmail,
+  },
   {
     name: "PlanKept",
     description: "Support for plans, reminders, app blocking, Proof Review, Apple Health checks, purchases, and local-first app behavior.",
