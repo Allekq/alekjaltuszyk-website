@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import {
   audioBookChoicesConfig,
+  logicGatesConfig,
   overLitConfig,
   planKeptConfig,
   siteConfig,
@@ -204,6 +205,8 @@ The user-facing distinction is that the way out of the block is productive
 rather than arbitrary. Supported automatic checks currently focus on Apple
 Health-backed steps and workouts; other goals can use manual Proof Review or
 Check Proof Now, with supporting images when available.
+
+${renderApp("Logic Gates", siteRoutes.apps.logicGates.path, logicGatesConfig)}
 
 ${renderApp("OverLit", siteRoutes.apps.overLit.path, overLitConfig)}
 

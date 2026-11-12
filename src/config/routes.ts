@@ -6,6 +6,7 @@ const createInternalRoute = (path: string) => ({
 });
 
 const planKeptBasePath = "/apps/PlanKept/";
+const logicGatesBasePath = "/apps/LogicGates/";
 const overLitBasePath = "/apps/OverLit/";
 const takeMeSomewhereBasePath = "/apps/TakeMeSomewhere/";
 const voiceOfSelfBasePath = "/apps/VoiceOfSelf/";
@@ -78,6 +79,11 @@ export const siteRoutes = {
     planKeptTermsOfService: createInternalRoute(planKeptContentPaths.termsOfService),
     planKeptUpdates: createInternalRoute(planKeptContentPaths.updatesIndex),
     planKeptUpdatesFeed: createInternalRoute(planKeptContentPaths.updatesFeed),
+    logicGates: createInternalRoute(logicGatesBasePath),
+    logicGatesPrivacyPolicy: createInternalRoute(`${logicGatesBasePath}privacy-policy/`),
+    logicGatesTermsOfUse: createInternalRoute(`${logicGatesBasePath}terms-of-use/`),
+    logicGatesSupport: createInternalRoute(`${logicGatesBasePath}support/`),
+    logicGatesLegalManifest: createInternalRoute(`${logicGatesBasePath}legal-manifest.json`),
     overLit: createInternalRoute(overLitBasePath),
     /*
      * The store router: one link that sends a visitor to the store their
@@ -307,6 +313,20 @@ export const appDirectory = [
     iconHref: withBase("/media/apps/take-me-somewhere/app-icon-480.jpg"),
     external: true,
     releaseStage: "released",
+    platforms: ["iOS"],
+  },
+  {
+    id: "logic-gates",
+    name: "Logic Gates",
+    description: "A hands-on digital logic studio for iPad and iPhone. Wire circuits, build reusable blocks, and follow every signal.",
+    focus: "Logic Gates is about building circuits and understanding digital logic.",
+    pitch: "Make logic click.",
+    theme: "mint",
+    chips: ["Touch & Pencil wiring", "Step through signals"],
+    href: siteRoutes.apps.logicGates.href,
+    iconHref: withBase("/media/apps/logic-gates/app-icon-480.png"),
+    external: false,
+    releaseStage: "unreleased",
     platforms: ["iOS"],
   },
 ] as const satisfies readonly AppDirectoryItem[];

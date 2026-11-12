@@ -1,0 +1,20 @@
+---
+import { apps } from "../../../../lib/appState";
+import { logicGatesConfig } from "../../../../config/site";
+import LogicCircuit from "../../ui/LogicCircuit.astro";
+const app = apps.find((item) => item.id === "logic-gates")!;
+---
+<section class="lg-hero lg-container" aria-labelledby="logic-title">
+  <div class="lg-hero__copy">
+    <p class="lg-eyebrow"><span class="lg-status-dot"></span>{app.releaseStage === "unreleased" ? "Coming soon · iPad + iPhone" : "iPad + iPhone"}</p>
+    <h1 id="logic-title">Make logic<br /><em>click.</em></h1>
+    <p class="lg-lead">From your first gate to your own circuit blocks. Wire an idea, follow the signal, and see why it works.</p>
+    <div class="lg-actions"><a class="lg-button" href="#inside">Explore the studio <span aria-hidden="true">↓</span></a><a class="lg-text-link" href={logicGatesConfig.supportHref}>Talk to the developer ↗</a></div>
+    {app.releaseStage === "unreleased" && <p class="lg-release-note">In development. Not released yet.</p>}
+  </div>
+  <div class="lg-hero__study">
+    <span class="lg-study-note">A little connection.<br />A whole new understanding.</span>
+    <LogicCircuit />
+    <p class="lg-figure-note">An illustrated signal path, not an app screenshot.</p>
+  </div>
+</section>

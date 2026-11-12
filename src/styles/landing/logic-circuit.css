@@ -1,0 +1,51 @@
+.logic-circuit {
+  --logic-progress: 1;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--logic-line);
+  border-radius: var(--radius-lg);
+  background: var(--logic-paper);
+  color: var(--logic-ink);
+  box-shadow: 0 28px 70px #102e3220, 0 4px 0 var(--logic-line);
+  transform: perspective(1100px) rotateX(var(--logic-tilt, 0deg));
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.logic-circuit__toolbar, .logic-circuit__caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 1.2rem 1.5rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+}
+.logic-circuit__toolbar { border-bottom: 1px solid var(--logic-line); }
+.logic-circuit__toolbar > span:last-child { display: flex; align-items: center; gap: 0.5rem; color: var(--logic-teal); }
+.logic-circuit__toolbar i { width: 6px; height: 6px; background: currentColor; border-radius: 50%; }
+.logic-circuit > svg {
+  width: 100%;
+  background-image: radial-gradient(var(--logic-line) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.logic-circuit__wires { stroke: var(--logic-line); stroke-width: 3; stroke-linejoin: round; }
+.logic-circuit__wires .logic-circuit__signal { stroke: var(--logic-teal); stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--logic-input, 1)); }
+.logic-circuit__wires .logic-circuit__signal--output { stroke-dashoffset: calc(1 - var(--logic-output, 1)); }
+.logic-circuit__gate { fill: var(--logic-panel); stroke: var(--logic-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.logic-circuit__pins { fill: var(--logic-teal); stroke: var(--logic-paper); stroke-width: 4; }
+.logic-circuit__output { opacity: calc(0.35 + var(--logic-output, 1) * 0.65); }
+.logic-circuit__values { fill: var(--logic-paper); font-size: 17px; font-weight: 600; }
+.logic-circuit__labels { fill: var(--logic-muted); font-size: 11px; letter-spacing: 1px; }
+.logic-circuit__junctions { fill: var(--logic-teal); }
+.logic-circuit__scope { display: flex; align-items: center; gap: 1rem; border-block: 1px solid var(--logic-line); padding: 1rem 1.5rem; font-size: 0.6rem; }
+.logic-circuit__scope svg { flex: 1; min-width: 0; height: 30px; fill: none; stroke: var(--logic-teal); stroke-width: 2; }
+.logic-circuit__caption { color: var(--logic-muted); font-size: 0.5rem; }
+.logic-circuit--compact { width: 70%; transform: perspective(900px) rotateX(18deg) rotateY(-12deg) rotateZ(-7deg) translateY(calc((1 - var(--logic-progress)) * 12px)); }
+.logic-circuit--compact .logic-circuit__toolbar { padding: 0.7rem 0.8rem; font-size: 0.4rem; }
+.logic-circuit--compact .logic-circuit__caption { padding: 0.6rem 0.8rem; font-size: 0.32rem; }
+.logic-circuit--compact .logic-circuit__scope { padding: 0.5rem 0.8rem; }
+.workshop-project--logic-gates .workshop-project__visual { background: var(--logic-panel); color: var(--logic-ink); }
+@media (prefers-reduced-motion: reduce) {
+  .logic-circuit, .project-object > .logic-circuit { transform: none; transition: none; }
+  .logic-circuit__wires .logic-circuit__signal { stroke-dashoffset: 0; }
+  .logic-circuit__output { opacity: 1; }
+}

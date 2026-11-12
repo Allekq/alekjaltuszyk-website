@@ -30,6 +30,7 @@ const PREFIXES = [
   ["voice-of-self-", "voiceOfSelf"],
   ["plankept-", "planKept"],
   ["overlit-", "overLit"],
+  ["logic-gates-", "logicGates"],
   ["site-", "site"],
 ];
 

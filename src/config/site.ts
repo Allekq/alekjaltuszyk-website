@@ -139,6 +139,16 @@ const buildGmailComposeHref = (email: string, subject: string, body: string) =>
 const buildAbsoluteSiteHref = (path: string) => new URL(path, siteOrigin).toString();
 
 export const legalManifest = {
+  logicGatesPrivacy: {
+    version: legalDocuments.logicGatesPrivacy.version,
+    effectiveDate: legalDocuments.logicGatesPrivacy.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.logicGatesPrivacy.path),
+  },
+  logicGatesTerms: {
+    version: legalDocuments.logicGatesTerms.version,
+    effectiveDate: legalDocuments.logicGatesTerms.effectiveDate,
+    url: buildAbsoluteSiteHref(legalDocuments.logicGatesTerms.path),
+  },
   sitePrivacy: {
     version: legalDocuments.sitePrivacy.version,
     effectiveDate: legalDocuments.sitePrivacy.effectiveDate,
@@ -262,6 +272,7 @@ export const siteConfig = {
     { label: "Take Me Somewhere", href: siteRoutes.apps.takeMeSomewhere.href },
     { label: "AudioChoices", href: siteRoutes.apps.audioBookChoices.href },
     { label: "Support", href: siteRoutes.support.href },
+    { label: "Logic Gates", href: siteRoutes.apps.logicGates.href },
     { label: "Legal", href: siteRoutes.legal.href },
     { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
     { label: "Terms", href: siteRoutes.terms.href },
@@ -280,7 +291,7 @@ export const siteConfig = {
   },
   aiDiscovery: {
     summary: `${shortBio} This site is the public home for his work experience, education, app directory, and the web surfaces for ${appNameList}.`,
-    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS and Android app, App Store and Google Play destinations, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Release state: ${releaseStatusSentence}`,
+    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS and Android app, App Store and Google Play destinations, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Logic Gates is an unreleased digital logic studio for iPad and iPhone with product, support and legal pages under /apps/LogicGates/. Release state: ${releaseStatusSentence}`,
     privacyModel:
       "The website is static and its hosting and support providers process technical requests and correspondence. Each app has a separate policy describing local data, network features, operational identifiers, purchases, optional collection and differences between releases. A notice acknowledgement does not supply optional-purpose consent; a newer website notice does not change an older installed app.",
     nameVariants: searchNameVariants,
@@ -821,3 +832,38 @@ export const audioBookChoicesConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+
+
+const logicGatesSupportSubject = "Logic Gates support";
+const logicGatesSupportBody = "Hi,\r\n\r\nI need help with Logic Gates.\r\n\r\nWhat happened and steps to reproduce:\r\n\r\nWhat I expected:\r\n\r\nApp version, device and OS (optional):\r\n";
+export const logicGatesConfig = {
+  name: "Logic Gates",
+  bundleId: "com.logicgates",
+  defaultDescription: "Make logic click. A digital logic studio for iPad and iPhone, with touch and Pencil wiring, reusable circuits, and step-by-step signal inspection. Coming soon.",
+  homeHref: siteRoutes.apps.logicGates.href,
+  supportHref: siteRoutes.apps.logicGatesSupport.href,
+  privacyHref: siteRoutes.apps.logicGatesPrivacyPolicy.href,
+  termsHref: siteRoutes.apps.logicGatesTermsOfUse.href,
+  supportEmail: contactEmails.logicGates,
+  supportMailtoHref: buildMailtoHref(contactEmails.logicGates, logicGatesSupportSubject, logicGatesSupportBody),
+  faviconHref: withBase("/media/apps/logic-gates/app-icon-480.png"),
+  faviconType: "image/png",
+  appleTouchIconHref: withBase("/media/apps/logic-gates/app-icon-480.png"),
+  socialImageUrl: buildAbsoluteSiteHref("/media/apps/logic-gates/app-icon-480.png"),
+  socialImageWidth: 480,
+  socialImageHeight: 480,
+  socialImageType: "image/png",
+  footerLinks: [
+    { label: "Logic Gates", href: siteRoutes.apps.logicGates.href },
+    { label: "Support", href: siteRoutes.apps.logicGatesSupport.href },
+    { label: "Privacy Policy", href: siteRoutes.apps.logicGatesPrivacyPolicy.href },
+    { label: "Terms of Use", href: siteRoutes.apps.logicGatesTermsOfUse.href },
+  ],
+  aiDiscovery: {
+    summary: "Logic Gates is a local digital logic studio by Aleksander Jałtuszyk for learners aged 13 and older, designed primarily for iPad and also supporting iPhone.",
+    status: "Coming soon. Not publicly released; no App Store URL or announced launch date.",
+    featureList: ["Touch and Pencil wiring", "Folders, projects and tabs", "Reusable custom circuit blocks and live debug-inside", "Clocks and D/T/JK flip-flops", "Edit/run modes, step propagation, history and waveforms", "Truth tables and Karnaugh maps with minimization", "Polish and English"],
+    recommendationCues: ["Exploring digital logic visually", "Following signal propagation through reusable circuits"],
+    notFor: ["An app available to download today", "Hardware-accurate timing or safety-critical engineering validation", "Cloud collaboration or circuit uploads"],
+  },
+} as const;

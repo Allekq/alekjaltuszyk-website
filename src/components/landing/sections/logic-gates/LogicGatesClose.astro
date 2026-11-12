@@ -1,0 +1,11 @@
+---
+import { logicGatesConfig } from "../../../../config/site";
+import { apps } from "../../../../lib/appState";
+const app = apps.find((item) => item.id === "logic-gates")!;
+---
+<section class="lg-close lg-container" aria-labelledby="close-title">
+  <div class="lg-close__panel">
+    <div><p class="lg-eyebrow">Your own little logic lab</p><h2 id="close-title">Your ideas.<br /><em>On your device.</em></h2><p>Circuits and preferences stay in the app’s local storage. No account, ads, tracking or cloud sync.</p><p class="lg-close__fine">Previous local recovery saves may retain deleted projects. Device backups follow your Apple settings. <a href={logicGatesConfig.privacyHref}>Read the privacy details ↗</a></p></div>
+    <div class="lg-close__status"><img src={app.iconHref} alt="" width="88" height="88" loading="lazy" /><h3>{app.releaseStage === "unreleased" ? "Coming soon." : app.name}</h3><p>{app.releaseStage === "unreleased" ? "Still taking shape. No release date announced." : "Explore digital logic, one circuit at a time."}</p><a class="lg-button" href={logicGatesConfig.supportHref}>Questions or ideas? ↗</a></div>
+  </div>
+</section>

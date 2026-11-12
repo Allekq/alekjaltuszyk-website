@@ -1,0 +1,16 @@
+---
+const steps = [
+  { number: "01", title: "Think with your hands.", body: "Place gates and connect them with touch or Apple Pencil. A clear grid and right-angle wires keep the idea readable as it grows.", detail: "Touch + Pencil · Edit / Run" },
+  { number: "02", title: "Build once. Look inside.", body: "Turn a circuit into a reusable custom block. Open it while it runs to inspect what is happening inside, without losing the bigger picture.", detail: "Custom blocks · Live debug-inside" },
+  { number: "03", title: "Follow the why.", body: "Step through propagation, revisit history, and read waveforms. Explore the same logic through truth tables and Karnaugh maps with minimization.", detail: "Step · History · Waveforms" },
+];
+---
+<section class="lg-studio lg-container" id="inside" aria-labelledby="studio-title">
+  <div class="lg-section-heading"><p class="lg-eyebrow">Inside the studio</p><h2 id="studio-title">Small pieces.<br /><em>Clearer thinking.</em></h2><p>Room to experiment. Tools to understand what happened. For learners aged 13 and older.</p></div>
+  <div class="lg-steps">{steps.map((step) => <article class="lg-step"><span class="lg-step__number">{step.number}</span><div><h3>{step.title}</h3><p>{step.body}</p><span class="lg-step__detail">{step.detail}</span></div></article>)}</div>
+</section>
+<section class="lg-details lg-container" aria-label="More room for your ideas">
+  <div class="lg-detail"><span class="lg-detail__symbol" aria-hidden="true">⌁</span><h3>Give it a clock.</h3><p>Explore sequential logic with clocks, D/T/JK flip-flops, multiplexers and a built-in 4-bit shift register.</p></div>
+  <div class="lg-detail"><span class="lg-detail__symbol" aria-hidden="true">▤</span><h3>Keep ideas together.</h3><p>Organize projects into folders and move between workspace tabs. Keep an experiment small or let it grow.</p></div>
+  <div class="lg-detail"><span class="lg-detail__symbol" aria-hidden="true">PL / EN</span><h3>In your language.</h3><p>Work in Polish or English. Designed primarily for the space of iPad, with iPhone support too.</p></div>
+</section>

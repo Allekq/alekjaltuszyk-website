@@ -2,6 +2,7 @@
 import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
 import {
   audioBookChoicesConfig,
+  logicGatesConfig,
   overLitConfig,
   planKeptConfig,
   siteConfig,
@@ -12,6 +13,16 @@ import { siteConfig as voiceOfSelfConfig } from "../../voice-of-self/config/site
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
 const appLegalItems = [
+  {
+    name: logicGatesConfig.name,
+    description: "Logic Gates documents cover local circuits, recovery saves, optional email support, and the limits of digital logic simulation. The app is not released yet.",
+    links: [
+      { label: "Privacy Policy", href: logicGatesConfig.privacyHref },
+      { label: "Terms of Use", href: logicGatesConfig.termsHref },
+      { label: "Support", href: logicGatesConfig.supportHref },
+      { label: "Legal Manifest", href: siteRoutes.apps.logicGatesLegalManifest.href },
+    ],
+  },
   {
     name: "PlanKept",
     description:
@@ -75,6 +86,7 @@ const appLegalItems = [
 ] as const;
 
 const contactByApp = [
+  [logicGatesConfig.name, logicGatesConfig.supportEmail],
   ["PlanKept", planKeptConfig.supportEmail],
   ["Voice of Self", voiceOfSelfConfig.supportEmail],
   ["OverLit", overLitConfig.supportEmail],

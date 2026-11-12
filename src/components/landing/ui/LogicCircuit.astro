@@ -1,0 +1,43 @@
+---
+/** A shared, illustrative circuit study. No simulation or visitor input is collected. */
+import "../../../styles/landing/logic-circuit.css";
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<div class:list={["logic-circuit", compact && "logic-circuit--compact"]} data-logic-circuit aria-hidden="true">
+  <div class="logic-circuit__toolbar"><span>UNTITLED / CIRCUIT 01</span><span><i></i> RUN</span></div>
+  <svg viewBox="0 0 520 300" fill="none">
+    <g class="logic-circuit__wires">
+      <path d="M68 90H125V130H190M68 210H145V170H190" />
+      <path d="M270 150H330M390 150H452" />
+      <path class="logic-circuit__signal" pathLength="1" d="M68 90H125V130H190M68 210H145V170H190" />
+      <path class="logic-circuit__signal logic-circuit__signal--output" pathLength="1" d="M270 150H330M390 150H452" />
+    </g>
+    <g class="logic-circuit__gate">
+      <path d="M190 110H230A40 40 0 0 1 230 190H190Z" />
+      <path d="M330 110L390 150L330 190Z" />
+    </g>
+    <g class="logic-circuit__pins">
+      <circle cx="68" cy="90" r="19" /><circle cx="68" cy="210" r="19" />
+      <circle class="logic-circuit__output" cx="452" cy="150" r="22" />
+    </g>
+    <g class="logic-circuit__values" text-anchor="middle">
+      <text x="68" y="96">1</text><text x="68" y="216">1</text><text x="452" y="156">1</text>
+    </g>
+    <g class="logic-circuit__labels" text-anchor="middle">
+      <text x="68" y="52">A</text><text x="68" y="254">B</text>
+      <text x="230" y="220">AND</text><text x="350" y="220">BUFFER</text><text x="452" y="108">OUT</text>
+    </g>
+    <g class="logic-circuit__junctions"><circle cx="125" cy="90" r="3"/><circle cx="145" cy="210" r="3"/></g>
+  </svg>
+  <div class="logic-circuit__scope">
+    <span>OUT</span>
+    <svg viewBox="0 0 360 38" preserveAspectRatio="none"><path d="M0 29H38V9H98V29H158V9H218V29H278V9H360" /></svg>
+    <span>0 → 1</span>
+  </div>
+  <div class="logic-circuit__caption"><span>CONNECT. RUN. UNDERSTAND.</span><span>ILLUSTRATION</span></div>
+</div>
+<script>
+  import { setupLogicCircuits } from "../../../scripts/landing/logic-circuit";
+  setupLogicCircuits();
+</script>

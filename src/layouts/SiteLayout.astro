@@ -8,6 +8,7 @@ import {
   overLitConfig,
   takeMeSomewhereConfig,
   audioBookChoicesConfig,
+  logicGatesConfig,
 } from "../config/site";
 import { basePath, withBase } from "../lib/paths";
 
@@ -83,7 +84,9 @@ const isOverLit = normalizedPathname.startsWith("/apps/OverLit/");
 const isTakeMeSomewhere = normalizedPathname.startsWith("/apps/TakeMeSomewhere/");
 const isAudioBookChoices = normalizedPathname.startsWith("/apps/AudioBookChoices/");
 
-const appDefault = isPlanKept
+const appDefault = normalizedPathname.startsWith(withBase("/apps/LogicGates/"))
+  ? logicGatesConfig
+  : isPlanKept
   ? planKeptConfig
   : isOverLit
   ? overLitConfig

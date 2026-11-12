@@ -9,7 +9,7 @@ Use this skill when changing legal text or any website/product behavior that
 could affect privacy, retention, contact, wish-list, support, ads, purchases,
 local storage, backup behavior, location/map providers, AI/model routing, or
 other legal-facing claims for PlanKept, Voice of Self, OverLit, Take Me
-Somewhere, or Audio Book Choices.
+Somewhere, Audio Book Choices, or Logic Gates.
 
 ## Required change review
 
@@ -71,6 +71,7 @@ version in `site.config.mjs` has opposite consequences depending on the app:
 | Voice of Self | hosted `legal-manifest.json` | Can re-prompt after the app obtains and applies the newer manifest; check cache/offline behavior |
 | Audio Book Choices | compiled into the binary (`AppConfig.LEGAL_VERSION`) | Hosted notice changes; installed gate does not change without a binary update |
 | OverLit | compiled into the binary (`PlayableLegalDocumentCatalog`) | Hosted notice changes; installed gate does not change without a binary update |
+| Logic Gates | hosted manifest content/version/digest, with verified local cache and bundled fallback | Online-refresh builds can re-prompt after fetching changed documents; older bundled-only builds need an app update |
 | Website itself (`site*`) | no app gate consumes it | Updated website notice/terms; assess notice and agreement duties |
 
 For hosted-manifest apps, publishing a version can trigger re-acceptance when
@@ -87,8 +88,13 @@ while retaining accurate older-release disclosures. A website change still
 affects readers and notice duties even though it does not change the old binary's
 gate. Check the actual new-build online/offline re-prompt behavior.
 
-A clarification that adds no new obligation — wording, a masthead, a typo — must
-not bump anything, for any app. It is recorded in the public revision history.
+A clarification that adds no new obligation — wording, a masthead, a typo — does
+not normally bump acceptance. **Logic Gates is an exception:** changing an already
+published canonical body requires a higher numeric major.minor.patch version,
+even for a correction, because clients compare both version and content digest.
+Never reuse a published version for changed bytes or publish a lower version.
+Local unpublished draft edits may keep their staged version. A masthead-only
+change outside the canonical body does not change that body's digest.
 
 ## The data-deletion pages are store surfaces, not documents
 
@@ -129,6 +135,31 @@ Canonical files:
 changes, these pages change with the policy — not after it.** The URL is on a
 live store listing, so a stale one is a false statement in the place a reviewer
 is most likely to look.
+
+## Logic Gates Canonical Files
+
+- Privacy copy: `src/content/legal/logic-gates-privacy-policy.md`
+- Terms copy: `src/content/legal/logic-gates-terms-of-use.md`
+- Privacy wrapper: `src/components/legal/LogicGatesPrivacyContent.astro`
+- Terms wrapper: `src/components/legal/LogicGatesTermsContent.astro`
+- Manifest: `src/pages/apps/LogicGates/legal-manifest.json.js`
+- App repo: `/Users/alekj/Documents/GitHub/LogicGates`
+- App version/acceptance source: `shared/src/commonMain/kotlin/dev/logicgates/editor/LegalAcceptance.kt`
+- Bundled offline text: `shared/src/commonMain/kotlin/dev/logicgates/legal/BundledLegalDocuments.kt`
+
+Keep the website bodies, app-bundled documents and `ReleasePolicies` versions
+aligned before release. The app-specific manifest has `schemaVersion: 1` and
+privacy/terms entries containing version, effectiveDate, same-origin HTTPS URL,
+lowercase SHA-256 and exact UTF-8 canonical Markdown content. Generate hashes
+at build time; never edit generated output. Other apps retain their contracts.
+Acceptance is a local version/digest/timestamp record, not optional-processing
+consent. Fetching does not accept a document. Online-refresh builds check on
+startup/foreground with rate limits and allow manual refresh; offline use falls
+back to verified cache or bundled text and cannot discover remote changes.
+Disclose host IP/request logs despite no accounts, cookies or app telemetry.
+Circuits and recovery saves remain local, with optional email support. Older
+recovery data may retain deleted projects; never promise workspace deletion
+erases all copies. Coordinate app changes with its owner for website-only work.
 
 ## PlanKept Canonical Files
 

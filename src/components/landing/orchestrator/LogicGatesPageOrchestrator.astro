@@ -1,0 +1,14 @@
+---
+import { logicGatesConfig, siteConfig } from "../../../config/site";
+import LogicGatesHero from "../sections/logic-gates/LogicGatesHero.astro";
+import LogicGatesStudio from "../sections/logic-gates/LogicGatesStudio.astro";
+import LogicGatesClose from "../sections/logic-gates/LogicGatesClose.astro";
+---
+<div class="logic-gates" id="top">
+  <a class="lg-skip" href="#inside">Skip to features</a>
+  <header class="lg-header lg-container"><a class="lg-brand" href={logicGatesConfig.homeHref}><img src={logicGatesConfig.faviconHref} width="36" height="36" alt="" />Logic Gates</a><nav aria-label="Logic Gates"><a href={siteConfig.appsHref}>All apps</a><a href={logicGatesConfig.supportHref}>Support ↗</a></nav></header>
+  <LogicGatesHero />
+  <LogicGatesStudio />
+  <LogicGatesClose />
+  <footer class="lg-footer lg-container"><a href={siteConfig.homeHref}>Made by Alek Jałtuszyk ↗</a><nav aria-label="Logic Gates legal and support">{logicGatesConfig.footerLinks.filter((link) => link.href !== logicGatesConfig.homeHref).map((link) => <a href={link.href}>{link.label}</a>)}</nav><p>Digital logic simulation for exploration. Not hardware-accurate timing.</p></footer>
+</div>

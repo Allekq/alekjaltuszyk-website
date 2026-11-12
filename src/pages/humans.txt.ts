@@ -38,6 +38,7 @@ Key pages:
 - Apps: ${toAbsoluteSiteUrl(siteRoutes.apps.index.path)}
 - PlanKept: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
 - Voice of Self: ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
+- Logic Gates (coming soon): ${toAbsoluteSiteUrl(siteRoutes.apps.logicGates.path)}
 - OverLit: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
 - Take Me Somewhere: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
 - AudioChoices: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}

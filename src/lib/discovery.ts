@@ -28,6 +28,8 @@ export const toAbsoluteSiteUrl = (path: string) =>
 
 export const discoveryPages = {
   main: [
+    { title: "Logic Gates", path: siteRoutes.apps.logicGates.path, description: "Coming soon: a local digital logic studio for iPad and iPhone, with touch/Pencil wiring, reusable blocks and signal inspection." },
+    { title: "Logic Gates Support", path: siteRoutes.apps.logicGatesSupport.path, description: "Optional email support for Logic Gates circuits, simulation, local recovery and privacy questions." },
     {
       title: "Home",
       path: siteRoutes.home.path,
@@ -213,6 +215,9 @@ export const discoveryPages = {
       description:
         "Machine-readable Voice of Self legal document versions, effective dates, AI-use body, and canonical URLs.",
     },
+    { title: "Logic Gates Privacy Policy", path: siteRoutes.apps.logicGatesPrivacyPolicy.path, description: "Local circuit storage, recovery copies, device backups, online legal-document checks, hosting logs and optional support correspondence." },
+    { title: "Logic Gates Terms of Use", path: siteRoutes.apps.logicGatesTermsOfUse.path, description: "Use of the digital logic studio, simulation limitations, local projects and consumer rights." },
+    { title: "Logic Gates Legal Manifest", path: siteRoutes.apps.logicGatesLegalManifest.path, description: "Schema 1 with canonical Markdown, SHA-256 digests, versions, effective dates and URLs for the Logic Gates Privacy Policy and Terms of Use." },
     {
       title: "OverLit Privacy Policy",
       path: siteRoutes.apps.overLitPrivacyPolicy.path,
@@ -305,6 +310,11 @@ export const discoveryPages = {
 } as const satisfies Record<string, readonly DiscoveryPage[]>;
 
 export const sitemapPagePaths = [
+  siteRoutes.apps.logicGates.path,
+  siteRoutes.apps.logicGatesSupport.path,
+  siteRoutes.apps.logicGatesPrivacyPolicy.path,
+  siteRoutes.apps.logicGatesTermsOfUse.path,
+  siteRoutes.apps.logicGatesLegalManifest.path,
   siteRoutes.home.path,
   siteRoutes.apps.index.path,
   siteRoutes.apps.planKept.path,
