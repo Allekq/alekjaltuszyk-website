@@ -17,10 +17,10 @@ import { createFrameScheduler, lerp, prefersReducedMotion, setVar } from "../mot
 const CARDINALS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"] as const;
 
 const toBearingLabel = (angle: number) => {
-  const normalized = ((angle % 360) + 360) % 360;
+  const normalized = ((Math.round(angle) % 360) + 360) % 360;
   const index = Math.round(normalized / 45) % CARDINALS.length;
 
-  return `${CARDINALS[index]} · ${Math.round(normalized)}°`;
+  return `${CARDINALS[index]} · ${normalized}°`;
 };
 
 const setupCompass = (stage: HTMLElement) => {
@@ -74,7 +74,7 @@ const setupCompass = (stage: HTMLElement) => {
     const raw = (Math.atan2(dy, dx) * 180) / Math.PI + 90;
 
     // Unwrap against the current angle so the needle takes the short way.
-    const delta = ((raw - current + 540) % 360) - 180;
+    const delta = (((raw - current + 180) % 360 + 360) % 360) - 180;
 
     idle = false;
     target = current + delta;

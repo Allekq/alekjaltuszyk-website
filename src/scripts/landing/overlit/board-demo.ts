@@ -12,8 +12,8 @@
  *     [data-board-grid]            cell container (cells are created here)
  *     [data-board-score]           score readout
  *     [data-board-clock]           elapsed seconds, counting up like the app
- *     [data-board-start]           start / restart button
- *     [data-board-overlay]         idle + run-end panel
+ *     [data-board-start]           start / resume / restart button
+ *     [data-board-overlay]         idle + paused + run-end panel
  *     [data-board-result]          run-end headline
  *
  * Nothing is stored: no score leaves the page or survives a reload.
@@ -125,6 +125,7 @@ const setupBoard = (root: HTMLElement) => {
   const cells = buildCells(grid, total);
 
   let running = false;
+  let paused = false;
   let score = 0;
   let remaining = CONFIG.runMs;
   let sinceSpawn = 0;
@@ -192,13 +193,15 @@ const setupBoard = (root: HTMLElement) => {
   };
 
   const tick = (now: number) => {
-    frameId = window.requestAnimationFrame(tick);
-
     if (!running) {
+      frameId = 0;
       return;
     }
 
-    const delta = Math.min(now - lastFrame, 120);
+    frameId = window.requestAnimationFrame(tick);
+
+    // Never advance a cell beyond the end of the survival window.
+    const delta = Math.min(now - lastFrame, 120, remaining);
     lastFrame = now;
     remaining -= delta;
     sinceSpawn += delta;
@@ -208,7 +211,7 @@ const setupBoard = (root: HTMLElement) => {
     const spawnEvery = CONFIG.spawnMs * (1 - urgency * 0.42);
 
     if (sinceSpawn >= spawnEvery) {
-      sinceSpawn = 0;
+      sinceSpawn -= spawnEvery;
       spawn();
     }
 
@@ -228,7 +231,9 @@ const setupBoard = (root: HTMLElement) => {
       const next = NEXT_PHASE[cell.phase];
 
       if (next) {
+        const overshoot = -cell.timer;
         setPhase(cell, next);
+        cell.timer -= overshoot;
         return;
       }
 
@@ -251,17 +256,25 @@ const setupBoard = (root: HTMLElement) => {
   };
 
   const start = () => {
+    if (document.hidden) {
+      return;
+    }
+
+    if (!paused) {
+      score = 0;
+      remaining = CONFIG.runMs;
+      sinceSpawn = 0;
+      cells.forEach((cell) => setPhase(cell, "idle"));
+      spawn();
+    }
+
+    paused = false;
     running = true;
-    score = 0;
-    remaining = CONFIG.runMs;
-    sinceSpawn = 0;
     lastFrame = performance.now();
     cells.forEach(({ button }) => { button.disabled = false; });
-    cells.forEach((cell) => setPhase(cell, "idle"));
     root.dataset.boardState = "playing";
     startButton.textContent = "Restart";
     renderReadouts();
-    spawn();
 
     if (frameId === 0) {
       frameId = window.requestAnimationFrame(tick);
@@ -282,7 +295,6 @@ const setupBoard = (root: HTMLElement) => {
     }
 
     if (!running) {
-      start();
       return;
     }
 
@@ -307,7 +319,16 @@ const setupBoard = (root: HTMLElement) => {
   // Pause when the tab is hidden so a backgrounded page does not burn a run.
   document.addEventListener("visibilitychange", () => {
     if (document.hidden && running) {
-      stop("time");
+      running = false;
+      paused = true;
+      window.cancelAnimationFrame(frameId);
+      frameId = 0;
+      root.dataset.boardState = "paused";
+      cells.forEach(({ button }) => { button.disabled = true; });
+      if (resultOut) {
+        resultOut.textContent = "Paused. Your run is waiting.";
+      }
+      startButton.textContent = "Resume";
     }
   });
 

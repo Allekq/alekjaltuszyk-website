@@ -868,8 +868,8 @@ export const logicGatesConfig = {
   aiDiscovery: {
     summary: "Logic Gates is a local digital logic studio by Aleksander Jałtuszyk for learners aged 13 and older, designed primarily for iPad and also supporting iPhone.",
     status: "Coming soon. Not publicly released; no App Store URL or announced launch date.",
-    featureList: ["Touch and Pencil wiring", "Folders, projects and tabs", "Reusable custom circuit blocks and live debug-inside", "Clocks and D/T/JK flip-flops", "Edit/run modes, step propagation, history and waveforms", "Truth tables and Karnaugh maps with minimization", "Polish and English"],
+    featureList: ["Touch and Pencil wiring", "Folders, projects and tabs", "Rename, move and recover projects from Trash", "Native .logicgates project import and export with required circuit definitions", "Reusable custom circuit blocks and live debug-inside", "Clocks and D/T/JK flip-flops", "Edit/run modes, step propagation, history and waveforms", "Truth tables and Karnaugh maps with minimization", "Polish and English"],
     recommendationCues: ["Exploring digital logic visually", "Following signal propagation through reusable circuits"],
-    notFor: ["An app available to download today", "Hardware-accurate timing or safety-critical engineering validation", "Cloud collaboration or circuit uploads"],
+    notFor: ["An app available to download today", "Hardware-accurate timing or safety-critical engineering validation", "Developer-hosted cloud collaboration or automatic project synchronization"],
   },
 } as const;

@@ -4,23 +4,33 @@ Logic Gates (bundle identifier `com.logicgates`) is developed by **Aleksander Ja
 
 Aleksander Jałtuszyk is the controller for handling support correspondence and deciding to deliver the app's legal documents through the hosted service described below. Providers also process information for their own purposes under their applicable notices. This is separate from circuit data that remains on your device.
 
-This notice describes the digital-circuit app for iPad and iPhone, its online legal-document checks and any correspondence you choose to send to the developer. Logic Gates is currently in development and not publicly released. The practices below describe the build being prepared with online legal refreshes; earlier development builds may use bundled documents only. Visiting the product or legal website in a browser is also covered by the website's separate Privacy Policy, linked from its legal hub.
+This notice describes the digital-circuit app for iPad and iPhone, local projects, user-directed file import and export, online legal-document checks and any correspondence you choose to send to the developer. Features available to you depend on your installed build; older builds may lack file actions, Trash or online legal refreshes. Visiting the product or legal website in a browser is also covered by the website's separate Privacy Policy, linked from its legal hub.
 
-## 2. Your circuits and settings stay in the app's local storage
+## 2. Local circuits, file imports and sharing
 
-Logic Gates stores circuits, projects, folders, workspace tabs, preferences and recovery saves in the app's container on your device. Simulation, circuit inspection, truth tables and Karnaugh-map calculations run locally. The developer does not receive these projects or results through the app.
+Logic Gates stores circuits, projects, folders, Trash, workspace tabs, preferences and recovery saves in the app's container on your device. Simulation, circuit inspection, truth tables and Karnaugh-map calculations run locally. The app does not automatically send these projects or results to the developer.
 
-The current app has **no accounts, advertising, analytics or tracking SDKs, cloud synchronization, project uploads, app telemetry or payment processing**. It does not send an editor usage history, app-specific device identifier, circuit content or simulation results to the developer. It does make the limited legal-document requests described in section 4. No advertising or analytics consent is requested because those activities are not part of the current app.
+The current app has **no accounts, advertising, analytics or tracking SDKs, automatic cloud synchronization, developer-hosted project uploads, app telemetry or payment processing**. It does not send an editor usage history, app-specific device identifier, circuit content or simulation results to the developer unless you choose to share content with the developer yourself, for example in a support email. It does make the limited legal-document requests described in section 4. No advertising or analytics consent is requested because those activities are not part of the current app.
 
 Local storage supports the functionality you request, such as reopening your workspace, remembering preferences and recovering work. It is not used to build an advertising profile. Touch and Apple Pencil interactions control the editor on your device; they are not sent to the developer as behavioral telemetry.
 
-## 3. Previous saves, recovery and deletion
+Where your build offers file actions, a native **`.logicgates` export contains the selected circuit and the circuit definitions it needs**, including their names, labels, components and connections. It is not a complete workspace backup: it excludes app preferences, Trash, recovery saves, legal-acceptance records and live simulation state. Review names, labels and included definitions before sharing, because they can contain information you entered yourself. The file is readable project data, not a password-protected archive.
 
-Local recovery data can include earlier catalog saves, previous project states, legacy saved data and copies preserved when a saved file cannot be read. **Deleting a project from the workspace may leave that project in older local recovery data.** Recovery copies are not a separate cloud service and are not a guarantee that work can always be recovered.
+Export opens the system share sheet. You choose whether to save the file, send it to someone or use another available action. A destination such as iCloud Drive, an email app or another file provider may upload, retain or otherwise process the file under its own terms, settings and privacy notice, including outside your country. The developer does not receive a copy merely because you export it. Choosing the developer as a recipient is covered by the support section below.
+
+Import reads a file you choose through the system file picker and, if supported and valid, adds independent local circuit copies rather than replacing existing projects. A file provider may retrieve that chosen file from its own online storage. Importing does not give the developer access to that service or create ongoing synchronization with the source file. The original file remains separate from the imported copy.
+
+## 3. Trash, recovery and deletion
+
+In builds with Trash, deleting a project or folder moves it into **local Trash**, including a deleted folder's contents. **Trash has no automatic expiry.** Items remain there until you restore them, permanently delete them through the app or remove the app's local data. The app can prevent deletion while another retained circuit depends on the item. Restoring a circuit can also restore required definitions from Trash.
+
+Local recovery data can include earlier catalog saves, previous project states, legacy saved data and copies preserved when a saved file cannot be read. **Permanently deleting an item from current Trash may still leave an earlier copy in local recovery data.** Earlier builds without Trash can also retain deleted projects in recovery saves. Recovery copies are not a separate cloud service and are not a guarantee that work can always be recovered.
 
 To remove the app's local data from an iPad or iPhone, use the system's **Delete App** action. **Offload App** can retain documents and data, so it is not equivalent to deletion. Deleting the app also removes local preferences and any local legal-acceptance record. The developer cannot remotely retrieve, restore or erase circuits that remain only on your device.
 
 Device backups, including any copies of app data, follow Apple's services and your device/backup settings. They are separate from the app's recovery saves. Removing a project or deleting the app does not necessarily remove earlier device backups; manage those through the relevant Apple or computer-backup controls. Restoring a device backup may restore old app data.
+
+Exported files, original files used for import, and copies held by recipients or file providers are separate from the app's container. Deleting a project, clearing its Trash entry or deleting the app does not delete those copies. Manage them through the relevant Files location, provider or recipient; the developer cannot remotely recall a file you shared.
 
 ## 4. Online legal documents and local acknowledgement
 
