@@ -11,7 +11,7 @@ const contactEmail = "voiceofselfapp@gmail.com";
 const supportEmail = contactEmail;
 const supportSubject = "Voice of Self support";
 const supportDraftLines = [
-  "Hi, I'm [your name].",
+  "Hi,",
   "",
   "I need help with Voice of Self.",
   "",
@@ -22,7 +22,7 @@ const supportDraftLines = [
   "[brief description]",
   "",
   "Device and iOS version (optional):",
-  "[example: iPhone 15 Pro, iOS 18.4]",
+  "[device model and OS version]",
   "",
 ];
 const supportBody = supportDraftLines.join("\r\n");
@@ -100,6 +100,15 @@ export const siteConfig = {
   appStoreHref,
   supportMailtoHref: buildMailtoHref(supportEmail, supportSubject, supportBody),
   supportGmailHref: buildGmailComposeHref(supportEmail, supportSubject, supportBody),
+  support: {
+    title: "Need help with Voice of Self?",
+    includeItems: [
+      "What you were trying to do.",
+      "What happened instead.",
+      "Your app version, device and OS, if relevant.",
+    ],
+    privacyNote: "Please avoid sending sensitive journal entries, recordings, transcripts, screenshots, health information, location history or another person's information unless needed for your request.",
+  },
   supportDraft: {
     subject: supportSubject,
     body: supportBody,

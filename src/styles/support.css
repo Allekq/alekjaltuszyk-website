@@ -1,1 +1,25 @@
 @import "./landing/shared.css";
+
+.support-guide__email {
+  color: var(--color-text-strong);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.support-guide details { color: var(--color-text-muted); }
+.support-guide summary { cursor: pointer; color: var(--color-text-strong); }
+.support-guide details p { font-size: var(--text-body-sm); }
+.support-guide .action-button {
+  background: var(--color-text-strong);
+  color: var(--color-bg);
+  border: 1px solid var(--color-text-strong);
+}
+.support-guide .action-button--secondary {
+  background: transparent;
+  color: var(--color-text-strong);
+}
+.support-guide .action-button:focus-visible {
+  outline: 2px solid var(--color-text-strong);
+  outline-offset: 4px;
+}
