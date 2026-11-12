@@ -31,7 +31,7 @@ const supportDraftLines = [
   "[brief description]",
   "",
   "Device and OS version (optional):",
-  "[example: iPhone 16, iOS 19.0]",
+  "[device model and OS version]",
   "",
 ];
 const supportBody = supportDraftLines.join("\r\n");
@@ -51,7 +51,7 @@ const overLitSupportDraftLines = [
   "[brief description]",
   "",
   "Device and OS version (optional):",
-  "[example: iPhone 16, iOS 19.0]",
+  "[device model and OS version]",
   "",
 ];
 const overLitSupportBody = overLitSupportDraftLines.join("\r\n");
@@ -70,7 +70,7 @@ const takeMeSomewhereSupportDraftLines = [
   "[example: creating a 30-minute cafe route near a park]",
   "",
   "Device and OS version (optional):",
-  "[example: iPhone 16, iOS 19.0]",
+  "[device model and OS version]",
   "",
 ];
 const takeMeSomewhereSupportBody = takeMeSomewhereSupportDraftLines.join("\r\n");
@@ -373,7 +373,6 @@ export const planKeptConfig = {
    */
   support: {
     title: "Need help with PlanKept?",
-    includeTitle: "A quick note gets the conversation moving.",
     includeItems: [
       "What you were trying to do.",
       "What happened instead.",
@@ -480,7 +479,6 @@ export const overLitConfig = {
   },
   support: {
     title: "Need help with OverLit?",
-    includeTitle: "A quick note gets the conversation moving.",
     includeItems: [
       "What you were trying to do.",
       "What happened instead.",
@@ -581,7 +579,6 @@ export const takeMeSomewhereConfig = {
   },
   support: {
     title: "Need help with Take Me Somewhere?",
-    includeTitle: "A useful note gets the issue grounded quickly.",
     includeItems: [
       "What you were trying to do.",
       "What happened instead.",
@@ -655,7 +652,7 @@ const audioBookChoicesSupportDraftLines = [
   "[brief description]",
   "",
   "Device and OS version (optional):",
-  "[example: iPhone 16, iOS 19.0 or Pixel 9, Android 16]",
+  "[device model and OS version]",
   "",
 ];
 const audioBookChoicesSupportBody = audioBookChoicesSupportDraftLines.join("\r\n");
@@ -752,7 +749,6 @@ export const audioBookChoicesConfig = {
   },
   support: {
     title: "Need help with AudioChoices?",
-    includeTitle: "A useful note gets the issue grounded quickly.",
     includeItems: [
       "What you were trying to do.",
       "What happened instead.",
@@ -846,6 +842,16 @@ export const logicGatesConfig = {
   termsHref: siteRoutes.apps.logicGatesTermsOfUse.href,
   supportEmail: contactEmails.logicGates,
   supportMailtoHref: buildMailtoHref(contactEmails.logicGates, logicGatesSupportSubject, logicGatesSupportBody),
+  supportGmailHref: buildGmailComposeHref(contactEmails.logicGates, logicGatesSupportSubject, logicGatesSupportBody),
+  support: {
+    title: "Need help with Logic Gates?",
+    includeItems: [
+      "What you tried and what happened instead.",
+      "A few steps to reproduce the issue, or a small example circuit.",
+      "App version and device, only if relevant.",
+    ],
+    privacyNote: "Share only what helps explain the issue. Remove private details from screenshots; a complete workspace is usually unnecessary.",
+  },
   faviconHref: withBase("/media/apps/logic-gates/app-icon-480.png"),
   faviconType: "image/png",
   appleTouchIconHref: withBase("/media/apps/logic-gates/app-icon-480.png"),

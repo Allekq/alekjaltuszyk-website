@@ -1,19 +1,17 @@
 ---
 import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import SupportGuide from "../../../../components/support/SupportGuide.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
 import { logicGatesConfig } from "../../../../config/site";
 ---
-<SiteLayout title="Support | Logic Gates" description="Contact the Logic Gates developer for circuit editing, simulation, local recovery, and privacy questions." pageType="content">
-  <h1>Logic Gates support</h1>
-  <p>Questions, feedback, or a circuit that behaves unexpectedly? Email the developer, Aleksander Jałtuszyk.</p>
-  <p><a href={logicGatesConfig.supportMailtoHref}><strong>Open an email draft ↗</strong></a><br />Or write to <a href={`mailto:${logicGatesConfig.supportEmail}`}>{logicGatesConfig.supportEmail}</a>.</p>
-  <p>Nothing is sent automatically. Review your message and choose any attachments before sending.</p>
-  <p>Logic Gates is intended for learners aged 13 and older. A parent or guardian should contact support on behalf of a child who cannot give valid consent themselves. Please do not send a child's personal information when an anonymous example circuit will explain the issue.</p>
-  <h2>What helps</h2>
-  <ul><li>What you tried, what happened, and what you expected.</li><li>A short sequence of steps or a small example circuit that reproduces the issue.</li><li>Your app version, device and operating-system version, if relevant.</li><li>An optional screenshot with private details removed.</li></ul>
-  <p>Please send only what is needed. Do not attach a complete private workspace or sensitive information when a small example will do. Your email address, message and chosen attachments are used to answer your request.</p>
-  <h2>Local saves and recovery</h2>
-  <p>The developer has no remote copy of your circuits. If you are trying to recover work, avoid deleting the app before asking for help: full app deletion removes its local data. Previous recovery saves can retain deleted projects; device backups are controlled by your Apple settings. Recovery is not guaranteed.</p>
-  <h2>Privacy requests</h2>
-  <p>You can use the same email address to ask about access to or deletion of support correspondence. The developer cannot access or erase circuits stored only on your device.</p>
-  <p><a href={logicGatesConfig.homeHref}>Logic Gates</a> · <a href={logicGatesConfig.privacyHref}>Privacy Policy</a> · <a href={logicGatesConfig.termsHref}>Terms of Use</a></p>
+<SiteLayout title="Support | Logic Gates" description="Email the Logic Gates developer for questions, feedback, circuit issues or privacy requests." pageType="content">
+  <SupportGuide config={logicGatesConfig}>
+    <details>
+      <summary>Recovery and privacy questions</summary>
+      <p>If you need to recover work, avoid deleting the app before asking for help. The developer has no remote copy of your circuits. Deleting the app removes local data; older recovery saves may retain deleted projects, and device backups follow your Apple settings. Recovery is not guaranteed.</p>
+      <p>The same email handles requests about support correspondence. The developer cannot access or erase circuits stored only on your device.</p>
+      <p>Logic Gates is intended for learners aged 13 and older. A parent or guardian should send support requests for a child who cannot give valid consent themselves. Avoid including a child's personal information when an anonymous circuit example is enough.</p>
+    </details>
+  </SupportGuide>
+  <SiteFooter links={logicGatesConfig.footerLinks} showBrand={false} showSocials={false} />
 </SiteLayout>

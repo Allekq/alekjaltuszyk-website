@@ -1,41 +1,54 @@
 ---
-/** A shared, illustrative circuit study. No simulation or visitor input is collected. */
+/** AND followed by NOT. Controls exist only on the full product-page demo. */
 import "../../../styles/landing/logic-circuit.css";
-interface Props { compact?: boolean }
-const { compact = false } = Astro.props;
+interface Props { compact?: boolean; interactive?: boolean }
+const { compact = false, interactive = false } = Astro.props;
+const canInteract = interactive && !compact;
 ---
-<div class:list={["logic-circuit", compact && "logic-circuit--compact"]} data-logic-circuit aria-hidden="true">
-  <div class="logic-circuit__toolbar"><span>UNTITLED / CIRCUIT 01</span><span><i></i> RUN</span></div>
-  <svg viewBox="0 0 520 300" fill="none">
-    <g class="logic-circuit__wires">
-      <path d="M68 90H125V130H190M68 210H145V170H190" />
-      <path d="M270 150H330M390 150H452" />
-      <path class="logic-circuit__signal" pathLength="1" d="M68 90H125V130H190M68 210H145V170H190" />
-      <path class="logic-circuit__signal logic-circuit__signal--output" pathLength="1" d="M270 150H330M390 150H452" />
-    </g>
-    <g class="logic-circuit__gate">
-      <path d="M190 110H230A40 40 0 0 1 230 190H190Z" />
-      <path d="M330 110L390 150L330 190Z" />
-    </g>
-    <g class="logic-circuit__pins">
-      <circle cx="68" cy="90" r="19" /><circle cx="68" cy="210" r="19" />
-      <circle class="logic-circuit__output" cx="452" cy="150" r="22" />
-    </g>
-    <g class="logic-circuit__values" text-anchor="middle">
-      <text x="68" y="96">1</text><text x="68" y="216">1</text><text x="452" y="156">1</text>
-    </g>
-    <g class="logic-circuit__labels" text-anchor="middle">
-      <text x="68" y="52">A</text><text x="68" y="254">B</text>
-      <text x="230" y="220">AND</text><text x="350" y="220">BUFFER</text><text x="452" y="108">OUT</text>
-    </g>
-    <g class="logic-circuit__junctions"><circle cx="125" cy="90" r="3"/><circle cx="145" cy="210" r="3"/></g>
-  </svg>
-  <div class="logic-circuit__scope">
-    <span>OUT</span>
-    <svg viewBox="0 0 360 38" preserveAspectRatio="none"><path d="M0 29H38V9H98V29H158V9H218V29H278V9H360" /></svg>
-    <span>0 → 1</span>
+<div class:list={["logic-circuit", compact && "logic-circuit--compact"]} data-logic-circuit data-interactive={canInteract ? "true" : undefined} aria-hidden={compact ? "true" : undefined} role={compact ? undefined : "group"} aria-label={compact ? undefined : "AND followed by NOT circuit"}>
+  <div class="logic-circuit__toolbar"><span>CIRCUIT 01 / AND → NOT</span><span><i></i> {canInteract ? "TRY IT" : "EXAMPLE"}</span></div>
+  <div class="logic-circuit__stage">
+    <svg viewBox="0 0 520 300" fill="none" aria-hidden="true">
+      <g class="logic-circuit__wires">
+        <path data-signal="a" data-high="true" d="M68 90H125V130H190" />
+        <path data-signal="b" data-high="true" d="M68 210H145V170H190" />
+        <path data-signal="and" data-high="true" d="M270 150H330" />
+        <path data-signal="out" data-high="false" d="M406 150H452" />
+      </g>
+      <g class="logic-circuit__gate">
+        <path d="M190 110H230A40 40 0 0 1 230 190H190Z" />
+        <path d="M330 110L390 150L330 190Z" />
+        <circle cx="398" cy="150" r="8" />
+      </g>
+      <g class="logic-circuit__pins">
+        <circle data-signal="a" data-high="true" cx="68" cy="90" r="21" />
+        <circle data-signal="b" data-high="true" cx="68" cy="210" r="21" />
+        <circle data-signal="out" data-high="false" cx="452" cy="150" r="22" />
+      </g>
+      <g class="logic-circuit__values" text-anchor="middle">
+        <text data-value="a" x="68" y="96">1</text>
+        <text data-value="b" x="68" y="216">1</text>
+        <text data-value="out" x="452" y="156">0</text>
+      </g>
+      <g class="logic-circuit__labels" text-anchor="middle">
+        <text x="68" y="52">A</text><text x="68" y="254">B</text>
+        <text x="230" y="220">AND</text><text x="350" y="220">NOT</text><text x="452" y="108">OUT</text>
+        <text data-value="and" x="299" y="136">1</text>
+      </g>
+    </svg>
+    {canInteract && <div class="logic-circuit__controls" hidden>
+      <button type="button" class="logic-circuit__toggle logic-circuit__toggle--a" data-input="a" aria-label="Input A" aria-pressed="true"><span class="logic-circuit__sr">Toggle input A</span></button>
+      <button type="button" class="logic-circuit__toggle logic-circuit__toggle--b" data-input="b" aria-label="Input B" aria-pressed="true"><span class="logic-circuit__sr">Toggle input B</span></button>
+    </div>}
   </div>
-  <div class="logic-circuit__caption"><span>CONNECT. RUN. UNDERSTAND.</span><span>ILLUSTRATION</span></div>
+  <div class="logic-circuit__scope">
+    <span>RESULT</span><output data-circuit-result aria-live={canInteract ? "polite" : "off"} aria-atomic="true">1 AND 1 = 1; NOT 1 = 0</output>
+  </div>
+  <div class="logic-circuit__caption"><span>{canInteract ? "FLIP AN INPUT. FOLLOW THE SIGNAL." : "AND, THEN INVERT."}</span><span>{canInteract ? "BROWSER DEMO" : "ILLUSTRATION"}</span></div>
+  {canInteract && <>
+    <p class="logic-circuit__hint" data-circuit-hint hidden>Tap A or B to toggle. Teal is 1; muted is 0.</p>
+    <noscript><p class="logic-circuit__hint">Static example: both inputs are 1, so the inverted output is 0. Enable JavaScript to toggle the inputs.</p></noscript>
+  </>}
 </div>
 <script>
   import { setupLogicCircuits } from "../../../scripts/landing/logic-circuit";
