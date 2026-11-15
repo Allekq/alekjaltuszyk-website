@@ -1,9 +1,17 @@
 ---
 import { codeWorkroomMedia } from "../../../../config/codeWorkroomMedia";
 import { withBase } from "../../../../lib/paths";
-const { heroVideo, screenshots } = codeWorkroomMedia;
+const groups = ["iPad", "iPhone"] as const;
 ---
-{(heroVideo || screenshots.length > 0) && <section class="cw-container cw-media" aria-label="Inside Code Workroom IDE">
-  {heroVideo && <figure><video controls playsinline preload="none" poster={withBase(heroVideo.poster)} aria-label={heroVideo.caption}><source src={withBase(heroVideo.src)} type="video/mp4" /></video><figcaption>{heroVideo.caption}</figcaption><details><summary>Video description</summary><p>{heroVideo.transcript}</p></details></figure>}
-  {screenshots.length > 0 && <div class="cw-gallery">{screenshots.map((shot) => <figure><img src={withBase(shot.src)} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" /><figcaption>{shot.caption}</figcaption></figure>)}</div>}
+{codeWorkroomMedia.screenshots.length > 0 && <section class="cw-container cw-media" aria-labelledby="cw-media-title">
+  <p class="cw-eyebrow">Inside the workspace</p>
+  <h2 id="cw-media-title">See where ideas go.</h2>
+  <p class="cw-media-intro">Real app captures on iPad and iPhone. Open any image for a closer look.</p>
+  {groups.map((device) => <div class:list={["cw-gallery-group", { "cw-gallery-group--phone": device === "iPhone" }]}>
+    <h3>{device}</h3>
+    <div class="cw-gallery">{codeWorkroomMedia.screenshots.filter((shot) => shot.device === device).map((shot) => <figure>
+      <a href={withBase(shot.src)} aria-label={`Open full screenshot: ${shot.caption}`}><img src={withBase(shot.src)} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" decoding="async" /></a>
+      <figcaption>{shot.caption}</figcaption>
+    </figure>)}</div>
+  </div>)}
 </section>}

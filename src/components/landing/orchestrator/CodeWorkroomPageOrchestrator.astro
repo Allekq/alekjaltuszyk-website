@@ -7,8 +7,8 @@ import CodeWorkroomWorkspace from "../sections/code-workroom/CodeWorkroomWorkspa
 <div class="code-workroom">
   <header class="cw-header cw-container"><a class="cw-brand" href={codeWorkroomConfig.homeHref}><img src={codeWorkroomConfig.faviconHref} width="36" height="36" alt="" />{codeWorkroomConfig.name}</a><nav aria-label="Code Workroom IDE"><a href={siteConfig.appsHref}>All apps</a><a href={codeWorkroomConfig.supportHref}>Support ↗</a></nav></header>
   <CodeWorkroomHero />
-  <CodeWorkroomMedia />
   <CodeWorkroomWorkspace />
+  <CodeWorkroomMedia />
   <section class="cw-container cw-close"><p class="cw-eyebrow">Built with care, still taking shape</p><h2>Good tools begin<br />with good questions.</h2><p>Have a question, an idea, or a workflow you care about?</p><a class="cw-button" href={codeWorkroomConfig.supportHref}>Get in touch ↗</a></section>
   <footer class="cw-footer cw-container"><a href={siteConfig.homeHref}>Made by Alek Jałtuszyk ↗</a><nav aria-label="Code Workroom IDE legal and support">{codeWorkroomConfig.footerLinks.filter((link) => link.href !== codeWorkroomConfig.homeHref).map((link) => <a href={link.href}>{link.label}</a>)}</nav></footer>
 </div>
