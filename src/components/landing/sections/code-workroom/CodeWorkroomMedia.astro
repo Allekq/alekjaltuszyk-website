@@ -1,0 +1,9 @@
+---
+import { codeWorkroomMedia } from "../../../../config/codeWorkroomMedia";
+import { withBase } from "../../../../lib/paths";
+const { heroVideo, screenshots } = codeWorkroomMedia;
+---
+{(heroVideo || screenshots.length > 0) && <section class="cw-container cw-media" aria-label="Inside Code Workroom IDE">
+  {heroVideo && <figure><video controls playsinline preload="none" poster={withBase(heroVideo.poster)} aria-label={heroVideo.caption}><source src={withBase(heroVideo.src)} type="video/mp4" /></video><figcaption>{heroVideo.caption}</figcaption><details><summary>Video description</summary><p>{heroVideo.transcript}</p></details></figure>}
+  {screenshots.length > 0 && <div class="cw-gallery">{screenshots.map((shot) => <figure><img src={withBase(shot.src)} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" /><figcaption>{shot.caption}</figcaption></figure>)}</div>}
+</section>}

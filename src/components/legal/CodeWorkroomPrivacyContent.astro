@@ -1,0 +1,10 @@
+---
+import { legalDocuments } from "../../../site.config.mjs";
+import LegalDocumentHeader from "./LegalDocumentHeader.astro";
+import Body from "../../content/legal/code-workroom-privacy-policy.md";
+import { codeWorkroomConfig } from "../../config/site";
+const doc = legalDocuments.codeWorkroomPrivacy;
+---
+<LegalDocumentHeader heading="Code Workroom IDE Privacy Policy" documentName="Privacy Policy" version={doc.version} effectiveDate={doc.effectiveDate} sourcePath={doc.sourcePath} appName="Code Workroom IDE" kind="privacy" />
+<Body />
+<p><a href={codeWorkroomConfig.homeHref}>Code Workroom IDE</a> · <a href={codeWorkroomConfig.supportHref}>Support</a> · <a href={codeWorkroomConfig.termsHref}>Terms of Use</a></p>

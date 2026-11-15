@@ -35,6 +35,18 @@ export const legalSourceHistoryBase =
  * or retroactively authorize earlier processing. Prior text is in Git history.
  */
 export const legalDocuments = {
+  codeWorkroomPrivacy: {
+    version: "1.0.0",
+    effectiveDate: "2026-11-15",
+    path: "/apps/CodeWorkroomIDE/privacy-policy/",
+    sourcePath: "src/content/legal/code-workroom-privacy-policy.md",
+  },
+  codeWorkroomTerms: {
+    version: "1.0.0",
+    effectiveDate: "2026-11-15",
+    path: "/apps/CodeWorkroomIDE/terms-of-use/",
+    sourcePath: "src/content/legal/code-workroom-terms-of-use.md",
+  },
   logicGatesPrivacy: {
     version: "1.2.0",
     effectiveDate: "2026-11-12",
@@ -162,5 +174,6 @@ export const contactEmails = {
   audioBookChoices: "audiochoicesaudiobooks@gmail.com",
   overLit: "alekgameshelp2@gmail.com",
   logicGates: "alekgameshelp2@gmail.com",
+  codeWorkroom: "alekgameshelp2@gmail.com",
   takeMeSomewhere: "alekgameshelp2@gmail.com",
 };

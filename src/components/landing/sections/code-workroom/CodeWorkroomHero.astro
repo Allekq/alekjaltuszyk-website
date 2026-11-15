@@ -1,0 +1,20 @@
+---
+import { codeWorkroomConfig } from "../../../../config/site";
+import { apps } from "../../../../lib/appState";
+const app = apps.find((item) => item.id === "code-workroom-ide")!;
+---
+<section class="cw-hero cw-container" aria-labelledby="cw-title">
+  <div>
+    <p class="cw-eyebrow">Python · C · C++ / Made for iPad</p>
+    <h1 id="cw-title">Make room for<br /><em>your next idea.</em></h1>
+    <p class="cw-lead">A workspace for the moment curiosity becomes code. Write a project, run it on your iPad, and find out what happens next.</p>
+    <div class="cw-actions"><a class="cw-button" href="#workspace">Explore the workspace <span aria-hidden="true">↓</span></a><a href={codeWorkroomConfig.supportHref}>Talk to the developer ↗</a></div>
+    {app.releaseStage === "unreleased" && <p class="cw-status">In development. Not released yet.</p>}
+  </div>
+  <aside class="cw-note" aria-label="An example to start with">
+    <div class="cw-note__top"><img src={app.iconHref} width="64" height="64" alt="" /><span>SMALL BEGINNINGS<br />A Python example</span></div>
+    <pre><code>{'ideas = ["learn", "try", "build"]\n\nfor idea in ideas:\n    print(f"Make room to {idea}.")'}</code></pre>
+    <div class="cw-note__output"><span>EXPECTED OUTPUT</span><samp>Make room to learn.<br />Make room to try.<br />Make room to build.</samp></div>
+    <p>A few lines. A place to begin.</p>
+  </aside>
+</section>

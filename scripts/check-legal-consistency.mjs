@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { legalDocuments, siteOrigin } from '../site.config.mjs';
+import { validateCodeWorkroomPolicy } from '../src/lib/codeWorkroomPolicy.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const errors = [];
@@ -35,6 +36,23 @@ await exists('skills/legal-update-sync/CHANGE-REVIEW.md');
 
 if (!process.argv.includes('--source-only')) {
   for (const [appRoot, entries] of groups) {
+    if (appRoot === '/apps/CodeWorkroomIDE') {
+      const bundlePath = `dist${appRoot}/policy-bundle.json`;
+      if (!(await exists(bundlePath))) continue;
+      try {
+        const raw = await readFile(path.join(root, bundlePath), 'utf8');
+        const sourceBundle = await readFile(path.join(root, 'src/content/legal/code-workroom-policy-bundle.json'), 'utf8');
+        if (raw !== sourceBundle) errors.push('Code Workroom IDE: built bundle bytes differ from canonical JSON');
+        const sources = {}, metadata = {};
+        for (const { type, doc } of entries) {
+          sources[type] = await readFile(path.join(root, doc.sourcePath), 'utf8');
+          metadata[type] = doc;
+          await exists(`dist${doc.path}index.html`);
+        }
+        validateCodeWorkroomPolicy(raw, sources, metadata);
+      } catch (error) { errors.push(`${bundlePath}: ${error.message}`); }
+      continue;
+    }
     const manifestPath = `dist${appRoot}/legal-manifest.json`;
     if (!(await exists(manifestPath))) continue;
     try {

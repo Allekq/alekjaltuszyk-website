@@ -1,0 +1,16 @@
+---
+const features = [
+  { label: "WRITE", title: "Follow your train of thought.", text: "A native editor with split panes, tabs, search and language-aware suggestions. Keep related files side by side, with touch or a hardware keyboard." },
+  { label: "RUN", title: "From source to something real.", text: "Python, C and C++ runtimes come with the app. Run local projects, work with console input, and step through Python with breakpoints and local values." },
+  { label: "LEARN", title: "Read a little. Try it yourself.", text: "Built-in study projects pair original chapters with exercises. Write an answer, run it with your own input, then check it against the exercise cases. Current subjects are free." },
+  { label: "KEEP", title: "Give your work a history.", text: "Local source history and recovery tools help you revisit changes. Use Git for commits and branches, and choose when to clone, fetch or push to an HTTPS remote." },
+];
+---
+<section class="cw-container cw-workspace" id="workspace" aria-labelledby="cw-workspace-title">
+  <div class="cw-section-heading"><p class="cw-eyebrow">One place to work it out</p><h2 id="cw-workspace-title">Start small.<br />Keep going.</h2><p>Ordinary projects and guided learning share the same workspace. Move between exploring an idea and understanding how it works.</p></div>
+  <div class="cw-feature-list">{features.map((feature) => <article><span class="cw-eyebrow">{feature.label}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div></article>)}</div>
+</section>
+<section class="cw-container cw-grounded" aria-labelledby="cw-local-title">
+  <div><p class="cw-eyebrow">On your device. At your pace.</p><h2 id="cw-local-title">Your projects<br />have a home.</h2></div>
+  <div><p>Projects, source history and learning progress are stored locally. The app has no developer-hosted account, advertising or analytics. Git credentials stay in the device’s Keychain; remote Git transfers happen when you request them.</p><p>Local editing, bundled runtimes and built-in study material work offline. Policy checks, support email and remote Git involve their respective providers. Optional on-device AI is off by default and depends on a supported device.</p><details><summary>What to expect from an iPad workspace</summary><p>The project shell supports a defined set of commands. It is not an unrestricted Linux terminal, and the app does not install arbitrary native packages or extensions. Source debugging is currently for Python; C and C++ can compile and run. Keep independent copies of work you cannot afford to lose.</p></details></div>
+</section>

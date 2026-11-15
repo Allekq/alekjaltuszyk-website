@@ -360,3 +360,31 @@
     scale: 0.9;
   }
 }
+
+.code-workroom-object {
+  width: min(78%, 360px);
+  padding: clamp(1rem, 3vw, 1.8rem);
+  border: 1px solid var(--cw-line);
+  border-radius: var(--radius-md);
+  background: var(--cw-paper);
+  color: var(--cw-ink);
+  box-shadow: 0 16px 0 -8px var(--cw-panel);
+  transform: rotate(-6deg);
+}
+.code-workroom-object > span, .code-workroom-object small {
+  display: block;
+  color: var(--cw-muted);
+  font: .6rem/1.6 ui-monospace, monospace;
+  letter-spacing: .05em;
+}
+.code-workroom-object pre {
+  background: none;
+  color: inherit;
+  padding: 0;
+  margin-block: var(--space-lg);
+  font: clamp(.55rem, 1.2vw, .8rem)/1.8 ui-monospace, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.code-workroom-object code { padding: 0; background: none; font: inherit; }
+.code-workroom-object samp { display: block; border-top: 1px solid var(--cw-line); padding-top: var(--space-sm); margin-bottom: var(--space-md); font: .7rem/1.7 ui-monospace, monospace; }

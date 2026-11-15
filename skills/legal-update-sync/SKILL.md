@@ -310,3 +310,32 @@ current model catalog into the privacy policy. The website legal copy should
 say selected models may have their own listed terms or licenses; exact current
 license inventory belongs in the app model catalog, app Legal settings, and
 model install/selection surfaces.
+
+## Code Workroom IDE canonical policy bundle
+
+Code Workroom IDE uses PolicyCore's Codable bundle, not the other apps' legal
+manifest format. Its endpoint is `src/pages/apps/CodeWorkroomIDE/policy-bundle.json.js`.
+The app owner supplies exact English `terms.md`, `privacy.md` and
+`policy-bundle.json` under `release/app-store/en-US/legal/` in
+`/Users/alekj/Documents/GitHub/Code Workroom`. Copy those bytes into
+`src/content/legal/code-workroom-terms-of-use.md`,
+`src/content/legal/code-workroom-privacy-policy.md` and
+`src/content/legal/code-workroom-policy-bundle.json`. Do not silently rewrite or
+rehash the supplied text. Coordinate any correction with the app owner first.
+
+The hosted response must return 200 JSON directly at the exact endpoint: the
+app rejects redirects, rollback, changed contents under the same revision and
+invalid hashes. Increment the unsigned bundle revision for every bundle content
+change and synchronize document identities, effective dates, app fallback and
+website metadata. The current publisher validates a single current English
+pair. Future-effective documents need a selection/publication review before
+extending that validation. SHA-256 identifies exact UTF-8 Markdown; it is not a
+content signature. Privacy acknowledgment is not optional-purpose consent.
+
+`npm run check:legal` checks the separate bundle contract and exact output bytes.
+Run `node --test scripts/code-workroom-policy.test.mjs` for its rejection cases.
+After authorized deployment, verify direct status/content type, hashes and the
+actual app transport against the live URL before app submission. GitHub Pages
+security logs, ordinary personal Gmail support, app-side cache/receipt retention
+and App Privacy declarations need their own factual review. No fixed host log
+retention or zero-collection claim is established by the static website.

@@ -3,6 +3,7 @@ import SiteFooter from "../../components/landing/sections/SiteFooter.astro";
 import {
   audioBookChoicesConfig,
   logicGatesConfig,
+  codeWorkroomConfig,
   overLitConfig,
   planKeptConfig,
   siteConfig,
@@ -13,6 +14,16 @@ import { siteConfig as voiceOfSelfConfig } from "../../voice-of-self/config/site
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
 const appLegalItems = [
+  {
+    name: codeWorkroomConfig.name,
+    description: "Documents covering the local programming workspace, optional Git transfers, policy delivery and support. The app is not released yet.",
+    links: [
+      { label: "Privacy Policy", href: codeWorkroomConfig.privacyHref },
+      { label: "Terms of Use", href: codeWorkroomConfig.termsHref },
+      { label: "Support", href: codeWorkroomConfig.supportHref },
+      { label: "Policy Bundle", href: siteRoutes.apps.codeWorkroomPolicyBundle.href },
+    ],
+  },
   {
     name: logicGatesConfig.name,
     description: "Logic Gates documents cover local circuits, recovery saves, optional email support, and the limits of digital logic simulation. The app is not released yet.",
@@ -86,6 +97,7 @@ const appLegalItems = [
 ] as const;
 
 const contactByApp = [
+  [codeWorkroomConfig.name, codeWorkroomConfig.supportEmail],
   [logicGatesConfig.name, logicGatesConfig.supportEmail],
   ["PlanKept", planKeptConfig.supportEmail],
   ["Voice of Self", voiceOfSelfConfig.supportEmail],

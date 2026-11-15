@@ -1,0 +1,9 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import CodeWorkroomPageOrchestrator from "../../../components/landing/orchestrator/CodeWorkroomPageOrchestrator.astro";
+import { codeWorkroomConfig } from "../../../config/site";
+import "../../../styles/landing/code-workroom.css";
+---
+<SiteLayout title="Code Workroom IDE — Make room for your next idea" description={codeWorkroomConfig.defaultDescription} pageType="landing" canonicalHref={codeWorkroomConfig.homeHref} siteName={codeWorkroomConfig.name}>
+  <CodeWorkroomPageOrchestrator />
+</SiteLayout>
