@@ -36,14 +36,14 @@ export const legalSourceHistoryBase =
  */
 export const legalDocuments = {
   codeWorkroomPrivacy: {
-    version: "1.2.0",
-    effectiveDate: "2026-11-16",
+    version: "1.3.0",
+    effectiveDate: "2026-11-17",
     path: "/apps/CodeWorkroomIDE/privacy-policy/",
     sourcePath: "src/content/legal/code-workroom-privacy-policy.md",
   },
   codeWorkroomTerms: {
-    version: "1.2.0",
-    effectiveDate: "2026-11-16",
+    version: "1.3.0",
+    effectiveDate: "2026-11-17",
     path: "/apps/CodeWorkroomIDE/terms-of-use/",
     sourcePath: "src/content/legal/code-workroom-terms-of-use.md",
   },
@@ -60,8 +60,8 @@ export const legalDocuments = {
     sourcePath: "src/content/legal/logic-gates-terms-of-use.md",
   },
   sitePrivacy: {
-    version: "1.2.0",
-    effectiveDate: "2026-10-24",
+    version: "1.3.0",
+    effectiveDate: "2026-11-17",
     path: "/privacy-policy/",
     sourcePath: "src/content/legal/site-privacy-policy.md",
   },

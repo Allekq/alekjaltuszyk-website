@@ -1,4 +1,5 @@
 ---
+import AndroidUnavailableNotice from "../../../../components/landing/ui/AndroidUnavailableNotice.astro";
 import { siteConfig } from "../../../config/site";
 import ReflectionStoryVisual from "../hero/ReflectionStoryVisual.astro";
 import ActionButton from "../ui/ActionButton.astro";
@@ -26,6 +27,7 @@ import AppStoreButton from "../ui/AppStoreButton.astro";
           {siteConfig.ctas.secondary}
         </ActionButton>
       </div>
+      <AndroidUnavailableNotice />
     </div>
 
     <div class="hero-section__visual" data-reveal>

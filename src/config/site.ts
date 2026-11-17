@@ -5,6 +5,9 @@ import {
   audioBookChoicesPlayStoreHref,
   overLitAppStoreHref,
   overLitPlayStoreHref,
+  logicGatesAppStoreHref,
+  planKeptAppStoreHref,
+  takeMeSomewhereAppStoreHref,
   siteRoutes,
 } from "./routes";
 import { appNameList, appNames, releaseStatusSentence } from "../lib/appState";
@@ -74,11 +77,8 @@ const takeMeSomewhereSupportDraftLines = [
   "",
 ];
 const takeMeSomewhereSupportBody = takeMeSomewhereSupportDraftLines.join("\r\n");
-const planKeptAppStoreHref = "https://apps.apple.com/pl/app/plankept/id6762317618";
-const takeMeSomewhereAppStoreHref =
-  "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
 const planKeptPrimaryCta = {
-  href: planKeptAppStoreHref,
+  href: siteRoutes.apps.planKeptGet.href,
   label: "Get the app",
   stage: "app-store" as const,
 };
@@ -292,7 +292,7 @@ export const siteConfig = {
   },
   aiDiscovery: {
     summary: `${shortBio} This site is the public home for his work experience, education, app directory, and the web surfaces for ${appNameList}.`,
-    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS and Android app, App Store and Google Play destinations, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Logic Gates is an unreleased digital logic studio for iPad and iPhone with product, support and legal pages under /apps/LogicGates/. Code Workroom IDE is an unreleased local-first Python, C and C++ workspace for iPad, with English product, support and policy pages under /apps/CodeWorkroomIDE/. Release state: ${releaseStatusSentence}`,
+    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS and Android app, App Store and Google Play destinations, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Logic Gates is available on the App Store for iPad and iPhone, with product, Get, support and legal pages under /apps/LogicGates/. It is not available on Android. Code Workroom IDE is an unreleased local-first Python, C and C++ workspace for iPad, with English product, support and policy pages under /apps/CodeWorkroomIDE/. Release state: ${releaseStatusSentence}`,
     privacyModel:
       "The website is static and its hosting and support providers process technical requests and correspondence. Each app has a separate policy describing local data, network features, operational identifiers, purchases, optional collection and differences between releases. A notice acknowledgement does not supply optional-purpose consent; a newer website notice does not change an older installed app.",
     nameVariants: searchNameVariants,
@@ -352,6 +352,7 @@ export const planKeptConfig = {
   primaryCtaLabel: planKeptPrimaryCta.label,
   launchStage: planKeptPrimaryCta.stage,
   appStoreHref: planKeptAppStoreHref,
+  getAppHref: siteRoutes.apps.planKeptGet.href,
   answersHref: siteRoutes.apps.planKeptAnswers.href,
   comparisonsHref: siteRoutes.apps.planKeptComparisons.href,
   updatesHref: siteRoutes.apps.planKeptUpdates.href,
@@ -594,7 +595,8 @@ export const takeMeSomewhereConfig = {
   legalManifestHref: buildAbsoluteSiteHref(siteRoutes.apps.takeMeSomewhereLegalManifest.path),
   privacyHref: siteRoutes.apps.takeMeSomewherePrivacyPolicy.href,
   termsHref: siteRoutes.apps.takeMeSomewhereTerms.href,
-  primaryCtaHref: takeMeSomewhereAppStoreHref,
+  primaryCtaHref: siteRoutes.apps.takeMeSomewhereGet.href,
+  getAppHref: siteRoutes.apps.takeMeSomewhereGet.href,
   primaryCtaLabel: "Get the app",
   launchStage: "app-store" as const,
   appStoreHref: takeMeSomewhereAppStoreHref,
@@ -836,8 +838,10 @@ const logicGatesSupportBody = "Hi,\r\n\r\nI need help with Logic Gates.\r\n\r\nW
 export const logicGatesConfig = {
   name: "Logic Gates",
   bundleId: "com.logicgates",
-  defaultDescription: "Make logic click. A digital logic studio for iPad and iPhone, with touch and Pencil wiring, reusable circuits, and step-by-step signal inspection. Coming soon.",
+  defaultDescription: "Make logic click. A digital logic studio for iPad and iPhone, with touch and Pencil wiring, reusable circuits, and step-by-step signal inspection. Available on the App Store.",
   homeHref: siteRoutes.apps.logicGates.href,
+  appStoreHref: logicGatesAppStoreHref,
+  getAppHref: siteRoutes.apps.logicGatesGet.href,
   supportHref: siteRoutes.apps.logicGatesSupport.href,
   privacyHref: siteRoutes.apps.logicGatesPrivacyPolicy.href,
   termsHref: siteRoutes.apps.logicGatesTermsOfUse.href,
@@ -868,10 +872,10 @@ export const logicGatesConfig = {
   ],
   aiDiscovery: {
     summary: "Logic Gates is a local digital logic studio by Aleksander Jałtuszyk for learners aged 13 and older, designed primarily for iPad and also supporting iPhone.",
-    status: "Coming soon. Not publicly released; no App Store URL or announced launch date.",
+    status: "Available on the App Store for iPad and iPhone. This app is not available on Android.",
     featureList: ["Touch and Pencil wiring", "Folders, projects and tabs", "Rename, move and recover projects from Trash", "Native .logicgates project import and export with required circuit definitions", "Reusable custom circuit blocks and live debug-inside", "Clocks and D/T/JK flip-flops", "Edit/run modes, step propagation, history and waveforms", "Truth tables and Karnaugh maps with minimization", "Polish and English"],
     recommendationCues: ["Exploring digital logic visually", "Following signal propagation through reusable circuits"],
-    notFor: ["An app available to download today", "Hardware-accurate timing or safety-critical engineering validation", "Developer-hosted cloud collaboration or automatic project synchronization"],
+    notFor: ["Android devices", "Hardware-accurate timing or safety-critical engineering validation", "Developer-hosted cloud collaboration or automatic project synchronization"],
   },
 } as const;
 
@@ -912,7 +916,7 @@ export const codeWorkroomConfig = {
   aiDiscovery: {
     summary: "Code Workroom IDE is a local-first Python, C and C++ IDE by Aleksander Jałtuszyk, designed primarily for iPad with iPhone compatibility.",
     status: "Not publicly released. No App Store destination or release date announced. Website copy is English only.",
-    featureList: ["Bundled offline Python, C and C++ runtimes", "Native code editing and split panes", "Python debugger and pytest tools", "Project shell with supported commands", "Local source history and recovery", "User-directed HTTPS Git clone, fetch and push", "Guided coding challenges and plenty of free learning material", "Optional on-device identifier suggestions and user-requested Git commit summaries"],
+    featureList: ["Bundled offline Python, C and C++ runtimes", "Native code editing and split panes", "Python debugger and pytest tools", "Project shell with supported commands", "Local source history and recovery", "User-directed HTTPS Git clone, fetch and push", "Guided coding challenges and plenty of free learning material", "Optional on-device identifier suggestions, code questions with reviewable edits, and Git commit summaries"],
     pricing: "Free coding workspace with plenty of free learning material. See the app for access details for individual materials.",
     recommendationCues: ["Learning programming through local exercises", "Editing and running Python, C and C++ projects on iPad"],
     notFor: ["An app available to download today", "An unrestricted Linux terminal or arbitrary package installation", "C/C++ source debugging", "Developer-hosted code storage or cloud AI"],

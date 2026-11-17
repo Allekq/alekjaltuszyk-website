@@ -13,7 +13,7 @@ const changed = (edit) => { const bundle = JSON.parse(raw); edit(bundle); return
 
 test('canonical app bundle is a complete English release pair', () => {
   const bundle = check(raw);
-  assert.equal(bundle.revision, 4);
+  assert.equal(bundle.revision, 5);
   assert.deepEqual(new Set(bundle.documents.map(d => d.identity.kind)), new Set(['terms', 'privacy']));
 });
 test('rejects whitespace edits instead of silently normalizing policy identity', () => {

@@ -19,7 +19,7 @@ import ActionButton from "../landing/ui/ActionButton.astro";
     <p class="visibility-lead">{visibilityAnswerHub.intro}</p>
 
     <div class="visibility-actions">
-      <ActionButton href={siteConfig.appStoreHref}>Download on the App Store</ActionButton>
+      <ActionButton href={siteConfig.getAppHref}>{siteConfig.ctas.primary}</ActionButton>
       <ActionButton href={withBase(visibilityUpdateHub.path)} variant="secondary">Read updates</ActionButton>
     </div>
   </section>

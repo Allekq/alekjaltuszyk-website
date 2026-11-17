@@ -12,8 +12,12 @@ const overLitBasePath = "/apps/OverLit/";
 const takeMeSomewhereBasePath = "/apps/TakeMeSomewhere/";
 const voiceOfSelfBasePath = "/apps/VoiceOfSelf/";
 const audioBookChoicesBasePath = "/apps/AudioBookChoices/";
-const takeMeSomewhereAppStoreHref =
+export const takeMeSomewhereAppStoreHref =
   "https://apps.apple.com/pl/app/take-me-somewhere/id6776450751";
+export const logicGatesAppStoreHref = "https://apps.apple.com/app/id6833691656";
+export const planKeptAppStoreHref = "https://apps.apple.com/pl/app/plankept/id6762317618";
+// This storefront is live; the US listing returned 404 when verified 2026-11-17.
+export const voiceOfSelfAppStoreHref = "https://apps.apple.com/pl/app/voice-of-self/id6760653378";
 export const overLitAppStoreHref =
   "https://apps.apple.com/pl/app/overlit/id6771103256";
 export const overLitPlayStoreHref =
@@ -72,6 +76,7 @@ export const siteRoutes = {
   apps: {
     index: createInternalRoute("/apps/"),
     planKept: createInternalRoute(planKeptBasePath),
+    planKeptGet: createInternalRoute(`${planKeptBasePath}get/`),
     planKeptAnswers: createInternalRoute(planKeptContentPaths.answersIndex),
     planKeptComparisons: createInternalRoute(planKeptContentPaths.comparisonsIndex),
     planKeptLegalManifest: createInternalRoute(planKeptContentPaths.legalManifest),
@@ -81,6 +86,7 @@ export const siteRoutes = {
     planKeptUpdates: createInternalRoute(planKeptContentPaths.updatesIndex),
     planKeptUpdatesFeed: createInternalRoute(planKeptContentPaths.updatesFeed),
     logicGates: createInternalRoute(logicGatesBasePath),
+    logicGatesGet: createInternalRoute(`${logicGatesBasePath}get/`),
     logicGatesPrivacyPolicy: createInternalRoute(`${logicGatesBasePath}privacy-policy/`),
     logicGatesTermsOfUse: createInternalRoute(`${logicGatesBasePath}terms-of-use/`),
     logicGatesSupport: createInternalRoute(`${logicGatesBasePath}support/`),
@@ -106,11 +112,13 @@ export const siteRoutes = {
     overLitSupport: createInternalRoute(`${overLitBasePath}support/`),
     overLitTermsOfUse: createInternalRoute(`${overLitBasePath}terms-of-use/`),
     takeMeSomewhere: createInternalRoute(takeMeSomewhereBasePath),
+    takeMeSomewhereGet: createInternalRoute(`${takeMeSomewhereBasePath}get/`),
     takeMeSomewhereLegalManifest: createInternalRoute(`${takeMeSomewhereBasePath}legal-manifest.json`),
     takeMeSomewherePrivacyPolicy: createInternalRoute(`${takeMeSomewhereBasePath}privacy-policy/`),
     takeMeSomewhereSupport: createInternalRoute(`${takeMeSomewhereBasePath}support/`),
     takeMeSomewhereTerms: createInternalRoute(`${takeMeSomewhereBasePath}terms-of-service/`),
     voiceOfSelf: createInternalRoute(voiceOfSelfBasePath),
+    voiceOfSelfGet: createInternalRoute(`${voiceOfSelfBasePath}get/`),
     voiceOfSelfAnswers: createInternalRoute(voiceOfSelfContentPaths.answersIndex),
     voiceOfSelfUpdates: createInternalRoute(voiceOfSelfContentPaths.updatesIndex),
     voiceOfSelfSupport: createInternalRoute(voiceOfSelfContentPaths.support),
@@ -315,9 +323,9 @@ export const appDirectory = [
       "Time-boxed outings",
       "Compass Mode",
     ],
-    href: takeMeSomewhereAppStoreHref,
+    href: siteRoutes.apps.takeMeSomewhere.href,
     iconHref: withBase("/media/apps/take-me-somewhere/app-icon-480.jpg"),
-    external: true,
+    external: false,
     releaseStage: "released",
     platforms: ["iOS"],
   },
@@ -328,11 +336,11 @@ export const appDirectory = [
     focus: "Logic Gates is about building circuits and understanding digital logic.",
     pitch: "Make logic click.",
     theme: "mint",
-    chips: ["Touch & Pencil wiring", "Step through signals"],
+    chips: ["Touch & Pencil wiring", "Step through signals", "Live on the App Store"],
     href: siteRoutes.apps.logicGates.href,
     iconHref: withBase("/media/apps/logic-gates/app-icon-480.png"),
     external: false,
-    releaseStage: "unreleased",
+    releaseStage: "released",
     platforms: ["iOS"],
   },
   {

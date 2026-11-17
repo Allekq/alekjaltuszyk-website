@@ -1,4 +1,5 @@
 ---
+import AndroidUnavailableNotice from "../../ui/AndroidUnavailableNotice.astro";
 import ActionButton from "../../ui/ActionButton.astro";
 import CompassDial from "./CompassDial.astro";
 import { heroChips } from "./take-me-somewhere.data";
@@ -32,10 +33,11 @@ import { takeMeSomewhereConfig } from "../../../../config/site";
         <ActionButton
           href={takeMeSomewhereConfig.primaryCtaHref}
           label={takeMeSomewhereConfig.primaryCtaLabel}
-          target="_blank"
         />
         <ActionButton href="#plan" variant="ghost" label="Try the planner" />
       </div>
+
+      <AndroidUnavailableNotice />
 
       <ul class="app-chip-row" data-rise style="--rise-index:4">
         {heroChips.map((chip) => <li class="app-chip">{chip}</li>)}
