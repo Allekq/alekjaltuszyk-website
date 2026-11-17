@@ -7,9 +7,12 @@ class CodeWorkroomSketch extends HTMLElement {
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const tokens = Array.from(this.querySelectorAll<HTMLElement>('[data-code]'));
     const rows = Array.from(this.querySelectorAll<HTMLElement>('[data-line]'));
-    const output = this.querySelector<HTMLElement>('[data-output]');
     const text = tokens.map(token => token.dataset.code ?? '');
     const total = text.reduce((length, value) => length + value.length, 0);
+    // Leave the setup and loop readable on the first screen. Scroll completes the print call.
+    const finalLine = rows.at(-1)?.querySelectorAll<HTMLElement>('[data-code]') ?? [];
+    const initial = total - Array.from(finalLine).reduce((length, token) =>
+      length + (token.dataset.code?.length ?? 0), 0);
     let count = -1;
     let frame = 0;
     let complete = false;
@@ -27,7 +30,6 @@ class CodeWorkroomSketch extends HTMLElement {
         remaining -= text[index].length;
       });
       if (next < total && caret) (caret as HTMLElement).setAttribute('data-active', '');
-      if (output) output.style.opacity = next === total ? '1' : '0';
     };
     const stop = () => {
       complete = true;
@@ -43,7 +45,7 @@ class CodeWorkroomSketch extends HTMLElement {
       const distance = Math.min(240, window.innerHeight * .25);
       const progress = Math.max(0, Math.min(1, (window.scrollY - start) / distance));
       // Never erase finished letters when scrolling back or changing orientation.
-      const next = Math.max(count, Math.round(8 + progress * (total - 8)));
+      const next = Math.max(count, Math.round(initial + progress * (total - initial)));
       draw(next);
       if (next === total) stop();
     };

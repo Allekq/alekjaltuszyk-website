@@ -38,6 +38,8 @@ Website hosting, browser, operating-system, App Store, email, social-media, map-
 
 We do not currently use Meta Pixel, TikTok Pixel, Google advertising tags, or a website analytics service on the general site.
 
+App download pages use your browser’s device information to choose an available store. If a download link contains campaign information, an automatic redirect can pass the provider, campaign and media-type parameters (`pt`, `ct`, `mt`) to Apple or the `referrer` parameter to Google Play so the store can attribute the visit. This selection happens in your browser. The site does not save these values in browser storage. You can open a download page with `?choose` to select a store yourself without forwarding those parameters.
+
 ## 4. How We Use Information
 
 We use information to:

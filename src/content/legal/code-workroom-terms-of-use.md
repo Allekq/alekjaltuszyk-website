@@ -1,6 +1,6 @@
 # Code Workroom IDE — Terms of Use
 
-Version 1.2.0 · Effective 16 November 2026
+Version 1.3.0 · Effective 17 November 2026
 
 ## 1. Who provides the app
 
@@ -32,7 +32,9 @@ Purchases are associated with the Apple Account used for the App Store, rather t
 
 Learning materials are for education and practice. Exercises can check answers against authored test cases; passing them is not a professional qualification or a guarantee that the code handles every possible input. Check results for your intended use.
 
-Optional on-device assistance may produce incomplete or incorrect suggestions. Automatic identifier suggestions require enabling their setting; generating a Git commit summary is a separate action you request. Review suggestions before using or committing them. Availability depends on the device, operating system and system model availability; it is not guaranteed on every supported device.
+Optional on-device assistance may produce incomplete or incorrect explanations, code or commit summaries. Automatic identifier suggestions and Ask Apple Intelligence have separate settings, both off by default. After enabling Ask Apple Intelligence, you can explicitly ask about selected code or the current function or line, with limited nearby context. A proposed replacement is shown for review and changes the file only when you choose Apply edit; ordinary saving and editor undo then apply. The assistant does not execute or test the code for you. Independently inspect and test a proposal before relying on it, just as you would other source changes. These precautions do not excuse defects in the app's own safeguards or remove mandatory rights.
+
+Generating a Git commit summary is a separate action you request and does not require either of those settings. Review generated text before using or committing it. Availability depends on the device, operating system and system model availability; it is not guaranteed on every supported device. The app provides no remote AI fallback.
 
 ## 6. Privacy and third-party components
 

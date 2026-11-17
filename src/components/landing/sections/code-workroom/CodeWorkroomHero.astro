@@ -1,16 +1,14 @@
 ---
-import { codeWorkroomConfig } from "../../../../config/site";
 import { apps } from "../../../../lib/appState";
-import CodeWorkroomSketch from "./CodeWorkroomSketch.astro";
+import CodeWorkroomSketch from "../../ui/CodeWorkroomSketch.astro";
 const app = apps.find((item) => item.id === "code-workroom-ide")!;
 ---
 <section class="cw-hero cw-container" aria-labelledby="cw-title">
   <div>
     <p class="cw-eyebrow">Python · C · C++ / Made for iPad</p>
     <h1 id="cw-title">Make room for<br /><em>your next idea.</em></h1>
-    <p class="cw-lead">A workspace for the moment curiosity becomes code. Write a project, run it on your iPad, and find out what happens next.</p>
-    <p class="cw-price">A free coding workspace. Plenty of free ways to learn.</p>
-    <div class="cw-actions"><a class="cw-button" href="#workspace">Explore the workspace <span aria-hidden="true">↓</span></a><a href={codeWorkroomConfig.supportHref}>Talk to the developer ↗</a></div>
+    <p class="cw-lead">A free IDE for iPad. Run Python, C and C++ projects locally, step through Python in the debugger, and practise with free exercises beside your code.</p>
+    <div class="cw-actions"><a class="cw-button" href="#workspace">Explore features <span aria-hidden="true">↓</span></a><a href="#screenshots">See the app ↓</a></div>
     {app.releaseStage === "unreleased" && <p class="cw-status">In development. Not released yet.</p>}
   </div>
   <CodeWorkroomSketch />

@@ -18,6 +18,7 @@
  */
 import ActionButton from "./ActionButton.astro";
 import StoreActions from "./StoreActions.astro";
+import AndroidUnavailableNotice from "./AndroidUnavailableNotice.astro";
 
 interface Props {
   /** Short, spoken name — this sits in sentences, not in a store title. */
@@ -25,18 +26,21 @@ interface Props {
   appStoreHref: string;
   /** Null while the app has no Play listing. */
   playStoreHref?: string | null;
+  /** Explicitly verified; a missing Play URL alone does not establish this. */
+  androidUnavailable?: boolean;
   iconHref?: string;
   /** The app's own product page, for anyone who landed here by mistake. */
   appHref: string;
 }
 
-const { appName, appStoreHref, playStoreHref = null, iconHref, appHref } =
+const { appName, appStoreHref, playStoreHref = null, androidUnavailable = false, iconHref, appHref } =
   Astro.props as Props;
+if (androidUnavailable && playStoreHref) throw new Error("An Android-unavailable app cannot advertise Google Play.");
 
 const hasBothStores = Boolean(playStoreHref);
 const lead = hasBothStores
   ? `Taking you to the right store for your device. Pick one yourself if it does not.`
-  : `Taking you to the App Store. Open it yourself if it does not.`;
+  : `Choose the App Store to view this app.`;
 ---
 
 <section
@@ -86,12 +90,7 @@ const lead = hasBothStores
       )}
     </div>
 
-    {!hasBothStores && (
-      <p class="store-redirect__pending">
-        {appName} is not on Google Play yet. When it is, this page will send
-        Android devices there on its own.
-      </p>
-    )}
+    {androidUnavailable && <AndroidUnavailableNotice className="store-redirect__pending" />}
 
     <a class="store-redirect__back" href={appHref}>What {appName} is</a>
   </div>

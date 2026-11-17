@@ -1,4 +1,5 @@
 ---
+import AndroidUnavailableNotice from "../ui/AndroidUnavailableNotice.astro";
 import { planKeptHeroExamples } from "../../../config/planKeptContent";
 import { planKeptConfig } from "../../../config/site";
 import ActionButton from "../ui/ActionButton.astro";
@@ -37,6 +38,7 @@ const controlBadges = ["Apps limited", "Proof required", "Goal complete"];
             {planKeptConfig.ctas.support}
           </ActionButton>
         </div>
+        <AndroidUnavailableNotice />
       </div>
 
       <div class="plan-kept-hero__visual" data-reveal data-reveal-early>

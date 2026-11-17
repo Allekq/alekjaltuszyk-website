@@ -1,0 +1,54 @@
+---
+import "../../../styles/get-app.css";
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import SimpleSiteHeader from "../sections/SimpleSiteHeader.astro";
+import SiteFooter from "../sections/SiteFooter.astro";
+import StoreRedirect from "./StoreRedirect.astro";
+
+interface Props {
+  config: {
+    name: string;
+    homeHref: string;
+    appStoreHref: string;
+    supportHref: string;
+    faviconHref: string;
+    faviconType: string;
+    appleTouchIconHref: string;
+    socialImageUrl: string;
+    socialImageWidth: number;
+    socialImageHeight: number;
+    socialImageType: string;
+  };
+}
+
+const { config } = Astro.props;
+const { name, homeHref, appStoreHref, supportHref } = config;
+---
+<SiteLayout
+  title={`Get ${name}`}
+  description={`Get ${name} on the App Store. This app is not available on Android.`}
+  pageType="landing"
+  robotsContent="noindex,follow"
+  siteName={name}
+  faviconHref={config.faviconHref}
+  faviconType={config.faviconType}
+  appleTouchIconHref={config.appleTouchIconHref}
+  socialImageUrl={config.socialImageUrl}
+  socialImageWidth={config.socialImageWidth}
+  socialImageHeight={config.socialImageHeight}
+  socialImageType={config.socialImageType}
+>
+  <SimpleSiteHeader brand={name} brandHref={homeHref} />
+  <StoreRedirect
+    appName={name}
+    appStoreHref={appStoreHref}
+    androidUnavailable
+    iconHref={config.faviconHref}
+    appHref={homeHref}
+  />
+  <SiteFooter
+    links={[{ label: name, href: homeHref }, { label: "Support", href: supportHref }]}
+    showBrand={false}
+    showSocials={false}
+  />
+</SiteLayout>

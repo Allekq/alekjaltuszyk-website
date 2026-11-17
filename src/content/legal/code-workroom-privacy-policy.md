@@ -1,6 +1,6 @@
 # Code Workroom IDE — Privacy Policy
 
-Version 1.2.0 · Effective 16 November 2026
+Version 1.3.0 · Effective 17 November 2026
 
 ## 1. Operator and scope
 
@@ -32,7 +32,13 @@ Import, export, sharing and external links are initiated by you and use your cho
 
 The app includes no advertising SDK, cross-app tracking or developer-operated usage analytics. It does not use an advertising identifier or sell personal data.
 
-On supported devices, optional system-model assistance processes the supplied context on the device. Automatic identifier suggestions are off by default and can be enabled or disabled in Editor & Completion. Separately, choosing Generate in the Git commit composer asks the local model to suggest a commit summary from a bounded excerpt of the selected or staged changes and file paths. This action does not require the automatic-suggestions setting to be enabled. Review generated text before using it. The app has no remote AI fallback and does not upload this context to a developer-operated AI service. System model downloads and Apple's platform services are governed by Apple's settings and policies.
+On supported devices, optional system-model assistance processes the supplied context on the device. Automatic identifier suggestions are off by default and can be enabled or disabled in Editor & Completion. They use the language, typed identifier prefix and a bounded excerpt of code around the cursor.
+
+Ask Apple Intelligence is a separate setting in Editor & Completion and is also off by default. Enabling it lets you capture code and send a question explicitly with Ask. The request contains your question, the language, the selected code or, when there is no selection, an eligible enclosing function or current line, and a bounded excerpt of nearby code. An enclosing function name may also be included. Opening the panel or capturing a selection does not itself send a question to the model. The model can return an explanation and a proposed replacement; it has no tools to execute code or apply an edit. To change a file, you must open Review proposed edit and choose Apply edit. The app checks that the captured source is still current and that editing is allowed.
+
+The app keeps the current question, captured context, answer and proposed edit in workspace memory, rather than saving a chat transcript. This state can remain while the workspace is open and is replaced or cleared as you ask, recapture or reset the workspace. Disabling Ask Apple Intelligence clears its question, context, answer and review state. Applying a proposal makes it ordinary project or exercise source: normal saving, undo, source-history, recovery, export and backup behavior then applies. Disabling assistance does not erase edits you already applied or copies of those files.
+
+Separately, choosing Generate in the Git commit composer asks the local model to suggest a commit summary from a bounded excerpt of the selected or staged changes and file paths. This action does not require either the automatic-suggestions setting or Ask Apple Intelligence to be enabled. Review generated text before using it. Each model request uses a new local session without a retained model conversation or model tools. The app has no remote AI fallback and does not upload this context to a developer-operated AI service. System model downloads and Apple's platform services are governed by Apple's settings and policies.
 
 Code Workroom IDE is free to download and includes free learning materials. Optional additional learning content may be offered as one-time in-app purchases. Apple handles the App Store account, checkout and payment under its own terms and privacy practices: https://www.apple.com/legal/privacy/data/en/app-store/.
 

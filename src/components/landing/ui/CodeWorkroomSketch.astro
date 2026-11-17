@@ -1,0 +1,76 @@
+---
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+const Panel = compact ? "div" : "cw-code-sketch";
+const levels = [2, 4, 7, 5, 3];
+const lines = [
+  [{ text: "levels", kind: "name" }, { text: " = [" }, { text: levels.join(", "), kind: "number" }, { text: "]" }],
+  [{ text: "for ", kind: "keyword" }, { text: "n in levels:" }],
+  [{ text: "    print", kind: "name" }, { text: "(" }, { text: '"■"', kind: "string" }, { text: " * n)" }],
+];
+---
+<div class:list={["sketch", { "sketch--compact": compact }]} aria-hidden="true">
+  <Panel class="sketch-panel">
+    <div class="sketch-header">
+      <span class="sketch-file"><b>{'{ }'}</b> levels.py</span>
+      <span>Python</span>
+    </div>
+    <div class="sketch-source">
+      {lines.map((line, index) => <div class="sketch-line" data-line>
+        <span class="sketch-gutter">{index + 1}</span>
+        <code>{line.map((token) => <span class:list={[token.kind && `syntax-${token.kind}`]} data-code={token.text}>{token.text}</span>)}<i class="sketch-caret"></i></code>
+      </div>)}
+    </div>
+    <div class="sketch-output">
+      <span class="sketch-label">Last run</span>
+      <samp>{levels.map((level) => <span>{"■".repeat(level)}</span>)}</samp>
+    </div>
+  </Panel>
+</div>
+<script>
+  import "../../../scripts/landing/code-workroom-sketch";
+</script>
+<style>
+  .sketch {
+    min-width: 0;
+    padding: clamp(.8rem, 2vw, 1.75rem);
+    border-radius: var(--radius-lg);
+    background-color: var(--cw-panel);
+    background-image: radial-gradient(var(--cw-line) 1px, transparent 1px);
+    background-size: 8px 8px;
+  }
+  .sketch-panel {
+    display: block;
+    overflow: hidden;
+    color-scheme: dark;
+    color: #edf4ff;
+    background: #162534;
+    border: 1px solid #344c60;
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 22px -14px #05121ee0;
+    font: .78rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .sketch-header { display: flex; justify-content: space-between; align-items: center; padding: .85em 1.6em; color: #adc2d3; background: #223449; }
+  .sketch-file { display: inline-flex; align-items: center; gap: .7em; color: #eff6ff; }
+  .sketch-file b { color: #8dcbff; }
+  .sketch-source { padding: 2em 1em; font-size: clamp(.78rem, 1.15vw, 1.08rem); line-height: 2; }
+  .sketch-line { display: grid; grid-template-columns: 1.6ch minmax(0, 1fr); gap: 1ch; }
+  .sketch-gutter { color: #8ca1b5; text-align: right; }
+  code { min-height: 2em; padding: 0; background: none; white-space: pre; font: inherit; color: inherit; }
+  .syntax-name { color: #b3dbff; }
+  .syntax-number { color: #f1c894; }
+  .syntax-string { color: #95e2c8; }
+  .syntax-keyword { color: #d4baff; }
+  .sketch-caret { display: none; height: 1em; border-left: 2px solid #a9d4ff; vertical-align: -.13em; }
+  [data-active] .sketch-caret { display: inline-block; }
+  .sketch-output { border-top: 1px solid #374859; padding: 1.2em 1.6em 1.6em; background: #101e2b; }
+  .sketch-label { display: block; margin-bottom: .8em; color: #abc3d6; font-size: .85em; }
+  samp { display: grid; color: #88ddc0; font: inherit; font-size: 1.2em; line-height: .98; letter-spacing: .11em; }
+  .sketch--compact { width: min(78%, 330px); padding: 0; transform: rotate(-6deg); }
+  .sketch--compact .sketch-panel { font-size: .65rem; }
+  .sketch--compact .sketch-source { font-size: clamp(.65rem, 1vw, .83rem); padding-block: 1.2em; }
+  .sketch--compact .sketch-output { padding-block: .8em 1em; }
+  @media (max-width: 900px) {
+    .sketch:not(.sketch--compact) { width: 100%; max-width: 44rem; }
+  }
+</style>

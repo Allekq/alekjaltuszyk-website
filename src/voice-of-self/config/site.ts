@@ -3,7 +3,7 @@ import {
   siteDomain,
   siteOrigin,
 } from "../../../site.config.mjs";
-import { siteRoutes } from "../../config/routes";
+import { siteRoutes, voiceOfSelfAppStoreHref } from "../../config/routes";
 import { withBase } from "../../lib/paths";
 import aiUsageBody from "../../content/legal/voice-of-self-ai-use.md?raw";
 
@@ -26,7 +26,7 @@ const supportDraftLines = [
   "",
 ];
 const supportBody = supportDraftLines.join("\r\n");
-const appStoreHref = "https://apps.apple.com/us/app/voice-of-self/id6760653378";
+const appStoreHref = voiceOfSelfAppStoreHref;
 const logoImagePath = "/media/apps/voice-of-self/app-icon-light.png";
 const defaultSocialImagePath = "/media/apps/voice-of-self/app-icon-480.jpg";
 const appleTouchIconHref = withBase("/media/apps/voice-of-self/app-icon-180.png");
@@ -98,6 +98,7 @@ export const siteConfig = {
   aiUsageHref: siteRoutes.apps.voiceOfSelfHowUsesAI.href,
   legalManifestHref: buildAbsoluteSiteHref(siteRoutes.apps.voiceOfSelfLegalManifest.path),
   appStoreHref,
+  getAppHref: siteRoutes.apps.voiceOfSelfGet.href,
   supportMailtoHref: buildMailtoHref(supportEmail, supportSubject, supportBody),
   supportGmailHref: buildGmailComposeHref(supportEmail, supportSubject, supportBody),
   support: {
@@ -115,7 +116,7 @@ export const siteConfig = {
     lines: supportDraftLines,
   },
   ctas: {
-    primary: "Download on the App Store",
+    primary: "Get the app",
     whyItMatters: "Why it matters",
     secondary: "See how it works",
     legalPrimary: "Privacy Policy",

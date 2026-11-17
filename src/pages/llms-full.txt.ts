@@ -78,7 +78,7 @@ const renderApp = (
     `## ${name}`,
     "",
     `Page: ${toAbsoluteSiteUrl(path)}`,
-    app.getAppHref ? `Get the app (selects the store for the visitor's device): ${toAbsoluteSiteUrl(app.getAppHref)}` : null,
+    app.getAppHref ? `Get the app (selects the store for the visitor's device): ${new URL(app.getAppHref, siteConfig.origin).href}` : null,
     app.appStoreHref ? `App Store: ${app.appStoreHref}` : null,
     app.playStoreHref ? `Google Play: ${app.playStoreHref}` : null,
     app.alternateNames?.length ? `Also known as: ${app.alternateNames.join(", ")}` : null,

@@ -30,7 +30,7 @@ export const discoveryPages = {
   main: [
     { title: "Code Workroom IDE", path: siteRoutes.apps.codeWorkroom.path, description: "An unreleased, free local-first Python, C and C++ IDE for iPad, with built-in exercises, Python debugging and user-directed HTTPS Git." },
     { title: "Code Workroom IDE Support", path: siteRoutes.apps.codeWorkroomSupport.path, description: "Optional email support for projects, runtimes, learning exercises, Git and privacy questions." },
-    { title: "Logic Gates", path: siteRoutes.apps.logicGates.path, description: "Coming soon: a local digital logic studio for iPad and iPhone, with touch/Pencil wiring, reusable blocks and signal inspection." },
+    { title: "Logic Gates", path: siteRoutes.apps.logicGates.path, description: "Available on the App Store: a local digital logic studio for iPad and iPhone, with touch/Pencil wiring, reusable blocks and signal inspection." },
     { title: "Logic Gates Support", path: siteRoutes.apps.logicGatesSupport.path, description: "Optional email support for Logic Gates circuits, simulation, local recovery and privacy questions." },
     {
       title: "Home",
@@ -299,6 +299,11 @@ export const discoveryPages = {
     },
   ],
   optional: [
+    // Get pages intentionally stay out of sitemap: they use noindex,follow.
+    { title: "Get Logic Gates", path: siteRoutes.apps.logicGatesGet.path, description: "App Store destination for Logic Gates; Android visitors see an explicit unavailable notice." },
+    { title: "Get PlanKept", path: siteRoutes.apps.planKeptGet.path, description: "App Store destination for PlanKept; not available on Android." },
+    { title: "Get Take Me Somewhere", path: siteRoutes.apps.takeMeSomewhereGet.path, description: "App Store destination for Take Me Somewhere; not available on Android." },
+    { title: "Get Voice of Self", path: siteRoutes.apps.voiceOfSelfGet.path, description: "Verified App Store destination for Voice of Self; not available on Android." },
     {
       title: "Expanded LLM Context",
       path: siteRoutes.llmsFull.path,

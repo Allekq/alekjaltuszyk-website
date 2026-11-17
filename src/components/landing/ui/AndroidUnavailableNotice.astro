@@ -1,0 +1,7 @@
+---
+/** Use only after the app's Android release status has been verified. */
+interface Props { className?: string }
+const { className } = Astro.props;
+---
+<p class:list={["platform-availability", className]}>This app is not available on Android.</p>
+<style>.platform-availability { font-size: .875rem; line-height: 1.6; margin-block: 1rem; }</style>

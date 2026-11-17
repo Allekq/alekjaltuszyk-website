@@ -36,12 +36,7 @@ ${currentProductLines}
 Key pages:
 - Home: ${toAbsoluteSiteUrl(siteRoutes.home.path)}
 - Apps: ${toAbsoluteSiteUrl(siteRoutes.apps.index.path)}
-- PlanKept: ${toAbsoluteSiteUrl(siteRoutes.apps.planKept.path)}
-- Voice of Self: ${toAbsoluteSiteUrl(siteRoutes.apps.voiceOfSelf.path)}
-- Logic Gates (coming soon): ${toAbsoluteSiteUrl(siteRoutes.apps.logicGates.path)}
-- OverLit: ${toAbsoluteSiteUrl(siteRoutes.apps.overLit.path)}
-- Take Me Somewhere: ${toAbsoluteSiteUrl(siteRoutes.apps.takeMeSomewhere.path)}
-- AudioChoices: ${toAbsoluteSiteUrl(siteRoutes.apps.audioBookChoices.path)}
+${apps.map(app => `- ${app.shortName}: ${new URL(app.href, siteConfig.origin).href}`).join("\n")}
 - PlanKept answers: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptAnswers.path)}
 - PlanKept comparisons: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptComparisons.path)}
 - PlanKept updates: ${toAbsoluteSiteUrl(siteRoutes.apps.planKeptUpdates.path)}
