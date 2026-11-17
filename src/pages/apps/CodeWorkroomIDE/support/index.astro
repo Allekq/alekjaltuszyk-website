@@ -1,0 +1,12 @@
+---
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import SupportGuide from "../../../../components/support/SupportGuide.astro";
+import SiteFooter from "../../../../components/landing/sections/SiteFooter.astro";
+import { codeWorkroomConfig } from "../../../../config/site";
+---
+<SiteLayout title="Support | Code Workroom IDE" description="Email support for Code Workroom IDE projects, Python, C, C++, learning exercises, Git and privacy questions." pageType="content" canonicalHref={codeWorkroomConfig.supportHref}>
+  <SupportGuide config={codeWorkroomConfig}>
+    <details><summary>Projects, Git and privacy</summary><p>For missing work, check the app’s recovery, source history and Recently Deleted tools before removing the app. If Recently Deleted reports pending cleanup, use Retry Cleanup to finish it. Permanent deletion does not erase separate Git history, exports or backups. The developer has no remote copy of your local projects, and recovery is not guaranteed.</p><p>For a Git issue, describe the action and error without including tokens, passwords or private repository contents. If a credential was exposed, revoke it with the Git provider.</p><p>The same email handles privacy requests about support correspondence. Local projects, external Git repositories, exported files and device backups are separate copies; manage them with the app or the relevant provider.</p></details>
+  </SupportGuide>
+  <SiteFooter links={codeWorkroomConfig.footerLinks} showBrand={false} showSocials={false} />
+</SiteLayout>

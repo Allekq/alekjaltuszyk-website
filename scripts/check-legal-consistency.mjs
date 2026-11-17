@@ -4,9 +4,11 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { legalDocuments, siteOrigin } from '../site.config.mjs';
+import { validateCodeWorkroomPolicy } from '../src/lib/codeWorkroomPolicy.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const errors = [];
+const completeDocumentApps = new Set(['/apps/LogicGates', '/apps/OverLit', '/apps/AudioBookChoices']);
 const exists = async (relative) => {
   try { await access(path.join(root, relative)); return true; }
   catch { errors.push(`Missing file: ${relative}`); return false; }
@@ -35,16 +37,33 @@ await exists('skills/legal-update-sync/CHANGE-REVIEW.md');
 
 if (!process.argv.includes('--source-only')) {
   for (const [appRoot, entries] of groups) {
+    if (appRoot === '/apps/CodeWorkroomIDE') {
+      const bundlePath = `dist${appRoot}/policy-bundle.json`;
+      if (!(await exists(bundlePath))) continue;
+      try {
+        const raw = await readFile(path.join(root, bundlePath), 'utf8');
+        const sourceBundle = await readFile(path.join(root, 'src/content/legal/code-workroom-policy-bundle.json'), 'utf8');
+        if (raw !== sourceBundle) errors.push('Code Workroom IDE: built bundle bytes differ from canonical JSON');
+        const sources = {}, metadata = {};
+        for (const { type, doc } of entries) {
+          sources[type] = await readFile(path.join(root, doc.sourcePath), 'utf8');
+          metadata[type] = doc;
+          await exists(`dist${doc.path}index.html`);
+        }
+        validateCodeWorkroomPolicy(raw, sources, metadata);
+      } catch (error) { errors.push(`${bundlePath}: ${error.message}`); }
+      continue;
+    }
     const manifestPath = `dist${appRoot}/legal-manifest.json`;
     if (!(await exists(manifestPath))) continue;
     try {
       const manifest = JSON.parse(await readFile(path.join(root, manifestPath), 'utf8'));
-      if (appRoot === '/apps/LogicGates' && manifest.schemaVersion !== 1) errors.push('Logic Gates: expected manifest schemaVersion 1');
+      if (completeDocumentApps.has(appRoot) && manifest.schemaVersion !== 1) errors.push(`${appRoot}: expected manifest schemaVersion 1`);
       for (const { key, type, doc } of entries) {
         const generated = manifest[type];
         if (generated?.version !== doc.version || generated?.effectiveDate !== doc.effectiveDate) errors.push(`${key}: generated manifest version/date differs from source`);
         if (!generated?.url || new URL(generated.url).pathname !== doc.path) errors.push(`${key}: generated manifest document URL differs from source`);
-        if (appRoot === '/apps/LogicGates') {
+        if (completeDocumentApps.has(appRoot)) {
           const source = await readFile(path.join(root, doc.sourcePath), 'utf8');
           const digest = createHash('sha256').update(source, 'utf8').digest('hex');
           if (generated?.content !== source) errors.push(`${key}: manifest content differs from canonical Markdown`);

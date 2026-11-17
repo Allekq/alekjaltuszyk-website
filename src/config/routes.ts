@@ -7,6 +7,7 @@ const createInternalRoute = (path: string) => ({
 
 const planKeptBasePath = "/apps/PlanKept/";
 const logicGatesBasePath = "/apps/LogicGates/";
+const codeWorkroomBasePath = "/apps/CodeWorkroomIDE/";
 const overLitBasePath = "/apps/OverLit/";
 const takeMeSomewhereBasePath = "/apps/TakeMeSomewhere/";
 const voiceOfSelfBasePath = "/apps/VoiceOfSelf/";
@@ -84,6 +85,11 @@ export const siteRoutes = {
     logicGatesTermsOfUse: createInternalRoute(`${logicGatesBasePath}terms-of-use/`),
     logicGatesSupport: createInternalRoute(`${logicGatesBasePath}support/`),
     logicGatesLegalManifest: createInternalRoute(`${logicGatesBasePath}legal-manifest.json`),
+    codeWorkroom: createInternalRoute(codeWorkroomBasePath),
+    codeWorkroomSupport: createInternalRoute(`${codeWorkroomBasePath}support/`),
+    codeWorkroomPrivacyPolicy: createInternalRoute(`${codeWorkroomBasePath}privacy-policy/`),
+    codeWorkroomTermsOfUse: createInternalRoute(`${codeWorkroomBasePath}terms-of-use/`),
+    codeWorkroomPolicyBundle: createInternalRoute(`${codeWorkroomBasePath}policy-bundle.json`),
     overLit: createInternalRoute(overLitBasePath),
     /*
      * The store router: one link that sends a visitor to the store their
@@ -325,6 +331,20 @@ export const appDirectory = [
     chips: ["Touch & Pencil wiring", "Step through signals"],
     href: siteRoutes.apps.logicGates.href,
     iconHref: withBase("/media/apps/logic-gates/app-icon-480.png"),
+    external: false,
+    releaseStage: "unreleased",
+    platforms: ["iOS"],
+  },
+  {
+    id: "code-workroom-ide",
+    name: "Code Workroom IDE",
+    description: "A free, local-first Python, C and C++ workspace for iPad. Write, run, debug Python, and practise with guided exercises and plenty of free learning material.",
+    focus: "Code Workroom IDE brings local programming, guided exercises and user-directed Git to iPad.",
+    pitch: "Make room for your next idea.",
+    theme: "mint",
+    chips: ["Python · C · C++", "Bundled offline runtimes"],
+    href: siteRoutes.apps.codeWorkroom.href,
+    iconHref: withBase("/media/apps/code-workroom-ide/app-icon.png"),
     external: false,
     releaseStage: "unreleased",
     platforms: ["iOS"],

@@ -85,3 +85,9 @@ Use this checklist before finishing any task that touches:
 If affected disclosures remain unresolved, identify the exact release blocker
 and cause. Continue authorized local work; do not report release readiness or
 repeatedly ask permission for an already authorized review.
+
+For Code Workroom IDE, preserve the supplied canonical English Markdown and
+PolicyCore JSON bytes together. Verify revision, dates, exact document hashes,
+`site.config.mjs` mastheads, app fallback parity, response size and a direct
+200 application/json endpoint without redirects. Follow the Code Workroom IDE
+section of SKILL.md; do not create a Logic Gates-style manifest for this app.

@@ -1,4 +1,10 @@
 :root {
+  --cw-paper: light-dark(#f4f5f0, #172125);
+  --cw-ink: light-dark(#213540, #e8f0ed);
+  --cw-muted: light-dark(#51656d, #afc2c6);
+  --cw-line: light-dark(#cbd8d8, #3b535c);
+  --cw-panel: light-dark(#e1eced, #21353e);
+  --cw-accent: light-dark(#245c9d, #9cc9fc);
   /* Logic Gates: shared by its product page and portfolio circuit study. */
   --logic-paper: light-dark(#f8f8f2, #15252c);
   --logic-panel: light-dark(#e3ece7, #21373e);

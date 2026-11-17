@@ -31,6 +31,7 @@ const PREFIXES = [
   ["plankept-", "planKept"],
   ["overlit-", "overLit"],
   ["logic-gates-", "logicGates"],
+  ["code-workroom-", "codeWorkroom"],
   ["site-", "site"],
 ];
 

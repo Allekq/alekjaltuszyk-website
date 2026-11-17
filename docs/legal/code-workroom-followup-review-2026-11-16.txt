@@ -1,0 +1,75 @@
+PRESENTATION FOLLOW-UP — 16 November 2026
+The owner requested no literal website video. The earlier video-related findings below are historical and superseded: the Code Workroom hero now uses native HTML/CSS with a small scroll-typing script. Removed its video component/configuration and unused website MP4/poster assets. The corrected screenshot gallery remains. No policy, data handling, App Store creative or store setting changed in this visual follow-up.
+
+Typing progresses with scroll, stops when complete, and never erases when scrolling back. Full code/output is server-rendered for no-JavaScript use; reduced-motion users get the complete static example. The illustration is hidden from assistive technologies to avoid repeated partial-code announcements. No autoplay, perpetual animation, external library, storage or telemetry was added.
+
+Validation: npm run check (327 files, 0 errors/warnings/hints), npm run build (87 routes, private-boundary checks passed), git diff --check. Built Code Workroom HTML has no video tag or MP4 reference and contains the complete fallback. Chrome verified partial typing at 180px scroll, completion/output at 270px, persistence when scrolling back, and 1440px/390px/320px layouts. At 320px every code row fits its 216px content column; no page overflow. No warning/error logs observed. Reduced-motion behavior was source-reviewed; no OS preference was changed. Current evidence: website-review-2026-11-16/scroll-typing-desktop.jpg and scroll-typing-phone.jpg. Preview tab closed and viewport override reset. Nothing published.
+
+CODE WORKROOM IDE — WEBSITE / POLICY REVIEW
+16 November 2026 — local review; no push, publication or store submission
+
+Before-change legal-impact receipt
+Data flow: The current catalog has three non-consumable IDs, rather than the prior empty paid catalog. StoreKit checks entitlements at startup/foreground, observes updates, loads products on purchase screens, and performs purchase/restore on explicit request. There is no app purchase backend or receipt upload. Git commit-summary generation is separately user-triggered and uses bounded file/diff context in the local Foundation Models session; the off-by-default completion switch does not control this action.
+Lawful processing: Existing local processing and user-directed Git remain. Update the purchase disclosures; do not infer consent from policy acknowledgment. Hosting/Gmail roles and actual international-transfer arrangements are not established by repository sources. Privacy section 8 still needs operational evidence.
+Choice and age: No code behavior or age controls changed in this review. The owner confirms five free learning books plus three optional one-time purchases. Product-page copy should emphasize learning and substantial free material, without a subject list or paid-book marketing. Required factual purchase disclosures remain confined to legal/store documentation.
+Lifecycle: Permanent deletion uses pending-cleanup ledgers and retries. Git history, exports, backups and Keychain credentials are separate copies; no secure/instant erasure promise. Entitlement revocation preserves exercise progress.
+Security: Preserve exact allowlisted HTTPS endpoint, redirect rejection, hashes, monotonic revisions, local cache and durable acceptance. New legal content receives revision 4 and document identities 1.2.0, dated 16 November 2026; no changed bytes under revision 3.
+Public promises: Remove the universal free-books/no-StoreKit claims. Distinguish automatic AI suggestions from requested commit summaries. Replace the website's stale UI imagery with the previously corrected real screenshots and clearly labeled animated introduction.
+Release: Website baseline 608678b on dev plus substantial existing uncommitted work. Code Workroom baseline and working tree inspected; unrelated app and website edits must be preserved. Live landing page and exact policy endpoint each returned 404 on this review. This is not app release clearance.
+Result before implementation: Coordinated local legal/copy/media correction authorized. No application feature, payment setup, user review contact, production account or other app changes planned.
+
+
+
+FINAL FINDINGS AND CORRECTIONS
+
+1. High — stale commerce promises (corrected locally).
+BookPurchaseCatalog.current now has three real-looking configured product IDs. BookPurchaseStore.start/refreshEntitlements and StoreKitPurchaseBackend show the old empty-catalog/no-requests claim is false even before products become available from Apple. Owner confirms five free books plus three optional non-consumables. Terms and Privacy now explain optional purchases, Apple checkout, verified on-device entitlement handling, restore, pending/unverified results and revocation without progress deletion. Marketing contains no paid-book pitch, fixed subject list or LeetCode affiliation claim. Updated local App Store description/review drafts and App Privacy worksheet are not yet saved in Connect.
+
+2. Medium — inaccurate general AI-off-by-default claim (corrected locally).
+App/AI/AppleIntelligenceCompletion.swift requires the off-by-default aiCompletions preference. App/Git/GitModel.swift generateCommitMessage independently calls the same local model after Generate. App/AI/OnDeviceIntelligence.swift supplies bounded context, no model tools or remote fallback. The notice now explains both entry points. No physical-device quality claim was added.
+
+3. Medium — recovery description needed the new cleanup lifecycle (corrected locally).
+App/Workspace/PermanentDeletionActions.swift and core purge/cleanup ledgers retain retryable cleanup state after a logical deletion if physical removal fails. The policy/support page now distinguish those states and separate Git history, exports and backups. Existing Terms already cover destructive operations, conflict resolution, code execution and independent backups without waiving remedies. No runtime or deletion behavior changed in this review.
+
+4. Medium — website retained rejected old media (corrected locally).
+Copied the four displayed iPad and two iPhone images from the corrected screenshots-v3 collection, including the restored project/file breadcrumb. Updated phone dimensions/paths. Replaced the old slow recording with the selected 12-second 3:2 animated introduction and matching poster. Caption and accessible description explicitly identify artwork; the gallery is genuine app imagery. Playback is user-initiated, with native controls and no autoplay.
+
+5. Unresolved — actual hosting/email arrangements.
+Privacy section 8 still says the transfer safeguard depends on the recipient/service/agreement. That is not an established service-specific disclosure. Record the actual GitHub Pages and support-mail service entities, their roles for these flows, applicable contractual terms/processor arrangement where needed, and the actual adequacy or other transfer basis and where its details can be obtained. Then complete this paragraph in all synchronized copies. Public provider statements alone do not prove an account-specific contract. Do not invent a DPA, fixed log-retention period or claim that every provider is a processor. Support retention currently gives criteria rather than an unverified fixed duration; a concrete operational schedule is still advisable. The site-wide policy contains a similar unresolved transfer paragraph; this Code Workroom-only task did not rewrite other products or shared legal promises.
+
+6. Deployment is pending, not broken local routing.
+Live GET on the exact Code Workroom landing page and policy JSON each returned 404 text/html on 16 November. All five local endpoints returned 200; policy JSON was application/json and exactly equal to the app bundle. Publishing is necessary before the live check can pass. No push, merge or deployment was performed. Local dev contains two Code Workroom commits beyond local main, plus both current and pre-existing uncommitted work. Remote status was not refreshed. Push to main triggers GitHub Pages deployment; dev does not trigger that workflow. Review the selected commit set rather than including unrelated app-manifest changes blindly.
+
+POLICY/LEGAL ASSESSMENT
+The causation-based responsibility wording remains appropriate as a drafting approach: users choose their code and external repositories, but an app bug or mishandled token remains the developer's responsibility where applicable law requires it. No zero-price cap, broad consumer indemnity or promise that no one can sue was added. This review is not a legal certification. Polish Civil Code Articles 471–474 retain duties for breach/due care and prohibit excluding intentional harm; consumer protections also restrict unfair exclusions. Apple Standard EULA's qualified limitations are not a universal liability shield. Paid content makes accurate offer/access/remedy and trader disclosures more important; verify the actual store seller/territory obligations before selling.
+
+GDPR Article 13 requires the relevant purposes/bases, recipients, retention period or criteria, and applicable international-transfer information. The new processing-specific paragraphs are based on source inspection; the unresolved provider arrangements above require factual/contractual evidence. GitHub explicitly says Pages logs and stores visitor IPs for security, so local projects do not establish zero collection. Apple's privacy label separately covers developer/partner collection; its guidance excludes Apple-only collection and on-device-only processing. Do not mark developer-collected purchase history solely because StoreKit exists, or claim no collection solely because no app backend exists.
+
+Primary sources rechecked 16 November 2026:
+- GDPR Article 13 (and Articles 28, 44–49 where applicable): https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng
+- Polish Civil Code, 2026 consolidated text: https://eli.gov.pl/api/acts/DU/2026/795/text/T/D20260795L.pdf
+- Apple Standard EULA: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+- Apple App Store privacy: https://www.apple.com/legal/privacy/data/en/app-store/
+- Apple privacy-label guidance: https://developer.apple.com/app-store/app-privacy-details/
+- GitHub Pages collection: https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection
+
+VALIDATION
+- npm run check: 326 files, zero errors/warnings/hints.
+- npm run build: 87 generated routes; pre/post private-publication boundary checks passed.
+- npm run check:legal and npm run check:contact passed.
+- node --test scripts/code-workroom-policy.test.mjs: 5/5 passed.
+- swift test --package-path Packages/WorkroomCore --scratch-path /tmp/cw-website-policy-16 --filter PolicyCoreTests: 12/12 passed. No simulator used.
+- python3 Scripts/sync_app_policies.py --check passed; exact Markdown, hashes, source JSON, built endpoint and app fallback agree.
+- Current schema 1, revision 4; both document versions 1.2.0; en; effective/issued 2026-11-16T00:00:00Z; non-draft. See policy-identities.json for exact hashes and byte size. Receiving new identities requires review; fetching does not accept them. Installed binaries were not rebuilt here.
+- 69 local route/asset references in product/support/legal HTML checked; none missing. Product/support/Terms/Privacy/JSON each returned local HTTP 200. JSON MIME and exact body checked over HTTP preview.
+- Chrome visual/DOM checks at 390px, 768px and 1440px: no horizontal overflow in the checked layouts. Native video starts, reports 12 seconds and no media error. Full-size debugger screenshot opens with the corrected breadcrumb and corners. Support links point to the intended public mailbox. Legal pages show version 1.2.0, date and a single H1. No warning/error logs observed. This focused review is not a full accessibility or security audit.
+- Store draft lengths: description 2846/4000, promotional text 157/170, keywords 99/100, subtitle 22/30.
+- git diff --check passed for the website and app files checked. Existing unrelated working-tree changes preserved.
+
+PUBLICATION DECISION
+Technically ready for a dev push/review, with local content and integration corrections complete. Hold production publication of this legal package until the provider/transfer gap in section 8 is resolved; this is a factual/privacy issue, not a failed build. Confirm any required trader/contact details for actual distribution. No blanket lawyer approval is implied by tests or this report. After authorized publication, run Scripts/sync_app_policies.py --check --live and verify actual app HTTPS update/acceptance. A successful local HTTP preview is not proof of production HTTPS fetching.
+
+Separate app-release work: synchronize the updated public description in Connect while preserving owner review notes/contact; configure and test the three actual products; finish the privacy label; archive/rebuild with the new fallback; complete physical-device/runtime/license and territory checks already recorded in CONNECT-STATUS.txt. No store setting, review information, product registration, payment or submission was changed in this review.
+
+CLOSING RECEIPT
+Disclosures now reflect current purchase, AI-entry and cleanup behavior. Product-page copy follows the owner's requested learning focus. Exact policy identity synchronization and local tests pass; receiving revision 4 has a review-gate effect. Provider/transfer evidence remains unresolved and is not concealed by generic disclaimers. Screenshot evidence is in website-review-2026-11-16/; the dedicated preview tab was closed and viewport override reset. No simulator or other app's work was interrupted.

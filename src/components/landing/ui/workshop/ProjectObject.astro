@@ -13,6 +13,14 @@ const { id } = Astro.props;
   data-project-object={id}
 >
   {id === "logic-gates" && <LogicCircuit compact />}
+  {id === "code-workroom-ide" && (
+    <div class="code-workroom-object">
+      <span>PYTHON / EXAMPLE</span>
+      <pre><code>{'for idea in ["learn", "try", "build"]:\n    print(idea)'}</code></pre>
+      <samp>learn<br />try<br />build</samp>
+      <small>WRITE. RUN. UNDERSTAND.</small>
+    </div>
+  )}
   {id === "plankept" && (
     <div class="plan-stack">
       <div class="plan-sheet plan-sheet--back">

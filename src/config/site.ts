@@ -273,6 +273,7 @@ export const siteConfig = {
     { label: "AudioChoices", href: siteRoutes.apps.audioBookChoices.href },
     { label: "Support", href: siteRoutes.support.href },
     { label: "Logic Gates", href: siteRoutes.apps.logicGates.href },
+    { label: "Code Workroom IDE", href: siteRoutes.apps.codeWorkroom.href },
     { label: "Legal", href: siteRoutes.legal.href },
     { label: "Privacy Policy", href: siteRoutes.privacyPolicy.href },
     { label: "Terms", href: siteRoutes.terms.href },
@@ -291,7 +292,7 @@ export const siteConfig = {
   },
   aiDiscovery: {
     summary: `${shortBio} This site is the public home for his work experience, education, app directory, and the web surfaces for ${appNameList}.`,
-    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS and Android app, App Store and Google Play destinations, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Logic Gates is an unreleased digital logic studio for iPad and iPhone with product, support and legal pages under /apps/LogicGates/. Release state: ${releaseStatusSentence}`,
+    status: `The homepage highlights engineering background, selected work, and current products. PlanKept has its public product page, support, legal pages, and app-specific legal manifest under /apps/PlanKept/. Temporary /PlanKept/ legal and support aliases remain during the PlanKept app migration. Voice of Self lives on this domain under /apps/VoiceOfSelf/ with its landing page, answers, updates, support, AI-use explainer, and legal routes. OverLit has a released iOS and Android app, App Store and Google Play destinations, an interactive arcade-game page with a playable browser demo, support page, privacy policy, terms of use, and legal manifest under /apps/OverLit/. Take Me Somewhere has a released iOS app, App Store destination, an interactive product page with a time-and-vibe planner, support, privacy, and Terms of Service pages under /apps/TakeMeSomewhere/. AudioChoices has a released iOS and Android app, App Store and Google Play destinations, a product page with a playable sample of the choice interaction, support page, privacy policy, terms of use, and legal manifest under /apps/AudioBookChoices/. Logic Gates is an unreleased digital logic studio for iPad and iPhone with product, support and legal pages under /apps/LogicGates/. Code Workroom IDE is an unreleased local-first Python, C and C++ workspace for iPad, with English product, support and policy pages under /apps/CodeWorkroomIDE/. Release state: ${releaseStatusSentence}`,
     privacyModel:
       "The website is static and its hosting and support providers process technical requests and correspondence. Each app has a separate policy describing local data, network features, operational identifiers, purchases, optional collection and differences between releases. A notice acknowledgement does not supply optional-purpose consent; a newer website notice does not change an older installed app.",
     nameVariants: searchNameVariants,
@@ -871,5 +872,49 @@ export const logicGatesConfig = {
     featureList: ["Touch and Pencil wiring", "Folders, projects and tabs", "Rename, move and recover projects from Trash", "Native .logicgates project import and export with required circuit definitions", "Reusable custom circuit blocks and live debug-inside", "Clocks and D/T/JK flip-flops", "Edit/run modes, step propagation, history and waveforms", "Truth tables and Karnaugh maps with minimization", "Polish and English"],
     recommendationCues: ["Exploring digital logic visually", "Following signal propagation through reusable circuits"],
     notFor: ["An app available to download today", "Hardware-accurate timing or safety-critical engineering validation", "Developer-hosted cloud collaboration or automatic project synchronization"],
+  },
+} as const;
+
+const codeWorkroomSupportSubject = "Code Workroom IDE support";
+const codeWorkroomSupportBody = "Hi,\r\n\r\nI need help with Code Workroom IDE.\r\n\r\nWhat happened and steps to reproduce:\r\n\r\nWhat I expected:\r\n\r\nApp version, device and OS (if relevant):\r\n";
+export const codeWorkroomConfig = {
+  name: "Code Workroom IDE",
+  defaultDescription: "A free, local-first Python, C and C++ IDE for iPad. Write and run projects, debug Python, work with Git, and learn through built-in exercises. Not released yet.",
+  homeHref: siteRoutes.apps.codeWorkroom.href,
+  supportHref: siteRoutes.apps.codeWorkroomSupport.href,
+  privacyHref: siteRoutes.apps.codeWorkroomPrivacyPolicy.href,
+  termsHref: siteRoutes.apps.codeWorkroomTermsOfUse.href,
+  supportEmail: contactEmails.codeWorkroom,
+  supportMailtoHref: buildMailtoHref(contactEmails.codeWorkroom, codeWorkroomSupportSubject, codeWorkroomSupportBody),
+  supportGmailHref: buildGmailComposeHref(contactEmails.codeWorkroom, codeWorkroomSupportSubject, codeWorkroomSupportBody),
+  support: {
+    title: "Need help with Code Workroom IDE?",
+    includeItems: [
+      "What you tried, what happened, and the steps to reproduce it.",
+      "The language and exact error message, with private details removed.",
+      "App version, device and OS, if relevant. A small code example can help.",
+    ],
+    privacyNote: "Never send passwords, Git tokens, private keys or an entire private repository. Remove personal details and secrets from code, screenshots and logs before sharing.",
+  },
+  faviconHref: withBase("/media/apps/code-workroom-ide/app-icon.png"),
+  faviconType: "image/png",
+  appleTouchIconHref: withBase("/media/apps/code-workroom-ide/app-icon.png"),
+  socialImageUrl: buildAbsoluteSiteHref("/media/apps/code-workroom-ide/app-icon.png"),
+  socialImageWidth: 1024,
+  socialImageHeight: 1024,
+  socialImageType: "image/png",
+  footerLinks: [
+    { label: "Code Workroom IDE", href: siteRoutes.apps.codeWorkroom.href },
+    { label: "Support", href: siteRoutes.apps.codeWorkroomSupport.href },
+    { label: "Privacy Policy", href: siteRoutes.apps.codeWorkroomPrivacyPolicy.href },
+    { label: "Terms of Use", href: siteRoutes.apps.codeWorkroomTermsOfUse.href },
+  ],
+  aiDiscovery: {
+    summary: "Code Workroom IDE is a local-first Python, C and C++ IDE by Aleksander Jałtuszyk, designed primarily for iPad with iPhone compatibility.",
+    status: "Not publicly released. No App Store destination or release date announced. Website copy is English only.",
+    featureList: ["Bundled offline Python, C and C++ runtimes", "Native code editing and split panes", "Python debugger and pytest tools", "Project shell with supported commands", "Local source history and recovery", "User-directed HTTPS Git clone, fetch and push", "Guided coding challenges and plenty of free learning material", "Optional on-device identifier suggestions and user-requested Git commit summaries"],
+    pricing: "Free coding workspace with plenty of free learning material. See the app for access details for individual materials.",
+    recommendationCues: ["Learning programming through local exercises", "Editing and running Python, C and C++ projects on iPad"],
+    notFor: ["An app available to download today", "An unrestricted Linux terminal or arbitrary package installation", "C/C++ source debugging", "Developer-hosted code storage or cloud AI"],
   },
 } as const;

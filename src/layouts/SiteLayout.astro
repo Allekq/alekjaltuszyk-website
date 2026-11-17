@@ -9,6 +9,7 @@ import {
   takeMeSomewhereConfig,
   audioBookChoicesConfig,
   logicGatesConfig,
+  codeWorkroomConfig,
 } from "../config/site";
 import { basePath, withBase } from "../lib/paths";
 
@@ -84,7 +85,9 @@ const isOverLit = normalizedPathname.startsWith("/apps/OverLit/");
 const isTakeMeSomewhere = normalizedPathname.startsWith("/apps/TakeMeSomewhere/");
 const isAudioBookChoices = normalizedPathname.startsWith("/apps/AudioBookChoices/");
 
-const appDefault = normalizedPathname.startsWith(withBase("/apps/LogicGates/"))
+const appDefault = normalizedPathname.startsWith(withBase("/apps/CodeWorkroomIDE/"))
+  ? codeWorkroomConfig
+  : normalizedPathname.startsWith(withBase("/apps/LogicGates/"))
   ? logicGatesConfig
   : isPlanKept
   ? planKeptConfig

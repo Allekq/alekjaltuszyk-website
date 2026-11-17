@@ -28,6 +28,8 @@ export const toAbsoluteSiteUrl = (path: string) =>
 
 export const discoveryPages = {
   main: [
+    { title: "Code Workroom IDE", path: siteRoutes.apps.codeWorkroom.path, description: "An unreleased, free local-first Python, C and C++ IDE for iPad, with built-in exercises, Python debugging and user-directed HTTPS Git." },
+    { title: "Code Workroom IDE Support", path: siteRoutes.apps.codeWorkroomSupport.path, description: "Optional email support for projects, runtimes, learning exercises, Git and privacy questions." },
     { title: "Logic Gates", path: siteRoutes.apps.logicGates.path, description: "Coming soon: a local digital logic studio for iPad and iPhone, with touch/Pencil wiring, reusable blocks and signal inspection." },
     { title: "Logic Gates Support", path: siteRoutes.apps.logicGatesSupport.path, description: "Optional email support for Logic Gates circuits, simulation, local recovery and privacy questions." },
     {
@@ -156,6 +158,9 @@ export const discoveryPages = {
     })),
   ],
   legal: [
+    { title: "Code Workroom IDE Privacy Policy", path: siteRoutes.apps.codeWorkroomPrivacyPolicy.path, description: "Local projects and history, Git transfers, on-device assistance, App Store processing, policy-host requests and optional email support." },
+    { title: "Code Workroom IDE Terms of Use", path: siteRoutes.apps.codeWorkroomTermsOfUse.path, description: "Terms for the local programming workspace, learning material and optional services." },
+    { title: "Code Workroom IDE Policy Bundle", path: siteRoutes.apps.codeWorkroomPolicyBundle.path, description: "PolicyCore schema 1 bundle with exact English Markdown, document identities and SHA-256 digests." },
     {
       title: "Legal",
       path: siteRoutes.legal.path,
@@ -310,6 +315,11 @@ export const discoveryPages = {
 } as const satisfies Record<string, readonly DiscoveryPage[]>;
 
 export const sitemapPagePaths = [
+  siteRoutes.apps.codeWorkroom.path,
+  siteRoutes.apps.codeWorkroomSupport.path,
+  siteRoutes.apps.codeWorkroomPrivacyPolicy.path,
+  siteRoutes.apps.codeWorkroomTermsOfUse.path,
+  siteRoutes.apps.codeWorkroomPolicyBundle.path,
   siteRoutes.apps.logicGates.path,
   siteRoutes.apps.logicGatesSupport.path,
   siteRoutes.apps.logicGatesPrivacyPolicy.path,

@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import {
   audioBookChoicesConfig,
   logicGatesConfig,
+  codeWorkroomConfig,
   overLitConfig,
   planKeptConfig,
   siteConfig,
@@ -207,6 +208,8 @@ Health-backed steps and workouts; other goals can use manual Proof Review or
 Check Proof Now, with supporting images when available.
 
 ${renderApp("Logic Gates", siteRoutes.apps.logicGates.path, logicGatesConfig)}
+
+${renderApp("Code Workroom IDE", siteRoutes.apps.codeWorkroom.path, codeWorkroomConfig)}
 
 ${renderApp("OverLit", siteRoutes.apps.overLit.path, overLitConfig)}
 
