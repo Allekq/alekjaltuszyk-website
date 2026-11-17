@@ -338,7 +338,7 @@ export const appDirectory = [
   {
     id: "code-workroom-ide",
     name: "Code Workroom IDE",
-    description: "A local-first Python, C and C++ workspace for iPad. Write, run, debug Python, and learn with built-in exercises.",
+    description: "A free, local-first Python, C and C++ workspace for iPad. Write, run, debug Python, and practise with guided exercises and plenty of free learning material.",
     focus: "Code Workroom IDE brings local programming, guided exercises and user-directed Git to iPad.",
     pitch: "Make room for your next idea.",
     theme: "mint",

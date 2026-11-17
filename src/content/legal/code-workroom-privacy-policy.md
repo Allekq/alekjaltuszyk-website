@@ -1,6 +1,6 @@
 # Code Workroom IDE — Privacy Policy
 
-Version 1.0.0 · Effective 15 November 2026
+Version 1.2.0 · Effective 16 November 2026
 
 ## 1. Operator and scope
 
@@ -32,9 +32,11 @@ Import, export, sharing and external links are initiated by you and use your cho
 
 The app includes no advertising SDK, cross-app tracking or developer-operated usage analytics. It does not use an advertising identifier or sell personal data.
 
-Optional system-model assistance is off by default and, on supported devices, processes the context supplied to that model on the device. The app does not send source to a developer-operated cloud AI service. System model downloads and Apple's platform services are governed by Apple's settings and policies.
+On supported devices, optional system-model assistance processes the supplied context on the device. Automatic identifier suggestions are off by default and can be enabled or disabled in Editor & Completion. Separately, choosing Generate in the Git commit composer asks the local model to suggest a commit summary from a bounded excerpt of the selected or staged changes and file paths. This action does not require the automatic-suggestions setting to be enabled. Review generated text before using it. The app has no remote AI fallback and does not upload this context to a developer-operated AI service. System model downloads and Apple's platform services are governed by Apple's settings and policies.
 
-All current bundled study subjects are free. The app contains support for Apple's StoreKit purchase and restoration facilities. If you use an available Apple purchase or restoration feature, Apple processes its store/account information; local verified entitlement state may be used to enable purchased content. The developer does not receive your payment-card details. A release that changes these practices will update this notice as needed.
+Code Workroom IDE is free to download and includes free learning materials. Optional additional learning content may be offered as one-time in-app purchases. Apple handles the App Store account, checkout and payment under its own terms and privacy practices: https://www.apple.com/legal/privacy/data/en/app-store/.
+
+The app uses StoreKit to obtain product information when purchase screens are opened or refreshed, check current entitlements at startup and when active, and listen for transaction updates. If you request a purchase or Restore Purchases, it uses Apple's corresponding StoreKit flow; restoration can require App Store authentication. On the device, the app verifies signed transaction information and processes product and transaction identifiers, product type, and revocation or expiry information where provided, to grant or remove access. The app does not send receipts, transaction records, your source or lesson progress to a developer purchase server. It has no separate app purchase account and does not receive payment-card details. Apple's purchase records are separate from your local app data and are not erased by deleting a project or uninstalling the app. A refund or revoked entitlement can remove access to purchased content without deleting saved exercise progress.
 
 ## 6. Support messages
 
@@ -46,7 +48,7 @@ Support information is used to answer your request, investigate the issue, preve
 
 Where data-protection law requires a legal basis, requested app and support services are provided on the basis of performing a contract or taking requested pre-contractual steps where applicable. Necessary security, service operation and ordinary correspondence may rely on legitimate interests in providing and protecting the service. Legal obligations apply where records must be retained by law. Optional consent, when legally required for a particular purpose, must be obtained separately; accepting terms or acknowledging this notice does not provide it.
 
-Local data remains until removed through the app or device controls, subject to bounded history/recovery storage and your backup settings. Deleted-item recovery can retain content after an initial deletion; use the relevant permanent-delete controls when desired. Uninstalling the app does not remove exported copies, remote repositories, provider records or necessarily Keychain credentials. Policy receipts remain in app-owned local storage unless that app data is removed.
+Local data remains until removed through the app or device controls, subject to bounded history/recovery storage and your backup settings. Deleted-item recovery can retain content after an initial deletion; use the relevant permanent-delete controls when desired. If physical cleanup fails, the app can keep a pending cleanup record and retry; logical removal is not a guarantee of immediate physical erasure. Separate Git history, exports, device backups and other copies may retain earlier content. Uninstalling the app does not remove exported copies, remote repositories, provider records or necessarily Keychain credentials. Policy receipts remain in app-owned local storage unless that app data is removed. The app retains up to 100 acceptance records; saving further records removes the oldest ones.
 
 Support correspondence is retained for as long as reasonably needed to handle the request, maintain necessary records, resolve disputes, protect rights or meet legal obligations. Hosting, email, Git and backup providers have their own retention practices; this notice does not assign them an unverified fixed retention period.
 

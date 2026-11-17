@@ -63,7 +63,7 @@ export const homeMilestones = [
   {
     id: "apps",
     value: capitalizeFirst(appCountWord),
-    label: `${platformAppNoun} built and shipped`,
+    label: `${platformAppNoun} built`,
     detail: releaseStatusSentence,
     historyId: "current-products",
   },

@@ -8,6 +8,7 @@ import { validateCodeWorkroomPolicy } from '../src/lib/codeWorkroomPolicy.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const errors = [];
+const completeDocumentApps = new Set(['/apps/LogicGates', '/apps/OverLit', '/apps/AudioBookChoices']);
 const exists = async (relative) => {
   try { await access(path.join(root, relative)); return true; }
   catch { errors.push(`Missing file: ${relative}`); return false; }
@@ -57,12 +58,12 @@ if (!process.argv.includes('--source-only')) {
     if (!(await exists(manifestPath))) continue;
     try {
       const manifest = JSON.parse(await readFile(path.join(root, manifestPath), 'utf8'));
-      if (appRoot === '/apps/LogicGates' && manifest.schemaVersion !== 1) errors.push('Logic Gates: expected manifest schemaVersion 1');
+      if (completeDocumentApps.has(appRoot) && manifest.schemaVersion !== 1) errors.push(`${appRoot}: expected manifest schemaVersion 1`);
       for (const { key, type, doc } of entries) {
         const generated = manifest[type];
         if (generated?.version !== doc.version || generated?.effectiveDate !== doc.effectiveDate) errors.push(`${key}: generated manifest version/date differs from source`);
         if (!generated?.url || new URL(generated.url).pathname !== doc.path) errors.push(`${key}: generated manifest document URL differs from source`);
-        if (appRoot === '/apps/LogicGates') {
+        if (completeDocumentApps.has(appRoot)) {
           const source = await readFile(path.join(root, doc.sourcePath), 'utf8');
           const digest = createHash('sha256').update(source, 'utf8').digest('hex');
           if (generated?.content !== source) errors.push(`${key}: manifest content differs from canonical Markdown`);

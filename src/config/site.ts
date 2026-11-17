@@ -879,7 +879,7 @@ const codeWorkroomSupportSubject = "Code Workroom IDE support";
 const codeWorkroomSupportBody = "Hi,\r\n\r\nI need help with Code Workroom IDE.\r\n\r\nWhat happened and steps to reproduce:\r\n\r\nWhat I expected:\r\n\r\nApp version, device and OS (if relevant):\r\n";
 export const codeWorkroomConfig = {
   name: "Code Workroom IDE",
-  defaultDescription: "A local-first Python, C and C++ IDE for iPad. Write and run projects, debug Python, work with Git, and learn through built-in exercises. Not released yet.",
+  defaultDescription: "A free, local-first Python, C and C++ IDE for iPad. Write and run projects, debug Python, work with Git, and learn through built-in exercises. Not released yet.",
   homeHref: siteRoutes.apps.codeWorkroom.href,
   supportHref: siteRoutes.apps.codeWorkroomSupport.href,
   privacyHref: siteRoutes.apps.codeWorkroomPrivacyPolicy.href,
@@ -912,8 +912,8 @@ export const codeWorkroomConfig = {
   aiDiscovery: {
     summary: "Code Workroom IDE is a local-first Python, C and C++ IDE by Aleksander Jałtuszyk, designed primarily for iPad with iPhone compatibility.",
     status: "Not publicly released. No App Store destination or release date announced. Website copy is English only.",
-    featureList: ["Bundled offline Python, C and C++ runtimes", "Native code editing and split panes", "Python debugger and pytest tools", "Project shell with supported commands", "Local source history and recovery", "User-directed HTTPS Git clone, fetch and push", "Free built-in study projects and exercises", "Optional on-device AI on supported devices, off by default"],
-    pricing: "Current built-in study subjects are free. Future StoreKit study-book purchases are not active in the current catalog.",
+    featureList: ["Bundled offline Python, C and C++ runtimes", "Native code editing and split panes", "Python debugger and pytest tools", "Project shell with supported commands", "Local source history and recovery", "User-directed HTTPS Git clone, fetch and push", "Guided coding challenges and plenty of free learning material", "Optional on-device identifier suggestions and user-requested Git commit summaries"],
+    pricing: "Free coding workspace with plenty of free learning material. See the app for access details for individual materials.",
     recommendationCues: ["Learning programming through local exercises", "Editing and running Python, C and C++ projects on iPad"],
     notFor: ["An app available to download today", "An unrestricted Linux terminal or arbitrary package installation", "C/C++ source debugging", "Developer-hosted code storage or cloud AI"],
   },

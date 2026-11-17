@@ -96,6 +96,22 @@ Never reuse a published version for changed bytes or publish a lower version.
 Local unpublished draft edits may keep their staged version. A masthead-only
 change outside the canonical body does not change that body's digest.
 
+## Prepared OverLit and AudioChoices online-refresh clients
+
+The website build now emits schema 1 with exact canonical Markdown and SHA-256 in
+both existing manifest endpoints. Their older binary-pinned behavior in the
+table above remains relevant to installed releases, but the sibling app sources
+also contain prepared online-refresh implementations. Inspect the actual target
+build instead of treating either behavior as universal. See
+`docs/legal/dynamic-manifests-review-2026-11-13.md` for the final website receipt
+and the outstanding client-notice review.
+
+For these new clients, preserve published bodies within their document version;
+advance the affected numeric version when the body changes, including corrections.
+Keep exact fallback/cache/gate alignment. Do not bump versions merely because
+unchanged Markdown is added to the existing metadata response. Hosting a richer
+response alone does not install new app behavior or establish deployment status.
+
 ## The data-deletion pages are store surfaces, not documents
 
 `/apps/OverLit/delete-data/` and `/apps/AudioBookChoices/delete-data/` exist because

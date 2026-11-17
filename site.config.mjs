@@ -36,14 +36,14 @@ export const legalSourceHistoryBase =
  */
 export const legalDocuments = {
   codeWorkroomPrivacy: {
-    version: "1.0.0",
-    effectiveDate: "2026-11-15",
+    version: "1.2.0",
+    effectiveDate: "2026-11-16",
     path: "/apps/CodeWorkroomIDE/privacy-policy/",
     sourcePath: "src/content/legal/code-workroom-privacy-policy.md",
   },
   codeWorkroomTerms: {
-    version: "1.0.0",
-    effectiveDate: "2026-11-15",
+    version: "1.2.0",
+    effectiveDate: "2026-11-16",
     path: "/apps/CodeWorkroomIDE/terms-of-use/",
     sourcePath: "src/content/legal/code-workroom-terms-of-use.md",
   },

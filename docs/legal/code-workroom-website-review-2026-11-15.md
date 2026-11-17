@@ -1,5 +1,7 @@
 # Code Workroom IDE website review — 2026-11-15
 
+Historical preparation receipt. The later [independent review](code-workroom-independent-review-2026-11-15.md) supersedes the policy versions, hashes, pricing wording and validation status below.
+
 Local preparation only. No deployment, App Store changes or app-repository edits are authorized by this receipt. Source app: `/Users/alekj/Documents/GitHub/Code Workroom`. Existing unrelated manifest work is preserved.
 
 ## Before implementation
